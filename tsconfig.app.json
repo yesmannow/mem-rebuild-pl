@@ -9,9 +9,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "allowImportingTsExtensions": true,
+    "noEmit": false, // Allow emit
+    "jsx": "react",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "types": [
@@ -21,11 +20,15 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "composite": true // Enable composite mode
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "src/styles/motion-tokens.js" // Exclude this file to prevent overwrite
   ]
 }
