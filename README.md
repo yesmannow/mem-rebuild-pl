@@ -1,4 +1,4 @@
-# jacob-darling-portfolio  
+# jacob-darling-portfolio
 # Jacob Darling - Portfolio
 
 > Marketing Strategist & Systems Architect | Turning Complexity into Clarity
@@ -69,3 +69,60 @@ npm run build
 
 # Preview production build
 npm run preview
+```
+
+# mem-rebuild-pl
+
+A working portfolio build powered by Vite, React, TailwindCSS, and assistant-ready CLI tools.
+
+## 🚀 Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+## 🧱 Folder Structure
+
+```
+src/
+  assets/
+  components/
+  utils/
+  routes/
+cli/
+  generate-logo.ts
+  preview-layout.ts
+  svg-export.ts
+  cli.config.json
+public/
+  preview.html
+  favicon.svg
+prompts/
+  branding.json
+```
+
+## 🛠️ CLI Tools
+
+Run from terminal:
+
+```bash
+ts-node cli/generate-logo.ts public/logo.svg
+ts-node cli/preview-layout.ts
+ts-node cli/svg-export.ts public/assets
+```
+
+## 🤖 Assistant Prompts
+
+See `prompts/branding.json` for reusable instructions for staff and AI assistants.
+
+## 🌐 Deployment
+
+Uses `vercel.json` for Vercel deployment. GitHub Pages optional via `/docs`.
+
+## 🧠 Roadmap
+
+- MCP FastAPI integration
+- Assistant-ready branding CLI
+- Real-time telemetry and layout scoring
+- SVG component preview and export

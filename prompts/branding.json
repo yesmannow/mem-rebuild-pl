@@ -1,0 +1,14 @@
+{
+  "generateLogo": {
+    "description": "Generate a modern SVG logo with initials JD",
+    "command": "ts-node cli/generate-logo.ts public/logo.svg"
+  },
+  "previewLayout": {
+    "description": "Build and open preview layout",
+    "command": "ts-node cli/preview-layout.ts"
+  },
+  "exportSVG": {
+    "description": "Export SVG assets for Divi",
+    "command": "ts-node cli/svg-export.ts public/assets"
+  }
+}

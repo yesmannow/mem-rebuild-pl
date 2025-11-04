@@ -1,0 +1,10 @@
+{
+  "logoConfig": {
+    "defaultColor": "#000000",
+    "defaultSize": "100x100"
+  },
+  "layoutConfig": {
+    "previewWidth": 800,
+    "previewHeight": 600
+  }
+}
