@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "ibm-design",
+    "title": "IBM Design Language",
+    "caption": "Philosophy, Plex, pictograms, and the 2× grid.",
+    "icon": "💼",
+    "year": "2014"
+  },
+  {
+    "slug": "nasa-graphics",
+    "title": "NASA Graphics Manual",
+    "caption": "The 1976 standards that defined space‑age clarity.",
+    "icon": "🚀",
+    "year": "1976"
+  },
+  {
+    "slug": "standards-manual",
+    "title": "Standards Manual",
+    "caption": "Iconic identity manuals preserved and reissued.",
+    "icon": "📚",
+    "year": "2015"
+  },
+  {
+    "slug": "british-rail",
+    "title": "British Rail Corporate Identity",
+    "caption": "Symbol grids, Rail Alphabet, signage systems.",
+    "icon": "🚂",
+    "year": "1965"
+  },
+  {
+    "slug": "studio-sutherland",
+    "title": "Studio Sutherland",
+    "caption": "Collaborations, letterpress craft, and editorial clarity.",
+    "icon": "🖨️",
+    "year": "2010"
+  },
+  {
+    "slug": "eames-institute",
+    "title": "Eames Institute",
+    "caption": "A living identity for infinite curiosity.",
+    "icon": "🏗️",
+    "year": "2017"
+  }
+]
