@@ -1,18 +1,50 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
-export default function CTASection() {
+const CTASection: React.FC = () => {
   return (
-    <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-center">
-      <h2 className="text-3xl font-bold">Ready to see more?</h2>
-      <p className="mt-2">Explore my case studies or download my résumé.</p>
-      <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
-        <a href="/case-studies" className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-slate-100">
-          Explore Case Studies
-        </a>
-        <a href="/branding/resume.pdf" className="px-6 py-3 border border-white font-semibold rounded-lg hover:bg-blue-700">
-          Download Résumé
-        </a>
+    <div className="w-full bg-amber-600 text-white py-16">
+      <div className="max-w-4xl mx-auto text-center px-6">
+        <motion.h2
+          className="text-4xl font-bold mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Ready to Create Something Extraordinary?
+        </motion.h2>
+
+        <motion.p
+          className="text-xl mb-8 opacity-90"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          See how these design principles come to life in our case studies
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <Link
+            to="/case-studies"
+            className="inline-block bg-white text-amber-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg"
+          >
+            Explore Case Studies →
+          </Link>
+        </motion.div>
+
+        {/* Cave theming elements */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-10">
+          <div className="absolute top-4 left-4 text-6xl">🕳️</div>
+          <div className="absolute bottom-4 right-4 text-4xl">🐻</div>
+        </div>
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default CTASection;

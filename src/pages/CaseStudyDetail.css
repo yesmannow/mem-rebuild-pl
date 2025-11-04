@@ -364,6 +364,57 @@
   transform: translateY(-2px);
 }
 
+/* Inspirations Section */
+.content-section.inspirations {
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.content-section.inspirations h4 {
+  color: #3B82F6;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inspirations-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.inspiration-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.inspiration-link:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: #3B82F6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.inspiration-title {
+  white-space: nowrap;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .detail-hero {

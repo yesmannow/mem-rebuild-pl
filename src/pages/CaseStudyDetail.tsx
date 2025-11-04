@@ -6,6 +6,8 @@ import { staggerContainer, staggerItem } from "../utils/animations";
 import AnimatedSection from "../components/animations/AnimatedSection";
 import { getCaseStudyDiagrams } from "../components/diagrams/caseStudyDiagrams";
 import { trackPortfolioEngagement, createTimeTracker } from "../utils/analytics";
+import caseStudyInspirationMap from "../data/caseStudyInspirationMap.json";
+import inspirationsData from "../data/inspirations.json";
 import "./CaseStudyDetail.css";
 
 const renderInlineText = (text: string, keyPrefix: string) => {
@@ -102,6 +104,12 @@ const CaseStudyDetail: React.FC = () => {
     return <Navigate to="/case-studies" replace />;
   }
 
+  // Get related inspirations
+  const inspirationMapping = caseStudyInspirationMap.find(m => m.caseStudyId === caseStudy.slug);
+  const relatedInspirations = inspirationMapping
+    ? inspirationsData.filter(i => inspirationMapping.inspirations.includes(i.id))
+    : [];
+
   return (
     <main className="case-study-detail-modern">
       {/* Hero Section */}
@@ -181,7 +189,7 @@ const CaseStudyDetail: React.FC = () => {
           >
             {caseStudy.metrics.map((metric, index) => (
               <motion.div
-                key={index}
+                key={metric.label}
                 className="metric-modern-card"
                 variants={staggerItem}
                 whileHover={{ y: -8, scale: 1.02 }}
@@ -202,8 +210,7 @@ const CaseStudyDetail: React.FC = () => {
         <AnimatedSection delay={0.3}>
           <section className="content-section challenge">
             <h2>
-              <span className="section-icon">⚠️</span>
-              The Challenge
+              <span className="section-icon">⚠️</span> The Challenge
             </h2>
             <div className="section-content">
               {renderRichSection(caseStudy.fullContent?.challenge ?? caseStudy.challenge)}
@@ -214,8 +221,7 @@ const CaseStudyDetail: React.FC = () => {
         <AnimatedSection delay={0.4}>
           <section className="content-section strategy">
             <h2>
-              <span className="section-icon">🎯</span>
-              The Strategy & Solution
+              <span className="section-icon">🎯</span> The Strategy & Solution
             </h2>
             <div className="section-content">
               {renderRichSection(caseStudy.fullContent?.strategy ?? caseStudy.strategy)}
@@ -235,14 +241,33 @@ const CaseStudyDetail: React.FC = () => {
         <AnimatedSection delay={0.5}>
           <section className="content-section impact">
             <h2>
-              <span className="section-icon">🚀</span>
-              The Value & Impact
+              <span className="section-icon">🚀</span> The Value & Impact
             </h2>
             <div className="section-content">
               {renderRichSection(caseStudy.fullContent?.impact ?? caseStudy.impact)}
             </div>
           </section>
         </AnimatedSection>
+
+        {/* Inspirations Section */}
+        {relatedInspirations.length > 0 && (
+          <AnimatedSection delay={0.55}>
+            <section className="content-section inspirations">
+              <h4>Inspired by</h4>
+              <div className="inspirations-list">
+                {relatedInspirations.map((inspiration) => (
+                  <Link
+                    key={inspiration.id}
+                    to={`/inspiration#${inspiration.id}`}
+                    className="inspiration-link"
+                  >
+                    <span className="inspiration-title">{inspiration.title}</span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          </AnimatedSection>
+        )}
       </div>
 
       <AnimatedSection delay={0.6}>

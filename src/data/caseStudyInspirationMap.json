@@ -1,0 +1,18 @@
+[
+  {
+    "caseStudyId": "ecommerce-growth",
+    "inspirations": ["minimalist-architecture", "storm-chasing", "vintage-cameras"]
+  },
+  {
+    "caseStudyId": "saas-launch",
+    "inspirations": ["bear-behavior", "cave-exploration", "indigenous-art"]
+  },
+  {
+    "caseStudyId": "local-business-digital",
+    "inspirations": ["storm-chasing", "japanese-gardens", "mountain-climbing"]
+  },
+  {
+    "caseStudyId": "brand-repositioning",
+    "inspirations": ["cave-exploration", "bear-behavior", "indigenous-art"]
+  }
+]

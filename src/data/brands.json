@@ -1,0 +1,82 @@
+[
+  {
+    "slug": "ibm",
+    "title": "IBM Design Language",
+    "tagline": "Systematic excellence in corporate identity",
+    "cover": "/assets/brands/ibm/cover.jpg",
+    "assets": {
+      "typography": ["/assets/brands/ibm/type-specimen.jpg"],
+      "pictograms": ["/assets/brands/ibm/pictograms.jpg"],
+      "spreads": ["/assets/brands/ibm/spread-01.jpg", "/assets/brands/ibm/spread-02.jpg"]
+    },
+    "quotes": [
+      "Good design is good business.",
+      "Design is not just what it looks like and feels like. Design is how it works."
+    ],
+    "links": ["https://www.ibm.com/design"]
+  },
+  {
+    "slug": "nasa",
+    "title": "NASA Graphics Standards Manual",
+    "tagline": "Technical precision meets visual clarity",
+    "cover": "/assets/brands/nasa/cover.jpg",
+    "assets": {
+      "typography": ["/assets/brands/nasa/type-guide.jpg"],
+      "pictograms": ["/assets/brands/nasa/symbols.jpg"],
+      "spreads": ["/assets/brands/nasa/spread-01.jpg", "/assets/brands/nasa/spread-02.jpg"]
+    },
+    "quotes": [
+      "The manual that launched a thousand designs.",
+      "Form follows function, but style follows standards."
+    ],
+    "links": ["https://www.nasa.gov"]
+  },
+  {
+    "slug": "british-rail",
+    "title": "British Rail Corporate Identity",
+    "tagline": "Bold simplicity for public transportation",
+    "cover": "/assets/brands/rail/cover.jpg",
+    "assets": {
+      "typography": ["/assets/brands/rail/typeface.jpg"],
+      "pictograms": ["/assets/brands/rail/symbols.jpg"],
+      "spreads": ["/assets/brands/rail/spread-01.jpg", "/assets/brands/rail/spread-02.jpg"]
+    },
+    "quotes": [
+      "Design for the people, by the people.",
+      "Clarity above all."
+    ],
+    "links": ["https://www.nationalrail.co.uk"]
+  },
+  {
+    "slug": "sutherland",
+    "title": "Studio Sutherland",
+    "tagline": "Letterpress craft in the digital age",
+    "cover": "/assets/brands/sutherland/cover.jpg",
+    "assets": {
+      "typography": ["/assets/brands/sutherland/types.jpg"],
+      "pictograms": [],
+      "spreads": ["/assets/brands/sutherland/process-01.jpg", "/assets/brands/sutherland/process-02.jpg"]
+    },
+    "quotes": [
+      "Craft is the bridge between tradition and innovation.",
+      "Every impression tells a story."
+    ],
+    "links": ["https://studiosutherland.com"]
+  },
+  {
+    "slug": "eames",
+    "title": "Eames Institute",
+    "tagline": "Design for learning and living",
+    "cover": "/assets/brands/eames/cover.jpg",
+    "assets": {
+      "typography": ["/assets/brands/eames/type-guide.jpg"],
+      "pictograms": ["/assets/brands/eames/icons.jpg"],
+      "spreads": ["/assets/brands/eames/kit-01.jpg", "/assets/brands/eames/kit-02.jpg"]
+    },
+    "quotes": [
+      "The best for the most for the least.",
+      "Recognizing the need is the primary condition for design."
+    ],
+    "links": ["https://eamesoffice.com"]
+  }
+]

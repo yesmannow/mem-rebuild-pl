@@ -1,72 +1,37 @@
 [
   {
-    "year": "2015",
-    "title": "First Cave Exploration",
-    "highlight": "Discovered the power of natural storytelling through geological wonders",
-    "details": "My first spelunking adventure in Mammoth Cave sparked a lifelong fascination with hidden depths and layered narratives. The experience taught me that the most compelling stories often lie beneath the surface, waiting to be uncovered through patient exploration.",
-    "icon": "🕳️"
+    "year": "1956",
+    "title": "IBM Design Language",
+    "highlight": "Paul Rand's 8-bar logo established grid-based design principles",
+    "details": "IBM's corporate identity manual introduced systematic approaches to typography, color, and layout that influenced generations of designers.",
+    "icon": "💼"
   },
   {
-    "year": "2017",
-    "title": "Bear Encounter",
-    "highlight": "Learned strategic thinking from observing bear behavior",
-    "details": "A close encounter with a black bear in the wilderness taught me the importance of presence and awareness. Bears don't rush - they observe, plan, and act with precision. This became a cornerstone of my approach to both creative work and business strategy.",
-    "icon": "🐻"
-  },
-  {
-    "year": "2018",
-    "title": "Photography Journey Begins",
-    "highlight": "Started capturing the stories that inspire my design work",
-    "details": "Purchased my first professional camera and began documenting the natural world that fuels my creativity. Photography became my bridge between observation and creation, teaching me to see composition, light, and narrative in everything around me.",
-    "icon": "📷"
-  },
-  {
-    "year": "2019",
-    "title": "First Branding Project",
-    "highlight": "Applied natural insights to commercial design",
-    "details": "My first major branding project for a local outdoor company allowed me to translate lessons from nature into visual identity. The experience solidified my belief that the most authentic brands emerge from genuine inspiration.",
-    "icon": "🎨"
-  },
-  {
-    "year": "2020",
-    "title": "Digital Transformation",
-    "highlight": "Embraced technology while maintaining analog sensibilities",
-    "details": "The pandemic accelerated digital adoption, but I remained committed to the tactile, human elements that make design meaningful. This balance between digital tools and analog thinking became my unique value proposition.",
-    "icon": "💻"
-  },
-  {
-    "year": "2021",
-    "title": "Mountain Climbing Milestone",
-    "highlight": "Pushed physical and mental boundaries",
-    "details": "Summiting my first major peak taught me about preparation, endurance, and the satisfaction of hard-won achievements. These lessons directly inform how I approach challenging client projects and creative obstacles.",
-    "icon": "⛰️"
-  },
-  {
-    "year": "2022",
-    "title": "Bear Cave Marketing Founded",
-    "highlight": "Established the cave as my creative home base",
-    "details": "Launched Bear Cave Marketing with the mission to create brands that feel as authentic and enduring as natural formations. The cave metaphor represents depth, protection, and organic growth - values that guide every project.",
-    "icon": "🏔️"
-  },
-  {
-    "year": "2023",
-    "title": "Award-Winning Work",
-    "highlight": "Recognition validates the cave-inspired approach",
-    "details": "Multiple design awards and client successes confirmed that the philosophy of depth over flash, substance over style, resonates in the marketplace. This validation fuels continued exploration and refinement.",
-    "icon": "🏆"
-  },
-  {
-    "year": "2024",
-    "title": "Expanded Creative Horizons",
-    "highlight": "Ventured beyond traditional boundaries",
-    "details": "Began exploring AI-assisted creativity, motion design, and immersive experiences while maintaining the core principles learned from nature. The cave continues to expand, revealing new chambers of possibility.",
+    "year": "1975",
+    "title": "NASA Graphics Standards Manual",
+    "highlight": "Richard Danne and Bruce Blackburn's worm logo and modular system",
+    "details": "NASA's manual demonstrated how technical constraints could inspire elegant, scalable design solutions for complex organizations.",
     "icon": "🚀"
   },
   {
-    "year": "2025",
-    "title": "Mastering the Balance",
-    "highlight": "Harmonizing tradition with innovation",
-    "details": "Finding the sweet spot between time-tested wisdom and cutting-edge tools. The cave remains the foundation, but the entrance welcomes all who seek authentic creative partnership.",
-    "icon": "⚖️"
+    "year": "1965",
+    "title": "British Rail Corporate Identity",
+    "highlight": "Margaret Calvert and Jock Kinneir's double-arrow symbol",
+    "details": "The bold, simplified identity transformed public transportation design with its clear hierarchy and distinctive typography.",
+    "icon": "🚂"
+  },
+  {
+    "year": "2010",
+    "title": "Studio Sutherland Letterpress",
+    "highlight": "Revival of traditional craft in modern contexts",
+    "details": "Studio Sutherland's work shows how historical techniques can inform contemporary design, emphasizing tactility and craftsmanship.",
+    "icon": "🖨️"
+  },
+  {
+    "year": "1949",
+    "title": "Eames Institute Launch Kit",
+    "highlight": "Charles and Ray Eames' educational design philosophy",
+    "details": "The Eames' approach to learning through designed objects demonstrated the power of combining education, design, and play.",
+    "icon": "🏗️"
   }
 ]

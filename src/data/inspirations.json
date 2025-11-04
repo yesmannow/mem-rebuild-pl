@@ -1,66 +1,42 @@
 [
   {
-    "id": "cave-exploration",
-    "title": "Cave Exploration Photography",
-    "category": "photography",
-    "image": "/images/inspiration/cave-exploration.jpg",
-    "reflection": "The raw beauty of natural caves inspired my approach to depth and mystery in design.",
-    "details": "Exploring limestone caves in Kentucky revealed layers of geological history. The interplay of light and shadow, the organic formations, and the sense of discovery shaped my visual storytelling. This experience taught me to embrace complexity and reveal narratives gradually, much like how cave systems unfold."
+    "id": "1",
+    "title": "IBM Design Language",
+    "category": "Design Systems",
+    "image": "/assets/inspirations/ibm-design.jpg",
+    "reflection": "The precision and scalability of IBM's design system taught me the importance of consistency at scale.",
+    "details": "IBM's 8-bar logo and grid-based layouts influenced modern digital design principles."
   },
   {
-    "id": "bear-behavior",
-    "title": "Bear Behavior Studies",
-    "category": "nature",
-    "image": "/images/inspiration/bear-behavior.jpg",
-    "reflection": "Observing bears taught me about patience, strength, and strategic thinking.",
-    "details": "Documenting black bear behavior in the Smoky Mountains showed me the importance of observation over action. Bears are methodical, patient, and incredibly strong. They teach that true power comes from understanding your environment and knowing when to act decisively. This philosophy influences my project planning and client relationships."
+    "id": "2",
+    "title": "NASA Graphics Standards Manual",
+    "category": "Branding",
+    "image": "/assets/inspirations/nasa-manual.jpg",
+    "reflection": "NASA's manual showed how technical constraints can inspire creative solutions.",
+    "details": "The worm logo and modular design system for space program materials."
   },
   {
-    "id": "minimalist-architecture",
-    "title": "Minimalist Architecture",
-    "category": "design",
-    "image": "/images/inspiration/minimalist-architecture.jpg",
-    "reflection": "Clean lines and purposeful spaces mirror the clarity I strive for in branding.",
-    "details": "The works of architects like Tadao Ando and John Pawson demonstrate how minimalism creates emotional impact. Their use of natural light, concrete, and negative space creates environments that are both powerful and serene. This aesthetic informs my approach to UI design and brand identities."
+    "id": "3",
+    "title": "British Rail Corporate Identity",
+    "category": "Transportation Design",
+    "image": "/assets/inspirations/british-rail.jpg",
+    "reflection": "The bold simplicity of British Rail's identity proved that less can be more impactful.",
+    "details": "Margaret Calvert's typeface and double-arrow symbol revolutionized transit design."
   },
   {
-    "id": "indigenous-art",
-    "title": "Indigenous Art & Symbolism",
-    "category": "art",
-    "image": "/images/inspiration/indigenous-art.jpg",
-    "reflection": "Ancient symbols carry timeless wisdom that resonates in modern contexts.",
-    "details": "Native American and Aboriginal art forms use symbols that communicate complex ideas through simple forms. The spiral representing growth, the circle for community, and geometric patterns denoting harmony. These visual languages inspire my icon design and brand symbolism work."
+    "id": "4",
+    "title": "Studio Sutherland Letterpress",
+    "category": "Typography",
+    "image": "/assets/inspirations/sutherland-press.jpg",
+    "reflection": "The tactile quality of letterpress reminded me that craft lives in the details.",
+    "details": "Hand-set type and traditional printing techniques for modern applications."
   },
   {
-    "id": "storm-chasing",
-    "title": "Storm Chasing Adventures",
-    "category": "adventure",
-    "image": "/images/inspiration/storm-chasing.jpg",
-    "reflection": "The unpredictability of storms taught me to embrace change and adapt quickly.",
-    "details": "Chasing thunderstorms across the Great Plains required constant adaptation to changing conditions. The raw power of nature, the beauty of lightning, and the necessity of quick decision-making shaped my approach to project management and creative problem-solving."
-  },
-  {
-    "id": "vintage-cameras",
-    "title": "Vintage Camera Collection",
-    "category": "technology",
-    "image": "/images/inspiration/vintage-cameras.jpg",
-    "reflection": "The craftsmanship of analog photography reminds me that quality endures.",
-    "details": "Collecting and restoring vintage cameras from the 1950s-1970s taught me about mechanical precision and the value of tangible craftsmanship. Each camera tells a story of engineering and design evolution. This appreciation for quality craftsmanship influences my attention to technical detail in digital work."
-  },
-  {
-    "id": "mountain-climbing",
-    "title": "Mountain Climbing",
-    "category": "sports",
-    "image": "/images/inspiration/mountain-climbing.jpg",
-    "reflection": "Scaling peaks builds resilience and perspective that applies to every challenge.",
-    "details": "Climbing mountains like Kilimanjaro and Rainier required physical and mental endurance. The journey taught me about pacing, preparation, and the satisfaction of achieving difficult goals. These lessons translate directly to managing complex client projects and pushing creative boundaries."
-  },
-  {
-    "id": "japanese-gardens",
-    "title": "Japanese Garden Design",
-    "category": "landscape",
-    "image": "/images/inspiration/japanese-gardens.jpg",
-    "reflection": "The harmony of natural elements in Japanese gardens inspires balanced design.",
-    "details": "The principles of wabi-sabi, asymmetry, and natural flow in Japanese garden design create spaces of tranquility and contemplation. The careful placement of rocks, water, and plants demonstrates how simplicity can convey profound meaning. This aesthetic sensibility guides my approach to layout and composition."
+    "id": "5",
+    "title": "Eames Institute Launch Kit",
+    "category": "Product Design",
+    "image": "/assets/inspirations/eames-kit.jpg",
+    "reflection": "The Eames' approach to education through design objects inspired my teaching philosophy.",
+    "details": "Modular furniture and educational tools that blend form and function."
   }
 ]
