@@ -46,7 +46,7 @@ const PDFDownloadButton: React.FC<{
 }> = ({ handlePDFGeneration, buttonVariants, isGeneratingPDF }) => {
   const fallbackButton = (
     <motion.a
-      href="/resume/Resume JD draft.pdf"
+      href="/resume/Updated-Jacob-Darling-Resume.pdf"
       download="Jacob-Darling-Resume.pdf"
       variants={buttonVariants}
       whileHover="hover"
@@ -77,21 +77,16 @@ const PDFDownloadButton: React.FC<{
           className="group"
           onClick={handlePDFGeneration}
         >
-          {({ loading, error: pdfError }) => {
-            if (pdfError) {
-              console.error("PDF generation error:", pdfError);
-              return fallbackButton;
-            }
-
+          {() => {
             return (
               <motion.button
                 variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
                 className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300"
-                disabled={loading || isGeneratingPDF}
+                disabled={isGeneratingPDF}
               >
-                {loading || isGeneratingPDF ? (
+                {isGeneratingPDF ? (
                   <>
                     <Sparkles size={20} className="animate-spin" />
                     Generating PDF...
