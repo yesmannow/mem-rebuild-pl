@@ -1,0 +1,107 @@
+{
+  "description": "Complete About Me page overhaul for Jacob Darling's portfolio site",
+  "instructions": [
+    "Redesign the About Me page to be scannable, visually engaging, and conversion-focused.",
+    "Highlight credibility signals (Quick Wins, metrics, career highlights) in visual formats instead of long paragraphs.",
+    "Balance professional expertise with personal philosophy to build trust and connection.",
+    "Ensure responsive design across desktop, tablet, and mobile.",
+    "Integrate subtle animations (fade-in, counters, scroll-triggered reveals) while respecting prefers-reduced-motion.",
+    "Provide keyboard-accessible carousel controls and ARIA roles for testimonials."
+  ],
+  "layout": {
+    "hero": {
+      "headline": "I build marketing systems that turn complexity into clarity.",
+      "subheadline": "15+ years connecting content, automation, and analytics to drive measurable growth.",
+      "visual": "Professional headshot or branded monogram"
+    },
+    "quickWins": [
+      "30,000+ Clinicians Served",
+      "400+ Automations Built",
+      "70% Ticket Reduction",
+      "15+ Years Experience"
+    ],
+    "story": {
+      "why": "I believe systems create freedom. My work empowers teams with clarity and reproducibility.",
+      "how": [
+        "Clarity first",
+        "Measurable outcomes",
+        "Scalable systems",
+        "Assistant-ready workflows"
+      ]
+    },
+    "careerHighlights": {
+      "layout": "Timeline with scroll-triggered animations",
+      "entries": [
+        {
+          "role": "Marketing Director",
+          "company": "Graston Technique®",
+          "highlight": "Scaled platform to 30K+ users with GPT-powered support assistant"
+        },
+        {
+          "role": "Marketing Manager",
+          "company": "Riley Bennett Egloff LLP",
+          "highlight": "Improved engagement with analytics-driven campaigns"
+        }
+      ]
+    },
+    "testimonials": {
+      "layout": "Carousel with keyboard controls and reduced-motion support",
+      "quotes": [
+        "Jacob turned chaos into a scalable system that just works.",
+        "Our support load dropped dramatically after his automation rollout."
+      ]
+    },
+    "cta": {
+      "primary": "Explore Case Studies",
+      "secondary": "Download Résumé"
+    }
+  },
+  "components": {
+    "HeroAbout": "Framer Motion fade-in for headline and subheadline",
+    "QuickWins": "Animated counters with react-countup",
+    "StorySection": "Two-column layout: philosophy + principles list",
+    "CareerTimeline": "Framer Motion whileInView for scroll-triggered fade/slide",
+    "TestimonialsCarousel": "Embla carousel with keyboard controls and prefers-reduced-motion support",
+    "CTASection": "Bold button linking to case studies and résumé"
+  },
+  "themeMotion": {
+    "duration": { "short": 0.3, "medium": 0.6, "long": 1.0 },
+    "ease": { "default": "easeOut", "smooth": [0.25, 0.1, 0.25, 1.0] }
+  },
+  "buildSteps": [
+    { "label": "Install dependencies", "run": "npm i framer-motion react-countup embla-carousel-react" },
+    { "label": "Create components", "files": [
+      "src/components/HeroAbout.tsx",
+      "src/components/QuickWinsAbout.tsx",
+      "src/components/StorySection.tsx",
+      "src/components/CareerTimeline.tsx",
+      "src/components/TestimonialsCarousel.tsx",
+      "src/components/CTASection.tsx"
+    ]},
+    { "label": "Add Embla styles", "appendTo": "src/index.css", "content": "/* Embla minimal styles */\n.embla { overflow: hidden; }\n.embla__container { display: flex; }\n.embla__slide { position: relative; }\n" },
+    { "label": "Wire About page", "edit": "src/pages/About.tsx", "actions": [
+      "Import new components",
+      "Assemble layout in order: HeroAbout → QuickWins → StorySection → CareerTimeline → TestimonialsCarousel → CTASection"
+    ]},
+    { "label": "Accessibility checks", "instructions": [
+      "Ensure headings follow semantic order",
+      "Carousel has keyboard navigation and ARIA roles",
+      "Respect prefers-reduced-motion for autoplay and animations"
+    ]},
+    { "label": "Performance checks", "instructions": [
+      "Use themeMotion config for consistent durations/easing",
+      "Lazy-load heavy images",
+      "Keep animations subtle (0.3–0.6s)"
+    ]},
+    { "label": "Run responsive audit", "run": "ts-node cli/responsive-check.ts --url https://www.bearcavemarketing.com/about --output reports/about-responsive.json" },
+    { "label": "Commit changes", "run": "git add -A && git commit -m \"feat: about page overhaul with animations + accessibility\" && git push" }
+  ],
+  "successCriteria": [
+    "Hero headline and subheadline fade in smoothly",
+    "Quick Wins counters animate once on load",
+    "Career timeline entries animate on scroll",
+    "Testimonials carousel is keyboard accessible and respects reduced-motion",
+    "CTA buttons are prominent and responsive",
+    "Responsive audit passes with no critical issues"
+  ]
+}
