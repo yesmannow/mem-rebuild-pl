@@ -1,0 +1,37 @@
+[
+  {
+    "role": "Marketing Director",
+    "company": "Graston Technique®",
+    "dates": "2023–Present",
+    "highlight": "Scaled platform to 30K+ users with GPT-powered support assistant",
+    "details": "Developed and implemented a comprehensive marketing automation system with 400+ workflows using FluentCRM and custom integrations. Built AI-powered customer support that reduced support tickets by 70%. Optimized WooCommerce checkout flows that increased conversions by 40%. Managed multi-channel advertising campaigns (Google Ads, Meta Ads, LinkedIn Ads) with measurable ROI. Configured advanced analytics with Google Tag Manager and GA4 for comprehensive campaign tracking."
+  },
+  {
+    "role": "Marketing Manager",
+    "company": "Riley Bennett Egloff LLP",
+    "dates": "2021–2023",
+    "highlight": "Improved engagement with analytics-driven campaigns",
+    "details": "Led digital marketing initiatives for a prominent law firm, focusing on client acquisition and retention. Implemented analytics-driven campaign strategies that improved engagement metrics by 60%. Developed content marketing programs and social media campaigns that increased brand awareness and client inquiries."
+  },
+  {
+    "role": "Technical Architect",
+    "company": "Bear Cave Marketing",
+    "dates": "2018–2021",
+    "highlight": "Built reproducible, assistant-ready workflows for branding and automation",
+    "details": "Established Bear Cave Marketing as a technical marketing consultancy. Built custom marketing automation tools, CRM integrations, and workflow systems. Developed branding systems and automation frameworks that could be replicated across client projects. Created technical documentation and assistant-ready processes for marketing technology implementation."
+  },
+  {
+    "role": "Marketing Specialist",
+    "company": "Pike Medical Consultants",
+    "dates": "2016–2018",
+    "highlight": "Built healthcare websites and digital marketing campaigns",
+    "details": "Managed digital presence for healthcare clients, building responsive websites and implementing marketing campaigns. Designed brand assets from logos to billboards. Created integrated patient acquisition systems combining web development, advertising, and CRM automation. Managed Google Ads and Meta Ads campaigns that drove thousands of patient visits."
+  },
+  {
+    "role": "Marketing Coordinator",
+    "company": "Various Agencies",
+    "dates": "2014–2016",
+    "highlight": "Learned to stretch marketing budgets while proving measurable ROI",
+    "details": "Early career experience in marketing coordination roles. Learned to maximize marketing budgets through strategic planning and ROI-focused campaigns. Designed campaign visuals and implemented tracking systems that demonstrated marketing impact through data-driven analytics. Developed foundational skills in digital marketing, branding, and campaign management."
+  }
+]

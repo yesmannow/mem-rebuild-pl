@@ -8,6 +8,7 @@ import MorphingBlob from "../components/animations/MorphingBlob";
 import ClientLogos from "../components/clients/ClientLogos";
 import TheGapDiagram from "../components/diagrams/TheGapDiagram";
 import VennDiagram from "../components/diagrams/VennDiagram";
+import CareerTimelineProgress from "../components/CareerTimelineProgress";
 import { fadeInUp } from "../utils/animations";
 import "./About.css";
 
@@ -75,12 +76,7 @@ const bioImages = [
 ];
 
 const About: React.FC = () => {
-  const [expandedNode, setExpandedNode] = useState<string | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const toggleNode = (nodeId: string) => {
-    setExpandedNode(expandedNode === nodeId ? null : nodeId);
-  };
 
   // Rotating bio gallery effect
   useEffect(() => {
@@ -216,68 +212,7 @@ const About: React.FC = () => {
       </AnimatedSection>
 
       <AnimatedSection delay={0.3}>
-        <section className="timeline-section">
-          <h2>Career Journey</h2>
-
-          <div className="timeline">
-            <div className="timeline-line"></div>
-
-            {timelineNodes.map((node, index) => (
-              <motion.div
-                key={node.id}
-                className="timeline-node"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="timeline-dot"></div>
-                <div className="timeline-year">{node.year}</div>
-
-                <button
-                  onClick={() => toggleNode(node.id)}
-                  className={`timeline-card ${expandedNode === node.id ? 'expanded' : ''}`}
-                >
-                  <div className="card-header">
-                    <div>
-                      <h3>{node.title}</h3>
-                      <p className="subtitle">{node.subtitle}</p>
-                    </div>
-                    <svg
-                      className="chevron"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                    >
-                      <path
-                        d="M5 7.5L10 12.5L15 7.5"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-
-                  <AnimatePresence mode="wait">
-                    {expandedNode === node.id && (
-                      <motion.div
-                        className="card-content"
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      >
-                        <p>{node.content}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </button>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+        <CareerTimelineProgress />
       </AnimatedSection>
 
       <AnimatedSection delay={0.4}>
