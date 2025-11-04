@@ -1,4 +1,20 @@
-// CLI tool to export SVG assets
-// Usage: node svg-export.js
+import fs from 'fs';
+import axios from 'axios';
+import { exportSVGAssets } from '@utils/svgExporter';
+import { loadConfig } from '@config/loadConfig';
 
-console.log('SVG Export CLI Tool');
+const config = loadConfig();
+const outputPath = process.argv[2] || `${config.outputDir}/exported`;
+const useRemote = process.argv.includes('--remote');
+
+async function main() {
+  if (useRemote) {
+    const res = await axios.post('http://localhost:8000/export-svg');
+    console.log(`🌐 ${res.data.exported} SVG assets exported via MCP.`);
+  } else {
+    const count = exportSVGAssets();
+    console.log(`✅ ${count} SVG assets exported locally.`);
+  }
+}
+
+main();

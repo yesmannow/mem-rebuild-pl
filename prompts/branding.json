@@ -10,5 +10,17 @@
   "exportSVG": {
     "description": "Export SVG assets for Divi",
     "command": "ts-node cli/svg-export.ts public/assets"
+  },
+  "generateLogoRemote": {
+    "description": "Generate logo via MCP server",
+    "command": "ts-node cli/generate-logo.ts public/branding/logo.svg --remote"
+  },
+  "previewLayoutRemote": {
+    "description": "Build layout preview via MCP",
+    "command": "ts-node cli/preview-layout.ts --remote"
+  },
+  "exportSVGRemote": {
+    "description": "Export SVG assets via MCP",
+    "command": "ts-node cli/svg-export.ts public/branding --remote"
   }
 }
