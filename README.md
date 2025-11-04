@@ -120,6 +120,14 @@ See `prompts/branding.json` for reusable instructions for staff and AI assistant
 
 Uses `vercel.json` for Vercel deployment. GitHub Pages optional via `/docs`.
 
+## 📊 Build Status
+
+[![Inspiration Showcase Build & Deploy](https://github.com/yesmannow/mem-rebuild-pl/actions/workflows/showcase.yml/badge.svg)](https://github.com/yesmannow/mem-rebuild-pl/actions/workflows/showcase.yml)
+
+## 🌐 Live Site
+
+[View Live Portfolio](https://yesmannow.github.io/mem-rebuild-pl/)
+
 ## 🧠 Roadmap
 
 - MCP FastAPI integration
