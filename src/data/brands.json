@@ -1,82 +1,76 @@
 [
   {
-    "slug": "ibm",
+    "slug": "ibm-design",
     "title": "IBM Design Language",
-    "tagline": "Systematic excellence in corporate identity",
-    "cover": "/assets/brands/ibm/cover.jpg",
+    "tagline": "Philosophy, Plex, pictograms, and the 2× grid.",
+    "cover": "/brand/ibm/cover.jpg",
     "assets": {
-      "typography": ["/assets/brands/ibm/type-specimen.jpg"],
-      "pictograms": ["/assets/brands/ibm/pictograms.jpg"],
-      "spreads": ["/assets/brands/ibm/spread-01.jpg", "/assets/brands/ibm/spread-02.jpg"]
+      "typography": ["/brand/ibm/plex-specimen.jpg"],
+      "pictograms": ["/brand/ibm/pictogram-sheet.jpg"],
+      "grid": ["/brand/ibm/2x-grid-ui.jpg"]
     },
-    "quotes": [
-      "Good design is good business.",
-      "Design is not just what it looks like and feels like. Design is how it works."
-    ],
-    "links": ["https://www.ibm.com/design"]
+    "quotes": ["Build bonds."],
+    "links": ["https://www.ibm.com/design/language/"]
   },
   {
-    "slug": "nasa",
-    "title": "NASA Graphics Standards Manual",
-    "tagline": "Technical precision meets visual clarity",
-    "cover": "/assets/brands/nasa/cover.jpg",
+    "slug": "nasa-graphics",
+    "title": "NASA Graphics Manual",
+    "tagline": "The 1976 standards that defined space‑age clarity.",
+    "cover": "/brand/nasa/cover.jpg",
     "assets": {
-      "typography": ["/assets/brands/nasa/type-guide.jpg"],
-      "pictograms": ["/assets/brands/nasa/symbols.jpg"],
-      "spreads": ["/assets/brands/nasa/spread-01.jpg", "/assets/brands/nasa/spread-02.jpg"]
+      "manual": ["/brand/nasa/manual-spread1.jpg", "/brand/nasa/manual-spread2.jpg"],
+      "symbol": ["/brand/nasa/worm-logo.jpg"]
     },
-    "quotes": [
-      "The manual that launched a thousand designs.",
-      "Form follows function, but style follows standards."
-    ],
-    "links": ["https://www.nasa.gov"]
+    "quotes": ["The NASA Graphics Standards Manual, 1976."],
+    "links": ["https://standardsmanual.com/products/nasa-graphics-standards-manual"]
+  },
+  {
+    "slug": "standards-manual",
+    "title": "Standards Manual",
+    "tagline": "Iconic identity manuals preserved and reissued.",
+    "cover": "/brand/standards/cover.jpg",
+    "assets": {
+      "books": ["/brand/standards/nasa.jpg", "/brand/standards/nycta.jpg", "/brand/standards/epa.jpg"]
+    },
+    "quotes": ["Design systems are cultural artifacts."],
+    "links": ["https://standardsmanual.com/pages/titles"]
   },
   {
     "slug": "british-rail",
     "title": "British Rail Corporate Identity",
-    "tagline": "Bold simplicity for public transportation",
-    "cover": "/assets/brands/rail/cover.jpg",
+    "tagline": "Symbol grids, Rail Alphabet, signage systems.",
+    "cover": "/brand/rail/cover.jpg",
     "assets": {
-      "typography": ["/assets/brands/rail/typeface.jpg"],
-      "pictograms": ["/assets/brands/rail/symbols.jpg"],
-      "spreads": ["/assets/brands/rail/spread-01.jpg", "/assets/brands/rail/spread-02.jpg"]
+      "symbol": ["/brand/rail/double-arrow-grid.jpg"],
+      "type": ["/brand/rail/rail-alphabet.jpg"],
+      "signage": ["/brand/rail/signage.jpg"]
     },
-    "quotes": [
-      "Design for the people, by the people.",
-      "Clarity above all."
-    ],
-    "links": ["https://www.nationalrail.co.uk"]
+    "quotes": ["The double arrow is a symbol of movement and connection."],
+    "links": ["http://www.doublearrow.co.uk/manual.htm"]
   },
   {
-    "slug": "sutherland",
+    "slug": "studio-sutherland",
     "title": "Studio Sutherland",
-    "tagline": "Letterpress craft in the digital age",
-    "cover": "/assets/brands/sutherland/cover.jpg",
+    "tagline": "Collaborations, letterpress craft, and editorial clarity.",
+    "cover": "/brand/sutherland/cover.jpg",
     "assets": {
-      "typography": ["/assets/brands/sutherland/types.jpg"],
-      "pictograms": [],
-      "spreads": ["/assets/brands/sutherland/process-01.jpg", "/assets/brands/sutherland/process-02.jpg"]
+      "letterpress": ["/brand/sutherland/letterpress.jpg"],
+      "collaborators": ["/brand/sutherland/collaborators.jpg"]
     },
-    "quotes": [
-      "Craft is the bridge between tradition and innovation.",
-      "Every impression tells a story."
-    ],
-    "links": ["https://studiosutherland.com"]
+    "quotes": ["Design is collaboration."],
+    "links": ["https://studio-sutherland.co.uk/collaborators"]
   },
   {
-    "slug": "eames",
+    "slug": "eames-institute",
     "title": "Eames Institute",
-    "tagline": "Design for learning and living",
-    "cover": "/assets/brands/eames/cover.jpg",
+    "tagline": "A living identity for infinite curiosity.",
+    "cover": "/brand/eames/cover.jpg",
     "assets": {
-      "typography": ["/assets/brands/eames/type-guide.jpg"],
-      "pictograms": ["/assets/brands/eames/icons.jpg"],
-      "spreads": ["/assets/brands/eames/kit-01.jpg", "/assets/brands/eames/kit-02.jpg"]
+      "monogram": ["/brand/eames/curious-e.jpg"],
+      "kit": ["/brand/eames/launch-kit.jpg"],
+      "palette": ["/brand/eames/palette.jpg"]
     },
-    "quotes": [
-      "The best for the most for the least.",
-      "Recognizing the need is the primary condition for design."
-    ],
-    "links": ["https://eamesoffice.com"]
+    "quotes": ["Infinite curiosity, infinite possibility."],
+    "links": ["https://manualcreative.com/work/eames-institute"]
   }
 ]

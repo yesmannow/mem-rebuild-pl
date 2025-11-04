@@ -5,7 +5,9 @@ interface ManualViewerProps {
   brand: {
     title: string;
     assets: {
-      spreads: string[];
+      manual?: string[];
+      books?: string[];
+      spreads?: string[];
     };
   };
 }
@@ -14,13 +16,16 @@ const ManualViewer: React.FC<ManualViewerProps> = ({ brand }) => {
   const [currentSpread, setCurrentSpread] = useState(0);
   const [zoomedArea, setZoomedArea] = useState<{ x: number; y: number } | null>(null);
 
+  // Get spreads from various possible asset keys
+  const spreads = brand.assets.manual || brand.assets.books || brand.assets.spreads || [];
+
   const nextSpread = () => {
-    setCurrentSpread((prev) => (prev + 1) % brand.assets.spreads.length);
+    setCurrentSpread((prev) => (prev + 1) % spreads.length);
     setZoomedArea(null);
   };
 
   const prevSpread = () => {
-    setCurrentSpread((prev) => (prev - 1 + brand.assets.spreads.length) % brand.assets.spreads.length);
+    setCurrentSpread((prev) => (prev - 1 + spreads.length) % spreads.length);
     setZoomedArea(null);
   };
 
@@ -38,7 +43,7 @@ const ManualViewer: React.FC<ManualViewerProps> = ({ brand }) => {
       <div className="relative bg-gray-100 rounded-lg overflow-hidden">
         <motion.img
           key={currentSpread}
-          src={brand.assets.spreads[currentSpread]}
+          src={spreads[currentSpread]}
           alt={`${brand.title} spread ${currentSpread + 1}`}
           className="w-full h-auto cursor-crosshair"
           onClick={handleImageClick}
@@ -84,7 +89,7 @@ const ManualViewer: React.FC<ManualViewerProps> = ({ brand }) => {
       </div>
 
       <div className="flex justify-center mt-4 space-x-2">
-        {brand.assets.spreads.map((spread, index) => (
+        {spreads.map((spread, index) => (
           <button
             key={spread}
             onClick={() => {
@@ -100,7 +105,7 @@ const ManualViewer: React.FC<ManualViewerProps> = ({ brand }) => {
       </div>
 
       <p className="text-center text-gray-600 mt-4">
-        Spread {currentSpread + 1} of {brand.assets.spreads.length}
+        Spread {currentSpread + 1} of {spreads.length}
       </p>
     </div>
   );

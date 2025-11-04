@@ -27,12 +27,13 @@ const SystemsTimeline: React.FC = () => {
                 <div className="bg-white rounded-lg shadow-md p-6">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-2xl mr-4">
-                      {/* Icon based on brand */}
-                      {brand.slug === 'ibm' && '💼'}
-                      {brand.slug === 'nasa' && '🚀'}
-                      {brand.slug === 'british-rail' && '🚂'}
-                      {brand.slug === 'sutherland' && '🖨️'}
-                      {brand.slug === 'eames' && '🏗️'}
+                      {/* Icon based on slug */}
+                      {brand.slug.includes('ibm') && '💼'}
+                      {brand.slug.includes('nasa') && '🚀'}
+                      {brand.slug.includes('standards') && '📚'}
+                      {brand.slug.includes('rail') && '🚂'}
+                      {brand.slug.includes('sutherland') && '🖨️'}
+                      {brand.slug.includes('eames') && '🏗️'}
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold">{brand.title}</h3>
@@ -47,7 +48,11 @@ const SystemsTimeline: React.FC = () => {
                   )}
 
                   <div className="text-sm text-gray-500">
-                    {brand.assets.spreads.length} spreads • {brand.assets.typography.length} type specimens • {brand.assets.pictograms.length} pictograms
+                    {Object.keys(brand.assets).reduce(
+                      (total, key) => total + (brand.assets as any)[key].length,
+                      0
+                    )}{' '}
+                    assets • {brand.links.length} links
                   </div>
                 </div>
               </div>
