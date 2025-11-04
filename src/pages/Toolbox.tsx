@@ -14,8 +14,8 @@ import {
   CreditCardIcon,
   ChevronDownIcon
 } from "../components/icons/TechIcons";
-import SimpleIcon from "../components/icons/SimpleIcon";
 import TechTooltip from "../components/tooltips/TechTooltip";
+import Icon from "../components/Icon";
 import { fadeInUp, staggerContainer, staggerItem } from "../utils/animations";
 import { technicalCategories, technologyStacks } from "../data/toolbox";
 import { getTechDescription } from "../data/techDescriptions";
@@ -27,6 +27,29 @@ const Toolbox: React.FC = () => {
 
   const toggleCategory = (index: number) => {
     setExpandedCategory(expandedCategory === index ? null : index);
+  };
+
+  // Map technology names to icon slugs
+  const getTechIconSlug = (techName: string): string => {
+    const techMap: { [key: string]: string } = {
+      'React': 'react',
+      'Node.js': 'node',
+      'TypeScript': 'typescript',
+      'Tailwind CSS': 'tailwind',
+      'Vite': 'vite',
+      'Git/GitHub': 'github',
+      'Python': 'python',
+      'Flask': 'flask',
+      'FastAPI': 'fastapi',
+      'Docker': 'docker',
+      'AWS': 'aws',
+      'Azure': 'azure',
+      'PostgreSQL': 'postgres',
+      'MySQL': 'mysql',
+      'Redis': 'redis',
+      'GraphQL': 'graphql'
+    };
+    return techMap[techName] || 'react'; // fallback to react icon
   };
 
   const getIconForCategory = (title: string) => {
@@ -169,7 +192,7 @@ const Toolbox: React.FC = () => {
                         onMouseEnter={() => setHoveredTech(`${stack.category}-${techIndex}`)}
                         onMouseLeave={() => setHoveredTech(null)}
                       >
-                        <SimpleIcon name={tech} size={18} className="tech-icon" />
+                        <Icon slug={getTechIconSlug(tech)} className="tech-icon w-4 h-4" />
                         <span>{tech}</span>
                         {techInfo && (
                           <TechTooltip

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Mail, Linkedin, Github, Send, MessageSquare, User, Building2, Phone, FileText } from "lucide-react";
 import AnimatedSection from "../components/animations/AnimatedSection";
 import MagneticButton from "../components/interactive/MagneticButton";
-import SimpleIcon from "../components/icons/SimpleIcon";
 import { fadeInUp } from "../utils/animations";
 import "./Contact.css";
 

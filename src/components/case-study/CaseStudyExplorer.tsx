@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import caseStudiesData from '../data/caseStudies.json';
-import WaveDivider from './WaveDivider';
-import GlyphOverlay from './GlyphOverlay';
-import NoiseOverlay from './NoiseOverlay';
+import caseStudiesData from '../../data/caseStudies.json';
+import WaveDivider from '../WaveDivider';
+import GlyphOverlay from '../GlyphOverlay';
+import NoiseOverlay from '../NoiseOverlay';
 
 interface CaseStudy {
   id: string;

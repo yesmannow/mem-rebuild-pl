@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { caseStudies, getCategories } from "../data/caseStudies";
-import SimpleIcon from "../components/icons/SimpleIcon";
+import Icon from "../components/Icon";
 import "./CaseStudies.css";
 import "./CaseStudiesEnhanced.css";
 import CaseStudyExplorer from "../components/CaseStudyExplorer";
@@ -14,6 +14,38 @@ const CaseStudies: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [sortBy, setSortBy] = useState<"default" | "name" | "recent" | "featured">("default");
   const categories = ["All", ...getCategories()];
+
+  // Map technology names to icon slugs
+  const getTechIconSlug = (techName: string): string => {
+    const techMap: { [key: string]: string } = {
+      'React': 'react',
+      'Node.js': 'node',
+      'TypeScript': 'typescript',
+      'Tailwind CSS': 'tailwind',
+      'Vite': 'vite',
+      'Git/GitHub': 'github',
+      'Python': 'python',
+      'Flask': 'flask',
+      'FastAPI': 'fastapi',
+      'Docker': 'docker',
+      'AWS': 'aws',
+      'Azure': 'azure',
+      'PostgreSQL': 'postgres',
+      'MySQL': 'mysql',
+      'Redis': 'redis',
+      'GraphQL': 'graphql',
+      'PHP': 'php',
+      'WordPress': 'wordpress',
+      'Google Tag Manager': 'gtm',
+      'GA4': 'ga4',
+      'JavaScript': 'javascript',
+      'WooCommerce': 'woocommerce',
+      'Stripe': 'stripe',
+      'Gravity Forms': 'gravityforms',
+      'ACF': 'acf'
+    };
+    return techMap[techName] || 'react'; // fallback to react icon
+  };
 
   const filteredStudies = useMemo(() => {
     let filtered = caseStudies;
@@ -132,10 +164,7 @@ const CaseStudies: React.FC = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="search-input"
               />
-              <svg className="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="11" cy="11" r="8"/>
-                <path d="m21 21-4.35-4.35"/>
-              </svg>
+              <Icon slug="search" className="search-icon h-5 w-5" />
             </div>
           </div>
 
@@ -180,12 +209,7 @@ const CaseStudies: React.FC = () => {
                   aria-label="Grid view"
                   title="Grid view"
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <rect x="3" y="3" width="7" height="7" rx="1"/>
-                    <rect x="14" y="3" width="7" height="7" rx="1"/>
-                    <rect x="3" y="14" width="7" height="7" rx="1"/>
-                    <rect x="14" y="14" width="7" height="7" rx="1"/>
-                  </svg>
+                  <Icon slug="grid" className="h-5 w-5" />
                 </button>
                 <button
                   className={viewMode === "list" ? "active" : ""}
@@ -193,14 +217,7 @@ const CaseStudies: React.FC = () => {
                   aria-label="List view"
                   title="List view"
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <line x1="8" y1="6" x2="21" y2="6"/>
-                    <line x1="8" y1="12" x2="21" y2="12"/>
-                    <line x1="8" y1="18" x2="21" y2="18"/>
-                    <line x1="3" y1="6" x2="3.01" y2="6"/>
-                    <line x1="3" y1="12" x2="3.01" y2="12"/>
-                    <line x1="3" y1="18" x2="3.01" y2="18"/>
-                  </svg>
+                  <Icon slug="list" className="h-5 w-5" />
                 </button>
               </div>
             </div>
@@ -251,6 +268,25 @@ const CaseStudies: React.FC = () => {
                         ))}
                       </div>
 
+                      {/* Technology Stack */}
+                      {study.technologies && study.technologies.length > 0 && (
+                        <div className="case-tech-stack">
+                          <div className="tech-stack-icons">
+                            {study.technologies.slice(0, 4).map(tech => (
+                              <Icon
+                                key={tech}
+                                slug={getTechIconSlug(tech)}
+                                className="tech-stack-icon h-4 w-4"
+                                title={tech}
+                              />
+                            ))}
+                            {study.technologies.length > 4 && (
+                              <span className="tech-stack-more">+{study.technologies.length - 4}</span>
+                            )}
+                          </div>
+                        </div>
+                      )}
+
                       {/* Challenge Preview */}
                       <div className="case-preview">
                         <p className="preview-label">Challenge</p>
@@ -276,7 +312,6 @@ const CaseStudies: React.FC = () => {
                       <div className="case-tech-tags">
                         {study.tags.slice(0, 3).map(tag => (
                           <span key={tag} className="tech-tag">
-                            <SimpleIcon name={tag} size={14} className="tech-tag-icon" />
                             <span>{tag}</span>
                           </span>
                         ))}
@@ -290,9 +325,7 @@ const CaseStudies: React.FC = () => {
                     <div className="case-footer">
                       <span className="view-case">
                         View Case Study
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
+                        <Icon slug="chevron-right" className="h-4 w-4" />
                       </span>
                     </div>
 

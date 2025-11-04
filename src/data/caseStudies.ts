@@ -9,6 +9,7 @@ export interface CaseStudy {
   tagline: string;
   category: string[];
   tags: string[];
+  technologies?: string[]; // Add technologies field
   metrics: {
     label: string;
     value: string;
@@ -217,6 +218,7 @@ This initiative demonstrates full-stack system design—data engineering, API ar
     tagline: "Engineering a Frictionless Sales Pipeline that Converts High-Value Quotes into Revenue with Pay-by-Link and Flexible Financing",
     category: ["Marketing Systems", "Automation"],
     tags: ["PHP", "Stripe API", "WooCommerce", "Gravity Forms", "ACF"],
+    technologies: ["PHP", "WordPress", "WooCommerce", "Stripe", "Gravity Forms", "ACF"],
     metrics: [
       { label: "Close Rate Increase", value: "+35%" },
       { label: "Sales Cycle Reduction", value: "Days → Minutes" },
@@ -289,6 +291,7 @@ This project demonstrates ability to leverage third-party APIs (GA4), architect 
     tagline: "Forging a Foundation of Truth to Power Accurate, Data-Driven Marketing Decisions",
     category: ["Data & Analytics", "Marketing Systems"],
     tags: ["Google Tag Manager", "GA4", "PHP", "Data Layer", "Attribution"],
+    technologies: ["PHP", "WordPress", "Google Tag Manager", "GA4", "JavaScript"],
     metrics: [
       { label: "ROAS Improvement", value: "+85%" },
       { label: "Wasted Spend Reduction", value: "60%" },
@@ -325,6 +328,7 @@ This project showcases technical marketing architecture expertise, demonstrating
     tagline: "Engineering a Flawless, Zero-Touch Student Journey from Purchase to Certification",
     category: ["Automation", "Systems"],
     tags: ["WooCommerce", "LearnDash", "WP Fusion", "Gravity Forms", "Workflow Automation"],
+    technologies: ["WordPress", "WooCommerce", "LearnDash", "WP Fusion", "Gravity Forms", "FluentCRM"],
     metrics: [
       { label: "Error Reduction", value: "Near-Zero" },
       { label: "Support Tickets", value: "-75%" },
@@ -414,7 +418,7 @@ This project demonstrates ability to architect enterprise-grade security and per
 
 - **Continuous Integration (CI):** GitHub Actions workflow on every push automatically spins up clean environment, installs dependencies via Composer/NPM, compiles frontend assets, runs automated quality checks and linting, packages validated code into versioned build artifact
 - **Continuous Deployment (CD):** On main branch merge, deployment stage triggers: GitHub Action securely connects via SSH, deploys latest build using rsync, post-deployment script uses WP-CLI for cache flush, database updates, and permalink refresh
-- **The Safety Net—Automated Health Checks & Instant Rollback:** After deployment, pipeline runs health check series (curl confirming 200 OK on key pages). On success: Slack success message. On failure: Instant automatic rollback to previous stable artifact with detailed Slack alert, ensuring zero catastrophic downtime`,
+- **The Safety Net—Automated Health Checks & Instant Rollback:** After deployment, pipeline runs health check series (curl confirming 200 OK on key pages). On success: Slack success message. On failure: Instant automatic rollback to previous stable artifact with detailed Slack alert, ensuring near-zero catastrophic downtime`,
       impact: `This CI/CD pipeline fundamentally changed our operational cadence and culture, empowering the entire business to move faster and more safely.
 
 - **Eliminated Deployment Risk:** Automated testing and instant rollback removed danger of bad deploys. Shipping code during peak traffic became routine, low-stress event
@@ -430,19 +434,23 @@ This project demonstrates DevOps and modern development workflow expertise, show
 // Helper function to get unique categories
 export const getCategories = (): string[] => {
   const categories = new Set<string>();
-  caseStudies.forEach(study => {
-    study.category.forEach(cat => categories.add(cat));
-  });
-  return Array.from(categories).sort();
+  for (const study of caseStudies) {
+    for (const cat of study.category) {
+      categories.add(cat);
+    }
+  }
+  return Array.from(categories).sort((a, b) => a.localeCompare(b));
 };
 
 // Helper function to get unique tags
 export const getTags = (): string[] => {
   const tags = new Set<string>();
-  caseStudies.forEach(study => {
-    study.tags.forEach(tag => tags.add(tag));
-  });
-  return Array.from(tags).sort();
+  for (const study of caseStudies) {
+    for (const tag of study.tags) {
+      tags.add(tag);
+    }
+  }
+  return Array.from(tags).sort((a, b) => a.localeCompare(b));
 };
 
 // Helper function to get case study by slug

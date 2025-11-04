@@ -1,6 +1,5 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import SimpleIcon from "../icons/SimpleIcon";
 import "./TechTooltip.css";
 
 interface TechTooltipProps {
@@ -47,7 +46,6 @@ const TechTooltip: React.FC<TechTooltipProps> = ({
           <div className="tech-tooltip-content">
             {/* Header with icon */}
             <div className="tech-tooltip-header">
-              <SimpleIcon name={tech} size={20} style={{ flexShrink: 0 }} />
               <h4 className="tech-tooltip-title">{tech}</h4>
             </div>
 
