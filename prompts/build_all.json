@@ -1,0 +1,25 @@
+{
+  "description": "Build branded résumé and site assets (local or remote)",
+  "commands": {
+    "buildAllLocal": {
+      "description": "Generate logo, preview, résumé HTML and PDF locally",
+      "steps": [
+        "ts-node cli/generate-logo.ts public/branding/logo.svg",
+        "ts-node cli/preview-layout.ts",
+        "ts-node cli/build-resume.ts --theme modern --output public/branding/resume.html",
+        "ts-node cli/export-resume-pdf.ts public/branding/resume.html public/branding/resume.pdf",
+        "ts-node cli/svg-export.ts public/branding"
+      ]
+    },
+    "buildAllRemote": {
+      "description": "Generate via MCP server and export assets",
+      "steps": [
+        "ts-node cli/generate-logo.ts public/branding/logo.svg --remote",
+        "ts-node cli/preview-layout.ts --remote",
+        "ts-node cli/build-resume.ts --theme modern --output public/branding/resume.html --remote",
+        "ts-node cli/export-resume-pdf.ts public/branding/resume.html public/branding/resume.pdf",
+        "ts-node cli/svg-export.ts public/branding --remote"
+      ]
+    }
+  }
+}

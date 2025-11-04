@@ -1,0 +1,47 @@
+{
+  "name": "Jacob Darling",
+  "title": "Creative Technologist",
+  "contact": {
+    "email": "jacob@example.com",
+    "site": "https://jacobdarling.com",
+    "location": "New York, NY"
+  },
+  "sections": [
+    {
+      "heading": "Experience",
+      "items": [
+        {
+          "role": "Lead Developer",
+          "company": "Tech Innovators",
+          "dates": "2020 - Present",
+          "location": "Remote",
+          "bullets": [
+            "Developed innovative solutions for client projects.",
+            "Led a team of 5 developers to deliver high-quality software."
+          ]
+        },
+        {
+          "role": "Software Engineer",
+          "company": "CodeCraft",
+          "dates": "2018 - 2020",
+          "location": "San Francisco, CA",
+          "bullets": [
+            "Implemented scalable backend systems.",
+            "Collaborated with cross-functional teams to meet project goals."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Education",
+      "items": [
+        {
+          "role": "B.Sc. Computer Science",
+          "company": "University of Technology",
+          "dates": "2014 - 2018",
+          "location": "Boston, MA"
+        }
+      ]
+    }
+  ]
+}
