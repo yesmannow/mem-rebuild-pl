@@ -1,0 +1,79 @@
+.client-logos-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.client-logos-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #fafbfc;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #88ABF2 0%, #a8c5ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(136, 171, 242, 0.03);
+  border: 1px solid rgba(136, 171, 242, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  min-height: 120px;
+}
+
+.logo-item:hover {
+  background: rgba(136, 171, 242, 0.06);
+  border-color: rgba(136, 171, 242, 0.3);
+  box-shadow: 0 4px 16px rgba(136, 171, 242, 0.1);
+}
+
+.logo-item img {
+  max-width: 100%;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0.9) grayscale(0.2);
+  transition: filter 0.3s ease;
+}
+
+.logo-item:hover img {
+  filter: brightness(1) grayscale(0);
+}
+
+@media (max-width: 768px) {
+  .client-logos-section {
+    padding: 3rem 1rem;
+  }
+
+  .client-logos-section h2 {
+    font-size: 2rem;
+  }
+
+  .logos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .logo-item {
+    padding: 1rem;
+    min-height: 100px;
+  }
+
+  .logo-item img {
+    max-height: 60px;
+  }
+}

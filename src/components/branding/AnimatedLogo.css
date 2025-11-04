@@ -1,0 +1,67 @@
+.animated-logo {
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 0 0px rgba(136, 171, 242, 0));
+}
+
+.animated-logo:hover {
+  filter: drop-shadow(0 0 8px rgba(136, 171, 242, 0.5)) 
+          drop-shadow(0 0 12px rgba(168, 197, 255, 0.3));
+  transition: filter 0.4s ease;
+}
+
+/* Variant-specific styles */
+.logo-header {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logo-splash {
+  filter: drop-shadow(0 0 20px rgba(136, 171, 242, 0.4));
+}
+
+.logo-footer {
+  opacity: 0.8;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.logo-footer:hover {
+  opacity: 1;
+}
+
+/* Cinematic glow animation for splash variant */
+.logo-splash .logo-hexagon,
+.logo-splash .logo-path {
+  filter: url(#glow);
+}
+
+/* Responsive sizing */
+@media (max-width: 768px) {
+  .animated-logo {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Animation performance optimization */
+.animated-logo * {
+  will-change: transform, opacity, filter;
+}
+
+/* Accessibility */
+.animated-logo:focus {
+  outline: 2px solid #88ABF2;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animated-logo {
+    transition: none;
+  }
+  
+  .animated-logo:hover {
+    transform: none;
+    filter: none;
+  }
+}

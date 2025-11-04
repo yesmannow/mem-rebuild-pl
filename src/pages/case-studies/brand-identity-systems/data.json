@@ -1,0 +1,90 @@
+{
+  "id": "brand-identity-systems",
+  "title": "Brand Identity Systems",
+  "subtitle": "Comprehensive brand identity development for diverse clients",
+  "client": "Multiple Clients",
+  "year": "2022-2023",
+  "duration": "12 months",
+  "category": "Brand Identity",
+  "tags": ["branding", "identity", "logo", "systems", "visual-identity"],
+  "featured": true,
+  "status": "completed",
+  "overview": {
+    "challenge": "Develop unique brand identities for diverse clients across different industries, each requiring distinct personality while maintaining professional standards and market appeal.",
+    "solution": "Created comprehensive brand identity systems including logos, color palettes, typography, and application guidelines tailored to each client's industry and target audience.",
+    "impact": "Delivered 12+ successful brand launches with 90% client satisfaction and improved market positioning."
+  },
+  "images": [
+    {
+      "src": "/images/design/Herbs Rub Logo.png",
+      "alt": "Culinary brand logo with organic aesthetic",
+      "caption": "Herbs & Rub culinary brand identity featuring organic, artisanal design elements",
+      "type": "hero"
+    },
+    {
+      "src": "/images/design/AM-Logo.png",
+      "alt": "Modern monogram logo design",
+      "caption": "Clean, modern monogram logo for professional services",
+      "type": "detail"
+    },
+    {
+      "src": "/images/design/BF MOGOGRAM final-02.jpg",
+      "alt": "Sophisticated monogram design",
+      "caption": "Elegant monogram design with refined typography",
+      "type": "detail"
+    },
+    {
+      "src": "/images/design/CA.jpg",
+      "alt": "Contemporary logo design",
+      "caption": "Contemporary logo design with bold visual impact",
+      "type": "detail"
+    }
+  ],
+  "process": [
+    {
+      "phase": "Brand Discovery",
+      "description": "Deep dive into client values, target audience, and competitive landscape",
+      "deliverables": ["Brand questionnaire", "Competitive analysis", "Mood boards"]
+    },
+    {
+      "phase": "Concept Development",
+      "description": "Created multiple logo concepts exploring different visual directions",
+      "deliverables": ["Logo concepts", "Typography exploration", "Color palette options"]
+    },
+    {
+      "phase": "System Creation",
+      "description": "Developed comprehensive brand guidelines and application systems",
+      "deliverables": ["Brand guidelines", "Logo variations", "Application examples"]
+    },
+    {
+      "phase": "Implementation Support",
+      "description": "Provided ongoing support for brand rollout and applications",
+      "deliverables": ["Asset delivery", "Implementation guidance", "Quality control"]
+    }
+  ],
+  "technologies": ["Adobe Illustrator", "Adobe InDesign", "Figma", "Sketch"],
+  "results": [
+    {
+      "metric": "Brand Launches",
+      "value": "12+",
+      "description": "Successful brand identity launches across industries"
+    },
+    {
+      "metric": "Client Satisfaction",
+      "value": "90%",
+      "description": "Client satisfaction rate with final deliverables"
+    },
+    {
+      "metric": "Market Impact",
+      "value": "+45%",
+      "description": "Average improvement in brand recognition"
+    }
+  ],
+  "testimonial": {
+    "quote": "The brand identity perfectly captured our company's essence. The comprehensive system made it easy to maintain consistency across all our marketing materials.",
+    "author": "Business Owner",
+    "role": "Client"
+  },
+  "nextProject": "social-media-design",
+  "relatedProjects": ["healthcare-campaign", "promotional-campaigns"]
+}

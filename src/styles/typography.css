@@ -1,0 +1,320 @@
+/* ===================================================================
+   JACOB DARLING PORTFOLIO - TYPOGRAPHY SYSTEM
+   Cinematic • Modern • Technological Elegance
+   =================================================================== */
+
+/* ===== FONT IMPORTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+/* ===== TYPOGRAPHY TOKENS ===== */
+:root {
+  /* ===== FONT FAMILIES ===== */
+  --font-heading: 'Clash Display', 'Arial Black', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  
+  /* ===== FONT WEIGHTS ===== */
+  --weight-light: 300;
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+  
+  /* ===== FONT SIZES ===== */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 3.75rem;     /* 60px */
+  --text-7xl: 4.5rem;      /* 72px */
+  --text-8xl: 6rem;        /* 96px */
+  --text-9xl: 8rem;        /* 128px */
+  
+  /* ===== LINE HEIGHTS ===== */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* ===== LETTER SPACING ===== */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+}
+
+/* ===== BASE TYPOGRAPHY RESET ===== */
+* {
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: var(--weight-normal);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* ===== HEADING STYLES ===== */
+h1, .h1 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-extrabold);
+  font-size: clamp(2rem, 6vw, 5rem);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+}
+
+h2, .h2 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  font-size: clamp(1.75rem, 5vw, 4rem);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+h3, .h3 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+h4, .h4 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-normal);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+h5, .h5 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-normal);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+h6, .h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+/* ===== BODY TEXT STYLES ===== */
+p, .body {
+  font-family: var(--font-body);
+  font-weight: var(--weight-normal);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-weight: var(--weight-normal);
+  font-size: var(--text-xl);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+}
+
+.small {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+.caption {
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+/* ===== DISPLAY TYPOGRAPHY ===== */
+.display-1 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-extrabold);
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-tighter);
+}
+
+.display-2 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-extrabold);
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-tighter);
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-extrabold);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-weight: var(--weight-normal);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+  max-width: 60ch;
+}
+
+/* ===== CODE TYPOGRAPHY ===== */
+code, .code {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-normal);
+  font-size: 0.875em;
+  background: var(--color-neutral-800);
+  padding: 0.125rem 0.25rem;
+  border-radius: var(--radius-sm);
+  color: var(--color-accent);
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-normal);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  background: var(--color-neutral-900);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  border: 1px solid var(--color-neutral-700);
+}
+
+/* ===== LINK STYLES ===== */
+a, .link {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) ease;
+}
+
+a:hover, .link:hover {
+  color: var(--color-accent);
+}
+
+.link-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  transition: opacity var(--duration-fast) ease;
+}
+
+.link-gradient:hover {
+  opacity: 0.8;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.text-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-glow {
+  text-shadow: var(--glow-brand);
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.font-light { font-weight: var(--weight-light); }
+.font-normal { font-weight: var(--weight-normal); }
+.font-medium { font-weight: var(--weight-medium); }
+.font-semibold { font-weight: var(--weight-semibold); }
+.font-bold { font-weight: var(--weight-bold); }
+.font-extrabold { font-weight: var(--weight-extrabold); }
+
+.tracking-tight { letter-spacing: var(--tracking-tight); }
+.tracking-normal { letter-spacing: var(--tracking-normal); }
+.tracking-wide { letter-spacing: var(--tracking-wide); }
+
+.leading-none { line-height: var(--leading-none); }
+.leading-tight { line-height: var(--leading-tight); }
+.leading-normal { line-height: var(--leading-normal); }
+.leading-relaxed { line-height: var(--leading-relaxed); }
+
+/* ===== RESPONSIVE TYPOGRAPHY ===== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(0.875rem, 4vw, 1rem);
+  }
+  
+  h1, .h1 {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+  
+  h2, .h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  * {
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+}

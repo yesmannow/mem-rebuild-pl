@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graston Technique® Smart Pricing Tool</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333739;
+            background: #ADBBC2;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+            background: #333739;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .graston-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        
+        .logo-text {
+            color: #0558A5;
+            text-shadow: none;
+        }
+        
+        .logo-technique {
+            background: #157A83;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 25px;
+            margin-left: 10px;
+            font-size: 0.7em;
+            text-shadow: none;
+        }
+        
+        .header h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .control-panel {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .quick-tools {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .tool-card {
+            background: #157A83;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(21, 122, 131, 0.4);
+            background: #0558A5;
+        }
+        
+        .search-filters {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 15px;
+            align-items: end;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box input:focus {
+            border-color: #157A83;
+            box-shadow: 0 0 10px rgba(21, 122, 131, 0.2);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+        
+        .filter-select {
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            background: white;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        .quote-builder {
+            background: #0558A5;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .quote-builder.active {
+            display: block;
+        }
+        
+        .quote-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .quote-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .product-card.best-seller {
+            border-color: #157A83;
+            background: linear-gradient(135deg, #f8fbfc 0%, #ffffff 100%);
+        }
+        
+        .product-card.in-quote {
+            border-color: #0558A5;
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+        }
+        
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .product-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+            flex: 1;
+        }
+        
+        .badge {
+            background: #ff6b6b;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .badge.best-seller {
+            background: #157A83;
+            color: white;
+        }
+        
+        .badge.financing {
+            background: #0558A5;
+        }
+        
+        .product-description {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        
+        .pricing-options {
+            margin-bottom: 20px;
+        }
+        
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .price-row:last-child {
+            border-bottom: none;
+        }
+        
+        .price-label {
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .price-value {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #0558A5;
+        }
+        
+        .financing-info {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        
+        .financing-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+            flex-wrap: wrap;
+        }
+        
+        .financing-option {
+            background: #157A83;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8em;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+        }
+        
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            flex: 1;
+            text-decoration: none;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background: #0558A5;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #044a94;
+        }
+        
+        .btn-success {
+            background: #157A83;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #126b73;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #157A83;
+            border: 2px solid #157A83;
+        }
+        
+        .btn-outline:hover {
+            background: #157A83;
+            color: white;
+        }
+        
+        .section-header {
+            background: #157A83;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin: 30px 0 20px 0;
+            text-align: center;
+        }
+        
+        .membership-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .membership-card {
+            background: #0558A5;
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .membership-card:hover {
+            transform: translateY(-3px);
+            background: #044a94;
+        }
+        
+        .membership-price {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #fff;
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .quick-calc {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #157A83;
+            margin-top: 15px;
+        }
+        
+        .savings-highlight {
+            background: #f0f7ff;
+            color: #0558A5;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .close:hover {
+            color: #000;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #157A83;
+        }
+        
+        .quote-preview {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        
+        .quote-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .event-info {
+            background: #f0f7ff;
+            border: 1px solid #157A83;
+            padding: 10px;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        
+        .next-training {
+            color: #0558A5;
+        }
+        
+        .seats-available {
+            background: #157A83;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        
+        .api-loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #157A83;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .quick-tools {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-filters {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quote-summary {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .quote-actions {
+                justify-content: center;
+            }
+            
+            .modal-content {
+                margin: 5% auto;
+                width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="graston-logo">
+                <span class="logo-text">GRASTON</span>
+                <span class="logo-technique">TECHNIQUE®</span>
+            </div>
+            <h1>🚀 Smart Sales & Pricing Tool</h1>
+            <p>Find pricing fast • Build quotes instantly • Close deals • Leader in IASTM</p>
+            <div id="api-status" class="api-status" style="margin-top: 10px; font-size: 0.9em; color: #ccc;">
+                <span id="api-indicator">🔄 Loading live data...</span>
+            </div>
+        </div>
+        
+        <div class="control-panel">
+            <div class="quick-tools">
+                <div class="tool-card" onclick="toggleQuoteBuilder()">
+                    <h3>📋 Quote Builder</h3>
+                    <p>Build custom quotes instantly</p>
+                </div>
+                <div class="tool-card" onclick="showBestSellers()">
+                    <h3>⭐ Best Sellers</h3>
+                    <p>Show top products only</p>
+                </div>
+                <div class="tool-card" onclick="showFinancingOnly()">
+                    <h3>💳 Payment Plans</h3>
+                    <p>Products with financing</p>
+                </div>
+            </div>
+            
+            <div class="search-filters">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search products, training, instruments..." onkeyup="searchProducts()">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <select id="customerType" class="filter-select" onchange="filterByCustomer()">
+                    <option value="all">All Customers</option>
+                    <option value="retail">List Price</option>
+                    <option value="corporate">Corporate</option>
+                    <option value="student">Student/Military</option>
+                </select>
+                <select id="category" class="filter-select" onchange="filterByCategory()">
+                    <option value="all">All Categories</option>
+                    <option value="training">Training</option>
+                    <option value="instruments">Instruments</option>
+                    <option value="bundles">Bundles</option>
+                    <option value="memberships">Memberships</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="quote-builder" id="quoteBuilder">
+            <h3>📋 Active Quote Builder</h3>
+            <div class="quote-summary">
+                <div>
+                    <span id="quoteItems">0 items selected</span> | 
+                    <span id="quoteTotal">Total: $0</span>
+                </div>
+                <div class="quote-actions">
+                    <button class="btn btn-success" onclick="openEmailQuote()">📧 Email Quote</button>
+                    <button class="btn btn-primary" onclick="exportQuote()">💾 Download</button>
+                    <button class="btn btn-outline" onclick="clearQuote()">🗑️ Clear All</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Email Quote Modal -->
+        <div id="emailModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeEmailModal()">&times;</span>
+                <h2>📧 Email Professional Quote</h2>
+                <form id="emailQuoteForm">
+                    <div class="form-group">
+                        <label>Customer Name:</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Customer Email:</label>
+                        <input type="email" id="customerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Name:</label>
+                        <input type="text" id="salesRepName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Email:</label>
+                        <input type="email" id="salesRepEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Customer Type:</label>
+                        <select id="quoteCustomerType">
+                            <option value="retail">List Price</option>
+                            <option value="corporate">Corporate</option>
+                            <option value="student">Student/Military</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Additional Notes (Optional):</label>
+                        <textarea id="additionalNotes" rows="3" placeholder="Special offers, terms, next steps..."></textarea>
+                    </div>
+                    
+                    <div class="quote-preview">
+                        <h3>Quote Preview:</h3>
+                        <div id="quotePreviewContent"></div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; justify-content: center;">
+                        <button type="button" class="btn btn-success" onclick="sendEmailQuote()">📧 Send Quote & Tag CRM</button>
+                        <button type="button" class="btn btn-outline" onclick="closeEmailModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="products-container">
+            <!-- Best Sellers Section -->
+            <div class="section-header">⭐ BEST SELLERS</div>
+            <div class="products-grid" id="bestSellers">
+                
+                <div class="product-card best-seller" data-category="training" data-keywords="essential training ceu">
+                    <div class="product-header">
+                        <div class="product-title">ESSENTIAL Training</div>
+                        <div class="badge best-seller">BEST SELLER</div>
+                    </div>
+                    <div class="product-description">12 CEU's • Foundation level IASTM training</div>
+                    <div class="pricing-options">
+                        <div class="price-row">
+                            <span class="price-label">List Price:</span>
+                            <span class="price-value" data-price="650">$650</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Corporate:</span>
+                            <span class="price-value" data-price="550">$550</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Student/Military:</span>
+                            <span class="price-value" data-price="550">$550</span>
+                        </div>
+                    </div>
+                    <div class="savings-highlight">Save $100 vs List Price!</div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="addToQuote(this, 'ESSENTIAL Training', 650, 550, 550)">Add to Quote</button>
+                        <button class="btn btn-outline" onclick="showDetails(this)">Details</button>
+                    </div>
+                </div>
+
+                <div class="product-card best-seller" data-category="training" data-keywords="advanced training ceu">
+                    <div class="product-header">
+                        <div class="product-title">ADVANCED Training</div>
+                        <div class="badge best-seller">BEST SELLER</div>
+                    </div>
+                    <div class="product-description">14 CEU's • Advanced IASTM techniques</div>
+                    <div class="pricing-options">
+                        <div class="price-row">
+                            <span class="price-label">List Price:</span>
+                            <span class="price-value" data-price="695">$695</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Corporate:</span>
+                            <span class="price-value" data-price="595">$595</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Student/Military:</span>
+                            <span class="price-value" data-price="595">$595</span>
+                        </div>
+                    </div>
+                    <div class="savings-highlight">Save $100 vs List Price!</div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="addToQuote(this, 'ADVANCED Training', 695, 595, 595)">Add to Quote</button>
+                        <button class="btn btn-outline" onclick="showDetails(this)">Details</button>
+                    </div>
+                </div>
+
+                <div class="product-card best-seller" data-category="instruments" data-keywords="instruments tools set 6 piece">
+                    <div class="product-header">
+                        <div class="product-title">6 PIECE Instrument Set</div>
+                        <div class="badge best-seller">BEST SELLER</div>
+                        <div class="badge financing">FINANCING</div>
+                    </div>
+                    <div class="product-description">Complete professional Graston Technique® instrument set</div>
+                    <div class="financing-info">
+                        <strong>Payment Plans Available:</strong> $500 deposit + monthly payments
+                        <div class="financing-options">
+                            <span class="financing-option">18mo: $66-$105</span>
+                            <span class="financing-option">12mo: $100-$158</span>
+                            <span class="financing-option">6mo: $199-$316</span>
+                        </div>
+                    </div>
+                    <div class="pricing-options">
+                        <div class="price-row">
+                            <span class="price-label">List Price:</span>
+                            <span class="price-value" data-price="2395">$2,395</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Corporate:</span>
+                            <span class="price-value" data-price="2395">$2,395</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Student/Military:</span>
+                            <span class="price-value" data-price="1795">$1,795</span>
+                        </div>
+                    </div>
+                    <div class="savings-highlight">Students save $600!</div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="addToQuote(this, '6 PIECE Instrument Set', 2395, 2395, 1795)">Add to Quote</button>
+                        <button class="btn btn-outline" onclick="showFinancingCalc(this)">Financing</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="training" data-keywords="upper quadrant training ceu">
+                    <div class="product-header">
+                        <div class="product-title">UPPER QUADRANT Training</div>
+                    </div>
+                    <div class="product-description">4 CEU's • Specialized upper body IASTM techniques</div>
+                    <div class="pricing-options">
+                        <div class="price-row">
+                            <span class="price-label">List Price:</span>
+                            <span class="price-value" data-price="399">$399</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Corporate:</span>
+                            <span class="price-value" data-price="349">$349</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Student/Military:</span>
+                            <span class="price-value" data-price="349">$349</span>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="addToQuote(this, 'UPPER QUADRANT Training', 399, 349, 349)">Add to Quote</button>
+                        <button class="btn btn-outline" onclick="showDetails(this)">Details</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="training" data-keywords="gts credential exam certification">
+                    <div class="product-header">
+                        <div class="product-title">GTS Credential Exam</div>
+                    </div>
+                    <div class="product-description">Credential valid for 2 years</div>
+                    <div class="pricing-options">
+                        <div class="price-row">
+                            <span class="price-label">All Customers:</span>
+                            <span class="price-value" data-price="99">$99</span>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="addToQuote(this, 'GTS Credential Exam', 99, 99, 99)">Add to Quote</button>
+                        <button class="btn btn-outline" onclick="showDetails(this)">Details</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="training" data-keywords="gt short course training">
+                    <div class="product-header">
+                        <div class="product-title">GT-Short Course</div>
+                    </div>
+                    <div class="product-description">Individual short course</div>
+                    <div class="pricing-options">
+                        <div class="price-row">
+                            <span class="price-label">All Customers:</span>
+                            <span class="price-value" data-price="29.99">$29.99</span>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="addToQuote(this, 'GT-Short Course', 29.99, 29.99, 29.99)">Add to Quote</button>
+                        <button class="btn btn-outline" onclick="showDetails(this)">Details</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Training Bundles Section -->
+            <div class="section-header">📦 COMPLETE TRAINING BUNDLES</div>
+            <div class="products-grid" id="bundles">
+                
+                <div class="product-card best-seller" data-category="bundles" data-keywords="master practitioner bundle instruments training">
+                    <div class="product-header">
+                        <div class="product-title">Master Practitioner Bundle (w/Instruments)</div>
+                        <div class="badge best-seller">COMPLETE</div>
+                        <div class="badge financing">FINANCING</div>
+                    </div>
+                    <div class="product-description">ESSENTIAL + ADVANCED + Upper Quad + GTS + Instruments + Case + Emollient + 2mo Premier</div>
+                    <div class="financing-info">
+                        <strong>Payment Plans:</strong> $500 deposit + monthly payments
+                        <div class="financing-options">
+                            <span class="financing-option">18mo: $142-$211</span>
+                            <span class="financing-option">12mo: $213-$317</span>
+                            <span class="financing-option">6mo: $426-$633</span>
+                        </div>
+                    </div>
+                    <div class="pricing-options">
+                        <div class="price-row">
+                            <span class="price-label">Retail Value:</span>
+                            <span class="price-value" data-price="4298">$4,298</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Bundle Price:</span>
+                            <span class="price-value" data-price="3655">$3,655</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Corporate:</span>
+                            <span class="price-value" data-price="3155">$3,155</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Student/Military:</span>
+                            <span class="price-value" data-price="3055">$3,055</span>
+                        </div>
+                    </div>
+                    <div class="savings-highlight">Save up to $1,243 vs individual items!</div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="addToQuote(this, 'Master Practitioner Bundle (w/Instruments)', 4298, 3155, 3055)">Add to Quote</button>
+                        <button class="btn btn-outline" onclick="showFinancingCalc(this)">Financing</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="bundles" data-keywords="advanced practitioner bundle instruments training">
+                    <div class="product-header">
+                        <div class="product-title">Advanced Practitioner Bundle (w/Instruments)</div>
+                        <div class="badge financing">FINANCING</div>
+                    </div>
+                    <div class="product-description">ADVANCED + Instruments + GTS + 2 month Premier</div>
+                    <div class="financing-info">
+                        <strong>Payment Plans:</strong> $500 deposit + monthly payments
+                        <div class="financing-options">
+                            <span class="financing-option">18mo: $119-$186</span>
+                            <span class="financing-option">12mo: $179-$278</span>
+                            <span class="financing-option">6mo: $358-$557</span>
+                        </div>
+                    </div>
+                    <div class="pricing-options">
+                        <div class="price-row">
+                            <span class="price-label">Retail Value:</span>
+                            <span class="price-value" data-price="3839">$3,839</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Bundle Price:</span>
+                            <span class="price-value" data-price="3250">$3,250</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Corporate:</span>
+                            <span class="price-value" data-price="2750">$2,750</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Student/Military:</span>
+                            <span class="price-value" data-price="2650">$2,650</span>
+                        </div>
+                    </div>
+                    <div class="savings-highlight">Save up to $1,189 vs individual items!</div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="addToQuote(this, 'Advanced Practitioner Bundle (w/Instruments)', 3839, 2750, 2650)">Add to Quote</button>
+                        <button class="btn btn-outline" onclick="showFinancingCalc(this)">Financing</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="bundles" data-keywords="essential practitioner bundle instruments training">
+                    <div class="product-header">
+                        <div class="product-title">Essential Practitioner Bundle (w/Instruments)</div>
+                        <div class="badge financing">FINANCING</div>
+                    </div>
+                    <div class="product-description">ESSENTIAL + Instruments + 2 month Premier</div>
+                    <div class="financing-info">
+                        <strong>Payment Plans:</strong> $500 deposit + monthly payments
+                        <div class="financing-options">
+                            <span class="financing-option">18mo: $99-$141</span>
+                            <span class="financing-option">12mo: $149-$212</span>
+                            <span class="financing-option">6mo: $298-$424</span>
+                        </div>
+                    </div>
+                    <div class="pricing-options">
+                        <div class="price-row">
+                            <span class="price-label">Retail Value:</span>
+                            <span class="price-value" data-price="3045">$3,045</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Bundle Price:</span>
+                            <span class="price-value" data-price="2890">$2,890</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Corporate:</span>
+                            <span class="price-value" data-price="2390">$2,390</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Student/Military:</span>
+                            <span class="price-value" data-price="2290">$2,290</span>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="addToQuote(this, 'Essential Practitioner Bundle (w/Instruments)', 3045, 2390, 2290)">Add to Quote</button>
+                        <button class="btn btn-outline" onclick="showFinancingCalc(this)">Financing</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Memberships Section -->
+            <div class="section-header">💎 MEMBERSHIP OPTIONS</div>
+            <div class="membership-cards" id="memberships">
+                
+                <div class="membership-card" data-category="memberships" data-keywords="premier membership unlimited ceu">
+                    <h3>Premier Membership</h3>
+                    <div class="membership-price">$299/year</div>
+                    <p>Premier Listing + Premier Assets + CEU Unlimited + Exclusive Pricing (10% OFF EVERYTHING)</p>
+                    <button class="btn btn-success" onclick="addToQuote(this, 'Premier Membership', 299, 299, 299)" style="margin-top: 15px; background: rgba(255,255,255,0.2); border: 2px solid white;">Add to Quote</button>
+                </div>
+                
+                <div class="membership-card" data-category="memberships" data-keywords="ceu unlimited membership">
+                    <h3>CEU Unlimited Membership</h3>
+                    <div class="membership-price">$249/year</div>
+                    <p>Access UP TO 60 CEU Short Courses (ONLY) per year</p>
+                    <button class="btn btn-success" onclick="addToQuote(this, 'CEU Unlimited Membership', 249, 249, 249)" style="margin-top: 15px; background: rgba(255,255,255,0.2); border: 2px solid white;">Add to Quote</button>
+                </div>
+                
+                <div class="membership-card" data-category="memberships" data-keywords="preferred membership listing">
+                    <h3>Preferred Membership</h3>
+                    <div class="membership-price">$199/year</div>
+                    <p>Preferred Listing + Preferred Assets</p>
+                    <button class="btn btn-success" onclick="addToQuote(this, 'Preferred Membership', 199, 199, 199)" style="margin-top: 15px; background: rgba(255,255,255,0.2); border: 2px solid white;">Add to Quote</button>
+                </div>
+                
+            </div>
+
+            <!-- Instruments & Accessories -->
+            <div class="section-header">🔧 INSTRUMENTS & ACCESSORIES</div>
+            <div class="products-grid" id="instruments">
+                
+                <div class="product-card" data-category="instruments" data-keywords="single instrument new tool">
+                    <div class="product-header">
+                        <div class="product-title">Single Instrument (New)</div>
+                    </div>
+                    <div class="product-description">Individual professional Graston Technique® instrument</div>
+                    <div class="pricing-options">
+                        <div class="price-row">
+                            <span class="price-label">All Customers:</span>
+                            <span class="price-value" data-price="400">$400.00</span>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="addToQuote(this, 'Single Instrument (New)', 400, 400, 400)">Add to Quote</button>
+                        <button class="btn btn-outline" onclick="showDetails(this)">Details</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="instruments" data-keywords="refurbished instrument used tool">
+                    <div class="product-header">
+                        <div class="product-title">Refurbished Instrument</div>
+                    </div>
+                    <div class="product-description">Pre-owned, professionally refurbished</div>
+                    <div class="pricing-options">
+                        <div class="price-row">
+                            <span class="price-label">All Customers:</span>
+                            <span class="price-value" data-price="200">$200.00</span>
+                        </div>
+                    </div>
+                    <div class="savings-highlight">Save $200 vs New!</div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="addToQuote(this, 'Refurbished Instrument', 200, 200, 200)">Add to Quote</button>
+                        <button class="btn btn-outline" onclick="showDetails(this)">Details</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="instruments" data-keywords="carrying case easel transport storage">
+                    <div class="product-header">
+                        <div class="product-title">Graston™ Carrying Case with Easel</div>
+                    </div>
+                    <div class="product-description">Professional transport and storage solution</div>
+                    <div class="pricing-options">
+                        <div class="price-row">
+                            <span class="price-label">Retail:</span>
+                            <span class="price-value" data-price="59.99">$59.99</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Corporate:</span>
+                            <span class="price-value" data-price="54.99">$54.99</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Student/Military:</span>
+                            <span class="price-value" data-price="49.99">$49.99</span>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="addToQuote(this, 'Graston Carrying Case with Easel', 59.99, 54.99, 49.99)">Add to Quote</button>
+                        <button class="btn btn-outline" onclick="showDetails(this)">Details</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="instruments" data-keywords="emollient vitamin arnica cbd oil cream">
+                    <div class="product-header">
+                        <div class="product-title">Graston™ Emollients</div>
+                    </div>
+                    <div class="product-description">Vitamin E ($22.99), Arnica ($29.99), CBD ($34.99) • Bulk packs available</div>
+                    <div class="quick-calc">
+                        <strong>Quick Calculator:</strong><br>
+                        6-pack Vitamin E: $99.99 (save $37.95)<br>
+                        12-pack Arnica: $309.99 (save $49.89)<br>
+                        6-pack CBD: $199.99 (save $9.95)
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="showEmollientOptions()">View All Options</button>
+                        <button class="btn btn-outline" onclick="addToQuote(this, 'Graston Vitamin E Emollient', 22.99, 22.99, 22.99)">Add Basic</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div style="text-align: center; color: white; margin-top: 40px; padding: 20px;">
+            <p>&copy; 2025 Graston Technique, LLC. All rights reserved. | Leader in Instrument-Assisted Soft Tissue Mobilization (IASTM)</p>
+        </div>
+    </div>
+    
+    <script>
+        let currentQuote = [];
+        let currentCustomerType = 'retail';
+        
+        // Search functionality
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                const keywords = card.getAttribute('data-keywords') || '';
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const description = card.querySelector('.product-description').textContent.toLowerCase();
+                
+                const matches = keywords.includes(searchTerm) || 
+                              title.includes(searchTerm) || 
+                              description.includes(searchTerm);
+                
+                card.style.display = matches || searchTerm === '' ? 'block' : 'none';
+            });
+        }
+        
+        // Filter by customer type
+        function filterByCustomer() {
+            currentCustomerType = document.getElementById('customerType').value;
+            const priceRows = document.querySelectorAll('.price-row');
+            
+            priceRows.forEach(row => {
+                const label = row.querySelector('.price-label').textContent.toLowerCase();
+                
+                if (currentCustomerType === 'all') {
+                    row.style.display = 'flex';
+                } else if (currentCustomerType === 'retail' && label.includes('list')) {
+                    row.style.display = 'flex';
+                } else if (currentCustomerType === 'corporate' && label.includes('corporate')) {
+                    row.style.display = 'flex';
+                } else if (currentCustomerType === 'student' && label.includes('student')) {
+                    row.style.display = 'flex';
+                } else if (label.includes('all customers')) {
+                    row.style.display = 'flex';
+                } else if (currentCustomerType !== 'all') {
+                    row.style.display = 'none';
+                }
+            });
+        }
+        
+        // Filter by category
+        function filterByCategory() {
+            const category = document.getElementById('category').value;
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category') || '';
+                card.style.display = category === 'all' || cardCategory === category ? 'block' : 'none';
+            });
+        }
+        
+        // Quick filter functions
+        function showBestSellers() {
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                card.style.display = card.classList.contains('best-seller') ? 'block' : 'none';
+            });
+        }
+        
+        function showFinancingOnly() {
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                const hasFinancing = card.querySelector('.badge.financing');
+                card.style.display = hasFinancing ? 'block' : 'none';
+            });
+        }
+        
+        // Quote builder functions
+        function toggleQuoteBuilder() {
+            const quoteBuilder = document.getElementById('quoteBuilder');
+            quoteBuilder.classList.toggle('active');
+        }
+        
+        // Fixed addToQuote function - the root cause of the error
+        function addToQuote(buttonElement, productName, retailPrice, corpPrice, studentPrice) {
+            let price = retailPrice;
+            if (currentCustomerType === 'corporate') price = corpPrice;
+            if (currentCustomerType === 'student') price = studentPrice;
+            
+            const existingItem = currentQuote.find(item => item.name === productName);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                currentQuote.push({
+                    name: productName,
+                    retailPrice: retailPrice,
+                    corpPrice: corpPrice,
+                    studentPrice: studentPrice,
+                    quantity: 1
+                });
+            }
+            
+            updateQuoteDisplay();
+            
+            // Visual feedback - using the passed button element
+            const originalText = buttonElement.textContent;
+            const originalBackground = buttonElement.style.background;
+            
+            buttonElement.style.background = '#157A83';
+            buttonElement.textContent = 'Added!';
+            
+            setTimeout(() => {
+                buttonElement.style.background = originalBackground;
+                buttonElement.textContent = originalText;
+            }, 1000);
+            
+            // Add visual indicator to card
+            const card = buttonElement.closest('.product-card');
+            card.classList.add('in-quote');
+        }
+        
+        function updateQuoteDisplay() {
+            const totalItems = currentQuote.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = calculateQuoteTotal();
+            
+            document.getElementById('quoteItems').textContent = `${totalItems} items selected`;
+            document.getElementById('quoteTotal').textContent = `Total: $${totalPrice.toLocaleString()}`;
+            
+            if (totalItems > 0 && !document.getElementById('quoteBuilder').classList.contains('active')) {
+                toggleQuoteBuilder();
+            }
+        }
+        
+        function calculateQuoteTotal() {
+            return currentQuote.reduce((sum, item) => {
+                let price = item.retailPrice;
+                if (currentCustomerType === 'corporate') price = item.corpPrice;
+                if (currentCustomerType === 'student') price = item.studentPrice;
+                return sum + (price * item.quantity);
+            }, 0);
+        }
+        
+        function clearQuote() {
+            currentQuote = [];
+            updateQuoteDisplay();
+            
+            // Remove visual indicators
+            document.querySelectorAll('.product-card.in-quote').forEach(card => {
+                card.classList.remove('in-quote');
+            });
+            
+            // Hide quote builder
+            document.getElementById('quoteBuilder').classList.remove('active');
+        }
+        
+        // Enhanced export quote function
+        function exportQuote() {
+            if (currentQuote.length === 0) {
+                alert('No items in quote to export!');
+                return;
+            }
+            
+            let quoteText = generateQuoteText();
+            
+            // Create and download the quote
+            const blob = new Blob([quoteText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Graston-Quote-${new Date().toISOString().split('T')[0]}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        // Email quote functionality
+        function openEmailQuote() {
+            if (currentQuote.length === 0) {
+                alert('No items in quote to email!');
+                return;
+            }
+            
+            // Set the customer type in the modal
+            document.getElementById('quoteCustomerType').value = currentCustomerType;
+            
+            // Generate quote preview
+            updateQuotePreview();
+            
+            // Show modal
+            document.getElementById('emailModal').style.display = 'block';
+        }
+        
+        function closeEmailModal() {
+            document.getElementById('emailModal').style.display = 'none';
+        }
+        
+        function updateQuotePreview() {
+            const customerType = document.getElementById('quoteCustomerType').value;
+            const previewContent = document.getElementById('quotePreviewContent');
+            
+            let html = '';
+            let total = 0;
+            
+            currentQuote.forEach(item => {
+                let price = item.retailPrice;
+                if (customerType === 'corporate') price = item.corpPrice;
+                if (customerType === 'student') price = item.studentPrice;
+                
+                const itemTotal = price * item.quantity;
+                total += itemTotal;
+                
+                html += `
+                    <div class="quote-item">
+                        <span>${item.quantity}x ${item.name}</span>
+                        <span>$${itemTotal.toLocaleString()}</span>
+                    </div>
+                `;
+            });
+            
+            html += `
+                <div class="quote-item">
+                    <span><strong>TOTAL</strong></span>
+                    <span><strong>$${total.toLocaleString()}</strong></span>
+                </div>
+            `;
+            
+            previewContent.innerHTML = html;
+        }
+        
+        function sendEmailQuote() {
+            const customerName = document.getElementById('customerName').value;
+            const customerEmail = document.getElementById('customerEmail').value;
+            const salesRepName = document.getElementById('salesRepName').value;
+            const salesRepEmail = document.getElementById('salesRepEmail').value;
+            const customerType = document.getElementById('quoteCustomerType').value;
+            const notes = document.getElementById('additionalNotes').value;
+            
+            if (!customerName || !customerEmail || !salesRepName || !salesRepEmail) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            const subject = `Graston Technique® Quote - ${customerName}`;
+            const quoteText = generateQuoteText(customerType, customerName, salesRepName, notes);
+            
+            // Create mailto link
+            const mailtoLink = `mailto:${customerEmail}?cc=${salesRepEmail}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(quoteText)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Close modal
+            closeEmailModal();
+            
+            alert('Email client opened with your professional quote!');
+        }
+        
+        function generateQuoteText(customerType = currentCustomerType, customerName = '', salesRepName = '', notes = '') {
+            const customerTypeLabel = customerType === 'retail' ? 'List Price' : 
+                                    customerType === 'corporate' ? 'Corporate' : 'Student/Military';
+            
+            let quoteText = `
+GRASTON TECHNIQUE® PROFESSIONAL QUOTE
+Leader in Instrument-Assisted Soft Tissue Mobilization (IASTM)
+=====================================
+
+Date: ${new Date().toLocaleDateString()}
+${customerName ? `Customer: ${customerName}` : ''}
+Customer Type: ${customerTypeLabel}
+${salesRepName ? `Sales Representative: ${salesRepName}` : ''}
+
+QUOTE DETAILS:
+--------------
+`;
+            
+            let total = 0;
+            currentQuote.forEach(item => {
+                let price = item.retailPrice;
+                if (customerType === 'corporate') price = item.corpPrice;
+                if (customerType === 'student') price = item.studentPrice;
+                
+                const itemTotal = price * item.quantity;
+                total += itemTotal;
+                
+                quoteText += `${item.quantity}x ${item.name} - $${itemTotal.toLocaleString()}\n`;
+            });
+            
+            quoteText += `\nTOTAL: $${total.toLocaleString()}\n`;
+            
+            if (notes) {
+                quoteText += `\nADDITIONAL NOTES:\n${notes}\n`;
+            }
+            
+            quoteText += `
+NEXT STEPS:
+-----------
+• Review this quote and let me know if you have any questions
+• Payment plans available for qualifying purchases ($500 deposit + monthly payments)
+• Training schedules and locations available at grastontechnique.com
+• Ready to proceed? Reply to confirm your order
+
+CONTACT INFORMATION:
+-------------------
+Website: https://grastontechnique.com
+Phone: [Your Phone Number]
+Email: ${salesRepName ? salesRepEmail : '[Your Email]'}
+
+Thank you for choosing Graston Technique® - The Leader in IASTM!
+
+© 2025 Graston Technique, LLC. All rights reserved.
+            `;
+            
+            return quoteText;
+        }
+        
+        // Update quote preview when customer type changes
+        document.getElementById('quoteCustomerType').addEventListener('change', updateQuotePreview);
+        
+        function showFinancingCalc(button) {
+            const card = button.closest('.product-card');
+            const title = card.querySelector('.product-title').textContent;
+            alert(`Financing Calculator for ${title}\n\nPayment Options:\n• $500 deposit required\n• 18 months: Lower monthly payments\n• 12 months: Moderate monthly payments\n• 6 months: Higher monthly payments\n\nWould you like specific calculations? Contact our sales team!`);
+        }
+        
+        function showDetails(button) {
+            const card = button.closest('.product-card');
+            const title = card.querySelector('.product-title').textContent;
+            alert(`${title} - Detailed Information\n\n✓ Professional IASTM Training\n✓ Continuing Education Units (CEUs)\n✓ Multi-disciplinary approach\n✓ Evidence-based techniques\n✓ Expert instruction\n\nFor complete curriculum details and schedules, visit grastontechnique.com`);
+        }
+        
+        function showEmollientOptions() {
+            alert(`Graston Technique® Emollient Options:\n\nVitamin E Enriched:\n• Single (4oz): $22.99\n• 6-pack: $99.99 (Save $37.95)\n• 12-pack: $159.99 (Save $115.89)\n\nArnica Formula:\n• Single (4oz): $29.99\n• 3-pack: $89.99\n• 6-pack: $169.99\n• 12-pack: $309.99 (Save $49.89)\n\nCBD Enhanced:\n• Single (4oz): $34.99\n• 6-pack: $199.99 (Save $9.95)\n• 12-pack: $369.99 (Save $49.89)\n\nAll emollients specially formulated for optimal IASTM therapy!`);
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('emailModal');
+            if (event.target === modal) {
+                closeEmailModal();
+            }
+        }
+        
+        // Initialize filters on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            filterByCustomer();
+            
+            // Check if WordPress API integration is available
+            if (typeof initGrastonPricingTool === 'function') {
+                initGrastonPricingTool();
+                document.getElementById('api-indicator').innerHTML = '✅ Connected to live data';
+            } else {
+                document.getElementById('api-indicator').innerHTML = '📋 Static pricing mode';
+            }
+        });
+    </script>
+</body>
+</html>

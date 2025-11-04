@@ -1,0 +1,50 @@
+.experience-timeline-container {
+  position: relative;
+}
+
+.timeline-dot {
+  /* Background color set via CSS custom property */
+  background-color: var(--timeline-dot-color);
+}
+
+.company-icon {
+  /* Color set via CSS custom property */
+  color: var(--company-primary-color);
+}
+
+.company-name {
+  /* Color set via CSS custom property */
+  color: var(--company-primary-color);
+}
+
+.metric-icon-container {
+  /* Color set via CSS custom property */
+  color: var(--metric-accent-color);
+}
+
+.metric-value {
+  /* Color set via CSS custom property */
+  color: var(--metric-primary-color);
+}
+
+.achievement-heading {
+  /* Color set via CSS custom property */
+  color: var(--achievement-primary-color);
+}
+
+.achievement-dot {
+  /* Background color set via CSS custom property */
+  background-color: var(--achievement-accent-color);
+}
+
+.technologies-heading {
+  /* Color set via CSS custom property */
+  color: var(--technologies-primary-color);
+}
+
+.technology-badge {
+  border-color: var(--technology-border-color);
+  background-color: var(--technology-bg-color);
+  color: var(--technology-text-color);
+}
+

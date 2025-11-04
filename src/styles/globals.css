@@ -1,0 +1,228 @@
+/* ===================================================================
+   JACOB DARLING PORTFOLIO - GLOBAL STYLES
+   Cinematic • Modern • Technological Elegance
+   =================================================================== */
+
+/* Import Brand Identity System */
+@import './tokens.css';
+@import './typography.css';
+@import './bio-cinematic.css';
+@import './enhanced-animations.css';
+@import './mobile-optimization.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --header-height: 80px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #0A0A0A; /* Prevent white flash before theme applies */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: var(--leading-normal);
+  overflow-x: hidden;
+  padding-top: var(--header-height);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Required for Framer Motion scroll calculations */
+}
+
+/* Fix Framer Motion position:static warning - ensure all motion containers have positioning context */
+[data-framer-name],
+[data-framer-component],
+section,
+article {
+  position: relative; /* Ensure Framer Motion can calculate scroll offsets */
+}
+
+/* Ensure scroll containers have proper positioning for Framer Motion */
+.scroll-container,
+.scroll-wrapper,
+.animation-container {
+  position: relative;
+}
+
+main {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  margin-top: var(--header-height); /* Ensure content starts below fixed header */
+}
+
+/* Utility class for pages that need extra top spacing */
+.page-content {
+  padding-top: 2rem; /* Additional spacing for page content */
+}
+
+/* Ensure hero sections account for header */
+.hero-section {
+  margin-top: calc(var(--header-height) * -1); /* Negative margin to account for header */
+  padding-top: calc(var(--header-height) + 20px); /* Extra padding to compensate */
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) ease;
+
+  &:hover {
+    color: var(--color-accent);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+/* ===== BRAND BUTTON STYLES ===== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md) var(--space-xl);
+  background: var(--gradient-brand);
+  color: white;
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-base);
+  border: none;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--duration-normal) ease;
+  box-shadow: var(--shadow-brand);
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: var(--glow-brand);
+    color: white;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+  }
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md) var(--space-xl);
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-base);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--duration-normal) ease;
+
+  &:hover {
+    background: var(--gradient-brand);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: var(--glow-brand);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+  }
+}
+
+p {
+  margin: 0 0 1rem 0;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--color-primary-blue) 0%, var(--color-primary-dark) 100%);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-medium-gray);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+} */

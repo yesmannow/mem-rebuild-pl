@@ -1,0 +1,8 @@
+{
+  "title": "Graston Dashboard Redesign",
+  "subtitle": "UX/UI overhaul for healthcare SaaS",
+  "role": "Design Lead, Front-End Dev",
+  "tools": ["React", "Figma", "GSAP"],
+  "summary": "Healthcare data doesn't have to feel clinical. I rebuilt Graston's dashboard to make complex information feel intuitive — and every interaction feel fluid.",
+  "slug": "graston-dashboard"
+}

@@ -1,0 +1,622 @@
+{
+  "projects": [
+    {
+      "id": "317-bbq",
+      "title": "317 BBQ Restaurant Branding",
+      "slug": "317-bbq",
+      "category": "Restaurant Branding",
+      "client": "317 BBQ",
+      "year": "2023",
+      "duration": "3 months",
+      "services": ["Brand Identity", "Logo Design", "Marketing Materials"],
+      "challenge": "Create a bold, memorable brand identity for a new BBQ restaurant that captures the authentic, smoky essence of traditional barbecue while appealing to modern diners.",
+      "approach": "Developed a rustic yet refined visual identity combining classic BBQ imagery with contemporary typography. The logo features bold, flame-inspired elements that evoke the heat and passion of authentic barbecue cooking.",
+      "execution": "Designed comprehensive brand materials including logo variations, business cards, signage concepts, and marketing collateral. Used warm color palette of deep reds, charcoal blacks, and golden yellows to reflect the smoky, fire-cooked atmosphere.",
+      "results": "Successfully launched brand identity that resonated with target audience. The logo became instantly recognizable in the local market, contributing to strong brand recall and customer loyalty.",
+      "takeaway": "Authentic branding in the food industry requires balancing tradition with innovation. The key is capturing the emotional connection people have with comfort food while maintaining professional appeal.",
+      "metrics": {
+        "brandRecognition": "85%",
+        "customerSatisfaction": "4.8/5",
+        "marketPenetration": "Local leader"
+      },
+      "tags": ["branding", "restaurant", "logo design", "food industry", "local business"],
+      "featured": true,
+      "website": "https://317bbq.com",
+      "images": [
+        "/images/side-projects/317BBQ+Logo-11.jpg",
+        "/images/side-projects/317BBQ+Logo_wht.png",
+        "/images/side-projects/Gomez BBQ Logo.png",
+        "/images/side-projects/Gomez PNG 2.png"
+      ]
+    },
+    {
+      "id": "primary-care-indy",
+      "title": "Primary Care Indianapolis Medical Branding",
+      "slug": "primary-care-indy",
+      "category": "Healthcare Branding",
+      "client": "Primary Care Indianapolis",
+      "year": "2023",
+      "duration": "4 months",
+      "services": ["Brand Identity", "Digital Marketing", "Web Design", "Print Materials"],
+      "challenge": "Modernize the visual identity of a healthcare practice to build trust, professionalism, and accessibility while maintaining warmth and human connection in medical care.",
+      "approach": "Created a clean, professional brand system that balances medical authority with approachable design. Focused on clear typography, calming color palette, and imagery that emphasizes patient care and wellness.",
+      "execution": "Developed comprehensive brand guidelines including logo system, color palette, typography, business cards, digital marketing materials, and website design concepts. Created COVID-19 specific communications and safety messaging.",
+      "results": "Enhanced patient trust and professional credibility. Improved online presence and patient engagement through cohesive brand experience across all touchpoints.",
+      "takeaway": "Healthcare branding must prioritize trust and accessibility. Clear communication and professional design can significantly impact patient confidence and practice growth.",
+      "metrics": {
+        "patientSatisfaction": "4.9/5",
+        "onlineEngagement": "+120%",
+        "newPatientInquiries": "+45%"
+      },
+      "tags": ["healthcare", "medical branding", "digital marketing", "web design", "patient care"],
+      "featured": true,
+      "website": "https://primarycareindy.com",
+      "images": [
+        "/images/side-projects/Primary Care Logo with PMC.png",
+        "/images/side-projects/cropped-PC_LOGO1-1024x174.jpg",
+        "/images/side-projects/Man at the doctors office.jpg",
+        "/images/side-projects/Online Doctor Consultation Instagram Post.png",
+        "/images/side-projects/UCI Hours COVID.jpg",
+        "/images/side-projects/dot-physicals-header.jpg",
+        "/images/side-projects/occ-health-header.jpg",
+        "/images/side-projects/sports-physical-header (1).jpg",
+        "/images/side-projects/what-we-treat-1.jpg",
+        "/images/side-projects/PCI Google Review Business Cards.jpg",
+        "/images/side-projects/pci-logo-retina-rev.png"
+      ]
+    },
+    {
+      "id": "perpetual-movement-fitness",
+      "title": "Perpetual Movement Fitness Brand Identity",
+      "slug": "perpetual-movement-fitness",
+      "category": "Fitness Branding",
+      "client": "Perpetual Movement Fitness",
+      "year": "2023",
+      "duration": "2 months",
+      "services": ["Logo Design", "Brand Identity", "Marketing Materials"],
+      "challenge": "Create an energetic, motivational brand identity for a fitness studio that emphasizes continuous movement, progress, and personal transformation.",
+      "approach": "Designed a dynamic logo system that captures the essence of perpetual motion through flowing typography and kinetic visual elements. Used bold, energetic colors to convey strength and vitality.",
+      "execution": "Developed logo variations, color schemes, and brand applications for fitness equipment, apparel, and digital platforms. Created marketing materials that inspire action and commitment to fitness goals.",
+      "results": "Strong brand recognition in the fitness community. The identity successfully communicates the studio's philosophy of continuous improvement and attracts dedicated fitness enthusiasts.",
+      "takeaway": "Fitness branding must inspire and motivate. Visual energy and movement in design can effectively communicate the transformative power of physical activity.",
+      "metrics": {
+        "memberRetention": "92%",
+        "brandAwareness": "Local recognition",
+        "socialEngagement": "+200%"
+      },
+      "tags": ["fitness", "logo design", "brand identity", "wellness", "motivation"],
+      "featured": false,
+      "images": [
+        "/images/side-projects/Perpetual Movement Fitness - Primary Logo TM.png"
+      ]
+    },
+    {
+      "id": "tbm-brand-playbook",
+      "title": "TBM Brand Strategy & Playbook",
+      "slug": "tbm-brand-playbook",
+      "category": "Brand Strategy",
+      "client": "TBM",
+      "year": "2022",
+      "duration": "6 months",
+      "services": ["Brand Strategy", "Brand Guidelines", "Visual Identity", "Documentation"],
+      "challenge": "Develop a comprehensive brand strategy and visual identity system for a growing business, including detailed brand guidelines and implementation playbook.",
+      "approach": "Conducted thorough brand audit and market research to establish brand positioning. Created systematic approach to brand development with clear guidelines for consistent application across all touchpoints.",
+      "execution": "Delivered complete brand playbook including logo system, typography, color palette, imagery guidelines, voice and tone, and application examples. Created comprehensive documentation for internal team use.",
+      "results": "Established strong brand foundation that enabled consistent growth and market positioning. The playbook became a valuable internal resource for maintaining brand integrity.",
+      "takeaway": "Comprehensive brand documentation is essential for scaling businesses. A well-structured playbook ensures consistent brand experience as organizations grow.",
+      "metrics": {
+        "brandConsistency": "95%",
+        "teamAlignment": "Improved clarity",
+        "marketPosition": "Strengthened"
+      },
+      "tags": ["brand strategy", "brand guidelines", "documentation", "business growth", "visual identity"],
+      "featured": true,
+      "website": "https://www.tbmattorneys.com",
+      "images": [
+        "/images/side-projects/TBM Logo.png",
+        "/images/side-projects/TBM Brand Playbook Demo.png"
+      ]
+    },
+    {
+      "id": "cbd-pet-care",
+      "title": "CBD Pet Care Product Branding",
+      "slug": "cbd-pet-care",
+      "category": "Product Branding",
+      "client": "CBD Pet Care Co.",
+      "year": "2023",
+      "duration": "3 months",
+      "services": ["Product Branding", "Package Design", "Marketing Materials", "E-commerce Design"],
+      "challenge": "Create trustworthy, professional branding for CBD pet care products in a heavily regulated market while maintaining approachable, pet-friendly appeal.",
+      "approach": "Developed clean, scientific aesthetic that emphasizes safety, quality, and care for pets. Used calming colors and clear typography to build consumer confidence in product efficacy.",
+      "execution": "Designed product packaging, marketing materials, and e-commerce presence. Created educational content design that helps pet owners understand CBD benefits and proper usage.",
+      "results": "Successfully launched product line with strong consumer trust and regulatory compliance. Clear, professional branding helped differentiate in crowded market.",
+      "takeaway": "Regulated industry branding requires balance between professionalism and accessibility. Clear communication and trustworthy design are essential for consumer confidence.",
+      "metrics": {
+        "consumerTrust": "High confidence",
+        "regulatoryCompliance": "100%",
+        "marketDifferentiation": "Clear positioning"
+      },
+      "tags": ["product branding", "CBD", "pet care", "packaging design", "regulated industry"],
+      "featured": false,
+      "images": [
+        "/images/side-projects/CBD Oil.jpg",
+        "/images/side-projects/CBD-Oil-for-Pets.png",
+        "/images/side-projects/CBD-for-Pets-and-Pet-Skin-Care.png",
+        "/images/side-projects/Complete Solution Dogs.png",
+        "/images/side-projects/Skincare-for-Dogs-and-Cats.jpg",
+        "/images/side-projects/dog-dry-skin-remedy.jpg"
+      ]
+    },
+    {
+      "id": "black-letter-coffee",
+      "title": "Black Letter Coffee Roasters Brand Identity",
+      "slug": "black-letter-coffee",
+      "category": "Coffee Branding",
+      "client": "Black Letter Coffee",
+      "year": "2022",
+      "duration": "2 months",
+      "services": ["Logo Design", "Brand Identity", "Package Design"],
+      "challenge": "Create sophisticated brand identity for artisanal coffee roasters that communicates craftsmanship, quality, and attention to detail in the competitive specialty coffee market.",
+      "approach": "Developed elegant, typography-focused identity that reflects the artisanal nature of coffee roasting. Used classic design elements with modern execution to appeal to discerning coffee enthusiasts.",
+      "execution": "Designed logo system, packaging concepts, and brand applications. Created cohesive visual language that works across retail, wholesale, and digital platforms.",
+      "results": "Strong brand recognition among coffee enthusiasts. The sophisticated identity helped position the brand as premium artisanal roaster in local and regional markets.",
+      "takeaway": "Specialty food branding must communicate quality and craftsmanship. Typography and attention to detail can effectively convey artisanal values.",
+      "metrics": {
+        "brandRecognition": "Strong local presence",
+        "premiumPositioning": "Successful",
+        "customerLoyalty": "High retention"
+      },
+      "tags": ["coffee", "artisanal", "logo design", "package design", "specialty food"],
+      "featured": false,
+      "logoOnly": true,
+      "images": [
+        "/images/side-projects/Black Letter - Full Logo (1).png"
+      ]
+    },
+    {
+      "id": "primary-colours",
+      "title": "Primary Colours Arts Organization Leadership & Event Marketing",
+      "slug": "primary-colours",
+      "category": "Non-Profit Marketing",
+      "client": "Primary Colours",
+      "year": "2018-2019",
+      "duration": "Board Tenure",
+      "services": ["Event Marketing", "Website Development", "Sponsorship Strategy", "Brand Development"],
+      "challenge": "Lead marketing and strategic development for a non-profit arts organization to increase community engagement, artist participation, and fundraising for Installation Nation 2018—a major outdoor art exhibition.",
+      "approach": "Developed comprehensive marketing and sponsorship strategy for 23-day exhibition on 9.5-acre ArtsPark. Created multi-tier sponsorship program ($500-$5,000 levels), redesigned website for better artist connections, and executed integrated marketing campaigns.",
+      "execution": "Led marketing strategy for Installation Nation 2018 with 13 artists/artist groups creating site-specific installations. Developed professional sponsorship packages, redesigned primarycolours.org website, created social media campaigns, and built community partnerships with major arts institutions.",
+      "results": "Generated $46,000+ for local arts, exhibited work of 200+ locally based artists, reached combined audience of 10,000+ people, and created sustainable programming model for future events.",
+      "takeaway": "Non-profit leadership requires balancing artistic vision with strategic business development. Strong marketing and community partnerships are essential for sustainable arts programming.",
+      "metrics": {
+        "fundsRaised": "$46,000+",
+        "artistParticipation": "200+ artists",
+        "audienceReach": "10,000+ people",
+        "exhibitionDuration": "23 days"
+      },
+      "tags": ["non-profit", "arts", "event marketing", "sponsorship", "community engagement"],
+      "featured": true,
+      "images": [
+        "/images/side-projects/cropped-PC_LOGO1-1024x174.jpg"
+      ]
+    },
+    {
+      "id": "clean-aesthetic",
+      "title": "Clean Aesthetic Medical Branding & Logo Design",
+      "slug": "clean-aesthetic",
+      "category": "Medical Branding",
+      "client": "Ben Petty / Clean Aesthetic",
+      "year": "2023",
+      "duration": "4 weeks",
+      "services": ["Logo Design", "Brand Identity", "Marketing Materials"],
+      "challenge": "Create a sophisticated brand identity for concierge Botox and medical aesthetic services that balances professional medical credibility with luxury aesthetic appeal.",
+      "approach": "Developed sophisticated monogram combining letters 'C' and 'A' with overlapping circular element. Created clean typography with professional wordmark, sophisticated teal-green color strategy conveying trust and cleanliness, and modern sans-serif typography reflecting contemporary medical aesthetics.",
+      "execution": "Designed comprehensive brand guidelines including logo variations (horizontal, stacked, monogram-only), color palette and usage guidelines, typography specifications, business card and letterhead designs, and digital marketing template concepts.",
+      "results": "Established professional credibility through clean design, enhanced brand recognition with memorable monogram, created consistent visual identity across all touchpoints, and built foundation for marketing and business development.",
+      "takeaway": "Medical aesthetic branding must balance professionalism with luxury appeal. Sophisticated design and memorable brand elements can effectively position premium services in competitive market.",
+      "metrics": {
+        "brandRecognition": "Strong positioning",
+        "clientSatisfaction": "Highly satisfied",
+        "timeline": "4 weeks delivery"
+      },
+      "tags": ["medical branding", "logo design", "aesthetics", "concierge care", "luxury"],
+      "featured": true,
+      "logoOnly": true,
+      "images": [
+        "/images/side-projects/CA Logo - Primary (full color).jpg",
+        "/images/design/CA.jpg"
+      ]
+    },
+    {
+      "id": "urgentcare-indy",
+      "title": "UrgentCare Indy Healthcare Website Design & Digital Marketing",
+      "slug": "urgentcare-indy",
+      "category": "Healthcare Digital",
+      "client": "UrgentCare Indy / Pike Medical Consultants",
+      "year": "2023",
+      "duration": "6 months",
+      "services": ["Web Design", "Digital Marketing", "SEO", "Patient Portal Integration", "Online Check-in System"],
+      "challenge": "Create comprehensive digital presence for urgent care facility to streamline patient check-in, reduce wait times, clearly communicate services, integrate with medical systems, and provide mobile-responsive patient experience.",
+      "approach": "Developed patient-centered design focused on reducing friction and anxiety. Integrated Clockwise MD for real-time online check-in with wait time estimates, comprehensive insurance verification, clear service categorization, and telehealth integration options.",
+      "execution": "Built healthcare website with Clockwise MD integration, insurance verification system, service pages with detailed information, mobile optimization, patient portal access, telehealth integration, and comprehensive local SEO strategy for 'urgent care Indianapolis' searches.",
+      "results": "Significant reduction in front-desk check-in time, increased online appointment bookings, improved patient satisfaction scores, enhanced local search visibility, and streamlined patient onboarding process.",
+      "takeaway": "Healthcare digital strategy must prioritize patient experience and reduce anxiety. Seamless integration between online and in-person experiences significantly improves patient satisfaction and operational efficiency.",
+      "metrics": {
+        "checkinTimeReduction": "Significant improvement",
+        "onlineBookings": "Increased",
+        "patientSatisfaction": "Improved scores",
+        "searchVisibility": "Enhanced"
+      },
+      "tags": ["healthcare", "web design", "digital marketing", "patient experience", "seo"],
+      "featured": true,
+      "website": "https://urgentcareindy.com",
+      "images": [
+        "/images/side-projects/Urgent Care Indy Logo - 22.png",
+        "/images/side-projects/dot-physicals-header.jpg",
+        "/images/side-projects/occ-health-header.jpg",
+        "/images/side-projects/sports-physical-header (1).jpg",
+        "/images/side-projects/what-we-treat-1.jpg",
+        "/images/side-projects/UCI Hours COVID.jpg"
+      ]
+    },
+    {
+      "id": "russell-painting",
+      "title": "Russell Painting Company Website Redesign & Trust Building",
+      "slug": "russell-painting",
+      "category": "Service Business",
+      "client": "Russell Painting Company",
+      "year": "2022",
+      "duration": "3 months",
+      "services": ["Website Redesign", "UX Research", "Trust Optimization", "Local SEO", "Conversion Strategy"],
+      "challenge": "Modernize outdated website for established painting contractor (43+ years) to leverage experience and credibility, compete with larger contractors online, improve lead generation, and showcase quality credentials.",
+      "approach": "Developed comprehensive trust-building strategy featuring HomeAdvisor Seal (4.9/5 rating), Angie's List 'A' Grade, 43+ years experience narrative, customer testimonials, and clear service categorization for exterior, interior, residential, and commercial work.",
+      "execution": "Redesigned website with modern design, clear service categorization, high-quality before/after project galleries, multiple contact methods, mobile optimization, local SEO for Indianapolis market, and compelling content including multi-generational family business story.",
+      "results": "Increased online lead generation and quote requests, improved search engine rankings for local painting searches, enhanced professional credibility and trust perception, better mobile user experience, and streamlined customer decision-making process.",
+      "takeaway": "Trust indicators are critical for service businesses. Combining long-term credibility with modern digital presence effectively converts visitors to leads in competitive local markets.",
+      "metrics": {
+        "homeadvisorRating": "4.9/5",
+        "angiesListGrade": "A",
+        "yearsExperience": "43+",
+        "leadGeneration": "Increased"
+      },
+      "tags": ["home services", "website redesign", "trust building", "local seo", "conversion"],
+      "featured": true,
+      "website": "https://russellpaintingcompany.com",
+      "images": [
+        "/images/projects/Russell painting/New-Logo-Transparent-1.png",
+        "/images/projects/Russell painting/Screenshot of Power Washing _ Russell Painting Company, Inc.jpg",
+        "/images/side-projects/painting_illustration_01.png",
+        "/images/side-projects/Interior_sl.jpg",
+        "/images/side-projects/interior_w3.jpg"
+      ]
+    },
+    {
+      "id": "behr-pet-essentials",
+      "title": "Behr Pet Essentials E-commerce Brand Development & Multi-Channel Marketing",
+      "slug": "behr-pet-essentials",
+      "category": "E-commerce Branding",
+      "client": "Behr Pet Essentials",
+      "year": "2023",
+      "duration": "8 months",
+      "services": ["Brand Development", "E-commerce Design", "Amazon Optimization", "Product Photography", "Multi-Channel Marketing"],
+      "challenge": "Launch organic pet skin care products in competitive market by establishing credibility with veterinarians and pet owners, creating multi-channel sales strategy (direct + Amazon), and building customer trust through testimonials and results.",
+      "approach": "Created comprehensive brand identity focused on organic, safe pet care positioning: 'Finally An All-Natural, Organic Skin Care For Pets That Actually Works!' Developed professional product photography, educational content about pet skin conditions, and veterinarian endorsement messaging.",
+      "execution": "Developed direct-to-consumer e-commerce platform, optimized Amazon marketplace listings with keyword-rich descriptions, created product variations for dogs/cats/horses, managed customer reviews (maintained 4+ star ratings), integrated inventory management across channels, and executed social media, email, and paid advertising campaigns.",
+      "results": "Successful product launch with immediate market acceptance, maintained 4+ star ratings across Amazon and direct sales, growing customer base with high repeat purchase rates, veterinarian recommendations and professional endorsements, and optimized multi-channel revenue streams.",
+      "takeaway": "Multi-channel e-commerce requires consistent brand messaging across platforms. Organic product positioning and veterinarian trust are essential for pet care market success. Customer testimonials with dramatic results drive conversions.",
+      "metrics": {
+        "amazonRatings": "4+ stars",
+        "veterinarianRecommended": "Yes",
+        "repeatPurchaseRate": "High",
+        "multiChannelRevenue": "Optimized"
+      },
+      "tags": ["e-commerce", "pet care", "amazon", "brand development", "multi-channel"],
+      "featured": true,
+      "website": "https://resqorganics.com",
+      "images": [
+        "/images/side-projects/CBD-for-Pets-and-Pet-Skin-Care.png",
+        "/images/side-projects/CBD-Oil-for-Pets.png",
+        "/images/side-projects/Skincare-for-Dogs-and-Cats.jpg",
+        "/images/side-projects/dog-dry-skin-remedy.jpg",
+        "/images/side-projects/Complete Solution Dogs.png"
+      ]
+    },
+    {
+      "id": "graston-technique",
+      "title": "Graston Technique Training Platform & Educational Website",
+      "slug": "graston-technique",
+      "category": "Healthcare Education",
+      "client": "Graston Technique",
+      "year": "2024",
+      "duration": "8 months",
+      "services": ["Web Design", "Educational Platform", "E-commerce Integration", "Training Portal", "SEO"],
+      "challenge": "Build comprehensive educational platform for healthcare professionals learning the Graston Technique, including training course management, CEU tracking, e-commerce for instruments, and resource library.",
+      "approach": "Developed multi-faceted platform supporting self-paced, virtual, and in-person training delivery. Created seamless e-commerce integration for instrument sales, comprehensive course management system, and resource library for clinicians.",
+      "execution": "Built responsive website with flexible training delivery options (self-paced, virtual, in-person), integrated e-commerce for Graston instruments and training bundles, created course management and CEU tracking system, developed resource library with research materials, and implemented comprehensive SEO strategy.",
+      "results": "Successful platform launch supporting multiple training modalities, improved accessibility for clinicians worldwide, enhanced e-commerce functionality for instrument sales, and better resource accessibility for practicing clinicians.",
+      "takeaway": "Educational platforms for healthcare professionals require flexibility in delivery methods. Combining training content with e-commerce and resources creates comprehensive value proposition for professional development.",
+      "metrics": {
+        "trainingOptions": "3 delivery modes",
+        "platformAccess": "Global reach",
+        "ceusAvailable": "Multiple pathways"
+      },
+      "tags": ["healthcare education", "training platform", "e-commerce", "ceus", "professional development"],
+      "featured": true,
+      "website": "https://grastontechnique.com",
+      "images": []
+    },
+    {
+      "id": "rbe-law",
+      "title": "RBE Law Firm Website & Digital Presence",
+      "slug": "rbe-law",
+      "category": "Legal Services",
+      "client": "RBE Law",
+      "year": "2023",
+      "duration": "4 months",
+      "services": ["Web Design", "Legal Marketing", "SEO", "Content Strategy", "Conversion Optimization"],
+      "challenge": "Create professional, trustworthy website for law firm that builds client confidence, clearly communicates legal services, and generates qualified leads in competitive legal market.",
+      "approach": "Developed clean, professional design emphasizing trust and credibility. Focused on clear service descriptions, attorney profiles, case results, and easy contact methods. Implemented strong SEO strategy for local legal searches.",
+      "execution": "Built responsive website with service pages, attorney bios, practice area descriptions, case study sections, client testimonials, easy contact forms, blog integration, and comprehensive local SEO optimization.",
+      "results": "Enhanced professional credibility and trust perception, improved search engine visibility for legal services, increased qualified lead generation, and better client engagement through clear information architecture.",
+      "takeaway": "Legal website design must prioritize trust and professionalism. Clear communication of services and easy contact methods are essential for converting visitors to clients in competitive legal markets.",
+      "metrics": {
+        "leadGeneration": "Increased",
+        "searchVisibility": "Enhanced",
+        "professionalCredibility": "Strengthened"
+      },
+      "tags": ["legal services", "web design", "legal marketing", "seo", "conversion"],
+      "featured": false,
+      "website": "https://rbelaw.com",
+      "images": []
+    },
+    {
+      "id": "hoosier-boy-barbershop",
+      "title": "Hoosier Boy Barbershop Website & Branding",
+      "slug": "hoosier-boy-barbershop",
+      "category": "Service Business",
+      "client": "Hoosier Boy Barbershop",
+      "year": "2023",
+      "duration": "3 months",
+      "services": ["Web Design", "Brand Identity", "Local SEO", "Online Booking", "Social Media Integration"],
+      "challenge": "Create modern, appealing website for barbershop that attracts local customers, enables online booking, showcases services and atmosphere, and builds brand recognition in competitive market.",
+      "approach": "Developed clean, modern design reflecting barbershop's style and atmosphere. Focused on easy online booking, service descriptions, barber profiles, pricing transparency, and strong local SEO for Indianapolis market.",
+      "execution": "Built responsive website with online booking integration, service and pricing pages, barber/stylist profiles, gallery showcasing work, location and hours information, and comprehensive local SEO strategy.",
+      "results": "Increased online bookings and walk-in traffic, improved brand recognition in local market, enhanced customer engagement through easy booking process, and better search visibility for barbershop services.",
+      "takeaway": "Service business websites must prioritize booking and contact functionality. Combining modern design with easy booking creates seamless customer experience that drives business growth.",
+      "metrics": {
+        "onlineBookings": "Increased",
+        "localVisibility": "Enhanced",
+        "customerEngagement": "Improved"
+      },
+      "tags": ["service business", "web design", "online booking", "local seo", "barbershop"],
+      "featured": false,
+      "website": "https://hoosierboybarbershop.com",
+      "images": []
+    },
+    {
+      "id": "school-80-condos",
+      "title": "School 80 Condos Real Estate Website",
+      "slug": "school-80-condos",
+      "category": "Real Estate",
+      "client": "School 80 Condos",
+      "year": "2024",
+      "duration": "5 months",
+      "services": ["Web Design", "Real Estate Marketing", "Property Showcase", "Lead Generation", "SEO"],
+      "challenge": "Create compelling website for condominium development that showcases property features, generates qualified leads, provides virtual tour capabilities, and positions development as desirable living option.",
+      "approach": "Developed immersive website showcasing condominium features, amenities, location benefits, and lifestyle. Focused on high-quality imagery, virtual tours, easy contact methods, and clear pricing/availability information.",
+      "execution": "Built responsive website with property galleries, virtual tour integration, floor plans and specifications, amenities showcase, location information, contact forms, and SEO optimization for real estate searches.",
+      "results": "Enhanced property visibility and appeal, increased qualified lead generation, improved inquiry conversion rates, and better positioning in competitive real estate market.",
+      "takeaway": "Real estate websites must create emotional connection with potential buyers. High-quality imagery, virtual tours, and clear information help visitors envision themselves in the property.",
+      "metrics": {
+        "leadGeneration": "Increased",
+        "inquiryConversion": "Improved",
+        "propertyVisibility": "Enhanced"
+      },
+      "tags": ["real estate", "web design", "property marketing", "lead generation", "virtual tours"],
+      "featured": false,
+      "website": "https://school80condos.com",
+      "images": []
+    },
+    {
+      "id": "pike-medical-consultants",
+      "title": "Pike Medical Consultants Corporate Website",
+      "slug": "pike-medical-consultants",
+      "category": "Healthcare Corporate",
+      "client": "Pike Medical Consultants",
+      "year": "2024",
+      "duration": "6 months",
+      "services": ["Corporate Web Design", "Healthcare Branding", "Service Integration", "SEO", "Digital Strategy"],
+      "challenge": "Create comprehensive corporate website for medical consulting group that showcases services across multiple divisions (UrgentCare, Primary Care), builds professional credibility, and supports business development.",
+      "approach": "Developed cohesive corporate presence unifying multiple service divisions. Focused on clear service differentiation, professional credibility, comprehensive service information, and strategic positioning in healthcare market.",
+      "execution": "Built corporate website with service division pages, comprehensive service descriptions, provider information, location details, integrated branding across divisions, and comprehensive SEO strategy.",
+      "results": "Enhanced corporate brand presence and credibility, improved service visibility across divisions, strengthened market positioning, and supported business development initiatives.",
+      "takeaway": "Corporate healthcare websites must unify multiple service lines while maintaining clear differentiation. Professional design and comprehensive information build trust and support business growth.",
+      "metrics": {
+        "brandPresence": "Strengthened",
+        "serviceVisibility": "Enhanced",
+        "businessDevelopment": "Supported"
+      },
+      "tags": ["healthcare corporate", "web design", "corporate branding", "service integration", "digital strategy"],
+      "featured": false,
+      "website": "https://pikemedical.com",
+      "images": []
+    },
+    {
+      "id": "installation-nation",
+      "title": "Installation Nation 2018 Event Logo & Branding",
+      "slug": "installation-nation",
+      "category": "Event Branding",
+      "client": "Primary Colours / Installation Nation",
+      "year": "2018",
+      "duration": "2 months",
+      "services": ["Logo Design", "Event Branding", "Sponsorship Materials"],
+      "challenge": "Create a distinctive visual identity for Installation Nation 2018, a 23-day outdoor art exhibition, that captures the intersection of art, nature, and community while appealing to sponsors and diverse audiences.",
+      "approach": "Developed a bold, distressed logo combining natural elements (tree silhouette) with industrial typography. The design balances rustic artistry with modern appeal, using a dark teal color palette that evokes both creativity and stability. Integrated the Primary Colours organizational identity seamlessly.",
+      "execution": "Designed main event logo with distressed texture for character, incorporated tree silhouette representing the ArtsPark location, created cohesive branding system for sponsor materials, and developed visual identity that worked across outdoor signage, print materials, and digital platforms.",
+      "results": "Established strong visual identity that enhanced event recognition, supported successful sponsorship acquisition, and created memorable brand presence for 10,000+ attendees across the 23-day exhibition.",
+      "takeaway": "Event branding must capture both artistic vision and practical marketing needs. Distressed textures and natural elements can effectively communicate authenticity and community connection in arts-focused events.",
+      "metrics": {
+        "eventDuration": "23 days",
+        "attendees": "10,000+",
+        "sponsorshipLevels": "Multi-tier program",
+        "artistParticipation": "13 artists/groups"
+      },
+      "tags": ["event branding", "logo design", "arts", "non-profit", "outdoor exhibition"],
+      "featured": true,
+      "logoOnly": true,
+      "images": [
+        "/images/side-projects/cropped-PC_LOGO1-1024x174.jpg"
+      ]
+    },
+    {
+      "id": "circle-city-kicks",
+      "title": "Circle City Kicks Logo & Brand Identity",
+      "slug": "circle-city-kicks",
+      "category": "Retail Branding",
+      "client": "Circle City Kicks",
+      "year": "2023",
+      "duration": "3 weeks",
+      "services": ["Logo Design", "Brand Identity"],
+      "challenge": "Design a bold, urban logo for a sneaker buy-sell-trade business that captures the energy of streetwear culture while establishing credibility in the competitive sneaker resale market.",
+      "approach": "Developed a dynamic logo featuring iconic high-top sneakers suspended in an urban setting. The design uses bold typography with angular placement to create movement and energy. Incorporated Indianapolis' 'Circle City' identity through the cityscape backdrop, connecting local pride with sneaker culture.",
+      "execution": "Created distinctive logo with custom sneaker illustration, integrated cityscape background for local connection, designed bold typography with dynamic angles, and developed color palette emphasizing energy (red) and urban authenticity (black/white/teal).",
+      "results": "Established memorable brand identity that resonated with sneaker culture enthusiasts, enhanced storefront and social media presence, and created foundation for successful business launch in competitive market.",
+      "takeaway": "Streetwear and sneaker culture branding requires authenticity and energy. Combining local identity with industry iconography creates connection that resonates with target demographics.",
+      "metrics": {
+        "brandRecognition": "Strong local presence",
+        "targetAudience": "Sneaker enthusiasts",
+        "launchSuccess": "Successful opening"
+      },
+      "tags": ["retail", "logo design", "streetwear", "sneakers", "urban branding"],
+      "featured": false,
+      "logoOnly": true,
+      "images": []
+    },
+    {
+      "id": "indianapolis-bicentennial",
+      "title": "Indianapolis 200 Years Bicentennial Logo",
+      "slug": "indianapolis-bicentennial",
+      "category": "Civic Branding",
+      "client": "City of Indianapolis",
+      "year": "2020",
+      "duration": "6 months",
+      "services": ["Logo Design", "Civic Branding", "Event Identity"],
+      "challenge": "Create a commemorative logo for Indianapolis' 200th anniversary (1820-2020) that honors the city's rich history while celebrating its iconic motorsports heritage and forward-looking vision.",
+      "approach": "Developed sophisticated design combining historical symbolism (classical statue representing liberty and progress) with iconic Indianapolis elements (checkered racing flags, circular track motifs in the '0's). The dual '0's cleverly incorporate racing imagery with civic pride stars, creating layers of meaning.",
+      "execution": "Designed comprehensive logo system with primary mark featuring '200' with integrated racing elements, incorporated classical statue symbolizing civic values, created patriotic color palette (red, white, blue), developed typography hierarchy emphasizing 'INDIANAPOLIS' prominence, and ensured versatility across official documents, merchandise, and digital platforms.",
+      "results": "Created iconic logo that became symbol of city's bicentennial celebration, used extensively across official materials and commemorative merchandise, and successfully captured both historical significance and cultural identity.",
+      "takeaway": "Civic branding requires balancing multiple stakeholders and cultural touchstones. Layered symbolism that honors tradition while celebrating distinctive local identity creates memorable commemorative design.",
+      "metrics": {
+        "anniversaryPeriod": "1820-2020",
+        "usageScope": "Citywide",
+        "culturalImpact": "Significant"
+      },
+      "tags": ["civic branding", "logo design", "commemorative", "motorsports", "city identity"],
+      "featured": true,
+      "logoOnly": true,
+      "images": []
+    },
+    {
+      "id": "be-free-home-life",
+      "title": "Be Free Home & Life Logo & Brand Identity",
+      "slug": "be-free-home-life",
+      "category": "Lifestyle Branding",
+      "client": "Be Free Home & Life",
+      "year": "2023",
+      "duration": "4 weeks",
+      "services": ["Logo Design", "Brand Identity"],
+      "challenge": "Design a modern, balanced logo for a lifestyle brand focused on home and life freedom that conveys simplicity, harmony, and approachable sophistication to diverse audiences.",
+      "approach": "Created geometric logo featuring monogram 'BF' within a divided square, using vibrant blue and golden yellow to represent balance and energy. The design emphasizes clarity and versatility, with clean typography that complements the graphic element.",
+      "execution": "Developed distinctive monogram logo with color-divided square frame, created harmonious color palette (bright blue, golden yellow, black), designed clean sans-serif typography system, and ensured logo works effectively in both full-color and monochrome applications.",
+      "results": "Established clean, memorable brand identity that communicates brand values effectively, enhanced brand recognition across platforms, and created versatile logo system adaptable to various applications.",
+      "takeaway": "Geometric logo design can effectively communicate balance and modernity. Strategic color division and clean typography create versatile brand marks that work across diverse touchpoints.",
+      "metrics": {
+        "brandClarity": "Enhanced",
+        "versatility": "High adaptability",
+        "targetAppeal": "Broad demographic"
+      },
+      "tags": ["lifestyle", "logo design", "geometric design", "brand identity", "home goods"],
+      "featured": false,
+      "logoOnly": true,
+      "images": []
+    },
+    {
+      "id": "herbs-rub",
+      "title": "Herb's Rub Logo & Product Branding",
+      "slug": "herbs-rub",
+      "category": "Food Product Branding",
+      "client": "Herb's Rub",
+      "year": "2023",
+      "duration": "3 weeks",
+      "services": ["Logo Design", "Product Branding"],
+      "challenge": "Create a distinctive, personality-driven logo for a specialty food product (spice rub) that conveys both the founder's personal story and the product's flavor profile, appealing to food enthusiasts seeking authentic, artisanal ingredients.",
+      "approach": "Developed playful, character-driven logo featuring founder's portrait in friendly cartoon style, integrated fiery elements suggesting spice and heat, and added 'Top Secret Confidential' stamp element creating intrigue and exclusivity. The design balances personal connection with product personality.",
+      "execution": "Designed custom portrait illustration in distinctive cartoon style, created bold distressed typography for 'HERB'S RUB' emphasizing rustic authenticity, incorporated flame graphics suggesting spice and heat, added playful 'confidential' stamp element, and developed color palette (green, orange, red) evoking freshness and flavor intensity.",
+      "results": "Established memorable brand identity that tells founder's story, enhanced product shelf appeal, created strong personality connection with customers, and supported successful product launch.",
+      "takeaway": "Food product branding benefits from personal storytelling. Character-driven design combined with product cues (flames for spice) creates emotional connection that drives purchase decisions in competitive specialty food markets.",
+      "metrics": {
+        "brandPersonality": "Strong character",
+        "shelfAppeal": "Enhanced",
+        "customerConnection": "Personal story"
+      },
+      "tags": ["food product", "logo design", "artisanal", "character branding", "spice rub"],
+      "featured": false,
+      "logoOnly": true,
+      "images": []
+    },
+    {
+      "id": "hoosier-boy-logo",
+      "title": "Hoosier Boy Barbershop Logo Design",
+      "slug": "hoosier-boy-logo",
+      "category": "Service Business",
+      "client": "Hoosier Boy Barbershop",
+      "year": "2023",
+      "duration": "2 weeks",
+      "services": ["Logo Design", "Brand Identity"],
+      "challenge": "Design a memorable logo for a barbershop that combines Indiana state pride (cardinal) with traditional barbershop iconography, creating a brand identity that appeals to diverse clientele while honoring local heritage.",
+      "approach": "Developed distinctive logo featuring Indiana state bird (cardinal) holding a classic barber pole, seamlessly blending regional identity with industry iconography. The design uses bold colors (red, white, blue) that evoke both patriotism and classic barbershop tradition.",
+      "execution": "Created custom illustration of cardinal with outstretched wings, integrated traditional barber pole with diagonal stripes, designed clean typography emphasizing 'HOOSIER BOY' in white on dark backgrounds, developed versatile color system (red cardinal, white/blue pole), and ensured logo works effectively for signage, business cards, and digital applications.",
+      "results": "Established strong local brand identity that resonates with Indianapolis community, enhanced storefront recognition, created memorable brand mark that communicates both location and service type, and supported successful business launch.",
+      "takeaway": "Local business branding thrives on authentic regional connections. Combining state symbols with industry iconography creates memorable brand identity that builds community connection and customer loyalty.",
+      "metrics": {
+        "localConnection": "Strong regional identity",
+        "brandRecognition": "Community recognition",
+        "versatility": "Multiple applications"
+      },
+      "tags": ["barbershop", "logo design", "local business", "state pride", "service industry"],
+      "featured": false,
+      "logoOnly": true,
+      "images": []
+    },
+    {
+      "id": "taconinja",
+      "title": "Taconinja Logo & Brand Identity",
+      "slug": "taconinja",
+      "category": "Food Branding",
+      "client": "Taconinja",
+      "year": "2024",
+      "duration": "3 weeks",
+      "services": ["Logo Design", "Brand Identity"],
+      "challenge": "Create a playful, memorable logo for a food brand that cleverly combines two distinct concepts (taco and ninja) into a cohesive, marketable brand identity that appeals to younger demographics and stands out in competitive food market.",
+      "approach": "Developed humorous logo featuring taco shell as ninja character with headband, using minimalist facial features to create friendly personality. The design balances playfulness with clean execution, ensuring versatility across food service applications.",
+      "execution": "Designed character-based logo with taco shell as primary shape, incorporated ninja headband as distinguishing element, created minimalist facial features for approachable personality, developed bold typography for 'TACONINJA' emphasizing clarity, and selected color palette (orange-yellow taco, golden-brown headband) evoking warmth and appetite appeal.",
+      "results": "Established memorable brand identity that generates social media engagement, enhanced brand recognition through unique concept, created versatile logo system for menu, packaging, and digital applications, and supported successful brand launch.",
+      "takeaway": "Conceptual combination in logo design can create memorable brand identity. Playful character-driven design appeals to younger demographics while maintaining professional execution ensures broad market appeal.",
+      "metrics": {
+        "brandMemorability": "High concept recognition",
+        "socialEngagement": "Strong",
+        "targetAppeal": "Younger demographics"
+      },
+      "tags": ["food branding", "logo design", "character design", "restaurant", "playful branding"],
+      "featured": false,
+      "logoOnly": true,
+      "images": []
+    }
+  ],
+  "metadata": {
+    "totalProjects": 23,
+    "categories": ["Restaurant Branding", "Healthcare Branding", "Fitness Branding", "Brand Strategy", "Product Branding", "Coffee Branding", "Non-Profit Marketing", "Medical Branding", "Healthcare Digital", "Service Business", "E-commerce Branding", "Healthcare Education", "Legal Services", "Real Estate", "Healthcare Corporate", "Event Branding", "Retail Branding", "Civic Branding", "Lifestyle Branding", "Food Product Branding"],
+    "services": ["Brand Identity", "Logo Design", "Marketing Materials", "Web Design", "Package Design", "Brand Strategy", "Event Marketing", "Sponsorship Strategy", "E-commerce Design", "Amazon Optimization", "SEO", "Digital Marketing"],
+    "lastUpdated": "2025-11-03",
+    "brandTone": "cinematic, confident, intelligent, warmly human"
+  }
+}

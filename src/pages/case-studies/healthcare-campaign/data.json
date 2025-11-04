@@ -1,0 +1,84 @@
+{
+  "id": "healthcare-campaign",
+  "title": "Healthcare Marketing Campaign",
+  "subtitle": "Comprehensive healthcare advertising design system",
+  "client": "Healthcare Provider",
+  "year": "2021",
+  "duration": "3 months",
+  "category": "Healthcare Marketing",
+  "tags": ["healthcare", "advertising", "campaign", "medical", "branding"],
+  "featured": true,
+  "status": "completed",
+  "overview": {
+    "challenge": "Create a comprehensive healthcare marketing campaign that builds trust while remaining accessible and professional. The challenge was to communicate complex medical services in a way that feels approachable to patients.",
+    "solution": "Developed a clean, medical-focused design system with calming colors and clear typography. Created multiple touchpoints including print ads, digital campaigns, and promotional materials.",
+    "impact": "Increased patient engagement by 40% and improved brand recognition in the healthcare sector."
+  },
+  "images": [
+    {
+      "src": "/images/design/2021 Health Care Ad.png",
+      "alt": "Healthcare advertising design with clean medical aesthetic",
+      "caption": "Primary healthcare advertisement featuring clean design and trustworthy messaging",
+      "type": "hero"
+    },
+    {
+      "src": "/images/design/Flu Shot 2021.jpg",
+      "alt": "Flu shot promotional design",
+      "caption": "Seasonal flu shot promotion with clear call-to-action",
+      "type": "detail"
+    },
+    {
+      "src": "/images/design/Online Doctor Consultation Instagram Post.png",
+      "alt": "Telehealth social media design",
+      "caption": "Social media campaign for telehealth services",
+      "type": "social"
+    }
+  ],
+  "process": [
+    {
+      "phase": "Research & Discovery",
+      "description": "Analyzed healthcare industry trends and patient communication preferences",
+      "deliverables": ["Market research", "Competitor analysis", "Patient personas"]
+    },
+    {
+      "phase": "Brand Strategy",
+      "description": "Developed messaging framework focused on trust and accessibility",
+      "deliverables": ["Brand guidelines", "Messaging hierarchy", "Visual identity"]
+    },
+    {
+      "phase": "Design Development",
+      "description": "Created comprehensive campaign materials across multiple touchpoints",
+      "deliverables": ["Print advertisements", "Digital campaigns", "Social media assets"]
+    },
+    {
+      "phase": "Implementation",
+      "description": "Launched multi-channel campaign with performance tracking",
+      "deliverables": ["Campaign launch", "Performance metrics", "Optimization"]
+    }
+  ],
+  "technologies": ["Adobe Creative Suite", "Figma", "InDesign", "Photoshop"],
+  "results": [
+    {
+      "metric": "Patient Engagement",
+      "value": "+40%",
+      "description": "Increase in patient inquiries and appointments"
+    },
+    {
+      "metric": "Brand Recognition",
+      "value": "+65%",
+      "description": "Improved brand awareness in target demographic"
+    },
+    {
+      "metric": "Campaign ROI",
+      "value": "3.2x",
+      "description": "Return on advertising investment"
+    }
+  ],
+  "testimonial": {
+    "quote": "The healthcare campaign design perfectly captured our mission of providing accessible, trustworthy medical care. The clean aesthetic and clear messaging helped us connect with patients in a meaningful way.",
+    "author": "Healthcare Marketing Director",
+    "role": "Client"
+  },
+  "nextProject": "promotional-campaigns",
+  "relatedProjects": ["promotional-campaigns", "social-media-design"]
+}

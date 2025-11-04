@@ -1,0 +1,425 @@
+{
+  "generated": "2025-10-13T02:35:13.022Z",
+  "version": "1.0.0",
+  "totalProjects": 8,
+  "metadata": {
+    "totalColors": 53,
+    "uniqueTags": [
+      "artistic",
+      "clean",
+      "cool",
+      "creative",
+      "modern",
+      "organic",
+      "rustic",
+      "vibrant",
+      "warm"
+    ],
+    "averageImageCount": 6,
+    "lastProjectUpdate": "2025-10-13T02:35:06.514Z"
+  },
+  "projects": [
+    {
+      "slug": "gold-key-award",
+      "title": "Gold Key Award",
+      "dominantColors": [
+        "#FFD700",
+        "#FFA500",
+        "#000000",
+        "#FFFFFF"
+      ],
+      "keywords": [
+        "award",
+        "photography",
+        "cinematic",
+        "prestigious"
+      ],
+      "tags": [
+        "artistic",
+        "creative",
+        "vibrant"
+      ],
+      "summary": "Gold Key Award project featuring artistic, creative, vibrant design elements with a focus on award and photography aesthetics.",
+      "confidence": "high",
+      "imageCount": 1,
+      "lastUpdated": "2025-10-13T03:28:00.000Z",
+      "motion": "fadeIn+parallax+gsapScrollTrigger",
+      "theme": "awards",
+      "overlayGradient": "linear-gradient(135deg, #FFD700, #FFA500)",
+      "animationConfig": {
+        "parallaxRange": ["-10%", "10%"],
+        "scaleRange": [0.95, 1, 0.95],
+        "gsapDuration": 1.2,
+        "gsapEase": "power3.out",
+        "framerMotionSpring": {
+          "stiffness": 200,
+          "damping": 20
+        }
+      },
+      "previews": {
+        "grid": null,
+        "swatches": null
+      },
+      "colorAnalysis": {
+        "vibrant": "#FFD700",
+        "muted": "#FFA500",
+        "darkVibrant": "#000000",
+        "lightVibrant": "#FFFFFF"
+      },
+      "images": [
+        "/images/auto-generated/awards/gold-key-award.png"
+      ]
+    },
+    {
+      "slug": "317 bbq",
+      "title": "317 bbq",
+      "dominantColors": [
+        "#c0712f",
+        "#9d4931",
+        "#d69d69",
+        "#a7805a",
+        "#51392b",
+        "#e2e3df"
+      ],
+      "keywords": [
+        "restaurant",
+        "vibrant",
+        "warm"
+      ],
+      "tags": [
+        "organic",
+        "warm",
+        "rustic"
+      ],
+      "summary": "317 bbq project featuring organic, warm, rustic, warm design elements with a focus on restaurant and vibrant aesthetics.",
+      "confidence": "fallback",
+      "imageCount": 14,
+      "lastUpdated": "2025-10-13T02:35:04.977Z",
+      "previews": {
+        "grid": null,
+        "swatches": null
+      },
+      "colorAnalysis": {
+        "vibrant": "#c0712f",
+        "muted": "#a7805a",
+        "darkVibrant": "#9d4931",
+        "lightVibrant": "#d69d69"
+      },
+      "images": [
+        "/images/projects/317 bbq/20231008_174703.jpg",
+        "/images/projects/317 bbq/20231008_175026.jpg",
+        "/images/projects/317 bbq/20231008_175109.jpg",
+        "/images/projects/317 bbq/20231008_175244.jpg",
+        "/images/projects/317 bbq/20231008_175510.jpg",
+        "/images/projects/317 bbq/20231008_175512.jpg",
+        "/images/projects/317 bbq/20231008_175650.jpg",
+        "/images/projects/317 bbq/20231008_175654.jpg",
+        "/images/projects/317 bbq/20231008_180910.jpg",
+        "/images/projects/317 bbq/20231008_181722.jpg",
+        "/images/projects/317 bbq/317BBQLogo_wht.webp",
+        "/images/projects/317 bbq/download (1).jpg",
+        "/images/projects/317 bbq/download.jpg",
+        "/images/projects/317 bbq/Screenshot of 317 BBQ _ Really Good BBQ.jpg"
+      ]
+    },
+    {
+      "slug": "317-bbq",
+      "title": "317 Bbq",
+      "dominantColors": [
+        "#374151",
+        "#6B7280",
+        "#9CA3AF",
+        "#D1D5DB",
+        "#F3F4F6",
+        "#8B4513",
+        "#D2691E",
+        "#CD853F"
+      ],
+      "keywords": [
+        "restaurant",
+        "branding",
+        "food",
+        "rustic",
+        "authentic",
+        "logo design",
+        "identity"
+      ],
+      "tags": [
+        "organic",
+        "warm",
+        "rustic",
+        "cool"
+      ],
+      "summary": "317 Bbq project featuring organic, warm, rustic, cool design elements with a focus on restaurant and branding aesthetics.",
+      "confidence": "fallback",
+      "imageCount": 14,
+      "lastUpdated": "2025-10-13T02:14:20.858Z",
+      "previews": {
+        "grid": null,
+        "swatches": null
+      },
+      "colorAnalysis": null,
+      "images": [
+        "/images/projects/317 bbq/20231008_174703.jpg",
+        "/images/projects/317 bbq/20231008_175026.jpg",
+        "/images/projects/317 bbq/20231008_175109.jpg",
+        "/images/projects/317 bbq/20231008_175244.jpg",
+        "/images/projects/317 bbq/20231008_175510.jpg",
+        "/images/projects/317 bbq/20231008_175512.jpg",
+        "/images/projects/317 bbq/20231008_175650.jpg",
+        "/images/projects/317 bbq/20231008_175654.jpg",
+        "/images/projects/317 bbq/20231008_180910.jpg",
+        "/images/projects/317 bbq/20231008_181722.jpg",
+        "/images/projects/317 bbq/317BBQLogo_wht.webp",
+        "/images/projects/317 bbq/download (1).jpg",
+        "/images/projects/317 bbq/download.jpg",
+        "/images/projects/317 bbq/Screenshot of 317 BBQ _ Really Good BBQ.jpg"
+      ]
+    },
+    {
+      "slug": "riley bennett egloff",
+      "title": "Riley bennett egloff",
+      "dominantColors": [
+        "#38b169",
+        "#7b4a26",
+        "#e6bba6",
+        "#5e71a4",
+        "#464a57",
+        "#c7a7a7"
+      ],
+      "keywords": [
+        "design",
+        "vibrant",
+        "natural"
+      ],
+      "tags": [
+        "modern",
+        "clean"
+      ],
+      "summary": "Riley bennett egloff project featuring modern, clean design elements with a focus on design and vibrant aesthetics.",
+      "confidence": "fallback",
+      "imageCount": 4,
+      "lastUpdated": "2025-10-13T02:35:05.921Z",
+      "previews": {
+        "grid": null,
+        "swatches": null
+      },
+      "colorAnalysis": {
+        "vibrant": "#38b169",
+        "muted": "#5e71a4",
+        "darkVibrant": "#7b4a26",
+        "lightVibrant": "#e6bba6"
+      },
+      "images": [
+        "/images/projects/riley bennett egloff/attorneys.jpg",
+        "/images/projects/riley bennett egloff/download.jpg",
+        "/images/projects/riley bennett egloff/dss.jpg",
+        "/images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg.jpg"
+      ]
+    },
+    {
+      "slug": "riley-bennett-egloff",
+      "title": "Riley Bennett Egloff",
+      "dominantColors": [
+        "#374151",
+        "#6B7280",
+        "#9CA3AF",
+        "#D1D5DB",
+        "#F3F4F6"
+      ],
+      "keywords": [
+        "design",
+        "professional",
+        "modern",
+        "logo design",
+        "identity"
+      ],
+      "tags": [
+        "modern",
+        "clean",
+        "cool"
+      ],
+      "summary": "Riley Bennett Egloff project featuring modern, clean, cool design elements with a focus on design and professional aesthetics.",
+      "confidence": "fallback",
+      "imageCount": 4,
+      "lastUpdated": "2025-10-13T02:14:20.860Z",
+      "previews": {
+        "grid": null,
+        "swatches": null
+      },
+      "colorAnalysis": null,
+      "images": [
+        "/images/projects/riley bennett egloff/attorneys.jpg",
+        "/images/projects/riley bennett egloff/download.jpg",
+        "/images/projects/riley bennett egloff/dss.jpg",
+        "/images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg.jpg"
+      ]
+    },
+    {
+      "slug": "Russell painting",
+      "title": "Russell painting",
+      "dominantColors": [
+        "#f1bb3c",
+        "#044c8c",
+        "#f4cd7d",
+        "#6b83b7",
+        "#4c4a4c",
+        "#9aabce"
+      ],
+      "keywords": [
+        "artistic",
+        "vibrant",
+        "warm"
+      ],
+      "tags": [
+        "artistic",
+        "vibrant",
+        "creative",
+        "warm"
+      ],
+      "summary": "Russell painting project featuring artistic, vibrant, creative, warm design elements with a focus on artistic and vibrant aesthetics.",
+      "confidence": "fallback",
+      "imageCount": 2,
+      "lastUpdated": "2025-10-13T02:35:06.200Z",
+      "previews": {
+        "grid": null,
+        "swatches": null
+      },
+      "colorAnalysis": {
+        "vibrant": "#f1bb3c",
+        "muted": "#6b83b7",
+        "darkVibrant": "#044c8c",
+        "lightVibrant": "#f4cd7d"
+      },
+      "images": [
+        "/images/projects/Russell painting/New-Logo-Transparent-1.png",
+        "/images/projects/Russell painting/Screenshot of Power Washing _ Russell Painting Company, Inc.jpg"
+      ]
+    },
+    {
+      "slug": "russell-painting",
+      "title": "Russell Painting",
+      "dominantColors": [
+        "#374151",
+        "#6B7280",
+        "#9CA3AF",
+        "#D1D5DB",
+        "#F3F4F6",
+        "#7C3AED",
+        "#A855F7",
+        "#C084FC"
+      ],
+      "keywords": [
+        "artistic",
+        "creative",
+        "expressive",
+        "cultural",
+        "vibrant",
+        "logo design",
+        "identity"
+      ],
+      "tags": [
+        "artistic",
+        "vibrant",
+        "creative",
+        "cool"
+      ],
+      "summary": "Russell Painting project featuring artistic, vibrant, creative, cool design elements with a focus on artistic and creative aesthetics.",
+      "confidence": "fallback",
+      "imageCount": 2,
+      "lastUpdated": "2025-10-13T02:14:20.862Z",
+      "previews": {
+        "grid": null,
+        "swatches": null
+      },
+      "colorAnalysis": null,
+      "images": [
+        "/images/projects/Russell painting/New-Logo-Transparent-1.png",
+        "/images/projects/Russell painting/Screenshot of Power Washing _ Russell Painting Company, Inc.jpg"
+      ]
+    },
+    {
+      "slug": "Tuohy Bailey & Moore LLP",
+      "title": "Tuohy Bailey & Moore LLP",
+      "dominantColors": [
+        "#40748d",
+        "#344219",
+        "#a3c5d5",
+        "#618a9a",
+        "#515330",
+        "#c7bbbd"
+      ],
+      "keywords": [
+        "design",
+        "muted",
+        "cool"
+      ],
+      "tags": [
+        "modern",
+        "clean",
+        "cool"
+      ],
+      "summary": "Tuohy Bailey & Moore LLP project featuring modern, clean, cool design elements with a focus on design and muted aesthetics.",
+      "confidence": "fallback",
+      "imageCount": 3,
+      "lastUpdated": "2025-10-13T02:35:06.514Z",
+      "previews": {
+        "grid": null,
+        "swatches": null
+      },
+      "colorAnalysis": {
+        "vibrant": "#40748d",
+        "muted": "#618a9a",
+        "darkVibrant": "#344219",
+        "lightVibrant": "#a3c5d5"
+      },
+      "images": [
+        "/images/projects/Tuohy Bailey & Moore LLP/Screenshot of Business Transactions - Tuohy Bailey & Moore LLP.jpg",
+        "/images/projects/Tuohy Bailey & Moore LLP/Screenshot of Commercial Law - Tuohy Bailey & Moore LLP.jpg",
+        "/images/projects/Tuohy Bailey & Moore LLP/Screenshot of Home - Tuohy Bailey & Moore LLP.jpg"
+      ]
+    },
+    {
+      "slug": "tuohy-bailey-moore-llp",
+      "title": "Tuohy Bailey & Moore LLP",
+      "dominantColors": [
+        "#374151",
+        "#6B7280",
+        "#9CA3AF",
+        "#D1D5DB",
+        "#F3F4F6",
+        "#1E3A8A",
+        "#3B82F6",
+        "#60A5FA"
+      ],
+      "keywords": [
+        "design",
+        "professional",
+        "modern",
+        "legal",
+        "corporate",
+        "trustworthy",
+        "established"
+      ],
+      "tags": [
+        "modern",
+        "clean",
+        "cool"
+      ],
+      "summary": "Tuohy Bailey & Moore LLP project featuring modern, clean, cool design elements with a focus on design and professional aesthetics.",
+      "confidence": "fallback",
+      "imageCount": 3,
+      "lastUpdated": "2025-10-13T02:14:20.864Z",
+      "previews": {
+        "grid": null,
+        "swatches": null
+      },
+      "colorAnalysis": null,
+      "images": [
+        "/images/projects/Tuohy Bailey & Moore LLP/Screenshot of Business Transactions - Tuohy Bailey & Moore LLP.jpg",
+        "/images/projects/Tuohy Bailey & Moore LLP/Screenshot of Commercial Law - Tuohy Bailey & Moore LLP.jpg",
+        "/images/projects/Tuohy Bailey & Moore LLP/Screenshot of Home - Tuohy Bailey & Moore LLP.jpg"
+      ]
+    }
+  ]
+}

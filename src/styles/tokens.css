@@ -1,0 +1,219 @@
+/* ===================================================================
+   JACOB DARLING PORTFOLIO - DESIGN TOKENS
+   Cinematic • Modern • Technological Elegance
+   =================================================================== */
+
+:root {
+  /* ===== PRIMARY BRAND COLORS ===== */
+  --color-primary: #3B82F6;           /* Electric Blue */
+  --color-accent: #EC4899;            /* Magenta Glow */
+  --color-bg: #0A0A0A;               /* Deep Black */
+  --color-text: #FFFFFF;             /* Pure White */
+  --color-text-muted: #A1A1AA;      /* Zinc 400 */
+
+  /* ===== NEUTRAL PALETTE ===== */
+  --color-neutral-50: #F9FAFB;      /* Light Background */
+  --color-neutral-100: #F3F4F6;     /* Subtle Gray */
+  --color-neutral-200: #E5E7EB;     /* Border Light */
+  --color-neutral-300: #D1D5DB;     /* Border */
+  --color-neutral-400: #9CA3AF;     /* Text Muted */
+  --color-neutral-500: #6B7280;     /* Text Secondary */
+  --color-neutral-600: #4B5563;     /* Text Primary */
+  --color-neutral-700: #374151;     /* Surface Dark */
+  --color-neutral-800: #1F2937;     /* Background Dark */
+  --color-neutral-900: #111827;     /* Background Darker */
+  --color-neutral-950: #0A0A0A;     /* Background Darkest */
+
+  /* ===== SEMANTIC COLORS ===== */
+  --color-success: #10B981;         /* Emerald 500 - harmonizes with blue */
+  --color-warning: #F59E0B;         /* Amber 500 - complements magenta */
+  --color-error: #EF4444;           /* Red 500 - balanced intensity */
+  --color-info: var(--color-primary);
+
+  /* ===== BRAND GRADIENTS ===== */
+  --gradient-brand: linear-gradient(135deg, #3B82F6 0%, #EC4899 100%);
+  --gradient-brand-vertical: linear-gradient(180deg, #3B82F6 0%, #EC4899 100%);
+  --gradient-brand-radial: radial-gradient(circle, #3B82F6 0%, #EC4899 70%);
+  --gradient-dark: linear-gradient(135deg, #0A0A0A 0%, #1F2937 100%);
+  --gradient-surface: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(236,72,153,0.1) 100%);
+
+  /* ===== GLOW EFFECTS ===== */
+  --glow-blue: 0 0 12px rgba(59,130,246,0.5);
+  --glow-pink: 0 0 12px rgba(236,72,153,0.4);
+  --glow-brand: 0 0 20px rgba(59,130,246,0.3), 0 0 40px rgba(236,72,153,0.2);
+  --glow-subtle: 0 0 8px rgba(59,130,246,0.2);
+
+  /* ===== SHADOWS ===== */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-brand: 0 10px 30px rgba(59,130,246,0.2), 0 5px 15px rgba(236,72,153,0.1);
+
+  /* ===== GLASSMORPHISM ===== */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-dark-bg: rgba(0, 0, 0, 0.3);
+  --glass-dark-border: rgba(255, 255, 255, 0.1);
+
+  /* ===== SPACING SCALE ===== */
+  --space-xs: 0.25rem;    /* 4px */
+  --space-sm: 0.5rem;     /* 8px */
+  --space-md: 0.75rem;    /* 12px */
+  --space-lg: 1rem;       /* 16px */
+  --space-xl: 1.5rem;     /* 24px */
+  --space-2xl: 2rem;      /* 32px */
+  --space-3xl: 3rem;      /* 48px */
+  --space-4xl: 4rem;      /* 64px */
+  --space-5xl: 6rem;      /* 96px */
+  --space-6xl: 8rem;      /* 128px */
+
+  /* ===== BORDER RADIUS ===== */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-2xl: 1.5rem;   /* 24px */
+  --radius-full: 9999px;
+
+  /* ===== ANIMATION DURATIONS ===== */
+  --duration-fast: 0.15s;
+  --duration-normal: 0.3s;
+  --duration-slow: 0.5s;
+  --duration-slower: 0.8s;
+
+  /* ===== Z-INDEX SCALE ===== */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+}
+
+/* ===== DARK MODE OVERRIDES ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0A0A0A;
+    --color-text: #FFFFFF;
+    --color-text-muted: #A1A1AA;
+  }
+}
+
+/* ===== UTILITY CLASSES ===== */
+.gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-surface {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-surface-dark {
+  background: var(--glass-dark-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-dark-border);
+}
+
+.glow-brand {
+  box-shadow: var(--glow-brand);
+}
+
+.glow-blue {
+  box-shadow: var(--glow-blue);
+}
+
+.glow-pink {
+  box-shadow: var(--glow-pink);
+}
+
+.shadow-brand {
+  box-shadow: var(--shadow-brand);
+}
+
+/* ===================================================================
+   THEME SYSTEM - Light / Dark / Brand Modes
+   =================================================================== */
+
+/* Base (Light/System Default) */
+:root {
+  /* Theme-aware tokens for dynamic theming */
+  --bg: #ffffff;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #2563eb; /* blue */
+  --ring: #93c5fd;
+
+  --font-brand: "Inter", system-ui, sans-serif;
+  --font-ui: "Inter", system-ui, sans-serif;
+  --radius: 1.25rem; /* default rounded-2xl */
+
+  /* CSS color-scheme for Firefox/Opera support (theme-color meta tag is ignored by those browsers) */
+  color-scheme: light;
+}
+
+/* Dark Mode */
+html.dark {
+  --bg: #0b0b0c;
+  --card: #121315;
+  --border: #2b2c2f;
+  --text: #f3f4f6;
+  --muted: #9aa1ab;
+  --accent: #60a5fa; /* lighter blue */
+  --ring: #60a5fa;
+
+  /* CSS color-scheme for Firefox/Opera support */
+  color-scheme: dark;
+}
+
+/* Brand Modes (stack on top of light/dark via data-brand attr) */
+
+/* CMO Mode: confident serif headings, navy accent, slightly squarer radius */
+html[data-brand="cmo"] {
+  --accent: #0f3b82; /* navy */
+  --font-brand: "Newsreader", ui-serif, Georgia, serif;
+  --radius: 1rem;
+}
+
+/* Dev Mode: neon-ish accent, mono UI font, extra rounded cards */
+html[data-brand="dev"] {
+  --accent: #22d3ee; /* cyan */
+  --font-ui: ui-monospace, "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
+  --radius: 1.5rem;
+}
+
+/* Utility class for theme-aware cards */
+.theme-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow, 0 8px 24px rgba(0,0,0,.04));
+}
+
+html.dark .theme-card {
+  box-shadow: var(--shadow, 0 8px 24px rgba(0,0,0,.3));
+}
+
+/* Smooth theme transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

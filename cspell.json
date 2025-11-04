@@ -1,0 +1,36 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "gsap",
+    "GSAP",
+    "chatbots",
+    "WCAG",
+    "Graston",
+    "Worrell",
+    "Bento",
+    "bento",
+    "lightroom",
+    "Lightroom",
+    "MTTR",
+    "automations",
+    "Marketo",
+    "hubspot",
+    "yoyo",
+    "FOUC",
+    "webcomponents"
+  ],
+  "ignoreWords": [],
+  "import": [
+    "@cspell/dict-html/cspell-ext.json",
+    "@cspell/dict-css/cspell-ext.json",
+    "@cspell/dict-javascript/cspell-ext.json",
+    "@cspell/dict-typescript/cspell-ext.json"
+  ],
+  "files": [
+    "**/*.{js,jsx,ts,tsx,css,html,md,json}",
+    "!node_modules/**",
+    "!dist/**",
+    "!build/**"
+  ]
+}

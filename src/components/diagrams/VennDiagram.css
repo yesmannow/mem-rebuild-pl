@@ -1,0 +1,256 @@
+.venn-diagram-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.venn-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.venn-header h2 {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--color-primary-blue) 0%, var(--color-light-gray) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.venn-header p {
+  font-size: 1.2rem;
+  color: #9ca3af;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.venn-container {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.venn-svg {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+}
+
+.venn-svg circle,
+.venn-svg ellipse {
+  cursor: pointer;
+}
+
+.venn-info-cards {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.venn-card {
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.venn-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary-blue), var(--color-primary-dark));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s ease;
+}
+
+.venn-card:hover::before,
+.venn-card.active::before {
+  transform: scaleX(1);
+}
+
+.venn-card:hover,
+.venn-card.active {
+  background: var(--color-bg-card-hover);
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-accent);
+  transform: translateY(-8px);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  filter: grayscale(20%);
+  transition: filter 0.3s ease;
+}
+
+.venn-card:hover .card-icon,
+.venn-card.active .card-icon {
+  filter: grayscale(0%);
+}
+
+.venn-card h3 {
+  font-family: var(--font-primary);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary-blue);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.venn-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.venn-card li {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #d1d5db;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.venn-card li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary-blue);
+  font-size: 0.8rem;
+}
+
+/* Center Card (Intersection) */
+.venn-card.center {
+  background: linear-gradient(135deg, rgba(136, 171, 242, 0.1), rgba(136, 171, 242, 0.05));
+  border-color: rgba(136, 171, 242, 0.3);
+  text-align: center;
+}
+
+.card-icon-large {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.venn-card.center:hover .card-icon-large,
+.venn-card.center.active .card-icon-large {
+  animation: none;
+  transform: scale(1.15);
+}
+
+.highlight-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #fafbfc;
+  font-weight: 500;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.intersection-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.intersection-tags span {
+  font-size: 0.85rem;
+  background: rgba(136, 171, 242, 0.15);
+  color: var(--color-primary-blue);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  border: 1px solid rgba(136, 171, 242, 0.3);
+  transition: all 0.3s ease;
+}
+
+.intersection-tags span:hover {
+  background: rgba(136, 171, 242, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Callout */
+.venn-callout {
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.venn-callout h4 {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary-blue);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.venn-callout p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #d1d5db;
+  margin: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.venn-callout strong {
+  color: var(--color-primary-blue);
+  font-weight: 700;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .venn-info-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .venn-card.center {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .venn-diagram-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .venn-svg {
+    max-width: 100%;
+  }
+
+  .venn-card {
+    padding: 1.5rem;
+  }
+
+  .venn-callout {
+    padding: 2rem;
+  }
+}

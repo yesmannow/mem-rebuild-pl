@@ -1,0 +1,104 @@
+{
+  "photographyImages": [
+    {
+      "src": "/images/photography/20240628_215608-2.jpg",
+      "alt": "Cinematic landscape photography with dramatic lighting",
+      "variant": "landscape",
+      "tags": ["landscape", "dramatic", "cinematic"],
+      "size": "8.3MB",
+      "featured": true,
+      "useIn": ["Gallery", "Hero"]
+    },
+    {
+      "src": "/images/photography/20240628_214922.jpg",
+      "alt": "Golden hour nature photography with warm tones",
+      "variant": "nature",
+      "tags": ["nature", "golden-hour", "warm"],
+      "size": "7.2MB",
+      "featured": true,
+      "useIn": ["Gallery"]
+    },
+    {
+      "src": "/images/photography/IMG_20230707_235448_262~2.jpg",
+      "alt": "Artistic portrait photography with creative lighting",
+      "variant": "portrait",
+      "tags": ["portrait", "artistic", "lighting"],
+      "size": "4.6MB",
+      "featured": true,
+      "useIn": ["Gallery", "About"]
+    },
+    {
+      "src": "/images/photography/20210907_113007~2.jpg",
+      "alt": "Professional outdoor photography with natural composition",
+      "variant": "outdoor",
+      "tags": ["outdoor", "professional", "composition"],
+      "size": "4.5MB",
+      "featured": false,
+      "useIn": ["Gallery"]
+    },
+    {
+      "src": "/images/photography/20211024_075305~4.jpg",
+      "alt": "Morning light photography capturing serene moments",
+      "variant": "morning",
+      "tags": ["morning", "serene", "light"],
+      "size": "3.3MB",
+      "featured": false,
+      "useIn": ["Gallery"]
+    },
+    {
+      "src": "/images/photography/20210905_173133.jpg",
+      "alt": "Afternoon photography with natural depth of field",
+      "variant": "afternoon",
+      "tags": ["afternoon", "depth-of-field", "natural"],
+      "size": "2.9MB",
+      "featured": false,
+      "useIn": ["Gallery"]
+    },
+    {
+      "src": "/images/photography/20240629_214210.jpg",
+      "alt": "Evening photography with moody atmosphere",
+      "variant": "evening",
+      "tags": ["evening", "moody", "atmosphere"],
+      "size": "2.8MB",
+      "featured": false,
+      "useIn": ["Gallery"]
+    },
+    {
+      "src": "/images/photography/20220722_053113.jpg",
+      "alt": "Early morning photography with soft lighting",
+      "variant": "dawn",
+      "tags": ["dawn", "soft", "peaceful"],
+      "size": "1.6MB",
+      "featured": false,
+      "useIn": ["Gallery"]
+    },
+    {
+      "src": "/images/photography/20230528_105239~3.jpg",
+      "alt": "Midday photography with vibrant colors",
+      "variant": "midday",
+      "tags": ["midday", "vibrant", "colors"],
+      "size": "1.4MB",
+      "featured": false,
+      "useIn": ["Gallery"]
+    },
+    {
+      "src": "/images/photography/20220605_202214~2.jpg",
+      "alt": "Creative photography with artistic composition",
+      "variant": "creative",
+      "tags": ["creative", "artistic", "unique"],
+      "size": "1.4MB",
+      "featured": false,
+      "useIn": ["Gallery"]
+    }
+  ],
+  "metadata": {
+    "totalImages": 40,
+    "featuredCount": 3,
+    "categories": ["landscape", "nature", "portrait", "outdoor", "creative"],
+    "tags": ["landscape", "dramatic", "cinematic", "nature", "golden-hour", "warm", "portrait", "artistic", "lighting", "outdoor", "professional", "composition", "morning", "serene", "light", "afternoon", "depth-of-field", "natural", "evening", "moody", "atmosphere", "dawn", "soft", "peaceful", "midday", "vibrant", "colors", "creative", "unique"],
+    "optimizationNeeded": ["20240628_215608-2.jpg", "20240628_214922.jpg", "IMG_20230707_235448_262~2.jpg"],
+    "recommendedFormats": ["webp", "avif"],
+    "primaryHero": "/images/photography/20240628_215608-2.jpg",
+    "galleryLayout": "masonry"
+  }
+}

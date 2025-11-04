@@ -1,0 +1,122 @@
+.system-architecture {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  position: relative;
+}
+
+.diagram-title {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary-blue);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.diagram-description {
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.architecture-canvas {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.architecture-svg {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+}
+
+.architecture-node {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.node-rect {
+  transition: all 0.3s ease;
+}
+
+.node-label {
+  pointer-events: none;
+  font-family: var(--font-primary);
+}
+
+.node-sublabel {
+  pointer-events: none;
+}
+
+.connection-line {
+  transition: all 0.3s ease;
+}
+
+.connection-label {
+  font-size: 11px;
+  fill: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.diagram-legend {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.legend-icon {
+  width: 30px;
+  height: 2px;
+  background: var(--color-primary-blue);
+  opacity: 0.6;
+}
+
+.legend-icon.animated-line {
+  background: linear-gradient(90deg, transparent 0%, var(--color-primary-blue) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: flowLine 2s linear infinite;
+}
+
+@keyframes flowLine {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.legend-icon.static-line {
+  opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+  .system-architecture {
+    padding: 1.5rem;
+  }
+
+  .architecture-svg {
+    max-height: 400px;
+  }
+
+  .diagram-legend {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+}

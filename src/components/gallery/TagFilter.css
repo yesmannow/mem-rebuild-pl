@@ -1,0 +1,130 @@
+/* ===================================================================
+   TAG FILTER COMPONENT - CINEMATIC FILTER SYSTEM
+   =================================================================== */
+
+.tag-filter-container {
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.tag-filter-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+}
+
+.tag-filter-pill {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 10px 20px;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  min-width: 80px;
+  text-align: center;
+}
+
+.tag-filter-pill:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+}
+
+.tag-filter-pill.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-color: #667eea;
+  color: white;
+  font-weight: 600;
+  box-shadow: 
+    0 8px 25px rgba(102, 126, 234, 0.4),
+    0 0 30px rgba(102, 126, 234, 0.2);
+}
+
+.tag-filter-text {
+  position: relative;
+  z-index: 2;
+  text-transform: capitalize;
+}
+
+.tag-filter-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #667eea;
+  border-radius: 1px;
+}
+
+/* Glow effect for active tags */
+.tag-filter-pill.active::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 25px;
+  opacity: 0.3;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tag-filter-grid {
+    gap: 8px;
+    padding: 0 20px;
+  }
+
+  .tag-filter-pill {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    min-width: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tag-filter-grid {
+    gap: 6px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding: 0 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .tag-filter-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tag-filter-pill {
+    flex-shrink: 0;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    min-width: 60px;
+  }
+}
+
+/* Focus states for accessibility */
+.tag-filter-pill:focus {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tag-filter-pill {
+    transition: none;
+  }
+}

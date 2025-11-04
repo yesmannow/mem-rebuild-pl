@@ -1,0 +1,132 @@
+{
+  "generated": "2025-10-13T02:14:20.866Z",
+  "totalProjects": 4,
+  "projects": [
+    {
+      "slug": "317-bbq",
+      "title": "317 Bbq",
+      "dominantColors": [
+        "#374151",
+        "#6B7280",
+        "#9CA3AF",
+        "#D1D5DB",
+        "#F3F4F6",
+        "#8B4513",
+        "#D2691E",
+        "#CD853F"
+      ],
+      "keywords": [
+        "restaurant",
+        "branding",
+        "food",
+        "rustic",
+        "authentic",
+        "logo design",
+        "identity"
+      ],
+      "imageCount": 14,
+      "images": [
+        "/images/projects/317 bbq/20231008_174703.jpg",
+        "/images/projects/317 bbq/20231008_175026.jpg",
+        "/images/projects/317 bbq/20231008_175109.jpg",
+        "/images/projects/317 bbq/20231008_175244.jpg",
+        "/images/projects/317 bbq/20231008_175510.jpg",
+        "/images/projects/317 bbq/20231008_175512.jpg",
+        "/images/projects/317 bbq/20231008_175650.jpg",
+        "/images/projects/317 bbq/20231008_175654.jpg",
+        "/images/projects/317 bbq/20231008_180910.jpg",
+        "/images/projects/317 bbq/20231008_181722.jpg",
+        "/images/projects/317 bbq/317BBQLogo_wht.webp",
+        "/images/projects/317 bbq/download (1).jpg",
+        "/images/projects/317 bbq/download.jpg",
+        "/images/projects/317 bbq/Screenshot of 317 BBQ _ Really Good BBQ.jpg"
+      ],
+      "lastUpdated": "2025-10-13T02:14:20.858Z"
+    },
+    {
+      "slug": "riley-bennett-egloff",
+      "title": "Riley Bennett Egloff",
+      "dominantColors": [
+        "#374151",
+        "#6B7280",
+        "#9CA3AF",
+        "#D1D5DB",
+        "#F3F4F6"
+      ],
+      "keywords": [
+        "design",
+        "professional",
+        "modern",
+        "logo design",
+        "identity"
+      ],
+      "imageCount": 4,
+      "images": [
+        "/images/projects/riley bennett egloff/attorneys.jpg",
+        "/images/projects/riley bennett egloff/download.jpg",
+        "/images/projects/riley bennett egloff/dss.jpg",
+        "/images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg.jpg"
+      ],
+      "lastUpdated": "2025-10-13T02:14:20.860Z"
+    },
+    {
+      "slug": "russell-painting",
+      "title": "Russell Painting",
+      "dominantColors": [
+        "#374151",
+        "#6B7280",
+        "#9CA3AF",
+        "#D1D5DB",
+        "#F3F4F6",
+        "#7C3AED",
+        "#A855F7",
+        "#C084FC"
+      ],
+      "keywords": [
+        "artistic",
+        "creative",
+        "expressive",
+        "cultural",
+        "vibrant",
+        "logo design",
+        "identity"
+      ],
+      "imageCount": 2,
+      "images": [
+        "/images/projects/Russell painting/New-Logo-Transparent-1.png",
+        "/images/projects/Russell painting/Screenshot of Power Washing _ Russell Painting Company, Inc.jpg"
+      ],
+      "lastUpdated": "2025-10-13T02:14:20.862Z"
+    },
+    {
+      "slug": "tuohy-bailey-moore-llp",
+      "title": "Tuohy Bailey & Moore LLP",
+      "dominantColors": [
+        "#374151",
+        "#6B7280",
+        "#9CA3AF",
+        "#D1D5DB",
+        "#F3F4F6",
+        "#1E3A8A",
+        "#3B82F6",
+        "#60A5FA"
+      ],
+      "keywords": [
+        "design",
+        "professional",
+        "modern",
+        "legal",
+        "corporate",
+        "trustworthy",
+        "established"
+      ],
+      "imageCount": 3,
+      "images": [
+        "/images/projects/Tuohy Bailey & Moore LLP/Screenshot of Business Transactions - Tuohy Bailey & Moore LLP.jpg",
+        "/images/projects/Tuohy Bailey & Moore LLP/Screenshot of Commercial Law - Tuohy Bailey & Moore LLP.jpg",
+        "/images/projects/Tuohy Bailey & Moore LLP/Screenshot of Home - Tuohy Bailey & Moore LLP.jpg"
+      ],
+      "lastUpdated": "2025-10-13T02:14:20.864Z"
+    }
+  ]
+}

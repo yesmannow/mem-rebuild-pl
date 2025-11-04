@@ -1,0 +1,80 @@
+.background-logos {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-logo {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.bg-logo-image {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  opacity: 0.8;
+  filter: grayscale(30%) blur(0.5px);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Prevent logo from interfering with content */
+.bg-logo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .bg-logo-image {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bg-logo-image {
+    width: 90px;
+    height: 90px;
+  }
+  
+  /* Hide some logos on mobile for performance */
+  .bg-logo:nth-child(n+5) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .bg-logo-image {
+    width: 70px;
+    height: 70px;
+  }
+  
+  /* Show even fewer logos on small mobile */
+  .bg-logo:nth-child(n+4) {
+    display: none;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .bg-logo {
+    animation: none !important;
+  }
+  
+  .bg-logo-image {
+    opacity: 0.02;
+  }
+}

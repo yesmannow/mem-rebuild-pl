@@ -1,0 +1,57 @@
+{
+  "bioPhotos": [
+    {
+      "src": "/images/bio/bio-photo.jpg",
+      "variant": "hero",
+      "alt": "Jacob Darling - Professional portrait in cinematic lighting",
+      "useIn": ["Hero", "About"],
+      "size": "962KB",
+      "description": "Main professional headshot with excellent lighting and composition"
+    },
+    {
+      "src": "/images/bio/241311036_10117555583372059_173429180650836298_n.webp",
+      "variant": "casual",
+      "alt": "Jacob Darling - Casual outdoor portrait",
+      "useIn": ["About", "Footer"],
+      "size": "247KB",
+      "description": "Relaxed outdoor portrait, already optimized as WebP"
+    },
+    {
+      "src": "/images/bio/Adobe Express 2025-10-12 09.58.18.PNG",
+      "variant": "artistic",
+      "alt": "Jacob Darling - Colorful artistic portrait with creative effects",
+      "useIn": ["Hero", "Overlay"],
+      "size": "5.3MB",
+      "description": "Vibrant artistic portrait with color effects, needs optimization"
+    },
+    {
+      "src": "/images/bio/Untitled-1 (Custom).png",
+      "variant": "monochrome",
+      "alt": "Jacob Darling - Black and white portrait",
+      "useIn": ["About"],
+      "size": "117KB",
+      "description": "Monochrome portrait with professional styling"
+    },
+    {
+      "src": "/images/bio/1732967007485.jpg",
+      "variant": "candid",
+      "alt": "Jacob Darling - Candid moment portrait",
+      "useIn": ["About", "Gallery"],
+      "size": "201KB",
+      "description": "Natural candid portrait, good for rotation gallery"
+    }
+  ],
+  "metadata": {
+    "totalImages": 5,
+    "optimizationNeeded": ["Adobe Express 2025-10-12 09.58.18.PNG"],
+    "webpReady": ["241311036_10117555583372059_173429180650836298_n.webp"],
+    "renamingNeeded": [
+      "Adobe Express 2025-10-12 09.58.18.PNG",
+      "Untitled-1 (Custom).png",
+      "1732967007485.jpg"
+    ],
+    "primaryHero": "/images/bio/Adobe Express 2025-10-12 09.58.18.PNG",
+    "primaryAbout": "/images/bio/bio-photo.jpg",
+    "primaryFooter": "/images/bio/241311036_10117555583372059_173429180650836298_n.webp"
+  }
+}

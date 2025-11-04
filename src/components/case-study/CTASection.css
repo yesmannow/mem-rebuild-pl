@@ -1,0 +1,16 @@
+.cta-section {
+  padding: 4rem 2rem;
+  background: var(--gradient-brand);
+  text-align: center;
+  color: white;
+}
+
+.cta-section h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.cta-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+}

@@ -1,0 +1,145 @@
+{
+  "designImages": [
+    {
+      "src": "/images/design/Adobe_Express_20220527_2105230.6071119382485303.png",
+      "alt": "Creative digital design with vibrant colors and modern typography",
+      "variant": "digital",
+      "tags": ["digital", "creative", "vibrant", "typography"],
+      "size": "4.6MB",
+      "featured": true,
+      "useIn": ["Gallery", "Hero"],
+      "category": "Digital Art"
+    },
+    {
+      "src": "/images/design/file_00000000c524623091018296ba5b34a3.png",
+      "alt": "Professional graphic design with clean layout",
+      "variant": "graphic",
+      "tags": ["graphic", "professional", "clean", "layout"],
+      "size": "3.0MB",
+      "featured": true,
+      "useIn": ["Gallery"],
+      "category": "Graphic Design"
+    },
+    {
+      "src": "/images/design/file_000000009d0861f8a59c35ae82dde4b7 (1).png",
+      "alt": "Modern branding design with sophisticated color palette",
+      "variant": "branding",
+      "tags": ["branding", "modern", "sophisticated", "color-palette"],
+      "size": "2.7MB",
+      "featured": true,
+      "useIn": ["Gallery"],
+      "category": "Branding"
+    },
+    {
+      "src": "/images/design/file_0000000040d46230b3f420ddf8f917de.png",
+      "alt": "Contemporary design with bold visual elements",
+      "variant": "contemporary",
+      "tags": ["contemporary", "bold", "visual", "elements"],
+      "size": "2.7MB",
+      "featured": false,
+      "useIn": ["Gallery"],
+      "category": "Digital Art"
+    },
+    {
+      "src": "/images/design/IMG_20220529_193948_726.jpg",
+      "alt": "Creative poster design with artistic typography",
+      "variant": "poster",
+      "tags": ["poster", "creative", "artistic", "typography"],
+      "size": "2.7MB",
+      "featured": false,
+      "useIn": ["Gallery"],
+      "category": "Print Design"
+    },
+    {
+      "src": "/images/design/IMG_20220513_222748_444.jpg",
+      "alt": "Professional marketing design with strategic layout",
+      "variant": "marketing",
+      "tags": ["marketing", "professional", "strategic", "layout"],
+      "size": "2.3MB",
+      "featured": false,
+      "useIn": ["Gallery"],
+      "category": "Marketing"
+    },
+    {
+      "src": "/images/design/IMG_20230617_015647_366.jpg",
+      "alt": "Brand identity design with cohesive visual system",
+      "variant": "identity",
+      "tags": ["identity", "brand", "cohesive", "system"],
+      "size": "2.0MB",
+      "featured": false,
+      "useIn": ["Gallery"],
+      "category": "Branding"
+    },
+    {
+      "src": "/images/design/2021 Health Care Ad.png",
+      "alt": "Healthcare advertising design with clean medical aesthetic",
+      "variant": "healthcare",
+      "tags": ["healthcare", "advertising", "clean", "medical"],
+      "size": "1.8MB",
+      "featured": false,
+      "useIn": ["Gallery"],
+      "category": "Advertising"
+    },
+    {
+      "src": "/images/design/IMG_20220904_153503_226.jpg",
+      "alt": "Event design with engaging visual hierarchy",
+      "variant": "event",
+      "tags": ["event", "engaging", "hierarchy", "visual"],
+      "size": "1.7MB",
+      "featured": false,
+      "useIn": ["Gallery"],
+      "category": "Event Design"
+    },
+    {
+      "src": "/images/design/IMG_20211002_204207_713.jpg",
+      "alt": "Social media design with modern aesthetic",
+      "variant": "social",
+      "tags": ["social-media", "modern", "aesthetic", "engaging"],
+      "size": "1.7MB",
+      "featured": false,
+      "useIn": ["Gallery"],
+      "category": "Social Media"
+    },
+    {
+      "src": "/images/design/25 percent sale - Spring.png",
+      "alt": "Seasonal promotional design with vibrant spring colors",
+      "variant": "promotional",
+      "tags": ["promotional", "seasonal", "spring", "vibrant"],
+      "size": "1.4MB",
+      "featured": false,
+      "useIn": ["Gallery"],
+      "category": "Promotional"
+    },
+    {
+      "src": "/images/design/Herbs Rub Logo.png",
+      "alt": "Logo design for culinary brand with organic aesthetic",
+      "variant": "logo",
+      "tags": ["logo", "culinary", "organic", "brand"],
+      "size": "1.1MB",
+      "featured": false,
+      "useIn": ["Gallery"],
+      "category": "Logo Design"
+    },
+    {
+      "src": "/images/design/taco ninja logo.png",
+      "alt": "Taco ninja logo design (archived)",
+      "variant": "archived",
+      "tags": ["archived", "logo", "previous"],
+      "size": "588KB",
+      "featured": false,
+      "useIn": ["Archive"],
+      "category": "Archived"
+    }
+  ],
+  "metadata": {
+    "totalImages": 47,
+    "featuredCount": 3,
+    "categories": ["Digital Art", "Graphic Design", "Branding", "Print Design", "Marketing", "Advertising", "Event Design", "Social Media", "Promotional", "Logo Design"],
+    "tags": ["digital", "creative", "vibrant", "typography", "graphic", "professional", "clean", "layout", "branding", "modern", "sophisticated", "color-palette", "contemporary", "bold", "visual", "elements", "poster", "artistic", "marketing", "strategic", "identity", "brand", "cohesive", "system", "healthcare", "advertising", "medical", "event", "engaging", "hierarchy", "social-media", "aesthetic", "promotional", "seasonal", "spring", "logo", "culinary", "organic"],
+    "optimizationNeeded": ["Adobe_Express_20220527_2105230.6071119382485303.png", "file_00000000c524623091018296ba5b34a3.png", "file_000000009d0861f8a59c35ae82dde4b7 (1).png"],
+    "recommendedFormats": ["webp", "avif"],
+    "primaryHero": "/images/design/Adobe_Express_20220527_2105230.6071119382485303.png",
+    "galleryLayout": "grid",
+    "videoAssets": ["VID_20230729_194732_603 (1).mp4", "VID_20230823_194738_067.mp4"]
+  }
+}

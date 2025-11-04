@@ -1,0 +1,43 @@
+{
+  "router": {
+    "showModelSelection": true,
+    "rules": [
+      {
+        "match": ["build", "setup", "environment", "optimize", "cinematic", "configuration", "infrastructure", "reason"],
+        "model": "gpt-5 (high reasoning)",
+        "description": "For full build, environment configuration, and multi-step reasoning prompts."
+      },
+      {
+        "match": ["component", "refactor", "layout", "responsive", "fix", "logic", "function", "hook", "animation", "gsap", "framer"],
+        "model": "gpt-5 (medium reasoning)",
+        "description": "For component updates, animation tuning, or general front-end logic."
+      },
+      {
+        "match": ["snippet", "generate code", "utility", "helper", "regex", "example"],
+        "model": "gpt-5-codex",
+        "description": "For short code generation, functions, and utilities."
+      },
+      {
+        "match": ["design", "visual", "ui", "ux", "color", "layout", "typography", "mockup", "palette", "aesthetic", "composition", "search", "find", "image", "photo"],
+        "model": "gemini-2.5-pro",
+        "description": "For design-related analysis, layout refinements, and creative direction."
+      },
+      {
+        "match": ["content", "copy", "text", "write", "tone", "narrative", "story", "case study", "paragraph", "description"],
+        "model": "gpt-5 (medium reasoning)",
+        "description": "For text writing, case study copy, or microcontent polishing."
+      },
+      {
+        "match": ["visual asset", "illustration", "render", "generate hero", "create logo", "poster", "banner", "generate", "compose", "create"],
+        "model": "image-gen",
+        "description": "For generating visual assets such as logos, hero backgrounds, or imagery."
+      },
+      {
+        "match": ["deploy", "build production", "vercel", "netlify", "publish", "ci", "workflow", "server"],
+        "model": "gpt-5 (high reasoning)",
+        "description": "For deployment setup, build pipelines, and environment automation."
+      }
+    ],
+    "default": "gpt-5 (medium reasoning)"
+  }
+}

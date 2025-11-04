@@ -1,0 +1,381 @@
+/* Mobile-First Optimization Styles */
+
+/* Hero Section Mobile Fixes */
+@media (max-width: 768px) {
+  .proactive-support-hero {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+  }
+
+  .hero-container {
+    padding-top: 0;
+  }
+
+  .demo-container {
+    margin: 2rem 0;
+  }
+
+  .metrics-display {
+    margin: 2rem 0;
+  }
+}
+
+/* Header Mobile Fixes */
+@media (max-width: 768px) {
+  .main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+  }
+
+  .main-nav {
+    padding: 0.75rem 1rem;
+  }
+
+  /* Ensure mobile header doesn't overlap content */
+  body {
+    padding-top: 70px !important; /* Override for mobile */
+  }
+
+  main {
+    margin-top: 70px !important; /* Override for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Even smaller header on very small screens */
+  body {
+    padding-top: 60px !important;
+  }
+
+  main {
+    margin-top: 60px !important;
+  }
+}
+
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
+
+/* Base Mobile Styles */
+@media (max-width: 768px) {
+  /* Typography Scaling */
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 3.5rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 4vw, 1.2rem) !important;
+    line-height: 1.5 !important;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 10vw, 4rem) !important;
+  }
+
+  .card-title {
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+  }
+
+  /* Spacing Optimization */
+  .section-padding {
+    padding: 3rem 1rem !important;
+  }
+
+  .hero-padding {
+    padding: 2rem 1rem !important;
+  }
+
+  .card-padding {
+    padding: 1.5rem !important;
+  }
+
+  /* Grid Layouts */
+  .grid-responsive {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .grid-2-responsive {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .grid-3-responsive {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Button Optimization */
+  .btn-mobile {
+    width: 100% !important;
+    max-width: 300px !important;
+    padding: 1rem 1.5rem !important;
+    font-size: 1rem !important;
+  }
+
+  .btn-group-mobile {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: center !important;
+  }
+
+  /* Card Optimization */
+  .card-mobile {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .card-content-mobile {
+    padding: 1.5rem !important;
+  }
+
+  /* Navigation */
+  .nav-mobile {
+    padding: 1rem !important;
+  }
+
+  .nav-links-mobile {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Hero Section Mobile */
+  .hero-mobile {
+    min-height: 100vh !important;
+    padding: 2rem 1rem !important;
+  }
+
+  .hero-content-mobile {
+    text-align: center !important;
+    max-width: 100% !important;
+  }
+
+  .demo-container-mobile {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    margin: 2rem 0 !important;
+  }
+
+  /* Chatbot Demo Mobile */
+  .chatbot-demo-mobile {
+    padding: 1rem !important;
+  }
+
+  .chatbot-messages-mobile {
+    max-height: 250px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .message-mobile {
+    margin-bottom: 0.75rem !important;
+  }
+
+  .message-content-mobile {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* Metrics Mobile */
+  .metrics-display-mobile {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    margin: 2rem 0 !important;
+  }
+
+  .metric-card-mobile {
+    padding: 1rem !important;
+  }
+
+  .metric-value-mobile {
+    font-size: 2rem !important;
+  }
+
+  .metric-label-mobile {
+    font-size: 0.8rem !important;
+  }
+
+  /* Process Section Mobile */
+  .process-steps-mobile {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .process-step-mobile {
+    text-align: center !important;
+  }
+
+  .process-line-mobile {
+    display: none !important;
+  }
+
+  /* Case Studies Mobile */
+  .case-study-card-mobile {
+    margin-bottom: 2rem !important;
+  }
+
+  .case-study-content-mobile {
+    padding: 1.5rem !important;
+  }
+
+  .case-study-metrics-mobile {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  /* Touch Optimization */
+  .touch-target {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+
+  .touch-friendly {
+    padding: 0.75rem !important;
+    margin: 0.5rem !important;
+  }
+
+  /* Performance Optimizations */
+  .reduce-motion {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .optimize-images {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .lazy-load {
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+  }
+
+  .lazy-load.loaded {
+    opacity: 1 !important;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  /* Extra Small Screens */
+  .hero-title {
+    font-size: clamp(1.75rem, 10vw, 2.5rem) !important;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 12vw, 3rem) !important;
+  }
+
+  .card-title {
+    font-size: clamp(1.25rem, 8vw, 1.75rem) !important;
+  }
+
+  /* Ultra Compact Spacing */
+  .section-padding {
+    padding: 2rem 0.75rem !important;
+  }
+
+  .hero-padding {
+    padding: 1.5rem 0.75rem !important;
+  }
+
+  .card-padding {
+    padding: 1rem !important;
+  }
+
+  /* Button Sizing */
+  .btn-mobile {
+    padding: 0.875rem 1.25rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Chatbot Mobile */
+  .chatbot-demo-mobile {
+    padding: 0.75rem !important;
+  }
+
+  .chatbot-messages-mobile {
+    max-height: 200px !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Metrics Compact */
+  .metric-value-mobile {
+    font-size: 1.75rem !important;
+  }
+
+  .metric-label-mobile {
+    font-size: 0.75rem !important;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-mobile {
+    min-height: 100vh !important;
+    padding: 1rem !important;
+  }
+
+  .demo-container-mobile {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .metrics-display-mobile {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .optimize-images {
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: crisp-edges !important;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reduce-motion {
+    transform: none !important;
+  }
+}
+
+/* Dark Mode Mobile */
+@media (prefers-color-scheme: dark) {
+  .mobile-dark {
+    background-color: #0f172a !important;
+    color: #f1f5f9 !important;
+  }
+
+  .mobile-dark .card {
+    background-color: rgba(30, 41, 59, 0.8) !important;
+    border-color: rgba(71, 85, 105, 0.3) !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-optimize {
+    color: black !important;
+    background: white !important;
+  }
+}

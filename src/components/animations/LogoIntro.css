@@ -1,0 +1,113 @@
+.logo-intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  overflow: hidden;
+}
+
+.logo-intro-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.logo-intro-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 30px rgba(136, 171, 242, 0.6));
+}
+
+/* Orbital rings */
+.intro-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid;
+  pointer-events: none;
+}
+
+.intro-ring.ring-1 {
+  width: 240px;
+  height: 240px;
+  border-color: rgba(136, 171, 242, 0.8);
+}
+
+.intro-ring.ring-2 {
+  width: 280px;
+  height: 280px;
+  border-color: rgba(0, 188, 212, 0.6);
+}
+
+.intro-ring.ring-3 {
+  width: 320px;
+  height: 320px;
+  border-color: rgba(102, 126, 234, 0.5);
+}
+
+.logo-intro-text {
+  position: absolute;
+  bottom: 20%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.logo-intro-text h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #88abf2;
+  letter-spacing: 1px;
+}
+
+.logo-intro-text p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .logo-intro-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .intro-ring.ring-1 {
+    width: 180px;
+    height: 180px;
+  }
+
+  .intro-ring.ring-2 {
+    width: 210px;
+    height: 210px;
+  }
+
+  .intro-ring.ring-3 {
+    width: 240px;
+    height: 240px;
+  }
+
+  .logo-intro-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .logo-intro-text p {
+    font-size: 0.95rem;
+  }
+}

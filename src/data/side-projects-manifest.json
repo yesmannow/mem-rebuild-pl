@@ -1,0 +1,229 @@
+{
+  "sideProjectsImages": [
+    {
+      "src": "/images/side-projects/317BBQ+Logo-11.jpg",
+      "alt": "317 BBQ restaurant logo design with flame-inspired typography and rustic branding elements",
+      "project": "317-bbq",
+      "category": "logo",
+      "size": "254KB",
+      "dimensions": "estimated 1200x800",
+      "tags": ["bbq", "restaurant", "logo", "branding", "fire", "rustic"]
+    },
+    {
+      "src": "/images/side-projects/317BBQ+Logo_wht.png",
+      "alt": "317 BBQ white logo variation for dark backgrounds and signage applications",
+      "project": "317-bbq",
+      "category": "logo-variation",
+      "size": "133KB",
+      "tags": ["bbq", "restaurant", "logo", "white", "variation"]
+    },
+    {
+      "src": "/images/side-projects/Gomez BBQ Logo.png",
+      "alt": "Gomez BBQ complementary logo design with traditional barbecue styling",
+      "project": "317-bbq",
+      "category": "logo-alternate",
+      "size": "17KB",
+      "tags": ["bbq", "restaurant", "logo", "traditional"]
+    },
+    {
+      "src": "/images/side-projects/Gomez PNG 2.png",
+      "alt": "Gomez BBQ logo variation with enhanced typography and brand elements",
+      "project": "317-bbq",
+      "category": "logo-variation",
+      "size": "96KB",
+      "tags": ["bbq", "restaurant", "logo", "typography"]
+    },
+    {
+      "src": "/images/side-projects/Primary Care Logo with PMC.png",
+      "alt": "Primary Care Indianapolis medical practice logo with PMC designation for professional healthcare branding",
+      "project": "primary-care-indy",
+      "category": "logo",
+      "size": "265KB",
+      "tags": ["healthcare", "medical", "logo", "professional", "trust"]
+    },
+    {
+      "src": "/images/side-projects/cropped-PC_LOGO1-1024x174.jpg",
+      "alt": "Primary Care Indianapolis horizontal logo layout optimized for web headers and digital applications",
+      "project": "primary-care-indy",
+      "category": "logo-horizontal",
+      "size": "15KB",
+      "dimensions": "1024x174",
+      "tags": ["healthcare", "medical", "logo", "horizontal", "web"]
+    },
+    {
+      "src": "/images/side-projects/Man at the doctors office.jpg",
+      "alt": "Professional medical consultation scene showing doctor-patient interaction in modern healthcare setting",
+      "project": "primary-care-indy",
+      "category": "lifestyle",
+      "size": "47KB",
+      "tags": ["healthcare", "consultation", "doctor", "patient", "medical"]
+    },
+    {
+      "src": "/images/side-projects/Online Doctor Consultation Instagram Post.png",
+      "alt": "Social media post design for online doctor consultation services with modern healthcare branding",
+      "project": "primary-care-indy",
+      "category": "social-media",
+      "size": "459KB",
+      "tags": ["healthcare", "social media", "online consultation", "digital"]
+    },
+    {
+      "src": "/images/side-projects/UCI Hours COVID.jpg",
+      "alt": "COVID-19 safety hours and protocols communication design for urgent care facility",
+      "project": "primary-care-indy",
+      "category": "covid-communication",
+      "size": "137KB",
+      "tags": ["healthcare", "covid", "safety", "hours", "communication"]
+    },
+    {
+      "src": "/images/side-projects/dot-physicals-header.jpg",
+      "alt": "DOT physicals service header image showcasing professional medical examination services",
+      "project": "primary-care-indy",
+      "category": "service-header",
+      "size": "119KB",
+      "tags": ["healthcare", "dot physicals", "medical examination", "professional"]
+    },
+    {
+      "src": "/images/side-projects/occ-health-header.jpg",
+      "alt": "Occupational health services header featuring workplace wellness and medical care",
+      "project": "primary-care-indy",
+      "category": "service-header",
+      "size": "114KB",
+      "tags": ["healthcare", "occupational health", "workplace wellness", "medical"]
+    },
+    {
+      "src": "/images/side-projects/sports-physical-header (1).jpg",
+      "alt": "Sports physical examination header showcasing athletic healthcare services and fitness medical care",
+      "project": "primary-care-indy",
+      "category": "service-header",
+      "size": "163KB",
+      "tags": ["healthcare", "sports physical", "athletic", "fitness", "medical"]
+    },
+    {
+      "src": "/images/side-projects/what-we-treat-1.jpg",
+      "alt": "Medical services overview showing comprehensive healthcare treatment options and patient care",
+      "project": "primary-care-indy",
+      "category": "services-overview",
+      "size": "91KB",
+      "tags": ["healthcare", "medical services", "treatment", "patient care"]
+    },
+    {
+      "src": "/images/side-projects/PCI Google Review Business Cards.jpg",
+      "alt": "Business cards design featuring Google review QR codes for Primary Care Indianapolis patient feedback",
+      "project": "primary-care-indy",
+      "category": "business-cards",
+      "size": "16KB",
+      "tags": ["healthcare", "business cards", "google reviews", "patient feedback"]
+    },
+    {
+      "src": "/images/side-projects/pci-logo-retina-rev.png",
+      "alt": "High-resolution Primary Care Indianapolis logo optimized for retina displays and digital applications",
+      "project": "primary-care-indy",
+      "category": "logo-retina",
+      "size": "28KB",
+      "tags": ["healthcare", "logo", "retina", "high-resolution", "digital"]
+    },
+    {
+      "src": "/images/side-projects/Perpetual Movement Fitness - Primary Logo TM.png",
+      "alt": "Perpetual Movement Fitness trademarked logo design emphasizing continuous motion and fitness transformation",
+      "project": "perpetual-movement-fitness",
+      "category": "logo",
+      "size": "83KB",
+      "tags": ["fitness", "logo", "movement", "wellness", "trademark"]
+    },
+    {
+      "src": "/images/side-projects/TBM Logo.png",
+      "alt": "TBM company logo design with professional corporate branding and clean typography",
+      "project": "tbm-brand-playbook",
+      "category": "logo",
+      "size": "204KB",
+      "tags": ["corporate", "logo", "professional", "business", "branding"]
+    },
+    {
+      "src": "/images/side-projects/TBM Brand Playbook Demo.png",
+      "alt": "TBM brand playbook demonstration showing comprehensive brand guidelines and visual identity system",
+      "project": "tbm-brand-playbook",
+      "category": "brand-guidelines",
+      "size": "435KB",
+      "tags": ["brand strategy", "guidelines", "playbook", "visual identity", "documentation"]
+    },
+    {
+      "src": "/images/side-projects/CBD Oil.jpg",
+      "alt": "Premium CBD oil product photography with natural lighting and professional product presentation",
+      "project": "cbd-pet-care",
+      "category": "product-hero",
+      "size": "692KB",
+      "tags": ["cbd", "product photography", "natural", "premium", "wellness"]
+    },
+    {
+      "src": "/images/side-projects/CBD-Oil-for-Pets.png",
+      "alt": "CBD oil specifically formulated for pets with safe, natural ingredients and veterinary-approved branding",
+      "project": "cbd-pet-care",
+      "category": "product",
+      "size": "482KB",
+      "tags": ["cbd", "pets", "natural", "veterinary", "safe"]
+    },
+    {
+      "src": "/images/side-projects/CBD-for-Pets-and-Pet-Skin-Care.png",
+      "alt": "CBD pet care product line featuring skin care solutions and wellness products for animals",
+      "project": "cbd-pet-care",
+      "category": "product-line",
+      "size": "331KB",
+      "tags": ["cbd", "pets", "skin care", "wellness", "natural"]
+    },
+    {
+      "src": "/images/side-projects/Complete Solution Dogs.png",
+      "alt": "Comprehensive CBD wellness solution for dogs featuring complete care system and natural ingredients",
+      "project": "cbd-pet-care",
+      "category": "product-system",
+      "size": "439KB",
+      "tags": ["cbd", "dogs", "complete solution", "wellness", "natural"]
+    },
+    {
+      "src": "/images/side-projects/Skincare-for-Dogs-and-Cats.jpg",
+      "alt": "Natural skincare products for dogs and cats with CBD-infused formulations for pet health",
+      "project": "cbd-pet-care",
+      "category": "skincare",
+      "size": "185KB",
+      "tags": ["cbd", "skincare", "dogs", "cats", "natural", "health"]
+    },
+    {
+      "src": "/images/side-projects/dog-dry-skin-remedy.jpg",
+      "alt": "CBD-based dry skin remedy for dogs showing natural treatment and healing properties",
+      "project": "cbd-pet-care",
+      "category": "treatment",
+      "size": "175KB",
+      "tags": ["cbd", "dogs", "dry skin", "remedy", "natural", "treatment"]
+    },
+    {
+      "src": "/images/side-projects/Black Letter - Full Logo (1).png",
+      "alt": "Black Letter Coffee Roasters complete logo design with sophisticated typography and artisanal coffee branding",
+      "project": "black-letter-coffee",
+      "category": "logo",
+      "size": "1.29MB",
+      "tags": ["coffee", "artisanal", "logo", "typography", "sophisticated", "roasters"]
+    }
+  ],
+  "categories": {
+    "logo": "Primary brand mark and identity",
+    "logo-variation": "Alternative logo formats and colors",
+    "product": "Product photography and presentations",
+    "lifestyle": "Lifestyle and contextual imagery",
+    "social-media": "Social media content and posts",
+    "service-header": "Service page headers and banners",
+    "brand-guidelines": "Brand documentation and playbooks",
+    "business-cards": "Print collateral and business materials"
+  },
+  "metadata": {
+    "totalImages": 23,
+    "totalProjects": 6,
+    "averageFileSize": "245KB",
+    "imageFormats": ["jpg", "png"],
+    "optimizationRecommendations": [
+      "Convert large PNG files to WebP for better compression",
+      "Generate AVIF versions for modern browsers",
+      "Create responsive image variants (480px, 768px, 1200px, 1920px)",
+      "Implement lazy loading for performance"
+    ],
+    "lastUpdated": "2025-10-12"
+  }
+}

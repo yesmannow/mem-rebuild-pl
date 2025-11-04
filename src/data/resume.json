@@ -1,0 +1,192 @@
+{
+  "name": "Jacob Darling",
+  "title": "Marketing Strategist & Systems Architect",
+  "summary": "A dynamic and results-driven Marketing Director and Systems Architect with over 15 years of experience propelling brand growth by bridging the gap between creative strategy and full-stack technical execution. Proven expertise in designing and personally engineering scalable marketing ecosystems for global brands serving 30,000+ practitioners. Adept at leveraging data-driven insights and AI-powered automation to elevate brand visibility, optimize campaigns, and consistently deliver exceptional ROI.",
+  "contact": {
+    "email": "hoosierdarling@gmail.com",
+    "location": "Indianapolis, IN",
+    "website": "jacobdarling.com",
+    "github": "https://github.com/JdarlingGT",
+    "linkedin": "linkedin.com/in/jacobdarling"
+  },
+  "experience": [
+    {
+      "company": "Graston Technique, LLC",
+      "image": "/images/auto-generated/graston-technique/placeholder.webp",
+      "role": "Marketing Director",
+      "dates": "August 2023 – Present",
+      "location": "Indianapolis, IN",
+      "summary": "Lead both marketing strategy and hands-on technical execution for a high-volume educational platform, managing a cross-functional team and engineering the core digital infrastructure for 30,000+ clinicians.",
+      "achievements": [
+        "Built an integrated ecosystem with LearnDash LMS, WooCommerce, WP Fusion, Gravity Forms, Uncanny Automator, and FluentCRM",
+        "Architected 'Buy Now, Choose Later' credit system for training bundles and CEU Short access",
+        "Launched tiered provider directory with analytics dashboards and premium profile upsell paths",
+        "Built and deployed a GPT-powered assistant connected via REST APIs for CEU rules, order lookups, training suggestions, and user escalation",
+        "Created 400+ automations using Uncanny Automator and WP Fusion triggered by tags, training progress, or form submissions",
+        "Created provider analytics dashboards syncing GA4 data via GTM and Analytify with page views, link clicks, social metrics, UTM sources, and benchmark comparisons",
+        "Optimized site speed with WP Rocket, LiteSpeed, Cloudflare CDN, async/defer scripts, and GTM server-side tagging",
+        "Built REST-based frontend dashboards with Cloudflare Workers + Mapbox for training event coordination",
+        "Implemented comprehensive Cloudflare optimizations: Rate-limiting, WAF rules, Bot Fight Mode, Caching & Tiered Cache, Managed Transforms, Page Rules, SSL/TLS Origin Cert, DNSSEC Setup",
+        "Managed cross-functional sprints with developers, designers, instructors, and marketing associates, translating business goals into dev-ready specifications",
+        "Implemented Form Submission Tracking (Gravity Forms / GTM / Google Ads), GTM Engagement Tracking, Google Ads Conversion Optimization, and PixelYourSite Pro tracking"
+      ],
+      "technologies": ["LearnDash", "WooCommerce", "WP Fusion", "Gravity Forms", "Uncanny Automator", "FluentCRM", "WordPress", "JavaScript", "Google Analytics 4", "Google Tag Manager", "Analytify", "Cloudflare Workers", "Mapbox", "WP Rocket", "LiteSpeed", "Cloudflare CDN", "REST APIs", "OpenAI", "Netdata", "PHP 8.3", "GTM Server-Side Tagging"]
+    },
+    {
+      "company": "Ultimate Technologies Group",
+      "role": "Interim Director of Marketing",
+      "dates": "February 2023 – June 2023",
+      "location": "Fishers, IN",
+      "summary": "Spearheaded marketing strategy and execution during a key transitional period, ensuring business continuity and brand consistency across all channels.",
+      "achievements": [
+        "Managed end-to-end marketing communications, including internal messaging, external campaigns, and stakeholder engagement",
+        "Led the development and optimization of Google Ads campaigns, improving lead generation, CTR, and overall ROI",
+        "Oversaw content creation for website, email marketing, social media, and sales collateral to support business development initiatives",
+        "Coordinated with cross-functional teams (sales, customer success, executive leadership) to align marketing strategy with organizational goals",
+        "Implemented marketing automation workflows and CRM integrations to streamline operations and enhance campaign performance tracking",
+        "Conducted market research and competitive analysis to refine targeting and positioning strategies",
+        "Managed and optimized paid media and SEO efforts, driving qualified traffic and enhancing online visibility",
+        "Directed branding updates and ensured visual and messaging alignment across all customer touchpoints",
+        "Provided leadership and mentoring to the marketing team, ensuring high performance during organizational change"
+      ],
+      "technologies": ["Marketing Strategy", "Google Ads", "Marketing Automation", "CRM Integration", "SEO", "Paid Media", "Brand Management", "Campaign Management"]
+    },
+    {
+      "company": "Riley Bennett Egloff, LLP",
+      "image": "/images/auto-generated/riley-bennett-egloff/placeholder.webp",
+      "role": "Marketing Manager",
+      "dates": "June 2015 – March 2023",
+      "location": "Indianapolis, IN",
+      "summary": "Led strategic marketing, digital communications, and client development for legal and professional services.",
+      "achievements": [
+        "Designed, built, and managed comprehensive marketing materials, including brochures, advertisements, email campaigns, newsletters, social media content, and RBE magazines",
+        "Oversaw firm branding and content strategy across digital platforms, including full ownership of the RBE website—enhancing performance, SEO, and user experience",
+        "Led public and media relations efforts: cultivated media relationships, drafted press releases, and secured firm publicity in legal news, thought leadership, and client matters",
+        "Created and executed direct email marketing and social media campaigns; tracked performance metrics and optimized results",
+        "Partnered with attorneys to develop and manage individualized business development plans—successfully identifying new opportunities for client engagement and growth",
+        "Developed strategic pitch materials and managed RFP/proposal responses, showcasing firm capabilities with precision and impact",
+        "Played a key role in industry submissions and award nominations, increasing firm visibility and market recognition",
+        "Provided market intelligence insights to guide future strategy and business development planning",
+        "Actively participated in practice group meetings, contributing actionable insights that drove firm-wide initiatives forward",
+        "Established trusted relationships with practice group leaders and attorneys to support cross-selling and firm-wide business growth"
+      ],
+      "technologies": ["Strategic Marketing", "Digital Marketing", "SEO", "Content Strategy", "Email Marketing", "Social Media", "Public Relations", "Business Development", "RFP Management", "Project Management", "Brand Management"]
+    },
+    {
+      "company": "Deerfield Financial Advisors",
+      "role": "Marketing Coordinator",
+      "dates": "June 2013 – June 2015",
+      "location": "Indianapolis, IN",
+      "summary": "Executed marketing initiatives and campaigns to elevate brand awareness and attract new clients while supporting ongoing engagement with existing clients and professional partners.",
+      "achievements": [
+        "Planned and managed successful client-facing seminars and events, enhancing client retention and brand credibility",
+        "Wrote and maintained content for the company website, email marketing campaigns, and printed collateral, ensuring consistency and clarity in brand messaging",
+        "Researched, evaluated, and implemented new technology platforms, improving both client services and internal operational efficiency",
+        "Collaborated with the Chief Compliance Officer to review all marketing materials, ensuring full compliance with FINRA and SEC regulations"
+      ],
+      "technologies": ["Content Development", "Email Marketing", "Event Management", "Website Management", "Technology Implementation", "FINRA Compliance", "SEC Compliance"]
+    },
+    {
+      "company": "Pike Medical Consultants",
+      "image": "/images/auto-generated/pike-medical/placeholder.webp",
+      "role": "Marketing Coordinator",
+      "dates": "January 2009 – December 2013",
+      "location": "Indianapolis, IN",
+      "summary": "Directed all marketing functions for the organization, including strategic planning, budgeting, advertising, branding, public relations, website development, and event management, while reporting directly to the company president.",
+      "achievements": [
+        "Drove a 45% increase in patient visits over three years, maintaining a consistently positive ROI across all marketing initiatives",
+        "Designed and executed integrated marketing and advertising campaigns that directly contributed to sustained company growth",
+        "Led the creation of a new company website, modernizing the digital presence and improving patient engagement and lead generation",
+        "Developed and managed internal and external communication strategies to strengthen brand positioning and market visibility",
+        "Oversaw public relations efforts to increase awareness and credibility in the healthcare community",
+        "Implemented data-driven tracking and evaluation processes to measure the effectiveness of campaigns and inform future strategy"
+      ],
+      "technologies": ["Strategic Planning", "Budgeting", "Website Development", "Google Ads", "Public Relations", "Brand Management", "Campaign Management", "Data Analytics", "Event Management"]
+    },
+    {
+      "company": "OrthoIndy",
+      "role": "Marketing Intern",
+      "dates": "2006 – 2007",
+      "location": "Indianapolis, IN",
+      "summary": "Gained foundational experience in a professional healthcare marketing environment, assisting with content and event coordination.",
+      "achievements": [
+        "Assisted with content development and event coordination in a professional healthcare marketing environment"
+      ],
+      "technologies": ["Content Coordination", "Event Management"]
+    }
+  ],
+  "skills": [
+    "Strategic Marketing & Leadership",
+    "Brand Strategy & Transformation",
+    "Lifecycle & Email Marketing",
+    "Content Strategy & Technical SEO",
+    "Data Analytics & Attribution Modeling",
+    "Agile Project Management",
+    "Team Leadership & Cross-Functional Collaboration",
+    "Annual Budget Management ($500K+)",
+    "Full-Stack Web Development (WordPress, JavaScript, React)",
+    "CRM Architecture & Automation (HubSpot, FluentCRM, WP Fusion)",
+    "AI & GPT-Powered Tool Integration (OpenAI, REST APIs)",
+    "Performance & Security Optimization (Cloudflare, LiteSpeed, WP Rocket)",
+    "Custom Analytics Dashboards (GA4, GTM, Mapbox)",
+    "LMS & E-Commerce Integration (LearnDash, WooCommerce)",
+    "Serverless Development (Cloudflare Workers)"
+  ],
+  "tools": [
+    "WordPress",
+    "JavaScript",
+    "React",
+    "HubSpot",
+    "FluentCRM",
+    "WP Fusion",
+    "LearnDash",
+    "WooCommerce",
+    "Google Analytics",
+    "Google Tag Manager",
+    "Mapbox",
+    "Cloudflare Workers",
+    "Cloudflare CDN",
+    "WP Rocket",
+    "LiteSpeed",
+    "ACF Pro",
+    "FacetWP",
+    "Figma",
+    "Adobe Creative Suite",
+    "Canva",
+    "Photoshop"
+  ],
+  "education": [
+    {
+      "institution": "Indiana University-Bloomington",
+      "degree": "Bachelor's degree in Business Management",
+      "year": "August 2004 – May 2008",
+      "details": "Won 2006 Target Marketing Competition"
+    }
+  ],
+  "communityLeadership": [
+    {
+      "organization": "School 80 Condominiums HOA",
+      "role": "President",
+      "dates": "2019 – Present",
+      "summary": "Lead board operations and community management."
+    },
+    {
+      "organization": "Primary Colours",
+      "role": "Board Member",
+      "dates": "2018 – 2019",
+      "summary": "Supported a non-profit for visual arts, leading marketing for events."
+    },
+    {
+      "organization": "SMART Anti-Bullying Program",
+      "role": "Business Mentor",
+      "dates": "2013",
+      "summary": "Guided students in creating a business and marketing plan."
+    }
+  ],
+  "stats": {
+    "experience": "15+",
+    "practitioners": "30K+",
+    "caseStudies": "14+",
+    "customApps": "4+"
+  }
+}

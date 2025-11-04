@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graston Clinical Compass - Intelligent Protocol Builder</title>
+    <!-- Google Fonts: Montserrat (headings) & Inter (body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+          --color-primary: #222B45;
+          --color-accent: #2983E6;
+          --color-accent-alt: #39B6B4;
+          --color-bg: #F6F8FA;
+          --color-bg-card: #FFF;
+          --color-border: #E3E8EE;
+          --color-muted: #98A1B3;
+          --color-footer: #181C27;
+          --color-heading: #192036;
+          --color-success: #2cc18f;
+          --color-warning: #ffc870;
+          --color-error: #fc5966;
+          --shadow-card: 0 8px 32px rgba(34,43,69,.07);
+        }
+
+        body {
+          background: var(--color-bg);
+          color: var(--color-heading);
+          font-family: 'Inter', 'Droid Sans', Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          font-size: 1.06rem;
+          line-height: 1.7;
+          min-height: 100vh;
+        }
+
+        .protocol-builder-container {
+          max-width: 980px;
+          margin: 40px auto;
+          background: var(--color-bg-card);
+          border-radius: 22px;
+          box-shadow: var(--shadow-card);
+          overflow: hidden;
+        }
+
+        .builder-header {
+          background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-alt) 100%);
+          padding: 60px 48px 40px 48px;
+          text-align: center;
+          position: relative;
+          z-index: 1;
+        }
+
+        .builder-header::before {
+          content: "";
+          position: absolute;
+          z-index: 0;
+          left: 0; top: 0; width: 100%; height: 100%;
+          background: linear-gradient(120deg,rgba(34,43,69,0.68) 50%,rgba(57,182,180,0.08));
+          opacity: 0.8;
+        }
+
+        .builder-header > * {
+          position: relative;
+          z-index: 2;
+        }
+
+        .builder-header h1 {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 800;
+          font-size: 2.8rem;
+          color: #fff;
+          letter-spacing: 1px;
+          margin-bottom: 12px;
+          text-transform: uppercase;
+        }
+
+        .builder-header p {
+          color: #f7fafc;
+          font-size: 1.18rem;
+          margin-top: 0;
+          margin-bottom: 0;
+          letter-spacing: 0.02em;
+        }
+
+        .builder-body {
+          padding: 42px 56px 48px 56px;
+        }
+
+        .progress-bar {
+          display: flex;
+          gap: 16px;
+          margin-bottom: 36px;
+          position: relative;
+        }
+
+        .progress-step {
+          flex: 1;
+          text-align: center;
+          background: var(--color-bg-card);
+          border-radius: 13px;
+          color: var(--color-muted);
+          font-family: 'Montserrat', sans-serif;
+          font-size: 1.01rem;
+          font-weight: 600;
+          padding: 16px 6px 15px 6px;
+          border: 2.5px solid var(--color-border);
+          transition: all 0.26s cubic-bezier(.56,.08,.52,.95);
+          cursor: pointer;
+          position: relative;
+          box-shadow: 0 3px 16px rgba(34,43,69,0.03);
+        }
+
+        .progress-step.active {
+          border-color: var(--color-accent);
+          background: #eaf3fa;
+          color: var(--color-primary);
+          transform: scale(1.04);
+          z-index: 2;
+        }
+
+        .progress-step.completed {
+          border-color: var(--color-accent-alt);
+          background: #effcf8;
+          color: var(--color-accent-alt);
+        }
+
+        .progress-step.completed::after {
+          content: "✓";
+          position: absolute;
+          right: 14px; top: 8px;
+          font-size: 0.92em;
+          color: var(--color-success);
+          font-weight: bold;
+        }
+
+        .progress-step::before {
+          content: attr(data-step);
+          position: absolute; left: 11px; top: 8px;
+          font-size: 0.84em;
+          color: var(--color-accent);
+          font-weight: bold;
+        }
+
+        .step-progress {
+          margin-bottom: 18px;
+          color: var(--color-muted);
+          font-size: 1.01rem;
+          font-weight: 500;
+          text-align: center;
+        }
+
+        .protocol-question {
+          display: none;
+          min-height: 220px;
+          animation: fadeInStep 0.6s;
+        }
+        .protocol-question.active { display: block; }
+
+        @keyframes fadeInStep {
+          from { opacity: 0; transform: translateY(22px);}
+          to   { opacity: 1; transform: translateY(0);}
+        }
+
+        .form-group {
+          margin-bottom: 30px;
+        }
+
+        .form-group label {
+          display: block;
+          font-family: 'Montserrat',sans-serif;
+          font-weight: 700;
+          font-size: 1.13rem;
+          color: var(--color-heading);
+          margin-bottom: 10px;
+          letter-spacing: 0.01em;
+        }
+
+        .form-group select, .form-group input[type="text"], .form-group input[type="email"] {
+          width: 100%;
+          padding: 13px 16px;
+          border-radius: 11px;
+          border: 2px solid var(--color-border);
+          font-size: 1.07rem;
+          background: #fff;
+          transition: border 0.2s, box-shadow 0.2s;
+          box-sizing: border-box;
+          appearance: none;
+          font-family: inherit;
+          color: var(--color-primary);
+          background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+          background-repeat: no-repeat;
+          background-position: right 16px center;
+          background-size: 18px 18px;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+          outline: none;
+          border-color: var(--color-accent);
+          box-shadow: 0 0 0 3px rgba(41,131,230,.11);
+        }
+
+        .checkbox-group label {
+          display: flex;
+          align-items: flex-start;
+          background: #f4f6fa;
+          padding: 17px 19px;
+          border-radius: 12px;
+          margin-bottom: 10px;
+          cursor: pointer;
+          border: 2px solid var(--color-border);
+          font-size: 1.02rem;
+          font-weight: 500;
+          color: var(--color-heading);
+          transition: all .18s;
+          box-shadow: 0 1px 5px rgba(34,43,69,0.03);
+        }
+
+        .checkbox-group label:has(input:checked) {
+          background-color: #eaf3fa;
+          border-color: var(--color-accent);
+          transform: translateY(-2px) scale(1.01);
+        }
+
+        .checkbox-group input[type="checkbox"] {
+          margin-right: 13px;
+          margin-top: 2px;
+          width: 18px; height: 18px;
+          accent-color: var(--color-accent);
+          flex-shrink: 0;
+        }
+
+        .builder-nav {
+          margin-top: 40px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .btn {
+          padding: 16px 38px;
+          border-radius: 999px;
+          font-weight: 800;
+          font-family: 'Montserrat',sans-serif;
+          font-size: 1.07rem;
+          border: 2px solid transparent;
+          background: var(--color-accent);
+          color: #fff;
+          letter-spacing: .03em;
+          box-shadow: 0 2px 14px rgba(41,131,230,.13);
+          transition: all .24s cubic-bezier(.57,.2,.34,1.02);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          cursor: pointer;
+          text-decoration: none;
+        }
+        .btn:disabled {
+          background: var(--color-muted);
+          cursor: not-allowed;
+          opacity: 0.55;
+          box-shadow: none;
+        }
+
+        .btn-primary { background: var(--color-accent); border-color: var(--color-accent); }
+        .btn-primary:hover:not(:disabled),
+        .btn-primary:focus-visible:not(:disabled) {
+          background: #1562a7;
+          color: #fff;
+          transform: translateY(-2px) scale(1.03);
+        }
+
+        .btn-secondary {
+          background: #fff;
+          color: var(--color-accent);
+          border: 2px solid var(--color-accent);
+          box-shadow: none;
+        }
+        .btn-secondary:hover:not(:disabled),
+        .btn-secondary:focus-visible:not(:disabled) {
+          background: var(--color-accent);
+          color: #fff;
+          transform: translateY(-2px) scale(1.01);
+        }
+
+        .alert {
+          display: none;
+          border-radius: 12px;
+          padding: 13px 20px;
+          font-weight: 600;
+          font-size: 1.01rem;
+          margin-bottom: 19px;
+        }
+        .alert.success   { background: #e8f8ef; color: var(--color-success);}
+        .alert.warning   { background: #fff9e3; color: var(--color-warning);}
+        .alert.error     { background: #fff0f2; color: var(--color-error);}
+
+        #protocolResultContainer {
+          margin-top: 60px;
+          border-top: 1px solid var(--color-border);
+          padding-top: 38px;
+          display: none;
+        }
+
+        #protocolResultContainer h3 {
+          font-family: 'Montserrat',sans-serif;
+          color: var(--color-primary);
+          font-size: 2.05rem;
+          border-bottom: 2.5px solid var(--color-accent);
+          padding-bottom: 8px;
+          margin-bottom: 30px;
+          text-transform: uppercase;
+          font-weight: 800;
+        }
+
+        #protocolResultContainer h4 {
+          font-family: 'Montserrat',sans-serif;
+          color: var(--color-accent-alt);
+          font-size: 1.25rem;
+          margin: 26px 0 12px;
+          font-weight: 700;
+        }
+
+        .protocol-summary-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+          gap: 24px;
+          background: #f7fbfd;
+          padding: 20px 22px;
+          border-radius: 12px;
+          margin-bottom: 29px;
+          box-shadow: 0 1px 5px rgba(34,43,69,0.04);
+        }
+
+        .summary-item strong {
+          font-family: 'Montserrat',sans-serif;
+          color: var(--color-primary);
+          display: block;
+          margin-bottom: 5px;
+          font-weight: 700;
+        }
+
+        #protocolResultContainer table {
+          width: 100%;
+          border-collapse: separate;
+          border-spacing: 0;
+          margin-top: 13px;
+          font-size: 1.03rem;
+          background: #fff;
+          border-radius: 13px;
+          overflow: hidden;
+          box-shadow: 0 4px 22px rgba(34,43,69,0.06);
+        }
+        #protocolResultContainer th, #protocolResultContainer td {
+          padding: 16px 17px;
+          text-align: left;
+          vertical-align: top;
+          border-bottom: 1px solid var(--color-border);
+        }
+        #protocolResultContainer th {
+          background: var(--color-accent);
+          color: #fff;
+          font-family: 'Montserrat',sans-serif;
+          font-size: 1.09rem;
+          font-weight: 700;
+          border-right: 1px solid var(--color-bg);
+        }
+        #protocolResultContainer tr:nth-child(even) td {
+          background: #f8fafc;
+        }
+
+        .instrument-link {
+          color: var(--color-accent);
+          font-weight: 700;
+          border-bottom: 2px dotted var(--color-accent);
+          transition: color .18s;
+          text-decoration: none;
+        }
+        .instrument-link:hover {
+          color: var(--color-accent-alt);
+          border-bottom-color: var(--color-accent-alt);
+        }
+
+        .actions-toolbar {
+          margin-top: 34px;
+          padding-top: 19px;
+          border-top: 1px solid var(--color-border);
+          display: flex;
+          flex-wrap: wrap;
+          gap: 14px;
+          justify-content: center;
+        }
+
+        .modal {
+          display: none;
+          position: fixed;
+          z-index: 1000;
+          left: 0; top: 0; width: 100vw; height: 100vh;
+          background: rgba(20,30,50,0.77);
+          align-items: center;
+          justify-content: center;
+        }
+
+        .modal-content {
+          background: var(--color-bg-card);
+          margin: 5% auto;
+          padding: 38px 36px;
+          border-radius: 18px;
+          width: 94%;
+          max-width: 680px;
+          position: relative;
+          box-shadow: 0 7px 44px rgba(34,43,69,0.16);
+        }
+        .close-modal {
+          color: var(--color-muted);
+          float: right;
+          font-size: 32px;
+          font-weight: 800;
+          cursor: pointer;
+          margin-top: -10px;
+          margin-right: -6px;
+          transition: color .16s;
+        }
+        .close-modal:hover { color: var(--color-error); }
+        .modal h3 {
+          font-family: 'Montserrat',sans-serif;
+          color: var(--color-accent);
+          font-size: 1.36rem;
+          margin-top: 0;
+        }
+        .modal img {
+          max-width: 100%;
+          border-radius: 10px;
+          margin-bottom: 17px;
+        }
+
+        @media (max-width: 1199px) {
+          .builder-body { padding: 32px 22px 32px 22px;}
+        }
+        @media (max-width: 850px) {
+          .protocol-builder-container { margin: 16px; }
+          .builder-header, .builder-body { padding: 16px; }
+          .progress-bar { flex-direction: column; gap: 12px;}
+        }
+        @media (max-width: 600px) {
+          .builder-header h1 { font-size: 1.43rem; }
+          .builder-header { padding: 38px 8px 18px 8px; }
+          .builder-body { padding: 11px 2vw 12px 2vw;}
+          .protocol-summary-grid { gap: 7px; padding: 10px 4vw;}
+          .actions-toolbar { gap: 6px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="protocol-builder-container">
+        <div class="builder-header">
+            <h1>Graston Clinical Compass</h1>
+            <p>A situational tool to guide your clinical reasoning and treatment protocol.</p>
+        </div>
+        <div class="builder-body">
+            <div class="step-progress">
+                Step <span id="currentStepNum">1</span> of 4
+            </div>
+            <div class="alert" id="alertMessage"></div>
+            <div class="progress-bar">
+                <div id="step1_indicator" class="progress-step active" data-step="1">Principles</div>
+                <div id="step2_indicator" class="progress-step" data-step="2">Profile</div>
+                <div id="step3_indicator" class="progress-step" data-step="3">Assessment</div>
+                <div id="step4_indicator" class="progress-step" data-step="4">Refinement</div>
+            </div>
+            <div id="step1" class="protocol-question active">
+                <div class="form-group">
+                    <label>Acknowledge Core Principles</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="principles" value="eval"> I will differentiate between Evaluation and Treatment strokes.</label>
+                        <label><input type="checkbox" name="principles" value="dosage"> I will consider all Dosage Parameters (stroke, speed, pressure, etc.).</label>
+                        <label><input type="checkbox" name="principles" value="contra"> I have screened my patient for contraindications.</label>
+                    </div>
+                </div>
+            </div>
+            <div id="step2" class="protocol-question">
+                <div class="form-group">
+                    <label for="patientAcuity">Patient Acuity / Tissue Reactivity</label>
+                    <select id="patientAcuity">
+                        <option value="Chronic">Chronic / Low Reactivity</option>
+                        <option value="Subacute">Subacute / Moderate Reactivity</option>
+                        <option value="Acute">Acute / High Reactivity</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="regionSelect">Anatomical Region</label>
+                    <select id="regionSelect"></select>
+                </div>
+            </div>
+            <div id="step3" class="protocol-question">
+                <div class="form-group">
+                    <label for="pathologySelect">Suspected Pathology / Dysfunction</label>
+                    <select id="pathologySelect"></select>
+                </div>
+                <div class="form-group">
+                    <label for="textureSelect">Primary Tissue Texture Finding</label>
+                    <select id="textureSelect">
+                        <option value="fibrotic">Fibrotic / Ropey</option>
+                        <option value="adhesion">Broad Adhesion</option>
+                        <option value="gritty">Focal / Gritty Point</option>
+                        <option value="sensitive">Generally Sensitive / Reactive</option>
+                    </select>
+                </div>
+            </div>
+            <div id="step4" class="protocol-question">
+                <div class="form-group">
+                    <label>Select Key Clinical Findings (if any)</label>
+                    <div id="findingsContainer" class="checkbox-group"></div>
+                </div>
+            </div>
+            <div class="builder-nav">
+                <button id="prevBtn" class="btn btn-secondary" style="visibility: hidden;">← Back</button>
+                <button id="nextBtn" class="btn btn-primary">Next →</button>
+            </div>
+            <div id="protocolResultContainer"></div>
+        </div>
+    </div>
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close-modal">×</span>
+            <div id="modalBodyContent"></div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Rich Instrument Data w/ Educational Info ---
+            const instrumentData = {
+                'GT1': { 
+                    name: 'GT1: Scanner', 
+                    image: 'https://grastontechnique.com/wp-content/uploads/2022/10/GT1.png',
+                    rationale: `The largest Graston instrument, GT1 is expertly designed for "scanning" and treating large muscle groups and fascia. Its broad, gently convex edges allow clinicians to quickly assess tissue texture and efficiently treat areas such as hamstrings, quadriceps, and the back.<br><br>
+                    <strong>Key Features:</strong><br>
+                    • Broad, convex surfaces for coverage<br>
+                    • Ideal for quick tissue assessment and warm-up<br>
+                    • Comfortable for both practitioner and patient<br><br>
+                    <em>“The GT1’s unique shape allows for effective sweeping and fanning strokes on larger muscles, making it the clinician’s go-to for general scanning.”</em>`
+                },
+                'GT2': { 
+                    name: 'GT2: Multi-Tool', 
+                    image: 'https://grastontechnique.com/wp-content/uploads/2022/10/GT2.png',
+                    rationale: `Known as the “workhorse” of the Graston set, GT2 offers a wide range of applications. With single- and double-beveled edges, as well as knobs, GT2 can both scan and treat small to medium muscle groups, providing flexibility for different tissue needs.<br><br>
+                    <strong>Key Features:</strong><br>
+                    • Both beveled and straight edges<br>
+                    • Great for upper and lower extremity work<br>
+                    • Useful for both assessment and treatment strokes<br><br>
+                    <em>“Its ergonomic design lets you access varied contours, making it one of the most versatile instruments in clinical use.”</em>`
+                },
+                'GT3': { 
+                    name: 'GT3: Tongue Depressor', 
+                    image: 'https://grastontechnique.com/wp-content/uploads/2022/10/GT3.png',
+                    rationale: `The smallest and most precise Graston instrument, GT3 excels at targeting specific, localized lesions and smaller areas—like tendons, ligaments, or pinpoint adhesions.<br><br>
+                    <strong>Key Features:</strong><br>
+                    • Single-bevel convex edge for focused treatment<br>
+                    • Exceptional for detailed work on hands, feet, and isolated soft tissue lesions<br>
+                    • Comfortable in smaller hands<br><br>
+                    <em>“When accuracy matters most, GT3 offers clinicians outstanding control for spot treatment.”</em>`
+                },
+                'GT4': { 
+                    name: 'GT4: Handlebar', 
+                    image: 'https://grastontechnique.com/wp-content/uploads/2022/10/GT4.png',
+                    rationale: `GT4’s large, gently convex edge is ideal for sweeping strokes over larger body surfaces. The “handlebar” grip makes it comfortable for clinicians to treat areas like the IT band, quadriceps, and back.<br><br>
+                    <strong>Key Features:</strong><br>
+                    • Large convex edge for long, sweeping strokes<br>
+                    • Suited for deep tissue mobilization<br>
+                    • Comfortable handle for powerful treatment<br><br>
+                    <em>“Excellent for both scanning and deeper treatment on broad muscle groups.”</em>`
+                },
+                'GT5': { 
+                    name: 'GT5: Boomerang', 
+                    image: 'https://grastontechnique.com/wp-content/uploads/2022/10/GT5.png',
+                    rationale: `With its signature boomerang shape, GT5 is designed for both scanning and treating convex body parts—think shoulders, calves, and deltoids. Its unique concave and convex edges let clinicians follow the body’s natural curves.<br><br>
+                    <strong>Key Features:</strong><br>
+                    • Multiple edge contours for varied tissue needs<br>
+                    • Perfect for deltoids, calves, and paraspinals<br>
+                    • Enhances comfort and adaptability<br><br>
+                    <em>“The GT5’s curved design makes it perfect for adapting to rounded anatomical surfaces.”</em>`
+                },
+                'GT6': { 
+                    name: 'GT6: Hook', 
+                    image: 'https://grastontechnique.com/wp-content/uploads/2022/10/GT6.png',
+                    rationale: `GT6 is the most specialized tool, featuring a precise tip and a unique “hook” shape for accessing tight, hard-to-reach areas—such as around joints or bony prominences.<br><br>
+                    <strong>Key Features:</strong><br>
+                    • Smallest working surface for pinpoint accuracy<br>
+                    • Excellent for hands, feet, and delicate structures<br>
+                    • Provides clinician control for detailed work<br><br>
+                    <em>“Designed for fine, precise work—GT6 helps address adhesions in even the most challenging locations.”</em>`
+                }
+            };
+
+            // Protocol data
+            const protocolData = {
+                cervicalSpine: {
+                    displayName: "Cervical Spine",
+                    pathologies: {
+                        general: { 
+                            displayName: "General Dysfunction / Postural Strain", 
+                            baseProtocol: [
+                                { area: "Upper Trapezius / Levator Scapulae", stroke: "Sweep, Fan", instruments: "GT1, GT4, GT5" },
+                                { area: "Cervical Paraspinals (Laminar Groove)", stroke: "J-Stroke", instruments: "GT3" },
+                                { area: "Suboccipitals", stroke: "Sweep, Brush, Strum", instruments: "GT5, GT3" }
+                            ], 
+                            findings: { 
+                                headaches: { text: "Focus on releasing suboccipital tension, a common driver of cervicogenic headaches." },
+                                forwardHead: { text: "Address shortened anterior structures. Include framing of the clavicle and light sweeps over SCM." }
+                            }, 
+                            adjunctiveCare: "Stretching of upper traps & pectorals. Strengthening of deep neck flexors & scapular retractors." 
+                        }
+                    }
+                },
+                shoulder: {
+                    displayName: "Shoulder",
+                    pathologies: {
+                        impingement: { 
+                            displayName: "Impingement / RTC Tendinopathy", 
+                            baseProtocol: [
+                                { area: "Posterior RTC (Infraspinatus/Teres Minor)", stroke: "Sweep, Brush, Strum", instruments: "GT4, GT5, GT2" },
+                                { area: "Supraspinatus (Belly & Tendon)", stroke: "Sweep, Strum", instruments: "GT3, GT2, GT6" },
+                                { area: "Pectoralis Minor", stroke: "Sweep, Fan, Scoop", instruments: "GT3, GT4, GT5" }
+                            ], 
+                            findings: { 
+                                scapularDyskinesis: { text: "Address scapular mobility. Treat restrictions in serratus anterior, rhomboids, and levator scapulae." },
+                                overheadAthlete: { text: "For overhead athletes, assess and treat the entire kinetic chain." }
+                            }, 
+                            adjunctiveCare: "Strengthening of external rotators and scapular stabilizers." 
+                        }
+                    }
+                },
+                knee: {
+                    displayName: "Knee",
+                    pathologies: {
+                        pfps: { 
+                            displayName: "Patellofemoral Pain Syndrome (PFPS)", 
+                            baseProtocol: [
+                                { area: "Lateral Retinaculum / Distal ITB", stroke: "J-Stroke, Strum", instruments: "GT3" },
+                                { area: "Vastus Lateralis", stroke: "Sweep, Fan", instruments: "GT1, GT4, GT5" },
+                                { area: "Quadriceps Tendon & Patellar Ligament", stroke: "Brush, Strum", instruments: "GT3, GT6" }
+                            ], 
+                            findings: { 
+                                hipWeakness: { text: "Assess and address hip abductor and external rotator weakness." }
+                            }, 
+                            adjunctiveCare: "Strengthening of gluteus medius and VMO." 
+                        }
+                    }
+                }
+            };
+
+            // DOM elements
+            const steps = Array.from(document.querySelectorAll('.protocol-question'));
+            const indicators = Array.from(document.querySelectorAll('.progress-step'));
+            const nextBtn = document.querySelector('#nextBtn');
+            const prevBtn = document.querySelector('#prevBtn');
+            const regionSelect = document.querySelector('#regionSelect');
+            const pathologySelect = document.querySelector('#pathologySelect');
+            const findingsContainer = document.querySelector('#findingsContainer');
+            const resultContainer = document.querySelector('#protocolResultContainer');
+            const principleCheckboxes = document.querySelectorAll('input[name="principles"]');
+            const currentStepNum = document.querySelector('#currentStepNum');
+            const alertMessage = document.querySelector('#alertMessage');
+
+            let currentStep = 0;
+
+            function showAlert(message, type = 'info') {
+                alertMessage.textContent = message;
+                alertMessage.className = `alert ${type}`;
+                alertMessage.style.display = 'block';
+                setTimeout(() => {
+                    alertMessage.style.display = 'none';
+                }, 3000);
+            }
+
+            function populateSelect(selectElement, options, displayNameKey) {
+                selectElement.innerHTML = '';
+                for (const key in options) {
+                    const opt = document.createElement('option');
+                    opt.value = key;
+                    opt.textContent = options[key][displayNameKey];
+                    selectElement.appendChild(opt);
+                }
+            }
+
+            function updateDependentDropdowns() {
+                const regionKey = regionSelect.value;
+                if (!regionKey || !protocolData[regionKey]) return;
+
+                populateSelect(pathologySelect, protocolData[regionKey].pathologies, 'displayName');
+                updateFindings();
+            }
+
+            function updateFindings() {
+                findingsContainer.innerHTML = '';
+                const regionKey = regionSelect.value;
+                const pathologyKey = pathologySelect.value;
+
+                if (!regionKey || !pathologyKey) return;
+
+                const findings = protocolData[regionKey].pathologies[pathologyKey].findings || {};
+                for (const key in findings) {
+                    const label = document.createElement('label');
+                    label.innerHTML = `<input type="checkbox" name="findings" value="${key}"> ${findings[key].text}`;
+                    findingsContainer.appendChild(label);
+                }
+            }
+
+            function validateCurrentStep() {
+                if (currentStep === 0) {
+                    const allChecked = Array.from(principleCheckboxes).every(cb => cb.checked);
+                    if (!allChecked) {
+                        showAlert('Please acknowledge all core principles before continuing.', 'warning');
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            function updateUI() {
+                // Update step visibility and progress indicators
+                steps.forEach((step, idx) => {
+                    step.classList.toggle('active', idx === currentStep);
+                    indicators[idx].classList.toggle('active', idx === currentStep);
+                    indicators[idx].classList.toggle('completed', idx < currentStep);
+                });
+
+                // Update step counter
+                currentStepNum.textContent = currentStep + 1;
+
+                // Update navigation buttons
+                prevBtn.style.visibility = currentStep === 0 ? 'hidden' : 'visible';
+
+                if (currentStep === steps.length - 1) {
+                    nextBtn.innerHTML = 'Generate Protocol 🚀';
+                } else {
+                    nextBtn.innerHTML = 'Next →';
+                }
+
+                // Enable/disable next button
+                if (currentStep === 0) {
+                    nextBtn.disabled = !Array.from(principleCheckboxes).every(cb => cb.checked);
+                } else {
+                    nextBtn.disabled = false;
+                }
+            }
+
+            // Navigation handlers
+            nextBtn.addEventListener('click', () => {
+                if (!validateCurrentStep()) return;
+
+                if (currentStep < steps.length - 1) {
+                    currentStep++;
+                    updateUI();
+                    showAlert(`Moved to step ${currentStep + 1}`, 'success');
+                } else {
+                    generateProtocol();
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentStep > 0) {
+                    currentStep--;
+                    updateUI();
+                    showAlert(`Moved to step ${currentStep + 1}`, 'success');
+                }
+            });
+
+            // Event listeners
+            principleCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateUI);
+            });
+
+            regionSelect.addEventListener('change', updateDependentDropdowns);
+            pathologySelect.addEventListener('change', updateFindings);
+
+            // Modal functionality
+            const modal = document.getElementById('infoModal');
+            const closeModalBtn = document.getElementById('closeModal');
+            const modalBody = document.getElementById('modalBodyContent');
+
+            closeModalBtn.onclick = () => { modal.style.display = "none"; };
+            window.onclick = (event) => { 
+                if (event.target == modal) { modal.style.display = "none"; } 
+            };
+
+            function showInstrumentInfo(instCode) {
+                const data = instrumentData[instCode];
+                if (!data) return;
+
+                modalBody.innerHTML = `
+                    <h3>${data.name}</h3>
+                    <img src="${data.image}" alt="${data.name}" onerror="this.style.display='none'">
+                    <p>${data.rationale}</p>
+                `;
+                modal.style.display = "block";
+            }
+
+            // Protocol generation
+            function generateProtocol() {
+                const regionKey = regionSelect.value;
+                const pathologyKey = pathologySelect.value;
+
+                if (!regionKey || !pathologyKey) {
+                    showAlert('Please complete all required fields', 'error');
+                    return;
+                }
+
+                const pathologyData = protocolData[regionKey].pathologies[pathologyKey];
+                const selectedFindings = Array.from(document.querySelectorAll('input[name="findings"]:checked'))
+                    .map(cb => cb.value);
+
+                // Build protocol table
+                let protocolTable = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Treatment Area</th>
+                                <th>Stroke Technique</th>
+                                <th>Recommended Instruments</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                pathologyData.baseProtocol.forEach(protocol => {
+                    const instrumentLinks = protocol.instruments.split(', ').map(inst => {
+                        const trimmed = inst.trim();
+                        return `<a href="javascript:void(0);" class="instrument-link" onclick="showInstrumentInfo('${trimmed}')">${trimmed}</a>`;
+                    }).join(', ');
+
+                    protocolTable += `
+                        <tr>
+                            <td>${protocol.area}</td>
+                            <td>${protocol.stroke}</td>
+                            <td>${instrumentLinks}</td>
+                        </tr>
+                    `;
+                });
+
+                protocolTable += '</tbody></table>';
+
+                // Build findings section
+                let findingsSection = '';
+                if (selectedFindings.length > 0) {
+                    findingsSection = '<h4>Clinical Considerations</h4><ul>';
+                    selectedFindings.forEach(finding => {
+                        if (pathologyData.findings[finding]) {
+                            findingsSection += `<li>${pathologyData.findings[finding].text}</li>`;
+                        }
+                    });
+                    findingsSection += '</ul>';
+                }
+
+                // Display results
+                resultContainer.innerHTML = `
+                    <h3>Clinical Protocol Summary</h3>
+
+                    <div class="protocol-summary-grid">
+                        <div class="summary-item">
+                            <strong>Region:</strong> ${protocolData[regionKey].displayName}
+                        </div>
+                        <div class="summary-item">
+                            <strong>Pathology:</strong> ${pathologyData.displayName}
+                        </div>
+                    </div>
+
+                    <h4>Treatment Protocol</h4>
+                    ${protocolTable}
+
+                    ${findingsSection}
+
+                    <h4>Adjunctive Care Recommendations</h4>
+                    <p>${pathologyData.adjunctiveCare}</p>
+
+                    <div class="actions-toolbar">
+                        <button class="btn btn-secondary" onclick="window.print()">🖨️ Print Protocol</button>
+                        <button class="btn btn-secondary" onclick="resetBuilder()">🔄 Start Over</button>
+                    </div>
+                `;
+
+                resultContainer.style.display = "block";
+                resultContainer.scrollIntoView({ behavior: 'smooth' });
+
+                // Attach event listeners to instrument links
+                const instrumentLinks = resultContainer.querySelectorAll('.instrument-link');
+                instrumentLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const instCode = this.getAttribute('data-inst');
+                        showInstrumentInfo(instCode);
+                    });
+                });
+            }
+
+            // Global functions
+            window.showInstrumentInfo = showInstrumentInfo;
+
+            window.resetBuilder = function() {
+                currentStep = 0;
+                resultContainer.style.display = "none";
+
+                // Reset all form inputs
+                principleCheckboxes.forEach(cb => cb.checked = false);
+                regionSelect.selectedIndex = 0;
+                document.getElementById('patientAcuity').selectedIndex = 0;
+                document.getElementById('textureSelect').selectedIndex = 0;
+                findingsContainer.innerHTML = '';
+
+                updateDependentDropdowns();
+                updateUI();
+                showAlert('Protocol builder reset', 'success');
+            };
+
+            // Initialize
+            populateSelect(regionSelect, protocolData, 'displayName');
+            updateDependentDropdowns();
+            updateUI();
+        });
+    </script>
+</body>
+</html>

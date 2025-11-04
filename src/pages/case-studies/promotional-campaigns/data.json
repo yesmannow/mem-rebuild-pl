@@ -1,0 +1,84 @@
+{
+  "id": "promotional-campaigns",
+  "title": "Seasonal Promotional Campaigns",
+  "subtitle": "Dynamic promotional design system for retail marketing",
+  "client": "Retail Chain",
+  "year": "2022",
+  "duration": "6 months",
+  "category": "Promotional Design",
+  "tags": ["promotional", "seasonal", "retail", "marketing", "campaigns"],
+  "featured": true,
+  "status": "completed",
+  "overview": {
+    "challenge": "Create a flexible promotional design system that could adapt to different seasons and sales events while maintaining brand consistency and driving conversions.",
+    "solution": "Developed a modular design system with seasonal color palettes, dynamic typography, and flexible layouts that could be quickly adapted for different promotions.",
+    "impact": "Increased seasonal sales by 35% and reduced design production time by 50%."
+  },
+  "images": [
+    {
+      "src": "/images/design/25 percent sale - Spring.png",
+      "alt": "Spring promotional design with vibrant colors",
+      "caption": "Spring sale promotion featuring vibrant seasonal colors and clear discount messaging",
+      "type": "hero"
+    },
+    {
+      "src": "/images/design/Dog Summer Sale-1.png",
+      "alt": "Summer pet sale promotional design",
+      "caption": "Summer pet product promotion with playful design elements",
+      "type": "detail"
+    },
+    {
+      "src": "/images/design/My Post (2).jpg",
+      "alt": "Social media promotional post",
+      "caption": "Social media promotional content with engaging visuals",
+      "type": "social"
+    }
+  ],
+  "process": [
+    {
+      "phase": "System Architecture",
+      "description": "Designed flexible promotional framework adaptable to multiple seasons and events",
+      "deliverables": ["Design system documentation", "Component library", "Brand guidelines"]
+    },
+    {
+      "phase": "Seasonal Themes",
+      "description": "Created distinct visual themes for each season while maintaining brand consistency",
+      "deliverables": ["Spring campaign", "Summer campaign", "Fall campaign", "Winter campaign"]
+    },
+    {
+      "phase": "Multi-Channel Adaptation",
+      "description": "Adapted designs for print, digital, and social media channels",
+      "deliverables": ["Print materials", "Digital ads", "Social media templates"]
+    },
+    {
+      "phase": "Performance Optimization",
+      "description": "Tracked campaign performance and optimized designs based on conversion data",
+      "deliverables": ["A/B testing", "Performance reports", "Design iterations"]
+    }
+  ],
+  "technologies": ["Adobe Creative Suite", "Figma", "After Effects", "Sketch"],
+  "results": [
+    {
+      "metric": "Seasonal Sales",
+      "value": "+35%",
+      "description": "Increase in seasonal promotional sales"
+    },
+    {
+      "metric": "Production Efficiency",
+      "value": "+50%",
+      "description": "Reduction in design production time"
+    },
+    {
+      "metric": "Brand Consistency",
+      "value": "95%",
+      "description": "Brand guideline adherence across campaigns"
+    }
+  ],
+  "testimonial": {
+    "quote": "The promotional design system transformed how we approach seasonal marketing. The flexibility and consistency of the designs helped us launch campaigns faster while maintaining our brand identity.",
+    "author": "Marketing Manager",
+    "role": "Client"
+  },
+  "nextProject": "brand-identity-systems",
+  "relatedProjects": ["healthcare-campaign", "social-media-design"]
+}

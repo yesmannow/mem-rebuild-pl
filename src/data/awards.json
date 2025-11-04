@@ -1,0 +1,16 @@
+[
+  {
+    "id": "gold-key-photography",
+    "title": "Gold Key Award in Photography",
+    "organization": "Scholastic Art & Writing Awards",
+    "issuer": "Indianapolis Public Schools, Board of School Commissioners",
+    "date": "March 16, 2004",
+    "year": "2004",
+    "description": "Awarded to Jacob Darling for outstanding achievement in photography — recognizing artistic excellence, originality, and technical mastery in the Regional Scholastic Art Awards competition.",
+    "significance": "The Gold Key is the top regional honor in the Scholastic Art Awards, placing recipients in the top 5% of emerging artists nationwide.",
+    "image": "/images/auto-generated/awards/gold-key-award.png",
+    "category": "Creative Excellence",
+    "colorTheme": ["#FFD700", "#FFA500"],
+    "glowColor": "#FFD700"
+  }
+]

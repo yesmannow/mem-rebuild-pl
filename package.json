@@ -1,0 +1,47 @@
+{
+  "name": "jacob-darling-portfolio",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "generate:moodboards": "node scripts/generate-moodboards.js",
+    "generate:enhanced-moodboards": "node scripts/generate-enhanced-moodboards.js",
+    "generate:previews": "node scripts/generate-previews.js",
+    "classify:moodboards": "node scripts/classify-moodboards.js",
+    "sync:inspiration": "node scripts/sync-inspiration-index.js",
+    "build:inspiration": "npm run generate:enhanced-moodboards && npm run generate:previews && npm run classify:moodboards && npm run sync:inspiration"
+  },
+  "dependencies": {
+    "@react-pdf/renderer": "^4.3.1",
+    "animejs": "^4.2.2",
+    "dotenv": "^17.2.3",
+    "framer-motion": "^11.5.4",
+    "gsap": "^3.13.0",
+    "lenis": "^1.0.42",
+    "lucide-react": "^0.545.0",
+    "openai": "^6.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-lottie-player": "^2.1.0",
+    "react-router-dom": "^6.26.0",
+    "recharts": "^3.3.0",
+    "simple-icons": "^15.19.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "autoprefixer": "^10.4.21",
+    "jimp": "^1.6.0",
+    "node-vibrant": "^4.0.3",
+    "postcss": "^8.5.6",
+    "rollup-plugin-visualizer": "^6.0.5",
+    "tailwindcss": "^3.4.18",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21",
+    "vite-plugin-html": "^3.2.2"
+  }
+}

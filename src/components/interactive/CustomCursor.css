@@ -1,0 +1,39 @@
+.custom-cursor {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgba(136, 171, 242, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #88ABF2;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Hide default cursor on desktop */
+@media (min-width: 768px) {
+  body {
+    cursor: none;
+  }
+
+  a, button, .cursor-pointer {
+    cursor: none;
+  }
+}
+
+/* Show default cursor on mobile */
+@media (max-width: 767px) {
+  .custom-cursor,
+  .custom-cursor-dot {
+    display: none;
+  }
+}
