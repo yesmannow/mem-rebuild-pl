@@ -6,8 +6,8 @@ import { initLenis, destroyLenis } from "./utils/motion-sync";
 import { initAnalytics } from "./utils/analytics";
 import "lenis/dist/lenis.css";
 
-const ModernHeader = lazy(() => import("./components/layout/ModernHeader"));
-const Footer = lazy(() => import("./components/layout/Footer"));
+const BearCaveHeader = lazy(() => import("./components/layout/BearCaveHeader"));
+const BearCaveFooter = lazy(() => import("./components/layout/BearCaveFooter"));
 const ScrollToTop = lazy(() => import("./components/utils/ScrollToTop"));
 const BackToTop = lazy(() => import("./components/utilities/BackToTop"));
 const PersonSchema = lazy(() => import("./components/seo/PersonSchema"));
@@ -61,7 +61,7 @@ const App: React.FC = () => {
   return (
     <ErrorBoundary>
       <ThemeProvider>
-        <div className="app bg-bg text-text font-ui">
+        <div className="app min-h-dvh flex flex-col bg-[color:theme('colors.cave.bg')] text-[color:theme('colors.cave.text')] font-sans">
           <Suspense fallback={null}>
             <PersonSchema />
           </Suspense>
@@ -75,40 +75,34 @@ const App: React.FC = () => {
             <BackToTop />
           </Suspense>
           <Suspense fallback={
-            <header className="fixed top-0 left-0 right-0 z-50 bg-bg/95 backdrop-blur-sm border-b border-border">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-16">
-                  <div className="flex items-center">
-                    <Link to="/" className="text-xl font-bold text-primary">Jacob Darling</Link>
-                  </div>
-                  <nav className="hidden md:flex space-x-8">
-                    <Link to="/about" className="text-text hover:text-primary transition-colors">About</Link>
-                    <Link to="/case-studies" className="text-text hover:text-primary transition-colors">Case Studies</Link>
-                    <Link to="/projects" className="text-text hover:text-primary transition-colors">Projects</Link>
-                    <Link to="/contact" className="text-text hover:text-primary transition-colors">Contact</Link>
-                  </nav>
-                </div>
+            <header className="container-px">
+              <div className="mx-auto max-w-6xl py-6 flex items-center justify-between">
+                <Link to="/" className="font-display text-xl">BearCave</Link>
+                <nav className="hidden md:flex items-center gap-6 text-sm">
+                  <a href="#work" className="hover:opacity-75">Work</a>
+                  <a href="#about" className="hover:opacity-75">About</a>
+                  <a href="#contact" className="hover:opacity-75">Contact</a>
+                  <a href="#contact" className="btn-primary">Work With Me</a>
+                </nav>
               </div>
             </header>
           }>
-            <ModernHeader />
+            <BearCaveHeader />
           </Suspense>
           <Suspense fallback={null}>
             <FloatingActionButtons />
           </Suspense>
-          <Suspense fallback={null}>
+          <main className="flex-1">
             <AppRouter />
-          </Suspense>
+          </main>
           <Suspense fallback={
-            <footer className="bg-bg border-t border-border">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <div className="text-center text-text-secondary">
-                  <p>&copy; 2024 Jacob Darling. All rights reserved.</p>
-                </div>
+            <footer className="container-px py-12">
+              <div className="mx-auto max-w-6xl text-sm opacity-70">
+                © {new Date().getFullYear()} Jacob Darling — BearCave Marketing
               </div>
             </footer>
           }>
-            <Footer />
+            <BearCaveFooter />
           </Suspense>
         </div>
       </ThemeProvider>
