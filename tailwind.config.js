@@ -4,11 +4,23 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./pages/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        // Theme-aware colors using CSS variables
+        // BearCave brand tokens
+        cave: {
+          bg: "#0D0D0F",
+          text: "#E6E6E6",
+          white: "#FFFFFF",
+          ember: "#FF7A3D",
+          mist: "#4EC5B8",
+          border: "#1E1E22",
+        },
+        // Theme-aware colors using CSS variables (maintained for compatibility)
         bg: 'var(--bg)',
         card: 'var(--card)',
         text: 'var(--text)',
@@ -46,13 +58,15 @@ export default {
         DEFAULT: 'var(--border)',
       },
       boxShadow: {
+        card: "0 8px 30px rgba(0,0,0,0.35)",
         soft: '0 10px 30px rgba(0,0,0,.06)',
         'soft-dark': '0 10px 30px rgba(0,0,0,.3)',
       },
       fontFamily: {
+        display: ["var(--font-clash)", 'Clash Display', 'system-ui', 'sans-serif'],
+        sans: ["var(--font-inter)", 'Inter', 'system-ui', 'sans-serif'],
         brand: ['var(--font-brand)', 'Inter', 'system-ui', 'sans-serif'],
         ui: ['var(--font-ui)', 'Inter', 'system-ui', 'sans-serif'],
-        display: ['Clash Display', 'system-ui', 'sans-serif'],
         body: ['Inter', 'system-ui', 'sans-serif'],
       },
       borderRadius: {

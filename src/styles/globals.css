@@ -16,6 +16,7 @@
 
 :root {
   --header-height: 80px;
+  color-scheme: dark;
 }
 
 * {
@@ -23,7 +24,7 @@
 }
 
 html {
-  background-color: #0A0A0A; /* Prevent white flash before theme applies */
+  background-color: #0D0D0F; /* BearCave bg color */
 }
 
 body {
@@ -36,6 +37,41 @@ body {
   line-height: var(--leading-normal);
   overflow-x: hidden;
   padding-top: var(--header-height);
+}
+
+@layer base {
+  html, body {
+    @apply bg-[color:theme('colors.cave.bg')] text-[color:theme('colors.cave.text')] antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+  }
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-2xl px-5 py-3 font-medium
+           bg-[color:theme('colors.cave.ember')] text-black hover:opacity-90 transition;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-2xl px-5 py-3 font-medium
+           border border-[color:theme('colors.cave.border')] hover:bg-white/5 transition;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full border border-[color:theme('colors.cave.border')] px-3 py-1 text-xs;
+  }
+  .card {
+    @apply rounded-2xl border border-[color:theme('colors.cave.border')] bg-white/5 backdrop-blur-sm shadow-card;
+  }
+}
+
+@layer utilities {
+  .container-px {
+    @apply px-5 md:px-8;
+  }
 }
 
 #root {
