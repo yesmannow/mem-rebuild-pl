@@ -1,86 +1,45 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React from "react";
+import { Helmet } from "react-helmet-async";
 
 interface SEOHeadProps {
   title?: string;
   description?: string;
   keywords?: string;
-  ogImage?: string;
-  canonical?: string;
+  image?: string;
+  url?: string;
 }
 
-/**
- * Dynamic SEO Head Component
- * Updates meta tags, Open Graph, and Twitter Card data for each page
- */
-const SEOHead: React.FC<SEOHeadProps> = ({
-  title,
-  description,
+export default function SEOHead({
+  title = "BearCave Marketing — Jacob Darling",
+  description = "I build marketing systems that turn brands into revenue engines.",
   keywords,
-  ogImage = "https://jacobdarling.com/og-image.jpg",
-  canonical
-}) => {
-  const location = useLocation();
+  image = "/og.jpg",
+  url = "https://www.bearcavemarketing.com",
+}: SEOHeadProps) {
+  const fullTitle = title.includes("BearCave") ? title : `${title} | BearCave Marketing`;
+  const fullUrl = url.startsWith("http") ? url : `https://www.bearcavemarketing.com${url}`;
+  const fullImage = image.startsWith("http") ? image : `https://www.bearcavemarketing.com${image}`;
 
-  useEffect(() => {
-    const baseTitle = "Jacob Darling — Marketing Strategist & Systems Architect";
-    const baseDescription = "Results-driven marketing professional specializing in digital marketing strategies, campaign automation, CRM integration, SEO/SEM, and analytics-driven strategy. Proven results: 400+ marketing automations, 70% ticket reduction, 40% conversion increase.";
-    const baseKeywords = "marketing strategist, marketing technologist, marketing automation, CRM campaigns, SEO SEM, digital marketing, campaign automation, marketing ROI, Google Ads, Meta Ads, LinkedIn Ads, analytics-driven strategy, cross-functional project management, marketing manager, marketing systems architect";
+  return (
+    <Helmet>
+      <title>{fullTitle}</title>
+      <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
+      <link rel="canonical" href={fullUrl} />
 
-    const finalTitle = title ? `${title} | ${baseTitle}` : baseTitle;
-    const finalDescription = description || baseDescription;
-    const finalKeywords = keywords || baseKeywords;
-    const finalCanonical = canonical || `https://jacobdarling.com${location.pathname}`;
+      {/* Open Graph */}
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={fullImage} />
+      <meta property="og:url" content={fullUrl} />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="BearCave Marketing" />
 
-    // Update document title
-    document.title = finalTitle;
-
-    // Update or create meta tags
-    const updateMetaTag = (name: string, content: string, property = false) => {
-      const selector = property ? `meta[property="${name}"]` : `meta[name="${name}"]`;
-      let meta = document.querySelector(selector) as HTMLMetaElement;
-
-      if (!meta) {
-        meta = document.createElement("meta");
-        if (property) {
-          meta.setAttribute("property", name);
-        } else {
-          meta.setAttribute("name", name);
-        }
-        document.head.appendChild(meta);
-      }
-      meta.setAttribute("content", content);
-    };
-
-    // Primary Meta Tags
-    updateMetaTag("description", finalDescription);
-    updateMetaTag("keywords", finalKeywords);
-
-    // Open Graph / Facebook
-    updateMetaTag("og:title", finalTitle, true);
-    updateMetaTag("og:description", finalDescription, true);
-    updateMetaTag("og:url", finalCanonical, true);
-    updateMetaTag("og:image", ogImage, true);
-    updateMetaTag("og:type", "website", true);
-    updateMetaTag("og:site_name", "Jacob Darling Portfolio", true);
-
-    // Twitter Card
-    updateMetaTag("twitter:card", "summary_large_image");
-    updateMetaTag("twitter:title", finalTitle);
-    updateMetaTag("twitter:description", finalDescription);
-    updateMetaTag("twitter:image", ogImage);
-
-    // Canonical URL
-    let canonicalLink = document.querySelector("link[rel='canonical']") as HTMLLinkElement;
-    if (!canonicalLink) {
-      canonicalLink = document.createElement("link");
-      canonicalLink.setAttribute("rel", "canonical");
-      document.head.appendChild(canonicalLink);
-    }
-    canonicalLink.setAttribute("href", finalCanonical);
-  }, [title, description, keywords, ogImage, canonical, location.pathname]);
-
-  return null; // This component doesn't render anything
-};
-
-export default SEOHead;
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={fullImage} />
+    </Helmet>
+  );
+}

@@ -1,6 +1,4 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://jacobdarling.com/sitemap.xml
+Sitemap: https://www.bearcavemarketing.com/sitemap.xml

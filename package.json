@@ -18,7 +18,9 @@
     "prebuild": "npm run clean:types && npm run typecheck"
   },
   "dependencies": {
+    "@mdx-js/react": "^3.1.1",
     "@react-pdf/renderer": "^4.3.1",
+    "@vercel/analytics": "^1.5.0",
     "animejs": "^4.2.2",
     "axios": "^1.13.1",
     "dotenv": "^17.2.3",
@@ -33,10 +35,14 @@
     "react": "^18.3.1",
     "react-countup": "^6.5.3",
     "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
     "react-icons": "^5.5.0",
     "react-lottie-player": "^2.1.0",
     "react-router-dom": "^6.26.0",
     "recharts": "^3.3.0",
+    "rehype-raw": "^7.0.0",
+    "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1",
     "roughjs": "^4.6.6",
     "simple-icons": "^15.19.0",
     "swr": "^2.3.6"

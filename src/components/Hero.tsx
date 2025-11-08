@@ -1,4 +1,5 @@
 import React from "react";
+import { trackCTA } from "../utils/analytics";
 
 export default function Hero() {
   return (
@@ -18,8 +19,20 @@ export default function Hero() {
             that create predictable pipeline.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <a href="#contact" className="btn-primary">Work With Me</a>
-            <a href="#work" className="btn-secondary">View Case Studies</a>
+            <a
+              href="#contact"
+              className="btn-primary"
+              onClick={() => trackCTA("work_with_me", "hero")}
+            >
+              Work With Me
+            </a>
+            <a
+              href="#work"
+              className="btn-secondary"
+              onClick={() => trackCTA("view_case_studies", "hero")}
+            >
+              View Case Studies
+            </a>
           </div>
         </div>
         <div className="relative">
