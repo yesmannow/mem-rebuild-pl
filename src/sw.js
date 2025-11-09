@@ -1,8 +1,16 @@
-const CACHE_NAME = "jacob-portfolio-v2";
-const STATIC_CACHE = "jacob-static-v2";
-const DYNAMIC_CACHE = "jacob-dynamic-v2";
+const CACHE_NAME = "bearcave-marketing-v3";
+const STATIC_CACHE = "bearcave-static-v3";
+const DYNAMIC_CACHE = "bearcave-dynamic-v3";
+const IMAGE_CACHE = "bearcave-images-v3";
 const MANIFEST_URL = "/manifest.json";
 const APP_SHELL = ["/", "/index.html"];
+
+// Cache duration settings
+const CACHE_DURATION = {
+  STATIC: 31536000, // 1 year
+  DYNAMIC: 86400,   // 1 day
+  IMAGES: 2592000,  // 30 days
+};
 
 // Helper to normalise asset paths coming from the Vite manifest
 const withLeadingSlash = value => (value.startsWith("/") ? value : `/${value}`);
@@ -78,7 +86,10 @@ self.addEventListener("activate", e => {
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cacheName => {
-          if (cacheName !== STATIC_CACHE && cacheName !== DYNAMIC_CACHE) {
+          if (cacheName !== STATIC_CACHE &&
+              cacheName !== DYNAMIC_CACHE &&
+              cacheName !== IMAGE_CACHE &&
+              !cacheName.startsWith('jacob-')) {
             console.log("🗑️ Service Worker: Deleting old cache:", cacheName);
             return caches.delete(cacheName);
           }
@@ -95,6 +106,11 @@ self.addEventListener("message", event => {
   if (event.data && event.data.type === "SKIP_WAITING") {
     console.log("📨 Service Worker: Received SKIP_WAITING message");
     self.skipWaiting();
+  }
+
+  // Handle cache update requests
+  if (event.data && event.data.type === "CACHE_UPDATE") {
+    precacheCriticalAssets();
   }
 });
 
@@ -115,7 +131,7 @@ self.addEventListener("fetch", e => {
 async function handleRequest(request) {
   const url = new URL(request.url);
 
-  // Strategy 1: Cache First for static assets
+  // Strategy 1: Cache First for static assets (JS, CSS)
   if (isStaticAsset(url)) {
     return cacheFirst(request, STATIC_CACHE);
   }
@@ -130,12 +146,12 @@ async function handleRequest(request) {
     return staleWhileRevalidate(request, DYNAMIC_CACHE);
   }
 
-  // Strategy 4: Network First for images
+  // Strategy 4: Cache First for images (with network fallback)
   if (isImage(url)) {
-    return networkFirst(request, DYNAMIC_CACHE);
+    return imageCacheStrategy(request, IMAGE_CACHE);
   }
 
-  // Default: Network with cache fallback
+  // Default: Network First with cache fallback
   return networkWithCacheFallback(request, DYNAMIC_CACHE);
 }
 
@@ -143,16 +159,22 @@ async function handleRequest(request) {
 async function cacheFirst(request, cacheName) {
   const cached = await caches.match(request);
   if (cached) {
-    console.log("📦 Cache hit:", request.url);
     return cached;
   }
 
-  const response = await fetch(request);
-  if (response.ok) {
-    const cache = await caches.open(cacheName);
-    cache.put(request, response.clone());
+  try {
+    const response = await fetch(request);
+    if (response.ok) {
+      const cache = await caches.open(cacheName);
+      cache.put(request, response.clone());
+    }
+    return response;
+  } catch (error) {
+    // Return offline fallback if available
+    const offlinePage = await caches.match('/offline.html');
+    if (offlinePage) return offlinePage;
+    return new Response("Offline", { status: 503 });
   }
-  return response;
 }
 
 // Network First Strategy
@@ -165,7 +187,6 @@ async function networkFirst(request, cacheName) {
     }
     return response;
   } catch (error) {
-    console.log("🌐 Network failed, trying cache:", request.url);
     const cached = await caches.match(request);
     return cached || new Response("Offline", { status: 503 });
   }
@@ -181,9 +202,33 @@ async function staleWhileRevalidate(request, cacheName) {
       cache.then(c => c.put(request, response.clone()));
     }
     return response;
+  }).catch(() => {
+    // If network fails, return cached version
+    return cached;
   });
 
   return cached || fetchPromise;
+}
+
+// Image Cache Strategy - Cache first with long expiration
+async function imageCacheStrategy(request, cacheName) {
+  const cached = await caches.match(request);
+  if (cached) {
+    return cached;
+  }
+
+  try {
+    const response = await fetch(request);
+    if (response.ok) {
+      const cache = await caches.open(cacheName);
+      cache.put(request, response.clone());
+    }
+    return response;
+  } catch (error) {
+    // Return placeholder image if available
+    const placeholder = await caches.match('/images/placeholder.jpg');
+    return placeholder || new Response("Image unavailable", { status: 503 });
+  }
 }
 
 // Network with Cache Fallback
@@ -199,7 +244,8 @@ async function networkWithCacheFallback(request, cacheName) {
 function isStaticAsset(url) {
   return url.pathname.includes("/assets/") ||
          url.pathname.endsWith(".css") ||
-         url.pathname.endsWith(".js");
+         url.pathname.endsWith(".js") ||
+         url.pathname.includes("/fonts/");
 }
 
 function isApiCall(url) {
@@ -209,11 +255,12 @@ function isApiCall(url) {
 function isHtmlPage(url) {
   return url.pathname.endsWith(".html") ||
          url.pathname === "/" ||
-         !url.pathname.includes(".");
+         (!url.pathname.includes(".") && !url.pathname.startsWith("/api"));
 }
 
 function isImage(url) {
-  return /\.(jpg|jpeg|png|gif|webp|avif|svg)$/i.test(url.pathname);
+  return /\.(jpg|jpeg|png|gif|webp|avif|svg|ico)$/i.test(url.pathname) ||
+         url.pathname.includes("/images/");
 }
 
 // Background sync for form submissions
@@ -226,4 +273,17 @@ self.addEventListener("sync", e => {
 async function syncContactForm() {
   // Handle offline form submissions
   console.log("📝 Service Worker: Syncing contact form");
+  // Implementation would store form data in IndexedDB and retry on sync
 }
+
+// Push notifications (optional - for future use)
+self.addEventListener("push", event => {
+  if (event.data) {
+    const data = event.data.json();
+    self.registration.showNotification(data.title, {
+      body: data.body,
+      icon: "/favicon-32x32.png",
+      badge: "/favicon-16x16.png",
+    });
+  }
+});

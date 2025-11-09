@@ -7,6 +7,7 @@ import { ThemeProvider } from "./components/theme/ThemeProvider";
 import { queryClient } from "./lib/queryClient";
 import { initLenis, destroyLenis } from "./utils/motion-sync";
 import { initAnalytics } from "./utils/analytics";
+import { initAccessibility } from "./utils/accessibility";
 import JSONLD from "./components/seo/JSONLD";
 import "lenis/dist/lenis.css";
 
@@ -23,6 +24,9 @@ const App: React.FC = () => {
   useEffect(() => {
     // Initialize analytics
     initAnalytics();
+
+    // Initialize accessibility enhancements
+    initAccessibility();
 
     // Ensure native scrolling works immediately
     document.documentElement.style.overflow = "auto";

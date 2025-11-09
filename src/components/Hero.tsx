@@ -5,6 +5,7 @@ import "./home/Hero.css";
 
 export default function Hero() {
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -22,16 +23,35 @@ export default function Hero() {
     <section className="hero-modern" aria-labelledby="hero-heading">
       <div className="hero-media" aria-hidden="true">
         {!reduceMotion ? (
-          <video
-            className="hero-media__video"
-            src="/hero-broll.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
-            {/* TODO: replace with branded BearCave tech loop asset */}
-          </video>
+          <>
+            {/* Poster image for faster initial render */}
+            <img
+              src="/images/hero-poster.jpg"
+              alt=""
+              className={`hero-media__poster ${videoLoaded ? 'hero-media__poster--hidden' : ''}`}
+              loading="eager"
+              onError={(e) => {
+                // Fallback if poster doesn't exist
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+            <video
+              className={`hero-media__video ${videoLoaded ? 'hero-media__video--loaded' : ''}`}
+              src="/hero-broll.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              onLoadedData={() => setVideoLoaded(true)}
+              onError={() => {
+                // Fallback to static image if video fails
+                setVideoLoaded(false);
+              }}
+            >
+              {/* TODO: replace with branded BearCave tech loop asset */}
+            </video>
+          </>
         ) : (
           <div className="hero-media__fallback" />
         )}
