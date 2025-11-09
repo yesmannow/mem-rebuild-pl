@@ -23,6 +23,14 @@ const NewsletterForm: React.FC = () => {
     }
 
     try {
+      const web3formsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+      if (!web3formsKey) {
+        setError('Newsletter subscription is not configured. Please try again later.');
+        setIsSubmitting(false);
+        return;
+      }
+
       // Using Web3Forms - replace with your newsletter service
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -31,7 +39,7 @@ const NewsletterForm: React.FC = () => {
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          access_key: 'b6c0916d-2dba-4faf-933e-fcdd6c683a88',
+          access_key: web3formsKey,
           email: email,
           subject: 'Newsletter Subscription',
           from_name: 'Portfolio Newsletter',

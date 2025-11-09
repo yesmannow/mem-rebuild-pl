@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SectionWrapper from '../../ui/SectionWrapper';
+import SectionWrapper from '../../SectionWrapper';
 
 interface Testimonial {
   quote: string;
@@ -39,7 +39,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -83,7 +83,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
               whileHover={{ y: -8 }}
             >
               <p className="text-gray-700 text-lg mb-6 italic">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </p>
               <div className="flex items-center gap-4">
                 {testimonial.avatar && (

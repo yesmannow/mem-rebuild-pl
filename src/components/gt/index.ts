@@ -1,8 +1,6 @@
-export { default as SectionWrapper } from './ui/SectionWrapper';
-export { default as MainNavbar } from './layout/MainNavbar';
-export { default as Footer } from './layout/Footer';
-export { default as HeroSection } from './sections/gt/HeroSection';
-export { default as FeaturesSection } from './sections/gt/FeaturesSection';
-export { default as TestimonialsSection } from './sections/gt/TestimonialsSection';
-export { default as CTASection } from './sections/gt/CTASection';
+export { default as SectionWrapper } from '@components/SectionWrapper';
+export { default as HeroSection } from '@components/sections/gt/HeroSection';
+export { default as FeaturesSection } from '@components/sections/gt/FeaturesSection';
+export { default as TestimonialsSection } from '@components/sections/gt/TestimonialsSection';
+export { default as CTASection } from '@components/sections/gt/CTASection';
 

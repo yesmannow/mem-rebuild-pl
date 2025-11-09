@@ -9,114 +9,280 @@ export default {
     "./pages/**/*.{ts,tsx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        // GT Global Theme
-        turquoise: "#3CC6C4",
-        creamsicle: "#FF9E58",
-        "creamsicle-dark": "#E68A48",
-        "light-blue-gray": "#F3F6F7",
-        // Tailwind default colors (maintained)
-        gray: {
-          50: '#f9fafb',
-          100: '#f3f4f6',
-          200: '#e5e7eb',
-          300: '#d1d5db',
-          400: '#9ca3af',
-          500: '#6b7280',
-          600: '#4b5563',
-          700: '#374151',
-          800: '#1f2937',
-          900: '#111827',
-        },
-        // BearCave brand tokens (maintained for compatibility)
-        cave: {
-          bg: "#0D0D0F",
-          text: "#E6E6E6",
-          white: "#FFFFFF",
-          ember: "#FF7A3D",
-          mist: "#4EC5B8",
-          border: "#1E1E22",
-        },
-        // Theme-aware colors using CSS variables (maintained for compatibility)
-        bg: 'var(--bg)',
-        card: 'var(--card)',
-        text: 'var(--text)',
-        mute: 'var(--muted)',
-        accent: 'var(--accent)',
-        ring: 'var(--ring)',
-        border: 'var(--border)',
-        // Legacy color support (maintained for compatibility)
-        primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-        },
-        secondary: {
-          50: '#fdf2f8',
-          100: '#fce7f3',
-          200: '#fbcfe8',
-          300: '#f9a8d4',
-          400: '#f472b6',
-          500: '#ec4899',
-          600: '#db2777',
-          700: '#be185d',
-          800: '#9d174d',
-          900: '#831843',
-        },
-      },
-      borderColor: {
-        DEFAULT: 'var(--border)',
-      },
-      boxShadow: {
-        card: "0 8px 30px rgba(0,0,0,0.35)",
-        soft: '0 10px 30px rgba(0,0,0,.06)',
-        'soft-dark': '0 10px 30px rgba(0,0,0,.3)',
-      },
-      fontFamily: {
-        sans: ["Montserrat", "sans-serif"],
-        display: ["Montserrat", "sans-serif"],
-        brand: ["Montserrat", "sans-serif"],
-        ui: ["Montserrat", "sans-serif"],
-        body: ["Montserrat", "sans-serif"],
-        // Legacy fonts (maintained for compatibility)
-        "clash": ["var(--font-clash)", 'Clash Display', 'system-ui', 'sans-serif'],
-        "inter": ["var(--font-inter)", 'Inter', 'system-ui', 'sans-serif'],
-      },
-      borderRadius: {
-        'theme': 'var(--radius)',
-      },
-      animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-up': 'slideUp 0.5s ease-out',
-        'scale-in': 'scaleIn 0.3s ease-out',
-        'spin-slow': 'spin 3s linear infinite',
-      },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideUp: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
-        scaleIn: {
-          '0%': { transform: 'scale(0.95)', opacity: '0' },
-          '100%': { transform: 'scale(1)', opacity: '1' },
-        },
-      },
-      backdropBlur: {
-        xs: '2px',
-      }
-    },
+  	extend: {
+  		colors: {
+  			cave: {
+  				bg: '#0D0D0F',
+  				text: '#E6E6E6',
+  				white: '#FFFFFF',
+  				ember: '#FF7A3D',
+  				mist: '#4EC5B8',
+  				border: '#1E1E22'
+  			},
+  			turquoise: '#3CC6C4',
+  			creamsicle: '#FF9E58',
+  			'creamsicle-dark': '#E68A48',
+  			'light-blue-gray': '#F3F6F7',
+  			gray: {
+  				'50': '#f9fafb',
+  				'100': '#f3f4f6',
+  				'200': '#e5e7eb',
+  				'300': '#d1d5db',
+  				'400': '#9ca3af',
+  				'500': '#6b7280',
+  				'600': '#4b5563',
+  				'700': '#374151',
+  				'800': '#1f2937',
+  				'900': '#111827'
+  			},
+  			bg: 'var(--bg)',
+  			card: {
+  				DEFAULT: 'hsl(var(--card))',
+  				foreground: 'hsl(var(--card-foreground))'
+  			},
+  			text: 'var(--text)',
+  			mute: 'var(--muted)',
+  			accent: {
+  				DEFAULT: 'hsl(var(--accent))',
+  				foreground: 'hsl(var(--accent-foreground))'
+  			},
+  			ring: 'hsl(var(--ring))',
+  			border: 'hsl(var(--border))',
+  			primary: {
+  				'50': '#eff6ff',
+  				'100': '#dbeafe',
+  				'200': '#bfdbfe',
+  				'300': '#93c5fd',
+  				'400': '#60a5fa',
+  				'500': '#3b82f6',
+  				'600': '#2563eb',
+  				'700': '#1d4ed8',
+  				'800': '#1e40af',
+  				'900': '#1e3a8a',
+  				DEFAULT: 'hsl(var(--primary))',
+  				foreground: 'hsl(var(--primary-foreground))'
+  			},
+  			secondary: {
+  				'50': '#fdf2f8',
+  				'100': '#fce7f3',
+  				'200': '#fbcfe8',
+  				'300': '#f9a8d4',
+  				'400': '#f472b6',
+  				'500': '#ec4899',
+  				'600': '#db2777',
+  				'700': '#be185d',
+  				'800': '#9d174d',
+  				'900': '#831843',
+  				DEFAULT: 'hsl(var(--secondary))',
+  				foreground: 'hsl(var(--secondary-foreground))'
+  			},
+  			background: 'hsl(var(--background))',
+  			foreground: 'hsl(var(--foreground))',
+  			popover: {
+  				DEFAULT: 'hsl(var(--popover))',
+  				foreground: 'hsl(var(--popover-foreground))'
+  			},
+  			muted: {
+  				DEFAULT: 'hsl(var(--muted))',
+  				foreground: 'hsl(var(--muted-foreground))'
+  			},
+  			destructive: {
+  				DEFAULT: 'hsl(var(--destructive))',
+  				foreground: 'hsl(var(--destructive-foreground))'
+  			},
+  			input: 'hsl(var(--input))',
+  			chart: {
+  				'1': 'hsl(var(--chart-1))',
+  				'2': 'hsl(var(--chart-2))',
+  				'3': 'hsl(var(--chart-3))',
+  				'4': 'hsl(var(--chart-4))',
+  				'5': 'hsl(var(--chart-5))'
+  			}
+  		},
+  		borderColor: {
+  			DEFAULT: 'var(--border)'
+  		},
+  		boxShadow: {
+  			card: '0 8px 30px rgba(0,0,0,0.35)',
+  			soft: '0 10px 30px rgba(0,0,0,.06)',
+  			'soft-dark': '0 10px 30px rgba(0,0,0,.3)',
+  			accent: '0 4px 20px rgba(60, 198, 196, 0.3)',
+  			cta: '0 8px 25px rgba(255, 158, 88, 0.4)'
+  		},
+  		fontFamily: {
+  			sans: [
+  				'Montserrat',
+  				'system-ui',
+  				'sans-serif'
+  			],
+  			display: [
+  				'Montserrat',
+  				'system-ui',
+  				'sans-serif'
+  			],
+  			brand: [
+  				'Montserrat',
+  				'system-ui',
+  				'sans-serif'
+  			],
+  			ui: [
+  				'Montserrat',
+  				'system-ui',
+  				'sans-serif'
+  			],
+  			body: [
+  				'Montserrat',
+  				'system-ui',
+  				'sans-serif'
+  			],
+  			'clash': [
+  				'var(--font-clash)',
+  				'Clash Display',
+  				'system-ui',
+  				'sans-serif'
+  			],
+  			'inter': [
+  				'var(--font-inter)',
+  				'Inter',
+  				'system-ui',
+  				'sans-serif'
+  			]
+  		},
+  		fontSize: {
+  			xs: [
+  				'0.75rem',
+  				{
+  					lineHeight: '1rem'
+  				}
+  			],
+  			sm: [
+  				'0.875rem',
+  				{
+  					lineHeight: '1.25rem'
+  				}
+  			],
+  			base: [
+  				'1rem',
+  				{
+  					lineHeight: '1.5rem'
+  				}
+  			],
+  			lg: [
+  				'1.125rem',
+  				{
+  					lineHeight: '1.75rem'
+  				}
+  			],
+  			xl: [
+  				'1.25rem',
+  				{
+  					lineHeight: '1.75rem'
+  				}
+  			],
+  			'2xl': [
+  				'1.5rem',
+  				{
+  					lineHeight: '2rem'
+  				}
+  			],
+  			'3xl': [
+  				'1.875rem',
+  				{
+  					lineHeight: '2.25rem'
+  				}
+  			],
+  			'4xl': [
+  				'2.25rem',
+  				{
+  					lineHeight: '2.5rem'
+  				}
+  			],
+  			'5xl': [
+  				'3rem',
+  				{
+  					lineHeight: '1'
+  				}
+  			],
+  			'6xl': [
+  				'3.75rem',
+  				{
+  					lineHeight: '1'
+  				}
+  			],
+  			'7xl': [
+  				'4.5rem',
+  				{
+  					lineHeight: '1'
+  				}
+  			]
+  		},
+  		spacing: {
+  			'18': '4.5rem',
+  			'88': '22rem',
+  			'128': '32rem'
+  		},
+  		borderRadius: {
+  			theme: 'var(--radius)',
+  			xl: '0.75rem',
+  			'2xl': '1rem',
+  			'3xl': '1.5rem',
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		animation: {
+  			'fade-in': 'fadeIn 0.6s ease-out',
+  			'slide-up': 'slideUp 0.6s ease-out',
+  			'scale-in': 'scaleIn 0.4s ease-out',
+  			'spin-slow': 'spin 3s linear infinite',
+  			'bounce-gentle': 'bounceGentle 2s infinite'
+  		},
+  		keyframes: {
+  			fadeIn: {
+  				'0%': {
+  					opacity: '0'
+  				},
+  				'100%': {
+  					opacity: '1'
+  				}
+  			},
+  			slideUp: {
+  				'0%': {
+  					transform: 'translateY(30px)',
+  					opacity: '0'
+  				},
+  				'100%': {
+  					transform: 'translateY(0)',
+  					opacity: '1'
+  				}
+  			},
+  			scaleIn: {
+  				'0%': {
+  					transform: 'scale(0.95)',
+  					opacity: '0'
+  				},
+  				'100%': {
+  					transform: 'scale(1)',
+  					opacity: '1'
+  				}
+  			},
+  			bounceGentle: {
+  				'0%, 20%, 50%, 80%, 100%': {
+  					transform: 'translateY(0)'
+  				},
+  				'40%': {
+  					transform: 'translateY(-10px)'
+  				},
+  				'60%': {
+  					transform: 'translateY(-5px)'
+  				}
+  			}
+  		},
+  		backdropBlur: {
+  			xs: '2px',
+  			'3xl': '64px'
+  		}
+  	}
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 }
