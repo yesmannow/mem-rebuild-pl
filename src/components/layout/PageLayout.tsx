@@ -19,7 +19,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   className = "",
 }) => {
   const location = useLocation();
-  
+
   // Don't show breadcrumbs on homepage
   const shouldShowBreadcrumbs = showBreadcrumbs && location.pathname !== "/";
 

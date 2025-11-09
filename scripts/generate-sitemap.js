@@ -2,7 +2,7 @@
 /**
  * Sitemap Generation Script
  * Generates a comprehensive sitemap.xml with all routes
- * 
+ *
  * Usage: node scripts/generate-sitemap.js
  */
 
@@ -18,23 +18,23 @@ const routes = [
   { path: '/', priority: '1.0', changefreq: 'weekly', lastmod: CURRENT_DATE },
   { path: '/about', priority: '0.9', changefreq: 'monthly', lastmod: CURRENT_DATE },
   { path: '/contact', priority: '0.9', changefreq: 'monthly', lastmod: CURRENT_DATE },
-  
+
   // Portfolio pages - High priority
   { path: '/case-studies', priority: '0.9', changefreq: 'weekly', lastmod: CURRENT_DATE },
   { path: '/projects', priority: '0.8', changefreq: 'monthly', lastmod: CURRENT_DATE },
   { path: '/applications', priority: '0.8', changefreq: 'monthly', lastmod: CURRENT_DATE },
   { path: '/side-projects', priority: '0.8', changefreq: 'monthly', lastmod: CURRENT_DATE },
-  
+
   // Creative portfolio - Medium priority
   { path: '/design', priority: '0.7', changefreq: 'monthly', lastmod: CURRENT_DATE },
   { path: '/photography', priority: '0.7', changefreq: 'monthly', lastmod: CURRENT_DATE },
   { path: '/inspiration', priority: '0.7', changefreq: 'monthly', lastmod: CURRENT_DATE },
-  
+
   // Utility pages - Medium priority
   { path: '/toolbox', priority: '0.7', changefreq: 'monthly', lastmod: CURRENT_DATE },
   { path: '/resume', priority: '0.7', changefreq: 'monthly', lastmod: CURRENT_DATE },
   { path: '/testimonials', priority: '0.6', changefreq: 'monthly', lastmod: CURRENT_DATE },
-  
+
   // Brand tools - Lower priority
   { path: '/brand-builder', priority: '0.6', changefreq: 'monthly', lastmod: CURRENT_DATE },
   { path: '/gallery', priority: '0.6', changefreq: 'monthly', lastmod: CURRENT_DATE },

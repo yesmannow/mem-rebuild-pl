@@ -2,7 +2,7 @@
 /**
  * Image Optimization Script
  * Converts images to WebP/AVIF format and optimizes them
- * 
+ *
  * Usage: node scripts/optimize-images.js [directory]
  * Example: node scripts/optimize-images.js public/images
  */

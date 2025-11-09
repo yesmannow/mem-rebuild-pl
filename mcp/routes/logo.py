@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from models.branding import LogoRequest
-from utils.svg_factory import create_svg_logo
+from mcp.models.branding import LogoRequest
+from mcp.utils.svg_factory import create_svg_logo
 
 router = APIRouter()
 
