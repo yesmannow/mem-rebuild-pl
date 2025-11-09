@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { applications } from "../../data/applications";
-import { staggerContainer, staggerItem, cardHover } from "../../utils/animations";
-import "./PlaygroundPreview.css";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { applications } from '../../data/applications';
+import { staggerContainer, staggerItem, cardHover } from '../../utils/animations';
+import './PlaygroundPreview.css';
 
 const PlaygroundPreview: React.FC = () => {
   const [hoveredApp, setHoveredApp] = useState<string | null>(null);
@@ -11,22 +11,42 @@ const PlaygroundPreview: React.FC = () => {
 
   const getAppImage = (appId: string) => {
     const imageMap: { [key: string]: string } = {
-      'clinical-compass': '/demos/images of apps/Screenshot of Graston Clinical Compass - Intelligent Protocol Builder.jpg',
-      'gt9-pricing-sheet': '/demos/images of apps/Screenshot of Graston Technique® Smart Pricing Tool.jpg',
-      'license-requirements-tool': '/demos/images of apps/Screenshot of Practitioner License Requirements _ Graston Technique.jpg',
-      'roi-calculator': '/demos/images of apps/Screenshot of Graston Technique ROI Calculator.jpg'
+      'clinical-compass':
+        '/demos/images of apps/Screenshot of Graston Clinical Compass - Intelligent Protocol Builder.jpg',
+      'gt9-pricing-sheet':
+        '/demos/images of apps/Screenshot of Graston Technique® Smart Pricing Tool.jpg',
+      'license-requirements-tool':
+        '/demos/images of apps/Screenshot of Practitioner License Requirements _ Graston Technique.jpg',
+      'roi-calculator': '/demos/images of apps/Screenshot of Graston Technique ROI Calculator.jpg',
     };
     return imageMap[appId] || '';
   };
 
   const getAppIcon = (appId: string) => {
     const iconMap: { [key: string]: { icon: string; gradient: string } } = {
-      'clinical-compass': { icon: '🧠', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' },
-      'gt9-pricing-sheet': { icon: '💎', gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' },
-      'license-requirements-tool': { icon: '📚', gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' },
-      'roi-calculator': { icon: '📊', gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)' }
+      'clinical-compass': {
+        icon: '🧠',
+        gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      },
+      'gt9-pricing-sheet': {
+        icon: '💎',
+        gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+      },
+      'license-requirements-tool': {
+        icon: '📚',
+        gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+      },
+      'roi-calculator': {
+        icon: '📊',
+        gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+      },
     };
-    return iconMap[appId] || { icon: '🎓', gradient: 'linear-gradient(135deg, #88ABF2 0%, #B8D0D9 100%)' };
+    return (
+      iconMap[appId] || {
+        icon: '🎓',
+        gradient: 'linear-gradient(135deg, #88ABF2 0%, #B8D0D9 100%)',
+      }
+    );
   };
 
   return (
@@ -45,8 +65,8 @@ const PlaygroundPreview: React.FC = () => {
           </div>
           <h2>The Playground</h2>
           <p className="playground-subtitle">
-            Theory in practice. These are live, production-ready web applications I've built to solve
-            real business challenges. Click to explore—they're fully functional.
+            Theory in practice. These are live, production-ready web applications I've built to
+            solve real business challenges. Click to explore—they're fully functional.
           </p>
         </motion.div>
 
@@ -55,7 +75,7 @@ const PlaygroundPreview: React.FC = () => {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: '-100px' }}
         >
           {featuredApps.map((app, index) => {
             const iconData = getAppIcon(app.id);
@@ -95,10 +115,7 @@ const PlaygroundPreview: React.FC = () => {
                 {/* App Info */}
                 <div className="app-card-content">
                   <div className="app-header">
-                    <div
-                      className="app-icon-badge"
-                      data-app-gradient={iconData.gradient}
-                    >
+                    <div className="app-icon-badge" data-app-gradient={iconData.gradient}>
                       <span className="icon-emoji">{iconData.icon}</span>
                     </div>
                     <div className="app-meta">
@@ -110,10 +127,14 @@ const PlaygroundPreview: React.FC = () => {
                   {/* Tech Stack Pills */}
                   <div className="tech-stack">
                     {app.technicalDetails.techStack.slice(0, 3).map((tech, idx) => (
-                      <span key={idx} className="tech-pill">{tech}</span>
+                      <span key={idx} className="tech-pill">
+                        {tech}
+                      </span>
                     ))}
                     {app.technicalDetails.techStack.length > 3 && (
-                      <span className="tech-pill more">+{app.technicalDetails.techStack.length - 3}</span>
+                      <span className="tech-pill more">
+                        +{app.technicalDetails.techStack.length - 3}
+                      </span>
                     )}
                   </div>
 
@@ -149,7 +170,13 @@ const PlaygroundPreview: React.FC = () => {
                     >
                       <span>Launch App</span>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path
+                          d="M6 3L11 8L6 13"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </a>
                     <Link to={`/applications/${app.id}`} className="app-btn secondary">
@@ -172,7 +199,13 @@ const PlaygroundPreview: React.FC = () => {
           <Link to="/applications" className="view-all-apps">
             <span>View All Applications & Technical Deep Dives</span>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M7 3L14 10L7 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path
+                d="M7 3L14 10L7 17"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </Link>
         </motion.div>

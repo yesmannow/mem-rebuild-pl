@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
-import ModernInspirationHero from "./ModernInspirationHero";
-import AdvancedFilterSystem from "./AdvancedFilterSystem";
-import ModernInspirationGrid from "./ModernInspirationGrid";
-import MobileOptimizedInspiration from "./MobileOptimizedInspiration";
-import ColorPaletteExtractor from "./ColorPaletteExtractor";
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
+import ModernInspirationHero from './ModernInspirationHero';
+import AdvancedFilterSystem from './AdvancedFilterSystem';
+import ModernInspirationGrid from './ModernInspirationGrid';
+import MobileOptimizedInspiration from './MobileOptimizedInspiration';
+import ColorPaletteExtractor from './ColorPaletteExtractor';
 
 interface ResponsiveInspirationWrapperProps {
   items: any[];
@@ -22,7 +22,7 @@ const ResponsiveInspirationWrapper: React.FC<ResponsiveInspirationWrapperProps> 
   onFilterChange,
   availableTags,
   selectedImage,
-  filters
+  filters,
 }) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
   const isTablet = useMediaQuery('(max-width: 1024px)');
@@ -39,7 +39,7 @@ const ResponsiveInspirationWrapper: React.FC<ResponsiveInspirationWrapperProps> 
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
           className="flex flex-col items-center gap-4"
         >
           <div className="w-8 h-8 border-2 border-purple-400 border-t-transparent rounded-full" />
@@ -113,7 +113,7 @@ const ResponsiveInspirationWrapper: React.FC<ResponsiveInspirationWrapperProps> 
           >
             <ColorPaletteExtractor
               imageUrl={selectedImage.src}
-              onColorsExtracted={(colors) => {
+              onColorsExtracted={colors => {
                 console.log('Extracted colors:', colors);
               }}
             />

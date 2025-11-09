@@ -25,8 +25,15 @@
 }
 
 @keyframes pulseNetwork {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.025; }
-  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.035; }
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.025;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.035;
+  }
 }
 
 /* Header Section */
@@ -121,7 +128,7 @@
 .form-group textarea:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #88ABF2;
+  border-color: #88abf2;
   background: rgba(13, 13, 13, 0.95);
   box-shadow: 0 0 0 3px rgba(136, 171, 242, 0.1);
 }
@@ -138,8 +145,8 @@
 
 .btn-primary {
   padding: 1rem 2rem;
-  background: #88ABF2;
-  color: #0D0D0D;
+  background: #88abf2;
+  color: #0d0d0d;
   font-weight: 600;
   font-size: 1rem;
   border: none;
@@ -164,10 +171,10 @@
   display: inline-block;
   padding: 0.875rem 1.75rem;
   background: transparent;
-  color: #88ABF2;
+  color: #88abf2;
   font-weight: 600;
   font-size: 0.95rem;
-  border: 2px solid #88ABF2;
+  border: 2px solid #88abf2;
   border-radius: 8px;
   text-decoration: none;
   text-align: center;
@@ -189,13 +196,13 @@
 .success-icon {
   width: 80px;
   height: 80px;
-  background: #88ABF2;
+  background: #88abf2;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-  color: #0D0D0D;
+  color: #0d0d0d;
   margin: 0 auto 1.5rem;
   animation: successPop 0.5s ease-out;
 }
@@ -313,7 +320,7 @@
   background: rgba(136, 171, 242, 0.1);
   border-radius: 8px;
   flex-shrink: 0;
-  color: #88ABF2;
+  color: #88abf2;
   transition: all 0.3s ease;
 }
 
@@ -340,7 +347,7 @@
 /* Quote Card */
 .quote-card {
   background: linear-gradient(135deg, rgba(136, 171, 242, 0.1), rgba(89, 89, 89, 0.1));
-  border-left: 4px solid #88ABF2;
+  border-left: 4px solid #88abf2;
   position: relative;
 }
 

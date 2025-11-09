@@ -9,11 +9,11 @@ const TestimonialsSection: React.FC = () => {
   const testimonials = testimonialsData.testimonials;
 
   const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentIndex(prev => (prev + 1) % testimonials.length);
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex(prev => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   const goToTestimonial = (index: number) => {
@@ -156,4 +156,3 @@ const TestimonialsSection: React.FC = () => {
 };
 
 export default TestimonialsSection;
-

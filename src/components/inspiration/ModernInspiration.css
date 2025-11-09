@@ -1,7 +1,11 @@
 /* Modern Inspiration Page Styles */
 
 .modern-inspiration-page {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
   min-height: 100vh;
 }
@@ -16,7 +20,8 @@
 .hero-background-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg,
+  background: linear-gradient(
+    135deg,
     rgba(102, 126, 234, 0.1) 0%,
     rgba(118, 75, 162, 0.1) 50%,
     rgba(255, 107, 107, 0.1) 100%
@@ -35,7 +40,8 @@
 
 /* Floating Particles Animation */
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) translateX(0px) rotate(0deg);
     opacity: 0.3;
   }
@@ -186,10 +192,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg,
-    rgba(168, 85, 247, 0.1),
-    rgba(59, 130, 246, 0.1)
-  );
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(59, 130, 246, 0.1));
   opacity: 0;
   transition: opacity 0.3s ease;
   border-radius: inherit;
@@ -371,10 +374,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -394,8 +394,12 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* No Results */
@@ -553,24 +557,24 @@
 }
 
 /* Dynamic color styles using CSS custom properties */
-.color-swatch[data-color="#FF6B6B"] {
-  background-color: #FF6B6B;
+.color-swatch[data-color='#FF6B6B'] {
+  background-color: #ff6b6b;
 }
 
-.color-swatch[data-color="#4ECDC4"] {
-  background-color: #4ECDC4;
+.color-swatch[data-color='#4ECDC4'] {
+  background-color: #4ecdc4;
 }
 
-.color-swatch[data-color="#45B7D1"] {
-  background-color: #45B7D1;
+.color-swatch[data-color='#45B7D1'] {
+  background-color: #45b7d1;
 }
 
-.color-swatch[data-color="#96CEB4"] {
-  background-color: #96CEB4;
+.color-swatch[data-color='#96CEB4'] {
+  background-color: #96ceb4;
 }
 
-.color-swatch[data-color="#FFEAA7"] {
-  background-color: #FFEAA7;
+.color-swatch[data-color='#FFEAA7'] {
+  background-color: #ffeaa7;
 }
 
 /* Virtual scroll styles */

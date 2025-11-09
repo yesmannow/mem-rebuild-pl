@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Code, TrendingUp, Zap, BarChart3, Palette, Users, Target, Layers } from "lucide-react";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Code, TrendingUp, Zap, BarChart3, Palette, Users, Target, Layers } from 'lucide-react';
 
 interface SkillCategory {
   name: string;
@@ -11,53 +11,58 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    name: "Marketing Automation",
+    name: 'Marketing Automation',
     icon: <Zap className="w-5 h-5" />,
-    skills: ["FluentCRM", "HubSpot", "Zapier", "Workflows", "Email Campaigns"],
-    color: "from-yellow-400 to-orange-500"
+    skills: ['FluentCRM', 'HubSpot', 'Zapier', 'Workflows', 'Email Campaigns'],
+    color: 'from-yellow-400 to-orange-500',
   },
   {
-    name: "Analytics & Data",
+    name: 'Analytics & Data',
     icon: <BarChart3 className="w-5 h-5" />,
-    skills: ["Google Analytics 4", "Google Tag Manager", "Data Visualization", "A/B Testing"],
-    color: "from-blue-400 to-cyan-500"
+    skills: ['Google Analytics 4', 'Google Tag Manager', 'Data Visualization', 'A/B Testing'],
+    color: 'from-blue-400 to-cyan-500',
   },
   {
-    name: "Development",
+    name: 'Development',
     icon: <Code className="w-5 h-5" />,
-    skills: ["JavaScript", "TypeScript", "React", "WordPress", "PHP", "REST APIs"],
-    color: "from-green-400 to-emerald-500"
+    skills: ['JavaScript', 'TypeScript', 'React', 'WordPress', 'PHP', 'REST APIs'],
+    color: 'from-green-400 to-emerald-500',
   },
   {
-    name: "SEO & SEM",
+    name: 'SEO & SEM',
     icon: <TrendingUp className="w-5 h-5" />,
-    skills: ["Technical SEO", "Google Ads", "Meta Ads", "LinkedIn Ads", "Keyword Strategy"],
-    color: "from-purple-400 to-pink-500"
+    skills: ['Technical SEO', 'Google Ads', 'Meta Ads', 'LinkedIn Ads', 'Keyword Strategy'],
+    color: 'from-purple-400 to-pink-500',
   },
   {
-    name: "Design & Branding",
+    name: 'Design & Branding',
     icon: <Palette className="w-5 h-5" />,
-    skills: ["Brand Identity", "UI/UX Design", "Visual Design", "Content Creation"],
-    color: "from-pink-400 to-rose-500"
+    skills: ['Brand Identity', 'UI/UX Design', 'Visual Design', 'Content Creation'],
+    color: 'from-pink-400 to-rose-500',
   },
   {
-    name: "Strategy & Leadership",
+    name: 'Strategy & Leadership',
     icon: <Target className="w-5 h-5" />,
-    skills: ["Marketing Strategy", "Cross-functional Teams", "Project Management", "ROI Optimization"],
-    color: "from-indigo-400 to-blue-500"
+    skills: [
+      'Marketing Strategy',
+      'Cross-functional Teams',
+      'Project Management',
+      'ROI Optimization',
+    ],
+    color: 'from-indigo-400 to-blue-500',
   },
   {
-    name: "CRM & Platforms",
+    name: 'CRM & Platforms',
     icon: <Users className="w-5 h-5" />,
-    skills: ["FluentCRM", "WooCommerce", "WordPress", "LearnDash", "ACF Pro"],
-    color: "from-teal-400 to-cyan-500"
+    skills: ['FluentCRM', 'WooCommerce', 'WordPress', 'LearnDash', 'ACF Pro'],
+    color: 'from-teal-400 to-cyan-500',
   },
   {
-    name: "Infrastructure",
+    name: 'Infrastructure',
     icon: <Layers className="w-5 h-5" />,
-    skills: ["Cloudflare", "CDN Optimization", "Performance", "Security", "CI/CD"],
-    color: "from-amber-400 to-yellow-500"
-  }
+    skills: ['Cloudflare', 'CDN Optimization', 'Performance', 'Security', 'CI/CD'],
+    color: 'from-amber-400 to-yellow-500',
+  },
 ];
 
 const SkillsShowcase: React.FC = () => {
@@ -84,7 +89,8 @@ const SkillsShowcase: React.FC = () => {
             </span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            A unique blend of marketing strategy and technical execution—turning ideas into measurable results.
+            A unique blend of marketing strategy and technical execution—turning ideas into
+            measurable results.
           </p>
         </motion.div>
 
@@ -102,13 +108,15 @@ const SkillsShowcase: React.FC = () => {
             >
               <div className="relative bg-gray-900/50 backdrop-blur-sm border border-white/10 rounded-2xl p-6 h-full hover:border-white/20 transition-all duration-300">
                 {/* Gradient Overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`} />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
+                />
 
                 {/* Icon */}
-                <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${category.color} rounded-xl mb-4 shadow-lg`}>
-                  <div className="text-white">
-                    {category.icon}
-                  </div>
+                <div
+                  className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${category.color} rounded-xl mb-4 shadow-lg`}
+                >
+                  <div className="text-white">{category.icon}</div>
                 </div>
 
                 {/* Category Name */}
@@ -121,7 +129,9 @@ const SkillsShowcase: React.FC = () => {
                       key={skillIndex}
                       className="text-gray-400 text-sm flex items-center gap-2 group-hover:text-gray-300 transition-colors"
                     >
-                      <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${category.color} opacity-60`} />
+                      <div
+                        className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${category.color} opacity-60`}
+                      />
                       {skill}
                     </li>
                   ))}

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import "./TestimonialsCarousel.css";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import './TestimonialsCarousel.css';
 
 interface Testimonial {
   quote: string;
@@ -28,18 +28,18 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
     if (!autoPlay || testimonials.length <= 1) return;
 
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+      setCurrentIndex(prev => (prev + 1) % testimonials.length);
     }, interval);
 
     return () => clearInterval(timer);
   }, [autoPlay, interval, testimonials.length]);
 
   const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex(prev => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentIndex(prev => (prev + 1) % testimonials.length);
   };
 
   const goToSlide = (index: number) => {
@@ -88,7 +88,8 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                   <div className="testimonial-name">{testimonials[currentIndex].name}</div>
                   <div className="testimonial-title">
                     {testimonials[currentIndex].title}
-                    {testimonials[currentIndex].company && ` • ${testimonials[currentIndex].company}`}
+                    {testimonials[currentIndex].company &&
+                      ` • ${testimonials[currentIndex].company}`}
                   </div>
                 </div>
               </div>
@@ -111,7 +112,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
           {testimonials.map((_, index) => (
             <button
               key={index}
-              className={`carousel-indicator ${index === currentIndex ? "active" : ""}`}
+              className={`carousel-indicator ${index === currentIndex ? 'active' : ''}`}
               onClick={() => goToSlide(index)}
               aria-label={`Go to testimonial ${index + 1}`}
             />
@@ -123,4 +124,3 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
 };
 
 export default TestimonialsCarousel;
-

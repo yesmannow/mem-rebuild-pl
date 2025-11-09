@@ -18,22 +18,24 @@ export class ErrorBoundary extends React.Component<Props, State> {
 
   static getDerivedStateFromError(error: Error | unknown) {
     // Handle cases where error might not be an Error object
-    const errorObj = error instanceof Error
-      ? error
-      : new Error(error === undefined || error === null
-          ? 'Unknown error (undefined/null)'
-          : String(error));
+    const errorObj =
+      error instanceof Error
+        ? error
+        : new Error(
+            error === undefined || error === null ? 'Unknown error (undefined/null)' : String(error)
+          );
 
     return { hasError: true, error: errorObj };
   }
 
   componentDidCatch(error: Error | unknown, info: React.ErrorInfo) {
     // Ensure we always log a proper error object
-    const errorObj = error instanceof Error
-      ? error
-      : new Error(error === undefined || error === null
-          ? 'Unknown error (undefined/null)'
-          : String(error));
+    const errorObj =
+      error instanceof Error
+        ? error
+        : new Error(
+            error === undefined || error === null ? 'Unknown error (undefined/null)' : String(error)
+          );
 
     // You can log error to an external service here
     console.error('ErrorBoundary caught:', errorObj, info);
@@ -45,7 +47,9 @@ export class ErrorBoundary extends React.Component<Props, State> {
         <div className={styles.container}>
           <div className={styles.card}>
             <h1 className={styles.title}>Loading profile....</h1>
-            <p className={styles.message}>Something went wrong while loading the profile. Try reloading the page.</p>
+            <p className={styles.message}>
+              Something went wrong while loading the profile. Try reloading the page.
+            </p>
           </div>
         </div>
       );

@@ -1,40 +1,40 @@
-import React, { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { applications, getAllCategories } from "../data/applications";
-import { staggerContainer, staggerItem } from "../utils/animations";
-import AnimatedSection from "../components/animations/AnimatedSection";
-import "./Applications.css";
-
+import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { applications, getAllCategories } from '../data/applications';
+import { staggerContainer, staggerItem } from '../utils/animations';
+import AnimatedSection from '../components/animations/AnimatedSection';
+import './Applications.css';
 
 const Applications: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<string>("All");
-  const [searchTerm, setSearchTerm] = useState<string>("");
-  const [sortBy, setSortBy] = useState<"default" | "name" | "recent">("default");
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
-  const categories = ["All", ...getAllCategories()];
+  const [activeFilter, setActiveFilter] = useState<string>('All');
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [sortBy, setSortBy] = useState<'default' | 'name' | 'recent'>('default');
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const categories = ['All', ...getAllCategories()];
 
   const filteredApplications = useMemo(() => {
     let filtered = applications;
 
     // Filter by category
-    if (activeFilter !== "All") {
+    if (activeFilter !== 'All') {
       filtered = filtered.filter(app => app.category.includes(activeFilter));
     }
 
     // Filter by search term
     if (searchTerm) {
-      filtered = filtered.filter(app =>
-        app.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        app.tagline.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        app.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+      filtered = filtered.filter(
+        app =>
+          app.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          app.tagline.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          app.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
       );
     }
 
     // Sort
-    if (sortBy === "name") {
+    if (sortBy === 'name') {
       filtered = [...filtered].sort((a, b) => a.title.localeCompare(b.title));
-    } else if (sortBy === "recent") {
+    } else if (sortBy === 'recent') {
       filtered = [...filtered].reverse();
     }
 
@@ -42,7 +42,8 @@ const Applications: React.FC = () => {
   }, [activeFilter, searchTerm, sortBy]);
 
   const totalApps = applications.length;
-  const totalTechnologies = new Set(applications.flatMap(app => app.technicalDetails.techStack)).size;
+  const totalTechnologies = new Set(applications.flatMap(app => app.technicalDetails.techStack))
+    .size;
 
   return (
     <main className="applications-page">
@@ -54,9 +55,9 @@ const Applications: React.FC = () => {
           </div>
           <h1>Developer Tools</h1>
           <p className="header-subtitle">
-            Custom tools and applications I've built to solve real problems.
-            Production-ready web tools demonstrating full-stack development,
-            UX design, and complex problem-solving across marketing, sales, and clinical domains.
+            Custom tools and applications I've built to solve real problems. Production-ready web
+            tools demonstrating full-stack development, UX design, and complex problem-solving
+            across marketing, sales, and clinical domains.
           </p>
 
           {/* Stats Overview */}
@@ -82,17 +83,23 @@ const Applications: React.FC = () => {
           {/* Search */}
           <div className="search-container">
             <svg className="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM18 18l-4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path
+                d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM18 18l-4-4"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
             <input
               type="text"
               placeholder="Search tools..."
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={e => setSearchTerm(e.target.value)}
               className="search-input"
             />
             {searchTerm && (
-              <button className="search-clear" onClick={() => setSearchTerm("")}>
+              <button className="search-clear" onClick={() => setSearchTerm('')}>
                 ✕
               </button>
             )}
@@ -105,13 +112,13 @@ const Applications: React.FC = () => {
               {categories.map(category => (
                 <motion.button
                   key={category}
-                  className={`filter-btn ${activeFilter === category ? "active" : ""}`}
+                  className={`filter-btn ${activeFilter === category ? 'active' : ''}`}
                   onClick={() => setActiveFilter(category)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   {category}
-                  {category !== "All" && activeFilter === category && (
+                  {category !== 'All' && activeFilter === category && (
                     <span className="filter-count">
                       {applications.filter(app => app.category.includes(category)).length}
                     </span>
@@ -125,7 +132,7 @@ const Applications: React.FC = () => {
               <select
                 className="sort-select"
                 value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
+                onChange={e => setSortBy(e.target.value as typeof sortBy)}
                 title="Sort tools"
                 aria-label="Sort tools"
               >
@@ -136,26 +143,33 @@ const Applications: React.FC = () => {
 
               <div className="view-toggle">
                 <button
-                  className={`view-btn ${viewMode === "grid" ? "active" : ""}`}
-                  onClick={() => setViewMode("grid")}
+                  className={`view-btn ${viewMode === 'grid' ? 'active' : ''}`}
+                  onClick={() => setViewMode('grid')}
                   title="Grid View"
                 >
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                    <rect x="1" y="1" width="7" height="7" stroke="currentColor" strokeWidth="2"/>
-                    <rect x="10" y="1" width="7" height="7" stroke="currentColor" strokeWidth="2"/>
-                    <rect x="1" y="10" width="7" height="7" stroke="currentColor" strokeWidth="2"/>
-                    <rect x="10" y="10" width="7" height="7" stroke="currentColor" strokeWidth="2"/>
+                    <rect x="1" y="1" width="7" height="7" stroke="currentColor" strokeWidth="2" />
+                    <rect x="10" y="1" width="7" height="7" stroke="currentColor" strokeWidth="2" />
+                    <rect x="1" y="10" width="7" height="7" stroke="currentColor" strokeWidth="2" />
+                    <rect
+                      x="10"
+                      y="10"
+                      width="7"
+                      height="7"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    />
                   </svg>
                 </button>
                 <button
-                  className={`view-btn ${viewMode === "list" ? "active" : ""}`}
-                  onClick={() => setViewMode("list")}
+                  className={`view-btn ${viewMode === 'list' ? 'active' : ''}`}
+                  onClick={() => setViewMode('list')}
                   title="List View"
                 >
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                    <line x1="1" y1="3" x2="17" y2="3" stroke="currentColor" strokeWidth="2"/>
-                    <line x1="1" y1="9" x2="17" y2="9" stroke="currentColor" strokeWidth="2"/>
-                    <line x1="1" y1="15" x2="17" y2="15" stroke="currentColor" strokeWidth="2"/>
+                    <line x1="1" y1="3" x2="17" y2="3" stroke="currentColor" strokeWidth="2" />
+                    <line x1="1" y1="9" x2="17" y2="9" stroke="currentColor" strokeWidth="2" />
+                    <line x1="1" y1="15" x2="17" y2="15" stroke="currentColor" strokeWidth="2" />
                   </svg>
                 </button>
               </div>
@@ -182,7 +196,7 @@ const Applications: React.FC = () => {
             animate="visible"
             exit="hidden"
           >
-            {filteredApplications.map((app) => {
+            {filteredApplications.map(app => {
               return (
                 <motion.div
                   key={app.id}
@@ -219,7 +233,11 @@ const Applications: React.FC = () => {
                       <div className="app-header">
                         <div
                           className="app-icon-badge"
-                          style={{ background: app.accentGradient || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}
+                          style={{
+                            background:
+                              app.accentGradient ||
+                              'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                          }}
                         >
                           <span className="icon-emoji">{app.icon}</span>
                         </div>
@@ -237,7 +255,9 @@ const Applications: React.FC = () => {
                           </span>
                         ))}
                         {app.technicalDetails.techStack.length > 3 && (
-                          <span className="tech-pill more">+{app.technicalDetails.techStack.length - 3}</span>
+                          <span className="tech-pill more">
+                            +{app.technicalDetails.techStack.length - 3}
+                          </span>
                         )}
                       </div>
 
@@ -270,10 +290,14 @@ const Applications: React.FC = () => {
                           className="app-btn primary group"
                           target="_blank"
                           rel="noopener noreferrer"
-                          onClick={(e) => {
+                          onClick={e => {
                             // Prevent default and handle external link safely
                             try {
-                              window.open(app.demoUrl, '_blank', 'noopener,noreferrer,width=1200,height=800');
+                              window.open(
+                                app.demoUrl,
+                                '_blank',
+                                'noopener,noreferrer,width=1200,height=800'
+                              );
                               e.preventDefault();
                             } catch (error) {
                               console.warn('Failed to open app demo:', error);
@@ -282,8 +306,20 @@ const Applications: React.FC = () => {
                           }}
                         >
                           <span>Launch Live App</span>
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="group-hover:translate-x-0.5 transition-transform">
-                            <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            className="group-hover:translate-x-0.5 transition-transform"
+                          >
+                            <path
+                              d="M6 3L11 8L6 13"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
                           </svg>
                         </a>
                         <Link to={`/applications/${app.id}`} className="app-btn secondary">
@@ -310,8 +346,8 @@ const Applications: React.FC = () => {
             <button
               className="reset-filters-btn"
               onClick={() => {
-                setActiveFilter("All");
-                setSearchTerm("");
+                setActiveFilter('All');
+                setSearchTerm('');
               }}
             >
               Reset Filters

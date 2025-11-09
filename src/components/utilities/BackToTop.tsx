@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { ChevronUp } from "lucide-react";
-import { scrollToTop } from "../../utils/scroll";
-import "./BackToTop.css";
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { ChevronUp } from 'lucide-react';
+import { scrollToTop } from '../../utils/scroll';
+import './BackToTop.css';
 
 const BackToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,9 +16,9 @@ const BackToTop: React.FC = () => {
       }
     };
 
-    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener('scroll', toggleVisibility);
     toggleVisibility();
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
   return (

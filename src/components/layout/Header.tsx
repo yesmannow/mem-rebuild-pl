@@ -1,5 +1,15 @@
 import React, { useRef, useEffect } from 'react';
-import { useFloating, autoUpdate, offset, flip, shift, useClick, useDismiss, useInteractions, FloatingFocusManager } from '@floating-ui/react';
+import {
+  useFloating,
+  autoUpdate,
+  offset,
+  flip,
+  shift,
+  useClick,
+  useDismiss,
+  useInteractions,
+  FloatingFocusManager,
+} from '@floating-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
@@ -116,12 +126,9 @@ const Header: React.FC = () => {
         {/* DESKTOP NAV */}
         {!isMobile && (
           <ul className="nav-links">
-            {links.map((link) => (
+            {links.map(link => (
               <li key={link.to}>
-                <Link
-                  to={link.to}
-                  className={`nav-link ${pathname === link.to ? 'active' : ''}`}
-                >
+                <Link to={link.to} className={`nav-link ${pathname === link.to ? 'active' : ''}`}>
                   {link.label}
                 </Link>
               </li>
@@ -168,7 +175,7 @@ const Header: React.FC = () => {
             transition={{ duration: 0.2 }}
           >
             <ul className="nav-mobile-links">
-              {links.map((link) => (
+              {links.map(link => (
                 <li key={link.to}>
                   <Link
                     to={link.to}
@@ -180,11 +187,7 @@ const Header: React.FC = () => {
                 </li>
               ))}
               <li>
-                <Link
-                  to="/contact"
-                  className="btn-primary"
-                  onClick={() => toggleMobileNav()}
-                >
+                <Link to="/contact" className="btn-primary" onClick={() => toggleMobileNav()}>
                   Contact
                 </Link>
               </li>

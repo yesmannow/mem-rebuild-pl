@@ -23,14 +23,19 @@
 }
 
 @keyframes floatSubtle {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(15px, -15px); }
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(15px, -15px);
+  }
 }
 
 .back-link {
   display: inline-flex;
   align-items: center;
-  color: #88ABF2;
+  color: #88abf2;
   font-weight: 500;
   transition: all 0.3s ease;
   font-size: 1rem;
@@ -54,7 +59,7 @@
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1.5rem;
   line-height: 1.2;
-  background: linear-gradient(135deg, #88ABF2 0%, #a8c5ff 100%);
+  background: linear-gradient(135deg, #88abf2 0%, #a8c5ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -72,7 +77,7 @@
   background: rgba(136, 171, 242, 0.15);
   border: 1px solid rgba(136, 171, 242, 0.3);
   border-radius: 8px;
-  color: #88ABF2;
+  color: #88abf2;
   font-weight: 600;
   font-size: 0.95rem;
 }
@@ -102,7 +107,7 @@
 
 .project-gallery h2 {
   font-size: 2rem;
-  color: #88ABF2;
+  color: #88abf2;
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -164,8 +169,8 @@
 }
 
 .btn-primary {
-  background: #88ABF2;
-  color: #0D0D0D;
+  background: #88abf2;
+  color: #0d0d0d;
   box-shadow: 0 4px 14px rgba(136, 171, 242, 0.3);
 }
 
@@ -177,8 +182,8 @@
 
 .btn-secondary {
   background: transparent;
-  color: #88ABF2;
-  border: 2px solid #88ABF2;
+  color: #88abf2;
+  border: 2px solid #88abf2;
 }
 
 .btn-secondary:hover {

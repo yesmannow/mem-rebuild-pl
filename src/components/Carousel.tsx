@@ -136,4 +136,3 @@ const Carousel: React.FC<CarouselProps> = ({
 };
 
 export default Carousel;
-

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface TestimonialItem {
   quote: string;
@@ -19,9 +19,7 @@ export default function Testimonials({ items }: TestimonialsProps) {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((item, idx) => (
           <div key={idx} className="card p-6 prose prose-invert max-w-none">
-            <blockquote className="text-base mb-4 italic opacity-90">
-              "{item.quote}"
-            </blockquote>
+            <blockquote className="text-base mb-4 italic opacity-90">"{item.quote}"</blockquote>
             <div className="flex items-center gap-3 mt-4">
               {item.avatar && (
                 <img
@@ -36,7 +34,7 @@ export default function Testimonials({ items }: TestimonialsProps) {
                 {(item.title || item.company) && (
                   <div className="text-sm opacity-70">
                     {item.title}
-                    {item.title && item.company && ", "}
+                    {item.title && item.company && ', '}
                     {item.company}
                   </div>
                 )}
@@ -48,4 +46,3 @@ export default function Testimonials({ items }: TestimonialsProps) {
     </section>
   );
 }
-

@@ -30,7 +30,11 @@
     "tagline": "Iconic identity manuals preserved and reissued.",
     "cover": "/brand/standards/cover.jpg",
     "assets": {
-      "books": ["/brand/standards/nasa.jpg", "/brand/standards/nycta.jpg", "/brand/standards/epa.jpg"]
+      "books": [
+        "/brand/standards/nasa.jpg",
+        "/brand/standards/nycta.jpg",
+        "/brand/standards/epa.jpg"
+      ]
     },
     "quotes": ["Design systems are cultural artifacts."],
     "links": ["https://standardsmanual.com/pages/titles"]

@@ -1,18 +1,22 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import AnimatedSection from "../components/animations/AnimatedSection";
-import { fadeInUp } from "../utils/animations";
-import { loadDesignImages, getDesignCategories, categoryColors, type DesignItem } from "../utils/loadDesign";
-import designManifest from "../../public/images/design/manifest.json";
-import "./Design.css";
+import React, { useState, useEffect, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import AnimatedSection from '../components/animations/AnimatedSection';
+import { fadeInUp } from '../utils/animations';
+import {
+  loadDesignImages,
+  getDesignCategories,
+  categoryColors,
+  type DesignItem,
+} from '../utils/loadDesign';
+import designManifest from '../../public/images/design/manifest.json';
+import './Design.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 const Design: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState('All');
   const [selectedDesign, setSelectedDesign] = useState<DesignItem | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
@@ -20,9 +24,10 @@ const Design: React.FC = () => {
   const designPortfolio = useMemo(() => loadDesignImages(), []);
   const categories = useMemo(() => getDesignCategories(designPortfolio), [designPortfolio]);
 
-  const filteredDesigns = activeCategory === "All"
-    ? designPortfolio
-    : designPortfolio.filter(design => design.category === activeCategory);
+  const filteredDesigns =
+    activeCategory === 'All'
+      ? designPortfolio
+      : designPortfolio.filter(design => design.category === activeCategory);
 
   const handleDesignClick = (design: DesignItem) => {
     const index = filteredDesigns.findIndex(item => item.id === design.id);
@@ -71,9 +76,9 @@ const Design: React.FC = () => {
 
   // Enhanced GSAP Cinematic Animations
   useEffect(() => {
-    const designs = gsap.utils.toArray(".design-card");
+    const designs = gsap.utils.toArray('.design-card');
 
-    designs.forEach((design: any, index) => {
+    designs.forEach((design: any, index: number) => {
       // Cinematic entrance with 3D depth
       gsap.fromTo(
         design,
@@ -83,7 +88,7 @@ const Design: React.FC = () => {
           scale: 0.88,
           rotateY: 15,
           rotateX: 10,
-          filter: "blur(6px) brightness(0.7)"
+          filter: 'blur(6px) brightness(0.7)',
         },
         {
           duration: 1.4,
@@ -92,105 +97,106 @@ const Design: React.FC = () => {
           scale: 1,
           rotateY: 0,
           rotateX: 0,
-          filter: "blur(0px) brightness(1)",
-          ease: "power4.out",
+          filter: 'blur(0px) brightness(1)',
+          ease: 'power4.out',
           scrollTrigger: {
             trigger: design,
-            start: "top 88%",
-            end: "top 25%",
-            toggleActions: "play none none reverse",
-            scrub: 0.2
+            start: 'top 88%',
+            end: 'top 25%',
+            toggleActions: 'play none none reverse',
+            scrub: 0.2,
           },
-          delay: index * 0.06
+          delay: index * 0.06,
         }
       );
 
       // Individual image parallax with depth
-      gsap.to(design.querySelector("img"), {
+      gsap.to(design.querySelector('img'), {
         scrollTrigger: {
           trigger: design,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1.5
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.5,
         },
         y: -40,
         scale: 1.08,
-        filter: "brightness(1.1)"
+        filter: 'brightness(1.1)',
       });
 
       // Hover enhancement with GSAP
-      design.addEventListener("mouseenter", () => {
+      design.addEventListener('mouseenter', () => {
         gsap.to(design, {
           scale: 1.03,
           y: -12,
           rotateY: 3,
-          boxShadow: "0 25px 50px rgba(0,0,0,0.25), 0 0 30px rgba(136,171,242,0.2)",
+          boxShadow: '0 25px 50px rgba(0,0,0,0.25), 0 0 30px rgba(136,171,242,0.2)',
           duration: 0.4,
-          ease: "power2.out"
+          ease: 'power2.out',
         });
       });
 
-      design.addEventListener("mouseleave", () => {
+      design.addEventListener('mouseleave', () => {
         gsap.to(design, {
           scale: 1,
           y: 0,
           rotateY: 0,
-          boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+          boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
           duration: 0.4,
-          ease: "power2.out"
+          ease: 'power2.out',
         });
       });
     });
 
     // Enhanced hero parallax with multiple layers
-    gsap.to(".design-hero", {
+    gsap.to('.design-hero', {
       scrollTrigger: {
-        trigger: ".design-hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: 1.5
+        trigger: '.design-hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1.5,
       },
       y: 220,
       opacity: 0.3,
       scale: 1.12,
-      filter: "blur(3px)"
+      filter: 'blur(3px)',
     });
 
     // Floating categories with depth
-    gsap.to(".floating-categories", {
+    gsap.to('.floating-categories', {
       scrollTrigger: {
-        trigger: ".floating-categories",
-        start: "top 80%",
-        end: "bottom 20%",
-        scrub: 1
+        trigger: '.floating-categories',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        scrub: 1,
       },
       y: -60,
       opacity: 0.85,
-      scale: 0.98
+      scale: 0.98,
     });
 
     // Enhanced glow effect on category pills
-    gsap.utils.toArray(".category-pill").forEach((pill: any, index) => {
-      gsap.fromTo(pill,
+    gsap.utils.toArray('.category-pill').forEach((pill: any, index: number) => {
+      gsap.fromTo(
+        pill,
         {
-          boxShadow: "0 0 0px rgba(136, 171, 242, 0)"
+          boxShadow: '0 0 0px rgba(136, 171, 242, 0)',
         },
         {
           scrollTrigger: {
             trigger: pill,
-            start: "top 90%",
-            toggleActions: "play none none reverse"
+            start: 'top 90%',
+            toggleActions: 'play none none reverse',
           },
-          boxShadow: "0 0 25px rgba(136, 171, 242, 0.4), 0 0 50px rgba(136, 171, 242, 0.2)",
+          boxShadow: '0 0 25px rgba(136, 171, 242, 0.4), 0 0 50px rgba(136, 171, 242, 0.2)',
           duration: 0.8,
           delay: index * 0.1,
-          ease: "power2.out"
+          ease: 'power2.out',
         }
       );
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) => trigger.kill());
     };
   }, [filteredDesigns]);
 
@@ -240,9 +246,10 @@ const Design: React.FC = () => {
               whileHover={{ scale: 1.1, y: -3 }}
               whileTap={{ scale: 0.95 }}
               style={{
-                background: activeCategory === category
-                  ? `linear-gradient(135deg, ${categoryColors[category] || '#f093fb'}, ${categoryColors[category] || '#f5576c'})`
-                  : 'rgba(136, 171, 242, 0.1)'
+                background:
+                  activeCategory === category
+                    ? `linear-gradient(135deg, ${categoryColors[category] || '#f093fb'}, ${categoryColors[category] || '#f5576c'})`
+                    : 'rgba(136, 171, 242, 0.1)',
               }}
             >
               {category}
@@ -281,18 +288,12 @@ const Design: React.FC = () => {
                   >
                     <div className="design-info-content">
                       <h3>{design.title}</h3>
-                      <span
-                        className="category-badge"
-                        data-category={design.category}
-                      >
+                      <span className="category-badge" data-category={design.category}>
                         {design.category}
                       </span>
                     </div>
                   </motion.div>
-                  <div
-                    className="design-card-gradient"
-                    data-category={design.category}
-                  />
+                  <div className="design-card-gradient" data-category={design.category} />
                 </div>
               </motion.div>
             ))}
@@ -317,17 +318,31 @@ const Design: React.FC = () => {
           whileTap={{ scale: 0.95 }}
         >
           <div className="cta-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
             </svg>
           </div>
           <div className="cta-text">
             <h3>View Full Design Portfolio</h3>
             <p>Explore 100+ design projects on Behance</p>
           </div>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </motion.a>
       </motion.section>
@@ -344,14 +359,14 @@ const Design: React.FC = () => {
           >
             <motion.div
               className="lightbox-backdrop"
-              initial={{ backdropFilter: "blur(0px)" }}
-              animate={{ backdropFilter: "blur(20px)" }}
-              exit={{ backdropFilter: "blur(0px)" }}
+              initial={{ backdropFilter: 'blur(0px)' }}
+              animate={{ backdropFilter: 'blur(20px)' }}
+              exit={{ backdropFilter: 'blur(0px)' }}
             />
 
             {/* Previous Button */}
             <motion.button
-              onClick={(e) => {
+              onClick={e => {
                 e.stopPropagation();
                 handlePrevious();
               }}
@@ -362,14 +377,21 @@ const Design: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M15 18l-6-6 6-6"/>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M15 18l-6-6 6-6" />
               </svg>
             </motion.button>
 
             {/* Next Button */}
             <motion.button
-              onClick={(e) => {
+              onClick={e => {
                 e.stopPropagation();
                 handleNext();
               }}
@@ -380,8 +402,15 @@ const Design: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M9 18l6-6-6-6"/>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M9 18l6-6-6-6" />
               </svg>
             </motion.button>
 
@@ -401,8 +430,15 @@ const Design: React.FC = () => {
               whileHover={{ scale: 1.1, rotate: 90 }}
               whileTap={{ scale: 0.9 }}
             >
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M18 6L6 18M6 6l12 12"/>
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M18 6L6 18M6 6l12 12" />
               </svg>
             </motion.button>
 
@@ -411,8 +447,8 @@ const Design: React.FC = () => {
               initial={{ scale: 0.8, y: 50 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.8, y: 50 }}
-              transition={{ type: "spring", damping: 25 }}
-              onClick={(e) => e.stopPropagation()}
+              transition={{ type: 'spring', damping: 25 }}
+              onClick={e => e.stopPropagation()}
               key={selectedDesign.id} // Force re-mount for smooth transitions
             >
               <img src={selectedDesign.src} alt={selectedDesign.title} />
@@ -423,10 +459,7 @@ const Design: React.FC = () => {
                 transition={{ delay: 0.2 }}
               >
                 <h2>{selectedDesign.title}</h2>
-                <span
-                  className="lightbox-category"
-                  data-category={selectedDesign.category}
-                >
+                <span className="lightbox-category" data-category={selectedDesign.category}>
                   {selectedDesign.category}
                 </span>
 

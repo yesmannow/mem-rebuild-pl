@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useEffect, useRef, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   ArrowLeft,
   ExternalLink,
@@ -17,11 +17,11 @@ import {
   Palette,
   Type,
   Layers,
-  Sparkles
-} from "lucide-react";
-import sideProjectsData from "../../data/side-projects-structured.json";
-import Lightbox from "../../components/gallery/Lightbox";
-import "./SideProjectDetail.css";
+  Sparkles,
+} from 'lucide-react';
+import sideProjectsData from '../../data/side-projects-structured.json';
+import Lightbox from '../../components/gallery/Lightbox';
+import './SideProjectDetail.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,31 +44,32 @@ const SideProjectDetail: React.FC = () => {
 
     // Hero parallax animation
     if (heroRef.current) {
-      gsap.fromTo(heroRef.current.querySelector('.hero-content'),
+      gsap.fromTo(
+        heroRef.current.querySelector('.hero-content'),
         {
           opacity: 0,
           y: 100,
-          scale: 0.95
+          scale: 0.95,
         },
         {
           opacity: 1,
           y: 0,
           scale: 1,
           duration: 1.2,
-          ease: "power3.out"
+          ease: 'power3.out',
         }
       );
 
       // Parallax background effect
       gsap.to(heroRef.current.querySelector('.hero-image'), {
         yPercent: -30,
-        ease: "none",
+        ease: 'none',
         scrollTrigger: {
           trigger: heroRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true
-        }
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
       });
     }
 
@@ -77,31 +78,32 @@ const SideProjectDetail: React.FC = () => {
       const sections = contentRef.current.querySelectorAll('.content-section');
 
       sections.forEach((section, index) => {
-        gsap.fromTo(section,
+        gsap.fromTo(
+          section,
           {
             opacity: 0,
             y: 60,
-            scale: 0.95
+            scale: 0.95,
           },
           {
             opacity: 1,
             y: 0,
             scale: 1,
             duration: 0.8,
-            ease: "power2.out",
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: section,
-              start: "top 85%",
-              end: "bottom 15%",
-              toggleActions: "play none none reverse"
-            }
+              start: 'top 85%',
+              end: 'bottom 15%',
+              toggleActions: 'play none none reverse',
+            },
           }
         );
       });
     }
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) => trigger.kill());
     };
   }, [project]);
 
@@ -118,7 +120,7 @@ const SideProjectDetail: React.FC = () => {
     src,
     alt: `${project.title} - Image ${index + 1}`,
     title: project.title,
-    category: project.category
+    category: project.category,
   }));
 
   const openLightbox = (index: number) => {
@@ -127,11 +129,11 @@ const SideProjectDetail: React.FC = () => {
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % lightboxImages.length);
+    setCurrentImageIndex(prev => (prev + 1) % lightboxImages.length);
   };
 
   const previousImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + lightboxImages.length) % lightboxImages.length);
+    setCurrentImageIndex(prev => (prev - 1 + lightboxImages.length) % lightboxImages.length);
   };
 
   return (
@@ -153,11 +155,7 @@ const SideProjectDetail: React.FC = () => {
       <section className="project-hero" ref={heroRef}>
         <div className="hero-background">
           <div className="hero-image">
-            <img
-              src={project.images[0]}
-              alt={project.title}
-              onClick={() => openLightbox(0)}
-            />
+            <img src={project.images[0]} alt={project.title} onClick={() => openLightbox(0)} />
           </div>
           <div className="hero-overlay"></div>
         </div>
@@ -193,7 +191,6 @@ const SideProjectDetail: React.FC = () => {
       {/* Content Sections */}
       <div className="project-content" ref={contentRef}>
         <div className="container">
-
           {/* Logo Display */}
           {project.images && project.images.length > 0 && (
             <section className="content-section logo-section">
@@ -267,18 +264,23 @@ const SideProjectDetail: React.FC = () => {
 
               <div className="section-visual">
                 <div className="stats-grid">
-                  {project.metrics && Object.entries(project.metrics).map(([key, value], index) => (
-                    <div key={index} className="stat-card">
-                      <div className="stat-icon">
-                        {key.includes('satisfaction') && <Heart size={24} />}
-                        {key.includes('recognition') && <Eye size={24} />}
-                        {key.includes('engagement') && <TrendingUp size={24} />}
-                        {!key.includes('satisfaction') && !key.includes('recognition') && !key.includes('engagement') && <Target size={24} />}
+                  {project.metrics &&
+                    Object.entries(project.metrics).map(([key, value], index) => (
+                      <div key={index} className="stat-card">
+                        <div className="stat-icon">
+                          {key.includes('satisfaction') && <Heart size={24} />}
+                          {key.includes('recognition') && <Eye size={24} />}
+                          {key.includes('engagement') && <TrendingUp size={24} />}
+                          {!key.includes('satisfaction') &&
+                            !key.includes('recognition') &&
+                            !key.includes('engagement') && <Target size={24} />}
+                        </div>
+                        <div className="stat-value">{value as string}</div>
+                        <div className="stat-label">
+                          {key.replace(/([A-Z])/g, ' $1').toLowerCase()}
+                        </div>
                       </div>
-                      <div className="stat-value">{value as string}</div>
-                      <div className="stat-label">{key.replace(/([A-Z])/g, ' $1').toLowerCase()}</div>
-                    </div>
-                  ))}
+                    ))}
                 </div>
               </div>
             </div>
@@ -299,7 +301,7 @@ const SideProjectDetail: React.FC = () => {
           <section className="content-section approach-section">
             <div className="section-header">
               <Lightbulb size={32} />
-              <h2>{project.logoOnly ? "Design Process & Rationale" : "My Approach"}</h2>
+              <h2>{project.logoOnly ? 'Design Process & Rationale' : 'My Approach'}</h2>
             </div>
             <div className="section-content">
               <p>{project.approach}</p>
@@ -307,15 +309,29 @@ const SideProjectDetail: React.FC = () => {
                 <div className="design-breakdown">
                   <div className="design-element">
                     <h4>Concept Development</h4>
-                    <p>The design process began with in-depth research into the client's industry, target audience, and competitive landscape. Through collaborative discovery sessions, I identified key brand values and emotional connections that the logo needed to communicate.</p>
+                    <p>
+                      The design process began with in-depth research into the client's industry,
+                      target audience, and competitive landscape. Through collaborative discovery
+                      sessions, I identified key brand values and emotional connections that the
+                      logo needed to communicate.
+                    </p>
                   </div>
                   <div className="design-element">
                     <h4>Symbolism & Meaning</h4>
-                    <p>Every element was chosen with strategic intent—from color psychology to typography selection. The final design creates a visual language that resonates with the target audience while differentiating the brand in its marketplace.</p>
+                    <p>
+                      Every element was chosen with strategic intent—from color psychology to
+                      typography selection. The final design creates a visual language that
+                      resonates with the target audience while differentiating the brand in its
+                      marketplace.
+                    </p>
                   </div>
                   <div className="design-element">
                     <h4>Versatility & Application</h4>
-                    <p>The logo was designed from the start to work across diverse applications, from digital platforms to print materials, ensuring consistent brand presence regardless of medium or scale.</p>
+                    <p>
+                      The logo was designed from the start to work across diverse applications, from
+                      digital platforms to print materials, ensuring consistent brand presence
+                      regardless of medium or scale.
+                    </p>
                   </div>
                 </div>
               )}
@@ -336,21 +352,36 @@ const SideProjectDetail: React.FC = () => {
                       <Palette size={24} />
                     </div>
                     <h4>Color Strategy</h4>
-                    <p>The color palette was carefully selected to evoke specific emotions and brand associations. Each color serves a strategic purpose in communicating the brand's personality and values, ensuring the logo resonates with the intended audience while maintaining visual appeal and readability across applications.</p>
+                    <p>
+                      The color palette was carefully selected to evoke specific emotions and brand
+                      associations. Each color serves a strategic purpose in communicating the
+                      brand's personality and values, ensuring the logo resonates with the intended
+                      audience while maintaining visual appeal and readability across applications.
+                    </p>
                   </div>
                   <div className="element-card">
                     <div className="element-icon">
                       <Type size={24} />
                     </div>
                     <h4>Typography Selection</h4>
-                    <p>The typography choice reflects the brand's character and ensures optimal legibility across all sizes and contexts. Whether custom lettering or carefully selected typefaces, the typography enhances the overall brand message and creates a distinctive voice.</p>
+                    <p>
+                      The typography choice reflects the brand's character and ensures optimal
+                      legibility across all sizes and contexts. Whether custom lettering or
+                      carefully selected typefaces, the typography enhances the overall brand
+                      message and creates a distinctive voice.
+                    </p>
                   </div>
                   <div className="element-card">
                     <div className="element-icon">
                       <Layers size={24} />
                     </div>
                     <h4>Visual Hierarchy</h4>
-                    <p>The logo's composition creates a clear visual hierarchy that guides the eye and communicates the most important information first. Strategic use of scale, spacing, and contrast ensures the logo remains effective and memorable across all applications.</p>
+                    <p>
+                      The logo's composition creates a clear visual hierarchy that guides the eye
+                      and communicates the most important information first. Strategic use of scale,
+                      spacing, and contrast ensures the logo remains effective and memorable across
+                      all applications.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -361,14 +392,23 @@ const SideProjectDetail: React.FC = () => {
           <section className="content-section execution-section">
             <div className="section-header">
               <CheckCircle size={32} />
-              <h2>{project.logoOnly ? "Logo Variations & Versatility" : "Execution"}</h2>
+              <h2>{project.logoOnly ? 'Logo Variations & Versatility' : 'Execution'}</h2>
             </div>
             <div className="section-content">
               <p>{project.execution}</p>
               {project.logoOnly && (
                 <div className="variations-info">
-                  <p><strong>Versatile Design System:</strong> The logo was developed with multiple applications in mind. From full-color versions to monochrome applications, the design maintains its integrity and recognition across all contexts—whether appearing on digital platforms, print materials, signage, or merchandise.</p>
-                  <p><strong>Adaptive Solutions:</strong> The logo system includes variations optimized for different use cases, ensuring brand consistency while accommodating diverse application requirements and technical constraints.</p>
+                  <p>
+                    <strong>Versatile Design System:</strong> The logo was developed with multiple
+                    applications in mind. From full-color versions to monochrome applications, the
+                    design maintains its integrity and recognition across all contexts—whether
+                    appearing on digital platforms, print materials, signage, or merchandise.
+                  </p>
+                  <p>
+                    <strong>Adaptive Solutions:</strong> The logo system includes variations
+                    optimized for different use cases, ensuring brand consistency while
+                    accommodating diverse application requirements and technical constraints.
+                  </p>
                 </div>
               )}
             </div>
@@ -383,9 +423,23 @@ const SideProjectDetail: React.FC = () => {
               </div>
               <div className="section-content">
                 <div className="brand-story-content">
-                  <p><strong>The Brand Transformation:</strong> This logo represents more than just a visual mark—it's the foundation of the brand's identity. The design captures the essence of the brand's story, values, and promise to its audience.</p>
-                  <p><strong>Strategic Impact:</strong> A well-designed logo serves as a powerful tool for brand recognition, emotional connection, and market differentiation. This identity establishes a memorable presence that supports marketing efforts and builds long-term brand equity.</p>
-                  <p><strong>Foundation for Growth:</strong> By creating a strong, versatile logo system, I've provided the client with a solid foundation for future brand expansion, ensuring consistency as the brand grows and evolves across new markets and applications.</p>
+                  <p>
+                    <strong>The Brand Transformation:</strong> This logo represents more than just a
+                    visual mark—it's the foundation of the brand's identity. The design captures the
+                    essence of the brand's story, values, and promise to its audience.
+                  </p>
+                  <p>
+                    <strong>Strategic Impact:</strong> A well-designed logo serves as a powerful
+                    tool for brand recognition, emotional connection, and market differentiation.
+                    This identity establishes a memorable presence that supports marketing efforts
+                    and builds long-term brand equity.
+                  </p>
+                  <p>
+                    <strong>Foundation for Growth:</strong> By creating a strong, versatile logo
+                    system, I've provided the client with a solid foundation for future brand
+                    expansion, ensuring consistency as the brand grows and evolves across new
+                    markets and applications.
+                  </p>
                 </div>
               </div>
             </section>
@@ -441,7 +495,6 @@ const SideProjectDetail: React.FC = () => {
               ))}
             </div>
           </section>
-
         </div>
       </div>
 
@@ -455,7 +508,9 @@ const SideProjectDetail: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2>Interested in Working Together?</h2>
-          <p>Let's discuss how strategic design can elevate your brand and drive meaningful results.</p>
+          <p>
+            Let's discuss how strategic design can elevate your brand and drive meaningful results.
+          </p>
           <Link to="/contact" className="cta-button">
             <span>Start Your Project</span>
             <ExternalLink size={20} />

@@ -10,7 +10,7 @@
 }
 
 .bio-portrait:hover {
-  filter: contrast(1.1) saturate(1.15) brightness(1.0);
+  filter: contrast(1.1) saturate(1.15) brightness(1);
 }
 
 /* ===== HERO BIO BACKGROUND ===== */
@@ -29,9 +29,9 @@
 /* ===== BIO GALLERY ENHANCEMENTS ===== */
 .bio-gallery {
   position: relative;
-  box-shadow: 
-    0 20px 40px rgba(0,0,0,0.3),
-    0 0 30px rgba(59,130,246,0.1);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(59, 130, 246, 0.1);
   border-radius: 1rem;
   overflow: hidden;
 }
@@ -41,10 +41,10 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    135deg, 
-    rgba(59,130,246,0.1) 0%, 
-    transparent 50%, 
-    rgba(236,72,153,0.1) 100%
+    135deg,
+    rgba(59, 130, 246, 0.1) 0%,
+    transparent 50%,
+    rgba(236, 72, 153, 0.1) 100%
   );
   z-index: 2;
   pointer-events: none;
@@ -62,26 +62,27 @@
 .footer-profile-link img {
   filter: contrast(1.05) saturate(1.1) brightness(0.95);
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(236,72,153,0.2);
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.2);
 }
 
 .footer-profile-link:hover img {
-  filter: contrast(1.1) saturate(1.15) brightness(1.0);
-  box-shadow: 0 6px 20px rgba(236,72,153,0.4);
+  filter: contrast(1.1) saturate(1.15) brightness(1);
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
   transform: scale(1.05);
 }
 
 /* ===== CINEMATIC GLOW EFFECTS ===== */
 @keyframes bioGlow {
-  0%, 100% { 
-    box-shadow: 
-      0 0 20px rgba(59,130,246,0.3),
-      0 0 40px rgba(236,72,153,0.2);
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px rgba(59, 130, 246, 0.3),
+      0 0 40px rgba(236, 72, 153, 0.2);
   }
-  50% { 
-    box-shadow: 
-      0 0 30px rgba(59,130,246,0.4),
-      0 0 60px rgba(236,72,153,0.3);
+  50% {
+    box-shadow:
+      0 0 30px rgba(59, 130, 246, 0.4),
+      0 0 60px rgba(236, 72, 153, 0.3);
   }
 }
 
@@ -93,11 +94,11 @@
 @media (max-width: 768px) {
   .bio-gallery {
     height: 300px;
-    box-shadow: 
-      0 15px 30px rgba(0,0,0,0.2),
-      0 0 20px rgba(59,130,246,0.08);
+    box-shadow:
+      0 15px 30px rgba(0, 0, 0, 0.2),
+      0 0 20px rgba(59, 130, 246, 0.08);
   }
-  
+
   .footer-profile-link img {
     width: 32px;
     height: 32px;
@@ -110,7 +111,7 @@
   .footer-profile-link img {
     transition: none;
   }
-  
+
   .bio-gallery.cinematic-glow {
     animation: none;
   }

@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import "../hero/Hero.css";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import '../hero/Hero.css';
 
 const Hero: React.FC = () => {
   const [activeWord, setActiveWord] = useState(0);
-  const words = ["Strategy", "Automation", "Systems", "Storytelling"];
+  const words = ['Strategy', 'Automation', 'Systems', 'Storytelling'];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveWord((prev) => (prev + 1) % words.length);
+      setActiveWord(prev => (prev + 1) % words.length);
     }, 2000);
     return () => clearInterval(interval);
   }, []);
@@ -28,8 +28,7 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Where Complexity Becomes{" "}
-          <span className="gradient-text">Clarity</span>.
+          Where Complexity Becomes <span className="gradient-text">Clarity</span>.
         </motion.h1>
 
         <motion.p
@@ -38,8 +37,8 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          I craft systems where design and technology move as one.
-          Turning curiosity into conversion. Chaos into clarity.
+          I craft systems where design and technology move as one. Turning curiosity into
+          conversion. Chaos into clarity.
         </motion.p>
 
         <motion.div
@@ -65,7 +64,7 @@ const Hero: React.FC = () => {
           {words.map((word, index) => (
             <React.Fragment key={word}>
               <motion.span
-                className={index === activeWord ? "active" : ""}
+                className={index === activeWord ? 'active' : ''}
                 animate={{
                   opacity: index === activeWord ? 1 : 0.3,
                   scale: index === activeWord ? 1.1 : 1,
@@ -74,9 +73,7 @@ const Hero: React.FC = () => {
               >
                 {word}
               </motion.span>
-              {index < words.length - 1 && (
-                <span className="separator">•</span>
-              )}
+              {index < words.length - 1 && <span className="separator">•</span>}
             </React.Fragment>
           ))}
         </motion.div>
@@ -92,7 +89,7 @@ const Hero: React.FC = () => {
           transition={{
             duration: 15,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: 'easeInOut',
           }}
         />
         <motion.div
@@ -105,8 +102,8 @@ const Hero: React.FC = () => {
           transition={{
             duration: 15,
             repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
+            ease: 'easeInOut',
+            delay: 2,
           }}
         />
       </div>

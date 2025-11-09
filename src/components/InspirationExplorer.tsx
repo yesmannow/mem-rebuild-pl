@@ -30,7 +30,7 @@ const InspirationExplorer: React.FC = () => {
       <div className="mb-8">
         <h2 className="text-3xl font-bold mb-4">Inspiration Explorer</h2>
         <div className="flex flex-wrap gap-2">
-          {categories.map((category) => (
+          {categories.map(category => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
@@ -46,10 +46,7 @@ const InspirationExplorer: React.FC = () => {
         </div>
       </div>
 
-      <motion.div
-        layout
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-      >
+      <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <AnimatePresence>
           {filteredInspirations.map((inspiration: Inspiration) => (
             <motion.div
@@ -90,7 +87,7 @@ const InspirationExplorer: React.FC = () => {
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto"
-              onClick={(e) => e.stopPropagation()}
+              onClick={e => e.stopPropagation()}
             >
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-4">{selectedInspiration.title}</h3>

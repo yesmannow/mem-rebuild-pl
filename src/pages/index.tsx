@@ -1,82 +1,85 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
-import Hero from "../components/Hero";
-import CaseStudy from "../components/CaseStudy";
-import StickyCTA from "../components/StickyCTA";
-import Carousel from "../components/Carousel";
-import NewsletterForm from "../components/newsletter/NewsletterForm";
-import ServicesSection from "../components/services/ServicesSection";
-import OrganizationSchema from "../components/seo/OrganizationSchema";
-import ServiceSchema from "../components/seo/ServiceSchema";
-import ReviewSchema from "../components/seo/ReviewSchema";
-import ClientLogos from "../components/clients/ClientLogos";
-import { trackCTA } from "../utils/analytics";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import Hero from '../components/Hero';
+import CaseStudy from '../components/CaseStudy';
+import StickyCTA from '../components/StickyCTA';
+import Carousel from '../components/Carousel';
+import NewsletterForm from '../components/newsletter/NewsletterForm';
+import ServicesSection from '../components/services/ServicesSection';
+import OrganizationSchema from '../components/seo/OrganizationSchema';
+import ServiceSchema from '../components/seo/ServiceSchema';
+import ReviewSchema from '../components/seo/ReviewSchema';
+import ClientLogos from '../components/clients/ClientLogos';
+import { trackCTA } from '../utils/analytics';
 
 const selectedWork = [
   {
-    title: "317 BBQ Growth Engine",
+    title: '317 BBQ Growth Engine',
     summary:
-      "Rebuilt the brand narrative, redesigned the commerce experience, and automated lifecycle journeys that keep fans coming back.",
+      'Rebuilt the brand narrative, redesigned the commerce experience, and automated lifecycle journeys that keep fans coming back.',
     metrics: [
-      { label: "Online Orders", value: "↑ 29% in 90 days" },
-      { label: "Email Revenue", value: "+54%" },
-      { label: "Average Order Value", value: "+18%" }
+      { label: 'Online Orders', value: '↑ 29% in 90 days' },
+      { label: 'Email Revenue', value: '+54%' },
+      { label: 'Average Order Value', value: '+18%' },
     ],
-    image: "/images/side-projects/317-bbq.svg",
-    tags: ["Brand System", "Lifecycle Automation", "CRO"],
-    slug: "the-launchpad",
-    accent: "#FF8A65"
+    image: '/images/side-projects/317-bbq.svg',
+    tags: ['Brand System', 'Lifecycle Automation', 'CRO'],
+    slug: 'the-launchpad',
+    accent: '#FF8A65',
   },
   {
-    title: "Graston Technique Lifecycle",
+    title: 'Graston Technique Lifecycle',
     summary:
-      "Unified WooCommerce, LearnDash, and FluentCRM so education, sales, and support work from the same playbook.",
+      'Unified WooCommerce, LearnDash, and FluentCRM so education, sales, and support work from the same playbook.',
     metrics: [
-      { label: "Enrollments", value: "↑ 38% YoY" },
-      { label: "Support Volume", value: "-70%" },
-      { label: "Automation Coverage", value: "400+ flows" }
+      { label: 'Enrollments', value: '↑ 38% YoY' },
+      { label: 'Support Volume', value: '-70%' },
+      { label: 'Automation Coverage', value: '400+ flows' },
     ],
-    image: "/images/case-studies/graston-dashboard/cover.svg",
-    tags: ["Systems Architecture", "MarTech", "Analytics"],
-    slug: "the-conductor",
-    accent: "#7C5CFF"
+    image: '/images/case-studies/graston-dashboard/cover.svg',
+    tags: ['Systems Architecture', 'MarTech', 'Analytics'],
+    slug: 'the-conductor',
+    accent: '#7C5CFF',
   },
   {
-    title: "Next Build in Progress",
+    title: 'Next Build in Progress',
     summary:
-      "Currently architecting a new growth system that fuses product, analytics, and automation for a healthcare operator.",
+      'Currently architecting a new growth system that fuses product, analytics, and automation for a healthcare operator.',
     metrics: [
-      { label: "Launch Window", value: "Summer 2025" },
-      { label: "Focus", value: "Predictable pipeline" },
-      { label: "Status", value: "In build" }
+      { label: 'Launch Window', value: 'Summer 2025' },
+      { label: 'Focus', value: 'Predictable pipeline' },
+      { label: 'Status', value: 'In build' },
     ],
-    image: "/images/case-studies/promotional-campaigns.svg",
-    tags: ["Automation", "Analytics", "Ops"],
-    accent: "#64748B"
-  }
+    image: '/images/case-studies/promotional-campaigns.svg',
+    tags: ['Automation', 'Analytics', 'Ops'],
+    accent: '#64748B',
+  },
 ];
 
 const testimonialsData = [
   {
-    quote: "Jacob is the rare operator who can architect the system, build it, and prove the ROI inside the same sprint.",
-    name: "Sarah Chen",
-    title: "Chief Marketing Officer",
-    company: "Series B SaaS"
+    quote:
+      'Jacob is the rare operator who can architect the system, build it, and prove the ROI inside the same sprint.',
+    name: 'Sarah Chen',
+    title: 'Chief Marketing Officer',
+    company: 'Series B SaaS',
   },
   {
-    quote: "He turned our fragmented data into a growth engine. Strategy, implementation, and documentation all shipped together.",
-    name: "Michael Rodriguez",
-    title: "Founder",
-    company: "Commerce Collective"
+    quote:
+      'He turned our fragmented data into a growth engine. Strategy, implementation, and documentation all shipped together.',
+    name: 'Michael Rodriguez',
+    title: 'Founder',
+    company: 'Commerce Collective',
   },
   {
-    quote: "Jacob's marketing automation work gave our team time back and produced the most predictable pipeline we've ever had.",
-    name: "Emily Johnson",
-    title: "VP of Growth",
-    company: "Healthcare Network"
-  }
+    quote:
+      "Jacob's marketing automation work gave our team time back and produced the most predictable pipeline we've ever had.",
+    name: 'Emily Johnson',
+    title: 'VP of Growth',
+    company: 'Healthcare Network',
+  },
 ];
 
 const HomePage: React.FC = () => {
@@ -110,8 +113,14 @@ const HomePage: React.FC = () => {
           name="description"
           content="I build marketing systems that turn brands into revenue engines. Strategy, creative, analytics, and execution—unified under one operator."
         />
-        <meta name="keywords" content="marketing strategist, marketing technologist, marketing automation, CRM campaigns, systems architecture" />
-        <meta property="og:title" content="BearCave Marketing — Jacob Darling | Marketing Strategist & Systems Architect" />
+        <meta
+          name="keywords"
+          content="marketing strategist, marketing technologist, marketing automation, CRM campaigns, systems architecture"
+        />
+        <meta
+          property="og:title"
+          content="BearCave Marketing — Jacob Darling | Marketing Strategist & Systems Architect"
+        />
         <meta
           property="og:description"
           content="I build marketing systems that turn brands into revenue engines. Strategy, creative, analytics, and execution—unified under one operator."
@@ -134,11 +143,7 @@ const HomePage: React.FC = () => {
       <ServiceSchema />
       <ReviewSchema />
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      >
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
         <Hero />
       </motion.div>
 
@@ -153,8 +158,8 @@ const HomePage: React.FC = () => {
         <motion.div className="space-y-4" variants={itemVariants}>
           <h2 className="section-heading">Selected Work</h2>
           <p className="section-subheading">
-            Real systems, real metrics. Every project below combines brand, product, analytics, and automation so the business can
-            scale without guesswork.
+            Real systems, real metrics. Every project below combines brand, product, analytics, and
+            automation so the business can scale without guesswork.
           </p>
         </motion.div>
         <div className="space-y-8">
@@ -163,7 +168,7 @@ const HomePage: React.FC = () => {
               key={work.title}
               variants={itemVariants}
               whileHover={{ y: -4 }}
-              transition={{ type: "spring", stiffness: 300 }}
+              transition={{ type: 'spring', stiffness: 300 }}
             >
               <CaseStudy
                 title={work.title}
@@ -189,14 +194,19 @@ const HomePage: React.FC = () => {
       >
         <div className="grid md:grid-cols-5 gap-8 items-start">
           <div className="md:col-span-2 card p-6">
-            <img src="/images/bio/bio-photo.jpg" alt="Jacob Darling" className="rounded-xl w-full h-auto" loading="lazy" />
+            <img
+              src="/images/bio/bio-photo.jpg"
+              alt="Jacob Darling"
+              className="rounded-xl w-full h-auto"
+              loading="lazy"
+            />
           </div>
           <div className="md:col-span-3 space-y-4">
             <h2 className="section-heading">About me</h2>
             <p>
-              I'm Jacob Darling—a marketing strategist and systems architect. I connect product positioning, lifecycle marketing,
-              analytics, and automation so operators have a dependable revenue engine. I move from insight to implementation without
-              handoffs.
+              I'm Jacob Darling—a marketing strategist and systems architect. I connect product
+              positioning, lifecycle marketing, analytics, and automation so operators have a
+              dependable revenue engine. I move from insight to implementation without handoffs.
             </p>
             <div className="flex gap-2 flex-wrap">
               <span className="chip">Strategy</span>
@@ -210,7 +220,7 @@ const HomePage: React.FC = () => {
               <Link
                 to="/about"
                 className="btn-secondary inline-flex"
-                onClick={() => trackCTA("learn_more", "homepage")}
+                onClick={() => trackCTA('learn_more', 'homepage')}
               >
                 Learn More
               </Link>
@@ -254,9 +264,7 @@ const HomePage: React.FC = () => {
         >
           {testimonialsData.map((testimonial, index) => (
             <div key={index} className="testimonial-card">
-              <blockquote className="testimonial-quote">
-                "{testimonial.quote}"
-              </blockquote>
+              <blockquote className="testimonial-quote">"{testimonial.quote}"</blockquote>
               <div className="testimonial-author">
                 <div className="testimonial-author-info">
                   <div className="testimonial-name">{testimonial.name}</div>
@@ -280,12 +288,15 @@ const HomePage: React.FC = () => {
       >
         <div className="card">
           <h2 className="section-heading">Ready to build your next growth system?</h2>
-          <p className="section-subheading">Tell me what needs to work better. I'll map the strategy, architect the system, and ship it.</p>
+          <p className="section-subheading">
+            Tell me what needs to work better. I'll map the strategy, architect the system, and ship
+            it.
+          </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
               href="mailto:hoosierdarling@gmail.com"
               className="btn-secondary"
-              onClick={() => trackCTA("email", "contact")}
+              onClick={() => trackCTA('email', 'contact')}
             >
               Email me
             </a>
@@ -294,7 +305,7 @@ const HomePage: React.FC = () => {
               target="_blank"
               rel="noreferrer"
               className="btn-primary"
-              onClick={() => trackCTA("book_call", "contact")}
+              onClick={() => trackCTA('book_call', 'contact')}
             >
               Book a strategy call
             </a>

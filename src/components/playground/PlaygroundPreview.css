@@ -40,7 +40,8 @@
 }
 
 @keyframes pulse-dot {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
@@ -197,7 +198,8 @@
 }
 
 @keyframes pulse-live {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     box-shadow: 0 0 0 0 rgba(67, 233, 123, 0.7);
   }
@@ -230,7 +232,7 @@
   justify-content: center;
   flex-shrink: 0;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  background: var(--app-icon-gradient, linear-gradient(135deg, #88ABF2 0%, #B8D0D9 100%));
+  background: var(--app-icon-gradient, linear-gradient(135deg, #88abf2 0%, #b8d0d9 100%));
 }
 
 .icon-emoji {
@@ -266,7 +268,7 @@
 .tech-pill {
   font-size: 0.8rem;
   background: rgba(136, 171, 242, 0.1);
-  color: #88ABF2;
+  color: #88abf2;
   padding: 0.4rem 0.85rem;
   border-radius: 20px;
   font-weight: 600;

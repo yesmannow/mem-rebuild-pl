@@ -5,8 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #0A0A0A;
-  color: #FFFFFF;
+  background-color: #0a0a0a;
+  color: #ffffff;
 }
 
 /* Legacy support */
@@ -28,6 +28,10 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

@@ -1,20 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 // import anime from "animejs"; // Temporarily disabled for deployment
-import "./AnimatedLogo.css";
+import './AnimatedLogo.css';
 
 interface AnimatedLogoProps {
   className?: string;
   size?: number;
-  variant?: "header" | "splash" | "footer";
+  variant?: 'header' | 'splash' | 'footer';
   onAnimationComplete?: () => void;
 }
 
-const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ 
-  className = "", 
-  size = 48, 
-  variant = "header",
-  onAnimationComplete 
+const AnimatedLogo: React.FC<AnimatedLogoProps> = ({
+  className = '',
+  size = 48,
+  variant = 'header',
+  onAnimationComplete,
 }) => {
   const logoRef = useRef<SVGSVGElement>(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -23,9 +23,9 @@ const AnimatedLogo: React.FC<AnimatedLogoProps> = ({
     if (!logoRef.current) return;
 
     // Simplified animation using CSS for deployment
-    const paths = logoRef.current.querySelectorAll(".logo-path");
-    const hexagon = logoRef.current.querySelector(".logo-hexagon");
-    const dot = logoRef.current.querySelector(".logo-dot");
+    const paths = logoRef.current.querySelectorAll('.logo-path');
+    const hexagon = logoRef.current.querySelector('.logo-hexagon');
+    const dot = logoRef.current.querySelector('.logo-dot');
 
     // Simple fade-in animation
     setTimeout(() => {
@@ -50,9 +50,10 @@ const AnimatedLogo: React.FC<AnimatedLogoProps> = ({
   // Hover animation effects - simplified for deployment
   useEffect(() => {
     if (!logoRef.current) return;
-    
+
     if (isHovered) {
-      logoRef.current.style.filter = 'drop-shadow(0 0 12px #88ABF2) drop-shadow(0 0 24px #a8c5ff80)';
+      logoRef.current.style.filter =
+        'drop-shadow(0 0 12px #88ABF2) drop-shadow(0 0 24px #a8c5ff80)';
       logoRef.current.style.transform = 'scale(1.05)';
     } else {
       logoRef.current.style.filter = 'drop-shadow(0 0 0px #88ABF2)';
@@ -63,10 +64,10 @@ const AnimatedLogo: React.FC<AnimatedLogoProps> = ({
   const logoVariants = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
-    hover: { 
+    hover: {
       scale: 1.05,
-      transition: { duration: 0.3 }
-    }
+      transition: { duration: 0.3 },
+    },
   };
 
   return (
@@ -95,7 +96,7 @@ const AnimatedLogo: React.FC<AnimatedLogoProps> = ({
         strokeLinejoin="round"
         style={{ opacity: 0 }}
       />
-      
+
       {/* Inner geometric "JD" monogram */}
       {/* Letter J */}
       <path
@@ -107,7 +108,7 @@ const AnimatedLogo: React.FC<AnimatedLogoProps> = ({
         strokeLinecap="round"
         style={{ opacity: 0 }}
       />
-      
+
       {/* Letter D */}
       <path
         className="logo-path"
@@ -144,13 +145,13 @@ const AnimatedLogo: React.FC<AnimatedLogoProps> = ({
           <stop offset="75%" stopColor="#a8c5ff" />
           <stop offset="100%" stopColor="#88ABF2" />
         </linearGradient>
-        
+
         {/* Glow filter for cinematic effect */}
         <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-          <feMerge> 
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
+          <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+          <feMerge>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
       </defs>

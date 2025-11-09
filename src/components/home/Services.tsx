@@ -1,56 +1,52 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Briefcase, Workflow, LineChart, Bot } from "lucide-react";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Briefcase, Workflow, LineChart, Bot } from 'lucide-react';
 
 const services = [
   {
-    id: "fractional",
+    id: 'fractional',
     icon: <Briefcase className="w-6 h-6" />,
-    title: "Fractional Marketing Leadership",
-    summary: "Embed a strategic marketing leader who aligns revenue teams, clarifies positioning, and operationalizes growth initiatives.",
+    title: 'Fractional Marketing Leadership',
+    summary:
+      'Embed a strategic marketing leader who aligns revenue teams, clarifies positioning, and operationalizes growth initiatives.',
     highlights: [
-      "Executive marketing roadmap",
-      "Cross-functional OKR alignment",
-      "Quarterly growth experiments"
+      'Executive marketing roadmap',
+      'Cross-functional OKR alignment',
+      'Quarterly growth experiments',
     ],
-    gradient: "from-blue-500/20 via-blue-400/10 to-purple-500/20"
+    gradient: 'from-blue-500/20 via-blue-400/10 to-purple-500/20',
   },
   {
-    id: "systems",
+    id: 'systems',
     icon: <Workflow className="w-6 h-6" />,
-    title: "Revenue Systems Architecture",
-    summary: "Design and deploy the tooling stack that connects CRM, automation, analytics, and product experiences into one source of truth.",
+    title: 'Revenue Systems Architecture',
+    summary:
+      'Design and deploy the tooling stack that connects CRM, automation, analytics, and product experiences into one source of truth.',
     highlights: [
-      "Customer data infrastructure",
-      "Lifecycle automation",
-      "Sales enablement workflows"
+      'Customer data infrastructure',
+      'Lifecycle automation',
+      'Sales enablement workflows',
     ],
-    gradient: "from-purple-500/20 via-pink-400/10 to-rose-500/20"
+    gradient: 'from-purple-500/20 via-pink-400/10 to-rose-500/20',
   },
   {
-    id: "analytics",
+    id: 'analytics',
     icon: <LineChart className="w-6 h-6" />,
-    title: "Analytics & Attribution",
-    summary: "Rebuild measurement foundations with reliable tagging, dashboards, and insight loops that power confident decision-making.",
-    highlights: [
-      "Server-side tracking",
-      "Executive dashboards",
-      "Performance optimization"
-    ],
-    gradient: "from-emerald-500/20 via-teal-400/10 to-cyan-500/20"
+    title: 'Analytics & Attribution',
+    summary:
+      'Rebuild measurement foundations with reliable tagging, dashboards, and insight loops that power confident decision-making.',
+    highlights: ['Server-side tracking', 'Executive dashboards', 'Performance optimization'],
+    gradient: 'from-emerald-500/20 via-teal-400/10 to-cyan-500/20',
   },
   {
-    id: "automation",
+    id: 'automation',
     icon: <Bot className="w-6 h-6" />,
-    title: "Automation & AI Operations",
-    summary: "Automate the repetitive, personalize the critical, and orchestrate AI copilots that protect margins and scale delight.",
-    highlights: [
-      "AI-assisted support",
-      "Workflow intelligence",
-      "Compliance guardrails"
-    ],
-    gradient: "from-amber-500/20 via-orange-400/10 to-pink-500/20"
-  }
+    title: 'Automation & AI Operations',
+    summary:
+      'Automate the repetitive, personalize the critical, and orchestrate AI copilots that protect margins and scale delight.',
+    highlights: ['AI-assisted support', 'Workflow intelligence', 'Compliance guardrails'],
+    gradient: 'from-amber-500/20 via-orange-400/10 to-pink-500/20',
+  },
 ];
 
 const Services: React.FC = () => {
@@ -76,7 +72,8 @@ const Services: React.FC = () => {
             </span>
           </h2>
           <p className="text-lg text-gray-400">
-            Engagement models designed for marketing leaders who need a partner that can think strategically, build technically, and move with pace.
+            Engagement models designed for marketing leaders who need a partner that can think
+            strategically, build technically, and move with pace.
           </p>
         </motion.div>
 
@@ -91,7 +88,9 @@ const Services: React.FC = () => {
               transition={{ duration: 0.8 }}
               whileHover={{ y: -10 }}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+              />
               <div className="relative z-10 space-y-6">
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/10 border border-white/10 text-white">
                   {icon}
@@ -101,7 +100,7 @@ const Services: React.FC = () => {
                   <p className="text-gray-300 leading-relaxed">{summary}</p>
                 </div>
                 <div className="space-y-3">
-                  {highlights.map((point) => (
+                  {highlights.map(point => (
                     <div key={point} className="flex items-center gap-3 text-sm text-gray-300">
                       <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-purple-400" />
                       <span>{point}</span>

@@ -20,12 +20,12 @@ const ManualViewer: React.FC<ManualViewerProps> = ({ brand }) => {
   const spreads = brand.assets.manual || brand.assets.books || brand.assets.spreads || [];
 
   const nextSpread = () => {
-    setCurrentSpread((prev) => (prev + 1) % spreads.length);
+    setCurrentSpread(prev => (prev + 1) % spreads.length);
     setZoomedArea(null);
   };
 
   const prevSpread = () => {
-    setCurrentSpread((prev) => (prev - 1 + spreads.length) % spreads.length);
+    setCurrentSpread(prev => (prev - 1 + spreads.length) % spreads.length);
     setZoomedArea(null);
   };
 

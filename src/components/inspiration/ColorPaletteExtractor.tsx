@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   Palette,
   Copy,
@@ -11,8 +11,9 @@ import {
   Share2,
   Eye,
   RefreshCw,
-  Zap
-} from "lucide-react";
+  Zap,
+  X,
+} from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,7 +32,7 @@ interface ColorPaletteExtractorProps {
 
 const ColorPaletteExtractor: React.FC<ColorPaletteExtractorProps> = ({
   imageUrl,
-  onColorsExtracted
+  onColorsExtracted,
 }) => {
   const [colors, setColors] = useState<ColorData[]>([]);
   const [isExtracting, setIsExtracting] = useState(false);
@@ -49,12 +50,48 @@ const ColorPaletteExtractor: React.FC<ColorPaletteExtractorProps> = ({
 
     // Mock color data - in production, use actual color extraction
     const mockColors: ColorData[] = [
-      { hex: "#FF6B6B", rgb: "rgb(255, 107, 107)", hsl: "hsl(0, 100%, 71%)", name: "Coral Red", usage: 25 },
-      { hex: "#4ECDC4", rgb: "rgb(78, 205, 196)", hsl: "hsl(176, 53%, 55%)", name: "Teal", usage: 20 },
-      { hex: "#45B7D1", rgb: "rgb(69, 183, 209)", hsl: "hsl(195, 60%, 55%)", name: "Sky Blue", usage: 18 },
-      { hex: "#96CEB4", rgb: "rgb(150, 206, 180)", hsl: "hsl(150, 35%, 70%)", name: "Mint Green", usage: 15 },
-      { hex: "#FFEAA7", rgb: "rgb(255, 234, 167)", hsl: "hsl(48, 100%, 83%)", name: "Cream", usage: 12 },
-      { hex: "#DDA0DD", rgb: "rgb(221, 160, 221)", hsl: "hsl(300, 47%, 75%)", name: "Plum", usage: 10 }
+      {
+        hex: '#FF6B6B',
+        rgb: 'rgb(255, 107, 107)',
+        hsl: 'hsl(0, 100%, 71%)',
+        name: 'Coral Red',
+        usage: 25,
+      },
+      {
+        hex: '#4ECDC4',
+        rgb: 'rgb(78, 205, 196)',
+        hsl: 'hsl(176, 53%, 55%)',
+        name: 'Teal',
+        usage: 20,
+      },
+      {
+        hex: '#45B7D1',
+        rgb: 'rgb(69, 183, 209)',
+        hsl: 'hsl(195, 60%, 55%)',
+        name: 'Sky Blue',
+        usage: 18,
+      },
+      {
+        hex: '#96CEB4',
+        rgb: 'rgb(150, 206, 180)',
+        hsl: 'hsl(150, 35%, 70%)',
+        name: 'Mint Green',
+        usage: 15,
+      },
+      {
+        hex: '#FFEAA7',
+        rgb: 'rgb(255, 234, 167)',
+        hsl: 'hsl(48, 100%, 83%)',
+        name: 'Cream',
+        usage: 12,
+      },
+      {
+        hex: '#DDA0DD',
+        rgb: 'rgb(221, 160, 221)',
+        hsl: 'hsl(300, 47%, 75%)',
+        name: 'Plum',
+        usage: 10,
+      },
     ];
 
     setIsExtracting(false);
@@ -72,18 +109,19 @@ const ColorPaletteExtractor: React.FC<ColorPaletteExtractorProps> = ({
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(extractorRef.current,
+      gsap.fromTo(
+        extractorRef.current,
         { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
           duration: 0.8,
-          ease: "power2.out",
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: extractorRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
         }
       );
     }, extractorRef);
@@ -96,9 +134,8 @@ const ColorPaletteExtractor: React.FC<ColorPaletteExtractorProps> = ({
       const colorData = colors.find(c => c.hex === color);
       if (!colorData) return;
 
-      const textToCopy = format === 'hex' ? colorData.hex :
-                        format === 'rgb' ? colorData.rgb :
-                        colorData.hsl;
+      const textToCopy =
+        format === 'hex' ? colorData.hex : format === 'rgb' ? colorData.rgb : colorData.hsl;
 
       await navigator.clipboard.writeText(textToCopy);
       setCopiedColor(color);
@@ -113,7 +150,7 @@ const ColorPaletteExtractor: React.FC<ColorPaletteExtractorProps> = ({
       hex: color.hex,
       rgb: color.rgb,
       hsl: color.hsl,
-      name: color.name
+      name: color.name,
     }));
 
     const dataStr = JSON.stringify(paletteData, null, 2);
@@ -134,7 +171,7 @@ const ColorPaletteExtractor: React.FC<ColorPaletteExtractorProps> = ({
         await navigator.share({
           title: 'Color Palette',
           text: `Check out this color palette: ${colors.map(c => c.hex).join(', ')}`,
-          url: window.location.href
+          url: window.location.href,
         });
       } catch (error) {
         console.log('Share cancelled');
@@ -147,7 +184,10 @@ const ColorPaletteExtractor: React.FC<ColorPaletteExtractorProps> = ({
   };
 
   return (
-    <div ref={extractorRef} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+    <div
+      ref={extractorRef}
+      className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6"
+    >
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
@@ -181,7 +221,7 @@ const ColorPaletteExtractor: React.FC<ColorPaletteExtractorProps> = ({
         <div className="flex items-center justify-center py-12">
           <motion.div
             animate={{ rotate: 360 }}
-            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
             className="w-8 h-8 border-2 border-purple-400 border-t-transparent rounded-full"
           />
           <span className="ml-3 text-gray-400">Extracting colors...</span>
@@ -213,7 +253,7 @@ const ColorPaletteExtractor: React.FC<ColorPaletteExtractorProps> = ({
 
               {/* Copy Button */}
               <button
-                onClick={(e) => {
+                onClick={e => {
                   e.stopPropagation();
                   copyToClipboard(color.hex, 'hex');
                 }}
@@ -245,7 +285,7 @@ const ColorPaletteExtractor: React.FC<ColorPaletteExtractorProps> = ({
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
+              onClick={e => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelectedColor(null)}
@@ -257,11 +297,11 @@ const ColorPaletteExtractor: React.FC<ColorPaletteExtractorProps> = ({
               </button>
 
               <div className="text-center">
-              <div
-                className="w-24 h-24 mx-auto rounded-xl shadow-lg mb-4 color-swatch"
-                data-color={selectedColor.hex}
-                title={`Color: ${selectedColor.hex}`}
-              />
+                <div
+                  className="w-24 h-24 mx-auto rounded-xl shadow-lg mb-4 color-swatch"
+                  data-color={selectedColor.hex}
+                  title={`Color: ${selectedColor.hex}`}
+                />
                 <h3 className="text-xl font-bold text-white mb-2">{selectedColor.name}</h3>
 
                 <div className="space-y-2 text-sm">

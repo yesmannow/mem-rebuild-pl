@@ -14,7 +14,7 @@ const Icon: React.FC<IconProps> = ({
   size = 24,
   color = 'currentColor',
   className = '',
-  title
+  title,
 }) => {
   const iconData: IconData | undefined = icons[slug];
 

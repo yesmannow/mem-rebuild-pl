@@ -8,7 +8,7 @@ interface ProcessStep {
   title: string;
   description: string;
   details: string[];
-  icon: JSX.Element;
+  icon: React.ReactElement;
   gradient: string;
 }
 
@@ -22,16 +22,23 @@ const steps: ProcessStep[] = [
       'Stakeholder interviews & workshops',
       'Market & competitive analysis',
       'Technical audit & gap identification',
-      'Opportunity mapping'
+      'Opportunity mapping',
     ],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="8"/>
-        <path d="M21 21l-4.35-4.35"/>
-        <circle cx="11" cy="11" r="3"/>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="11" cy="11" r="8" />
+        <path d="M21 21l-4.35-4.35" />
+        <circle cx="11" cy="11" r="3" />
       </svg>
     ),
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
   },
   {
     id: 'design',
@@ -42,18 +49,25 @@ const steps: ProcessStep[] = [
       'Strategy & roadmap creation',
       'User journey mapping',
       'System architecture design',
-      'Wireframes & prototypes'
+      'Wireframes & prototypes',
     ],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2"/>
-        <path d="M9 3v18"/>
-        <path d="M3 9h18"/>
-        <path d="M3 15h18"/>
-        <path d="M15 3v18"/>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M9 3v18" />
+        <path d="M3 9h18" />
+        <path d="M3 15h18" />
+        <path d="M15 3v18" />
       </svg>
     ),
-    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
   },
   {
     id: 'build',
@@ -64,14 +78,21 @@ const steps: ProcessStep[] = [
       'Full-stack development',
       'API & integration setup',
       'Automation workflows',
-      'Quality assurance testing'
+      'Quality assurance testing',
     ],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
       </svg>
     ),
-    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
   },
   {
     id: 'optimize',
@@ -82,15 +103,22 @@ const steps: ProcessStep[] = [
       'Performance monitoring',
       'A/B testing & analytics',
       'Workflow refinement',
-      'Continuous improvement'
+      'Continuous improvement',
     ],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-        <circle cx="12" cy="12" r="2" fill="currentColor"/>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+        <circle cx="12" cy="12" r="2" fill="currentColor" />
       </svg>
     ),
-    gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+    gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
   },
   {
     id: 'scale',
@@ -101,21 +129,28 @@ const steps: ProcessStep[] = [
       'Process automation',
       'Team training & documentation',
       'Infrastructure scaling',
-      'Growth strategy execution'
+      'Growth strategy execution',
     ],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2v20"/>
-        <path d="m15 5 3-3-3-3" transform="translate(0 0)"/>
-        <path d="M5 9l-3 3 3 3"/>
-        <path d="M19 9l3 3-3 3"/>
-        <circle cx="12" cy="12" r="3"/>
-        <path d="M12 16v4"/>
-        <path d="M12 2v4"/>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 2v20" />
+        <path d="m15 5 3-3-3-3" transform="translate(0 0)" />
+        <path d="M5 9l-3 3 3 3" />
+        <path d="M19 9l3 3-3 3" />
+        <circle cx="12" cy="12" r="3" />
+        <path d="M12 16v4" />
+        <path d="M12 2v4" />
       </svg>
     ),
-    gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
-  }
+    gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+  },
 ];
 
 const ProcessDiagram: React.FC = () => {
@@ -155,20 +190,20 @@ const ProcessDiagram: React.FC = () => {
               whileHover={{ y: -10 }}
             >
               <div className="step-number">{step.number}</div>
-              
+
               <div className="step-icon-wrapper" style={{ background: step.gradient }}>
                 <div className="step-icon">{step.icon}</div>
               </div>
-              
+
               <h3 className="step-title">{step.title}</h3>
               <p className="step-description">{step.description}</p>
-              
+
               <motion.div
                 className="step-details"
                 initial={{ opacity: 0, height: 0 }}
                 animate={{
                   opacity: activeStep === step.id ? 1 : 0,
-                  height: activeStep === step.id ? 'auto' : 0
+                  height: activeStep === step.id ? 'auto' : 0,
                 }}
                 transition={{ duration: 0.3 }}
               >
@@ -179,7 +214,7 @@ const ProcessDiagram: React.FC = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{
                         opacity: activeStep === step.id ? 1 : 0,
-                        x: activeStep === step.id ? 0 : -10
+                        x: activeStep === step.id ? 0 : -10,
                       }}
                       transition={{ delay: idx * 0.05 }}
                     >
@@ -221,7 +256,7 @@ const ProcessDiagram: React.FC = () => {
         transition={{ delay: 0.6 }}
       >
         <p>
-          <strong>Continuous Cycle:</strong> This isn't linear—each phase informs the others, 
+          <strong>Continuous Cycle:</strong> This isn't linear—each phase informs the others,
           creating an iterative loop of improvement and innovation.
         </p>
       </motion.div>

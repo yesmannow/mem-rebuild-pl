@@ -20,7 +20,7 @@ const tools: ToolNode[] = [
     category: 'Customer Data',
     connections: ['automation', 'analytics', 'web'],
     description: 'Central customer database and relationship management',
-    integrations: ['HubSpot', 'Salesforce', 'ActiveCampaign']
+    integrations: ['HubSpot', 'Salesforce', 'ActiveCampaign'],
   },
   {
     id: 'web',
@@ -29,7 +29,7 @@ const tools: ToolNode[] = [
     category: 'Digital Presence',
     connections: ['crm', 'analytics', 'automation'],
     description: 'Content delivery and conversion optimization',
-    integrations: ['WordPress', 'React', 'Custom Development']
+    integrations: ['WordPress', 'React', 'Custom Development'],
   },
   {
     id: 'analytics',
@@ -38,7 +38,7 @@ const tools: ToolNode[] = [
     category: 'Data & Insights',
     connections: ['crm', 'web', 'automation'],
     description: 'Performance tracking and decision intelligence',
-    integrations: ['Google Analytics', 'Mixpanel', 'Custom Dashboards']
+    integrations: ['Google Analytics', 'Mixpanel', 'Custom Dashboards'],
   },
   {
     id: 'automation',
@@ -47,8 +47,8 @@ const tools: ToolNode[] = [
     category: 'Workflow Engine',
     connections: ['crm', 'web', 'analytics'],
     description: 'Workflow automation and process orchestration',
-    integrations: ['Zapier', 'Make', 'Custom Scripts']
-  }
+    integrations: ['Zapier', 'Make', 'Custom Scripts'],
+  },
 ];
 
 const ToolboxEcosystem: React.FC = () => {
@@ -60,7 +60,7 @@ const ToolboxEcosystem: React.FC = () => {
       crm: { x: 150, y: 100 },
       web: { x: 450, y: 100 },
       analytics: { x: 150, y: 300 },
-      automation: { x: 450, y: 300 }
+      automation: { x: 450, y: 300 },
     };
     return positions[id];
   };
@@ -69,7 +69,7 @@ const ToolboxEcosystem: React.FC = () => {
     if (!hoveredNode && !activeNode) return true;
     const currentNode = activeNode || hoveredNode;
     if (!currentNode) return true;
-    
+
     return currentNode === fromId || currentNode === toId;
   };
 
@@ -91,14 +91,14 @@ const ToolboxEcosystem: React.FC = () => {
         <svg className="ecosystem-svg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet">
           <defs>
             <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#88ABF2" stopOpacity="0.6"/>
-              <stop offset="100%" stopColor="#B8D0D9" stopOpacity="0.6"/>
+              <stop offset="0%" stopColor="#88ABF2" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#B8D0D9" stopOpacity="0.6" />
             </linearGradient>
             <filter id="connectionGlow">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feGaussianBlur stdDeviation="3" result="coloredBlur" />
               <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
           </defs>
@@ -109,7 +109,7 @@ const ToolboxEcosystem: React.FC = () => {
             return tool.connections.map(connId => {
               const toPos = getNodePosition(connId);
               const isActive = isConnectionActive(tool.id, connId);
-              
+
               return (
                 <motion.line
                   key={`${tool.id}-${connId}`}
@@ -118,14 +118,14 @@ const ToolboxEcosystem: React.FC = () => {
                   x2={toPos.x}
                   y2={toPos.y}
                   stroke="url(#connectionGradient)"
-                  strokeWidth={isActive ? "4" : "2"}
-                  filter={isActive ? "url(#connectionGlow)" : "none"}
+                  strokeWidth={isActive ? '4' : '2'}
+                  filter={isActive ? 'url(#connectionGlow)' : 'none'}
                   initial={{ pathLength: 0, opacity: 0 }}
                   whileInView={{ pathLength: 1, opacity: isActive ? 0.8 : 0.3 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1, delay: 0.5 }}
                   style={{
-                    transition: 'all 0.3s ease'
+                    transition: 'all 0.3s ease',
                   }}
                 />
               );
@@ -133,36 +133,37 @@ const ToolboxEcosystem: React.FC = () => {
           })}
 
           {/* Data Flow Animation (Particles) */}
-          {(hoveredNode || activeNode) && tools.map(tool => {
-            const currentNode = activeNode || hoveredNode;
-            if (currentNode !== tool.id) return null;
-            
-            const fromPos = getNodePosition(tool.id);
-            return tool.connections.map((connId, idx) => {
-              const toPos = getNodePosition(connId);
-              
-              return (
-                <motion.circle
-                  key={`particle-${tool.id}-${connId}-${idx}`}
-                  r="4"
-                  fill="#88ABF2"
-                  filter="url(#connectionGlow)"
-                  initial={{ x: fromPos.x, y: fromPos.y, opacity: 0 }}
-                  animate={{
-                    x: [fromPos.x, toPos.x],
-                    y: [fromPos.y, toPos.y],
-                    opacity: [0, 1, 0]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: idx * 0.3,
-                    ease: "linear"
-                  }}
-                />
-              );
-            });
-          })}
+          {(hoveredNode || activeNode) &&
+            tools.map(tool => {
+              const currentNode = activeNode || hoveredNode;
+              if (currentNode !== tool.id) return null;
+
+              const fromPos = getNodePosition(tool.id);
+              return tool.connections.map((connId, idx) => {
+                const toPos = getNodePosition(connId);
+
+                return (
+                  <motion.circle
+                    key={`particle-${tool.id}-${connId}-${idx}`}
+                    r="4"
+                    fill="#88ABF2"
+                    filter="url(#connectionGlow)"
+                    initial={{ x: fromPos.x, y: fromPos.y, opacity: 0 }}
+                    animate={{
+                      x: [fromPos.x, toPos.x],
+                      y: [fromPos.y, toPos.y],
+                      opacity: [0, 1, 0],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: idx * 0.3,
+                      ease: 'linear',
+                    }}
+                  />
+                );
+              });
+            })}
         </svg>
 
         {/* Tool Nodes */}
@@ -170,14 +171,14 @@ const ToolboxEcosystem: React.FC = () => {
           {tools.map((tool, index) => {
             const pos = getNodePosition(tool.id);
             const isActive = activeNode === tool.id || hoveredNode === tool.id;
-            
+
             return (
               <motion.div
                 key={tool.id}
                 className={`tool-node ${isActive ? 'active' : ''}`}
                 style={{
                   left: `${(pos.x / 600) * 100}%`,
-                  top: `${(pos.y / 400) * 100}%`
+                  top: `${(pos.y / 400) * 100}%`,
                 }}
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -225,23 +226,20 @@ const ToolboxEcosystem: React.FC = () => {
                 <h3>{activeTool.name}</h3>
                 <span className="details-category">{activeTool.category}</span>
               </div>
-              <button 
-                className="details-close"
-                onClick={() => setActiveNode(null)}
-              >
+              <button className="details-close" onClick={() => setActiveNode(null)}>
                 ✕
               </button>
             </div>
-            
+
             <p className="details-description">{activeTool.description}</p>
-            
+
             <div className="details-section">
               <h4>Connected To:</h4>
               <div className="connection-tags">
                 {activeTool.connections.map(connId => {
                   const connTool = tools.find(t => t.id === connId);
                   return connTool ? (
-                    <span 
+                    <span
                       key={connId}
                       className="connection-tag"
                       onClick={() => setActiveNode(connId)}
@@ -257,7 +255,9 @@ const ToolboxEcosystem: React.FC = () => {
               <h4>Platform Examples:</h4>
               <div className="integration-tags">
                 {activeTool.integrations.map(int => (
-                  <span key={int} className="integration-tag">{int}</span>
+                  <span key={int} className="integration-tag">
+                    {int}
+                  </span>
                 ))}
               </div>
             </div>

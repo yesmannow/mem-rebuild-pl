@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import "./CustomCursor.css";
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import './CustomCursor.css';
 
 const CustomCursor: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -14,11 +14,11 @@ const CustomCursor: React.FC = () => {
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (
-        target.tagName === "A" ||
-        target.tagName === "BUTTON" ||
-        target.classList.contains("cursor-pointer") ||
-        target.closest("a") ||
-        target.closest("button")
+        target.tagName === 'A' ||
+        target.tagName === 'BUTTON' ||
+        target.classList.contains('cursor-pointer') ||
+        target.closest('a') ||
+        target.closest('button')
       ) {
         setIsHovering(true);
       } else {
@@ -26,12 +26,12 @@ const CustomCursor: React.FC = () => {
       }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseover", handleMouseOver);
+    window.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseover', handleMouseOver);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseover", handleMouseOver);
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseover', handleMouseOver);
     };
   }, []);
 
@@ -45,7 +45,7 @@ const CustomCursor: React.FC = () => {
           scale: isHovering ? 1.5 : 1,
         }}
         transition={{
-          type: "spring",
+          type: 'spring',
           stiffness: 500,
           damping: 28,
           mass: 0.5,
@@ -58,7 +58,7 @@ const CustomCursor: React.FC = () => {
           y: mousePosition.y - 4,
         }}
         transition={{
-          type: "spring",
+          type: 'spring',
           stiffness: 1000,
           damping: 35,
           mass: 0.2,

@@ -24,8 +24,13 @@
 }
 
 @keyframes floatSlow {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(-30px, 30px) rotate(-5deg); }
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-30px, 30px) rotate(-5deg);
+  }
 }
 
 /* Intro Section */
@@ -393,7 +398,10 @@
   border-radius: 20px;
   padding: 2rem;
   position: relative;
-  transition: transform var(--duration-normal) ease, box-shadow var(--duration-normal) ease, border var(--duration-normal) ease;
+  transition:
+    transform var(--duration-normal) ease,
+    box-shadow var(--duration-normal) ease,
+    border var(--duration-normal) ease;
   backdrop-filter: blur(18px);
 }
 

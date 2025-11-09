@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { TrendingUp, Bot, Palette, Target, Database, Shield } from "lucide-react";
-import resumeData from "../../data/resume.json";
-import "./InteractiveTimeline.css";
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { TrendingUp, Bot, Palette, Target, Database, Shield } from 'lucide-react';
+import resumeData from '../../data/resume.json';
+import './InteractiveTimeline.css';
 
 interface TimelineItem {
   id: string;
@@ -17,15 +17,15 @@ interface TimelineItem {
 
 const getIcon = (role: string): React.ReactNode => {
   const roleLower = role.toLowerCase();
-  if (roleLower.includes("marketing") || roleLower.includes("campaign")) {
+  if (roleLower.includes('marketing') || roleLower.includes('campaign')) {
     return <Target className="w-6 h-6" />;
-  } else if (roleLower.includes("automation") || roleLower.includes("ai")) {
+  } else if (roleLower.includes('automation') || roleLower.includes('ai')) {
     return <Bot className="w-6 h-6" />;
-  } else if (roleLower.includes("design") || roleLower.includes("brand")) {
+  } else if (roleLower.includes('design') || roleLower.includes('brand')) {
     return <Palette className="w-6 h-6" />;
-  } else if (roleLower.includes("growth") || roleLower.includes("lead")) {
+  } else if (roleLower.includes('growth') || roleLower.includes('lead')) {
     return <TrendingUp className="w-6 h-6" />;
-  } else if (roleLower.includes("systems") || roleLower.includes("engineer")) {
+  } else if (roleLower.includes('systems') || roleLower.includes('engineer')) {
     return <Database className="w-6 h-6" />;
   }
   return <Shield className="w-6 h-6" />;
@@ -43,7 +43,7 @@ const InteractiveTimeline: React.FC = () => {
     description: exp.summary,
     icon: getIcon(exp.role),
     achievements: exp.achievements || [],
-    technologies: exp.technologies || []
+    technologies: exp.technologies || [],
   }));
 
   return (
@@ -72,7 +72,9 @@ const InteractiveTimeline: React.FC = () => {
                 ref={itemRef}
                 className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={itemInView ? { opacity: 1, x: 0 } : { opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                animate={
+                  itemInView ? { opacity: 1, x: 0 } : { opacity: 0, x: index % 2 === 0 ? -50 : 50 }
+                }
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div className="timeline-content">
@@ -80,7 +82,7 @@ const InteractiveTimeline: React.FC = () => {
                     <motion.div
                       className="timeline-icon"
                       whileHover={{ scale: 1.2, rotate: 5 }}
-                      transition={{ type: "spring", stiffness: 300 }}
+                      transition={{ type: 'spring', stiffness: 300 }}
                     >
                       {item.icon}
                     </motion.div>
@@ -90,7 +92,7 @@ const InteractiveTimeline: React.FC = () => {
                   <motion.div
                     className="timeline-card"
                     whileHover={{ scale: 1.02, y: -5 }}
-                    transition={{ type: "spring", stiffness: 300 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
                   >
                     <div className="card-header">
                       <h3>{item.title}</h3>
@@ -113,7 +115,9 @@ const InteractiveTimeline: React.FC = () => {
                     {item.technologies && item.technologies.length > 0 && (
                       <div className="card-technologies">
                         {item.technologies.slice(0, 5).map((tech, idx) => (
-                          <span key={idx} className="tech-tag">{tech}</span>
+                          <span key={idx} className="tech-tag">
+                            {tech}
+                          </span>
                         ))}
                       </div>
                     )}
@@ -129,4 +133,3 @@ const InteractiveTimeline: React.FC = () => {
 };
 
 export default InteractiveTimeline;
-

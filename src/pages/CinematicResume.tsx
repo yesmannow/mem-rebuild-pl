@@ -1,10 +1,10 @@
-import React from "react";
-import { motion } from "framer-motion";
-import resumeData from "../data/resume.json";
-import HeroIntro from "../components/resume/HeroIntro";
-import Section from "../components/resume/Section";
-import CTAButtons from "../components/resume/CTAButtons";
-import { MapPin, Calendar, Building, Award, Code, Users, Briefcase } from "lucide-react";
+import React from 'react';
+import { motion } from 'framer-motion';
+import resumeData from '../data/resume.json';
+import HeroIntro from '../components/resume/HeroIntro';
+import Section from '../components/resume/Section';
+import CTAButtons from '../components/resume/CTAButtons';
+import { MapPin, Calendar, Building, Award, Code, Users, Briefcase } from 'lucide-react';
 
 export default function CinematicResume() {
   const { name, title, summary, experience, skills, tools, education, contact } = resumeData;
@@ -25,9 +25,7 @@ export default function CinematicResume() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-8"
           >
-            <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              {summary}
-            </p>
+            <p className="text-lg text-gray-300 leading-relaxed mb-6">{summary}</p>
 
             {/* Bio Photo Integration */}
             <motion.div
@@ -87,7 +85,12 @@ export default function CinematicResume() {
         <CTAButtons />
 
         {/* Professional Experience */}
-        <Section title="Professional Experience" subtitle="Building systems that scale and strategies that deliver" gradient="purple" delay={0.2}>
+        <Section
+          title="Professional Experience"
+          subtitle="Building systems that scale and strategies that deliver"
+          gradient="purple"
+          delay={0.2}
+        >
           <div className="space-y-8">
             {experience.map((job, index) => (
               <motion.div
@@ -137,7 +140,7 @@ export default function CinematicResume() {
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: (index * 0.1) + (idx * 0.05) }}
+                            transition={{ duration: 0.4, delay: index * 0.1 + idx * 0.05 }}
                             className="flex items-start gap-3 text-gray-300 text-sm"
                           >
                             <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0" />
@@ -162,7 +165,7 @@ export default function CinematicResume() {
                             initial={{ opacity: 0, scale: 0.8 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: (index * 0.1) + (idx * 0.02) }}
+                            transition={{ duration: 0.3, delay: index * 0.1 + idx * 0.02 }}
                             className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-xs text-purple-300"
                           >
                             {tech}
@@ -232,9 +235,7 @@ export default function CinematicResume() {
               <h3 className="text-xl font-bold text-blue-400 mb-2">{edu.degree}</h3>
               <p className="text-lg text-gray-300 mb-2">{edu.institution}</p>
               <p className="text-gray-400 mb-3">{edu.year}</p>
-              {edu.details && (
-                <p className="text-sm text-gray-400 italic">{edu.details}</p>
-              )}
+              {edu.details && <p className="text-sm text-gray-400 italic">{edu.details}</p>}
             </motion.div>
           ))}
         </Section>
@@ -251,7 +252,8 @@ export default function CinematicResume() {
             Ready to Build Something Amazing?
           </h2>
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Let's discuss how my expertise in marketing strategy, system architecture, and technical leadership can drive your next project forward.
+            Let's discuss how my expertise in marketing strategy, system architecture, and technical
+            leadership can drive your next project forward.
           </p>
           <CTAButtons />
         </motion.div>

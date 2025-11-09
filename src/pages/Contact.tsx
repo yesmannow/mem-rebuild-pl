@@ -1,11 +1,21 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { Mail, Linkedin, Github, Send, MessageSquare, User, Building2, Phone, FileText } from "lucide-react";
-import AnimatedSection from "../components/animations/AnimatedSection";
-import MagneticButton from "../components/interactive/MagneticButton";
-import { fadeInUp } from "../utils/animations";
-import "./Contact.css";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import {
+  Mail,
+  Linkedin,
+  Github,
+  Send,
+  MessageSquare,
+  User,
+  Building2,
+  Phone,
+  FileText,
+} from 'lucide-react';
+import AnimatedSection from '../components/animations/AnimatedSection';
+import MagneticButton from '../components/interactive/MagneticButton';
+import { fadeInUp } from '../utils/animations';
+import './Contact.css';
 
 interface FormData {
   name: string;
@@ -17,22 +27,22 @@ interface FormData {
 }
 
 const CONTACT_REASONS = [
-  { value: "job-opportunity", label: "Job Opportunity", description: "Interested in hiring me" },
-  { value: "collaboration", label: "Collaboration", description: "Want to work together" },
-  { value: "consulting", label: "Consulting Inquiry", description: "Need marketing expertise" },
-  { value: "interview", label: "Interview Request", description: "Would like to interview" },
-  { value: "question", label: "General Question", description: "Have a question" },
-  { value: "other", label: "Other", description: "Something else" }
+  { value: 'job-opportunity', label: 'Job Opportunity', description: 'Interested in hiring me' },
+  { value: 'collaboration', label: 'Collaboration', description: 'Want to work together' },
+  { value: 'consulting', label: 'Consulting Inquiry', description: 'Need marketing expertise' },
+  { value: 'interview', label: 'Interview Request', description: 'Would like to interview' },
+  { value: 'question', label: 'General Question', description: 'Have a question' },
+  { value: 'other', label: 'Other', description: 'Something else' },
 ];
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    message: "",
-    reason: "",
-    company: "",
-    phone: ""
+    name: '',
+    email: '',
+    message: '',
+    reason: '',
+    company: '',
+    phone: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -40,12 +50,14 @@ const Contact: React.FC = () => {
 
   // Track form interactions
   React.useEffect(() => {
-    import("../utils/analytics").then(({ trackPortfolioEngagement }) => {
+    import('../utils/analytics').then(({ trackPortfolioEngagement }) => {
       trackPortfolioEngagement.contactFormStart();
     });
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -57,20 +69,20 @@ const Contact: React.FC = () => {
 
     try {
       // Using Web3Forms - submissions will go to your email
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
         body: JSON.stringify({
-          access_key: "b6c0916d-2dba-4faf-933e-fcdd6c683a88",
+          access_key: 'b6c0916d-2dba-4faf-933e-fcdd6c683a88',
           name: formData.name,
           email: formData.email,
           message: formData.message,
           reason: formData.reason,
           subject: `Portfolio Contact: ${formData.reason || 'General Inquiry'}`,
-          from_name: "Portfolio Contact Form",
+          from_name: 'Portfolio Contact Form',
         }),
       });
 
@@ -78,20 +90,20 @@ const Contact: React.FC = () => {
 
       if (result.success) {
         setSubmitted(true);
-        setFormData({ name: "", email: "", message: "", reason: "", company: "", phone: "" });
+        setFormData({ name: '', email: '', message: '', reason: '', company: '', phone: '' });
 
         // Track successful submission
-        import("../utils/analytics").then(({ trackPortfolioEngagement }) => {
-          trackPortfolioEngagement.contactFormSubmit(formData.reason || "general");
+        import('../utils/analytics').then(({ trackPortfolioEngagement }) => {
+          trackPortfolioEngagement.contactFormSubmit(formData.reason || 'general');
         });
       } else {
-        setError("Failed to send message. Please try again.");
-        import("../utils/analytics").then(({ trackPortfolioEngagement }) => {
-          trackPortfolioEngagement.contactFormError(result.message || "Unknown error");
+        setError('Failed to send message. Please try again.');
+        import('../utils/analytics').then(({ trackPortfolioEngagement }) => {
+          trackPortfolioEngagement.contactFormError(result.message || 'Unknown error');
         });
       }
     } catch (err) {
-      setError("An error occurred. Please try emailing directly.");
+      setError('An error occurred. Please try emailing directly.');
     } finally {
       setIsSubmitting(false);
     }
@@ -104,10 +116,14 @@ const Contact: React.FC = () => {
           <motion.h1 variants={fadeInUp}>Let's Create What Doesn't Exist Yet.</motion.h1>
           <motion.p className="lead" variants={fadeInUp}>
             I'm currently open to new opportunities in marketing leadership and tech integration.
-            Feel free to reach out for interviews, collaborations, or any questions—I'd love to connect!
-            <br /><br />
-            Have a challenge that needs solving? A system that needs building? An idea that needs shaping?
-            <br /><br />
+            Feel free to reach out for interviews, collaborations, or any questions—I'd love to
+            connect!
+            <br />
+            <br />
+            Have a challenge that needs solving? A system that needs building? An idea that needs
+            shaping?
+            <br />
+            <br />
             Let's talk.
           </motion.p>
         </section>
@@ -175,7 +191,7 @@ const Contact: React.FC = () => {
                       required
                     >
                       <option value="">Select a reason...</option>
-                      {CONTACT_REASONS.map((reason) => (
+                      {CONTACT_REASONS.map(reason => (
                         <option key={reason.value} value={reason.value}>
                           {reason.label} - {reason.description}
                         </option>
@@ -239,7 +255,7 @@ const Contact: React.FC = () => {
                     whileTap={{ scale: 0.98 }}
                   >
                     <Send size={18} className="inline mr-2" />
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </motion.button>
                 </form>
               )}

@@ -5,8 +5,8 @@
 }
 
 .animated-logo:hover {
-  filter: drop-shadow(0 0 8px rgba(136, 171, 242, 0.5)) 
-          drop-shadow(0 0 12px rgba(168, 197, 255, 0.3));
+  filter: drop-shadow(0 0 8px rgba(136, 171, 242, 0.5))
+    drop-shadow(0 0 12px rgba(168, 197, 255, 0.3));
   transition: filter 0.4s ease;
 }
 
@@ -49,7 +49,7 @@
 
 /* Accessibility */
 .animated-logo:focus {
-  outline: 2px solid #88ABF2;
+  outline: 2px solid #88abf2;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -59,7 +59,7 @@
   .animated-logo {
     transition: none;
   }
-  
+
   .animated-logo:hover {
     transform: none;
     filter: none;

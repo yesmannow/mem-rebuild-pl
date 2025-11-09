@@ -1,5 +1,5 @@
-import React from "react";
-import { Helmet } from "react-helmet-async";
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 interface SideProjectSchemaProps {
   project: {
@@ -17,70 +17,67 @@ interface SideProjectSchemaProps {
 }
 
 const SideProjectSchema: React.FC<SideProjectSchemaProps> = ({ project }) => {
-  const baseUrl = "https://jacobdarling.com";
+  const baseUrl = 'https://jacobdarling.com';
   const projectUrl = `${baseUrl}/side-projects/${project.slug}`;
   const imageUrl = `${baseUrl}${project.images[0]}`;
 
   const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    "name": project.title,
-    "description": project.challenge,
-    "url": projectUrl,
-    "image": imageUrl,
-    "author": {
-      "@type": "Person",
-      "name": "Jacob Darling",
-      "url": baseUrl,
-      "sameAs": [
-        "https://linkedin.com/in/jacobdarling",
-        "https://behance.net/jacobdarling"
-      ]
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: project.title,
+    description: project.challenge,
+    url: projectUrl,
+    image: imageUrl,
+    author: {
+      '@type': 'Person',
+      name: 'Jacob Darling',
+      url: baseUrl,
+      sameAs: ['https://linkedin.com/in/jacobdarling', 'https://behance.net/jacobdarling'],
     },
-    "creator": {
-      "@type": "Person",
-      "name": "Jacob Darling"
+    creator: {
+      '@type': 'Person',
+      name: 'Jacob Darling',
     },
-    "dateCreated": project.year,
-    "genre": project.category,
-    "keywords": project.tags.join(", "),
-    "about": project.category,
-    "workExample": {
-      "@type": "CreativeWork",
-      "name": project.title,
-      "description": project.results,
-      "image": imageUrl
+    dateCreated: project.year,
+    genre: project.category,
+    keywords: project.tags.join(', '),
+    about: project.category,
+    workExample: {
+      '@type': 'CreativeWork',
+      name: project.title,
+      description: project.results,
+      image: imageUrl,
     },
-    "provider": {
-      "@type": "Organization",
-      "name": "Jacob Darling Design",
-      "url": baseUrl
-    }
+    provider: {
+      '@type': 'Organization',
+      name: 'Jacob Darling Design',
+      url: baseUrl,
+    },
   };
 
   const breadcrumbStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
       {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": baseUrl
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: baseUrl,
       },
       {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Client Work",
-        "item": `${baseUrl}/side-projects`
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Client Work',
+        item: `${baseUrl}/side-projects`,
       },
       {
-        "@type": "ListItem",
-        "position": 3,
-        "name": project.title,
-        "item": projectUrl
-      }
-    ]
+        '@type': 'ListItem',
+        position: 3,
+        name: project.title,
+        item: projectUrl,
+      },
+    ],
   };
 
   return (
@@ -89,7 +86,10 @@ const SideProjectSchema: React.FC<SideProjectSchemaProps> = ({ project }) => {
       <title>{project.title} | Jacob Darling Design</title>
       <meta name="title" content={`${project.title} | Jacob Darling Design`} />
       <meta name="description" content={project.challenge} />
-      <meta name="keywords" content={`${project.tags.join(", ")}, jacob darling, design, branding, ${project.category.toLowerCase()}`} />
+      <meta
+        name="keywords"
+        content={`${project.tags.join(', ')}, jacob darling, design, branding, ${project.category.toLowerCase()}`}
+      />
       <meta name="author" content="Jacob Darling" />
       <link rel="canonical" href={projectUrl} />
 
@@ -119,12 +119,8 @@ const SideProjectSchema: React.FC<SideProjectSchemaProps> = ({ project }) => {
       <meta name="rating" content="general" />
 
       {/* Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify(structuredData)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(breadcrumbStructuredData)}
-      </script>
+      <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+      <script type="application/ld+json">{JSON.stringify(breadcrumbStructuredData)}</script>
     </Helmet>
   );
 };

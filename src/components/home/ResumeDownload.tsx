@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Link } from "react-router-dom";
-import { Download, FileText, Sparkles, ArrowRight, CheckCircle } from "lucide-react";
+import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
+import { Download, FileText, Sparkles, ArrowRight, CheckCircle } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,19 +13,20 @@ const ResumeDownload: React.FC = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(cardRef.current,
+      gsap.fromTo(
+        cardRef.current,
         { opacity: 0, y: 60, scale: 0.95 },
         {
           opacity: 1,
           y: 0,
           scale: 1,
           duration: 1,
-          ease: "power3.out",
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 75%",
-            toggleActions: "play none none reverse"
-          }
+            start: 'top 75%',
+            toggleActions: 'play none none reverse',
+          },
         }
       );
     });
@@ -81,7 +82,8 @@ const ResumeDownload: React.FC = () => {
               </h2>
 
               <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                Get a complete overview of my experience, skills, and achievements in a single, ATS-friendly document.
+                Get a complete overview of my experience, skills, and achievements in a single,
+                ATS-friendly document.
               </p>
             </motion.div>
 
@@ -154,9 +156,7 @@ const ResumeDownload: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
-              <p className="text-center text-sm text-gray-500 mb-4">
-                Resume includes:
-              </p>
+              <p className="text-center text-sm text-gray-500 mb-4">Resume includes:</p>
               <div className="flex flex-wrap justify-center gap-6 text-xs text-gray-400">
                 <span>✓ Full Work History</span>
                 <span>✓ Key Achievements</span>
@@ -173,4 +173,3 @@ const ResumeDownload: React.FC = () => {
 };
 
 export default ResumeDownload;
-

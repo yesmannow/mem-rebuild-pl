@@ -14,7 +14,7 @@
   --font-heading: 'Clash Display', 'Arial Black', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
-  
+
   /* ===== FONT WEIGHTS ===== */
   --weight-light: 300;
   --weight-normal: 400;
@@ -22,22 +22,22 @@
   --weight-semibold: 600;
   --weight-bold: 700;
   --weight-extrabold: 800;
-  
+
   /* ===== FONT SIZES ===== */
-  --text-xs: 0.75rem;      /* 12px */
-  --text-sm: 0.875rem;     /* 14px */
-  --text-base: 1rem;       /* 16px */
-  --text-lg: 1.125rem;     /* 18px */
-  --text-xl: 1.25rem;      /* 20px */
-  --text-2xl: 1.5rem;      /* 24px */
-  --text-3xl: 1.875rem;    /* 30px */
-  --text-4xl: 2.25rem;     /* 36px */
-  --text-5xl: 3rem;        /* 48px */
-  --text-6xl: 3.75rem;     /* 60px */
-  --text-7xl: 4.5rem;      /* 72px */
-  --text-8xl: 6rem;        /* 96px */
-  --text-9xl: 8rem;        /* 128px */
-  
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+  --text-5xl: 3rem; /* 48px */
+  --text-6xl: 3.75rem; /* 60px */
+  --text-7xl: 4.5rem; /* 72px */
+  --text-8xl: 6rem; /* 96px */
+  --text-9xl: 8rem; /* 128px */
+
   /* ===== LINE HEIGHTS ===== */
   --leading-none: 1;
   --leading-tight: 1.25;
@@ -45,7 +45,7 @@
   --leading-normal: 1.5;
   --leading-relaxed: 1.625;
   --leading-loose: 2;
-  
+
   /* ===== LETTER SPACING ===== */
   --tracking-tighter: -0.05em;
   --tracking-tight: -0.025em;
@@ -57,7 +57,10 @@
 
 /* ===== BASE TYPOGRAPHY RESET ===== */
 * {
-  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  font-feature-settings:
+    'kern' 1,
+    'liga' 1,
+    'calt' 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -73,7 +76,8 @@ body {
 }
 
 /* ===== HEADING STYLES ===== */
-h1, .h1 {
+h1,
+.h1 {
   font-family: var(--font-heading);
   font-weight: var(--weight-extrabold);
   font-size: clamp(2rem, 6vw, 5rem);
@@ -83,7 +87,8 @@ h1, .h1 {
   margin-bottom: var(--space-lg);
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-family: var(--font-heading);
   font-weight: var(--weight-bold);
   font-size: clamp(1.75rem, 5vw, 4rem);
@@ -93,7 +98,8 @@ h2, .h2 {
   margin-bottom: var(--space-md);
 }
 
-h3, .h3 {
+h3,
+.h3 {
   font-family: var(--font-heading);
   font-weight: var(--weight-bold);
   font-size: clamp(1.5rem, 4vw, 3rem);
@@ -103,7 +109,8 @@ h3, .h3 {
   margin-bottom: var(--space-md);
 }
 
-h4, .h4 {
+h4,
+.h4 {
   font-family: var(--font-heading);
   font-weight: var(--weight-semibold);
   font-size: clamp(1.25rem, 3vw, 2rem);
@@ -113,7 +120,8 @@ h4, .h4 {
   margin-bottom: var(--space-sm);
 }
 
-h5, .h5 {
+h5,
+.h5 {
   font-family: var(--font-heading);
   font-weight: var(--weight-semibold);
   font-size: var(--text-xl);
@@ -123,7 +131,8 @@ h5, .h5 {
   margin-bottom: var(--space-sm);
 }
 
-h6, .h6 {
+h6,
+.h6 {
   font-family: var(--font-heading);
   font-weight: var(--weight-medium);
   font-size: var(--text-lg);
@@ -134,7 +143,8 @@ h6, .h6 {
 }
 
 /* ===== BODY TEXT STYLES ===== */
-p, .body {
+p,
+.body {
   font-family: var(--font-body);
   font-weight: var(--weight-normal);
   font-size: var(--text-base);
@@ -203,7 +213,8 @@ p, .body {
 }
 
 /* ===== CODE TYPOGRAPHY ===== */
-code, .code {
+code,
+.code {
   font-family: var(--font-mono);
   font-weight: var(--weight-normal);
   font-size: 0.875em;
@@ -226,13 +237,15 @@ pre {
 }
 
 /* ===== LINK STYLES ===== */
-a, .link {
+a,
+.link {
   color: var(--color-primary);
   text-decoration: none;
   transition: color var(--duration-fast) ease;
 }
 
-a:hover, .link:hover {
+a:hover,
+.link:hover {
   color: var(--color-accent);
 }
 
@@ -261,41 +274,75 @@ a:hover, .link:hover {
   text-shadow: var(--glow-brand);
 }
 
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
 
-.font-light { font-weight: var(--weight-light); }
-.font-normal { font-weight: var(--weight-normal); }
-.font-medium { font-weight: var(--weight-medium); }
-.font-semibold { font-weight: var(--weight-semibold); }
-.font-bold { font-weight: var(--weight-bold); }
-.font-extrabold { font-weight: var(--weight-extrabold); }
+.font-light {
+  font-weight: var(--weight-light);
+}
+.font-normal {
+  font-weight: var(--weight-normal);
+}
+.font-medium {
+  font-weight: var(--weight-medium);
+}
+.font-semibold {
+  font-weight: var(--weight-semibold);
+}
+.font-bold {
+  font-weight: var(--weight-bold);
+}
+.font-extrabold {
+  font-weight: var(--weight-extrabold);
+}
 
-.tracking-tight { letter-spacing: var(--tracking-tight); }
-.tracking-normal { letter-spacing: var(--tracking-normal); }
-.tracking-wide { letter-spacing: var(--tracking-wide); }
+.tracking-tight {
+  letter-spacing: var(--tracking-tight);
+}
+.tracking-normal {
+  letter-spacing: var(--tracking-normal);
+}
+.tracking-wide {
+  letter-spacing: var(--tracking-wide);
+}
 
-.leading-none { line-height: var(--leading-none); }
-.leading-tight { line-height: var(--leading-tight); }
-.leading-normal { line-height: var(--leading-normal); }
-.leading-relaxed { line-height: var(--leading-relaxed); }
+.leading-none {
+  line-height: var(--leading-none);
+}
+.leading-tight {
+  line-height: var(--leading-tight);
+}
+.leading-normal {
+  line-height: var(--leading-normal);
+}
+.leading-relaxed {
+  line-height: var(--leading-relaxed);
+}
 
 /* ===== RESPONSIVE TYPOGRAPHY ===== */
 @media (max-width: 768px) {
   .hero-title {
     font-size: clamp(2rem, 8vw, 3rem);
   }
-  
+
   .hero-subtitle {
     font-size: clamp(0.875rem, 4vw, 1rem);
   }
-  
-  h1, .h1 {
+
+  h1,
+  .h1 {
     font-size: clamp(1.75rem, 8vw, 2.5rem);
   }
-  
-  h2, .h2 {
+
+  h2,
+  .h2 {
     font-size: clamp(1.5rem, 6vw, 2rem);
   }
 }
@@ -308,11 +355,16 @@ a:hover, .link:hover {
     box-shadow: none !important;
     text-shadow: none !important;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     page-break-after: avoid;
   }
-  
+
   p {
     orphans: 3;
     widows: 3;

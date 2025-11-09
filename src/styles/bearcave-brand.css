@@ -6,24 +6,28 @@
 /* ===== BEARCAVE DESIGN TOKENS ===== */
 :root {
   /* ===== COLORS ===== */
-  --bc-bg: #0D0D0F;                    /* Primary background */
+  --bc-bg: #0d0d0f; /* Primary background */
   --bc-surface: rgba(255, 255, 255, 0.05); /* Glassmorphism surface */
   --bc-surface-hover: rgba(255, 255, 255, 0.08);
   --bc-border: rgba(255, 255, 255, 0.1);
   --bc-border-hover: rgba(59, 130, 246, 0.4);
 
-  --bc-text-primary: #FFFFFF;
+  --bc-text-primary: #ffffff;
   --bc-text-secondary: rgba(255, 255, 255, 0.7);
   --bc-text-muted: rgba(255, 255, 255, 0.5);
 
-  --bc-primary: #3B82F6;               /* Electric Blue */
-  --bc-accent: #EC4899;                /* Magenta Glow */
-  --bc-ember: #FF8A65;                 /* Warm accent */
+  --bc-primary: #3b82f6; /* Electric Blue */
+  --bc-accent: #ec4899; /* Magenta Glow */
+  --bc-ember: #ff8a65; /* Warm accent */
 
   /* ===== GRADIENTS ===== */
-  --bc-gradient-brand: linear-gradient(135deg, #3B82F6 0%, #EC4899 100%);
-  --bc-gradient-brand-vertical: linear-gradient(180deg, #3B82F6 0%, #EC4899 100%);
-  --bc-gradient-surface: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+  --bc-gradient-brand: linear-gradient(135deg, #3b82f6 0%, #ec4899 100%);
+  --bc-gradient-brand-vertical: linear-gradient(180deg, #3b82f6 0%, #ec4899 100%);
+  --bc-gradient-surface: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(236, 72, 153, 0.1) 100%
+  );
 
   /* ===== TYPOGRAPHY ===== */
   --font-display: 'Clash Display', 'Arial Black', system-ui, sans-serif;
@@ -429,4 +433,3 @@ body {
   cursor: not-allowed;
   transform: none !important;
 }
-

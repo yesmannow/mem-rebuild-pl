@@ -1,29 +1,29 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { ChevronDown, FileText } from "lucide-react";
-import "./BearCaveHeader.css";
+import React, { useEffect, useState, useRef } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { ChevronDown, FileText } from 'lucide-react';
+import './BearCaveHeader.css';
 
 // Navigation menu structure
 const aboutMenuItems = [
-  { label: "About Me", to: "/about", description: "My story and background" },
-  { label: "Interactive Resume", to: "/resume", description: "View my resume" }
+  { label: 'About Me', to: '/about', description: 'My story and background' },
+  { label: 'Interactive Resume', to: '/resume', description: 'View my resume' },
 ];
 
 const workMenuItems = [
-  { label: "Case Studies", to: "/case-studies", description: "Project case studies" },
-  { label: "Side Projects", to: "/side-projects", description: "Personal projects" },
-  { label: "Graphic Design", to: "/design", description: "Visual design portfolio" },
-  { label: "Photography", to: "/photography", description: "Photo gallery" }
+  { label: 'Case Studies', to: '/case-studies', description: 'Project case studies' },
+  { label: 'Side Projects', to: '/side-projects', description: 'Personal projects' },
+  { label: 'Graphic Design', to: '/design', description: 'Visual design portfolio' },
+  { label: 'Photography', to: '/photography', description: 'Photo gallery' },
 ];
 
 const toolsSkillsMenuItems = [
-  { label: "Developer Builds", to: "/applications", description: "Custom tools & apps I build" },
-  { label: "Toolbox", to: "/toolbox", description: "Skills and technologies" }
+  { label: 'Developer Builds', to: '/applications', description: 'Custom tools & apps I build' },
+  { label: 'Toolbox', to: '/toolbox', description: 'Skills and technologies' },
 ];
 
 const inspirationMenuItems = [
-  { label: "Brand Builder", to: "/brand-builder", description: "Brand identity builder" },
-  { label: "Inspiration", to: "/inspiration", description: "Design inspiration" }
+  { label: 'Brand Builder', to: '/brand-builder', description: 'Brand identity builder' },
+  { label: 'Inspiration', to: '/inspiration', description: 'Design inspiration' },
 ];
 
 export default function BearCaveHeader() {
@@ -53,8 +53,8 @@ export default function BearCaveHeader() {
     };
 
     handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Close dropdowns when clicking outside
@@ -66,20 +66,26 @@ export default function BearCaveHeader() {
       if (workMenuRef.current && !workMenuRef.current.contains(event.target as Node)) {
         setIsWorkMenuOpen(false);
       }
-      if (toolsSkillsMenuRef.current && !toolsSkillsMenuRef.current.contains(event.target as Node)) {
+      if (
+        toolsSkillsMenuRef.current &&
+        !toolsSkillsMenuRef.current.contains(event.target as Node)
+      ) {
         setIsToolsSkillsMenuOpen(false);
       }
-      if (inspirationMenuRef.current && !inspirationMenuRef.current.contains(event.target as Node)) {
+      if (
+        inspirationMenuRef.current &&
+        !inspirationMenuRef.current.contains(event.target as Node)
+      ) {
         setIsInspirationMenuOpen(false);
       }
     };
 
     if (isAboutMenuOpen || isWorkMenuOpen || isToolsSkillsMenuOpen || isInspirationMenuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isAboutMenuOpen, isWorkMenuOpen, isToolsSkillsMenuOpen, isInspirationMenuOpen]);
 
@@ -90,7 +96,7 @@ export default function BearCaveHeader() {
   const isInspirationPage = inspirationMenuItems.some(item => location.pathname === item.to);
 
   return (
-    <header className={`bearcave-header ${isScrolled ? "bearcave-header--scrolled" : ""}`}>
+    <header className={`bearcave-header ${isScrolled ? 'bearcave-header--scrolled' : ''}`}>
       <div className="bearcave-header__inner">
         <Link to="/" className="bearcave-header__brand" aria-label="Go to homepage">
           BearCave
@@ -99,13 +105,16 @@ export default function BearCaveHeader() {
           {/* About Dropdown */}
           <div className="bearcave-header__dropdown" ref={aboutMenuRef}>
             <button
-              className={`bearcave-header__dropdown-toggle ${isAboutPage ? "bearcave-header__link--active" : ""}`}
+              className={`bearcave-header__dropdown-toggle ${isAboutPage ? 'bearcave-header__link--active' : ''}`}
               onClick={() => setIsAboutMenuOpen(!isAboutMenuOpen)}
               aria-expanded={isAboutMenuOpen}
               aria-haspopup="true"
             >
               About
-              <ChevronDown className={`bearcave-header__dropdown-icon ${isAboutMenuOpen ? "is-open" : ""}`} size={16} />
+              <ChevronDown
+                className={`bearcave-header__dropdown-icon ${isAboutMenuOpen ? 'is-open' : ''}`}
+                size={16}
+              />
             </button>
             {isAboutMenuOpen && (
               <div className="bearcave-header__dropdown-menu">
@@ -113,7 +122,7 @@ export default function BearCaveHeader() {
                   <Link
                     key={item.to}
                     to={item.to}
-                    className={`bearcave-header__dropdown-item ${location.pathname === item.to ? "is-active" : ""}`}
+                    className={`bearcave-header__dropdown-item ${location.pathname === item.to ? 'is-active' : ''}`}
                     onClick={() => setIsAboutMenuOpen(false)}
                   >
                     <div className="bearcave-header__dropdown-item-label">{item.label}</div>
@@ -127,13 +136,16 @@ export default function BearCaveHeader() {
           {/* Work Dropdown */}
           <div className="bearcave-header__dropdown" ref={workMenuRef}>
             <button
-              className={`bearcave-header__dropdown-toggle ${isWorkPage ? "bearcave-header__link--active" : ""}`}
+              className={`bearcave-header__dropdown-toggle ${isWorkPage ? 'bearcave-header__link--active' : ''}`}
               onClick={() => setIsWorkMenuOpen(!isWorkMenuOpen)}
               aria-expanded={isWorkMenuOpen}
               aria-haspopup="true"
             >
               Work
-              <ChevronDown className={`bearcave-header__dropdown-icon ${isWorkMenuOpen ? "is-open" : ""}`} size={16} />
+              <ChevronDown
+                className={`bearcave-header__dropdown-icon ${isWorkMenuOpen ? 'is-open' : ''}`}
+                size={16}
+              />
             </button>
             {isWorkMenuOpen && (
               <div className="bearcave-header__dropdown-menu">
@@ -141,7 +153,7 @@ export default function BearCaveHeader() {
                   <Link
                     key={item.to}
                     to={item.to}
-                    className={`bearcave-header__dropdown-item ${location.pathname === item.to ? "is-active" : ""}`}
+                    className={`bearcave-header__dropdown-item ${location.pathname === item.to ? 'is-active' : ''}`}
                     onClick={() => setIsWorkMenuOpen(false)}
                   >
                     <div className="bearcave-header__dropdown-item-label">{item.label}</div>
@@ -155,13 +167,16 @@ export default function BearCaveHeader() {
           {/* Tools/Skills Dropdown */}
           <div className="bearcave-header__dropdown" ref={toolsSkillsMenuRef}>
             <button
-              className={`bearcave-header__dropdown-toggle ${isToolsSkillsPage ? "bearcave-header__link--active" : ""}`}
+              className={`bearcave-header__dropdown-toggle ${isToolsSkillsPage ? 'bearcave-header__link--active' : ''}`}
               onClick={() => setIsToolsSkillsMenuOpen(!isToolsSkillsMenuOpen)}
               aria-expanded={isToolsSkillsMenuOpen}
               aria-haspopup="true"
             >
               Tools/Skills
-              <ChevronDown className={`bearcave-header__dropdown-icon ${isToolsSkillsMenuOpen ? "is-open" : ""}`} size={16} />
+              <ChevronDown
+                className={`bearcave-header__dropdown-icon ${isToolsSkillsMenuOpen ? 'is-open' : ''}`}
+                size={16}
+              />
             </button>
             {isToolsSkillsMenuOpen && (
               <div className="bearcave-header__dropdown-menu">
@@ -169,7 +184,7 @@ export default function BearCaveHeader() {
                   <Link
                     key={item.to}
                     to={item.to}
-                    className={`bearcave-header__dropdown-item ${location.pathname === item.to ? "is-active" : ""}`}
+                    className={`bearcave-header__dropdown-item ${location.pathname === item.to ? 'is-active' : ''}`}
                     onClick={() => setIsToolsSkillsMenuOpen(false)}
                   >
                     <div className="bearcave-header__dropdown-item-label">{item.label}</div>
@@ -183,13 +198,16 @@ export default function BearCaveHeader() {
           {/* Inspiration Dropdown */}
           <div className="bearcave-header__dropdown" ref={inspirationMenuRef}>
             <button
-              className={`bearcave-header__dropdown-toggle ${isInspirationPage ? "bearcave-header__link--active" : ""}`}
+              className={`bearcave-header__dropdown-toggle ${isInspirationPage ? 'bearcave-header__link--active' : ''}`}
               onClick={() => setIsInspirationMenuOpen(!isInspirationMenuOpen)}
               aria-expanded={isInspirationMenuOpen}
               aria-haspopup="true"
             >
               Inspiration
-              <ChevronDown className={`bearcave-header__dropdown-icon ${isInspirationMenuOpen ? "is-open" : ""}`} size={16} />
+              <ChevronDown
+                className={`bearcave-header__dropdown-icon ${isInspirationMenuOpen ? 'is-open' : ''}`}
+                size={16}
+              />
             </button>
             {isInspirationMenuOpen && (
               <div className="bearcave-header__dropdown-menu">
@@ -197,7 +215,7 @@ export default function BearCaveHeader() {
                   <Link
                     key={item.to}
                     to={item.to}
-                    className={`bearcave-header__dropdown-item ${location.pathname === item.to ? "is-active" : ""}`}
+                    className={`bearcave-header__dropdown-item ${location.pathname === item.to ? 'is-active' : ''}`}
                     onClick={() => setIsInspirationMenuOpen(false)}
                   >
                     <div className="bearcave-header__dropdown-item-label">{item.label}</div>
@@ -212,20 +230,24 @@ export default function BearCaveHeader() {
           <NavLink
             to="/contact"
             className={({ isActive }) =>
-              `bearcave-header__link ${isActive ? "bearcave-header__link--active" : ""}`
+              `bearcave-header__link ${isActive ? 'bearcave-header__link--active' : ''}`
             }
           >
             Contact
           </NavLink>
         </nav>
         <div className="bearcave-header__cta">
-          <Link to="/resume" className="btn-primary bearcave-header__resume-btn" aria-label="View Resume">
+          <Link
+            to="/resume"
+            className="btn-primary bearcave-header__resume-btn"
+            aria-label="View Resume"
+          >
             <FileText size={18} />
             <span>View Resume</span>
           </Link>
         </div>
         <button
-          className={`bearcave-header__menu ${isMenuOpen ? "is-open" : ""}`}
+          className={`bearcave-header__menu ${isMenuOpen ? 'is-open' : ''}`}
           aria-label="Toggle navigation"
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen(prev => !prev)}
@@ -236,11 +258,14 @@ export default function BearCaveHeader() {
         </button>
       </div>
       <nav
-        className={`bearcave-header__mobile ${isMenuOpen ? "is-open" : ""}`}
+        className={`bearcave-header__mobile ${isMenuOpen ? 'is-open' : ''}`}
         aria-label="Mobile navigation"
       >
         {/* Quick Action - View Resume */}
-        <Link to="/resume" className="btn-primary bearcave-header__mobile-cta bearcave-header__mobile-resume">
+        <Link
+          to="/resume"
+          className="btn-primary bearcave-header__mobile-cta bearcave-header__mobile-resume"
+        >
           <FileText size={18} />
           <span>View Resume</span>
         </Link>
@@ -253,7 +278,7 @@ export default function BearCaveHeader() {
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `bearcave-header__mobile-link bearcave-header__mobile-link--sub ${isActive ? "bearcave-header__mobile-link--active" : ""}`
+                `bearcave-header__mobile-link bearcave-header__mobile-link--sub ${isActive ? 'bearcave-header__mobile-link--active' : ''}`
               }
             >
               {item.label}
@@ -269,7 +294,7 @@ export default function BearCaveHeader() {
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `bearcave-header__mobile-link bearcave-header__mobile-link--sub ${isActive ? "bearcave-header__mobile-link--active" : ""}`
+                `bearcave-header__mobile-link bearcave-header__mobile-link--sub ${isActive ? 'bearcave-header__mobile-link--active' : ''}`
               }
             >
               {item.label}
@@ -285,7 +310,7 @@ export default function BearCaveHeader() {
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `bearcave-header__mobile-link bearcave-header__mobile-link--sub ${isActive ? "bearcave-header__mobile-link--active" : ""}`
+                `bearcave-header__mobile-link bearcave-header__mobile-link--sub ${isActive ? 'bearcave-header__mobile-link--active' : ''}`
               }
             >
               {item.label}
@@ -301,7 +326,7 @@ export default function BearCaveHeader() {
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `bearcave-header__mobile-link bearcave-header__mobile-link--sub ${isActive ? "bearcave-header__mobile-link--active" : ""}`
+                `bearcave-header__mobile-link bearcave-header__mobile-link--sub ${isActive ? 'bearcave-header__mobile-link--active' : ''}`
               }
             >
               {item.label}
@@ -313,7 +338,7 @@ export default function BearCaveHeader() {
         <NavLink
           to="/contact"
           className={({ isActive }) =>
-            `bearcave-header__mobile-link ${isActive ? "bearcave-header__mobile-link--active" : ""}`
+            `bearcave-header__mobile-link ${isActive ? 'bearcave-header__mobile-link--active' : ''}`
           }
         >
           Contact
@@ -322,4 +347,3 @@ export default function BearCaveHeader() {
     </header>
   );
 }
-

@@ -21,7 +21,7 @@ interface UIState {
 
 export const useUIStore = create<UIState>()(
   persist(
-    (set) => ({
+    set => ({
       theme: 'dark',
       mobileNavOpen: false,
       caseStudyFilters: {
@@ -33,7 +33,7 @@ export const useUIStore = create<UIState>()(
         search: '',
         sort: 'name',
       },
-      setTheme: (theme) => {
+      setTheme: theme => {
         set({ theme });
         document.documentElement.setAttribute('data-theme', theme);
         if (theme === 'dark') {
@@ -42,20 +42,19 @@ export const useUIStore = create<UIState>()(
           document.documentElement.classList.remove('dark');
         }
       },
-      toggleMobileNav: () => set((state) => ({ mobileNavOpen: !state.mobileNavOpen })),
-      setCaseStudyFilters: (filters) =>
-        set((state) => ({
+      toggleMobileNav: () => set(state => ({ mobileNavOpen: !state.mobileNavOpen })),
+      setCaseStudyFilters: filters =>
+        set(state => ({
           caseStudyFilters: { ...state.caseStudyFilters, ...filters },
         })),
-      setApplicationFilters: (filters) =>
-        set((state) => ({
+      setApplicationFilters: filters =>
+        set(state => ({
           applicationFilters: { ...state.applicationFilters, ...filters },
         })),
     }),
     {
       name: 'ui-storage',
-      partialize: (state) => ({ theme: state.theme }), // Only persist theme
+      partialize: state => ({ theme: state.theme }), // Only persist theme
     }
   )
 );
-

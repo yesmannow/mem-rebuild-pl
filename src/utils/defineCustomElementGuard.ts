@@ -56,14 +56,18 @@ export function defineCustomElementIfNeeded(
       const error = err as Error;
       const errorMsg = error?.message || String(err);
 
-      if (errorMsg.includes('has already been used') ||
-          errorMsg.includes('has already been defined')) {
+      if (
+        errorMsg.includes('has already been used') ||
+        errorMsg.includes('has already been defined')
+      ) {
         // This is a duplicate registration error (a safe error to ignore)
         // By catching this specific error, we prevent the program from crashing
         // and simply return, effectively suppressing known false-positive errors
         // (e.g., from Vite's HMR overlay system).
         if (process.env.NODE_ENV === 'development') {
-          console.warn(`Custom element "${name}" was defined by another script during registration. Skipping.`);
+          console.warn(
+            `Custom element "${name}" was defined by another script during registration. Skipping.`
+          );
         }
         return;
       }

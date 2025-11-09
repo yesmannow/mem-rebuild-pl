@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Search, Lightbulb, Code, Rocket, ArrowRight } from "lucide-react";
+import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Search, Lightbulb, Code, Rocket, ArrowRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,74 +12,79 @@ const ProcessSection: React.FC = () => {
   const processSteps = [
     {
       id: 1,
-      title: "Discovery",
-      subtitle: "Audit & Analysis",
-      description: "Deep dive into existing systems, identify pain points, and map current workflows to understand the full scope of challenges.",
+      title: 'Discovery',
+      subtitle: 'Audit & Analysis',
+      description:
+        'Deep dive into existing systems, identify pain points, and map current workflows to understand the full scope of challenges.',
       icon: Search,
-      color: "from-blue-500 to-cyan-500",
-      bgColor: "bg-blue-500/10",
-      borderColor: "border-blue-500/30",
+      color: 'from-blue-500 to-cyan-500',
+      bgColor: 'bg-blue-500/10',
+      borderColor: 'border-blue-500/30',
       features: [
-        "System architecture audit",
-        "User journey mapping",
-        "Performance bottleneck analysis",
-        "Stakeholder interviews"
-      ]
+        'System architecture audit',
+        'User journey mapping',
+        'Performance bottleneck analysis',
+        'Stakeholder interviews',
+      ],
     },
     {
       id: 2,
-      title: "Architecture",
-      subtitle: "Design & Planning",
-      description: "Create scalable solutions with clear data flow, define technical requirements, and design system architecture for optimal performance.",
+      title: 'Architecture',
+      subtitle: 'Design & Planning',
+      description:
+        'Create scalable solutions with clear data flow, define technical requirements, and design system architecture for optimal performance.',
       icon: Lightbulb,
-      color: "from-purple-500 to-pink-500",
-      bgColor: "bg-purple-500/10",
-      borderColor: "border-purple-500/30",
+      color: 'from-purple-500 to-pink-500',
+      bgColor: 'bg-purple-500/10',
+      borderColor: 'border-purple-500/30',
       features: [
-        "Technical architecture design",
-        "Data flow optimization",
-        "Integration planning",
-        "Scalability framework"
-      ]
+        'Technical architecture design',
+        'Data flow optimization',
+        'Integration planning',
+        'Scalability framework',
+      ],
     },
     {
       id: 3,
-      title: "Build",
-      subtitle: "Development & Integration",
-      description: "Full-stack development with automation integration, implementing clean code practices and ensuring seamless system connectivity.",
+      title: 'Build',
+      subtitle: 'Development & Integration',
+      description:
+        'Full-stack development with automation integration, implementing clean code practices and ensuring seamless system connectivity.',
       icon: Code,
-      color: "from-green-500 to-emerald-500",
-      bgColor: "bg-green-500/10",
-      borderColor: "border-green-500/30",
+      color: 'from-green-500 to-emerald-500',
+      bgColor: 'bg-green-500/10',
+      borderColor: 'border-green-500/30',
       features: [
-        "Full-stack development",
-        "API integration",
-        "Automation workflows",
-        "Quality assurance"
-      ]
+        'Full-stack development',
+        'API integration',
+        'Automation workflows',
+        'Quality assurance',
+      ],
     },
     {
       id: 4,
-      title: "Optimize",
-      subtitle: "Performance & Growth",
-      description: "Continuous monitoring, A/B testing, and performance tuning to ensure systems scale with business growth and deliver maximum ROI.",
+      title: 'Optimize',
+      subtitle: 'Performance & Growth',
+      description:
+        'Continuous monitoring, A/B testing, and performance tuning to ensure systems scale with business growth and deliver maximum ROI.',
       icon: Rocket,
-      color: "from-orange-500 to-red-500",
-      bgColor: "bg-orange-500/10",
-      borderColor: "border-orange-500/30",
+      color: 'from-orange-500 to-red-500',
+      bgColor: 'bg-orange-500/10',
+      borderColor: 'border-orange-500/30',
       features: [
-        "Performance monitoring",
-        "A/B testing implementation",
-        "Continuous optimization",
-        "Growth scaling"
-      ]
-    }
+        'Performance monitoring',
+        'A/B testing implementation',
+        'Continuous optimization',
+        'Growth scaling',
+      ],
+    },
   ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Timeline animation for process steps
-      gsap.fromTo(".process-step",
+      gsap.fromTo(
+        '.process-step',
         { opacity: 0, y: 100, scale: 0.8 },
         {
           opacity: 1,
@@ -87,41 +92,42 @@ const ProcessSection: React.FC = () => {
           scale: 1,
           duration: 1,
           stagger: 0.3,
-          ease: "power3.out",
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 70%",
-            end: "bottom 30%",
-            toggleActions: "play none none reverse"
-          }
+            start: 'top 70%',
+            end: 'bottom 30%',
+            toggleActions: 'play none none reverse',
+          },
         }
       );
 
       // Connecting line animation
-      gsap.fromTo(".process-line",
+      gsap.fromTo(
+        '.process-line',
         { scaleX: 0 },
         {
           scaleX: 1,
           duration: 1.5,
-          ease: "power2.out",
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 60%",
-            end: "bottom 40%",
-            toggleActions: "play none none reverse"
-          }
+            start: 'top 60%',
+            end: 'bottom 40%',
+            toggleActions: 'play none none reverse',
+          },
         }
       );
 
       // Floating elements
-      gsap.to(".floating-process-element", {
+      gsap.to('.floating-process-element', {
         y: -20,
         rotation: 5,
         duration: 4,
         repeat: -1,
         yoyo: true,
-        ease: "sine.inOut",
-        stagger: 0.8
+        ease: 'sine.inOut',
+        stagger: 0.8,
       });
     });
 
@@ -154,7 +160,7 @@ const ProcessSection: React.FC = () => {
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+            transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
           >
             <span className="text-blue-300 text-sm font-medium">My Process</span>
           </motion.div>
@@ -203,17 +209,23 @@ const ProcessSection: React.FC = () => {
                   key={step.id}
                   className="process-step group relative z-10"
                   whileHover={{ y: -10, scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
                 >
                   {/* Step Card */}
-                  <div className={`relative bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-xl border ${step.borderColor} rounded-3xl p-8 hover:border-white/30 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-blue-500/10`}>
+                  <div
+                    className={`relative bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-xl border ${step.borderColor} rounded-3xl p-8 hover:border-white/30 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-blue-500/10`}
+                  >
                     {/* Step Number */}
-                    <div className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-r ${step.color} mb-6`}>
+                    <div
+                      className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-r ${step.color} mb-6`}
+                    >
                       <span className="text-white font-bold text-lg">{step.id}</span>
                     </div>
 
                     {/* Icon */}
-                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${step.bgColor} mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <div
+                      className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${step.bgColor} mb-6 group-hover:scale-110 transition-transform duration-300`}
+                    >
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
 
@@ -222,19 +234,17 @@ const ProcessSection: React.FC = () => {
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-blue-300 transition-colors duration-300">
                         {step.title}
                       </h3>
-                      <p className="text-sm text-gray-400 mb-4 font-medium">
-                        {step.subtitle}
-                      </p>
-                      <p className="text-gray-300 leading-relaxed">
-                        {step.description}
-                      </p>
+                      <p className="text-sm text-gray-400 mb-4 font-medium">{step.subtitle}</p>
+                      <p className="text-gray-300 leading-relaxed">{step.description}</p>
                     </div>
 
                     {/* Features List */}
                     <div className="space-y-2">
                       {step.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center gap-3 text-sm text-gray-400">
-                          <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${step.color}`} />
+                          <div
+                            className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${step.color}`}
+                          />
                           <span>{feature}</span>
                         </div>
                       ))}
@@ -250,7 +260,9 @@ const ProcessSection: React.FC = () => {
                     )}
 
                     {/* Hover Glow Effect */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-500 pointer-events-none`} />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-500 pointer-events-none`}
+                    />
                   </div>
                 </motion.div>
               );
@@ -267,11 +279,10 @@ const ProcessSection: React.FC = () => {
           transition={{ delay: 0.8, duration: 0.8 }}
         >
           <div className="inline-block p-8 bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-xl border border-white/10 rounded-3xl">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Ready to Transform Your Systems?
-            </h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Ready to Transform Your Systems?</h3>
             <p className="text-gray-300 mb-6 max-w-2xl">
-              Let's discuss how this process can solve your specific challenges and drive measurable business growth.
+              Let's discuss how this process can solve your specific challenges and drive measurable
+              business growth.
             </p>
             <motion.button
               className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-bold rounded-2xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-500"

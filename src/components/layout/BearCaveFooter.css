@@ -1,6 +1,7 @@
 .bearcave-footer {
   padding: var(--bc-space-5xl) var(--bc-space-xl) var(--bc-space-3xl);
-  background: radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 60%), var(--bc-bg);
+  background:
+    radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 60%), var(--bc-bg);
   border-top: 1px solid var(--bc-border);
 }
 

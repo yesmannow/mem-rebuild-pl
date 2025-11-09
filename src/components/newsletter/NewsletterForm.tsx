@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Mail, Send, Check } from "lucide-react";
-import { trackCTA } from "../../utils/analytics";
-import "./NewsletterForm.css";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Mail, Send, Check } from 'lucide-react';
+import { trackCTA } from '../../utils/analytics';
+import './NewsletterForm.css';
 
 const NewsletterForm: React.FC = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -16,25 +16,25 @@ const NewsletterForm: React.FC = () => {
     setError(null);
 
     // Basic email validation
-    if (!email || !email.includes("@")) {
-      setError("Please enter a valid email address");
+    if (!email || !email.includes('@')) {
+      setError('Please enter a valid email address');
       setIsSubmitting(false);
       return;
     }
 
     try {
       // Using Web3Forms - replace with your newsletter service
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
         body: JSON.stringify({
-          access_key: "b6c0916d-2dba-4faf-933e-fcdd6c683a88",
+          access_key: 'b6c0916d-2dba-4faf-933e-fcdd6c683a88',
           email: email,
-          subject: "Newsletter Subscription",
-          from_name: "Portfolio Newsletter",
+          subject: 'Newsletter Subscription',
+          from_name: 'Portfolio Newsletter',
         }),
       });
 
@@ -42,13 +42,13 @@ const NewsletterForm: React.FC = () => {
 
       if (result.success) {
         setSubmitted(true);
-        setEmail("");
-        trackCTA("newsletter_signup", "footer");
+        setEmail('');
+        trackCTA('newsletter_signup', 'footer');
       } else {
-        setError("Failed to subscribe. Please try again.");
+        setError('Failed to subscribe. Please try again.');
       }
     } catch (err) {
-      setError("An error occurred. Please try again later.");
+      setError('An error occurred. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
@@ -90,7 +90,7 @@ const NewsletterForm: React.FC = () => {
           className="newsletter-input"
           placeholder="Enter your email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={e => setEmail(e.target.value)}
           required
           disabled={isSubmitting}
         />
@@ -102,18 +102,15 @@ const NewsletterForm: React.FC = () => {
           whileTap={{ scale: 0.95 }}
         >
           <Send size={18} />
-          {isSubmitting ? "Subscribing..." : "Subscribe"}
+          {isSubmitting ? 'Subscribing...' : 'Subscribe'}
         </motion.button>
       </div>
 
       {error && <div className="newsletter-error">{error}</div>}
 
-      <p className="newsletter-privacy">
-        We respect your privacy. Unsubscribe at any time.
-      </p>
+      <p className="newsletter-privacy">We respect your privacy. Unsubscribe at any time.</p>
     </motion.form>
   );
 };
 
 export default NewsletterForm;
-

@@ -1,6 +1,7 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { motion as motionTokens } from "../../styles/motion-tokens.js";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { motion as motionTokens } from '../../styles/motion-tokens.js';
+import { castMotionProps } from '../../utils/motion-helpers';
 
 interface ResultSectionProps {
   results: string;
@@ -17,9 +18,9 @@ const ResultSection: React.FC<ResultSectionProps> = ({ results, beforeImage, aft
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        gap: '2rem'
+        gap: '2rem',
       }}
-      {...motionTokens.fadeIn}
+      {...castMotionProps(motionTokens.fadeIn)}
     >
       <div style={{ flex: 1 }}>
         <img src={beforeImage} alt="Before" style={{ width: '100%', borderRadius: '8px' }} />

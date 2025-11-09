@@ -1,32 +1,32 @@
-import React, { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 interface OptimizedImageProps {
   src: string;
   alt: string;
   className?: string;
   style?: React.CSSProperties;
-  loading?: "lazy" | "eager";
+  loading?: 'lazy' | 'eager';
   onClick?: () => void;
   sizes?: string;
   priority?: boolean;
   quality?: number;
-  placeholder?: "blur" | "empty";
+  placeholder?: 'blur' | 'empty';
   blurDataURL?: string;
 }
 
 const OptimizedImage: React.FC<OptimizedImageProps> = ({
   src,
   alt,
-  className = "",
+  className = '',
   style = {},
-  loading = "lazy",
+  loading = 'lazy',
   onClick,
-  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
   priority = false,
   quality = 85,
-  placeholder = "empty",
-  blurDataURL
+  placeholder = 'empty',
+  blurDataURL,
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
@@ -36,13 +36,13 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
 
   // Generate WebP and AVIF sources
   const getOptimizedSources = (originalSrc: string) => {
-    const basePath = originalSrc.replace(/\.[^/.]+$/, "");
+    const basePath = originalSrc.replace(/\.[^/.]+$/, '');
     const extension = originalSrc.split('.').pop()?.toLowerCase();
 
     return {
       avif: `${basePath}.avif`,
       webp: `${basePath}.webp`,
-      original: originalSrc
+      original: originalSrc,
     };
   };
 
@@ -50,7 +50,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
 
   // Intersection Observer for lazy loading
   useEffect(() => {
-    if (loading === "eager" || priority) {
+    if (loading === 'eager' || priority) {
       setIsInView(true);
       return;
     }
@@ -63,8 +63,8 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         }
       },
       {
-        rootMargin: "50px 0px",
-        threshold: 0.1
+        rootMargin: '50px 0px',
+        threshold: 0.1,
       }
     );
 
@@ -81,7 +81,11 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
     setIsLoaded(true);
 
     // Performance monitoring (dev only)
-    if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined' && 'performance' in window) {
+    if (
+      process.env.NODE_ENV === 'development' &&
+      typeof window !== 'undefined' &&
+      'performance' in window
+    ) {
       const loadTime = performance.now();
       console.log(`🖼️ Image loaded: ${src} (${loadTime.toFixed(2)}ms)`);
     }
@@ -100,9 +104,9 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
       ref={imgRef}
       className={`optimized-image-container ${className}`}
       style={{
-        position: "relative",
-        overflow: "hidden",
-        ...style
+        position: 'relative',
+        overflow: 'hidden',
+        ...style,
       }}
       onClick={onClick}
     >
@@ -111,12 +115,12 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         <motion.div
           className="image-placeholder"
           style={{
-            position: "absolute",
+            position: 'absolute',
             inset: 0,
-            background: "linear-gradient(45deg, #1a1a1a, #2a2a2a)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center"
+            background: 'linear-gradient(45deg, #1a1a1a, #2a2a2a)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
           initial={{ opacity: 1 }}
           animate={{ opacity: isLoaded ? 0 : 1 }}
@@ -124,14 +128,14 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         >
           <motion.div
             style={{
-              width: "40px",
-              height: "40px",
-              border: "3px solid rgba(59, 130, 246, 0.3)",
-              borderTop: "3px solid #3B82F6",
-              borderRadius: "50%"
+              width: '40px',
+              height: '40px',
+              border: '3px solid rgba(59, 130, 246, 0.3)',
+              borderTop: '3px solid #3B82F6',
+              borderRadius: '50%',
             }}
             animate={{ rotate: 360 }}
-            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
           />
         </motion.div>
       )}
@@ -142,21 +146,13 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: isLoaded ? 1 : 0 }}
           transition={{ duration: 0.5 }}
-          style={{ display: "block", width: "100%", height: "100%" }}
+          style={{ display: 'block', width: '100%', height: '100%' }}
         >
           {/* AVIF source for modern browsers */}
-          <source
-            srcSet={sources.avif}
-            type="image/avif"
-            sizes={sizes}
-          />
+          <source srcSet={sources.avif} type="image/avif" sizes={sizes} />
 
           {/* WebP source for wider compatibility */}
-          <source
-            srcSet={sources.webp}
-            type="image/webp"
-            sizes={sizes}
-          />
+          <source srcSet={sources.webp} type="image/webp" sizes={sizes} />
 
           {/* Fallback to original format */}
           <img
@@ -166,11 +162,11 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
             onLoad={handleLoad}
             onError={handleError}
             style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              display: "block",
-              filter: hasError ? "grayscale(100%)" : "none"
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
+              filter: hasError ? 'grayscale(100%)' : 'none',
             }}
             sizes={sizes}
           />
@@ -182,16 +178,16 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         <motion.div
           className="image-error"
           style={{
-            position: "absolute",
+            position: 'absolute',
             inset: 0,
-            background: "rgba(239, 68, 68, 0.1)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#EF4444",
-            fontSize: "0.875rem",
-            textAlign: "center",
-            padding: "1rem"
+            background: 'rgba(239, 68, 68, 0.1)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#EF4444',
+            fontSize: '0.875rem',
+            textAlign: 'center',
+            padding: '1rem',
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -199,9 +195,9 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         >
           <div>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
             </svg>
-            <p style={{ margin: "8px 0 0 0" }}>Image unavailable</p>
+            <p style={{ margin: '8px 0 0 0' }}>Image unavailable</p>
           </div>
         </motion.div>
       )}
@@ -210,11 +206,11 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
       <motion.div
         className="image-overlay"
         style={{
-          position: "absolute",
+          position: 'absolute',
           inset: 0,
-          background: "linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(236,72,153,0.1) 100%)",
+          background: 'linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(236,72,153,0.1) 100%)',
           opacity: 0,
-          pointerEvents: "none"
+          pointerEvents: 'none',
         }}
         whileHover={{ opacity: 1 }}
         transition={{ duration: 0.3 }}

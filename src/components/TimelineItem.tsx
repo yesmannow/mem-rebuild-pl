@@ -34,24 +34,18 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ milestone, index, isLeft = 
       <span className="absolute -left-3 md:left-1/2 md:transform md:-translate-x-1/2 flex items-center justify-center w-6 h-6 bg-amber-500 rounded-full border-4 border-white shadow-lg z-10"></span>
 
       {/* Content card */}
-      <div className={`bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-6 ${isLeft ? 'md:mr-8' : 'md:ml-8'}`}>
+      <div
+        className={`bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-6 ${isLeft ? 'md:mr-8' : 'md:ml-8'}`}
+      >
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
           <div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-1">
-              {milestone.role}
-            </h3>
-            <p className="text-amber-600 font-medium mb-2">
-              {milestone.company}
-            </p>
-            <time className="text-sm text-gray-500">
-              {milestone.dates}
-            </time>
+            <h3 className="text-xl font-semibold text-gray-900 mb-1">{milestone.role}</h3>
+            <p className="text-amber-600 font-medium mb-2">{milestone.company}</p>
+            <time className="text-sm text-gray-500">{milestone.dates}</time>
           </div>
         </div>
 
-        <p className="text-gray-700 mb-4">
-          {milestone.highlight}
-        </p>
+        <p className="text-gray-700 mb-4">{milestone.highlight}</p>
 
         <button
           onClick={toggleExpanded}
@@ -79,9 +73,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ milestone, index, isLeft = 
               transition={{ duration: 0.3, ease: 'easeInOut' }}
               className="mt-4 pt-4 border-t border-gray-200"
             >
-              <p className="text-gray-600 leading-relaxed">
-                {milestone.details}
-              </p>
+              <p className="text-gray-600 leading-relaxed">{milestone.details}</p>
             </motion.div>
           )}
         </AnimatePresence>

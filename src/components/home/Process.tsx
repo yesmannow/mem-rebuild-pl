@@ -1,52 +1,40 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Search, Puzzle, Hammer, Rocket } from "lucide-react";
+import React from 'react';
+import { motion, Easing } from 'framer-motion';
+import { Search, Puzzle, Hammer, Rocket } from 'lucide-react';
 
 const phases = [
   {
-    id: "discover",
-    label: "Discover",
+    id: 'discover',
+    label: 'Discover',
     icon: <Search className="w-6 h-6" />,
-    summary: "Align on the outcomes that matter, audit data health, and surface the friction holding growth back.",
-    bullets: [
-      "Stakeholder interviews",
-      "System + data inventory",
-      "Opportunity scoring"
-    ]
+    summary:
+      'Align on the outcomes that matter, audit data health, and surface the friction holding growth back.',
+    bullets: ['Stakeholder interviews', 'System + data inventory', 'Opportunity scoring'],
   },
   {
-    id: "design",
-    label: "Design",
+    id: 'design',
+    label: 'Design',
     icon: <Puzzle className="w-6 h-6" />,
-    summary: "Map customer journeys, architect the stack, and define the operating playbooks that will run it.",
-    bullets: [
-      "Journey & workflow design",
-      "Technical blueprint",
-      "Success metrics + KPIs"
-    ]
+    summary:
+      'Map customer journeys, architect the stack, and define the operating playbooks that will run it.',
+    bullets: ['Journey & workflow design', 'Technical blueprint', 'Success metrics + KPIs'],
   },
   {
-    id: "build",
-    label: "Build",
+    id: 'build',
+    label: 'Build',
     icon: <Hammer className="w-6 h-6" />,
-    summary: "Ship the automations, integrations, and analytics layers that connect the experience from end to end.",
-    bullets: [
-      "Implementation sprints",
-      "QA & instrumentation",
-      "Team enablement"
-    ]
+    summary:
+      'Ship the automations, integrations, and analytics layers that connect the experience from end to end.',
+    bullets: ['Implementation sprints', 'QA & instrumentation', 'Team enablement'],
   },
   {
-    id: "scale",
-    label: "Scale",
+    id: 'scale',
+    label: 'Scale',
     icon: <Rocket className="w-6 h-6" />,
-    summary: "Optimize the feedback loops, automate insights, and coach teams to keep the machine improving.",
-    bullets: [
-      "Experiment roadmaps",
-      "Executive dashboards",
-      "Ongoing iteration"
-    ]
-  }
+    summary:
+      'Optimize the feedback loops, automate insights, and coach teams to keep the machine improving.',
+    bullets: ['Experiment roadmaps', 'Executive dashboards', 'Ongoing iteration'],
+  },
 ];
 
 const timelineVariants = {
@@ -54,13 +42,16 @@ const timelineVariants = {
   visible: (index: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: index * 0.1, duration: 0.7, ease: "easeOut" }
-  })
+    transition: { delay: index * 0.1, duration: 0.7, ease: 'easeOut' as Easing },
+  }),
 };
 
 const Process: React.FC = () => {
   return (
-    <section id="process" className="py-32 bg-gradient-to-b from-black via-gray-950 to-black relative">
+    <section
+      id="process"
+      className="py-32 bg-gradient-to-b from-black via-gray-950 to-black relative"
+    >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent" />
       </div>
@@ -80,7 +71,8 @@ const Process: React.FC = () => {
             </span>
           </h2>
           <p className="text-lg text-gray-400">
-            A repeatable operating system that keeps strategy, systems, and storytelling moving in lockstep.
+            A repeatable operating system that keeps strategy, systems, and storytelling moving in
+            lockstep.
           </p>
         </motion.div>
 
@@ -103,7 +95,7 @@ const Process: React.FC = () => {
               </div>
               <p className="text-gray-300 leading-relaxed mb-5">{phase.summary}</p>
               <ul className="space-y-3">
-                {phase.bullets.map((item) => (
+                {phase.bullets.map(item => (
                   <li key={item} className="flex items-center gap-3 text-sm text-gray-300">
                     <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-pink-500" />
                     <span>{item}</span>

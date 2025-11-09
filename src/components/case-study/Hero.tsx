@@ -1,8 +1,8 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "./Hero.css";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import './Hero.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,25 +31,25 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, backgroundImage }) => {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: "top top",
-          end: "bottom top",
+          start: 'top top',
+          end: 'bottom top',
           scrub: true,
           pin: true,
-          pinSpacing: false
-        }
+          pinSpacing: false,
+        },
       });
 
       timeline
         .fromTo(
-          section.querySelector(".hero-title"),
+          section.querySelector('.hero-title'),
           { opacity: 0, y: 50 },
           { opacity: 1, y: 0, stagger: 0.1 }
         )
         .fromTo(
-          section.querySelector(".hero-subtitle"),
+          section.querySelector('.hero-subtitle'),
           { opacity: 0 },
           { opacity: 1, delay: 0.4 },
-          "-=0.5"
+          '-=0.5'
         );
     }, heroRef);
 

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 type SaveShareProps = {
   tokens: any; // your brand tokens object
@@ -13,10 +13,10 @@ export default function SaveShare({ tokens }: Readonly<SaveShareProps>) {
     setSubmitting(true);
 
     // Example: POST tokens to your API, which returns a unique slug
-    const res = await fetch("/api/save-brand", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(tokens)
+    const res = await fetch('/api/save-brand', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(tokens),
     });
     const data = await res.json();
     setShareUrl(`${globalThis.location.origin}/brand/${data.slug}`);
@@ -26,12 +26,12 @@ export default function SaveShare({ tokens }: Readonly<SaveShareProps>) {
 
   const handleGallerySubmit = async () => {
     if (!shareUrl) return;
-    await fetch("/api/gallery-submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ url: shareUrl, tokens })
+    await fetch('/api/gallery-submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url: shareUrl, tokens }),
     });
-    alert("Submitted to gallery!");
+    alert('Submitted to gallery!');
   };
 
   return (
@@ -44,7 +44,7 @@ export default function SaveShare({ tokens }: Readonly<SaveShareProps>) {
           disabled={submitting}
           className="px-6 py-3 bg-blue-600 text-white rounded"
         >
-          {submitting ? "Saving..." : "Save Brand Session"}
+          {submitting ? 'Saving...' : 'Save Brand Session'}
         </button>
 
         {shareUrl && (

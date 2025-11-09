@@ -1,10 +1,19 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Sparkles, Palette, Type, Image, Download, Share2, Check } from "lucide-react";
-import AnimatedSection from "../components/animations/AnimatedSection";
-import TextReveal from "../components/animations/TextReveal";
-import { fadeInUp } from "../utils/animations";
-import "./BrandBuilder.css";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  ChevronRight,
+  Sparkles,
+  Palette,
+  Type,
+  Image,
+  Download,
+  Share2,
+  Check,
+} from 'lucide-react';
+import AnimatedSection from '../components/animations/AnimatedSection';
+import TextReveal from '../components/animations/TextReveal';
+import { fadeInUp } from '../utils/animations';
+import './BrandBuilder.css';
 
 interface BrandTokens {
   name: string;
@@ -19,11 +28,11 @@ interface BrandTokens {
 const BrandBuilder: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [tokens, setTokens] = useState<BrandTokens>({
-    name: "My Brand",
+    name: 'My Brand',
     colors: {},
     fonts: {
-      heading: "Inter",
-      body: "Roboto",
+      heading: 'Inter',
+      body: 'Roboto',
     },
     mark: null,
   });
@@ -31,44 +40,44 @@ const BrandBuilder: React.FC = () => {
 
   const steps = [
     {
-      id: "moodboard",
-      title: "Moodboard",
-      description: "Upload inspiration images to extract color palettes",
+      id: 'moodboard',
+      title: 'Moodboard',
+      description: 'Upload inspiration images to extract color palettes',
       icon: Image,
       component: <MoodboardStep tokens={tokens} setTokens={setTokens} />,
     },
     {
-      id: "palette",
-      title: "Palette",
-      description: "Refine your color palette and generate scales",
+      id: 'palette',
+      title: 'Palette',
+      description: 'Refine your color palette and generate scales',
       icon: Palette,
       component: <PaletteStep tokens={tokens} setTokens={setTokens} />,
     },
     {
-      id: "typography",
-      title: "Typography",
-      description: "Choose fonts that match your brand personality",
+      id: 'typography',
+      title: 'Typography',
+      description: 'Choose fonts that match your brand personality',
       icon: Type,
       component: <TypographyStep tokens={tokens} setTokens={setTokens} />,
     },
     {
-      id: "mark",
-      title: "Mark",
-      description: "Design your logo mark or wordmark",
+      id: 'mark',
+      title: 'Mark',
+      description: 'Design your logo mark or wordmark',
       icon: Sparkles,
       component: <MarkStep tokens={tokens} setTokens={setTokens} />,
     },
     {
-      id: "applications",
-      title: "Applications",
-      description: "Preview your brand across different contexts",
+      id: 'applications',
+      title: 'Applications',
+      description: 'Preview your brand across different contexts',
       icon: Image,
       component: <ApplicationsStep tokens={tokens} />,
     },
     {
-      id: "export",
-      title: "Export",
-      description: "Download your brand assets and tokens",
+      id: 'export',
+      title: 'Export',
+      description: 'Download your brand assets and tokens',
       icon: Download,
       component: <ExportStep tokens={tokens} />,
     },
@@ -113,7 +122,7 @@ const BrandBuilder: React.FC = () => {
             className="hero-icon"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
-            transition={{ duration: 0.6, type: "spring" }}
+            transition={{ duration: 0.6, type: 'spring' }}
           >
             <Sparkles size={48} />
           </motion.div>
@@ -141,9 +150,9 @@ const BrandBuilder: React.FC = () => {
             return (
               <motion.div
                 key={step.id}
-                className={`step-indicator ${isActive ? "active" : ""} ${
-                  isCompleted ? "completed" : ""
-                } ${isAccessible ? "accessible" : ""}`}
+                className={`step-indicator ${isActive ? 'active' : ''} ${
+                  isCompleted ? 'completed' : ''
+                } ${isAccessible ? 'accessible' : ''}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -151,19 +160,13 @@ const BrandBuilder: React.FC = () => {
                 onClick={() => handleStepClick(index)}
               >
                 <div className="step-icon-wrapper">
-                  {isCompleted ? (
-                    <Check size={20} />
-                  ) : (
-                    <Icon size={20} />
-                  )}
+                  {isCompleted ? <Check size={20} /> : <Icon size={20} />}
                 </div>
                 <div className="step-info">
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>
                 </div>
-                {index < steps.length - 1 && (
-                  <ChevronRight className="step-connector" size={20} />
-                )}
+                {index < steps.length - 1 && <ChevronRight className="step-connector" size={20} />}
               </motion.div>
             );
           })}
@@ -222,7 +225,7 @@ const BrandBuilder: React.FC = () => {
               whileHover={{ scale: currentStep === steps.length - 1 ? 1 : 1.05 }}
               whileTap={{ scale: currentStep === steps.length - 1 ? 1 : 0.95 }}
             >
-              {currentStep === steps.length - 1 ? "Complete" : "Next"}
+              {currentStep === steps.length - 1 ? 'Complete' : 'Next'}
             </motion.button>
           ) : (
             <motion.button
@@ -250,7 +253,7 @@ const MoodboardStep: React.FC<{
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files) {
-      const newImages = Array.from(files).map((file) => URL.createObjectURL(file));
+      const newImages = Array.from(files).map(file => URL.createObjectURL(file));
       setImages([...images, ...newImages]);
     }
   };
@@ -293,13 +296,7 @@ const PaletteStep: React.FC<{
   tokens: BrandTokens;
   setTokens: React.Dispatch<React.SetStateAction<BrandTokens>>;
 }> = ({ tokens, setTokens }) => {
-  const colors = [
-    "#6366f1",
-    "#ec4899",
-    "#10b981",
-    "#f59e0b",
-    "#3b82f6",
-  ];
+  const colors = ['#6366f1', '#ec4899', '#10b981', '#f59e0b', '#3b82f6'];
 
   return (
     <div className="step-panel">
@@ -332,17 +329,17 @@ const TypographyStep: React.FC<{
   tokens: BrandTokens;
   setTokens: React.Dispatch<React.SetStateAction<BrandTokens>>;
 }> = ({ tokens, setTokens }) => {
-  const fonts = ["Inter", "Roboto", "Poppins", "Montserrat", "Open Sans"];
+  const fonts = ['Inter', 'Roboto', 'Poppins', 'Montserrat', 'Open Sans'];
 
   return (
     <div className="step-panel">
       <h2>Choose Typography</h2>
       <p>Select fonts that represent your brand</p>
       <div className="font-grid">
-        {fonts.map((font) => (
+        {fonts.map(font => (
           <motion.div
             key={font}
-            className={`font-card ${tokens.fonts.heading === font ? "selected" : ""}`}
+            className={`font-card ${tokens.fonts.heading === font ? 'selected' : ''}`}
             onClick={() => {
               setTokens({
                 ...tokens,
@@ -383,10 +380,10 @@ const MarkStep: React.FC<{
 
 const ApplicationsStep: React.FC<{ tokens: BrandTokens }> = ({ tokens }) => {
   const applications = [
-    { name: "Business Card", preview: "💼" },
-    { name: "Letterhead", preview: "📄" },
-    { name: "Website", preview: "🌐" },
-    { name: "Social Media", preview: "📱" },
+    { name: 'Business Card', preview: '💼' },
+    { name: 'Letterhead', preview: '📄' },
+    { name: 'Website', preview: '🌐' },
+    { name: 'Social Media', preview: '📱' },
   ];
 
   return (
@@ -440,4 +437,3 @@ const ExportStep: React.FC<{ tokens: BrandTokens }> = ({ tokens }) => {
 };
 
 export default BrandBuilder;
-

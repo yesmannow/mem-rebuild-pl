@@ -1,8 +1,8 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { trackCaseStudy } from "../utils/analytics";
-import "./home/SelectedWorkCard.css";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { trackCaseStudy } from '../utils/analytics';
+import './home/SelectedWorkCard.css';
 
 interface CaseStudyMetric {
   label: string;
@@ -20,11 +20,19 @@ interface Props {
 }
 
 const hoverVariants = {
-  rest: { y: 0, rotateX: 0, boxShadow: "0 10px 40px rgba(15, 23, 42, 0.25)" },
-  hover: { y: -12, rotateX: 3 }
+  rest: { y: 0, rotateX: 0, boxShadow: '0 10px 40px rgba(15, 23, 42, 0.25)' },
+  hover: { y: -12, rotateX: 3 },
 };
 
-export default function CaseStudy({ title, summary, metrics, image, tags = [], slug, accent }: Props) {
+export default function CaseStudy({
+  title,
+  summary,
+  metrics,
+  image,
+  tags = [],
+  slug,
+  accent,
+}: Props) {
   const content = (
     <motion.article
       className="selected-work-card"
@@ -53,7 +61,9 @@ export default function CaseStudy({ title, summary, metrics, image, tags = [], s
         {tags.length > 0 && (
           <div className="selected-work-card__tags">
             {tags.map(tag => (
-              <span key={tag} className="selected-work-card__tag">{tag}</span>
+              <span key={tag} className="selected-work-card__tag">
+                {tag}
+              </span>
             ))}
           </div>
         )}
@@ -76,4 +86,3 @@ export default function CaseStudy({ title, summary, metrics, image, tags = [], s
     </Link>
   );
 }
-

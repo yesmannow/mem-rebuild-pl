@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { trackPortfolioEngagement } from "../../utils/analytics";
-import "./MetricsVisualization.css";
+import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { trackPortfolioEngagement } from '../../utils/analytics';
+import './MetricsVisualization.css';
 
 interface Metric {
   label: string;
   value: string;
-  trend?: "up" | "down" | "neutral";
+  trend?: 'up' | 'down' | 'neutral';
   percentage?: number; // For progress bars
 }
 
@@ -14,7 +14,7 @@ interface MetricsVisualizationProps {
   metrics: Metric[];
   accentColor?: string;
   caseStudySlug?: string;
-  variant?: "cards" | "bars" | "comparison";
+  variant?: 'cards' | 'bars' | 'comparison';
 }
 
 /**
@@ -23,9 +23,9 @@ interface MetricsVisualizationProps {
  */
 const MetricsVisualization: React.FC<MetricsVisualizationProps> = ({
   metrics,
-  accentColor = "#3B82F6",
+  accentColor = '#3B82F6',
   caseStudySlug,
-  variant = "cards",
+  variant = 'cards',
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -38,21 +38,21 @@ const MetricsVisualization: React.FC<MetricsVisualizationProps> = ({
 
   // Parse numeric value from string (e.g., "70%" -> 70, "400+" -> 400)
   const parseNumericValue = (value: string): number => {
-    const cleaned = value.replace(/[^0-9.]/g, "");
+    const cleaned = value.replace(/[^0-9.]/g, '');
     return parseFloat(cleaned) || 0;
   };
 
   // Determine trend from value
-  const getTrend = (metric: Metric): "up" | "down" | "neutral" => {
+  const getTrend = (metric: Metric): 'up' | 'down' | 'neutral' => {
     if (metric.trend) return metric.trend;
 
     const numValue = parseNumericValue(metric.value);
-    if (numValue > 50) return "up";
-    if (numValue < 50) return "down";
-    return "neutral";
+    if (numValue > 50) return 'up';
+    if (numValue < 50) return 'down';
+    return 'neutral';
   };
 
-  if (variant === "bars") {
+  if (variant === 'bars') {
     return (
       <div ref={containerRef} className="metrics-visualization metrics-visualization--bars">
         {metrics.map((metric, index) => {
@@ -77,19 +77,21 @@ const MetricsVisualization: React.FC<MetricsVisualizationProps> = ({
               <div className="metric-bar__track">
                 <motion.div
                   className="metric-bar__fill"
-                  style={{
-                    backgroundColor: accentColor,
-                    "--accent-color": accentColor,
-                  } as React.CSSProperties}
+                  style={
+                    {
+                      backgroundColor: accentColor,
+                      '--accent-color': accentColor,
+                    } as React.CSSProperties
+                  }
                   initial={{ width: 0 }}
                   whileInView={{ width: `${percentage}%` }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 + 0.2, duration: 0.8, ease: "easeOut" }}
+                  transition={{ delay: index * 0.1 + 0.2, duration: 0.8, ease: 'easeOut' }}
                 />
               </div>
-              {trend !== "neutral" && (
+              {trend !== 'neutral' && (
                 <div className={`metric-bar__trend metric-bar__trend--${trend}`}>
-                  {trend === "up" ? "↑" : "↓"}
+                  {trend === 'up' ? '↑' : '↓'}
                 </div>
               )}
             </motion.div>
@@ -99,7 +101,7 @@ const MetricsVisualization: React.FC<MetricsVisualizationProps> = ({
     );
   }
 
-  if (variant === "comparison") {
+  if (variant === 'comparison') {
     return (
       <div ref={containerRef} className="metrics-visualization metrics-visualization--comparison">
         <div className="metrics-comparison-grid">
@@ -118,7 +120,7 @@ const MetricsVisualization: React.FC<MetricsVisualizationProps> = ({
                 whileHover={{ y: -4, scale: 1.02 }}
               >
                 <div className="metric-comparison-card__icon" data-trend={trend}>
-                  {trend === "up" ? "📈" : trend === "down" ? "📉" : "➡️"}
+                  {trend === 'up' ? '📈' : trend === 'down' ? '📉' : '➡️'}
                 </div>
                 <div className="metric-comparison-card__value" style={{ color: accentColor }}>
                   {metric.value}
@@ -149,17 +151,21 @@ const MetricsVisualization: React.FC<MetricsVisualizationProps> = ({
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              style={{
-                "--accent-color": accentColor,
-              } as React.CSSProperties}
+              style={
+                {
+                  '--accent-color': accentColor,
+                } as React.CSSProperties
+              }
             >
               <div className="metric-card-enhanced__accent" />
               <div className="metric-card-enhanced__content">
                 <div className="metric-card-enhanced__value">{metric.value}</div>
                 <div className="metric-card-enhanced__label">{metric.label}</div>
-                {trend !== "neutral" && (
-                  <div className={`metric-card-enhanced__trend metric-card-enhanced__trend--${trend}`}>
-                    {trend === "up" ? "↑ Improvement" : "↓ Reduction"}
+                {trend !== 'neutral' && (
+                  <div
+                    className={`metric-card-enhanced__trend metric-card-enhanced__trend--${trend}`}
+                  >
+                    {trend === 'up' ? '↑ Improvement' : '↓ Reduction'}
                   </div>
                 )}
               </div>
@@ -172,4 +178,3 @@ const MetricsVisualization: React.FC<MetricsVisualizationProps> = ({
 };
 
 export default MetricsVisualization;
-

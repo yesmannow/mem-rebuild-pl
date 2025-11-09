@@ -4,11 +4,7 @@
   "intro": "I build marketing systems that think for themselves. Turning complexity into clarity, chaos into competitive advantage.",
   "tagline": "I build marketing systems that think for themselves.",
   "summary": "A dynamic and results-driven Marketing Director and Systems Architect with over 15 years of experience propelling brand growth by bridging the gap between creative strategy and full-stack technical execution. Proven expertise in designing and personally engineering scalable marketing ecosystems for global brands serving 30,000+ practitioners. Adept at leveraging data-driven insights and AI-powered automation to elevate brand visibility, optimize campaigns, and consistently deliver exceptional ROI.",
-  "chips": [
-    "Solo operator",
-    "16+ years",
-    "Systems architect"
-  ],
+  "chips": ["Solo operator", "16+ years", "Systems architect"],
   "contact": {
     "email": "hoosierdarling@gmail.com",
     "location": "Indianapolis, IN",
@@ -43,7 +39,29 @@
         "Managed cross-functional sprints with developers, designers, instructors, and marketing associates, translating business goals into dev-ready specifications",
         "Implemented Form Submission Tracking (Gravity Forms / GTM / Google Ads), GTM Engagement Tracking, Google Ads Conversion Optimization, and PixelYourSite Pro tracking"
       ],
-      "technologies": ["LearnDash", "WooCommerce", "WP Fusion", "Gravity Forms", "Uncanny Automator", "FluentCRM", "WordPress", "JavaScript", "Google Analytics 4", "Google Tag Manager", "Analytify", "Cloudflare Workers", "Mapbox", "WP Rocket", "LiteSpeed", "Cloudflare CDN", "REST APIs", "OpenAI", "Netdata", "PHP 8.3", "GTM Server-Side Tagging"]
+      "technologies": [
+        "LearnDash",
+        "WooCommerce",
+        "WP Fusion",
+        "Gravity Forms",
+        "Uncanny Automator",
+        "FluentCRM",
+        "WordPress",
+        "JavaScript",
+        "Google Analytics 4",
+        "Google Tag Manager",
+        "Analytify",
+        "Cloudflare Workers",
+        "Mapbox",
+        "WP Rocket",
+        "LiteSpeed",
+        "Cloudflare CDN",
+        "REST APIs",
+        "OpenAI",
+        "Netdata",
+        "PHP 8.3",
+        "GTM Server-Side Tagging"
+      ]
     },
     {
       "company": "Ultimate Technologies Group",
@@ -62,7 +80,16 @@
         "Directed branding updates and ensured visual and messaging alignment across all customer touchpoints",
         "Provided leadership and mentoring to the marketing team, ensuring high performance during organizational change"
       ],
-      "technologies": ["Marketing Strategy", "Google Ads", "Marketing Automation", "CRM Integration", "SEO", "Paid Media", "Brand Management", "Campaign Management"]
+      "technologies": [
+        "Marketing Strategy",
+        "Google Ads",
+        "Marketing Automation",
+        "CRM Integration",
+        "SEO",
+        "Paid Media",
+        "Brand Management",
+        "Campaign Management"
+      ]
     },
     {
       "company": "Riley Bennett Egloff, LLP",
@@ -83,7 +110,19 @@
         "Actively participated in practice group meetings, contributing actionable insights that drove firm-wide initiatives forward",
         "Established trusted relationships with practice group leaders and attorneys to support cross-selling and firm-wide business growth"
       ],
-      "technologies": ["Strategic Marketing", "Digital Marketing", "SEO", "Content Strategy", "Email Marketing", "Social Media", "Public Relations", "Business Development", "RFP Management", "Project Management", "Brand Management"]
+      "technologies": [
+        "Strategic Marketing",
+        "Digital Marketing",
+        "SEO",
+        "Content Strategy",
+        "Email Marketing",
+        "Social Media",
+        "Public Relations",
+        "Business Development",
+        "RFP Management",
+        "Project Management",
+        "Brand Management"
+      ]
     },
     {
       "company": "Deerfield Financial Advisors",
@@ -97,7 +136,15 @@
         "Researched, evaluated, and implemented new technology platforms, improving both client services and internal operational efficiency",
         "Collaborated with the Chief Compliance Officer to review all marketing materials, ensuring full compliance with FINRA and SEC regulations"
       ],
-      "technologies": ["Content Development", "Email Marketing", "Event Management", "Website Management", "Technology Implementation", "FINRA Compliance", "SEC Compliance"]
+      "technologies": [
+        "Content Development",
+        "Email Marketing",
+        "Event Management",
+        "Website Management",
+        "Technology Implementation",
+        "FINRA Compliance",
+        "SEC Compliance"
+      ]
     },
     {
       "company": "Pike Medical Consultants",
@@ -114,7 +161,17 @@
         "Oversaw public relations efforts to increase awareness and credibility in the healthcare community",
         "Implemented data-driven tracking and evaluation processes to measure the effectiveness of campaigns and inform future strategy"
       ],
-      "technologies": ["Strategic Planning", "Budgeting", "Website Development", "Google Ads", "Public Relations", "Brand Management", "Campaign Management", "Data Analytics", "Event Management"]
+      "technologies": [
+        "Strategic Planning",
+        "Budgeting",
+        "Website Development",
+        "Google Ads",
+        "Public Relations",
+        "Brand Management",
+        "Campaign Management",
+        "Data Analytics",
+        "Event Management"
+      ]
     },
     {
       "company": "OrthoIndy",

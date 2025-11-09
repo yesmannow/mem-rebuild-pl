@@ -1,11 +1,14 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { Download, ExternalLink, Sparkles, CheckCircle } from "lucide-react";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Download, ExternalLink, Sparkles, CheckCircle } from 'lucide-react';
 
 const LeadMagnet: React.FC = () => {
   return (
-    <section id="lead-magnet" className="py-32 bg-gradient-to-b from-black via-gray-950 to-black relative overflow-hidden">
+    <section
+      id="lead-magnet"
+      className="py-32 bg-gradient-to-b from-black via-gray-950 to-black relative overflow-hidden"
+    >
       <div className="absolute inset-0">
         <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
@@ -29,8 +32,8 @@ const LeadMagnet: React.FC = () => {
             </span>
           </h2>
           <p className="text-lg text-gray-400 leading-relaxed">
-            Hiring quickly? Skip the scavenger hunt. Share this curated toolkit with stakeholders to show how I think, build, and measure impact
-            before our interview.
+            Hiring quickly? Skip the scavenger hunt. Share this curated toolkit with stakeholders to
+            show how I think, build, and measure impact before our interview.
           </p>
         </motion.div>
 
@@ -51,15 +54,23 @@ const LeadMagnet: React.FC = () => {
               <ul className="space-y-4 text-gray-300 text-sm">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-blue-400 mt-0.5" />
-                  <span>Snapshot portfolio deck outlining case studies, revenue impact, and tech stack fluency.</span>
+                  <span>
+                    Snapshot portfolio deck outlining case studies, revenue impact, and tech stack
+                    fluency.
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-purple-400 mt-0.5" />
-                  <span>Process walkthrough showing how I audit, design, and launch growth systems.</span>
+                  <span>
+                    Process walkthrough showing how I audit, design, and launch growth systems.
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-pink-400 mt-0.5" />
-                  <span>Interview-ready prompts to explore team needs, metrics, and collaboration styles.</span>
+                  <span>
+                    Interview-ready prompts to explore team needs, metrics, and collaboration
+                    styles.
+                  </span>
                 </li>
               </ul>
             </div>
@@ -86,17 +97,25 @@ const LeadMagnet: React.FC = () => {
 
               <div className="rounded-2xl border border-white/10 bg-black/30 p-6 text-sm text-gray-300 space-y-3">
                 <p className="font-semibold text-white">Make the most of it:</p>
-                <p>Send the toolkit ahead of interviews so hiring managers can browse highlights, metrics, and culture fit materials.</p>
-                <p>Pair it with a quick note on how my systems-first approach can accelerate their goals, then use the prompts inside to steer the conversation.</p>
+                <p>
+                  Send the toolkit ahead of interviews so hiring managers can browse highlights,
+                  metrics, and culture fit materials.
+                </p>
+                <p>
+                  Pair it with a quick note on how my systems-first approach can accelerate their
+                  goals, then use the prompts inside to steer the conversation.
+                </p>
               </div>
 
               <p className="text-xs text-gray-500">
-                Need a tailored walkthrough for your team? Email
-                {" "}
-                <a href="mailto:jacob@jacobdarling.com" className="text-blue-300 hover:text-blue-200">
+                Need a tailored walkthrough for your team? Email{' '}
+                <a
+                  href="mailto:jacob@jacobdarling.com"
+                  className="text-blue-300 hover:text-blue-200"
+                >
                   jacob@jacobdarling.com
-                </a>
-                {" "}with your role and focus areas—I'm happy to curate a custom briefing deck.
+                </a>{' '}
+                with your role and focus areas—I'm happy to curate a custom briefing deck.
               </p>
             </div>
           </div>

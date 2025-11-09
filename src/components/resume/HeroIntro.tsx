@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import resumeData from "../../data/resume.json";
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import resumeData from '../../data/resume.json';
 
 export default function HeroIntro() {
   const [showTagline, setShowTagline] = useState(false);
@@ -30,7 +30,7 @@ export default function HeroIntro() {
         <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
           <defs>
             <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="url(#gradient)" strokeWidth="0.5"/>
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="url(#gradient)" strokeWidth="0.5" />
             </pattern>
             <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#3B82F6" />
@@ -45,26 +45,26 @@ export default function HeroIntro() {
       {/* Floating Geometric Elements */}
       <motion.div
         className="absolute top-20 left-20 w-32 h-32 border border-blue-500/30 rounded-full"
-        animate={{ 
+        animate={{
           rotate: 360,
           scale: [1, 1.1, 1],
         }}
-        transition={{ 
+        transition={{
           duration: 20,
           repeat: Infinity,
-          ease: "linear"
+          ease: 'linear',
         }}
       />
       <motion.div
         className="absolute bottom-32 right-32 w-24 h-24 border border-pink-500/30"
-        animate={{ 
+        animate={{
           rotate: -360,
           y: [-10, 10, -10],
         }}
-        transition={{ 
+        transition={{
           duration: 15,
           repeat: Infinity,
-          ease: "easeInOut"
+          ease: 'easeInOut',
         }}
       />
 
@@ -75,7 +75,7 @@ export default function HeroIntro() {
           className="text-6xl md:text-8xl font-bold mb-6"
           initial={{ opacity: 0, y: 40, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
         >
           <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
             {name}
@@ -87,12 +87,10 @@ export default function HeroIntro() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
             className="mb-8"
           >
-            <p className="text-xl md:text-2xl text-gray-300 font-light tracking-wide">
-              {title}
-            </p>
+            <p className="text-xl md:text-2xl text-gray-300 font-light tracking-wide">{title}</p>
             <motion.div
               className="w-24 h-1 bg-gradient-to-r from-blue-500 to-pink-500 mx-auto mt-4 rounded-full"
               initial={{ width: 0 }}
@@ -118,14 +116,15 @@ export default function HeroIntro() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-2xl md:text-3xl font-bold text-blue-400 mb-1">
-                  {value}
-                </div>
+                <div className="text-2xl md:text-3xl font-bold text-blue-400 mb-1">{value}</div>
                 <div className="text-sm text-gray-400 capitalize">
-                  {key === 'practitioners' ? 'Practitioners Served' :
-                   key === 'customApps' ? 'Custom Apps' :
-                   key === 'automations' ? 'Automations Built' :
-                   'Years Experience'}
+                  {key === 'practitioners'
+                    ? 'Practitioners Served'
+                    : key === 'customApps'
+                      ? 'Custom Apps'
+                      : key === 'automations'
+                        ? 'Automations Built'
+                        : 'Years Experience'}
                 </div>
               </motion.div>
             ))}

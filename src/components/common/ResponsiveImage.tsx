@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from 'react';
 
 interface ResponsiveImageProps {
   src: string;
   alt: string;
   className?: string;
-  loading?: "lazy" | "eager";
+  loading?: 'lazy' | 'eager';
   sizes?: string;
   srcSet?: string;
   onLoad?: () => void;
@@ -19,9 +19,9 @@ interface ResponsiveImageProps {
 const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   src,
   alt,
-  className = "",
-  loading = "lazy",
-  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
+  className = '',
+  loading = 'lazy',
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
   srcSet,
   onLoad,
   onError,
@@ -36,14 +36,12 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
     if (srcSet) return srcSet;
 
     // If src ends with common image extensions, generate responsive srcset
-    const baseSrc = src.replace(/\.(jpg|jpeg|png)$/i, "");
+    const baseSrc = src.replace(/\.(jpg|jpeg|png)$/i, '');
     const webpSrc = `${baseSrc}.webp`;
 
     // Generate multiple sizes
     const widths = [400, 800, 1200, 1600];
-    return widths
-      .map(width => `${baseSrc}-${width}w.webp ${width}w`)
-      .join(", ");
+    return widths.map(width => `${baseSrc}-${width}w.webp ${width}w`).join(', ');
   };
 
   useEffect(() => {
@@ -60,8 +58,8 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
       onError?.();
     };
 
-    img.addEventListener("load", handleLoad);
-    img.addEventListener("error", handleError);
+    img.addEventListener('load', handleLoad);
+    img.addEventListener('error', handleError);
 
     // If image is already loaded (cached)
     if (img.complete && img.naturalHeight !== 0) {
@@ -69,18 +67,16 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
     }
 
     return () => {
-      img.removeEventListener("load", handleLoad);
-      img.removeEventListener("error", handleError);
+      img.removeEventListener('load', handleLoad);
+      img.removeEventListener('error', handleError);
     };
   }, [onLoad, onError]);
 
   // Fallback to original src if WebP fails
-  const finalSrc = hasError && src.includes(".webp")
-    ? src.replace(".webp", ".jpg")
-    : src;
+  const finalSrc = hasError && src.includes('.webp') ? src.replace('.webp', '.jpg') : src;
 
   return (
-    <div className={`responsive-image-wrapper ${className}`} style={{ position: "relative" }}>
+    <div className={`responsive-image-wrapper ${className}`} style={{ position: 'relative' }}>
       {/* Placeholder/Blur */}
       {placeholder && !isLoaded && (
         <img
@@ -89,12 +85,12 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
           className="responsive-image-placeholder"
           aria-hidden="true"
           style={{
-            position: "absolute",
+            position: 'absolute',
             inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            filter: "blur(10px)",
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            filter: 'blur(10px)',
             opacity: 0.5,
           }}
         />
@@ -108,10 +104,10 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
         loading={loading}
         srcSet={generateSrcSet()}
         sizes={sizes}
-        className={`responsive-image ${isLoaded ? "responsive-image--loaded" : ""}`}
+        className={`responsive-image ${isLoaded ? 'responsive-image--loaded' : ''}`}
         style={{
           opacity: isLoaded ? 1 : 0,
-          transition: "opacity 0.3s ease-in-out",
+          transition: 'opacity 0.3s ease-in-out',
         }}
         decoding="async"
       />
@@ -121,10 +117,10 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
         <div
           className="responsive-image-skeleton"
           style={{
-            position: "absolute",
+            position: 'absolute',
             inset: 0,
-            background: "rgba(255, 255, 255, 0.05)",
-            borderRadius: "inherit",
+            background: 'rgba(255, 255, 255, 0.05)',
+            borderRadius: 'inherit',
           }}
         />
       )}
@@ -133,4 +129,3 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
 };
 
 export default ResponsiveImage;
-

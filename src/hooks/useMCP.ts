@@ -52,8 +52,8 @@ export const usePerformanceAnalytics = () => {
           ...metrics,
           timestamp: new Date().toISOString(),
           user_agent: navigator.userAgent,
-          connection_type: (navigator as any).connection?.effectiveType || 'unknown'
-        })
+          connection_type: (navigator as any).connection?.effectiveType || 'unknown',
+        }),
       });
       return await response.json();
     } catch (error) {
@@ -88,8 +88,8 @@ export const useImageOptimization = () => {
           formats: ['webp', 'avif'],
           widths: [400, 800, 1200, 1600],
           quality: 85,
-          ...request
-        })
+          ...request,
+        }),
       });
       return await response.json();
     } catch (error) {
@@ -103,7 +103,7 @@ export const useImageOptimization = () => {
       const response = await fetch(`${MCP_BASE_URL}/images/optimize-batch`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(requests)
+        body: JSON.stringify(requests),
       });
       return await response.json();
     } catch (error) {
@@ -124,7 +124,7 @@ export const useSEOGeneration = () => {
       const response = await fetch(`${MCP_BASE_URL}/seo/generate-meta`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(pageData)
+        body: JSON.stringify(pageData),
       });
       return await response.json();
     } catch (error) {
@@ -138,7 +138,7 @@ export const useSEOGeneration = () => {
       const response = await fetch(`${MCP_BASE_URL}/seo/validate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(pageData)
+        body: JSON.stringify(pageData),
       });
       return await response.json();
     } catch (error) {
@@ -161,8 +161,8 @@ export const useBundleAnalysis = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           build_output: buildOutput,
-          threshold_kb: thresholdKb
-        })
+          threshold_kb: thresholdKb,
+        }),
       });
       return await response.json();
     } catch (error) {
@@ -196,8 +196,8 @@ export const useLighthouseAudit = () => {
         body: JSON.stringify({
           url,
           device,
-          categories: ['performance', 'accessibility', 'best-practices', 'seo']
-        })
+          categories: ['performance', 'accessibility', 'best-practices', 'seo'],
+        }),
       });
       return await response.json();
     } catch (error) {
@@ -223,7 +223,7 @@ export const useResourceHints = () => {
       const response = await fetch(`${MCP_BASE_URL}/resource-hints/generate-hints`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(request)
+        body: JSON.stringify(request),
       });
       return await response.json();
     } catch (error) {
@@ -247,8 +247,8 @@ export const useContentAnalysis = () => {
         body: JSON.stringify({
           content,
           page_type: pageType,
-          target_keywords: targetKeywords || []
-        })
+          target_keywords: targetKeywords || [],
+        }),
       });
       return await response.json();
     } catch (error) {
@@ -271,8 +271,8 @@ export const useCacheOptimization = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           asset_types: assetTypes,
-          platform
-        })
+          platform,
+        }),
       });
       return await response.json();
     } catch (error) {
@@ -305,7 +305,6 @@ export const useMCP = () => {
     lighthouse,
     resourceHints,
     content,
-    cache
+    cache,
   };
 };
-

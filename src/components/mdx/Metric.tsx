@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
 interface MetricProps {
   label: string;
   value: string;
-  trend?: "up" | "down" | "neutral";
+  trend?: 'up' | 'down' | 'neutral';
 }
 
-export default function Metric({ label, value, trend = "neutral" }: MetricProps) {
+export default function Metric({ label, value, trend = 'neutral' }: MetricProps) {
   const trendIcon = {
-    up: "↑",
-    down: "↓",
-    neutral: "→",
+    up: '↑',
+    down: '↓',
+    neutral: '→',
   }[trend];
 
   return (
@@ -18,9 +18,10 @@ export default function Metric({ label, value, trend = "neutral" }: MetricProps)
       <div className="text-sm opacity-70 mb-1">{label}</div>
       <div className="text-2xl md:text-3xl font-display flex items-center gap-2">
         <span>{value}</span>
-        {trend !== "neutral" && <span className="text-[color:theme('colors.cave.ember')]">{trendIcon}</span>}
+        {trend !== 'neutral' && (
+          <span className="text-[color:theme('colors.cave.ember')]">{trendIcon}</span>
+        )}
       </div>
     </div>
   );
 }
-

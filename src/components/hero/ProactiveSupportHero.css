@@ -132,7 +132,7 @@
 }
 
 .status.online::before {
-  content: "●";
+  content: '●';
   margin-right: 0.5rem;
   animation: blink 1.5s ease-in-out infinite;
 }
@@ -317,7 +317,9 @@
   padding: 1.5rem;
   text-align: center;
   backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .metric-card:hover {
@@ -337,16 +339,16 @@
   color: var(--metric-color);
 }
 
-.metric-value[data-color="#10B981"] {
-  color: #10B981;
+.metric-value[data-color='#10B981'] {
+  color: #10b981;
 }
 
-.metric-value[data-color="#3B82F6"] {
-  color: #3B82F6;
+.metric-value[data-color='#3B82F6'] {
+  color: #3b82f6;
 }
 
-.metric-value[data-color="#8B5CF6"] {
-  color: #8B5CF6;
+.metric-value[data-color='#8B5CF6'] {
+  color: #8b5cf6;
 }
 
 .metric-label {
@@ -372,7 +374,8 @@
   pointer-events: auto;
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
   padding: 1rem 2rem;
   border-radius: 12px;
   font-weight: 600;
@@ -513,13 +516,24 @@
 
 /* Animations */
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0.3; }
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0.3;
+  }
 }
 
 @keyframes slideInUp {
@@ -534,24 +548,48 @@
 }
 
 @keyframes typing {
-  0%, 60%, 100% { transform: translateY(0); }
-  30% { transform: translateY(-10px); }
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes flow {
-  0%, 100% { opacity: 0.5; transform: translateX(0); }
-  50% { opacity: 1; transform: translateX(5px); }
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(5px);
+  }
 }
 
 @keyframes gridMove {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(50px, 50px); }
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  33% { transform: translateY(-20px) rotate(5deg); }
-  66% { transform: translateY(10px) rotate(-3deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(10px) rotate(-3deg);
+  }
 }
 
 /* Responsive Design */
@@ -571,7 +609,8 @@
     min-height: auto;
   }
 
-  .chatbot-demo, .system-impact {
+  .chatbot-demo,
+  .system-impact {
     min-height: 300px;
   }
 
@@ -580,7 +619,8 @@
     align-items: center;
   }
 
-  .btn-primary, .btn-secondary {
+  .btn-primary,
+  .btn-secondary {
     width: 100%;
     max-width: 300px;
   }
@@ -612,7 +652,8 @@
     font-size: 2.5rem;
   }
 
-  .chatbot-demo, .crm-integration {
+  .chatbot-demo,
+  .crm-integration {
     padding: 1rem;
   }
 }

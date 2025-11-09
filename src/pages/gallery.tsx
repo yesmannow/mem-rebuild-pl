@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useParams } from "react-router-dom";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import AnimatedSection from "../components/animations/AnimatedSection";
-import TextReveal from "../components/animations/TextReveal";
-import { fadeInUp } from "../utils/animations";
-import { Sparkles, Grid3x3, Search, Filter } from "lucide-react";
-import "./Gallery.css";
+import React, { useState, useEffect, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useParams } from 'react-router-dom';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import AnimatedSection from '../components/animations/AnimatedSection';
+import TextReveal from '../components/animations/TextReveal';
+import { fadeInUp } from '../utils/animations';
+import { Sparkles, Grid3x3, Search, Filter } from 'lucide-react';
+import './Gallery.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,9 +22,9 @@ interface BrandBoard {
 const Gallery: React.FC = () => {
   const [brandBoards, setBrandBoards] = useState<BrandBoard[]>([]);
   const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [selectedBoard, setSelectedBoard] = useState<BrandBoard | null>(null);
-  const [viewMode, setViewMode] = useState<"grid" | "masonry">("grid");
+  const [viewMode, setViewMode] = useState<'grid' | 'masonry'>('grid');
 
   // Mock data - replace with actual API call
   useEffect(() => {
@@ -32,21 +32,21 @@ const Gallery: React.FC = () => {
     setTimeout(() => {
       setBrandBoards([
         {
-          slug: "example-brand-1",
-          name: "Modern Tech Brand",
-          colors: { 500: "#6366f1" },
+          slug: 'example-brand-1',
+          name: 'Modern Tech Brand',
+          colors: { 500: '#6366f1' },
           created: new Date().toISOString(),
         },
         {
-          slug: "example-brand-2",
-          name: "Creative Agency",
-          colors: { 500: "#ec4899" },
+          slug: 'example-brand-2',
+          name: 'Creative Agency',
+          colors: { 500: '#ec4899' },
           created: new Date(Date.now() - 86400000).toISOString(),
         },
         {
-          slug: "example-brand-3",
-          name: "Healthcare Solutions",
-          colors: { 500: "#10b981" },
+          slug: 'example-brand-3',
+          name: 'Healthcare Solutions',
+          colors: { 500: '#10b981' },
           created: new Date(Date.now() - 172800000).toISOString(),
         },
       ]);
@@ -56,14 +56,14 @@ const Gallery: React.FC = () => {
 
   const filteredBoards = useMemo(() => {
     if (!searchQuery) return brandBoards;
-    return brandBoards.filter((board) =>
+    return brandBoards.filter(board =>
       board.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }, [brandBoards, searchQuery]);
 
   // GSAP animations
   useEffect(() => {
-    const cards = gsap.utils.toArray(".brand-card");
+    const cards = gsap.utils.toArray('.brand-card');
 
     cards.forEach((card: any, index: number) => {
       gsap.fromTo(
@@ -80,39 +80,39 @@ const Gallery: React.FC = () => {
           y: 0,
           scale: 1,
           rotateY: 0,
-          ease: "power3.out",
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: card,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
           },
           delay: index * 0.05,
         }
       );
 
-      card.addEventListener("mouseenter", () => {
+      card.addEventListener('mouseenter', () => {
         gsap.to(card, {
           scale: 1.05,
           y: -10,
           rotateY: -5,
           duration: 0.4,
-          ease: "power2.out",
+          ease: 'power2.out',
         });
       });
 
-      card.addEventListener("mouseleave", () => {
+      card.addEventListener('mouseleave', () => {
         gsap.to(card, {
           scale: 1,
           y: 0,
           rotateY: 0,
           duration: 0.4,
-          ease: "power2.out",
+          ease: 'power2.out',
         });
       });
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) => trigger.kill());
     };
   }, [filteredBoards]);
 
@@ -123,7 +123,7 @@ const Gallery: React.FC = () => {
           <motion.div
             className="loading-spinner"
             animate={{ rotate: 360 }}
-            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
           />
           <p>Loading brand boards...</p>
         </div>
@@ -145,7 +145,7 @@ const Gallery: React.FC = () => {
             className="hero-icon"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
-            transition={{ duration: 0.6, type: "spring" }}
+            transition={{ duration: 0.6, type: 'spring' }}
           >
             <Sparkles size={48} />
           </motion.div>
@@ -192,23 +192,23 @@ const Gallery: React.FC = () => {
               type="text"
               placeholder="Search brand boards..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={e => setSearchQuery(e.target.value)}
               className="search-input"
             />
           </div>
 
           <div className="view-toggle">
             <motion.button
-              className={`view-btn ${viewMode === "grid" ? "active" : ""}`}
-              onClick={() => setViewMode("grid")}
+              className={`view-btn ${viewMode === 'grid' ? 'active' : ''}`}
+              onClick={() => setViewMode('grid')}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
               <Grid3x3 size={18} />
             </motion.button>
             <motion.button
-              className={`view-btn ${viewMode === "masonry" ? "active" : ""}`}
-              onClick={() => setViewMode("masonry")}
+              className={`view-btn ${viewMode === 'masonry' ? 'active' : ''}`}
+              onClick={() => setViewMode('masonry')}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -225,15 +225,15 @@ const Gallery: React.FC = () => {
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ type: "spring", delay: 0.2 }}
+              transition={{ type: 'spring', delay: 0.2 }}
             >
               <Sparkles size={64} className="empty-icon" />
             </motion.div>
             <h3>No brand boards found</h3>
             <p>
               {searchQuery
-                ? "Try adjusting your search terms"
-                : "Start creating brand boards to see them here"}
+                ? 'Try adjusting your search terms'
+                : 'Start creating brand boards to see them here'}
             </p>
             {!searchQuery && (
               <motion.a
@@ -261,7 +261,7 @@ const Gallery: React.FC = () => {
                 <Link to={`/brand/${board.slug}`} className="card-link">
                   <div
                     className="card-color-preview"
-                    style={{ backgroundColor: board.colors[500] || "#6366f1" }}
+                    style={{ backgroundColor: board.colors[500] || '#6366f1' }}
                   >
                     <motion.div
                       className="card-overlay"

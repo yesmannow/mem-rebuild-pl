@@ -1,7 +1,7 @@
 // logoFactory.ts
 export function createSVGLogo({
   initials,
-  theme = 'modern'
+  theme = 'modern',
 }: {
   initials: string;
   theme?: 'modern' | 'classic' | 'bold';

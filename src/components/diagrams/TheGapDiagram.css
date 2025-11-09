@@ -170,17 +170,19 @@
   font-size: 2rem;
   font-weight: 900;
   color: var(--color-bg-primary);
-  box-shadow: 0 8px 32px rgba(136, 171, 242, 0.5), 
-              0 0 0 4px var(--color-bg-primary),
-              0 0 0 6px rgba(136, 171, 242, 0.3);
+  box-shadow:
+    0 8px 32px rgba(136, 171, 242, 0.5),
+    0 0 0 4px var(--color-bg-primary),
+    0 0 0 6px rgba(136, 171, 242, 0.3);
   transition: all 0.3s ease;
 }
 
 .gap-bridge:hover .bridge-avatar,
 .gap-bridge.active .bridge-avatar {
-  box-shadow: 0 12px 48px rgba(136, 171, 242, 0.7), 
-              0 0 0 4px var(--color-bg-primary),
-              0 0 0 8px rgba(136, 171, 242, 0.5);
+  box-shadow:
+    0 12px 48px rgba(136, 171, 242, 0.7),
+    0 0 0 4px var(--color-bg-primary),
+    0 0 0 8px rgba(136, 171, 242, 0.5);
 }
 
 .bridge-label {

@@ -26,9 +26,7 @@ const InspirationCTASection: React.FC = () => {
       </motion.div>
 
       {/* Bear watermark */}
-      <div className="absolute bottom-4 right-4 text-6xl opacity-20 select-none">
-        🐻
-      </div>
+      <div className="absolute bottom-4 right-4 text-6xl opacity-20 select-none">🐻</div>
     </section>
   );
 };

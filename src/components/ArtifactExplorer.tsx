@@ -2,10 +2,34 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const hotspots = [
-  { id: 'chair', x: 20, y: 30, title: 'Eames Molded Plastic Chair', description: 'Iconic design combining form and function' },
-  { id: 'table', x: 60, y: 40, title: 'Eames Table', description: 'Modular table system for flexible arrangements' },
-  { id: 'storage', x: 80, y: 60, title: 'Eames Storage Units', description: 'Organized storage with aesthetic appeal' },
-  { id: 'house', x: 40, y: 70, title: 'Eames House', description: 'Case Study House #8, a design laboratory' }
+  {
+    id: 'chair',
+    x: 20,
+    y: 30,
+    title: 'Eames Molded Plastic Chair',
+    description: 'Iconic design combining form and function',
+  },
+  {
+    id: 'table',
+    x: 60,
+    y: 40,
+    title: 'Eames Table',
+    description: 'Modular table system for flexible arrangements',
+  },
+  {
+    id: 'storage',
+    x: 80,
+    y: 60,
+    title: 'Eames Storage Units',
+    description: 'Organized storage with aesthetic appeal',
+  },
+  {
+    id: 'house',
+    x: 40,
+    y: 70,
+    title: 'Eames House',
+    description: 'Case Study House #8, a design laboratory',
+  },
 ];
 
 const ArtifactExplorer: React.FC = () => {
@@ -13,7 +37,9 @@ const ArtifactExplorer: React.FC = () => {
 
   return (
     <div className="w-full max-w-6xl mx-auto p-6">
-      <h2 className="text-3xl font-bold mb-8 text-center">Artifact Explorer: Eames Institute Launch Kit</h2>
+      <h2 className="text-3xl font-bold mb-8 text-center">
+        Artifact Explorer: Eames Institute Launch Kit
+      </h2>
 
       <div className="relative bg-gray-100 rounded-lg overflow-hidden">
         <img
@@ -22,7 +48,7 @@ const ArtifactExplorer: React.FC = () => {
           className="w-full h-auto"
         />
 
-        {hotspots.map((hotspot) => (
+        {hotspots.map(hotspot => (
           <motion.button
             key={hotspot.id}
             className="absolute w-6 h-6 bg-amber-600 rounded-full border-2 border-white shadow-lg hover:bg-amber-700 transition-colors"

@@ -1,18 +1,19 @@
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const timeline = [
   {
-    id: "marketing-director",
-    role: "Marketing Director",
-    company: "Graston Technique®",
-    highlight: "Scaled platform to 30K+ users with GPT-powered support assistant"
+    id: 'marketing-director',
+    role: 'Marketing Director',
+    company: 'Graston Technique®',
+    highlight: 'Scaled platform to 30K+ users with GPT-powered support assistant',
   },
   {
-    id: "marketing-manager",
-    role: "Marketing Manager",
-    company: "Riley Bennett Egloff LLP",
-    highlight: "Improved engagement with analytics-driven campaigns"
-  }
+    id: 'marketing-manager',
+    role: 'Marketing Manager',
+    company: 'Riley Bennett Egloff LLP',
+    highlight: 'Improved engagement with analytics-driven campaigns',
+  },
 ];
 
 export default function CareerTimeline() {
@@ -21,7 +22,7 @@ export default function CareerTimeline() {
       <div className="max-w-4xl mx-auto px-6">
         <h2 className="text-3xl font-bold mb-8">Career Highlights</h2>
         <ol className="relative border-l border-slate-300">
-          {timeline.map((entry) => (
+          {timeline.map(entry => (
             <motion.li
               key={entry.id}
               initial={{ opacity: 0, y: 20 }}
@@ -31,7 +32,9 @@ export default function CareerTimeline() {
               className="mb-10 ml-6"
             >
               <span className="absolute -left-3 w-6 h-6 bg-blue-600 rounded-full"></span>
-              <h3 className="text-xl font-semibold">{entry.role} · {entry.company}</h3>
+              <h3 className="text-xl font-semibold">
+                {entry.role} · {entry.company}
+              </h3>
               <p className="mt-2 text-slate-700">{entry.highlight}</p>
             </motion.li>
           ))}

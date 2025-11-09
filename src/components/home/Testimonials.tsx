@@ -1,26 +1,29 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    name: "Claire Rhodes",
-    role: "Senior Director of Demand Gen, HealthTech",
-    quote: "Jacob arrived with a full discovery plan, quantified value in his second conversation, and handed us a roadmap that our executive team approved on the spot.",
-    gradient: "from-blue-500/20 via-purple-500/10 to-pink-500/20"
+    name: 'Claire Rhodes',
+    role: 'Senior Director of Demand Gen, HealthTech',
+    quote:
+      'Jacob arrived with a full discovery plan, quantified value in his second conversation, and handed us a roadmap that our executive team approved on the spot.',
+    gradient: 'from-blue-500/20 via-purple-500/10 to-pink-500/20',
   },
   {
-    name: "Marcus Lin",
-    role: "VP Marketing Operations, Enterprise SaaS",
-    quote: "He bridges the interview gap—strategic storytelling for hiring panels, then detailed swim lanes for engineers and RevOps. We saw exactly how he'd produce impact in 90 days.",
-    gradient: "from-emerald-500/20 via-cyan-500/10 to-blue-500/20"
+    name: 'Marcus Lin',
+    role: 'VP Marketing Operations, Enterprise SaaS',
+    quote:
+      "He bridges the interview gap—strategic storytelling for hiring panels, then detailed swim lanes for engineers and RevOps. We saw exactly how he'd produce impact in 90 days.",
+    gradient: 'from-emerald-500/20 via-cyan-500/10 to-blue-500/20',
   },
   {
-    name: "Danielle Ortiz",
-    role: "Head of Lifecycle Marketing, Professional Services",
-    quote: "The asset Jacob sent ahead of panel interviews made it effortless to brief stakeholders. His dashboards and automation playbooks were plug-and-play for our team.",
-    gradient: "from-amber-500/20 via-orange-500/10 to-rose-500/20"
-  }
+    name: 'Danielle Ortiz',
+    role: 'Head of Lifecycle Marketing, Professional Services',
+    quote:
+      'The asset Jacob sent ahead of panel interviews made it effortless to brief stakeholders. His dashboards and automation playbooks were plug-and-play for our team.',
+    gradient: 'from-amber-500/20 via-orange-500/10 to-rose-500/20',
+  },
 ];
 
 const Testimonials: React.FC = () => {
@@ -46,7 +49,8 @@ const Testimonials: React.FC = () => {
             </span>
           </h2>
           <p className="text-lg text-gray-400">
-            Partners across healthcare, SaaS, and professional services rely on Jacob to connect the dots between strategy, systems, and story.
+            Partners across healthcare, SaaS, and professional services rely on Jacob to connect the
+            dots between strategy, systems, and story.
           </p>
         </motion.div>
 
@@ -60,7 +64,9 @@ const Testimonials: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+              />
               <div className="relative z-10 h-full flex flex-col gap-6">
                 <Quote className="w-10 h-10 text-cyan-300" />
                 <p className="text-gray-200 text-lg leading-relaxed flex-1">“{quote}”</p>

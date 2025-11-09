@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import AnimatedSection from "../components/animations/AnimatedSection";
-import TextReveal from "../components/animations/TextReveal";
-import StaggerGrid from "../components/animations/StaggerGrid";
-import { testimonials, getFeaturedTestimonials } from "../data/testimonials";
-import { fadeInUp } from "../utils/animations";
-import "./Testimonials.css";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import AnimatedSection from '../components/animations/AnimatedSection';
+import TextReveal from '../components/animations/TextReveal';
+import StaggerGrid from '../components/animations/StaggerGrid';
+import { testimonials, getFeaturedTestimonials } from '../data/testimonials';
+import { fadeInUp } from '../utils/animations';
+import './Testimonials.css';
 
 const Testimonials: React.FC = () => {
   const [showAll, setShowAll] = useState(false);
@@ -14,7 +14,10 @@ const Testimonials: React.FC = () => {
 
   const getInitials = (name: string): string => {
     const names = name.split(' ');
-    return names.map(n => n[0]).join('').substring(0, 2);
+    return names
+      .map(n => n[0])
+      .join('')
+      .substring(0, 2);
   };
 
   return (
@@ -51,9 +54,9 @@ const Testimonials: React.FC = () => {
         <div className="featured-quote">
           <div className="quote-icon">"</div>
           <blockquote>
-            Jacob is an involved and dedicated marketer. His exuberance and moxie are unparalleled. 
-            He excels in managing multiple projects concurrently with strong detail, problem solving, 
-            and follow-through.
+            Jacob is an involved and dedicated marketer. His exuberance and moxie are unparalleled.
+            He excels in managing multiple projects concurrently with strong detail, problem
+            solving, and follow-through.
           </blockquote>
           <div className="quote-author">
             <strong>Kevin Martin See</strong>
@@ -82,15 +85,11 @@ const Testimonials: React.FC = () => {
 
               {/* Author Info */}
               <div className="testimonial-author">
-                <div className="author-avatar">
-                  {getInitials(testimonial.name)}
-                </div>
+                <div className="author-avatar">{getInitials(testimonial.name)}</div>
                 <div className="author-info">
                   <h4>{testimonial.name}</h4>
                   <p className="author-role">{testimonial.role}</p>
-                  {testimonial.company && (
-                    <p className="author-company">{testimonial.company}</p>
-                  )}
+                  {testimonial.company && <p className="author-company">{testimonial.company}</p>}
                 </div>
               </div>
 
@@ -105,7 +104,7 @@ const Testimonials: React.FC = () => {
               {/* LinkedIn Badge */}
               <div className="linkedin-badge">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="#0077B5">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
                 <span>LinkedIn</span>
               </div>

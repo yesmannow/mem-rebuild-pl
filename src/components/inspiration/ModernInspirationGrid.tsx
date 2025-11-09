@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   Eye,
   Heart,
@@ -17,8 +17,8 @@ import {
   ChevronLeft,
   ChevronRight,
   ExternalLink,
-  Sparkles
-} from "lucide-react";
+  Sparkles,
+} from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,38 +42,41 @@ interface ModernInspirationGridProps {
 const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
   items,
   viewMode,
-  onItemClick
+  onItemClick,
 }) => {
-  const [selectedItem, setSelectedItem] = useState<{ item: InspirationItem; index: number } | null>(null);
+  const [selectedItem, setSelectedItem] = useState<{ item: InspirationItem; index: number } | null>(
+    null
+  );
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Staggered entrance animation for grid items
-      gsap.fromTo(gridRef.current?.children || [],
+      gsap.fromTo(
+        gridRef.current?.children || [],
         {
           opacity: 0,
           y: 60,
           scale: 0.9,
           rotationX: 15,
-          filter: "blur(4px)"
+          filter: 'blur(4px)',
         },
         {
           opacity: 1,
           y: 0,
           scale: 1,
           rotationX: 0,
-          filter: "blur(0px)",
+          filter: 'blur(0px)',
           duration: 1.2,
           stagger: 0.08,
-          ease: "power3.out",
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: gridRef.current,
-            start: "top 85%",
-            end: "bottom 15%",
-            toggleActions: "play none none reverse"
-          }
+            start: 'top 85%',
+            end: 'bottom 15%',
+            toggleActions: 'play none none reverse',
+          },
         }
       );
     }, gridRef);
@@ -103,14 +106,14 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
   const handleShare = async (item: InspirationItem) => {
     if (navigator.share) {
       try {
-      await navigator.share({
-        title: item.title,
-        text: `Check out this ${item.category} from ${item.source}`,
-        url: window.location.href
-      });
-    } catch (error) {
-      console.log('Share cancelled');
-    }
+        await navigator.share({
+          title: item.title,
+          text: `Check out this ${item.category} from ${item.source}`,
+          url: window.location.href,
+        });
+      } catch (error) {
+        console.log('Share cancelled');
+      }
     } else {
       await navigator.clipboard.writeText(`${window.location.href} - ${item.title}`);
       // You could add a toast notification here
@@ -164,7 +167,10 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
             {item.tags && (
               <div className="flex gap-1 mt-2">
                 {item.tags.slice(0, 3).map(tag => (
-                  <span key={tag} className="px-2 py-1 bg-white/10 rounded-full text-xs text-gray-300">
+                  <span
+                    key={tag}
+                    className="px-2 py-1 bg-white/10 rounded-full text-xs text-gray-300"
+                  >
                     {tag}
                   </span>
                 ))}
@@ -173,7 +179,7 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
           </div>
           <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <button
-              onClick={(e) => {
+              onClick={e => {
                 e.stopPropagation();
                 handleShare(item);
               }}
@@ -195,7 +201,7 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
         whileHover={{
           scale: 1.02,
           y: -8,
-          boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
+          boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
         }}
         onClick={() => handleItemClick(item, index)}
         onHoverStart={() => setHoveredItem(item.id)}
@@ -221,7 +227,7 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
           {/* Action Buttons */}
           <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <button
-              onClick={(e) => {
+              onClick={e => {
                 e.stopPropagation();
                 handleShare(item);
               }}
@@ -232,7 +238,7 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
               <Share2 className="w-4 h-4" />
             </button>
             <button
-              onClick={(e) => {
+              onClick={e => {
                 e.stopPropagation();
                 // Add to favorites functionality
               }}
@@ -295,7 +301,7 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
           >
             {/* Navigation Buttons */}
             <motion.button
-              onClick={(e) => {
+              onClick={e => {
                 e.stopPropagation();
                 handlePrevious();
               }}
@@ -311,7 +317,7 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
             </motion.button>
 
             <motion.button
-              onClick={(e) => {
+              onClick={e => {
                 e.stopPropagation();
                 handleNext();
               }}
@@ -341,19 +347,19 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ type: "spring", damping: 25 }}
-              onClick={(e) => e.stopPropagation()}
+              transition={{ type: 'spring', damping: 25 }}
+              onClick={e => e.stopPropagation()}
               key={selectedItem.item.id}
             >
               {/* Close Button */}
-            <button
-              onClick={() => setSelectedItem(null)}
-              className="absolute -top-12 right-0 p-2 text-white hover:text-gray-300 transition-colors z-20"
-              title="Close lightbox"
-              aria-label="Close lightbox"
-            >
-              <X className="w-6 h-6" />
-            </button>
+              <button
+                onClick={() => setSelectedItem(null)}
+                className="absolute -top-12 right-0 p-2 text-white hover:text-gray-300 transition-colors z-20"
+                title="Close lightbox"
+                aria-label="Close lightbox"
+              >
+                <X className="w-6 h-6" />
+              </button>
 
               {/* Image */}
               <img
@@ -371,7 +377,9 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
               >
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-2">{selectedItem.item.title}</h3>
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      {selectedItem.item.title}
+                    </h3>
                     <div className="flex items-center gap-4 text-sm text-gray-300 mb-4">
                       <span className="flex items-center gap-1">
                         <Palette className="w-4 h-4" />
@@ -404,7 +412,10 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
                     {selectedItem.item.tags && (
                       <div className="flex gap-2">
                         {selectedItem.item.tags.map(tag => (
-                          <span key={tag} className="px-3 py-1 bg-white/10 rounded-full text-xs text-gray-300">
+                          <span
+                            key={tag}
+                            className="px-3 py-1 bg-white/10 rounded-full text-xs text-gray-300"
+                          >
                             {tag}
                           </span>
                         ))}
@@ -413,28 +424,28 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
                   </div>
 
                   <div className="flex gap-2">
-            <button
-              onClick={() => handleShare(selectedItem.item)}
-              className="p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
-              title="Share image"
-              aria-label="Share image"
-            >
-              <Share2 className="w-5 h-5" />
-            </button>
-            <button
-              className="p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
-              title="Download image"
-              aria-label="Download image"
-            >
-              <Download className="w-5 h-5" />
-            </button>
-            <button
-              className="p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
-              title="Add to favorites"
-              aria-label="Add to favorites"
-            >
-              <Heart className="w-5 h-5" />
-            </button>
+                    <button
+                      onClick={() => handleShare(selectedItem.item)}
+                      className="p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
+                      title="Share image"
+                      aria-label="Share image"
+                    >
+                      <Share2 className="w-5 h-5" />
+                    </button>
+                    <button
+                      className="p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
+                      title="Download image"
+                      aria-label="Download image"
+                    >
+                      <Download className="w-5 h-5" />
+                    </button>
+                    <button
+                      className="p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
+                      title="Add to favorites"
+                      aria-label="Add to favorites"
+                    >
+                      <Heart className="w-5 h-5" />
+                    </button>
                   </div>
                 </div>
 

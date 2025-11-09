@@ -1,6 +1,7 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { motion as motionTokens } from "../../styles/motion-tokens.js";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { motion as motionTokens } from '../../styles/motion-tokens.js';
+import { castMotionProps } from '../../utils/motion-helpers';
 
 interface OverviewProps {
   role: string;
@@ -20,14 +21,20 @@ const Overview: React.FC<OverviewProps> = ({ role, tools, duration, summary }) =
         gap: '2rem',
         alignItems: 'center',
         background: 'linear-gradient(135deg, #3B82F6, #EC4899)',
-        color: 'white'
+        color: 'white',
       }}
-      {...motionTokens.fadeInLeft}
+      {...castMotionProps(motionTokens.slideInLeft)}
     >
       <div style={{ fontSize: '1rem', lineHeight: 1.6 }}>
-        <p><strong>Role:</strong> {role}</p>
-        <p><strong>Tools:</strong> {tools.join(', ')}</p>
-        <p><strong>Duration:</strong> {duration}</p>
+        <p>
+          <strong>Role:</strong> {role}
+        </p>
+        <p>
+          <strong>Tools:</strong> {tools.join(', ')}
+        </p>
+        <p>
+          <strong>Duration:</strong> {duration}
+        </p>
       </div>
       <div style={{ fontSize: '1rem', lineHeight: 1.6 }}>
         <p>{summary}</p>

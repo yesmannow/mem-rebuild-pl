@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const CustomCursor: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -59,7 +59,9 @@ const CustomCursor: React.FC = () => {
   // Hide on mobile devices
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
-    setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    setIsMobile(
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    );
   }, []);
 
   if (isMobile) return null;
@@ -75,7 +77,7 @@ const CustomCursor: React.FC = () => {
           scale: isClicking ? 0.8 : 1,
         }}
         transition={{
-          type: "spring",
+          type: 'spring',
           stiffness: 500,
           damping: 28,
           mass: 0.5,
@@ -94,7 +96,7 @@ const CustomCursor: React.FC = () => {
           opacity: isHovering ? 0.8 : 0.3,
         }}
         transition={{
-          type: "spring",
+          type: 'spring',
           stiffness: 150,
           damping: 15,
           mass: 0.1,
@@ -113,7 +115,7 @@ const CustomCursor: React.FC = () => {
           opacity: isHovering ? 1 : 0,
         }}
         transition={{
-          type: "spring",
+          type: 'spring',
           stiffness: 200,
           damping: 20,
         }}
@@ -133,7 +135,7 @@ const CustomCursor: React.FC = () => {
           opacity: isHovering ? 0.6 : 0.2,
         }}
         transition={{
-          type: "spring",
+          type: 'spring',
           stiffness: 100,
           damping: 25,
         }}
@@ -142,8 +144,9 @@ const CustomCursor: React.FC = () => {
       </motion.div>
 
       {/* CSS to hide default cursor */}
-      <style dangerouslySetInnerHTML={{
-        __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
           * {
             cursor: none !important;
           }
@@ -153,8 +156,9 @@ const CustomCursor: React.FC = () => {
               cursor: auto !important;
             }
           }
-        `
-      }} />
+        `,
+        }}
+      />
     </>
   );
 };
