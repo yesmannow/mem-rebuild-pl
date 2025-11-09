@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ChevronDown, FileText } from 'lucide-react';
+import BearCaveLogo from '../branding/BearCaveLogo';
 import './BearCaveHeader.css';
 
 // Navigation menu structure
@@ -99,7 +100,8 @@ export default function BearCaveHeader() {
     <header className={`bearcave-header ${isScrolled ? 'bearcave-header--scrolled' : ''}`}>
       <div className="bearcave-header__inner">
         <Link to="/" className="bearcave-header__brand" aria-label="Go to homepage">
-          BearCave
+          <BearCaveLogo variant="icon" size={40} animated={false} />
+          <span className="bearcave-header__brand-text">BearCave</span>
         </Link>
         <nav className="bearcave-header__nav" aria-label="Primary navigation">
           {/* About Dropdown */}

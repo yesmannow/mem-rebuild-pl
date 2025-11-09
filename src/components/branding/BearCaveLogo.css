@@ -1,0 +1,114 @@
+/* BearCave Logo Styles - Enhanced */
+.bearcave-logo {
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 2px 6px rgba(59, 130, 246, 0.15));
+  transition: filter 0.3s ease;
+}
+
+.bearcave-logo:hover {
+  filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.25)) drop-shadow(0 0 20px rgba(236, 72, 153, 0.15));
+}
+
+.bearcave-logo__icon {
+  transform-origin: center;
+}
+
+.bearcave-logo__arch-outer {
+  transition: stroke-width 0.3s ease, fill-opacity 0.3s ease;
+}
+
+.bearcave-logo:hover .bearcave-logo__arch-outer {
+  stroke-width: 4.5;
+  fill-opacity: 0.12;
+}
+
+.bearcave-logo__arch-middle {
+  transition: opacity 0.3s ease, stroke-width 0.3s ease;
+}
+
+.bearcave-logo:hover .bearcave-logo__arch-middle {
+  opacity: 0.7;
+  stroke-width: 3.5;
+}
+
+.bearcave-logo__arch-inner {
+  transition: opacity 0.3s ease;
+}
+
+.bearcave-logo:hover .bearcave-logo__arch-inner {
+  opacity: 0.8;
+}
+
+.bearcave-logo__handprint,
+.bearcave-logo__sun {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.bearcave-logo:hover .bearcave-logo__handprint {
+  opacity: 1;
+  transform: translateX(-1px);
+}
+
+.bearcave-logo:hover .bearcave-logo__sun {
+  opacity: 1;
+  transform: translateX(1px);
+}
+
+.bearcave-logo__wordmark {
+  transition: opacity 0.3s ease;
+}
+
+.bearcave-logo:hover .bearcave-logo__wordmark {
+  opacity: 1;
+}
+
+.bearcave-logo__text-primary {
+  filter: drop-shadow(0 1px 2px rgba(59, 130, 246, 0.3));
+}
+
+.bearcave-logo__text-secondary {
+  transition: opacity 0.3s ease;
+}
+
+.bearcave-logo:hover .bearcave-logo__text-secondary {
+  opacity: 1;
+}
+
+/* Ensure logo is readable on dark backgrounds */
+.bearcave-logo {
+  color: var(--bc-text-primary, #ffffff);
+}
+
+/* Enhanced depth lines on hover */
+.bearcave-logo:hover .bearcave-logo__depth-lines {
+  opacity: 0.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bearcave-logo {
+    filter: drop-shadow(0 1px 3px rgba(59, 130, 246, 0.2));
+  }
+
+  .bearcave-logo--full .bearcave-logo__text-primary {
+    font-size: 0.9em;
+  }
+
+  .bearcave-logo--full .bearcave-logo__text-secondary {
+    font-size: 0.85em;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .bearcave-logo * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .bearcave-logo {
+    filter: none;
+  }
+}
+
