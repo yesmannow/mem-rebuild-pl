@@ -1,10 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Hero from "../components/Hero";
 import CaseStudy from "../components/CaseStudy";
 import StickyCTA from "../components/StickyCTA";
-import TestimonialsCarousel from "../components/testimonials/TestimonialsCarousel";
+import Carousel from "../components/Carousel";
 import NewsletterForm from "../components/newsletter/NewsletterForm";
 import ServicesSection from "../components/services/ServicesSection";
 import { trackCTA } from "../utils/analytics";
@@ -75,8 +76,50 @@ const testimonialsData = [
 ];
 
 const HomePage: React.FC = () => {
+  // Motion variants for staggered animations
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <>
+      <Helmet>
+        <title>Jacob Darling | Marketing Strategist & Systems Architect</title>
+        <meta
+          name="description"
+          content="I build marketing systems that turn brands into revenue engines. Strategy, creative, analytics, and execution—unified under one operator."
+        />
+        <meta property="og:title" content="Jacob Darling | Marketing Strategist & Systems Architect" />
+        <meta
+          property="og:description"
+          content="I build marketing systems that turn brands into revenue engines. Strategy, creative, analytics, and execution—unified under one operator."
+        />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Jacob Darling | Marketing Strategist & Systems Architect" />
+        <meta
+          name="twitter:description"
+          content="I build marketing systems that turn brands into revenue engines."
+        />
+      </Helmet>
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -88,26 +131,25 @@ const HomePage: React.FC = () => {
       <motion.section
         id="work"
         className="container-px mx-auto max-w-6xl py-16 md:py-24 space-y-10"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
       >
-        <div className="space-y-4">
+        <motion.div className="space-y-4" variants={itemVariants}>
           <h2 className="section-heading">Selected Work</h2>
           <p className="section-subheading">
             Real systems, real metrics. Every project below combines brand, product, analytics, and automation so the business can
             scale without guesswork.
           </p>
-        </div>
+        </motion.div>
         <div className="space-y-8">
           {selectedWork.map((work, index) => (
             <motion.div
               key={work.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
+              variants={itemVariants}
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               <CaseStudy
                 title={work.title}
@@ -174,12 +216,33 @@ const HomePage: React.FC = () => {
       </motion.section>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
       >
-        <TestimonialsCarousel testimonials={testimonialsData} />
+        <Carousel
+          autoPlay={true}
+          interval={5000}
+          pauseOnHover={true}
+          ariaLabel="Client testimonials"
+        >
+          {testimonialsData.map((testimonial, index) => (
+            <div key={index} className="testimonial-card">
+              <blockquote className="testimonial-quote">
+                "{testimonial.quote}"
+              </blockquote>
+              <div className="testimonial-author">
+                <div className="testimonial-author-info">
+                  <div className="testimonial-name">{testimonial.name}</div>
+                  <div className="testimonial-title">
+                    {testimonial.title} • {testimonial.company}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Carousel>
       </motion.div>
 
       <motion.section

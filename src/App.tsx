@@ -1,8 +1,10 @@
 import React, { lazy, Suspense, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { QueryClientProvider } from "@tanstack/react-query";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./components/theme/ThemeProvider";
+import { queryClient } from "./lib/queryClient";
 import { initLenis, destroyLenis } from "./utils/motion-sync";
 import { initAnalytics } from "./utils/analytics";
 import JSONLD from "./components/seo/JSONLD";
@@ -62,8 +64,9 @@ const App: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <HelmetProvider>
-        <ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <HelmetProvider>
+          <ThemeProvider>
           <JSONLD />
           <div className="app min-h-dvh flex flex-col bg-[color:theme('colors.cave.bg')] text-[color:theme('colors.cave.text')] font-sans">
             <Suspense fallback={null}>
@@ -113,8 +116,9 @@ const App: React.FC = () => {
               <BearCaveFooter />
             </Suspense>
           </div>
-        </ThemeProvider>
-      </HelmetProvider>
+          </ThemeProvider>
+        </HelmetProvider>
+      </QueryClientProvider>
     </ErrorBoundary>
   );
 };

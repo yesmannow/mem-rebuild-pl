@@ -1,0 +1,117 @@
+/* Carousel Styles */
+.carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+}
+
+.carousel-container-inner {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bc-surface);
+  border: 1px solid var(--bc-border);
+  border-radius: var(--bc-radius-full);
+  color: var(--bc-text-primary);
+  cursor: pointer;
+  transition: all var(--bc-transition-normal);
+  backdrop-filter: blur(10px);
+}
+
+.carousel-button:hover {
+  background: var(--bc-surface-hover);
+  border-color: var(--bc-border-hover);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-button:focus-visible {
+  outline: 2px solid var(--bc-primary);
+  outline-offset: 3px;
+}
+
+.carousel-button-prev {
+  left: var(--bc-space-lg);
+}
+
+.carousel-button-next {
+  right: var(--bc-space-lg);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--bc-space-sm);
+  margin-top: var(--bc-space-xl);
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--bc-radius-full);
+  border: none;
+  background: var(--bc-border);
+  cursor: pointer;
+  transition: all var(--bc-transition-normal);
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: var(--bc-primary);
+  width: 24px;
+}
+
+.carousel-dot:hover {
+  background: var(--bc-border-hover);
+}
+
+.carousel-dot:focus-visible {
+  outline: 2px solid var(--bc-primary);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@media (max-width: 768px) {
+  .carousel-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-button-prev {
+    left: var(--bc-space-md);
+  }
+
+  .carousel-button-next {
+    right: var(--bc-space-md);
+  }
+}
+
