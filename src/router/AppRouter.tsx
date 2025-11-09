@@ -23,7 +23,8 @@ const SideProjectDetail = React.lazy(() => import('../pages/side-projects/SidePr
 const Testimonials = React.lazy(() => import('../pages/Testimonials'));
 const Resume = React.lazy(() => import('../pages/Resume'));
 const Contact = React.lazy(() => import('../pages/Contact'));
-const Inspiration = React.lazy(() => import('../pages/Inspiration'));
+const Inspiration = React.lazy(() => import('../pages/InspirationPage'));
+const InspirationDetail = React.lazy(() => import('../pages/InspirationDetail'));
 const Gallery = React.lazy(() => import('../pages/gallery'));
 const BrandBuilder = React.lazy(() => import('../pages/BrandBuilder'));
 const BrandDetail = React.lazy(() => import('../pages/brand/BrandDetail'));
@@ -125,6 +126,12 @@ const AppRouter: React.FC = () => {
         description:
           'A curated journey through the systems, designs, and philosophies that shape creative work',
         keywords: 'design inspiration, creative influences, design systems, branding inspiration',
+      };
+    } else if (path.startsWith('/inspiration/')) {
+      return {
+        title: 'Brand Project | BearCave Marketing',
+        description: 'Explore this exceptional branding and design project',
+        keywords: 'branding project, design case study, brand identity',
       };
     } else if (path === '/gallery') {
       return {
@@ -251,6 +258,14 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <Inspiration />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/inspiration/:slug"
+              element={
+                <PageTransition>
+                  <InspirationDetail />
                 </PageTransition>
               }
             />

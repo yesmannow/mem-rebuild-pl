@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { trackCTA } from '../utils/analytics';
+import { scrollToAnchor } from '../utils/scroll';
 import './home/Hero.css';
 
 export default function Hero() {
@@ -19,8 +19,14 @@ export default function Hero() {
     };
   }, []);
 
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, anchorId: string) => {
+    e.preventDefault();
+    scrollToAnchor(anchorId, { offset: 100 });
+    trackCTA(anchorId === 'contact' ? 'start_conversation' : 'view_work', 'hero');
+  };
+
   return (
-    <section className="hero-modern" aria-labelledby="hero-heading">
+    <section id="home" className="hero-modern" aria-labelledby="hero-heading">
       <div className="hero-media" aria-hidden="true">
         {!reduceMotion ? (
           <>
@@ -60,35 +66,40 @@ export default function Hero() {
 
       <div className="hero-content container-px">
         <div className="hero-inner">
-          <div className="hero-chips" aria-label="Experience highlights">
-            <span className="chip">Solo operator</span>
-            <span className="chip">16+ years</span>
-            <span className="chip">Hands-on</span>
-          </div>
           <h1 id="hero-heading" className="hero-tagline">
-            I build marketing systems that turn brands into revenue engines.
+            Where Complexity Becomes Clarity
           </h1>
+          <div className="hero-tagline-separator" />
           <p className="hero-subtitle">
-            Strategy, creative, analytics, and execution—unified under one operator. I design and
-            run growth systems that create predictable pipeline.
+            I craft systems where design and technology move as one. Turning curiosity into conversion. Chaos into clarity.
           </p>
           <div className="hero-ctas">
-            <Link
-              to="/contact"
-              className="btn-primary hero-cta"
-              aria-label="Contact me"
-              onClick={() => trackCTA('contact', 'hero')}
+            <a
+              href="#contact"
+              className="btn-primary hero-cta hero-cta--primary"
+              aria-label="Start a conversation"
+              onClick={(e) => handleAnchorClick(e, 'contact')}
             >
-              Contact Me
-            </Link>
-            <Link
-              to="/case-studies"
-              className="btn-secondary hero-cta"
-              aria-label="See my work"
-              onClick={() => trackCTA('view_case_studies', 'hero')}
+              START A CONVERSATION
+            </a>
+            <a
+              href="#portfolio"
+              className="btn-secondary hero-cta hero-cta--secondary"
+              aria-label="View my work"
+              onClick={(e) => handleAnchorClick(e, 'portfolio')}
             >
-              See My Work
-            </Link>
+              View My Work
+            </a>
+          </div>
+          {/* Tagline */}
+          <div className="hero-tags" aria-label="Core competencies">
+            <span className="hero-tag">STRATEGY</span>
+            <span className="hero-tag-separator">•</span>
+            <span className="hero-tag">AUTOMATION</span>
+            <span className="hero-tag-separator">•</span>
+            <span className="hero-tag hero-tag--emphasized">SYSTEMS</span>
+            <span className="hero-tag-separator">•</span>
+            <span className="hero-tag">STORYTELLING</span>
           </div>
         </div>
       </div>

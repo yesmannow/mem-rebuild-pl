@@ -1,0 +1,26 @@
+{
+  "name": "cli-inspiration-workflow",
+  "version": "1.0.0",
+  "description": "CLI tool for scraping design inspiration, AI summarization, and content generation",
+  "main": "scrapeAndGenerate.js",
+  "type": "commonjs",
+  "scripts": {
+    "scrape": "node scrapeAndGenerate.js"
+  },
+  "keywords": [
+    "scraping",
+    "ai",
+    "content-generation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.1",
+    "cheerio": "^1.0.0",
+    "html-to-text": "^9.0.5",
+    "dotenv": "^17.2.3",
+    "@google/generative-ai": "^0.24.1",
+    "sharp": "^0.33.0"
+  }
+}
+

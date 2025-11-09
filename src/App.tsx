@@ -10,6 +10,7 @@ import { initAnalytics } from './utils/analytics';
 import { initAccessibility } from './utils/accessibility';
 import JSONLD from './components/seo/JSONLD';
 import 'lenis/dist/lenis.css';
+import './styles/skip-to-content.css';
 
 const BearCaveHeader = lazy(() => import('./components/layout/BearCaveHeader'));
 const BearCaveFooter = lazy(() => import('./components/layout/BearCaveFooter'));
@@ -72,7 +73,15 @@ const App: React.FC = () => {
         <HelmetProvider>
           <ThemeProvider>
             <JSONLD />
-            <div className="app min-h-dvh flex flex-col bg-[color:theme('colors.cave.bg')] text-[color:theme('colors.cave.text')] font-sans">
+            {/* Skip to content link */}
+            <a
+              href="#main-content"
+              className="skip-to-content"
+              aria-label="Skip to main content"
+            >
+              Skip to content
+            </a>
+            <div className="app min-h-dvh flex flex-col" style={{ background: 'var(--bc-bg)', color: 'var(--bc-text-primary)' }}>
               <Suspense fallback={null}>
                 <PersonSchema />
               </Suspense>

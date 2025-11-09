@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NewsletterForm from '../newsletter/NewsletterForm';
+import { Linkedin, Github, Mail } from 'lucide-react';
 import './BearCaveFooter.css';
 
 const footerNavSections = [
@@ -40,6 +40,24 @@ const footerNavSections = [
   },
 ];
 
+const socialLinks = [
+  {
+    icon: Linkedin,
+    label: 'LinkedIn',
+    href: 'https://linkedin.com/in/jacobdarling',
+  },
+  {
+    icon: Github,
+    label: 'GitHub',
+    href: 'https://github.com/JdarlingGT',
+  },
+  {
+    icon: Mail,
+    label: 'Email',
+    href: 'mailto:hoosierdarling@gmail.com',
+  },
+];
+
 export default function BearCaveFooter() {
   return (
     <footer className="bearcave-footer">
@@ -47,9 +65,27 @@ export default function BearCaveFooter() {
         <div className="bearcave-footer__content">
           <div className="bearcave-footer__brand-section">
             <div className="bearcave-footer__brand">BearCave Marketing</div>
-            <p className="bearcave-footer__tagline">
-              Marketing systems that drive measurable growth
+            <p className="bearcave-footer__bio">
+              I'm Jacob Darling—a marketing strategist and systems architect. I build marketing
+              systems that turn brands into revenue engines.
             </p>
+            <div className="bearcave-footer__social">
+              {socialLinks.map(social => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target={social.href.startsWith('mailto:') ? undefined : '_blank'}
+                    rel={social.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                    className="bearcave-footer__social-link"
+                    aria-label={social.label}
+                  >
+                    <Icon size={20} />
+                  </a>
+                );
+              })}
+            </div>
           </div>
           <nav className="bearcave-footer__nav" aria-label="Footer navigation">
             {footerNavSections.map(section => (
@@ -67,9 +103,6 @@ export default function BearCaveFooter() {
               </div>
             ))}
           </nav>
-        </div>
-        <div className="bearcave-footer__newsletter">
-          <NewsletterForm />
         </div>
         <div className="bearcave-footer__meta">
           © {new Date().getFullYear()} Jacob Darling · All systems engineered in Indianapolis

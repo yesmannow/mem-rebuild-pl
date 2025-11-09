@@ -1,252 +1,353 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
-import { ChevronDown, FileText } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { FileText, ChevronDown } from 'lucide-react';
 import BearCaveLogo from '../branding/BearCaveLogo';
+import { scrollToAnchor } from '../../utils/scroll';
 import './BearCaveHeader.css';
-
-// Navigation menu structure
-const aboutMenuItems = [
-  { label: 'About Me', to: '/about', description: 'My story and background' },
-  { label: 'Interactive Resume', to: '/resume', description: 'View my resume' },
-];
-
-const workMenuItems = [
-  { label: 'Case Studies', to: '/case-studies', description: 'Project case studies' },
-  { label: 'Side Projects', to: '/side-projects', description: 'Personal projects' },
-  { label: 'Graphic Design', to: '/design', description: 'Visual design portfolio' },
-  { label: 'Photography', to: '/photography', description: 'Photo gallery' },
-];
-
-const toolsSkillsMenuItems = [
-  { label: 'Developer Builds', to: '/applications', description: 'Custom tools & apps I build' },
-  { label: 'Toolbox', to: '/toolbox', description: 'Skills and technologies' },
-];
-
-const inspirationMenuItems = [
-  { label: 'Brand Builder', to: '/brand-builder', description: 'Brand identity builder' },
-  { label: 'Inspiration', to: '/inspiration', description: 'Design inspiration' },
-];
 
 export default function BearCaveHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAboutMenuOpen, setIsAboutMenuOpen] = useState(false);
-  const [isWorkMenuOpen, setIsWorkMenuOpen] = useState(false);
-  const [isToolsSkillsMenuOpen, setIsToolsSkillsMenuOpen] = useState(false);
-  const [isInspirationMenuOpen, setIsInspirationMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('');
+  const [hoveredDropdown, setHoveredDropdown] = useState<string | null>(null);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
-  const aboutMenuRef = useRef<HTMLDivElement>(null);
-  const workMenuRef = useRef<HTMLDivElement>(null);
-  const toolsSkillsMenuRef = useRef<HTMLDivElement>(null);
-  const inspirationMenuRef = useRef<HTMLDivElement>(null);
 
+  // Navigation items with dropdown structure
+  const navItems = [
+    {
+      label: 'About Me',
+      to: '/about',
+    },
+    {
+      label: 'Work',
+      dropdown: [
+        { to: '/case-studies', label: 'Case Studies', description: 'Project case studies' },
+        { to: '/design', label: 'Graphic Design', description: 'Visual design portfolio' },
+        { to: '/photography', label: 'Photography', description: 'Photo gallery' },
+        { to: '/side-projects', label: 'Side Projects', description: 'Personal projects' },
+      ],
+    },
+    {
+      label: 'Tools/Skills',
+      dropdown: [
+        { to: '/applications', label: 'Dev Builds', description: 'Developer tools & applications' },
+        { to: '/toolbox', label: 'Toolbox', description: 'Frameworks & systems' },
+      ],
+    },
+    {
+      label: 'Inspiration',
+      dropdown: [
+        { to: '/inspiration', label: 'Inspiration', description: 'Design inspiration' },
+        { to: '/brand-builder', label: 'Brand Builder', description: 'Brand identity builder' },
+      ],
+    },
+    {
+      label: 'Contact',
+      to: '/contact',
+    },
+  ];
+
+  // Cleanup timeout on unmount
   useEffect(() => {
-    setIsMenuOpen(false);
-    setIsAboutMenuOpen(false);
-    setIsWorkMenuOpen(false);
-    setIsToolsSkillsMenuOpen(false);
-    setIsInspirationMenuOpen(false);
-  }, [location.pathname]);
+    return () => {
+      if (dropdownTimeoutRef.current) {
+        clearTimeout(dropdownTimeoutRef.current);
+      }
+    };
+  }, []);
 
+  // Check for reduced motion preference
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  // Close mobile menu on anchor click
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, anchorId: string) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    scrollToAnchor(anchorId, { offset: 100 });
+  };
+
+  // Scroll detection for fade-in/out effect and active section
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 12);
+      const currentScrollY = window.scrollY;
+
+      // Update scrolled state for background change
+      setIsScrolled(currentScrollY > 12);
+
+      // Determine active section based on scroll position
+      const sections = ['home', 'about', 'experience', 'portfolio', 'skills', 'testimonials', 'resume', 'contact'];
+      const scrollPosition = currentScrollY + 150; // Offset for header
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i]);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          if (scrollPosition >= offsetTop) {
+            setActiveSection(sections[i]);
+            break;
+          }
+        }
+      }
+
+      // Scroll fade-in/out logic (only if not reduced motion)
+      if (!prefersReducedMotion) {
+        const scrollThreshold = 100;
+
+        if (currentScrollY < scrollThreshold) {
+          // Always visible at top
+          setIsVisible(true);
+        } else if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+          // Scrolling down - fade out
+          setIsVisible(false);
+        } else if (currentScrollY < lastScrollY) {
+          // Scrolling up - fade in immediately
+          setIsVisible(true);
+        }
+      } else {
+        // Always visible if reduced motion
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
     };
 
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY, prefersReducedMotion]);
 
-  // Close dropdowns when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (aboutMenuRef.current && !aboutMenuRef.current.contains(event.target as Node)) {
-        setIsAboutMenuOpen(false);
-      }
-      if (workMenuRef.current && !workMenuRef.current.contains(event.target as Node)) {
-        setIsWorkMenuOpen(false);
-      }
-      if (
-        toolsSkillsMenuRef.current &&
-        !toolsSkillsMenuRef.current.contains(event.target as Node)
-      ) {
-        setIsToolsSkillsMenuOpen(false);
-      }
-      if (
-        inspirationMenuRef.current &&
-        !inspirationMenuRef.current.contains(event.target as Node)
-      ) {
-        setIsInspirationMenuOpen(false);
-      }
-    };
-
-    if (isAboutMenuOpen || isWorkMenuOpen || isToolsSkillsMenuOpen || isInspirationMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isAboutMenuOpen, isWorkMenuOpen, isToolsSkillsMenuOpen, isInspirationMenuOpen]);
-
-  // Check if current page is in a dropdown menu
-  const isAboutPage = aboutMenuItems.some(item => location.pathname === item.to);
-  const isWorkPage = workMenuItems.some(item => location.pathname === item.to);
-  const isToolsSkillsPage = toolsSkillsMenuItems.some(item => location.pathname === item.to);
-  const isInspirationPage = inspirationMenuItems.some(item => location.pathname === item.to);
+  // Only show anchor nav on homepage
+  const isHomePage = location.pathname === '/';
 
   return (
-    <header className={`bearcave-header ${isScrolled ? 'bearcave-header--scrolled' : ''}`}>
+    <header
+      className={`bearcave-header ${isScrolled ? 'bearcave-header--scrolled' : ''} ${isVisible ? 'bearcave-header--visible' : 'bearcave-header--hidden'}`}
+      style={prefersReducedMotion ? {} : {
+        transition: 'opacity 0.3s ease, transform 0.3s ease',
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
+        pointerEvents: isVisible ? 'auto' : 'none'
+      }}
+    >
       <div className="bearcave-header__inner">
-        <Link to="/" className="bearcave-header__brand" aria-label="Go to homepage">
+        <a
+          href={isHomePage ? '#home' : '/'}
+          className="bearcave-header__brand"
+          aria-label="Go to homepage"
+          onClick={isHomePage ? (e) => handleAnchorClick(e, 'home') : undefined}
+        >
           <BearCaveLogo variant="icon" size={40} animated={false} />
-          <span className="bearcave-header__brand-text">BearCave</span>
-        </Link>
-        <nav className="bearcave-header__nav" aria-label="Primary navigation">
-          {/* About Dropdown */}
-          <div className="bearcave-header__dropdown" ref={aboutMenuRef}>
-            <button
-              className={`bearcave-header__dropdown-toggle ${isAboutPage ? 'bearcave-header__link--active' : ''}`}
-              onClick={() => setIsAboutMenuOpen(!isAboutMenuOpen)}
-              aria-expanded={isAboutMenuOpen}
-              aria-haspopup="true"
-            >
-              About
-              <ChevronDown
-                className={`bearcave-header__dropdown-icon ${isAboutMenuOpen ? 'is-open' : ''}`}
-                size={16}
-              />
-            </button>
-            {isAboutMenuOpen && (
-              <div className="bearcave-header__dropdown-menu">
-                {aboutMenuItems.map(item => (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    className={`bearcave-header__dropdown-item ${location.pathname === item.to ? 'is-active' : ''}`}
-                    onClick={() => setIsAboutMenuOpen(false)}
+          <span className="bearcave-header__brand-text">BEARCAVE</span>
+        </a>
+        {isHomePage ? (
+          <nav className="bearcave-header__nav" aria-label="Primary navigation">
+            {navItems.map((item) => {
+              if (item.dropdown) {
+                return (
+                  <div
+                    key={item.label}
+                    className="bearcave-header__dropdown"
+                    onMouseEnter={() => {
+                      if (dropdownTimeoutRef.current) {
+                        clearTimeout(dropdownTimeoutRef.current);
+                      }
+                      setHoveredDropdown(item.label);
+                    }}
+                    onMouseLeave={() => {
+                      dropdownTimeoutRef.current = setTimeout(() => {
+                        setHoveredDropdown(null);
+                      }, 150);
+                    }}
                   >
-                    <div className="bearcave-header__dropdown-item-label">{item.label}</div>
-                    <div className="bearcave-header__dropdown-item-desc">{item.description}</div>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Work Dropdown */}
-          <div className="bearcave-header__dropdown" ref={workMenuRef}>
-            <button
-              className={`bearcave-header__dropdown-toggle ${isWorkPage ? 'bearcave-header__link--active' : ''}`}
-              onClick={() => setIsWorkMenuOpen(!isWorkMenuOpen)}
-              aria-expanded={isWorkMenuOpen}
-              aria-haspopup="true"
-            >
-              Work
-              <ChevronDown
-                className={`bearcave-header__dropdown-icon ${isWorkMenuOpen ? 'is-open' : ''}`}
-                size={16}
-              />
-            </button>
-            {isWorkMenuOpen && (
-              <div className="bearcave-header__dropdown-menu">
-                {workMenuItems.map(item => (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    className={`bearcave-header__dropdown-item ${location.pathname === item.to ? 'is-active' : ''}`}
-                    onClick={() => setIsWorkMenuOpen(false)}
+                    <Link
+                      to={item.dropdown[0]?.to || '#'}
+                      className={`bearcave-header__dropdown-toggle ${
+                        item.dropdown.some(d => location.pathname === d.to || location.pathname.startsWith(d.to + '/'))
+                          ? 'bearcave-header__link--active'
+                          : ''
+                      }`}
+                      aria-expanded={hoveredDropdown === item.label}
+                    >
+                      {item.label}
+                      <ChevronDown
+                        size={14}
+                        className={`bearcave-header__dropdown-icon ${
+                          hoveredDropdown === item.label ? 'is-open' : ''
+                        }`}
+                      />
+                    </Link>
+                    {hoveredDropdown === item.label && (
+                      <div
+                        className="bearcave-header__dropdown-menu"
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                            clearTimeout(dropdownTimeoutRef.current);
+                          }
+                          setHoveredDropdown(item.label);
+                        }}
+                        onMouseLeave={() => {
+                          dropdownTimeoutRef.current = setTimeout(() => {
+                            setHoveredDropdown(null);
+                          }, 150);
+                        }}
+                      >
+                        {item.dropdown.map((dropdownItem) => (
+                          <Link
+                            key={dropdownItem.to}
+                            to={dropdownItem.to}
+                            className={`bearcave-header__dropdown-item ${
+                              location.pathname === dropdownItem.to ? 'is-active' : ''
+                            }`}
+                          >
+                            <div className="bearcave-header__dropdown-item-label">
+                              {dropdownItem.label}
+                            </div>
+                            {dropdownItem.description && (
+                              <div className="bearcave-header__dropdown-item-desc">
+                                {dropdownItem.description}
+                              </div>
+                            )}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={item.label}
+                  to={item.to || '#'}
+                  className={`bearcave-header__link ${
+                    location.pathname === item.to ? 'bearcave-header__link--active' : ''
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+        ) : (
+          <nav className="bearcave-header__nav" aria-label="Primary navigation">
+            {navItems.map((item) => {
+              if (item.dropdown) {
+                return (
+                  <div
+                    key={item.label}
+                    className="bearcave-header__dropdown"
+                    onMouseEnter={() => {
+                      if (dropdownTimeoutRef.current) {
+                        clearTimeout(dropdownTimeoutRef.current);
+                      }
+                      setHoveredDropdown(item.label);
+                    }}
+                    onMouseLeave={() => {
+                      dropdownTimeoutRef.current = setTimeout(() => {
+                        setHoveredDropdown(null);
+                      }, 150);
+                    }}
                   >
-                    <div className="bearcave-header__dropdown-item-label">{item.label}</div>
-                    <div className="bearcave-header__dropdown-item-desc">{item.description}</div>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Tools/Skills Dropdown */}
-          <div className="bearcave-header__dropdown" ref={toolsSkillsMenuRef}>
-            <button
-              className={`bearcave-header__dropdown-toggle ${isToolsSkillsPage ? 'bearcave-header__link--active' : ''}`}
-              onClick={() => setIsToolsSkillsMenuOpen(!isToolsSkillsMenuOpen)}
-              aria-expanded={isToolsSkillsMenuOpen}
-              aria-haspopup="true"
-            >
-              Tools/Skills
-              <ChevronDown
-                className={`bearcave-header__dropdown-icon ${isToolsSkillsMenuOpen ? 'is-open' : ''}`}
-                size={16}
-              />
-            </button>
-            {isToolsSkillsMenuOpen && (
-              <div className="bearcave-header__dropdown-menu">
-                {toolsSkillsMenuItems.map(item => (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    className={`bearcave-header__dropdown-item ${location.pathname === item.to ? 'is-active' : ''}`}
-                    onClick={() => setIsToolsSkillsMenuOpen(false)}
-                  >
-                    <div className="bearcave-header__dropdown-item-label">{item.label}</div>
-                    <div className="bearcave-header__dropdown-item-desc">{item.description}</div>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Inspiration Dropdown */}
-          <div className="bearcave-header__dropdown" ref={inspirationMenuRef}>
-            <button
-              className={`bearcave-header__dropdown-toggle ${isInspirationPage ? 'bearcave-header__link--active' : ''}`}
-              onClick={() => setIsInspirationMenuOpen(!isInspirationMenuOpen)}
-              aria-expanded={isInspirationMenuOpen}
-              aria-haspopup="true"
-            >
-              Inspiration
-              <ChevronDown
-                className={`bearcave-header__dropdown-icon ${isInspirationMenuOpen ? 'is-open' : ''}`}
-                size={16}
-              />
-            </button>
-            {isInspirationMenuOpen && (
-              <div className="bearcave-header__dropdown-menu">
-                {inspirationMenuItems.map(item => (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    className={`bearcave-header__dropdown-item ${location.pathname === item.to ? 'is-active' : ''}`}
-                    onClick={() => setIsInspirationMenuOpen(false)}
-                  >
-                    <div className="bearcave-header__dropdown-item-label">{item.label}</div>
-                    <div className="bearcave-header__dropdown-item-desc">{item.description}</div>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Contact Link */}
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              `bearcave-header__link ${isActive ? 'bearcave-header__link--active' : ''}`
-            }
-          >
-            Contact
-          </NavLink>
-        </nav>
+                    <Link
+                      to={item.dropdown[0]?.to || '#'}
+                      className={`bearcave-header__dropdown-toggle ${
+                        item.dropdown.some(d => location.pathname === d.to || location.pathname.startsWith(d.to + '/'))
+                          ? 'bearcave-header__link--active'
+                          : ''
+                      }`}
+                      aria-expanded={hoveredDropdown === item.label}
+                    >
+                      {item.label}
+                      <ChevronDown
+                        size={14}
+                        className={`bearcave-header__dropdown-icon ${
+                          hoveredDropdown === item.label ? 'is-open' : ''
+                        }`}
+                      />
+                    </Link>
+                    {hoveredDropdown === item.label && (
+                      <div
+                        className="bearcave-header__dropdown-menu"
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                            clearTimeout(dropdownTimeoutRef.current);
+                          }
+                          setHoveredDropdown(item.label);
+                        }}
+                        onMouseLeave={() => {
+                          dropdownTimeoutRef.current = setTimeout(() => {
+                            setHoveredDropdown(null);
+                          }, 150);
+                        }}
+                      >
+                        {item.dropdown.map((dropdownItem) => (
+                          <Link
+                            key={dropdownItem.to}
+                            to={dropdownItem.to}
+                            className={`bearcave-header__dropdown-item ${
+                              location.pathname === dropdownItem.to ? 'is-active' : ''
+                            }`}
+                          >
+                            <div className="bearcave-header__dropdown-item-label">
+                              {dropdownItem.label}
+                            </div>
+                            {dropdownItem.description && (
+                              <div className="bearcave-header__dropdown-item-desc">
+                                {dropdownItem.description}
+                              </div>
+                            )}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={item.label}
+                  to={item.to || '#'}
+                  className={`bearcave-header__link ${
+                    location.pathname === item.to ? 'bearcave-header__link--active' : ''
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+        )}
         <div className="bearcave-header__cta">
-          <Link
-            to="/resume"
-            className="btn-primary bearcave-header__resume-btn"
-            aria-label="View Resume"
-          >
-            <FileText size={18} />
-            <span>View Resume</span>
-          </Link>
+          {isHomePage ? (
+            <a
+              href="#resume"
+              className="btn-primary bearcave-header__resume-btn"
+              aria-label="View Resume"
+              onClick={(e) => handleAnchorClick(e, 'resume')}
+            >
+              <FileText size={18} />
+              <span>View Resume</span>
+            </a>
+          ) : (
+            <Link
+              to="/resume"
+              className="btn-primary bearcave-header__resume-btn"
+              aria-label="View Resume"
+            >
+              <FileText size={18} />
+              <span>View Resume</span>
+            </Link>
+          )}
         </div>
         <button
           className={`bearcave-header__menu ${isMenuOpen ? 'is-open' : ''}`}
@@ -259,93 +360,119 @@ export default function BearCaveHeader() {
           <span />
         </button>
       </div>
-      <nav
-        className={`bearcave-header__mobile ${isMenuOpen ? 'is-open' : ''}`}
-        aria-label="Mobile navigation"
-      >
-        {/* Quick Action - View Resume */}
-        <Link
-          to="/resume"
-          className="btn-primary bearcave-header__mobile-cta bearcave-header__mobile-resume"
+      {isHomePage ? (
+        <nav
+          className={`bearcave-header__mobile ${isMenuOpen ? 'is-open' : ''}`}
+          aria-label="Mobile navigation"
         >
-          <FileText size={18} />
-          <span>View Resume</span>
-        </Link>
+          {/* Quick Action - View Resume pinned at bottom */}
+          <a
+            href="#resume"
+            className="btn-primary bearcave-header__mobile-cta bearcave-header__mobile-resume"
+            onClick={(e) => handleAnchorClick(e, 'resume')}
+          >
+            <FileText size={18} />
+            <span>View Resume</span>
+          </a>
 
-        {/* About Section */}
-        <div className="bearcave-header__mobile-section">
-          <div className="bearcave-header__mobile-section-title">About</div>
-          {aboutMenuItems.map(item => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) =>
-                `bearcave-header__mobile-link bearcave-header__mobile-link--sub ${isActive ? 'bearcave-header__mobile-link--active' : ''}`
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </div>
-
-        {/* Work Section */}
-        <div className="bearcave-header__mobile-section">
-          <div className="bearcave-header__mobile-section-title">Work</div>
-          {workMenuItems.map(item => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) =>
-                `bearcave-header__mobile-link bearcave-header__mobile-link--sub ${isActive ? 'bearcave-header__mobile-link--active' : ''}`
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </div>
-
-        {/* Tools/Skills Section */}
-        <div className="bearcave-header__mobile-section">
-          <div className="bearcave-header__mobile-section-title">Tools/Skills</div>
-          {toolsSkillsMenuItems.map(item => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) =>
-                `bearcave-header__mobile-link bearcave-header__mobile-link--sub ${isActive ? 'bearcave-header__mobile-link--active' : ''}`
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </div>
-
-        {/* Inspiration Section */}
-        <div className="bearcave-header__mobile-section">
-          <div className="bearcave-header__mobile-section-title">Inspiration</div>
-          {inspirationMenuItems.map(item => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) =>
-                `bearcave-header__mobile-link bearcave-header__mobile-link--sub ${isActive ? 'bearcave-header__mobile-link--active' : ''}`
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </div>
-
-        {/* Contact */}
-        <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            `bearcave-header__mobile-link ${isActive ? 'bearcave-header__mobile-link--active' : ''}`
-          }
+          {/* Flat nav items */}
+          <a
+            href="#home"
+            className={`bearcave-header__mobile-link ${activeSection === 'home' ? 'bearcave-header__mobile-link--active' : ''}`}
+            onClick={(e) => handleAnchorClick(e, 'home')}
+          >
+            Home
+          </a>
+          <a
+            href="#about"
+            className={`bearcave-header__mobile-link ${activeSection === 'about' ? 'bearcave-header__mobile-link--active' : ''}`}
+            onClick={(e) => handleAnchorClick(e, 'about')}
+          >
+            About
+          </a>
+          <a
+            href="#experience"
+            className={`bearcave-header__mobile-link ${activeSection === 'experience' ? 'bearcave-header__mobile-link--active' : ''}`}
+            onClick={(e) => handleAnchorClick(e, 'experience')}
+          >
+            Experience
+          </a>
+          <a
+            href="#portfolio"
+            className={`bearcave-header__mobile-link ${activeSection === 'portfolio' ? 'bearcave-header__mobile-link--active' : ''}`}
+            onClick={(e) => handleAnchorClick(e, 'portfolio')}
+          >
+            Portfolio
+          </a>
+          <a
+            href="#skills"
+            className={`bearcave-header__mobile-link ${activeSection === 'skills' ? 'bearcave-header__mobile-link--active' : ''}`}
+            onClick={(e) => handleAnchorClick(e, 'skills')}
+          >
+            Skills
+          </a>
+          <a
+            href="#testimonials"
+            className={`bearcave-header__mobile-link ${activeSection === 'testimonials' ? 'bearcave-header__mobile-link--active' : ''}`}
+            onClick={(e) => handleAnchorClick(e, 'testimonials')}
+          >
+            Testimonials
+          </a>
+          <a
+            href="#resume"
+            className={`bearcave-header__mobile-link ${activeSection === 'resume' ? 'bearcave-header__mobile-link--active' : ''}`}
+            onClick={(e) => handleAnchorClick(e, 'resume')}
+          >
+            Resume
+          </a>
+          <a
+            href="#contact"
+            className={`bearcave-header__mobile-link ${activeSection === 'contact' ? 'bearcave-header__mobile-link--active' : ''}`}
+            onClick={(e) => handleAnchorClick(e, 'contact')}
+          >
+            Contact
+          </a>
+        </nav>
+      ) : (
+        <nav
+          className={`bearcave-header__mobile ${isMenuOpen ? 'is-open' : ''}`}
+          aria-label="Mobile navigation"
         >
-          Contact
-        </NavLink>
-      </nav>
+          {navItems.map((item) => {
+            if (item.dropdown) {
+              return (
+                <div key={item.label} className="bearcave-header__mobile-dropdown">
+                  <div className="bearcave-header__mobile-dropdown-header">{item.label}</div>
+                  {item.dropdown.map((dropdownItem) => (
+                    <Link
+                      key={dropdownItem.to}
+                      to={dropdownItem.to}
+                      className={`bearcave-header__mobile-link ${
+                        location.pathname === dropdownItem.to ? 'bearcave-header__mobile-link--active' : ''
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {dropdownItem.label}
+                    </Link>
+                  ))}
+                </div>
+              );
+            }
+            return (
+              <Link
+                key={item.label}
+                to={item.to || '#'}
+                className={`bearcave-header__mobile-link ${
+                  location.pathname === item.to ? 'bearcave-header__mobile-link--active' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+      )}
     </header>
   );
 }

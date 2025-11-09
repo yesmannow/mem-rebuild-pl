@@ -138,14 +138,13 @@ const ResumeDownload: React.FC = () => {
                 <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
 
-              <a
-                href="/resume/Resume JD draft.pdf"
-                download="Jacob-Darling-Resume.pdf"
+              <Link
+                to="/resume"
                 className="group flex items-center justify-center gap-3 px-8 py-4 bg-gray-800/50 border border-white/10 text-white font-semibold rounded-xl hover:bg-gray-700/50 hover:border-white/20 transition-all duration-300 w-full sm:w-auto"
               >
                 <FileText className="w-5 h-5" />
-                <span>Direct PDF Download</span>
-              </a>
+                <span>View Interactive Resume</span>
+              </Link>
             </motion.div>
 
             {/* Quick Stats */}

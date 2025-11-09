@@ -1,0 +1,28 @@
+{
+  "hero": [
+    {
+      "query": "abstract tech gradient",
+      "count": 1,
+      "dest": "public/images/hero"
+    }
+  ],
+  "bio": [
+    {
+      "local": "public/images/bio/bio-photo.jpg",
+      "alt": "Portrait of Jacob Darling"
+    }
+  ],
+  "work": [
+    {
+      "slug": "317bbq-growth",
+      "query": "restaurant bbq kitchen closeup",
+      "count": 2
+    },
+    {
+      "slug": "graston-tech",
+      "query": "sports therapy training clinic",
+      "count": 2
+    }
+  ]
+}
+
