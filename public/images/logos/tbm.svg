@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-labelledby="title desc">
+  <title id="title">TBM Placeholder</title>
+  <desc id="desc">Modern shield placeholder for the TBM branding.</desc>
+  <rect width="160" height="120" rx="16" fill="#0F172A" />
+  <path d="M40 30h80v34c0 26-18 44-40 52-22-8-40-26-40-52V30z" fill="#22D3EE" />
+  <path d="M60 44h12l8 14 8-14h12l-12 20 12 20h-12l-8-14-8 14H60l12-20-12-20z" fill="#0F172A" />
+</svg>

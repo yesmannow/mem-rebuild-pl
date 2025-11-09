@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Black Letter Coffee Placeholder</title>
+  <desc id="desc">Stylised letter B placeholder for the Black Letter Coffee identity.</desc>
+  <rect width="120" height="120" rx="18" fill="#1C1917" />
+  <path d="M34 24h30c18 0 30 10 30 26 0 11-6 19-16 22 8 3 13 10 13 19 0 15-12 25-31 25H34V24zm27 38c7 0 11-4 11-10s-4-10-11-10H48v20h13zm3 36c8 0 13-4 13-11s-5-11-13-11H48v22h16z" fill="#FBBF24" />
+</svg>

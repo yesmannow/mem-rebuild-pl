@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+  <defs>
+    <linearGradient id="rbeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#f87171" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" rx="32" fill="#1f2937" />
+  <rect x="48" y="48" width="704" height="384" rx="28" fill="url(#rbeGradient)" opacity="0.85" />
+  <g fill="none" stroke="#fee2e2" stroke-width="6" stroke-linecap="round">
+    <path d="M140 160h520" opacity="0.4" />
+    <path d="M140 220h520" opacity="0.25" />
+    <path d="M140 280h520" opacity="0.15" />
+  </g>
+  <text x="120" y="196" fill="#fef2f2" font-family="'Inter', sans-serif" font-size="52" font-weight="600">
+    Riley Bennett Egloff
+  </text>
+  <text x="120" y="248" fill="#fee2e2" font-family="'Inter', sans-serif" font-size="26" font-weight="500">
+    Marketing Manager
+  </text>
+  <text x="120" y="300" fill="#fee2e2" font-family="'Inter', sans-serif" font-size="20" opacity="0.8">
+    Professional services • Communications • Brand stewardship
+  </text>
+</svg>

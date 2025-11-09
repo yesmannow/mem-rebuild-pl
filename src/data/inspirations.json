@@ -3,7 +3,7 @@
     "id": "1",
     "title": "IBM Design Language",
     "category": "Design Systems",
-    "image": "/assets/inspirations/ibm-design.jpg",
+    "image": "/images/inspirations/ibm-design.svg",
     "reflection": "The precision and scalability of IBM's design system taught me the importance of consistency at scale.",
     "details": "IBM's 8-bar logo and grid-based layouts influenced modern digital design principles."
   },
@@ -11,7 +11,7 @@
     "id": "2",
     "title": "NASA Graphics Standards Manual",
     "category": "Branding",
-    "image": "/assets/inspirations/nasa-manual.jpg",
+    "image": "/images/inspirations/nasa-manual.svg",
     "reflection": "NASA's manual showed how technical constraints can inspire creative solutions.",
     "details": "The worm logo and modular design system for space program materials."
   },
@@ -19,7 +19,7 @@
     "id": "3",
     "title": "British Rail Corporate Identity",
     "category": "Transportation Design",
-    "image": "/assets/inspirations/british-rail.jpg",
+    "image": "/images/inspirations/british-rail.svg",
     "reflection": "The bold simplicity of British Rail's identity proved that less can be more impactful.",
     "details": "Margaret Calvert's typeface and double-arrow symbol revolutionized transit design."
   },
@@ -27,7 +27,7 @@
     "id": "4",
     "title": "Studio Sutherland Letterpress",
     "category": "Typography",
-    "image": "/assets/inspirations/sutherland-press.jpg",
+    "image": "/images/inspirations/sutherland-press.svg",
     "reflection": "The tactile quality of letterpress reminded me that craft lives in the details.",
     "details": "Hand-set type and traditional printing techniques for modern applications."
   },
@@ -35,7 +35,7 @@
     "id": "5",
     "title": "Eames Institute Launch Kit",
     "category": "Product Design",
-    "image": "/assets/inspirations/eames-kit.jpg",
+    "image": "/images/inspirations/eames-kit.svg",
     "reflection": "The Eames' approach to education through design objects inspired my teaching philosophy.",
     "details": "Modular furniture and educational tools that blend form and function."
   }

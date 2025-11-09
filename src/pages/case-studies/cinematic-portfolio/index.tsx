@@ -12,7 +12,7 @@ import data from "./data.json";
 const CinematicPortfolio: React.FC = () => {
   return (
     <CaseStudyLayout>
-      <HeroSection title={data.title} backgroundImage="./cover.webp" />
+      <HeroSection title={data.title} backgroundImage="/images/case-studies/cinematic-portfolio/cover.svg" />
       <Overview 
         role={data.role} 
         tools={data.tools} 
@@ -21,11 +21,16 @@ const CinematicPortfolio: React.FC = () => {
       />
       <ChallengeSection challenge="Creating a cinematic portfolio that showcases storytelling through motion." />
       <ProcessTimeline phases={["Concept", "Storyboard", "Animation", "Review"]} />
-      <ShowcaseGallery images={["./gallery/image1.webp", "./gallery/image2.webp"]} />
+      <ShowcaseGallery
+        images={[
+          "/images/case-studies/cinematic-portfolio/gallery-1.svg",
+          "/images/case-studies/cinematic-portfolio/gallery-2.svg"
+        ]}
+      />
       <ResultSection 
         results="The portfolio received praise for its innovative use of motion and storytelling." 
-        beforeImage="./gallery/before.webp" 
-        afterImage="./gallery/after.webp" 
+        beforeImage="/images/case-studies/cinematic-portfolio/before.svg"
+        afterImage="/images/case-studies/cinematic-portfolio/after.svg"
       />
       <CTASection nextProjectSlug="branding-reel" />
     </CaseStudyLayout>

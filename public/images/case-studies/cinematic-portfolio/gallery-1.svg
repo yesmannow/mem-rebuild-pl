@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="cinematicGallery1" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#60a5fa" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" rx="48" fill="url(#cinematicGallery1)" />
+  <text x="400" y="320" fill="#dbeafe" font-family="'Inter', sans-serif" font-size="48" font-weight="600" text-anchor="middle">
+    Color Script
+  </text>
+</svg>

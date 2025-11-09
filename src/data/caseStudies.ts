@@ -29,7 +29,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "healthcare-campaign",
     title: "Healthcare Marketing Campaign",
-    image: "/images/auto-generated/case-studies/healthcare-campaign.webp",
+    image: "/images/case-studies/healthcare-campaign.svg",
     tagline: "Comprehensive healthcare advertising design system that builds trust while remaining accessible",
     category: ["Design", "Healthcare"],
     tags: ["healthcare", "advertising", "campaign", "medical", "branding"],
@@ -66,7 +66,7 @@ This project demonstrated how strategic design thinking and systematic implement
   {
     slug: "promotional-campaigns",
     title: "Seasonal Promotional Campaigns",
-    image: "/images/auto-generated/case-studies/promotional-campaigns.webp",
+    image: "/images/case-studies/promotional-campaigns.svg",
     tagline: "Dynamic promotional design system for retail marketing that adapts to seasons while driving conversions",
     category: ["Design", "Marketing"],
     tags: ["promotional", "seasonal", "retail", "marketing", "campaigns"],
@@ -104,7 +104,7 @@ This project demonstrated how systematic design thinking can solve operational c
   {
     slug: "brand-identity-systems",
     title: "Brand Identity Systems",
-    image: "/images/auto-generated/case-studies/brand-identity-systems.webp",
+    image: "/images/case-studies/brand-identity-systems.svg",
     tagline: "Comprehensive brand identity development for diverse clients across multiple industries",
     category: ["Design", "Branding"],
     tags: ["branding", "identity", "logo", "systems", "visual-identity"],
@@ -143,7 +143,7 @@ This work demonstrated expertise in strategic brand development—understanding 
   {
     slug: "proactive-support-engine",
     title: "The Proactive Support Engine",
-    image: "/images/auto-generated/case-studies/proactive-support-engine.webp",
+    image: "/images/case-studies/proactive-support-engine.svg",
     tagline: "Transforming Customer Support from a Cost Center to a Strategic Asset with an Intelligent, CRM-Aware Assistant",
     category: ["Marketing Systems", "Automation"],
     tags: ["AI", "CRM Integration", "Customer Support", "Cloudflare Workers"],
@@ -178,7 +178,7 @@ This project demonstrated how thoughtful automation and deep system integration 
   {
     slug: "command-center",
     title: "The Command Center",
-    image: "/images/auto-generated/case-studies/command-center.webp",
+    image: "/images/case-studies/command-center.svg",
     tagline: "Unifying Fragmented Data into a Single Pane of Glass for Proactive Event Management and Instructor Empowerment",
     category: ["Data & Analytics", "Systems"],
     tags: ["PHP", "REST API", "WordPress", "JavaScript", "SQL"],
@@ -214,7 +214,7 @@ This initiative demonstrates full-stack system design—data engineering, API ar
   {
     slug: "the-closer",
     title: "The Closer",
-    image: "/images/auto-generated/case-studies/the-closer.webp",
+    image: "/images/case-studies/the-closer.svg",
     tagline: "Engineering a Frictionless Sales Pipeline that Converts High-Value Quotes into Revenue with Pay-by-Link and Flexible Financing",
     category: ["Marketing Systems", "Automation"],
     tags: ["PHP", "Stripe API", "WooCommerce", "Gravity Forms", "ACF"],
@@ -251,7 +251,7 @@ This project highlights full-stack development and process automation expertise�
   {
     slug: "the-spotlight",
     title: "The Spotlight",
-    image: "/images/auto-generated/case-studies/the-spotlight.webp",
+    image: "/images/case-studies/the-spotlight.svg",
     tagline: "Proving Membership ROI and Driving Retention with a Data-Driven Analytics Dashboard",
     category: ["Data & Analytics"],
     tags: ["Google Analytics API", "PHP", "JavaScript", "Chart.js", "WP Cron"],
@@ -287,7 +287,7 @@ This project demonstrates ability to leverage third-party APIs (GA4), architect 
   {
     slug: "the-compass",
     title: "The Compass",
-    image: "/images/auto-generated/case-studies/the-compass.webp",
+    image: "/images/case-studies/the-compass.svg",
     tagline: "Forging a Foundation of Truth to Power Accurate, Data-Driven Marketing Decisions",
     category: ["Data & Analytics", "Marketing Systems"],
     tags: ["Google Tag Manager", "GA4", "PHP", "Data Layer", "Attribution"],
@@ -324,7 +324,7 @@ This project showcases technical marketing architecture expertise, demonstrating
   {
     slug: "the-pipeline",
     title: "The Pipeline",
-    image: "/images/auto-generated/case-studies/the-pipeline.webp",
+    image: "/images/case-studies/the-pipeline.svg",
     tagline: "Engineering a Flawless, Zero-Touch Student Journey from Purchase to Certification",
     category: ["Automation", "Systems"],
     tags: ["WooCommerce", "LearnDash", "WP Fusion", "Gravity Forms", "Workflow Automation"],
@@ -362,7 +362,7 @@ This project demonstrates process automation and deep platform integration exper
   {
     slug: "the-fortress",
     title: "The Fortress",
-    image: "/images/auto-generated/case-studies/the-fortress.webp",
+    image: "/images/case-studies/the-fortress.svg",
     tagline: "Building a Digital Fortress at the Edge to Protect Revenue, Enhance Performance, and Neutralize Threats",
     category: ["Systems"],
     tags: ["Cloudflare", "WAF", "Security", "Performance", "Edge Computing"],
@@ -398,7 +398,7 @@ This project demonstrates ability to architect enterprise-grade security and per
   {
     slug: "the-safety-net",
     title: "The Safety Net",
-    image: "/images/auto-generated/case-studies/the-safety-net.webp",
+    image: "/images/case-studies/the-safety-net.svg",
     tagline: "Enabling Marketing Agility with an Automated, Zero-Risk Deployment Pipeline",
     category: ["Systems"],
     tags: ["CI/CD", "GitHub Actions", "DevOps", "WP-CLI", "Automation"],

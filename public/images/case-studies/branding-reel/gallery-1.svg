@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="brandingGallery1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#f472b6" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" rx="48" fill="url(#brandingGallery1)" />
+  <text x="400" y="320" fill="#fdf2f8" font-family="'Inter', sans-serif" font-size="48" font-weight="600" text-anchor="middle">
+    Storyboard Frames
+  </text>
+</svg>

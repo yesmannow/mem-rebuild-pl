@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="hcGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#f8fafc" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#hcGradient)" />
+  <g fill="#ffffff" opacity="0.2">
+    <circle cx="200" cy="150" r="120" />
+    <circle cx="1000" cy="540" r="140" />
+    <rect x="860" y="120" width="160" height="160" rx="40" />
+  </g>
+  <text x="120" y="360" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="80" font-weight="700">
+    Healthcare Campaign
+  </text>
+  <text x="120" y="440" fill="#bae6fd" font-family="'Inter', sans-serif" font-size="36">
+    Trust-building multi-touch marketing system
+  </text>
+  <line x1="120" y1="470" x2="520" y2="470" stroke="#bae6fd" stroke-width="6" stroke-linecap="round" />
+</svg>

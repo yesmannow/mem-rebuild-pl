@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="closerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="#0b1120" />
+  <g opacity="0.3" fill="none" stroke="#10b981" stroke-width="5">
+    <path d="M200 520 C320 400 480 420 600 320 C720 220 880 220 1000 120" />
+  </g>
+  <circle cx="1000" cy="120" r="14" fill="#10b981" />
+  <text x="160" y="340" fill="#d1fae5" font-family="'Inter', sans-serif" font-size="76" font-weight="700">
+    The Closer
+  </text>
+  <text x="160" y="410" fill="#a7f3d0" font-family="'Inter', sans-serif" font-size="34">
+    Conversion automation framework
+  </text>
+</svg>

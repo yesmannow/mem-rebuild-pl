@@ -15,7 +15,7 @@ const MarketingCommandCenter = lazy(() => import("../../../components/dashboard/
 const GrastonDashboard: React.FC = () => {
   return (
     <CaseStudyLayout>
-      <HeroSection title={data.title} backgroundImage="./cover.webp" />
+      <HeroSection title={data.title} backgroundImage="/images/case-studies/graston-dashboard/cover.svg" />
       <Overview
         role={data.role}
         tools={data.tools}
@@ -24,14 +24,19 @@ const GrastonDashboard: React.FC = () => {
       />
       <ChallengeSection challenge="The challenge was to redesign the dashboard for better UX and motion fluidity." />
       <ProcessTimeline phases={["Research", "Design", "Development", "Testing"]} />
-      <ShowcaseGallery images={["./gallery/image1.webp", "./gallery/image2.webp"]} />
+      <ShowcaseGallery
+        images={[
+          "/images/case-studies/graston-dashboard/gallery-1.svg",
+          "/images/case-studies/graston-dashboard/gallery-2.svg"
+        ]}
+      />
       <Suspense fallback={null}>
         <MarketingCommandCenter />
       </Suspense>
       <ResultSection
         results="The redesign led to a 30% increase in user satisfaction and a 20% reduction in task completion time."
-        beforeImage="./gallery/before.webp"
-        afterImage="./gallery/after.webp"
+        beforeImage="/images/case-studies/graston-dashboard/before.svg"
+        afterImage="/images/case-studies/graston-dashboard/after.svg"
       />
       <CTASection nextProjectSlug="cinematic-portfolio" />
     </CaseStudyLayout>

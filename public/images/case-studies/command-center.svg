@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="commandGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#0ea5e9" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="#0f172a" />
+  <rect x="160" y="140" width="880" height="400" rx="32" fill="url(#commandGradient)" opacity="0.9" />
+  <g fill="#0f172a" opacity="0.45">
+    <rect x="220" y="200" width="200" height="80" rx="12" />
+    <rect x="460" y="200" width="200" height="80" rx="12" />
+    <rect x="700" y="200" width="200" height="80" rx="12" />
+    <rect x="220" y="320" width="300" height="140" rx="18" />
+    <rect x="560" y="320" width="340" height="140" rx="18" />
+  </g>
+  <text x="200" y="460" fill="#e0f2fe" font-family="'Inter', sans-serif" font-size="68" font-weight="700">
+    Command Center
+  </text>
+  <text x="200" y="520" fill="#bae6fd" font-family="'Inter', sans-serif" font-size="32">
+    Unified marketing intelligence dashboards
+  </text>
+</svg>

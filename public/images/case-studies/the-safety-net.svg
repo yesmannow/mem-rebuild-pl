@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="safetyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="#1e3a8a" />
+  <g fill="none" stroke="#bfdbfe" stroke-width="8" opacity="0.35">
+    <path d="M160 420 C320 260 520 260 680 420" />
+    <path d="M320 500 C480 340 680 340 840 500" />
+    <path d="M480 580 C640 420 840 420 1000 580" />
+  </g>
+  <text x="160" y="360" fill="#e0f2fe" font-family="'Inter', sans-serif" font-size="76" font-weight="700">
+    The Safety Net
+  </text>
+  <text x="160" y="430" fill="#bfdbfe" font-family="'Inter', sans-serif" font-size="34">
+    Customer experience continuity systems
+  </text>
+</svg>

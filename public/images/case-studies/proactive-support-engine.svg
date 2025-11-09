@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="supportGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120" />
+      <stop offset="50%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#22d3ee" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#supportGradient)" />
+  <g stroke="#38bdf8" stroke-width="4" opacity="0.35">
+    <polyline points="160,520 400,360 680,460 960,240" fill="none" />
+    <circle cx="160" cy="520" r="12" fill="#38bdf8" />
+    <circle cx="400" cy="360" r="12" fill="#38bdf8" />
+    <circle cx="680" cy="460" r="12" fill="#38bdf8" />
+    <circle cx="960" cy="240" r="12" fill="#38bdf8" />
+  </g>
+  <text x="120" y="320" fill="#e0f2fe" font-family="'Inter', sans-serif" font-size="76" font-weight="700">
+    Proactive Support Engine
+  </text>
+  <text x="120" y="400" fill="#cffafe" font-family="'Inter', sans-serif" font-size="34">
+    Intelligent CRM-aware assistance
+  </text>
+</svg>

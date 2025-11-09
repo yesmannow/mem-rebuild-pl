@@ -12,7 +12,7 @@ import data from "./data.json";
 const BrandingReel: React.FC = () => {
   return (
     <CaseStudyLayout>
-      <HeroSection title={data.title} backgroundImage="./cover.webp" />
+      <HeroSection title={data.title} backgroundImage="/images/case-studies/branding-reel/cover.svg" />
       <Overview 
         role={data.role} 
         tools={data.tools} 
@@ -21,11 +21,16 @@ const BrandingReel: React.FC = () => {
       />
       <ChallengeSection challenge="Crafting a compelling branding reel that captures the essence of the brand." />
       <ProcessTimeline phases={["Concept", "Design", "Animation", "Delivery"]} />
-      <ShowcaseGallery images={["./gallery/image1.webp", "./gallery/image2.webp"]} />
+      <ShowcaseGallery
+        images={[
+          "/images/case-studies/branding-reel/gallery-1.svg",
+          "/images/case-studies/branding-reel/gallery-2.svg"
+        ]}
+      />
       <ResultSection 
         results="The branding reel effectively communicated the brand's vision and increased engagement." 
-        beforeImage="./gallery/before.webp" 
-        afterImage="./gallery/after.webp" 
+        beforeImage="/images/case-studies/branding-reel/before.svg"
+        afterImage="/images/case-studies/branding-reel/after.svg"
       />
       <CTASection nextProjectSlug="graston-dashboard" />
     </CaseStudyLayout>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-labelledby="title desc">
+  <title id="title">Perpetual Movement Placeholder</title>
+  <desc id="desc">Dynamic looped path placeholder for Perpetual Movement Fitness.</desc>
+  <rect width="160" height="120" rx="16" fill="#111827" />
+  <path d="M36 60c0-22 16-40 44-40s44 18 44 40-16 40-44 40S36 82 36 60z" fill="none" stroke="#34D399" stroke-width="10" stroke-linecap="round" />
+  <path d="M40 44c8 10 22 16 40 16s32-6 40-16" fill="none" stroke="#6EE7B7" stroke-width="6" stroke-linecap="round" />
+</svg>
