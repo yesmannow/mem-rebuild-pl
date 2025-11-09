@@ -149,86 +149,81 @@ const HomePage: React.FC = () => {
 
       <motion.section
         id="work"
-        className="container-px mx-auto max-w-6xl py-16 md:py-24 space-y-10 section-panel section-panel--work"
-        className="section-block section-block--work py-16 md:py-24"
+        className="container-px mx-auto max-w-6xl py-16 md:py-24 space-y-10"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <div className="section-block__inner container-px mx-auto max-w-6xl space-y-10">
-          <motion.div className="space-y-4" variants={itemVariants}>
-            <h2 className="section-heading">Selected Work</h2>
-            <p className="section-subheading">
-              Real systems, real metrics. Every project below combines brand, product, analytics, and
-              automation so the business can scale without guesswork.
-            </p>
-          </motion.div>
-          <div className="space-y-8">
-            {selectedWork.map(work => (
-              <motion.div
-                key={work.title}
-                variants={itemVariants}
-                whileHover={{ y: -4 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              >
-                <CaseStudy
-                  title={work.title}
-                  summary={work.summary}
-                  metrics={work.metrics}
-                  image={work.image}
-                  tags={work.tags}
-                  slug={work.slug}
-                  accent={work.accent}
-                />
-              </motion.div>
-            ))}
-          </div>
+        <motion.div className="space-y-4" variants={itemVariants}>
+          <h2 className="section-heading">Selected Work</h2>
+          <p className="section-subheading">
+            Real systems, real metrics. Every project below combines brand, product, analytics, and
+            automation so the business can scale without guesswork.
+          </p>
+        </motion.div>
+        <div className="space-y-8">
+          {selectedWork.map((work, index) => (
+            <motion.div
+              key={work.title}
+              variants={itemVariants}
+              whileHover={{ y: -4 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
+              <CaseStudy
+                title={work.title}
+                summary={work.summary}
+                metrics={work.metrics}
+                image={work.image}
+                tags={work.tags}
+                slug={work.slug}
+                accent={work.accent}
+              />
+            </motion.div>
+          ))}
         </div>
       </motion.section>
 
       <motion.section
         id="about"
-        className="container-px mx-auto max-w-6xl py-16 md:py-24 section-panel section-panel--about"
+        className="container-px mx-auto max-w-6xl py-16 md:py-24"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <div className="section-block__inner container-px mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-5 gap-8 items-start">
-            <div className="md:col-span-2 card p-6">
-              <img
-                src="/images/bio/bio-photo.jpg"
-                alt="Jacob Darling"
-                className="rounded-xl w-full h-auto"
-                loading="lazy"
-              />
+        <div className="grid md:grid-cols-5 gap-8 items-start">
+          <div className="md:col-span-2 card p-6">
+            <img
+              src="/images/bio/bio-photo.jpg"
+              alt="Jacob Darling"
+              className="rounded-xl w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+          <div className="md:col-span-3 space-y-4">
+            <h2 className="section-heading">About me</h2>
+            <p>
+              I'm Jacob Darling—a marketing strategist and systems architect. I connect product
+              positioning, lifecycle marketing, analytics, and automation so operators have a
+              dependable revenue engine. I move from insight to implementation without handoffs.
+            </p>
+            <div className="flex gap-2 flex-wrap">
+              <span className="chip">Strategy</span>
+              <span className="chip">Positioning</span>
+              <span className="chip">Web + CRO</span>
+              <span className="chip">Lifecycle</span>
+              <span className="chip">Paid</span>
+              <span className="chip">Analytics</span>
             </div>
-            <div className="md:col-span-3 space-y-4">
-              <h2 className="section-heading">About me</h2>
-              <p>
-                I'm Jacob Darling—a marketing strategist and systems architect. I connect product
-                positioning, lifecycle marketing, analytics, and automation so operators have a
-                dependable revenue engine. I move from insight to implementation without handoffs.
-              </p>
-              <div className="flex gap-2 flex-wrap">
-                <span className="chip">Strategy</span>
-                <span className="chip">Positioning</span>
-                <span className="chip">Web + CRO</span>
-                <span className="chip">Lifecycle</span>
-                <span className="chip">Paid</span>
-                <span className="chip">Analytics</span>
-              </div>
-              <div>
-                <Link
-                  to="/about"
-                  className="btn-secondary inline-flex"
-                  onClick={() => trackCTA('learn_more', 'homepage')}
-                >
-                  Learn More
-                </Link>
-              </div>
+            <div>
+              <Link
+                to="/about"
+                className="btn-secondary inline-flex"
+                onClick={() => trackCTA('learn_more', 'homepage')}
+              >
+                Learn More
+              </Link>
             </div>
           </div>
         </div>
@@ -236,120 +231,97 @@ const HomePage: React.FC = () => {
 
       <motion.section
         id="services"
-        className="container-px mx-auto max-w-6xl py-16 md:py-24 section-panel section-panel--services"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <div className="section-block__inner">
-          <ServicesSection />
-        </div>
+        <ServicesSection />
       </motion.section>
 
       <motion.section
         id="clients"
-        className="container-px mx-auto max-w-6xl py-16 md:py-24 section-panel section-panel--clients"
+        className="container-px mx-auto max-w-6xl py-16 md:py-24"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <div className="section-block__inner container-px mx-auto max-w-6xl">
-          <ClientLogos />
-        </div>
+        <ClientLogos />
       </motion.section>
 
       <motion.div
-        className="container-px mx-auto max-w-6xl py-16 md:py-24 section-panel section-panel--testimonials"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <div className="section-block__inner space-y-10">
-          <motion.div
-            className="container-px mx-auto max-w-4xl text-center space-y-4"
-            variants={itemVariants}
-          >
-            <h2 className="section-heading">Client Proof</h2>
-            <p className="section-subheading">
-              Operators and founders trust these systems to power revenue, retention, and reporting.
-            </p>
-          </motion.div>
-          <motion.div className="container-px mx-auto max-w-4xl" variants={itemVariants}>
-            <Carousel
-              autoPlay={true}
-              interval={5000}
-              pauseOnHover={true}
-              ariaLabel="Client testimonials"
-            >
-              {testimonialsData.map((testimonial, index) => (
-                <div key={index} className="testimonial-card">
-                  <blockquote className="testimonial-quote">"{testimonial.quote}"</blockquote>
-                  <div className="testimonial-author">
-                    <div className="testimonial-author-info">
-                      <div className="testimonial-name">{testimonial.name}</div>
-                      <div className="testimonial-title">
-                        {testimonial.title} • {testimonial.company}
-                      </div>
-                    </div>
+        <Carousel
+          autoPlay={true}
+          interval={5000}
+          pauseOnHover={true}
+          ariaLabel="Client testimonials"
+        >
+          {testimonialsData.map((testimonial, index) => (
+            <div key={index} className="testimonial-card">
+              <blockquote className="testimonial-quote">"{testimonial.quote}"</blockquote>
+              <div className="testimonial-author">
+                <div className="testimonial-author-info">
+                  <div className="testimonial-name">{testimonial.name}</div>
+                  <div className="testimonial-title">
+                    {testimonial.title} • {testimonial.company}
                   </div>
                 </div>
-              ))}
-            </Carousel>
-          </motion.div>
-        </div>
-      </motion.section>
+              </div>
+            </div>
+          ))}
+        </Carousel>
+      </motion.div>
 
       <motion.section
         id="contact"
-        className="container-px mx-auto max-w-6xl py-16 md:py-24 section-panel section-panel--contact"
+        className="container-px mx-auto max-w-6xl py-16 md:py-24"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <div className="section-block__inner container-px mx-auto max-w-6xl">
-          <div className="card">
-            <h2 className="section-heading">Ready to build your next growth system?</h2>
-            <p className="section-subheading">
-              Tell me what needs to work better. I'll map the strategy, architect the system, and ship
-              it.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href="mailto:hoosierdarling@gmail.com"
-                className="btn-secondary"
-                onClick={() => trackCTA('email', 'contact')}
-              >
-                Email me
-              </a>
-              <a
-                href="https://cal.com/jacob-darling"
-                target="_blank"
-                rel="noreferrer"
-                className="btn-primary"
-                onClick={() => trackCTA('book_call', 'contact')}
-              >
-                Book a strategy call
-              </a>
-            </div>
+        <div className="card">
+          <h2 className="section-heading">Ready to build your next growth system?</h2>
+          <p className="section-subheading">
+            Tell me what needs to work better. I'll map the strategy, architect the system, and ship
+            it.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="mailto:hoosierdarling@gmail.com"
+              className="btn-secondary"
+              onClick={() => trackCTA('email', 'contact')}
+            >
+              Email me
+            </a>
+            <a
+              href="https://cal.com/jacob-darling"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary"
+              onClick={() => trackCTA('book_call', 'contact')}
+            >
+              Book a strategy call
+            </a>
           </div>
         </div>
       </motion.section>
 
       <motion.section
         id="newsletter"
-        className="container-px mx-auto max-w-4xl py-16 md:py-24 section-panel section-panel--newsletter"
+        className="container-px mx-auto max-w-4xl py-16 md:py-24"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <div className="section-block__inner container-px mx-auto max-w-4xl">
-          <NewsletterForm />
-        </div>
+        <NewsletterForm />
       </motion.section>
 
       <StickyCTA />
