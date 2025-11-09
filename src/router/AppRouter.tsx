@@ -45,6 +45,35 @@ const AppRouter: React.FC = () => {
         description: "I build marketing systems that turn brands into revenue engines.",
         keywords: "marketing strategist, marketing technologist, marketing automation, CRM campaigns"
       };
+    } else if (path === '/about') {
+      return {
+        title: "About | BearCave Marketing",
+        description: "Meet Jacob Darling, the solo operator behind BearCave Marketing—marketing automation, analytics, and growth systems architect.",
+        keywords: "Jacob Darling, marketing strategist, marketing technologist, automation"
+      };
+    } else if (path === '/applications') {
+      return {
+        title: "Applications | BearCave Marketing",
+        description: "Interactive applications engineered by Jacob Darling showcasing marketing automation, analytics, and product systems.",
+        keywords: "marketing applications, interactive demos, marketing technology"
+      };
+    } else if (path.startsWith('/applications/')) {
+      return {
+        title: "Application Detail | BearCave Marketing",
+        description: "Deep dive into a custom application engineered by Jacob Darling to solve real marketing, sales, and operations challenges."
+      };
+    } else if (path === '/projects') {
+      return {
+        title: "Projects | BearCave Marketing",
+        description: "Technical and value-driven projects delivered by Jacob Darling across automation, analytics, and growth operations.",
+        keywords: "marketing projects, technical portfolio, automation"
+      };
+    } else if (path === '/toolbox') {
+      return {
+        title: "Toolbox | BearCave Marketing",
+        description: "Marketing and product systems toolkit built by Jacob Darling—frameworks, automations, and go-to templates.",
+        keywords: "marketing toolbox, automation toolkit, systems architecture"
+      };
     } else if (path === '/resume') {
       return {
         title: "Resume | BearCave Marketing",

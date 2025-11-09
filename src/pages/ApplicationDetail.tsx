@@ -29,7 +29,12 @@ const ApplicationDetail: React.FC = () => {
 
       <AnimatedSection delay={0.1}>
         <header className="detail-header">
-          <div className="app-icon-large">🚀</div>
+          <div
+            className="app-icon-large"
+            style={{ background: app.accentGradient || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}
+          >
+            {app.icon}
+          </div>
           <motion.div variants={fadeInUp}>
             <h1>{app.title}</h1>
             <p className="tagline">{app.tagline}</p>

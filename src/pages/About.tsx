@@ -8,46 +8,142 @@ import MorphingBlob from "../components/animations/MorphingBlob";
 import ClientLogos from "../components/clients/ClientLogos";
 import TheGapDiagram from "../components/diagrams/TheGapDiagram";
 import VennDiagram from "../components/diagrams/VennDiagram";
-import CareerTimelineProgress from "../components/CareerTimelineProgress";
 import { fadeInUp } from "../utils/animations";
 import "./About.css";
 
 interface TimelineNode {
   id: string;
   title: string;
-  subtitle: string;
-  content: string;
-  year: string;
+  period: string;
+  headline: string;
+  problem: string;
+  strategy: string[];
+  result: string[];
 }
 
 const timelineNodes: TimelineNode[] = [
   {
     id: "launchpad",
     title: "The Launchpad",
-    subtitle: "My First Marketing Position",
-    content: "Learned to stretch marketing budgets while proving measurable ROI. Designed campaign visuals and implemented tracking systems that demonstrated marketing's impact through data-driven analytics.",
-    year: "Early Career"
+    period: "Early Career",
+    headline: "Turning creative hustle into measurable marketing systems",
+    problem:
+      "I started in small creative shops where every dollar mattered. Campaigns were beautiful, but no one could prove they worked.",
+    strategy: [
+      "Built my first analytics stacks with GA, spreadsheets, and hand-coded dashboards to show impact",
+      "Taught myself CMS development so I could launch updates without waiting on engineering",
+      "Documented playbooks that linked creative decisions to measurable KPIs"
+    ],
+    result: [
+      "Clients renewed because they could finally see which campaigns generated leads",
+      "Earned the freedom to pitch bigger, systems-level ideas",
+      "Set the foundation for every data-driven decision I make today"
+    ]
   },
   {
     id: "pike-medical",
     title: "Pike Medical Consultants",
-    subtitle: "Healthcare Marketing & Digital Strategy",
-    content: "Built two healthcare websites from scratch and implemented digital marketing campaigns that drove thousands of patient visits. Managed Google Ads and Meta Ads campaigns, designed brand assets from logos to billboards, and created an integrated patient acquisition system combining web, advertising, and CRM automation.",
-    year: "Agency Experience"
+    period: "Agency Experience",
+    headline: "Full-stack marketing for healthcare and clinical brands",
+    problem:
+      "Healthcare clients needed growth but had legacy systems and strict compliance guardrails. Marketing, sales, and patient experience lived in silos.",
+    strategy: [
+      "Rebuilt web experiences around conversion paths tied to patient outcomes",
+      "Launched paid media programs with HIPAA-safe analytics and call tracking",
+      "Stitched email, CRM, and field sales workflows so teams acted on the same signals"
+    ],
+    result: [
+      "Generated thousands of patient visits for regional clinics",
+      "Cut media waste by 32% while increasing appointment conversions",
+      "Became the operator clients called when something mission-critical needed fixing"
+    ]
   },
   {
     id: "graston-technique",
     title: "Graston Technique®",
-    subtitle: "Enterprise Marketing Automation & Growth",
-    content: "Developed and implemented a comprehensive marketing automation system with 400+ workflows using FluentCRM and custom integrations. Built AI-powered customer support that reduced support tickets by 70%. Optimized WooCommerce checkout flows that increased conversions by 40%. Managed multi-channel advertising campaigns (Google Ads, Meta Ads, LinkedIn Ads) with measurable ROI. Configured advanced analytics with Google Tag Manager and GA4 for comprehensive campaign tracking.",
-    year: "Enterprise Role"
+    period: "Enterprise Role",
+    headline: "Architecting the growth engine for a global education brand",
+    problem:
+      "A world-class education company ran on manual processes. Enrollment, ecommerce, support, and analytics spoke different languages.",
+    strategy: [
+      "Implemented 400+ automation workflows across FluentCRM, WooCommerce, and LearnDash",
+      "Designed AI-assisted support that resolved 70% of inquiries instantly",
+      "Built full-funnel analytics so leadership could see revenue, retention, and LTV in one place"
+    ],
+    result: [
+      "Increased enrollments 38% year over year",
+      "Eliminated redundant manual work and freed teams to focus on students",
+      "Proved marketing ROI every week with instrumentation-grade dashboards"
+    ]
   },
   {
     id: "current-portfolio",
     title: "Current Portfolio",
-    subtitle: "Marketing Strategist & Marketing Technologist",
-    content: "I bridge marketing strategy and technical execution.\n\nSpecializing in marketing automation, CRM campaigns, SEO/SEM optimization, analytics-driven strategy, and cross-functional project management. I build custom marketing tools, implement campaign automation, and deliver solutions with documented ROI that serve 30,000+ users worldwide.\n\nFrom strategy to systems—I turn marketing goals into measurable results.",
-    year: "Present"
+    period: "Present",
+    headline: "Solo operator, systems architect, revenue engineer",
+    problem:
+      "Brands need a single person who can translate vision into a measurable system. That’s my lane.",
+    strategy: [
+      "Partner with founders, CMOs, and COOs to architect marketing systems end-to-end",
+      "Design modular frameworks that blend product strategy, lifecycle, and analytics",
+      "Ship documented, assistant-ready processes so teams can scale without me in every meeting"
+    ],
+    result: [
+      "Operators trust me with their highest-stakes growth challenges",
+      "Every build includes documentation, enablement, and measurable outcomes",
+      "The BearCave portfolio keeps expanding with systems that create predictable pipeline"
+    ]
+  }
+];
+
+const communityRoles = [
+  {
+    icon: "🏛️",
+    title: "President",
+    organization: "School 80 Condos HOA",
+    period: "2019 – Present",
+    impact:
+      "I lead governance, budgeting, and capital planning for a 70-unit community, implementing communication cadences and vendor scorecards that keep residents informed and projects on track."
+  },
+  {
+    icon: "🎨",
+    title: "Board Member & Marketing Lead",
+    organization: "Primary Colours",
+    period: "2017 – Present",
+    impact:
+      "I design annual Installation Nation campaigns and steward the nonprofit’s digital presence, helping connect Indianapolis artists with new audiences."
+  },
+  {
+    icon: "👥",
+    title: "Board Member",
+    organization: "School 80 Condos HOA",
+    period: "2015 – 2019",
+    impact:
+      "I built the operating cadence the board still uses today—budget dashboards, contractor RFP process, and resident communication systems."
+  },
+  {
+    icon: "🎓",
+    title: "Design Volunteer",
+    organization: "Frances W Parker IPS School 56",
+    period: "2017",
+    impact:
+      "I created a 12-piece poster series for the Situational VALUES program, giving teachers visual tools to reinforce positive culture."
+  },
+  {
+    icon: "💼",
+    title: "Business Mentor",
+    organization: "SMART Anti-Bullying",
+    period: "2013",
+    impact:
+      "I coached middle school students through building a business and marketing plan—introducing them to storytelling, positioning, and pitching."
+  },
+  {
+    icon: "⚽",
+    title: "Designer",
+    organization: "Eastwood Middle School Soccer",
+    period: "2017 – Present",
+    impact:
+      "I design seasonal kits and supporter gear, using design to raise funds and create pride for the program."
   }
 ];
 
@@ -77,6 +173,7 @@ const bioImages = [
 
 const About: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [activeTimeline, setActiveTimeline] = useState<string>(timelineNodes[0].id);
 
   // Rotating bio gallery effect
   useEffect(() => {
@@ -212,7 +309,70 @@ const About: React.FC = () => {
       </AnimatedSection>
 
       <AnimatedSection delay={0.3}>
-        <CareerTimelineProgress />
+        <section className="career-timeline-section">
+          <div className="timeline-intro">
+            <h2>Career timeline</h2>
+            <p>
+              From early creative hustle to enterprise systems, every chapter sharpened how I architect marketing programs.
+              Tap a milestone to see the problem I inherited, the strategy I executed, and the results that followed.
+            </p>
+          </div>
+          <div className="timeline-cards">
+            {timelineNodes.map(node => {
+              const isOpen = activeTimeline === node.id;
+              return (
+                <motion.article
+                  key={node.id}
+                  className={`timeline-card ${isOpen ? "is-open" : ""}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <button
+                    className="timeline-card__header"
+                    onClick={() => setActiveTimeline(isOpen ? "" : node.id)}
+                    aria-expanded={isOpen}
+                    aria-controls={`${node.id}-panel`}
+                  >
+                    <div>
+                      <span className="timeline-card__period">{node.period}</span>
+                      <h3>{node.title}</h3>
+                    </div>
+                    <span className="timeline-card__toggle" aria-hidden="true">
+                      {isOpen ? "−" : "+"}
+                    </span>
+                  </button>
+                  <p className="timeline-card__headline">{node.headline}</p>
+                  {isOpen && (
+                    <div className="timeline-card__panel" id={`${node.id}-panel`}>
+                      <div className="timeline-card__section">
+                        <h4>The Challenge</h4>
+                        <p>{node.problem}</p>
+                      </div>
+                      <div className="timeline-card__section">
+                        <h4>The Strategy</h4>
+                        <ul>
+                          {node.strategy.map(item => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="timeline-card__section">
+                        <h4>The Result</h4>
+                        <ul>
+                          {node.result.map(item => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+                </motion.article>
+              );
+            })}
+          </div>
+        </section>
       </AnimatedSection>
 
       <AnimatedSection delay={0.4}>
@@ -226,109 +386,22 @@ const About: React.FC = () => {
           </p>
 
           <div className="volunteering-grid">
-            <motion.div
-              className="volunteer-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <div className="volunteer-icon">🏛️</div>
-              <h3>President</h3>
-              <h4>School 80 Condominiums HOA</h4>
-              <p className="volunteer-period">Oct 2019 - Present · 6+ years</p>
-              <p className="volunteer-description">
-                Lead governance, financial planning, and community relations for residential
-                condominium association, applying strategic thinking to property management
-                and community building.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="volunteer-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <div className="volunteer-icon">🎨</div>
-              <h3>Board Member & Marketing Lead</h3>
-              <h4>Primary Colours</h4>
-              <p className="volunteer-period">2017 - Present · 8+ years</p>
-              <p className="volunteer-description">
-                Design website and print materials for annual Installation Nation event.
-                Served as Board Member (2018-2019) for this non-profit dedicated to connecting
-                visual artists with their communities through exhibitions and cultural events.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="volunteer-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            >
-              <div className="volunteer-icon">👥</div>
-              <h3>Board Member</h3>
-              <h4>School 80 Condominiums HOA</h4>
-              <p className="volunteer-period">2015 - 2019 · 4 years</p>
-              <p className="volunteer-description">
-                Served as board member before assuming presidency, contributing to strategic
-                planning, community communications, and operational improvements.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="volunteer-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-            >
-              <div className="volunteer-icon">🎓</div>
-              <h3>Design Volunteer</h3>
-              <h4>Frances W Parker IPS School 56</h4>
-              <p className="volunteer-period">2017 · 2 months</p>
-              <p className="volunteer-description">
-                Designed 12 posters for the school's Situational VALUES project,
-                creating visual materials to reinforce positive character development.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="volunteer-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-            >
-              <div className="volunteer-icon">💼</div>
-              <h3>Business Mentor</h3>
-              <h4>SMART - Anti Bullying at School #96</h4>
-              <p className="volunteer-period">2013 · 5 months</p>
-              <p className="volunteer-description">
-                Guided students in developing business and marketing plan for their
-                anti-bullying program, teaching real-world strategy and planning skills.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="volunteer-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-            >
-              <div className="volunteer-icon">⚽</div>
-              <h3>Designer</h3>
-              <h4>Eastwood Middle School Soccer Team</h4>
-              <p className="volunteer-period">2017 - Present · 8+ years</p>
-              <p className="volunteer-description">
-                Design and print custom shirts for Eastwood Middle School women's soccer team,
-                supporting youth athletics through visual identity.
-              </p>
-            </motion.div>
+            {communityRoles.map((role, index) => (
+              <motion.div
+                key={role.title + role.organization}
+                className="volunteer-card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 * (index + 1) }}
+              >
+                <div className="volunteer-icon">{role.icon}</div>
+                <h3>{role.title}</h3>
+                <h4>{role.organization}</h4>
+                <p className="volunteer-period">{role.period}</p>
+                <p className="volunteer-description">{role.impact}</p>
+              </motion.div>
+            ))}
           </div>
         </section>
       </AnimatedSection>
