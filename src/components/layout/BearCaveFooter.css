@@ -1,49 +1,85 @@
 .bearcave-footer {
-  padding: 3rem 1.5rem 2.5rem;
-  background: radial-gradient(circle at top, rgba(124, 92, 255, 0.12), transparent 60%), #08080c;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--bc-space-5xl) var(--bc-space-xl) var(--bc-space-3xl);
+  background: radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 60%), var(--bc-bg);
+  border-top: 1px solid var(--bc-border);
 }
 
 .bearcave-footer__inner {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--bc-space-3xl);
+}
+
+.bearcave-footer__content {
   display: grid;
-  gap: var(--space-xl);
+  grid-template-columns: 1fr 2fr;
+  gap: var(--bc-space-3xl);
+  align-items: start;
+}
+
+.bearcave-footer__brand-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bc-space-sm);
 }
 
 .bearcave-footer__brand {
   font-family: var(--font-display);
-  font-size: 1.2rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--bc-text-primary);
+}
+
+.bearcave-footer__tagline {
+  font-size: 0.95rem;
+  color: var(--bc-text-secondary);
+  margin: 0;
 }
 
 .bearcave-footer__nav {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-lg);
+  gap: var(--bc-space-lg);
 }
 
 .bearcave-footer__link {
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--bc-text-secondary);
   font-size: 0.95rem;
   text-decoration: none;
-  transition: color var(--duration-fast) ease;
+  transition: color var(--bc-transition-normal);
 }
 
 .bearcave-footer__link:hover,
 .bearcave-footer__link:focus-visible {
-  color: var(--color-text);
+  color: var(--bc-text-primary);
+}
+
+.bearcave-footer__newsletter {
+  max-width: 600px;
 }
 
 .bearcave-footer__meta {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--bc-text-muted);
+  text-align: center;
+  padding-top: var(--bc-space-xl);
+  border-top: 1px solid var(--bc-border);
 }
 
 @media (max-width: 768px) {
+  .bearcave-footer {
+    padding: var(--bc-space-3xl) var(--bc-space-lg) var(--bc-space-2xl);
+  }
+
+  .bearcave-footer__content {
+    grid-template-columns: 1fr;
+    gap: var(--bc-space-xl);
+  }
+
   .bearcave-footer__nav {
-    gap: var(--space-md);
+    gap: var(--bc-space-md);
   }
 }

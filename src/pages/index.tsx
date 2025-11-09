@@ -1,9 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import CaseStudy from "../components/CaseStudy";
 import StickyCTA from "../components/StickyCTA";
-import Testimonials from "../components/Testimonials";
+import TestimonialsCarousel from "../components/testimonials/TestimonialsCarousel";
+import NewsletterForm from "../components/newsletter/NewsletterForm";
+import ServicesSection from "../components/services/ServicesSection";
 import { trackCTA } from "../utils/analytics";
 
 const selectedWork = [
@@ -91,8 +94,8 @@ const HomePage: React.FC = () => {
         transition={{ duration: 0.6 }}
       >
         <div className="space-y-4">
-          <h2 className="text-3xl md:text-4xl font-display">Selected Work</h2>
-          <p className="max-w-2xl text-base md:text-lg opacity-80">
+          <h2 className="section-heading">Selected Work</h2>
+          <p className="section-subheading">
             Real systems, real metrics. Every project below combines brand, product, analytics, and automation so the business can
             scale without guesswork.
           </p>
@@ -133,9 +136,9 @@ const HomePage: React.FC = () => {
             <img src="/images/bio/bio-photo.jpg" alt="Jacob Darling" className="rounded-xl w-full h-auto" loading="lazy" />
           </div>
           <div className="md:col-span-3 space-y-4">
-            <h2 className="text-3xl md:text-4xl font-display">About me</h2>
+            <h2 className="section-heading">About me</h2>
             <p>
-              I’m Jacob Darling—a marketing strategist and systems architect. I connect product positioning, lifecycle marketing,
+              I'm Jacob Darling—a marketing strategist and systems architect. I connect product positioning, lifecycle marketing,
               analytics, and automation so operators have a dependable revenue engine. I move from insight to implementation without
               handoffs.
             </p>
@@ -148,17 +151,26 @@ const HomePage: React.FC = () => {
               <span className="chip">Analytics</span>
             </div>
             <div>
-              <motion.a
-                href="/about"
+              <Link
+                to="/about"
                 className="btn-secondary inline-flex"
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
+                onClick={() => trackCTA("learn_more", "homepage")}
               >
                 Learn More
-              </motion.a>
+              </Link>
             </div>
           </div>
         </div>
+      </motion.section>
+
+      <motion.section
+        id="services"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <ServicesSection />
       </motion.section>
 
       <motion.div
@@ -167,7 +179,7 @@ const HomePage: React.FC = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <Testimonials items={testimonialsData} />
+        <TestimonialsCarousel testimonials={testimonialsData} />
       </motion.div>
 
       <motion.section
@@ -178,9 +190,9 @@ const HomePage: React.FC = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <div className="card p-8 md:p-10">
-          <h2 className="text-3xl md:text-4xl font-display mb-4">Ready to build your next growth system?</h2>
-          <p className="mb-6">Tell me what needs to work better. I’ll map the strategy, architect the system, and ship it.</p>
+        <div className="card">
+          <h2 className="section-heading">Ready to build your next growth system?</h2>
+          <p className="section-subheading">Tell me what needs to work better. I'll map the strategy, architect the system, and ship it.</p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
               href="mailto:hoosierdarling@gmail.com"
@@ -200,6 +212,17 @@ const HomePage: React.FC = () => {
             </a>
           </div>
         </div>
+      </motion.section>
+
+      <motion.section
+        id="newsletter"
+        className="container-px mx-auto max-w-4xl py-16 md:py-24"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <NewsletterForm />
       </motion.section>
 
       <StickyCTA />

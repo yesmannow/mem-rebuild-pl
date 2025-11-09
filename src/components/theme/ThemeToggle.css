@@ -1,0 +1,26 @@
+/* Theme Toggle Styles */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--bc-surface);
+  border: 1px solid var(--bc-border);
+  border-radius: var(--bc-radius-lg);
+  cursor: pointer;
+  transition: all var(--bc-transition-normal);
+  color: var(--bc-text-primary);
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--bc-surface-hover);
+  border-color: var(--bc-border-hover);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--bc-primary);
+  outline-offset: 3px;
+}
+

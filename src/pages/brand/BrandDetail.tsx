@@ -5,7 +5,7 @@ import { ArrowLeft, Download, Share2, Copy } from "lucide-react";
 import AnimatedSection from "../../components/animations/AnimatedSection";
 import TextReveal from "../../components/animations/TextReveal";
 import { fadeInUp } from "../../utils/animations";
-import "../brand/BrandDetail.css";
+import "./BrandDetail.css";
 
 interface BrandTokens {
   name: string;
@@ -210,3 +210,4 @@ const BrandDetail: React.FC = () => {
 };
 
 export default BrandDetail;
+

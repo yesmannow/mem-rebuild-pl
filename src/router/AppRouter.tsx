@@ -23,6 +23,9 @@ const Testimonials = React.lazy(() => import("../pages/Testimonials"));
 const Resume = React.lazy(() => import("../pages/Resume"));
 const Contact = React.lazy(() => import("../pages/Contact"));
 const Inspiration = React.lazy(() => import("../pages/Inspiration"));
+const Gallery = React.lazy(() => import("../pages/gallery"));
+const BrandBuilder = React.lazy(() => import("../pages/BrandBuilder"));
+const BrandDetail = React.lazy(() => import("../pages/brand/BrandDetail"));
 const NotFound = React.lazy(() => import("../pages/NotFound"));
 
 // Loading component - use unique class to avoid GSAP selector conflicts
@@ -97,6 +100,23 @@ const AppRouter: React.FC = () => {
         description: "Get in touch with Jacob Darling for job opportunities, collaborations, or consulting inquiries",
         keywords: "contact, hire, job opportunity, marketing consultant"
       };
+    } else if (path === '/gallery') {
+      return {
+        title: "Brand Gallery | BearCave Marketing",
+        description: "Explore curated brand identity systems and design systems created with the Brand Builder",
+        keywords: "brand gallery, brand boards, design systems, brand identity"
+      };
+    } else if (path === '/brand-builder') {
+      return {
+        title: "Brand Builder | BearCave Marketing",
+        description: "Create a complete brand identity system in minutes with our interactive brand builder",
+        keywords: "brand builder, brand identity, design system, brand creation"
+      };
+    } else if (path.startsWith('/brand/')) {
+      return {
+        title: "Brand Board | BearCave Marketing",
+        description: "Explore this brand identity system and design tokens"
+      };
     }
 
     return {};
@@ -127,6 +147,9 @@ const AppRouter: React.FC = () => {
             <Route path="/testimonials" element={<PageTransition><Testimonials /></PageTransition>} />
             <Route path="/resume" element={<PageTransition><Resume /></PageTransition>} />
             <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+            <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
+            <Route path="/brand-builder" element={<PageTransition><BrandBuilder /></PageTransition>} />
+            <Route path="/brand/:slug" element={<PageTransition><BrandDetail /></PageTransition>} />
             <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
           </Routes>
         </Suspense>

@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./styles/globals.css";
+import "./styles/bearcave-brand.css";
 
 // Verify React is loaded before proceeding
 if (typeof React === 'undefined' || typeof ReactDOM === 'undefined') {

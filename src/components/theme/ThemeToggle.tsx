@@ -1,90 +1,62 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Sun, Moon, Monitor, Briefcase, Code } from 'lucide-react';
-import { useTheme } from './ThemeProvider';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Sun, Moon } from "lucide-react";
+import "./ThemeToggle.css";
 
 const ThemeToggle: React.FC = () => {
-  const { theme, brand, setTheme, setBrand } = useTheme();
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
+  const [mounted, setMounted] = useState(false);
 
-  const themeIcons = {
-    light: Sun,
-    system: Monitor,
-    dark: Moon,
+  useEffect(() => {
+    setMounted(true);
+    // Check for saved theme preference or default to dark
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+
+    setTheme(initialTheme);
+    applyTheme(initialTheme);
+  }, []);
+
+  const applyTheme = (newTheme: "light" | "dark") => {
+    const root = document.documentElement;
+    if (newTheme === "dark") {
+      root.classList.add("dark");
+      root.style.colorScheme = "dark";
+    } else {
+      root.classList.remove("dark");
+      root.style.colorScheme = "light";
+    }
   };
 
-  const brandIcons = {
-    cmo: Briefcase,
-    dev: Code,
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    applyTheme(newTheme);
   };
+
+  if (!mounted) {
+    return null; // Prevent hydration mismatch
+  }
 
   return (
-    <div className="flex items-center gap-3 flex-wrap">
-      {/* Theme segment: Light / System / Dark */}
-      <div className="theme-card flex overflow-hidden">
-        {(['light', 'system', 'dark'] as const).map((t) => {
-          const active = theme === t;
-          const Icon = themeIcons[t];
-          return (
-            <button
-              key={t}
-              {...(active ? { 'aria-pressed': 'true' } : { 'aria-pressed': 'false' })}
-              onClick={() => setTheme(t)}
-              className={`relative flex items-center gap-1.5 px-3 py-2 text-sm font-medium transition-colors ${
-                active
-                  ? 'text-white'
-                  : 'text-text hover:text-accent'
-              }`}
-              title={`Switch to ${t} theme`}
-            >
-              <Icon className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">
-                {t.charAt(0).toUpperCase() + t.slice(1)}
-              </span>
-              {active && (
-                <motion.span
-                  layoutId="theme-pill"
-                  className="absolute inset-0 -z-10 bg-accent rounded-[var(--radius)]"
-                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                />
-              )}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Brand segment: CMO / Dev */}
-      <div className="theme-card relative flex overflow-hidden">
-        {(['cmo', 'dev'] as const).map((b) => {
-          const active = brand === b;
-          const Icon = brandIcons[b];
-          return (
-            <button
-              key={b}
-              {...(active ? { 'aria-pressed': 'true' } : { 'aria-pressed': 'false' })}
-              onClick={() => setBrand(b)}
-              className={`relative flex items-center gap-1.5 px-3 py-2 text-sm font-medium transition-colors ${
-                active
-                  ? 'text-white'
-                  : 'text-text hover:text-accent'
-              }`}
-              title={`Switch to ${b.toUpperCase()} mode`}
-            >
-              <Icon className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">{b.toUpperCase()} Mode</span>
-              {active && (
-                <motion.span
-                  layoutId="brand-pill"
-                  className="absolute inset-0 -z-10 bg-accent rounded-[var(--radius)]"
-                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                />
-              )}
-            </button>
-          );
-        })}
-      </div>
-    </div>
+    <motion.button
+      className="theme-toggle"
+      onClick={toggleTheme}
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+    >
+      <motion.div
+        initial={false}
+        animate={{ rotate: theme === "dark" ? 0 : 180 }}
+        transition={{ duration: 0.3 }}
+      >
+        {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+      </motion.div>
+    </motion.button>
   );
 };
 
 export default ThemeToggle;
-

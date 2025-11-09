@@ -1,6 +1,4 @@
 import React from "react";
-
-import React from "react";
 import { trackCTA } from "../utils/analytics";
 
 export default function StickyCTA() {

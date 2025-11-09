@@ -24,7 +24,8 @@
 }
 
 html {
-  background-color: #0D0D0F; /* BearCave bg color */
+  background-color: var(--bc-bg);
+  color: var(--bc-text-primary);
 }
 
 body {
@@ -32,8 +33,8 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: var(--bc-bg);
+  color: var(--bc-text-primary);
   line-height: var(--leading-normal);
   overflow-x: hidden;
   padding-top: var(--header-height);

@@ -45,7 +45,7 @@ export default function Hero() {
             <span className="chip">16+ years</span>
             <span className="chip">Hands-on</span>
           </div>
-          <h1 id="hero-heading" className="hero-title">
+          <h1 id="hero-heading" className="hero-tagline">
             I build marketing systems that turn brands into revenue engines.
           </h1>
           <p className="hero-subtitle">
