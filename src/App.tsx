@@ -82,22 +82,12 @@ const App: React.FC = () => {
               fallback={
                 <header className="container-px">
                   <div className="mx-auto max-w-6xl py-6 flex items-center justify-between">
-                    <Link to="/" className="font-display text-xl">
-                      BearCave
-                    </Link>
+                    <Link to="/" className="font-display text-xl">BearCave</Link>
                     <nav className="hidden md:flex items-center gap-6 text-sm">
-                      <a href="#work" className="hover:opacity-75">
-                        Work
-                      </a>
-                      <a href="#about" className="hover:opacity-75">
-                        About
-                      </a>
-                      <a href="#contact" className="hover:opacity-75">
-                        Contact
-                      </a>
-                      <a href="#contact" className="btn-primary">
-                        Work With Me
-                      </a>
+                      <a href="#work" className="hover:opacity-75">Work</a>
+                      <a href="#about" className="hover:opacity-75">About</a>
+                      <a href="#contact" className="hover:opacity-75">Contact</a>
+                      <a href="#contact" className="btn-primary">Work With Me</a>
                     </nav>
                   </div>
                 </header>
