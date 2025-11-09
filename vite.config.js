@@ -16,8 +16,8 @@ export default defineConfig({
   ].filter(Boolean),
   server: {
     fs: {
-      // Allow imports from cli-workflow directory
-      allow: ['..']
+      // Allow imports from cli-workflow directory only
+      allow: [resolve(__dirname, 'cli-workflow')]
     }
   },
   build: {
