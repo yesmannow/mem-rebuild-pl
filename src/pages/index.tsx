@@ -1,144 +1,101 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Hero';
-import CaseStudy from '../components/CaseStudy';
-import StickyCTA from '../components/StickyCTA';
-import Carousel from '../components/Carousel';
-import NewsletterForm from '../components/newsletter/NewsletterForm';
-import ServicesSection from '../components/services/ServicesSection';
+import WhoIAm from '../components/home/WhoIAm';
+import CareerHighlights from '../components/home/CareerHighlights';
+import Portfolio from '../components/home/Portfolio';
+import MySkills from '../components/home/MySkills';
+import Testimonials from '../components/home/Testimonials';
+import FinalCTA from '../components/home/FinalCTA';
 import OrganizationSchema from '../components/seo/OrganizationSchema';
 import ServiceSchema from '../components/seo/ServiceSchema';
 import ReviewSchema from '../components/seo/ReviewSchema';
-import ClientLogos from '../components/clients/ClientLogos';
-import { trackCTA } from '../utils/analytics';
 
-const selectedWork = [
-  {
-    title: '317 BBQ Growth Engine',
-    summary:
-      'Rebuilt the brand narrative, redesigned the commerce experience, and automated lifecycle journeys that keep fans coming back.',
-    metrics: [
-      { label: 'Online Orders', value: '↑ 29% in 90 days' },
-      { label: 'Email Revenue', value: '+54%' },
-      { label: 'Average Order Value', value: '+18%' },
-    ],
-    image: '/images/side-projects/317-bbq.svg',
-    tags: ['Brand System', 'Lifecycle Automation', 'CRO'],
-    slug: 'the-launchpad',
-    accent: '#FF8A65',
-  },
-  {
-    title: 'Graston Technique Lifecycle',
-    summary:
-      'Unified WooCommerce, LearnDash, and FluentCRM so education, sales, and support work from the same playbook.',
-    metrics: [
-      { label: 'Enrollments', value: '↑ 38% YoY' },
-      { label: 'Support Volume', value: '-70%' },
-      { label: 'Automation Coverage', value: '400+ flows' },
-    ],
-    image: '/images/case-studies/graston-dashboard/cover.svg',
-    tags: ['Systems Architecture', 'MarTech', 'Analytics'],
-    slug: 'the-conductor',
-    accent: '#7C5CFF',
-  },
-  {
-    title: 'Next Build in Progress',
-    summary:
-      'Currently architecting a new growth system that fuses product, analytics, and automation for a healthcare operator.',
-    metrics: [
-      { label: 'Launch Window', value: 'Summer 2025' },
-      { label: 'Focus', value: 'Predictable pipeline' },
-      { label: 'Status', value: 'In build' },
-    ],
-    image: '/images/case-studies/promotional-campaigns.svg',
-    tags: ['Automation', 'Analytics', 'Ops'],
-    accent: '#64748B',
-  },
-];
+// Lazy load heavy components
+const PersonSchema = lazy(() => import('../components/seo/PersonSchema'));
 
 const testimonialsData = [
   {
-    quote:
-      'Jacob is the rare operator who can architect the system, build it, and prove the ROI inside the same sprint.',
-    name: 'Sarah Chen',
-    title: 'Chief Marketing Officer',
-    company: 'Series B SaaS',
+    quote: "Jacob brings energy, creativity, and execution. Rare mix of strategy and hands-on delivery.",
+    fullQuote: "I've known Jacob and worked with him off and on for more than two decades, and he continues to impress me with the energy, creativity, and passion he brings to everything he does. He thrives in fast-paced environments and is always eager to explore new tools and technologies to get results. Jacob has a great balance of strategic thinking and hands-on execution, and I've learned a lot from working alongside him. I'd recommend him to anyone looking for a marketing professional who's both forward-thinking and results-oriented.",
+    name: 'Jesse Wey',
+    title: 'Web Development | IT | Marketing | People',
+    company: 'LinkedIn Recommendation',
+    date: 'October 2025',
   },
   {
-    quote:
-      'He turned our fragmented data into a growth engine. Strategy, implementation, and documentation all shipped together.',
-    name: 'Michael Rodriguez',
-    title: 'Founder',
-    company: 'Commerce Collective',
+    quote: "Jacob delivers impact fast. He's forward-thinking, tech-savvy, and results-driven.",
+    fullQuote: "Jacob is the kind of marketer who makes an immediate impact. His passion and energy for the field show up in everything he does, from brainstorming creative campaigns/projects to diving into data to understand what really drives results. He's constantly learning new technologies and figuring out how to put them to work in practical ways. That curiosity and drive to improve make him not just effective, but always evolving as a marketer. Any team would be lucky to have someone with his mix of creativity, adaptability, and reliability.",
+    name: 'Andrew Bastnagel, MBA',
+    title: 'Financial Services Consultant | Digital Transformation Strategist',
+    company: 'LinkedIn Recommendation',
+    date: 'October 2025',
   },
   {
-    quote:
-      "Jacob's marketing automation work gave our team time back and produced the most predictable pipeline we've ever had.",
-    name: 'Emily Johnson',
-    title: 'VP of Growth',
-    company: 'Healthcare Network',
+    quote: "Unparalleled energy, focus, and follow-through. Jacob gets it done and gets it done right.",
+    fullQuote: "Jacob is an involved and dedicated marketer. His exuberance, and moxie are unparalleled. He excels in managing multiple projects concurrently with strong detail, problem solving, and follow-through. Jacob displays a combination of creative and analytical skills, with proven ability to assess and implement marketing strategies that produce a positive return on investment.",
+    name: 'Kevin Martin See',
+    title: 'IBMer | Connector | Ally',
+    company: 'LinkedIn Recommendation',
+    date: 'October 2014',
+  },
+  {
+    quote: "Jacob Darling has done PR and marketing work in the past. He is hardworking, creative and a pleasure to work with. Jacob has skills in web design, branding, and personal communication. I would work with Jacob again and recommend others to do the same.",
+    fullQuote: "Jacob Darling has done PR and marketing work in the past. He is hardworking, creative and a pleasure to work with. Jacob has skills in web design, branding, and personal communication. I would work with Jacob again and recommend others to do the same.",
+    name: 'Nick Brown',
+    title: 'DMA, Inc.',
+    company: 'LinkedIn Recommendation',
+    date: 'October 2013',
+  },
+  {
+    quote: "I found Jacob to have great communication skills and creative abilities. He is focused and engaged in the projects he directs and participates in. What stands out the most in working with him is his energy and enthusiasm for what he does. I highly recommend Jacob.",
+    fullQuote: "I found Jacob to have great communication skills and creative abilities. He is focused and engaged in the projects he directs and participates in. What stands out the most in working with him is his energy and enthusiasm for what he does. I highly recommend Jacob.",
+    name: 'Terrence L. Black',
+    title: 'Co Owner ResQ Organics',
+    company: 'LinkedIn Recommendation',
+    date: 'April 2013',
   },
 ];
 
 const HomePage: React.FC = () => {
-  // Motion variants for staggered animations
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
   return (
     <>
       <Helmet>
-        <title>BearCave Marketing — Jacob Darling | Marketing Strategist & Systems Architect</title>
+        <title>Jacob Darling | Strategic Marketing Technologist & Growth Architect</title>
         <meta
           name="description"
-          content="I build marketing systems that turn brands into revenue engines. Strategy, creative, analytics, and execution—unified under one operator."
+          content="16+ years of experience blending creative strategy, marketing automation, and systems thinking to drive scalable growth. Explore full-funnel campaigns, CRM architecture, and performance marketing across SaaS, healthcare, and more."
         />
         <meta
           name="keywords"
-          content="marketing strategist, marketing technologist, marketing automation, CRM campaigns, systems architecture"
+          content="marketing strategist, marketing technologist, marketing automation, CRM campaigns, systems architecture, growth marketing, performance marketing"
         />
         <meta
           property="og:title"
-          content="BearCave Marketing — Jacob Darling | Marketing Strategist & Systems Architect"
+          content="Jacob Darling | Strategic Marketing Technologist & Growth Architect"
         />
         <meta
           property="og:description"
-          content="I build marketing systems that turn brands into revenue engines. Strategy, creative, analytics, and execution—unified under one operator."
+          content="16+ years of experience blending creative strategy, marketing automation, and systems thinking to drive scalable growth. Explore full-funnel campaigns, CRM architecture, and performance marketing across SaaS, healthcare, and more."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.bearcavemarketing.com/" />
-        <meta property="og:image" content="https://www.bearcavemarketing.com/og-image.jpg" />
+        <meta property="og:url" content="https://mem-rebuild-pl.pages.dev/" />
+        <meta property="og:image" content="https://mem-rebuild-pl.pages.dev/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="BearCave Marketing — Jacob Darling" />
+        <meta name="twitter:title" content="Jacob Darling | Strategic Marketing Technologist & Growth Architect" />
         <meta
           name="twitter:description"
-          content="I build marketing systems that turn brands into revenue engines."
+          content="16+ years of experience blending creative strategy, marketing automation, and systems thinking to drive scalable growth."
         />
-        <meta name="twitter:image" content="https://www.bearcavemarketing.com/og-image.jpg" />
-        <link rel="canonical" href="https://www.bearcavemarketing.com/" />
+        <meta name="twitter:image" content="https://mem-rebuild-pl.pages.dev/og-image.jpg" />
+        <link rel="canonical" href="https://mem-rebuild-pl.pages.dev/" />
       </Helmet>
 
       {/* Structured Data */}
+      <Suspense fallback={null}>
+        <PersonSchema />
+      </Suspense>
       <OrganizationSchema />
       <ServiceSchema />
       <ReviewSchema />
@@ -147,184 +104,25 @@ const HomePage: React.FC = () => {
         <Hero />
       </motion.div>
 
-      <motion.section
-        id="work"
-        className="container-px mx-auto max-w-6xl py-16 md:py-24 space-y-10"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <motion.div className="space-y-4" variants={itemVariants}>
-          <h2 className="section-heading">Selected Work</h2>
-          <p className="section-subheading">
-            Real systems, real metrics. Every project below combines brand, product, analytics, and
-            automation so the business can scale without guesswork.
-          </p>
-        </motion.div>
-        <div className="space-y-8">
-          {selectedWork.map((work, index) => (
-            <motion.div
-              key={work.title}
-              variants={itemVariants}
-              whileHover={{ y: -4 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
-              <CaseStudy
-                title={work.title}
-                summary={work.summary}
-                metrics={work.metrics}
-                image={work.image}
-                tags={work.tags}
-                slug={work.slug}
-                accent={work.accent}
-              />
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
+      <main id="main-content">
+        {/* About Section */}
+        <WhoIAm />
 
-      <motion.section
-        id="about"
-        className="container-px mx-auto max-w-6xl py-16 md:py-24"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="grid md:grid-cols-5 gap-8 items-start">
-          <div className="md:col-span-2 card p-6">
-            <img
-              src="/images/bio/bio-photo.jpg"
-              alt="Jacob Darling"
-              className="rounded-xl w-full h-auto"
-              loading="lazy"
-            />
-          </div>
-          <div className="md:col-span-3 space-y-4">
-            <h2 className="section-heading">About me</h2>
-            <p>
-              I'm Jacob Darling—a marketing strategist and systems architect. I connect product
-              positioning, lifecycle marketing, analytics, and automation so operators have a
-              dependable revenue engine. I move from insight to implementation without handoffs.
-            </p>
-            <div className="flex gap-2 flex-wrap">
-              <span className="chip">Strategy</span>
-              <span className="chip">Positioning</span>
-              <span className="chip">Web + CRO</span>
-              <span className="chip">Lifecycle</span>
-              <span className="chip">Paid</span>
-              <span className="chip">Analytics</span>
-            </div>
-            <div>
-              <Link
-                to="/about"
-                className="btn-secondary inline-flex"
-                onClick={() => trackCTA('learn_more', 'homepage')}
-              >
-                Learn More
-              </Link>
-            </div>
-          </div>
-        </div>
-      </motion.section>
+        {/* Experience Section */}
+        <CareerHighlights />
 
-      <motion.section
-        id="services"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <ServicesSection />
-      </motion.section>
+        {/* Portfolio Section */}
+        <Portfolio />
 
-      <motion.section
-        id="clients"
-        className="container-px mx-auto max-w-6xl py-16 md:py-24"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <ClientLogos />
-      </motion.section>
+        {/* Skills Section */}
+        <MySkills />
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <Carousel
-          autoPlay={true}
-          interval={5000}
-          pauseOnHover={true}
-          ariaLabel="Client testimonials"
-        >
-          {testimonialsData.map((testimonial, index) => (
-            <div key={index} className="testimonial-card">
-              <blockquote className="testimonial-quote">"{testimonial.quote}"</blockquote>
-              <div className="testimonial-author">
-                <div className="testimonial-author-info">
-                  <div className="testimonial-name">{testimonial.name}</div>
-                  <div className="testimonial-title">
-                    {testimonial.title} • {testimonial.company}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </Carousel>
-      </motion.div>
+        {/* Testimonials Section */}
+        <Testimonials testimonials={testimonialsData} />
 
-      <motion.section
-        id="contact"
-        className="container-px mx-auto max-w-6xl py-16 md:py-24"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="card">
-          <h2 className="section-heading">Ready to build your next growth system?</h2>
-          <p className="section-subheading">
-            Tell me what needs to work better. I'll map the strategy, architect the system, and ship
-            it.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <a
-              href="mailto:hoosierdarling@gmail.com"
-              className="btn-secondary"
-              onClick={() => trackCTA('email', 'contact')}
-            >
-              Email me
-            </a>
-            <a
-              href="https://cal.com/jacob-darling"
-              target="_blank"
-              rel="noreferrer"
-              className="btn-primary"
-              onClick={() => trackCTA('book_call', 'contact')}
-            >
-              Book a strategy call
-            </a>
-          </div>
-        </div>
-      </motion.section>
-
-      <motion.section
-        id="newsletter"
-        className="container-px mx-auto max-w-4xl py-16 md:py-24"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <NewsletterForm />
-      </motion.section>
-
-      <StickyCTA />
+        {/* Contact Section */}
+        <FinalCTA />
+      </main>
     </>
   );
 };

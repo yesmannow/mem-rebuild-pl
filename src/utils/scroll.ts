@@ -41,3 +41,27 @@ export function scrollToTop({
 }: ScrollOptions & { offset?: number } = {}) {
   scrollToPosition(offset, { duration, immediate });
 }
+
+/**
+ * Smooth scroll to an anchor element by ID with header offset
+ */
+export function scrollToAnchor(
+  anchorId: string,
+  { offset = 100, duration = 0.8, immediate = false }: ScrollOptions & { offset?: number } = {}
+) {
+  const element = document.getElementById(anchorId);
+  if (!element) return;
+
+  const elementPosition = element.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+  scrollToPosition(offsetPosition, { duration, immediate });
+}
+
+/**
+ * Handle anchor link clicks with smooth scroll
+ */
+export function handleAnchorClick(e: React.MouseEvent<HTMLAnchorElement>, anchorId: string, offset = 100) {
+  e.preventDefault();
+  scrollToAnchor(anchorId, { offset });
+}

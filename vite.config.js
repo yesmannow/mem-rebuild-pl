@@ -14,6 +14,12 @@ export default defineConfig({
       brotliSize: true,
     }),
   ].filter(Boolean),
+  server: {
+    fs: {
+      // Allow imports from cli-workflow directory
+      allow: ['..']
+    }
+  },
   build: {
     manifest: true,
     rollupOptions: {
@@ -29,10 +35,10 @@ export default defineConfig({
           'animation-vendor': ['framer-motion', 'gsap'],
           'utils-vendor': ['lenis'],
         },
-        // Optimize chunk size
-        chunkSizeWarningLimit: 1000,
       }
     },
+    // Optimize chunk size warning limit
+    chunkSizeWarningLimit: 1000,
     // Optimize dependencies
     optimizeDeps: {
       include: ['react', 'react-dom', 'react-router-dom', 'framer-motion', 'gsap', 'lenis'],

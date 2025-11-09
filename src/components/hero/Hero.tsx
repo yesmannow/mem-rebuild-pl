@@ -35,15 +35,9 @@ const Hero: React.FC = () => {
             </Link>
           </motion.div>
           <motion.div whileHover={castMotionTarget(motionTokens.buttonHover)} whileTap={{ scale: 0.95 }}>
-            <a
-              className="btn-secondary"
-              href="/resume/Resume JD draft.pdf"
-              download="Jacob-Darling-Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link className="btn-secondary" to="/resume">
               View My Story
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
 

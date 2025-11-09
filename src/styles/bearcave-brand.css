@@ -242,8 +242,12 @@ body {
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 var(--bc-space-lg) 0;
-  color: var(--bc-text-primary);
+  background: var(--bc-gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   letter-spacing: -0.02em;
+  text-align: center;
 }
 
 .section-subheading {

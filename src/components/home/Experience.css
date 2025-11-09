@@ -1,0 +1,135 @@
+.experience {
+  scroll-margin-top: 80px;
+}
+
+.experience__header {
+  text-align: center;
+  margin-bottom: var(--bc-space-3xl);
+}
+
+.experience__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--bc-space-3xl);
+}
+
+@media (min-width: 1024px) {
+  .experience__content {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.experience__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bc-space-2xl);
+  position: relative;
+  padding-left: var(--bc-space-2xl);
+}
+
+.experience__timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--bc-gradient-brand-vertical);
+  opacity: 0.3;
+}
+
+.experience__timeline-item {
+  position: relative;
+  display: flex;
+  gap: var(--bc-space-lg);
+}
+
+.experience__timeline-marker {
+  position: absolute;
+  left: calc(-1 * var(--bc-space-2xl) - 11px);
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: var(--bc-gradient-brand);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: var(--bc-glow-subtle);
+}
+
+.experience__timeline-content {
+  flex: 1;
+}
+
+.experience__period {
+  font-size: 0.875rem;
+  color: var(--bc-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--bc-space-xs);
+}
+
+.experience__role {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--bc-text-primary);
+  margin: 0 0 var(--bc-space-xs) 0;
+}
+
+.experience__company {
+  font-size: 1rem;
+  color: var(--bc-text-secondary);
+  margin-bottom: var(--bc-space-md);
+}
+
+.experience__impact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bc-space-sm);
+}
+
+.experience__credentials {
+  height: fit-content;
+}
+
+.experience__credentials-header {
+  display: flex;
+  align-items: center;
+  gap: var(--bc-space-md);
+  margin-bottom: var(--bc-space-lg);
+}
+
+.experience__credentials-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--bc-text-primary);
+  margin: 0;
+}
+
+.experience__credentials-header svg {
+  color: var(--bc-primary);
+}
+
+.experience__credentials-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bc-space-md);
+}
+
+.experience__credential-item {
+  display: flex;
+  align-items: center;
+  gap: var(--bc-space-md);
+  font-size: 0.95rem;
+  color: var(--bc-text-secondary);
+}
+
+.experience__credential-item svg {
+  color: var(--bc-accent);
+  flex-shrink: 0;
+}
+

@@ -1,0 +1,126 @@
+.portfolio {
+  scroll-margin-top: 80px;
+}
+
+.portfolio__header {
+  text-align: center;
+  margin-bottom: var(--bc-space-3xl);
+}
+
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--bc-space-xl);
+  margin-bottom: var(--bc-space-3xl);
+}
+
+.portfolio__card {
+  padding: var(--bc-space-2xl);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--bc-transition-normal);
+  cursor: pointer;
+}
+
+.portfolio__card-link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bc-space-lg);
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.portfolio__card-link:hover {
+  text-decoration: none;
+}
+
+.portfolio__card:hover {
+  border-color: var(--bc-border-hover);
+  box-shadow: var(--bc-shadow-hover);
+}
+
+.portfolio__card-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--bc-text-primary);
+  margin: 0;
+}
+
+.portfolio__card-summary {
+  font-size: 1rem;
+  color: var(--bc-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.portfolio__metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bc-space-lg);
+  margin-top: auto;
+  padding-top: var(--bc-space-lg);
+  border-top: 1px solid var(--bc-border);
+}
+
+.portfolio__metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bc-space-xs);
+}
+
+.portfolio__metric-value {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  background: var(--bc-gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.portfolio__metric-label {
+  font-size: 0.875rem;
+  color: var(--bc-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.portfolio__footer {
+  text-align: center;
+}
+
+.portfolio__view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bc-space-sm);
+  padding: var(--bc-space-md) var(--bc-space-xl);
+  background: var(--bc-surface);
+  border: 1px solid var(--bc-border);
+  border-radius: var(--bc-radius-lg);
+  color: var(--bc-text-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--bc-transition-normal);
+}
+
+.portfolio__view-all:hover {
+  background: var(--bc-surface-hover);
+  border-color: var(--bc-border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--bc-shadow-card);
+}
+
+@media (max-width: 768px) {
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio__metrics {
+    flex-direction: column;
+    gap: var(--bc-space-md);
+  }
+}
+

@@ -1,0 +1,24 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import './{{pascalCase name}}.css';
+
+const {{pascalCase name}}: React.FC = () => {
+  return (
+    <section className="{{kebabCase name}} container-px mx-auto max-w-6xl py-16 md:py-24">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="section-heading">{{pascalCase name}}</h2>
+        <p className="section-subheading">
+          Add your description here.
+        </p>
+      </motion.div>
+    </section>
+  );
+};
+
+export default {{pascalCase name}};
+
