@@ -1,13 +1,26 @@
 {
   "name": "Jacob Darling",
   "title": "Marketing Strategist & Systems Architect",
+  "intro": "I build marketing systems that think for themselves. Turning complexity into clarity, chaos into competitive advantage.",
+  "tagline": "I build marketing systems that think for themselves.",
   "summary": "A dynamic and results-driven Marketing Director and Systems Architect with over 15 years of experience propelling brand growth by bridging the gap between creative strategy and full-stack technical execution. Proven expertise in designing and personally engineering scalable marketing ecosystems for global brands serving 30,000+ practitioners. Adept at leveraging data-driven insights and AI-powered automation to elevate brand visibility, optimize campaigns, and consistently deliver exceptional ROI.",
+  "chips": [
+    "Solo operator",
+    "16+ years",
+    "Systems architect"
+  ],
   "contact": {
     "email": "hoosierdarling@gmail.com",
     "location": "Indianapolis, IN",
     "website": "jacobdarling.com",
     "github": "https://github.com/JdarlingGT",
     "linkedin": "linkedin.com/in/jacobdarling"
+  },
+  "links": {
+    "email": "hoosierdarling@gmail.com",
+    "website": "https://jacobdarling.com",
+    "github": "https://github.com/JdarlingGT",
+    "linkedin": "https://linkedin.com/in/jacobdarling"
   },
   "experience": [
     {
@@ -188,5 +201,95 @@
     "practitioners": "30K+",
     "caseStudies": "14+",
     "customApps": "4+"
-  }
+  },
+  "metrics": [
+    {
+      "value": "30K+",
+      "label": "Users Served",
+      "icon": "users"
+    },
+    {
+      "value": "+40%",
+      "label": "Conversions",
+      "icon": "trending"
+    },
+    {
+      "value": "400+",
+      "label": "Automations",
+      "icon": "zap"
+    },
+    {
+      "value": "-70%",
+      "label": "Support Tickets",
+      "icon": "shield"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "jesse-wey",
+      "name": "Jesse Wey",
+      "role": "Web Development | IT | Marketing",
+      "company": "",
+      "quote": "I've known Jacob and worked with him off and on for more than two decades, and he continues to impress me with the energy, creativity, and passion he brings to everything he does. He thrives in fast-paced environments and is always eager to explore new tools and technologies to get results. Jacob has a great balance of strategic thinking and hands-on execution.",
+      "avatar": "",
+      "featured": true
+    },
+    {
+      "id": "kevin-martin-see",
+      "name": "Kevin Martin See",
+      "role": "IBMer | Connector | Ally",
+      "company": "IBM",
+      "quote": "Jacob displays a combination of creative and analytical skills, with proven ability to assess and implement marketing strategies that produce a positive return on investment.",
+      "avatar": "",
+      "featured": true
+    },
+    {
+      "id": "terrence-black",
+      "name": "Terrence L. Black",
+      "role": "Co Owner",
+      "company": "ResQ Organics",
+      "quote": "What stands out the most in working with him is his energy and enthusiasm for what he does. I highly recommend Jacob.",
+      "avatar": "",
+      "featured": true
+    }
+  ],
+  "certifications": [],
+  "awards": [
+    {
+      "title": "Gold Key Photography Award",
+      "organization": "Scholastic Art & Writing Awards",
+      "year": "2008",
+      "description": "Top-tier recognition in visual arts"
+    }
+  ],
+  "showreel": [
+    {
+      "id": "graston-dashboard",
+      "title": "Graston Dashboard",
+      "type": "image",
+      "src": "/images/case-studies/graston-dashboard/cover.svg",
+      "description": "Healthcare data dashboard redesign"
+    },
+    {
+      "id": "cinematic-portfolio",
+      "title": "Cinematic Portfolio",
+      "type": "image",
+      "src": "/images/case-studies/cinematic-portfolio/cover.svg",
+      "description": "Motion-driven storytelling experience"
+    },
+    {
+      "id": "branding-reel",
+      "title": "Branding Reel",
+      "type": "image",
+      "src": "/images/case-studies/branding-reel/cover.svg",
+      "description": "Visual brand identity showcase"
+    },
+    {
+      "id": "317-bbq",
+      "title": "317 BBQ Growth Engine",
+      "type": "image",
+      "src": "/images/side-projects/317-bbq.svg",
+      "description": "E-commerce and lifecycle automation"
+    }
+  ]
 }

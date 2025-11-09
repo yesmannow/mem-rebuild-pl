@@ -22,7 +22,7 @@ const ApplicationDetail: React.FC = () => {
       <AnimatedSection>
         <div className="back-nav">
           <Link to="/applications" className="back-link">
-            ← Back to Applications
+            ← Back to Developer Tools
           </Link>
         </div>
       </AnimatedSection>
@@ -289,7 +289,7 @@ const ApplicationDetail: React.FC = () => {
                 Start a Conversation
               </Link>
               <Link to="/applications" className="cta-btn secondary">
-                View More Applications
+                View More Tools
               </Link>
             </div>
           </div>

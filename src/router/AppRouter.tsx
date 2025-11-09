@@ -56,14 +56,14 @@ const AppRouter: React.FC = () => {
       };
     } else if (path === '/applications') {
       return {
-        title: "Applications | BearCave Marketing",
-        description: "Interactive applications engineered by Jacob Darling showcasing marketing automation, analytics, and product systems.",
-        keywords: "marketing applications, interactive demos, marketing technology"
+        title: "Developer Tools | BearCave Marketing",
+        description: "Custom tools and applications engineered by Jacob Darling showcasing marketing automation, analytics, and product systems.",
+        keywords: "developer tools, custom applications, interactive demos, marketing technology, web tools"
       };
     } else if (path.startsWith('/applications/')) {
       return {
-        title: "Application Detail | BearCave Marketing",
-        description: "Deep dive into a custom application engineered by Jacob Darling to solve real marketing, sales, and operations challenges."
+        title: "Developer Tool | BearCave Marketing",
+        description: "Deep dive into a custom tool or application engineered by Jacob Darling to solve real marketing, sales, and operations challenges."
       };
     } else if (path === '/projects') {
       return {
@@ -99,6 +99,18 @@ const AppRouter: React.FC = () => {
         title: "Contact | BearCave Marketing",
         description: "Get in touch with Jacob Darling for job opportunities, collaborations, or consulting inquiries",
         keywords: "contact, hire, job opportunity, marketing consultant"
+      };
+    } else if (path === '/design') {
+      return {
+        title: "Design Portfolio | BearCave Marketing",
+        description: "Explore a curated collection of design work including branding, digital design, print campaigns, and creative concepts",
+        keywords: "design portfolio, graphic design, branding, digital design, print design, creative design"
+      };
+    } else if (path === '/inspiration') {
+      return {
+        title: "Inspiration | BearCave Marketing",
+        description: "A curated journey through the systems, designs, and philosophies that shape creative work",
+        keywords: "design inspiration, creative influences, design systems, branding inspiration"
       };
     } else if (path === '/gallery') {
       return {

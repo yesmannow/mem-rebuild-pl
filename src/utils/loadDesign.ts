@@ -17,40 +17,44 @@ export interface DesignItem {
  */
 function categorizeDesign(filename: string): string {
   const lower = filename.toLowerCase();
-  
+
   // Branding & Logos
   if (lower.includes('logo') || lower.includes('brand') || lower.includes('monogram')) return 'Branding';
   if (lower.includes('font') || lower.includes('typography')) return 'Branding';
-  
+
   // Print & Advertising
   if (lower.includes('ad') || lower.includes('print') || lower.includes('flyer')) return 'Print';
   if (lower.includes('flu shot') || lower.includes('health care')) return 'Print';
-  
+
   // Digital Marketing
   if (lower.includes('instagram') || lower.includes('post') || lower.includes('social')) return 'Digital';
   if (lower.includes('online') || lower.includes('digital')) return 'Digital';
-  
+
   // Sales & Promotions
   if (lower.includes('sale') || lower.includes('promo') || lower.includes('discount')) return 'Sales';
   if (lower.includes('percent') || lower.includes('%')) return 'Sales';
-  
+
   // Product Design
   if (lower.includes('koozie') || lower.includes('packaging') || lower.includes('product')) return 'Product';
   if (lower.includes('front') || lower.includes('back')) return 'Product';
   if (lower.includes('sandwich') || lower.includes('food') || lower.includes('menu')) return 'Product';
-  
+
   // Event & Racing
   if (lower.includes('indy') || lower.includes('racing') || lower.includes('event')) return 'Event';
   if (lower.includes('brady') || lower.includes('rbe')) return 'Event';
-  
+  if (lower.includes('bicentennial') || lower.includes('contest')) return 'Event';
+
   // Creative Concepts
   if (lower.includes('hot-sauce') || lower.includes('dall') || lower.includes('concept')) return 'Concept';
   if (lower.includes('bird') || lower.includes('illustration')) return 'Concept';
   if (lower.includes('file_')) return 'Concept';
-  
+
+  // Logo files
+  if (lower.includes('logo-01') || lower.startsWith('logo')) return 'Branding';
+
   // Default to Digital for generic IMG files
   if (lower.startsWith('img_')) return 'Digital';
-  
+
   return 'Branding';
 }
 
@@ -60,7 +64,7 @@ function categorizeDesign(filename: string): string {
 function generateTitle(filename: string): string {
   // Remove extension
   const nameWithoutExt = filename.replace(/\.(jpg|jpeg|png|webp|avif|mp4)$/i, '');
-  
+
   // Handle specific known files
   if (nameWithoutExt.includes('Forty Under 40')) return 'Forty Under 40 Recognition';
   if (nameWithoutExt.includes('Health Care')) return 'Healthcare Campaign';
@@ -73,7 +77,7 @@ function generateTitle(filename: string): string {
   if (nameWithoutExt.includes('Indy 500')) return 'Indy 500 Racing Graphics';
   if (nameWithoutExt.includes('hot-sauce-playful')) return 'Hot Sauce Concept - Playful';
   if (nameWithoutExt.includes('hot-sauce-dark')) return 'Hot Sauce Concept - Dark';
-  
+
   // Handle IMG_ files with dates
   if (nameWithoutExt.startsWith('IMG_')) {
     const dateMatch = nameWithoutExt.match(/IMG_(\d{4})(\d{2})(\d{2})/);
@@ -83,10 +87,10 @@ function generateTitle(filename: string): string {
     }
     return 'Creative Design';
   }
-  
+
   // Handle generic files
   if (nameWithoutExt.startsWith('file_')) return 'Design Concept';
-  
+
   // Default: Clean up and capitalize
   return nameWithoutExt
     .replace(/[_-]/g, ' ')
@@ -104,18 +108,18 @@ function generateTitle(filename: string): string {
 function assignSize(index: number, category: string): "small" | "medium" | "large" | "wide" | "tall" {
   // Logos and small graphics should be small
   if (category === 'Branding' && index % 3 === 0) return 'small';
-  
+
   // Print ads and campaigns should be large or wide
   if (category === 'Print') {
     return index % 2 === 0 ? 'large' : 'wide';
   }
-  
+
   // Products can be tall
   if (category === 'Product' && index % 3 === 1) return 'tall';
-  
+
   // Concepts should be featured
   if (category === 'Concept') return index % 2 === 0 ? 'large' : 'wide';
-  
+
   // Default pattern for variety
   const pattern = ['medium', 'large', 'small', 'wide', 'medium', 'tall', 'small', 'large', 'medium', 'wide'];
   return pattern[index % pattern.length] as any;
@@ -165,15 +169,16 @@ export function loadDesignImages(): DesignItem[] {
     'IMG_20230617_015647_366.jpg',
     'Jacob Brady resized.jpg',
     'Koozie design - final.png',
-    'Logo 6.jpg',
     'My Post (2).jpg',
     'Online Doctor Consultation Instagram Post.png',
     'bird.png',
+    'bicentinial design contest.jpg',
     'file_0000000040d46230b3f420ddf8f917de.png',
     'file_000000009d0861f8a59c35ae82dde4b7 (1).png',
     'file_00000000c524623091018296ba5b34a3.png',
     'hot-sauce-dark.webp',
     'hot-sauce-playful.webp',
+    'logo-01.svg',
     'taco ninja logo.png'
   ];
 

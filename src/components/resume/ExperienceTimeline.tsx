@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Building2, Calendar, MapPin, TrendingUp, Code, Zap, Target, Award } from 'lucide-react';
+import { Building2, Calendar, MapPin, TrendingUp, Code, Zap, Target, Award, ChevronDown, ChevronUp } from 'lucide-react';
 import { companyThemes, motionVariants, initNarrativeMotion, cleanupNarrativeMotion } from '../../utils/narrativeMotion';
 import resumeData from '../../data/resume.json';
 import './ExperienceTimeline.css';
@@ -67,6 +67,108 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
     return metrics.slice(0, 3); // Limit to 3 metrics per job
   };
 
+  // Animated Counter Component
+  const AnimatedCounter: React.FC<{ value: string, className?: string }> = ({ value, className = '' }) => {
+    const [count, setCount] = useState(0);
+    const ref = useRef<HTMLDivElement>(null);
+    const inView = useInView(ref, { once: true, margin: "-100px" });
+
+    useEffect(() => {
+      if (!inView) return;
+
+      // Extract numeric value and suffix
+      const numericMatch = value.match(/(\d+)/);
+      const suffix = value.replace(/[\d]/g, '');
+      const target = numericMatch ? parseInt(numericMatch[1]) : 0;
+
+      if (target === 0) {
+        setCount(0);
+        return;
+      }
+
+      const duration = 2000; // 2 seconds
+      const steps = 60;
+      const increment = target / steps;
+      const stepDuration = duration / steps;
+
+      let current = 0;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          setCount(target);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(current));
+        }
+      }, stepDuration);
+
+      return () => clearInterval(timer);
+    }, [inView, value]);
+
+    const suffix = value.replace(/[\d]/g, '');
+    const displayValue = count.toLocaleString();
+
+    return (
+      <div ref={ref} className={className}>
+        {displayValue}{suffix}
+      </div>
+    );
+  };
+
+  // Expandable Achievements Component
+  const AchievementsList: React.FC<{ achievements: string[], theme: any }> = ({ achievements, theme }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const INITIAL_DISPLAY = 3;
+    const displayedAchievements = isExpanded ? achievements : achievements.slice(0, INITIAL_DISPLAY);
+    const hasMore = achievements.length > INITIAL_DISPLAY;
+
+    return (
+      <div className="space-y-4">
+        {displayedAchievements.map((achievement, idx) => (
+          /* eslint-disable-next-line react/no-inline-styles */
+          <motion.div
+            key={idx}
+            className="flex items-start gap-4 p-4 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-all duration-300 cursor-pointer group"
+            variants={motionVariants.staggerItem}
+            style={{ '--achievement-accent-color': theme.accent } as React.CSSProperties}
+            whileHover={{ x: 4, scale: 1.01 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: idx * 0.05 }}
+          >
+            <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 achievement-dot group-hover:scale-150 transition-transform duration-300" />
+            <span className="text-gray-300 leading-relaxed flex-1">{achievement}</span>
+          </motion.div>
+        ))}
+
+        {hasMore && (
+          <motion.button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="w-full p-4 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2 text-gray-400 hover:text-white group"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: INITIAL_DISPLAY * 0.05 }}
+          >
+            {isExpanded ? (
+              <>
+                <ChevronUp size={18} className="group-hover:translate-y-[-2px] transition-transform" />
+                <span>Show Less</span>
+              </>
+            ) : (
+              <>
+                <span>Show {achievements.length - INITIAL_DISPLAY} More Achievements</span>
+                <ChevronDown size={18} className="group-hover:translate-y-[2px] transition-transform" />
+              </>
+            )}
+          </motion.button>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div ref={timelineRef} className={`relative ${className}`}>
       {/* Background Effects */}
@@ -128,12 +230,20 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
                 {/* Timeline Dot */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-4 z-10">
                   {/* eslint-disable-next-line react/no-inline-styles */}
-                  <motion.div
-                    className={`timeline-dot w-6 h-6 rounded-full border-4 border-white shadow-lg`}
+                  <motion.button
+                    className={`timeline-dot w-6 h-6 rounded-full border-4 border-white shadow-lg cursor-pointer`}
                     style={{ '--timeline-dot-color': theme.primary } as React.CSSProperties}
                     data-timeline-index={index}
                     variants={motionVariants.timelineDot}
                     whileHover="active"
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => {
+                      const element = document.getElementById(`experience-${index}`);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      }
+                    }}
+                    title={`Jump to ${job.company}`}
                   />
                 </div>
 
@@ -204,21 +314,18 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
                           /* eslint-disable-next-line react/no-inline-styles */
                           <motion.div
                             key={idx}
-                            className="text-center p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors duration-300"
+                            className="text-center p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors duration-300 cursor-pointer group"
                             variants={motionVariants.counterReveal}
                             whileHover={{ scale: 1.05, y: -5 }}
                             style={{ '--metric-accent-color': theme.accent, '--metric-primary-color': theme.primary } as React.CSSProperties}
                           >
-                            <div className="flex items-center justify-center mb-3 metric-icon-container">
+                            <div className="flex items-center justify-center mb-3 metric-icon-container group-hover:rotate-12 transition-transform duration-300">
                               {metric.icon}
                             </div>
-                            <div
+                            <AnimatedCounter
+                              value={metric.value}
                               className="metric-counter text-3xl font-bold mb-2 metric-value"
-                              data-target={metric.value.replace(/[^\d]/g, '')}
-                              data-suffix={metric.value.replace(/[\d]/g, '')}
-                            >
-                              {metric.value}
-                            </div>
+                            />
                             <p className="text-sm text-gray-400">{metric.label}</p>
                           </motion.div>
                         ))}
@@ -237,22 +344,10 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
                       <h4 className="text-lg font-semibold mb-6 flex items-center gap-3 achievement-heading" style={{ '--achievement-primary-color': theme.primary } as React.CSSProperties}>
                         <Award className="w-5 h-5" />
                         <span>Key Achievements</span>
+                        <span className="text-sm text-gray-500 ml-auto">({job.achievements.length})</span>
                       </h4>
 
-                      <div className="space-y-4">
-                        {job.achievements.map((achievement, idx) => (
-                          /* eslint-disable-next-line react/no-inline-styles */
-                          <motion.div
-                            key={idx}
-                            className="flex items-start gap-4 p-4 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors duration-300"
-                            variants={motionVariants.staggerItem}
-                            style={{ '--achievement-accent-color': theme.accent } as React.CSSProperties}
-                          >
-                            <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 achievement-dot" />
-                            <span className="text-gray-300 leading-relaxed">{achievement}</span>
-                          </motion.div>
-                        ))}
-                      </div>
+                      <AchievementsList achievements={job.achievements} theme={theme} />
                     </motion.div>
 
                     {/* Technologies */}
