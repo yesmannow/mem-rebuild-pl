@@ -11,6 +11,9 @@
     "generate:previews": "node scripts/generate-previews.js",
     "classify:moodboards": "node scripts/classify-moodboards.js",
     "sync:inspiration": "node scripts/sync-inspiration-index.js",
+    "fetch:brand-data": "node scripts/fetch-brand-data.js",
+    "extract:brand": "node scripts/gemini-brand-extraction.js",
+    "generate:quiz": "node scripts/generate-quiz-and-comparisons.js",
     "build:inspiration": "npm run generate:enhanced-moodboards && npm run generate:previews && npm run classify:moodboards && npm run sync:inspiration",
     "typecheck": "tsc --noEmit --project tsconfig.app.json",
     "clean:types": "rimraf dist types && find src -name \"*.d.ts\" -delete",
@@ -40,6 +43,7 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.16",
+    "@google/generative-ai": "^0.24.1",
     "@hookform/resolvers": "^5.2.2",
     "@mdx-js/react": "^3.1.1",
     "@react-pdf/renderer": "^4.3.1",

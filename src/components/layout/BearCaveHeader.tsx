@@ -2,11 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ChevronDown, FileText } from 'lucide-react';
 import './BearCaveHeader.css';
-import React, { useEffect, useState, useRef } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { CalendarDays, ChevronDown, FileText } from "lucide-react";
-import { trackCTA } from "../../utils/analytics";
-import "./BearCaveHeader.css";
 
 // Navigation menu structure
 const aboutMenuItems = [

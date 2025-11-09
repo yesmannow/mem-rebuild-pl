@@ -5,8 +5,6 @@ import { caseStudies, getCategories } from '../data/caseStudies';
 import Icon from '../components/Icon';
 import './CaseStudies.css';
 import './CaseStudiesEnhanced.css';
-import CaseStudyExplorer from '../components/CaseStudyExplorer';
-import WaveDivider from '../components/WaveDivider';
 
 const CaseStudies: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('All');
@@ -141,11 +139,6 @@ const CaseStudies: React.FC = () => {
           </motion.div>
         </div>
       </motion.section>
-
-      {/* Interactive Case Study Explorer */}
-      <WaveDivider />
-      <CaseStudyExplorer />
-      <WaveDivider flip />
 
       {/* Enhanced Filter Bar */}
       <section id="filters" className="filter-section">
