@@ -10,24 +10,35 @@ const steps = [
   'Save/Share',
 ];
 
-export default function BuilderShell({
-  children,
-  active,
-  setActive
-}: {
-  children: React.ReactNode;
-  active?: number;
-  setActive?: (value: number) => void;
-}) {
+// Properly typed props: either fully controlled or fully uncontrolled
+type BuilderShellProps =
+  | {
+      children: React.ReactNode;
+      active: number;
+      setActive: (value: number) => void;
+    }
+  | {
+      children: React.ReactNode;
+      active?: never;
+      setActive?: never;
+    };
+
+export default function BuilderShell(props: BuilderShellProps) {
+  const { children } = props;
+  const isControlled = 'active' in props && props.active !== undefined;
+
   const [internalActive, setInternalActive] = useState(0);
   const [quality, setQuality] = useState<{ [key: number]: boolean }>({});
 
-  const currentActive = active !== undefined ? active : internalActive;
-  const currentSetActive = setActive || setInternalActive;
+  const currentActive = isControlled ? props.active! : internalActive;
+  const currentSetActive = isControlled ? props.setActive! : setInternalActive;
 
   const next = () => {
-    if (quality[currentActive]) currentSetActive(Math.min(currentActive + 1, steps.length - 1));
-    else alert('Pass the quality gate before proceeding!');
+    if (quality[currentActive]) {
+      currentSetActive(Math.min(currentActive + 1, steps.length - 1));
+    } else {
+      alert('Pass the quality gate before proceeding!');
+    }
   };
 
   return (
