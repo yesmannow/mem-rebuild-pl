@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 
+let analyticsInitialized = false;
+
 // Analytics event tracking
 export function trackEvent(eventName: string, eventData?: Record<string, any>) {
   if (typeof window === "undefined") return;
@@ -35,6 +37,47 @@ export function trackCTA(id: string, location?: string) {
 // Case study view tracking
 export function trackCaseStudy(slug: string) {
   trackEvent("case_study_view", { slug });
+}
+
+export const trackPortfolioEngagement = {
+  resumeView: () => trackEvent("portfolio_resume_view"),
+  resumeSectionView: (section: string) =>
+    trackEvent("portfolio_resume_section_view", { section }),
+  resumeDownload: (format: string) =>
+    trackEvent("portfolio_resume_download", { format }),
+  caseStudyView: (slug: string, title?: string) =>
+    trackEvent("portfolio_case_study_view", { slug, title }),
+  contactFormStart: () => trackEvent("portfolio_contact_start"),
+  contactFormSubmit: (reason: string) =>
+    trackEvent("portfolio_contact_submit", { reason }),
+  contactFormError: (message: string) =>
+    trackEvent("portfolio_contact_error", { message }),
+};
+
+export function initAnalytics() {
+  if (analyticsInitialized || typeof window === "undefined") {
+    return;
+  }
+
+  analyticsInitialized = true;
+
+  // Initial page view track when the app boots
+  trackEvent("app_init", { path: window.location.pathname });
+}
+
+export function createTimeTracker(path: string) {
+  const start = Date.now();
+  let stopped = false;
+
+  return {
+    stop() {
+      if (stopped) return;
+      stopped = true;
+
+      const durationSeconds = Math.round((Date.now() - start) / 1000);
+      trackEvent("portfolio_time_spent", { path, durationSeconds });
+    },
+  };
 }
 
 // Initialize analytics
