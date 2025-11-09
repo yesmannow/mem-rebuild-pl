@@ -67,18 +67,25 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://bearcavemarketing.com/" />
 
-    <!-- Fonts -->
+    <!-- Resource Hints - Preconnect for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+    <!-- Preconnect to external APIs -->
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+    <!-- Fonts with display=swap for better performance -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
-    <!-- Preload hero video -->
+    <!-- Preload critical assets -->
     <link rel="preload" as="video" href="/hero-broll.mp4" />
+    <link rel="preload" as="image" href="/images/bio/bio-photo.jpg" />
 
-    <!-- DNS Prefetch for External Resources -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="/src/styles/bearcave-brand.css" as="style" />
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -168,15 +175,25 @@
     <!-- Preload React for faster initialization -->
     <link rel="modulepreload" href="/src/main.tsx" />
 
-    <!-- Critical CSS for initial render -->
+    <!-- Critical CSS for initial render - Inlined for faster FCP -->
     <style>
+      /* Critical CSS - Above-the-fold styles */
+      :root {
+        --bc-bg: #0D0D0F;
+        --bc-text-primary: #FFFFFF;
+        --bc-primary: #3B82F6;
+        --bc-accent: #EC4899;
+        --bc-gradient-brand: linear-gradient(135deg, #3B82F6 0%, #EC4899 100%);
+        --font-display: 'Clash Display', 'Arial Black', system-ui, sans-serif;
+        --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+      }
       * { box-sizing: border-box; }
       html, body {
         margin: 0;
         padding: 0;
-        background-color: #0A0A0A;
-        color: #FFFFFF;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background-color: var(--bc-bg);
+        color: var(--bc-text-primary);
+        font-family: var(--font-body);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
@@ -190,8 +207,8 @@
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-        background-color: #0A0A0A;
-        color: #FFFFFF;
+        background-color: var(--bc-bg);
+        color: var(--bc-text-primary);
       }
       .initial-loader-content {
         text-align: center;
@@ -200,13 +217,13 @@
         width: 40px;
         height: 40px;
         border: 4px solid rgba(255,255,255,0.1);
-        border-top-color: #3B82F6;
+        border-top-color: var(--bc-primary);
         border-radius: 50%;
         animation: spin 0.8s linear infinite;
         margin: 0 auto 1rem;
       }
       .initial-loader-text {
-        font-family: 'Inter', sans-serif;
+        font-family: var(--font-body);
         font-size: 14px;
         opacity: 0.7;
       }
@@ -218,17 +235,17 @@
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-        background-color: #0A0A0A;
-        color: #FFFFFF;
+        background-color: var(--bc-bg);
+        color: var(--bc-text-primary);
         text-align: center;
         padding: 2rem;
       }
       .noscript-message h1 {
-        font-family: 'Inter', sans-serif;
+        font-family: var(--font-body);
         margin-bottom: 1rem;
       }
       .noscript-message p {
-        font-family: 'Inter', sans-serif;
+        font-family: var(--font-body);
         opacity: 0.7;
       }
     </style>

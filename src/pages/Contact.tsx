@@ -122,8 +122,8 @@ const Contact: React.FC = () => {
               {submitted ? (
                 <div className="success-message">
                   <div className="success-icon">✓</div>
-                  <h3>Thank You!</h3>
-                  <p>Your message has been sent successfully. I'll get back to you soon.</p>
+                  <h3>Message Received.</h3>
+                  <p>I'll be in touch within 24 hours.</p>
                   <button onClick={() => setSubmitted(false)} className="btn-secondary">
                     Send Another Message
                   </button>

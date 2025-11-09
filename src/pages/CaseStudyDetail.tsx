@@ -6,6 +6,8 @@ import { staggerContainer, staggerItem } from "../utils/animations";
 import AnimatedSection from "../components/animations/AnimatedSection";
 import { getCaseStudyDiagrams } from "../components/diagrams/caseStudyDiagrams";
 import { trackPortfolioEngagement, createTimeTracker } from "../utils/analytics";
+import MetricsVisualization from "../components/case-study/MetricsVisualization";
+import Breadcrumbs from "../components/layout/Breadcrumbs";
 import caseStudyInspirationMap from "../data/caseStudyInspirationMap.json";
 import inspirationsData from "../data/inspirations.json";
 import "./CaseStudyDetail.css";
@@ -177,32 +179,20 @@ const CaseStudyDetail: React.FC = () => {
         </div>
       </motion.section>
 
+      {/* Breadcrumbs */}
+      <div className="case-study-breadcrumbs">
+        <Breadcrumbs />
+      </div>
+
       {/* Metrics Showcase */}
       <AnimatedSection delay={0.2}>
         <section className="metrics-modern">
-          <motion.div
-            className="metrics-container"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {caseStudy.metrics.map((metric, index) => (
-              <motion.div
-                key={metric.label}
-                className="metric-modern-card"
-                variants={staggerItem}
-                whileHover={{ y: -8, scale: 1.02 }}
-              >
-                <div
-                  className="metric-accent"
-                  data-metric-color={caseStudy.color || '#88ABF2'}
-                />
-                <div className="metric-modern-value">{metric.value}</div>
-                <div className="metric-modern-label">{metric.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+          <MetricsVisualization
+            metrics={caseStudy.metrics}
+            accentColor={caseStudy.color || '#88ABF2'}
+            caseStudySlug={slug}
+            variant="cards"
+          />
         </section>
       </AnimatedSection>
 

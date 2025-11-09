@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import PageTransition from "../components/animations/PageTransition";
 import SEOHead from "../components/seo/SEOHead";
+import PageLayout from "../components/layout/PageLayout";
 import "./AppRouter.css";
 
 // Lazy load pages for code splitting with better chunking

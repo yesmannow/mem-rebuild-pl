@@ -1,0 +1,198 @@
+/* Metrics Visualization Component Styles */
+.metrics-visualization {
+  width: 100%;
+}
+
+/* Cards Variant */
+.metrics-visualization--cards .metrics-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--bc-space-lg);
+}
+
+.metric-card-enhanced {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--bc-radius-lg);
+  padding: var(--bc-space-xl);
+  overflow: hidden;
+  transition: all var(--bc-transition-normal);
+}
+
+.metric-card-enhanced:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
+}
+
+.metric-card-enhanced__accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-color);
+  opacity: 0.8;
+}
+
+.metric-card-enhanced__content {
+  position: relative;
+  z-index: 1;
+}
+
+.metric-card-enhanced__value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent-color), #EC4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--bc-space-sm);
+  line-height: 1;
+}
+
+.metric-card-enhanced__label {
+  font-size: 0.875rem;
+  color: var(--bc-text-secondary);
+  margin-bottom: var(--bc-space-xs);
+}
+
+.metric-card-enhanced__trend {
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: var(--bc-space-sm);
+  padding: var(--bc-space-xs) var(--bc-space-sm);
+  border-radius: var(--bc-radius-sm);
+  display: inline-block;
+}
+
+.metric-card-enhanced__trend--up {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+}
+
+.metric-card-enhanced__trend--down {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+/* Bars Variant */
+.metrics-visualization--bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bc-space-lg);
+}
+
+.metric-bar {
+  width: 100%;
+}
+
+.metric-bar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--bc-space-sm);
+}
+
+.metric-bar__label {
+  font-size: 0.875rem;
+  color: var(--bc-text-secondary);
+  font-weight: 500;
+}
+
+.metric-bar__value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.metric-bar__track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--bc-radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.metric-bar__fill {
+  height: 100%;
+  background: var(--accent-color);
+  border-radius: var(--bc-radius-full);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+}
+
+.metric-bar__trend {
+  position: absolute;
+  right: 0;
+  top: -20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.metric-bar__trend--up {
+  color: #22c55e;
+}
+
+.metric-bar__trend--down {
+  color: #ef4444;
+}
+
+/* Comparison Variant */
+.metrics-visualization--comparison .metrics-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--bc-space-md);
+}
+
+.metric-comparison-card {
+  text-align: center;
+  padding: var(--bc-space-lg);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--bc-radius-lg);
+  transition: all var(--bc-transition-normal);
+}
+
+.metric-comparison-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-color);
+}
+
+.metric-comparison-card__icon {
+  font-size: 2rem;
+  margin-bottom: var(--bc-space-sm);
+}
+
+.metric-comparison-card__value {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: var(--bc-space-xs);
+}
+
+.metric-comparison-card__label {
+  font-size: 0.75rem;
+  color: var(--bc-text-secondary);
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .metrics-visualization--cards .metrics-cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--bc-space-md);
+  }
+
+  .metric-card-enhanced {
+    padding: var(--bc-space-lg);
+  }
+
+  .metric-card-enhanced__value {
+    font-size: 2rem;
+  }
+
+  .metrics-visualization--comparison .metrics-comparison-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

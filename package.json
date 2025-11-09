@@ -15,7 +15,10 @@
     "typecheck": "tsc --noEmit --project tsconfig.app.json",
     "clean:types": "rimraf dist types && find src -name \"*.d.ts\" -delete",
     "typecheck:clean": "npm run clean:types && tsc --noEmit --project tsconfig.app.json",
-    "prebuild": "npm run clean:types"
+    "prebuild": "npm run clean:types",
+    "optimize:images": "node scripts/optimize-images.js",
+    "analyze:bundle": "ANALYZE=true npm run build",
+    "generate:sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.16",
@@ -54,17 +57,26 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-dropdown-menu": "^2.1.16",
+    "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-tabs": "^1.1.13",
     "@types/next": "^8.0.7",
     "@types/node": "^24.10.0",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "@vitejs/plugin-react": "^5.1.0",
     "autoprefixer": "^10.4.21",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
     "jimp": "^1.6.0",
     "node-vibrant": "^4.0.3",
     "postcss": "^8.5.6",
     "rimraf": "^6.1.0",
     "rollup-plugin-visualizer": "^6.0.5",
+    "tailwind-merge": "^3.3.1",
     "tailwindcss": "^3.4.18",
     "typescript": "^5.9.3",
     "vite": "^5.4.21",

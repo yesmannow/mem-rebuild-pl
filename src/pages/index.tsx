@@ -8,6 +8,10 @@ import StickyCTA from "../components/StickyCTA";
 import Carousel from "../components/Carousel";
 import NewsletterForm from "../components/newsletter/NewsletterForm";
 import ServicesSection from "../components/services/ServicesSection";
+import OrganizationSchema from "../components/seo/OrganizationSchema";
+import ServiceSchema from "../components/seo/ServiceSchema";
+import ReviewSchema from "../components/seo/ReviewSchema";
+import ClientLogos from "../components/clients/ClientLogos";
 import { trackCTA } from "../utils/analytics";
 
 const selectedWork = [
@@ -101,24 +105,34 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Jacob Darling | Marketing Strategist & Systems Architect</title>
+        <title>BearCave Marketing — Jacob Darling | Marketing Strategist & Systems Architect</title>
         <meta
           name="description"
           content="I build marketing systems that turn brands into revenue engines. Strategy, creative, analytics, and execution—unified under one operator."
         />
-        <meta property="og:title" content="Jacob Darling | Marketing Strategist & Systems Architect" />
+        <meta name="keywords" content="marketing strategist, marketing technologist, marketing automation, CRM campaigns, systems architecture" />
+        <meta property="og:title" content="BearCave Marketing — Jacob Darling | Marketing Strategist & Systems Architect" />
         <meta
           property="og:description"
           content="I build marketing systems that turn brands into revenue engines. Strategy, creative, analytics, and execution—unified under one operator."
         />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.bearcavemarketing.com/" />
+        <meta property="og:image" content="https://www.bearcavemarketing.com/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Jacob Darling | Marketing Strategist & Systems Architect" />
+        <meta name="twitter:title" content="BearCave Marketing — Jacob Darling" />
         <meta
           name="twitter:description"
           content="I build marketing systems that turn brands into revenue engines."
         />
+        <meta name="twitter:image" content="https://www.bearcavemarketing.com/og-image.jpg" />
+        <link rel="canonical" href="https://www.bearcavemarketing.com/" />
       </Helmet>
+
+      {/* Structured Data */}
+      <OrganizationSchema />
+      <ServiceSchema />
+      <ReviewSchema />
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -213,6 +227,17 @@ const HomePage: React.FC = () => {
         transition={{ duration: 0.6 }}
       >
         <ServicesSection />
+      </motion.section>
+
+      <motion.section
+        id="clients"
+        className="container-px mx-auto max-w-6xl py-16 md:py-24"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <ClientLogos />
       </motion.section>
 
       <motion.div
