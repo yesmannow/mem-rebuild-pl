@@ -150,10 +150,10 @@ export const applications: Application[] = [
           snippet: `function filterByCustomer() {
     currentCustomerType = document.getElementById('customerType').value;
     const priceRows = document.querySelectorAll('.price-row');
-    
+
     priceRows.forEach(row => {
         const label = row.querySelector('.price-label').textContent.toLowerCase();
-        
+
         if (currentCustomerType === 'all') {
             row.style.display = 'flex';
         } else if (currentCustomerType === 'retail' && label.includes('list')) {
@@ -177,7 +177,7 @@ export const applications: Application[] = [
     let price = retailPrice;
     if (currentCustomerType === 'corporate') price = corpPrice;
     if (currentCustomerType === 'student') price = studentPrice;
-    
+
     const existingItem = currentQuote.find(item => item.name === productName);
     if (existingItem) {
         existingItem.quantity += 1;
@@ -190,7 +190,7 @@ export const applications: Application[] = [
             quantity: 1
         });
     }
-    
+
     updateQuoteDisplay();
     // Visual feedback animation
     const card = buttonElement.closest('.product-card');
@@ -204,16 +204,16 @@ export const applications: Application[] = [
           snippet: `function searchProducts() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const productCards = document.querySelectorAll('.product-card');
-    
+
     productCards.forEach(card => {
         const keywords = card.getAttribute('data-keywords') || '';
         const title = card.querySelector('.product-title').textContent.toLowerCase();
         const description = card.querySelector('.product-description').textContent.toLowerCase();
-        
-        const matches = keywords.includes(searchTerm) || 
-                      title.includes(searchTerm) || 
+
+        const matches = keywords.includes(searchTerm) ||
+                      title.includes(searchTerm) ||
                       description.includes(searchTerm);
-        
+
         card.style.display = matches || searchTerm === '' ? 'block' : 'none';
     });
 }`,
@@ -351,10 +351,10 @@ export const applications: Application[] = [
 
     // Populate states, attach events
     const selector = container.querySelector(\`#stateSelector_\${hubType}\`);
-    const sortedStates = Object.keys(dataObject).sort((a, b) => 
+    const sortedStates = Object.keys(dataObject).sort((a, b) =>
         dataObject[a].stateName.localeCompare(dataObject[b].stateName)
     );
-    
+
     sortedStates.forEach(stateCode => {
         const option = document.createElement('option');
         option.value = stateCode;
@@ -369,7 +369,7 @@ export const applications: Application[] = [
             "Configuration objects define how each profession's data should be displayed without code duplication",
           language: 'javascript',
           snippet: `const mappings = {
-    pt: { 
+    pt: {
         title: 'Physical Therapy (PT & PTA) State License Requirements',
         subtitle: 'Select your state to find CEU requirements.',
         col1_header: 'PT Requirements',
@@ -380,7 +380,7 @@ export const applications: Application[] = [
         col3_id: 'notes',
         disclaimer: 'It is the licensee\\'s responsibility to verify all CEU requirements.'
     },
-    dc: { 
+    dc: {
         title: 'Chiropractic State License Requirements',
         subtitle: 'Select your state to find CEU requirements.',
         col1_header: 'CEUs Required',
@@ -607,7 +607,7 @@ export const applications: Application[] = [
             li.textContent = feature;
             bundleFeaturesEl.appendChild(li);
         });
-        
+
         performCalculations();
     }
 }`,
@@ -741,29 +741,29 @@ export const applications: Application[] = [
     cervicalSpine: {
         displayName: "Cervical Spine",
         pathologies: {
-            general: { 
-                displayName: "General Dysfunction / Postural Strain", 
+            general: {
+                displayName: "General Dysfunction / Postural Strain",
                 baseProtocol: [
-                    { 
-                        area: "Upper Trapezius / Levator Scapulae", 
-                        stroke: "Sweep, Fan", 
-                        instruments: "GT1, GT4, GT5" 
+                    {
+                        area: "Upper Trapezius / Levator Scapulae",
+                        stroke: "Sweep, Fan",
+                        instruments: "GT1, GT4, GT5"
                     },
-                    { 
-                        area: "Cervical Paraspinals (Laminar Groove)", 
-                        stroke: "J-Stroke", 
-                        instruments: "GT3" 
+                    {
+                        area: "Cervical Paraspinals (Laminar Groove)",
+                        stroke: "J-Stroke",
+                        instruments: "GT3"
                     }
-                ], 
-                findings: { 
-                    headaches: { 
-                        text: "Focus on releasing suboccipital tension, a common driver of cervicogenic headaches." 
+                ],
+                findings: {
+                    headaches: {
+                        text: "Focus on releasing suboccipital tension, a common driver of cervicogenic headaches."
                     },
-                    forwardHead: { 
-                        text: "Address shortened anterior structures. Include framing of the clavicle and light sweeps over SCM." 
+                    forwardHead: {
+                        text: "Address shortened anterior structures. Include framing of the clavicle and light sweeps over SCM."
                     }
-                }, 
-                adjunctiveCare: "Stretching of upper traps & pectorals. Strengthening of deep neck flexors & scapular retractors." 
+                },
+                adjunctiveCare: "Stretching of upper traps & pectorals. Strengthening of deep neck flexors & scapular retractors."
             }
         }
     }
@@ -1079,7 +1079,7 @@ function showInstrumentInfo(instCode) {
 
     foreach ($providers as $provider) {
         $provider_url = get_post_meta($provider->ID, 'profile_url', true);
-        
+
         // Fetch GA4 metrics for this provider's URL
         $request = new RunReportRequest([
             'property' => 'properties/' . GA4_PROPERTY_ID,
@@ -1100,7 +1100,7 @@ function showInstrumentInfo(instCode) {
 
         try {
             $response = $client->runReport($request);
-            
+
             // Extract metrics
             $views = $response->getRows()[0]->getMetricValues()[0]->getValue();
             $sessions = $response->getRows()[0]->getMetricValues()[1]->getValue();
@@ -1135,53 +1135,53 @@ if (!wp_next_scheduled('provider_analytics_sync_hook')) {
           language: 'php',
           snippet: `function calculate_peer_benchmarks($provider_id, $membership_tier) {
     global $wpdb;
-    
+
     // Optimized query using indexed postmeta joins
     $query = $wpdb->prepare("
-        SELECT 
+        SELECT
             AVG(CAST(pm_views.meta_value AS UNSIGNED)) as avg_views,
             AVG(CAST(pm_sessions.meta_value AS UNSIGNED)) as avg_sessions,
             AVG(CAST(pm_engagement.meta_value AS DECIMAL(5,2))) as avg_engagement,
             COUNT(DISTINCT p.ID) as provider_count
         FROM {$wpdb->posts} p
-        INNER JOIN {$wpdb->postmeta} pm_tier 
-            ON p.ID = pm_tier.post_id 
+        INNER JOIN {$wpdb->postmeta} pm_tier
+            ON p.ID = pm_tier.post_id
             AND pm_tier.meta_key = 'membership_tier'
             AND pm_tier.meta_value = %s
-        LEFT JOIN {$wpdb->postmeta} pm_views 
-            ON p.ID = pm_views.post_id 
+        LEFT JOIN {$wpdb->postmeta} pm_views
+            ON p.ID = pm_views.post_id
             AND pm_views.meta_key = 'analytics_views_30d'
-        LEFT JOIN {$wpdb->postmeta} pm_sessions 
-            ON p.ID = pm_sessions.post_id 
+        LEFT JOIN {$wpdb->postmeta} pm_sessions
+            ON p.ID = pm_sessions.post_id
             AND pm_sessions.meta_key = 'analytics_sessions_30d'
-        LEFT JOIN {$wpdb->postmeta} pm_engagement 
-            ON p.ID = pm_engagement.post_id 
+        LEFT JOIN {$wpdb->postmeta} pm_engagement
+            ON p.ID = pm_engagement.post_id
             AND pm_engagement.meta_key = 'analytics_engagement_rate'
         WHERE p.post_type = 'provider'
         AND p.post_status = 'publish'
         AND p.ID != %d
     ", $membership_tier, $provider_id);
-    
+
     $benchmarks = $wpdb->get_row($query);
-    
+
     // Cache results for 6 hours
     set_transient("peer_benchmarks_{$membership_tier}", $benchmarks, 6 * HOUR_IN_SECONDS);
-    
+
     return $benchmarks;
 }
 
 function get_performance_vs_peers($provider_id) {
     $tier = get_post_meta($provider_id, 'membership_tier', true);
     $views = (int) get_post_meta($provider_id, 'analytics_views_30d', true);
-    
+
     $benchmarks = get_transient("peer_benchmarks_{$tier}");
     if (false === $benchmarks) {
         $benchmarks = calculate_peer_benchmarks($provider_id, $tier);
     }
-    
+
     $avg_views = $benchmarks->avg_views;
     $diff_percent = $avg_views > 0 ? round((($views - $avg_views) / $avg_views) * 100) : 0;
-    
+
     return [
         'your_views' => $views,
         'avg_views' => round($avg_views),
@@ -1215,9 +1215,9 @@ const AnalyticsDashboard = ({ providerId }) => {
                     'X-WP-Nonce': wpApiSettings.nonce
                 }
             });
-            
+
             if (!response.ok) throw new Error('Failed to fetch analytics');
-            
+
             const data = await response.json();
             setAnalytics(data.metrics);
             setBenchmark(data.benchmark);
@@ -1349,8 +1349,8 @@ export default AnalyticsDashboard;`,
                     <label>What is the average value of a new patient?</label>
                     <div className="input-wrapper">
                         <span className="currency-symbol">$</span>
-                        <input 
-                            type="number" 
+                        <input
+                            type="number"
                             value={avgPatientValue}
                             onChange={(e) => setAvgPatientValue(Number(e.target.value))}
                             min="50"
@@ -1361,10 +1361,10 @@ export default AnalyticsDashboard;`,
 
                 <div className="input-group">
                     <label>How many new patients per month from directory?</label>
-                    <input 
-                        type="range" 
-                        min="1" 
-                        max="5" 
+                    <input
+                        type="range"
+                        min="1"
+                        max="5"
                         value={newPatients}
                         onChange={(e) => setNewPatients(Number(e.target.value))}
                         className="slider"
@@ -1419,6 +1419,266 @@ export default AnalyticsDashboard;`,
       author: 'Dr. Jennifer Lawrence',
       role: 'Premier Member - Sports Medicine Clinic',
     },
+  },
+  {
+    id: 'site-optimization-tasks',
+    title: 'Site Optimization & Security Tasks',
+    tagline: 'May 2025 optimization roadmap: Cloudflare, caching, security & performance',
+    icon: '🛡️',
+    accentGradient: 'linear-gradient(135deg, #10b981 0%, #3b82f6 100%)',
+    category: ['Infrastructure & Optimization'],
+    tags: ['Cloudflare', 'Caching', 'Security', 'Performance', 'DevOps'],
+    thumbnail: '/apps/site-optimization-thumbnail.png',
+    demoUrl: 'https://bearcavemarketing.com',
+    overview:
+      'A consolidated view of the tasks completed in May 2025 to harden security, optimize caching, and improve performance on BearCaveMarketing.com. This comprehensive optimization initiative addressed brute-force attacks, slow page loads, and configuration sprawl across Cloudflare and WordPress through advanced protections, tuned caching, compressed assets, hardened SSL, optimized PHP/WP settings, and cleaned up scripts/plugins.',
+    valueProposition: {
+      problem:
+        'The site faced frequent brute-force attacks, slow page loads, and configuration sprawl across Cloudflare and WordPress. Security vulnerabilities left the site exposed to malicious traffic, while inefficient caching and uncompressed assets resulted in poor performance metrics. Configuration inconsistencies made maintenance difficult and troubleshooting time-consuming.',
+      solution:
+        'Implemented advanced Cloudflare protections including rate-limiting and WAF rules, tuned caching with Brotli/gzip compression and tiered cache strategies, hardened TLS/SSL with origin certs and DNSSEC, optimized PHP 8.3 and WordPress settings, and cleaned up unnecessary scripts and plugins. Created a comprehensive security and performance framework that blocks malicious traffic while dramatically improving load times.',
+      impact: [
+        'Blocked ~85K bad-bot hits per month through advanced rate-limiting and WAF rules',
+        'Achieved 20-30% payload reduction via Brotli/gzip compression',
+        'Reduced quote generation time through optimized PHP and caching',
+        'Eliminated brute-force attacks with Cloudflare Bot Fight Mode and custom rules',
+        'Improved Core Web Vitals scores with optimized caching and asset compression',
+        'Enhanced SSL/TLS security with origin certificates and mTLS configuration',
+        'Streamlined configuration management with centralized Cloudflare settings',
+      ],
+    },
+    features: [
+      {
+        title: 'Cloudflare Hardening',
+        description:
+          'Implemented rate-limiting rules, WAF custom rules, Bot Fight Mode, caching transforms, and managed transform rules to protect against malicious traffic and optimize content delivery.',
+        icon: '🛡️',
+      },
+      {
+        title: 'TLS & DNS Security',
+        description:
+          'Configured origin certificates, mTLS (mutual TLS), DNSSEC setup, and DS record submission to ensure end-to-end encryption and prevent DNS spoofing attacks.',
+        icon: '🔒',
+      },
+      {
+        title: 'Caching & Compression',
+        description:
+          'Deployed Brotli/gzip compression, browser caching headers, cookie-free CDN caching, and tiered cache strategies to reduce payload sizes and improve load times.',
+        icon: '⚡',
+      },
+      {
+        title: 'Server & PHP Tuning',
+        description:
+          'Optimized PHP limits and FPM settings, tuned WordPress Cron and Heartbeat intervals, upgraded to PHP 8.3, and configured opcode caching for improved performance.',
+        icon: '⚙️',
+      },
+      {
+        title: 'WP/Asset Optimization',
+        description:
+          'Optimized JavaScript/CSS delivery, implemented font and DNS preloads, configured ESI and role-vary caching, and tuned WP Rocket page caching for maximum efficiency.',
+        icon: '📦',
+      },
+      {
+        title: 'Security Monitoring & Maintenance',
+        description:
+          'Set up automated security monitoring, log analysis, and maintenance workflows to ensure ongoing protection and performance optimization.',
+        icon: '📊',
+      },
+    ],
+    technicalDetails: {
+      architecture:
+        'Multi-layered security and performance architecture leveraging Cloudflare edge network for DDoS protection, rate-limiting, and caching. WordPress backend optimized with PHP 8.3, LiteSpeed web server, and WP Rocket caching plugin. TLS/SSL secured with origin certificates and mTLS. DNS hardened with DNSSEC. Asset delivery optimized through Brotli/gzip compression and browser caching headers.',
+      techStack: [
+        'Cloudflare Platform',
+        'LiteSpeed Web Server',
+        'WP Rocket',
+        'PHP 8.3',
+        'WordPress 6.x',
+        'Brotli/Gzip Compression',
+        'TLS/SSL Certificates',
+        'DNSSEC',
+        'mTLS (Mutual TLS)',
+        'Cloudflare WAF',
+        'Cloudflare Rate Limiting',
+        'Cloudflare Transform Rules',
+      ],
+      keyComponents: [
+        {
+          name: 'Rate-Limit Rule Set',
+          purpose:
+            'Custom Cloudflare rate-limiting rules blocking brute-force login attempts, form spam, and API abuse with configurable thresholds and actions',
+          complexity:
+            'High - Multiple rule conditions, IP-based tracking, challenge vs. block decisions, and integration with WAF',
+        },
+        {
+          name: 'Managed Transform Rules',
+          purpose:
+            'Cloudflare transform rules optimizing HTML, CSS, and JavaScript delivery with minification, compression, and cache control headers',
+          complexity:
+            'Medium - Rule-based transformations, content-type detection, and edge-side processing',
+        },
+        {
+          name: 'Brotli/Gzip Compression',
+          purpose:
+            'Dual compression strategy with Brotli for modern browsers and gzip fallback, reducing payload sizes by 20-30%',
+          complexity:
+            'Medium - Content-type detection, compression level optimization, and browser compatibility handling',
+        },
+        {
+          name: 'Server Caching Layers',
+          purpose:
+            'Multi-tier caching strategy with Cloudflare edge cache, LiteSpeed server cache, WP Rocket page cache, and browser cache headers',
+          complexity:
+            'High - Cache invalidation strategies, cache warming, ESI implementation, and role-based cache variations',
+        },
+        {
+          name: 'TLS/SSL Security Stack',
+          purpose:
+            'Origin certificates, mTLS configuration, DNSSEC setup, and DS record submission ensuring end-to-end encryption and DNS integrity',
+          complexity:
+            'High - Certificate management, key rotation, DNSSEC chain of trust, and DNS provider coordination',
+        },
+        {
+          name: 'PHP 8.3 Optimization',
+          purpose:
+            'Upgraded PHP version, optimized FPM settings, configured opcode caching, and tuned resource limits for improved performance',
+          complexity:
+            'Medium - Version migration, compatibility testing, performance tuning, and resource limit optimization',
+        },
+        {
+          name: 'WordPress Performance Tuning',
+          purpose:
+            'Optimized Cron schedules, reduced Heartbeat frequency, cleaned up unnecessary plugins/scripts, and configured WP Rocket caching',
+          complexity:
+            'Medium - Plugin audit, performance profiling, cache configuration, and maintenance workflow setup',
+        },
+      ],
+      codeHighlights: [
+        {
+          title: 'Cloudflare Rate-Limiting Rule Configuration',
+          description:
+            'Custom rate-limiting rules blocking brute-force attacks with IP-based tracking and challenge/block actions',
+          language: 'javascript',
+          snippet: `// Cloudflare Rate Limiting Rule Example
+{
+  "action": {
+    "mode": "challenge",
+    "timeout": 600,
+    "response": {
+      "status_code": 403,
+      "content_type": "application/json",
+      "body": "{\\"error\\": \\"Too many requests. Please try again later.\\"}"
+    }
+  },
+  "ratelimit": {
+    "threshold": 5,
+    "period": 60,
+    "match": "request",
+    "scheme": {
+      "http_methods": ["POST"],
+      "request_uri": {
+        "path": "/wp-login.php"
+      }
+    }
+  }
+}`,
+        },
+        {
+          title: 'Cloudflare Transform Rule for Compression',
+          description:
+            'Managed transform rule optimizing asset delivery with compression and cache headers',
+          language: 'javascript',
+          snippet: `// Cloudflare Transform Rule - Compression & Cache Headers
+{
+  "rules": [
+    {
+      "enabled": true,
+      "action": {
+        "request": {
+          "headers": {
+            "set": {
+              "Cache-Control": "public, max-age=31536000, immutable"
+            }
+          }
+        },
+        "response": {
+          "headers": {
+            "set": {
+              "Content-Encoding": "br",
+              "Vary": "Accept-Encoding"
+            }
+          }
+        }
+      },
+      "expression": "(http.request.uri.path matches \\"\\.(css|js|woff2|jpg|png)$\\")"
+    }
+  ]
+}`,
+        },
+        {
+          title: 'PHP 8.3 FPM Optimization Settings',
+          description:
+            'Optimized PHP-FPM configuration for improved performance and resource management',
+          language: 'ini',
+          snippet: `; PHP 8.3 FPM Optimization
+[www]
+pm = dynamic
+pm.max_children = 50
+pm.start_servers = 10
+pm.min_spare_servers = 5
+pm.max_spare_servers = 20
+pm.max_requests = 500
+pm.process_idle_timeout = 10s
+
+; Opcode Cache
+opcache.enable=1
+opcache.memory_consumption=256
+opcache.interned_strings_buffer=16
+opcache.max_accelerated_files=20000
+opcache.validate_timestamps=0
+opcache.revalidate_freq=0
+
+; Resource Limits
+memory_limit = 256M
+max_execution_time = 300
+max_input_time = 300`,
+        },
+        {
+          title: 'WP Rocket Cache Configuration',
+          description:
+            'Optimized WP Rocket settings for maximum caching efficiency and performance',
+          language: 'php',
+          snippet: `// WP Rocket Cache Configuration
+add_filter('rocket_cache_reject_uri', function($uri) {
+    $uri[] = '/wp-admin(.*)';
+    $uri[] = '/wp-login.php';
+    $uri[] = '/cart(.*)';
+    $uri[] = '/checkout(.*)';
+    return $uri;
+});
+
+// Cache Preloading
+add_filter('rocket_preload_exclude_urls', function($urls) {
+    $urls[] = '/wp-admin';
+    $urls[] = '/wp-login.php';
+    return $urls;
+});
+
+// ESI Support for Role-Based Caching
+add_filter('rocket_cache_reject_cookies', function($cookies) {
+    $cookies[] = 'wordpress_logged_in';
+    $cookies[] = 'wp_rocket_cache';
+    return $cookies;
+});`,
+        },
+      ],
+    },
+    metrics: [
+      { label: 'Bad Bot Hits Blocked', value: '85K+/mo' },
+      { label: 'Payload Reduction', value: '20-30%' },
+      { label: 'Security Score', value: 'A+' },
+      { label: 'Performance Improvement', value: '40%+' },
+    ],
   },
 ];
 

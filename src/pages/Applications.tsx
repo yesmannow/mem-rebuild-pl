@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { applications, getAllCategories } from '../data/applications';
 import { staggerContainer, staggerItem } from '../utils/animations';
 import AnimatedSection from '../components/animations/AnimatedSection';
+import AppDemoModal from '../components/modals/AppDemoModal';
 import './Applications.css';
 
 const Applications: React.FC = () => {
@@ -11,6 +12,8 @@ const Applications: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [sortBy, setSortBy] = useState<'default' | 'name' | 'recent'>('default');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [modalApp, setModalApp] = useState<{ title: string; url: string } | null>(null);
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
   const categories = ['All', ...getAllCategories()];
 
   const filteredApplications = useMemo(() => {
@@ -53,7 +56,7 @@ const Applications: React.FC = () => {
             <span className="badge-dot"></span>
             <span>Live & Interactive</span>
           </div>
-          <h1>Developer Tools</h1>
+          <h1>Developer Tools & Projects</h1>
           <p className="header-subtitle">
             Custom tools and applications I've built to solve real problems. Production-ready web
             tools demonstrating full-stack development, UX design, and complex problem-solving
@@ -69,10 +72,6 @@ const Applications: React.FC = () => {
             <div className="stat-item">
               <span className="stat-value">{totalTechnologies}+</span>
               <span className="stat-label">Technologies Used</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-value">100%</span>
-              <span className="stat-label">Functional</span>
             </div>
           </div>
         </section>
@@ -206,27 +205,35 @@ const Applications: React.FC = () => {
                   layout
                 >
                   <div className="application-card">
-                    {/* Screenshot Section */}
-                    <div className="app-screenshot-wrapper">
-                      <div className="screenshot-frame">
-                        <img
-                          src={app.thumbnail}
-                          alt={`${app.title} screenshot`}
-                          className="app-screenshot"
-                        />
-                        <div className="screenshot-overlay">
-                          <div className="overlay-content">
-                            <span className="preview-label">Click to Launch Live App</span>
+                      {/* Screenshot Section */}
+                      <div className="app-screenshot-wrapper">
+                        <div className="screenshot-frame">
+                          {imageErrors.has(app.id) ? (
+                            <div className="app-screenshot-placeholder">
+                              <div className="placeholder-icon">{app.icon}</div>
+                              <div className="placeholder-text">{app.title}</div>
+                            </div>
+                          ) : (
+                            <img
+                              src={app.thumbnail}
+                              alt={`${app.title} screenshot`}
+                              className="app-screenshot"
+                              onError={() => setImageErrors(prev => new Set(prev).add(app.id))}
+                            />
+                          )}
+                          <div className="screenshot-overlay">
+                            <div className="overlay-content">
+                              <span className="preview-label">Click to Launch Live App</span>
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      {/* Live Indicator */}
-                      <div className="live-indicator">
-                        <span className="live-dot"></span>
-                        <span>Live</span>
+                        {/* Live Indicator */}
+                        <div className="live-indicator">
+                          <span className="live-dot"></span>
+                          <span>Live</span>
+                        </div>
                       </div>
-                    </div>
 
                     {/* App Content */}
                     <div className="app-card-content">
@@ -285,25 +292,9 @@ const Applications: React.FC = () => {
 
                       {/* Actions */}
                       <div className="app-card-actions">
-                        <a
-                          href={app.demoUrl}
+                        <button
                           className="app-btn primary group"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={e => {
-                            // Prevent default and handle external link safely
-                            try {
-                              window.open(
-                                app.demoUrl,
-                                '_blank',
-                                'noopener,noreferrer,width=1200,height=800'
-                              );
-                              e.preventDefault();
-                            } catch (error) {
-                              console.warn('Failed to open app demo:', error);
-                              // Fallback to default behavior
-                            }
-                          }}
+                          onClick={() => setModalApp({ title: app.title, url: app.demoUrl })}
                         >
                           <span>Launch Live App</span>
                           <svg
@@ -321,7 +312,7 @@ const Applications: React.FC = () => {
                               strokeLinejoin="round"
                             />
                           </svg>
-                        </a>
+                        </button>
                         <Link to={`/applications/${app.id}`} className="app-btn secondary">
                           <span>Deep Dive</span>
                         </Link>
@@ -355,6 +346,16 @@ const Applications: React.FC = () => {
           </motion.div>
         )}
       </section>
+
+      {/* App Demo Modal */}
+      {modalApp && (
+        <AppDemoModal
+          isOpen={!!modalApp}
+          onClose={() => setModalApp(null)}
+          appTitle={modalApp.title}
+          appUrl={modalApp.url}
+        />
+      )}
     </main>
   );
 };

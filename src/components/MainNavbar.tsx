@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Menu, X } from 'lucide-react';
@@ -86,8 +86,8 @@ export default function MainNavbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className={`main-navbar fixed w-full z-50 transition-all ${
-        scrolled ? 'bg-[color:theme(colors.cave.bg)]/80 backdrop-blur-xs shadow-md' : 'bg-transparent'
-      } py-4`}
+    scrolled ? 'bg-[color:theme(\'colors.cave.bg\')]/80 backdrop-blur-xs shadow-md' : 'bg-transparent'
+  } py-4`}
     >
       <div className="container mx-auto flex items-center justify-between px-6">
         {/* Logo */}

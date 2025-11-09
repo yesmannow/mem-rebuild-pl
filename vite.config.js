@@ -26,12 +26,8 @@ export default defineConfig({
     host: true,
   },
   build: {
-    manifest: true,
+    manifest: false, // Set to false to avoid HTML proxy issues
     rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        sw: resolve(__dirname, 'src/sw.js')
-      },
       output: {
         entryFileNames: chunk => (chunk.name === 'sw' ? 'sw.js' : 'assets/[name]-[hash].js'),
         manualChunks: {

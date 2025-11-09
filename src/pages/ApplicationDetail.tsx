@@ -22,7 +22,7 @@ const ApplicationDetail: React.FC = () => {
       <AnimatedSection>
         <div className="back-nav">
           <Link to="/applications" className="back-link">
-            ← Back to Developer Tools
+            ← Back to Developer Tools & Projects
           </Link>
         </div>
       </AnimatedSection>
