@@ -50,7 +50,7 @@ Provide:
 Format as JSON with keys: history, lessons, useCases, uniqueAspects`;
 
     const completion = await openai.chat.completions.create({
-      model: 'gpt-4',
+      model: 'gpt-4o-mini', // Using latest cost-effective model
       messages: [
         {
           role: 'system',
@@ -380,7 +380,7 @@ Provide:
 Format as JSON`;
 
     const completion = await openai.chat.completions.create({
-      model: 'gpt-4',
+      model: 'gpt-4o-mini', // Using latest cost-effective model
       messages: [
         {
           role: 'system',

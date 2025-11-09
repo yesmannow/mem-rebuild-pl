@@ -10,6 +10,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { OpenAI } from 'openai';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -19,15 +20,24 @@ const __dirname = path.dirname(__filename);
 
 const brandDataPath = path.resolve(__dirname, '../src/data/brand-identities.json');
 
-// Initialize OpenAI
-const openai = process.env.OPENAI_API_KEY
-  ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
-  : null;
+// Initialize AI providers (try Gemini first, then OpenAI)
+const geminiApiKey = process.env.GEMINI_API_KEY;
+const openaiApiKey = process.env.OPENAI_API_KEY;
 
-if (!openai) {
-  console.warn('⚠️  OpenAI API key not found in .env file.');
-  console.warn('   Please add OPENAI_API_KEY=your_key_here to your .env file');
+const gemini = geminiApiKey ? new GoogleGenerativeAI(geminiApiKey) : null;
+const openai = openaiApiKey ? new OpenAI({ apiKey: openaiApiKey }) : null;
+
+// Determine which provider to use
+const aiProvider = gemini ? 'gemini' : (openai ? 'openai' : null);
+
+if (!aiProvider) {
+  console.warn('⚠️  No AI API key found in .env file.');
+  console.warn('   Please add GEMINI_API_KEY=your_key_here or OPENAI_API_KEY=your_key_here');
+  console.warn('   Get Gemini key: https://aistudio.google.com/');
+  console.warn('   Get OpenAI key: https://platform.openai.com/account/api-keys');
   console.warn('   Continuing with mock data generation...\n');
+} else {
+  console.log(`✅ Using ${aiProvider.toUpperCase()} API\n`);
 }
 
 /**
@@ -93,7 +103,7 @@ async function generateBrandQuiz(brandData) {
     }
   ];
 
-  if (!openai) {
+  if (!aiProvider) {
     return mockQuiz;
   }
 
@@ -128,26 +138,47 @@ Format as JSON with this structure:
   ]
 }`;
 
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-4',
-      messages: [
-        {
-          role: 'system',
-          content: 'You are a design educator creating quiz questions about brand identity. Always return valid JSON with exactly 5 questions.'
-        },
-        {
-          role: 'user',
-          content: prompt
-        }
-      ],
-      response_format: { type: 'json_object' },
-      temperature: 0.7
-    });
+    let result;
 
-    const result = JSON.parse(completion.choices[0].message.content || '{}');
+    // Try Gemini first, then OpenAI
+    if (aiProvider === 'gemini') {
+      const model = gemini.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
+      const fullPrompt = `You are a design educator creating quiz questions about brand identity. Always return valid JSON with exactly 5 questions.\n\n${prompt}`;
+      
+      const response = await model.generateContent({
+        contents: [{ role: 'user', parts: [{ text: fullPrompt }] }],
+        generationConfig: {
+          temperature: 0.7,
+          responseMimeType: 'application/json',
+        },
+      });
+      
+      const responseText = response.response.text();
+      result = JSON.parse(responseText);
+    } else {
+      // OpenAI
+      const completion = await openai.chat.completions.create({
+        model: 'gpt-4o-mini',
+        messages: [
+          {
+            role: 'system',
+            content: 'You are a design educator creating quiz questions about brand identity. Always return valid JSON with exactly 5 questions.'
+          },
+          {
+            role: 'user',
+            content: prompt
+          }
+        ],
+        response_format: { type: 'json_object' },
+        temperature: 0.7
+      });
+
+      result = JSON.parse(completion.choices[0].message.content || '{}');
+    }
+
     return result.questions || mockQuiz;
   } catch (error) {
-    console.error(`❌ Error generating quiz for ${brandData.title}:`, error.message);
+    console.error(`❌ Error generating quiz for ${brandData.title} (${aiProvider}):`, error.message);
     console.log(`   ⚠️  Falling back to mock quiz questions...`);
     return mockQuiz;
   }
@@ -176,7 +207,7 @@ async function generateComparison(brand1, brand2) {
     }
   };
 
-  if (!openai) {
+  if (!aiProvider) {
     return mockComparison;
   }
 
@@ -207,25 +238,47 @@ Provide:
 
 Format as JSON with keys: similarities, differences, lessons, whenToUse`;
 
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-4',
-      messages: [
-        {
-          role: 'system',
-          content: 'You are a design analyst comparing brand identities. Provide insightful, educational comparisons.'
-        },
-        {
-          role: 'user',
-          content: prompt
-        }
-      ],
-      response_format: { type: 'json_object' },
-      temperature: 0.7
-    });
+    let result;
 
-    return JSON.parse(completion.choices[0].message.content || '{}');
+    // Try Gemini first, then OpenAI
+    if (aiProvider === 'gemini') {
+      const model = gemini.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
+      const fullPrompt = `You are a design analyst comparing brand identities. Provide insightful, educational comparisons.\n\n${prompt}`;
+      
+      const response = await model.generateContent({
+        contents: [{ role: 'user', parts: [{ text: fullPrompt }] }],
+        generationConfig: {
+          temperature: 0.7,
+          responseMimeType: 'application/json',
+        },
+      });
+      
+      const responseText = response.response.text();
+      result = JSON.parse(responseText);
+    } else {
+      // OpenAI
+      const completion = await openai.chat.completions.create({
+        model: 'gpt-4o-mini',
+        messages: [
+          {
+            role: 'system',
+            content: 'You are a design analyst comparing brand identities. Provide insightful, educational comparisons.'
+          },
+          {
+            role: 'user',
+            content: prompt
+          }
+        ],
+        response_format: { type: 'json_object' },
+        temperature: 0.7
+      });
+
+      result = JSON.parse(completion.choices[0].message.content || '{}');
+    }
+
+    return result;
   } catch (error) {
-    console.error(`❌ Error generating comparison for ${brand1.title} vs ${brand2.title}:`, error.message);
+    console.error(`❌ Error generating comparison for ${brand1.title} vs ${brand2.title} (${aiProvider}):`, error.message);
     console.log(`   ⚠️  Falling back to mock comparison...`);
     return mockComparison;
   }
