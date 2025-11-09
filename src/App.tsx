@@ -23,8 +23,8 @@ const App: React.FC = () => {
     initAnalytics();
 
     // Ensure native scrolling works immediately
-    document.documentElement.style.overflow = 'auto';
-    document.body.style.overflow = 'auto';
+    document.documentElement.style.overflow = "auto";
+    document.body.style.overflow = "auto";
 
     // Initialize global Lenis instance (with error handling)
     // initLenis() has a guard to prevent multiple initializations
@@ -32,11 +32,11 @@ const App: React.FC = () => {
       const lenis = initLenis();
       if (lenis) {
         // Only log once per actual initialization (guard prevents duplicate logs)
-        if (process.env.NODE_ENV === 'development') {
+        if (process.env.NODE_ENV === "development") {
           console.log("✅ App: Lenis ready");
         }
       } else {
-        if (process.env.NODE_ENV === 'development') {
+        if (process.env.NODE_ENV === "development") {
           console.warn("⚠️ App: Lenis not initialized, using native scroll");
         }
       }
@@ -50,7 +50,7 @@ const App: React.FC = () => {
     return () => {
       // Only destroy on actual app unmount, not during StrictMode remounts
       // This prevents duplicate initialization during dev mode
-      if (process.env.NODE_ENV === 'production') {
+      if (process.env.NODE_ENV === "production") {
         try {
           destroyLenis();
         } catch (error) {
