@@ -16,6 +16,15 @@ import AnimatedSection from '../components/animations/AnimatedSection';
 import MagneticButton from '../components/interactive/MagneticButton';
 import { fadeInUp } from '../utils/animations';
 import './Contact.css';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Mail, Linkedin, Github, Send, MessageSquare, User, Building2, Phone, FileText, CalendarDays } from "lucide-react";
+import AnimatedSection from "../components/animations/AnimatedSection";
+import MagneticButton from "../components/interactive/MagneticButton";
+import { fadeInUp } from "../utils/animations";
+import { trackCTA } from "../utils/analytics";
+import "./Contact.css";
 
 interface FormData {
   name: string;
@@ -34,6 +43,8 @@ const CONTACT_REASONS = [
   { value: 'question', label: 'General Question', description: 'Have a question' },
   { value: 'other', label: 'Other', description: 'Something else' },
 ];
+
+const STRATEGY_CALL_URL = "https://cal.com/jacob-darling";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -108,6 +119,14 @@ const Contact: React.FC = () => {
       setIsSubmitting(false);
     }
   };
+
+  const handleStrategyCallClick = React.useCallback(() => {
+    trackCTA("book_call", "contact_info");
+
+    if (typeof window !== "undefined") {
+      window.open(STRATEGY_CALL_URL, "_blank", "noopener,noreferrer");
+    }
+  }, []);
 
   return (
     <main className="contact-page">
@@ -266,6 +285,14 @@ const Contact: React.FC = () => {
               <div className="info-card">
                 <h3>Get In Touch</h3>
                 <p>Prefer to reach out directly? Use any of these options:</p>
+
+                <div className="strategy-call-cta">
+                  <MagneticButton className="strategy-call-button" onClick={handleStrategyCallClick}>
+                    <CalendarDays size={20} />
+                    <span>Book a strategy call</span>
+                  </MagneticButton>
+                  <p className="strategy-call-note">Map out your next growth move in a focused 30-minute session.</p>
+                </div>
 
                 <div className="contact-methods">
                   <motion.a

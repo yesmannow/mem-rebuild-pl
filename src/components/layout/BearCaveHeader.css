@@ -201,6 +201,36 @@
 
 .bearcave-header__cta {
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+.bearcave-header__booking-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(129, 140, 248, 0.4);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all var(--duration-fast) ease;
+  box-shadow: 0 2px 10px rgba(79, 70, 229, 0.25);
+}
+
+.bearcave-header__booking-btn:hover,
+.bearcave-header__booking-btn:focus-visible {
+  color: white;
+  background: rgba(129, 140, 248, 0.25);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.35);
+}
+
+.bearcave-header__booking-btn:focus-visible {
+  outline: 2px solid rgba(129, 140, 248, 0.6);
+  outline-offset: 2px;
 }
 
 .bearcave-header__resume-btn {
@@ -306,11 +336,27 @@
     max-height: 800px;
   }
 
+  .bearcave-header__mobile-book {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: var(--space-md);
+    padding: 0.85rem 1.1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #6366f1 0%, #7c3aed 100%);
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+    text-decoration: none;
+  }
+
   .bearcave-header__mobile-resume {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    margin-top: var(--space-xs);
     margin-bottom: var(--space-md);
     padding: 0.9rem 1.2rem;
     font-weight: 600;
