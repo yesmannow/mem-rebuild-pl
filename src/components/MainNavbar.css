@@ -1,0 +1,47 @@
+/* MainNavbar Styles */
+.main-navbar {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.main-navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dropdown positioning */
+.main-navbar .relative {
+  position: relative;
+}
+
+/* Ensure dropdowns are above other content */
+.main-navbar .absolute {
+  z-index: 1000;
+}
+
+/* Mobile menu styles */
+@media (max-width: 1023px) {
+  .main-navbar .lg\\:hidden {
+    display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-navbar .lg\\:hidden {
+    display: none;
+  }
+}
+
+/* Focus states for accessibility */
+.main-navbar button:focus-visible,
+.main-navbar a:focus-visible {
+  outline: 2px solid theme('colors.cave.ember');
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+.main-navbar * {
+  transition-timing-function: ease-in-out;
+}
+

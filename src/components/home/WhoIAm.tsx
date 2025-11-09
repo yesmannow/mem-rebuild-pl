@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import SectionWrapper from '../SectionWrapper';
 import './WhoIAm.css';
 
 const WhoIAm: React.FC = () => {
@@ -25,7 +26,7 @@ const WhoIAm: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="who-i-am container-px mx-auto max-w-6xl py-16 md:py-24">
+    <SectionWrapper bg="bg-[color:theme('colors.cave.bg')]" id="about">
       <div className="who-i-am__grid">
         {/* Bio Photo with Creative Treatment */}
         <motion.div
@@ -127,7 +128,7 @@ const WhoIAm: React.FC = () => {
           </motion.p>
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 

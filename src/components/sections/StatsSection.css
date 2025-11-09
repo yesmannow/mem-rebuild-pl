@@ -1,0 +1,112 @@
+.stats-section {
+  padding: 6rem 2rem;
+  background: var(--bc-bg, #fff);
+}
+
+.stats-section__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stats-section__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.stats-section__subtitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bc-accent, #3b82f6);
+  margin-bottom: 0.75rem;
+}
+
+.stats-section__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--bc-text-primary, #1a1a1a);
+}
+
+.stats-section__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+}
+
+.stats-section__item {
+  text-align: center;
+  padding: 2rem;
+}
+
+.stats-section__value {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  color: var(--bc-accent, #3b82f6);
+  background: linear-gradient(
+    135deg,
+    var(--bc-accent, #3b82f6) 0%,
+    var(--bc-secondary, #8b5cf6) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stats-section__label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--bc-text-secondary, #6b7280);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Variants */
+.stats-section--minimal .stats-section__value {
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: var(--bc-text-primary, #1a1a1a);
+  color: var(--bc-text-primary, #1a1a1a);
+}
+
+.stats-section--gradient {
+  background: linear-gradient(
+    135deg,
+    var(--bc-primary, #3b82f6) 0%,
+    var(--bc-secondary, #8b5cf6) 100%
+  );
+}
+
+.stats-section--gradient .stats-section__title,
+.stats-section--gradient .stats-section__subtitle,
+.stats-section--gradient .stats-section__label {
+  color: #fff;
+}
+
+.stats-section--gradient .stats-section__value {
+  background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 768px) {
+  .stats-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .stats-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-section__grid {
+    grid-template-columns: 1fr;
+  }
+}
+

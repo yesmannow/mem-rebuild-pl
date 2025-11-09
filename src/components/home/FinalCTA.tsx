@@ -2,13 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Mail, Calendar } from 'lucide-react';
+import SectionWrapper from '../SectionWrapper';
 import { ROUTE_CONTACT } from '../../lib/links';
 import { trackCTA } from '../../utils/analytics';
 import './FinalCTA.css';
 
 const FinalCTA: React.FC = () => {
   return (
-    <section id="contact" className="final-cta container-px mx-auto max-w-6xl py-16 md:py-24">
+    <SectionWrapper bg="bg-[color:theme('colors.cave.ember')]" id="contact">
       <motion.div
         className="final-cta__content"
         initial={{ opacity: 0, y: 20 }}
@@ -45,7 +46,7 @@ const FinalCTA: React.FC = () => {
           </Link>
         </div>
       </motion.div>
-    </section>
+    </SectionWrapper>
   );
 };
 
