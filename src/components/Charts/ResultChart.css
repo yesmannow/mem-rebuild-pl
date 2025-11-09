@@ -1,0 +1,24 @@
+/* Result Chart Styles */
+.result-chart-container {
+  width: 100%;
+  padding: var(--bc-space-xl);
+  background: var(--bc-surface);
+  border: 1px solid var(--bc-border);
+  border-radius: var(--bc-radius-xl);
+  backdrop-filter: blur(16px);
+}
+
+.result-chart-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 var(--bc-space-lg) 0;
+  color: var(--bc-text-primary);
+}
+
+.result-chart-empty {
+  padding: var(--bc-space-3xl);
+  text-align: center;
+  color: var(--bc-text-secondary);
+}
+
