@@ -149,7 +149,7 @@ const HomePage: React.FC = () => {
 
       <motion.section
         id="work"
-        className="container-px mx-auto max-w-6xl py-16 md:py-24 space-y-10"
+        className="container-px mx-auto max-w-6xl py-16 md:py-24 space-y-10 section-panel section-panel--work"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -186,7 +186,7 @@ const HomePage: React.FC = () => {
 
       <motion.section
         id="about"
-        className="container-px mx-auto max-w-6xl py-16 md:py-24"
+        className="container-px mx-auto max-w-6xl py-16 md:py-24 section-panel section-panel--about"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -231,6 +231,7 @@ const HomePage: React.FC = () => {
 
       <motion.section
         id="services"
+        className="container-px mx-auto max-w-6xl py-16 md:py-24 section-panel section-panel--services"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -241,7 +242,7 @@ const HomePage: React.FC = () => {
 
       <motion.section
         id="clients"
-        className="container-px mx-auto max-w-6xl py-16 md:py-24"
+        className="container-px mx-auto max-w-6xl py-16 md:py-24 section-panel section-panel--clients"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -251,6 +252,7 @@ const HomePage: React.FC = () => {
       </motion.section>
 
       <motion.div
+        className="container-px mx-auto max-w-6xl py-16 md:py-24 section-panel section-panel--testimonials"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -280,7 +282,7 @@ const HomePage: React.FC = () => {
 
       <motion.section
         id="contact"
-        className="container-px mx-auto max-w-6xl py-16 md:py-24"
+        className="container-px mx-auto max-w-6xl py-16 md:py-24 section-panel section-panel--contact"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -315,7 +317,7 @@ const HomePage: React.FC = () => {
 
       <motion.section
         id="newsletter"
-        className="container-px mx-auto max-w-4xl py-16 md:py-24"
+        className="container-px mx-auto max-w-4xl py-16 md:py-24 section-panel section-panel--newsletter"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
