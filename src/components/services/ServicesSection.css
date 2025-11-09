@@ -1,13 +1,14 @@
 /* Services Section Styles */
 .services-section {
-  padding: var(--bc-space-5xl) var(--bc-space-xl);
-  background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+  padding: 0;
+  background: transparent;
 }
 
 .services-container {
   max-width: 1400px;
   margin: 0 auto;
   text-align: center;
+  padding: 0 var(--bc-space-xl);
 }
 
 .services-grid {
@@ -72,7 +73,11 @@
 
 @media (max-width: 768px) {
   .services-section {
-    padding: var(--bc-space-3xl) var(--bc-space-lg);
+    padding: 0;
+  }
+
+  .services-container {
+    padding: 0 var(--bc-space-lg);
   }
 
   .services-grid {
