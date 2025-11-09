@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import InspirationCard from '../components/InspirationCard';
 import AnimatedBackground from '../components/AnimatedBackground';
 import inspirationProjects from '../data/inspiration-projects.json';
+import './InspirationPage.css';
 
 interface Project {
   title: string;
@@ -59,7 +60,7 @@ const InspirationPage: React.FC = () => {
   const [activeTag, setActiveTag] = useState<string>('all');
   const [allProjects, setAllProjects] = useState<Project[]>(inspirationProjects as Project[]);
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(inspirationProjects as Project[]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); // Start with false to show content immediately
 
   // Background images for animated background
   const backgroundImages = [
@@ -93,8 +94,20 @@ const InspirationPage: React.FC = () => {
 
   // Load all moodboards
   useEffect(() => {
+    // Set body background to transparent for this page
+    const originalBodyBg = document.body.style.background;
+    const originalBodyBgColor = document.body.style.backgroundColor;
+    const originalHtmlBg = document.documentElement.style.background;
+    const originalHtmlBgColor = document.documentElement.style.backgroundColor;
+
+    document.body.style.background = 'transparent';
+    document.body.style.backgroundColor = 'transparent';
+    document.documentElement.style.background = 'transparent';
+    document.documentElement.style.backgroundColor = 'transparent';
+
     const loadMoodboards = async () => {
       try {
+        setLoading(true); // Set loading when starting to fetch moodboards
         const moodboardFiles = [
           '/moodboards/317 bbq.json',
           '/moodboards/317-bbq.json',
@@ -155,6 +168,14 @@ const InspirationPage: React.FC = () => {
     };
 
     loadMoodboards();
+
+    // Cleanup: restore original background on unmount
+    return () => {
+      document.body.style.background = originalBodyBg;
+      document.body.style.backgroundColor = originalBodyBgColor;
+      document.documentElement.style.background = originalHtmlBg;
+      document.documentElement.style.backgroundColor = originalHtmlBgColor;
+    };
   }, []);
 
   // Extract unique tags
@@ -189,13 +210,13 @@ const InspirationPage: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen">
+    <div className="inspiration-page-wrapper" style={{ minHeight: '100vh', width: '100%' }}>
       {/* Animated Background */}
       <AnimatedBackground images={backgroundImages} />
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <header className="text-center mb-10 bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+      <div className="relative z-10 max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8" style={{ position: 'relative', zIndex: 10 }}>
+      <header className="text-center mb-10 bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg" style={{ position: 'relative', zIndex: 10 }}>
         <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl drop-shadow-sm">
           Curated <span className="text-blue-600">Design Inspiration</span> ✨
         </h1>
@@ -224,7 +245,11 @@ const InspirationPage: React.FC = () => {
       </div>
 
       {/* Project Grid */}
-      {!loading && filteredProjects.length > 0 ? (
+      {loading ? (
+        <div className="text-center py-12 bg-white/70 backdrop-blur-sm rounded-xl shadow-md">
+          <p className="text-gray-700 text-lg font-medium">Loading inspiration projects...</p>
+        </div>
+      ) : filteredProjects.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
             <Link
@@ -241,12 +266,6 @@ const InspirationPage: React.FC = () => {
       ) : (
         <div className="text-center py-12">
           <p className="text-gray-500 text-lg">No projects found for this filter.</p>
-        </div>
-      )}
-
-      {loading && (
-        <div className="text-center py-12 bg-white/70 backdrop-blur-sm rounded-xl shadow-md">
-          <p className="text-gray-700 text-lg font-medium">Loading inspiration projects...</p>
         </div>
       )}
       </div>
