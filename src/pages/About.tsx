@@ -8,6 +8,7 @@ import MorphingBlob from "../components/animations/MorphingBlob";
 import ClientLogos from "../components/clients/ClientLogos";
 import TheGapDiagram from "../components/diagrams/TheGapDiagram";
 import VennDiagram from "../components/diagrams/VennDiagram";
+import AnchorNav from "../components/navigation/AnchorNav";
 import { fadeInUp } from "../utils/animations";
 import "./About.css";
 
@@ -184,10 +185,18 @@ const About: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const anchorItems = [
+    { id: "story", label: "Story" },
+    { id: "philosophy", label: "Philosophy" },
+    { id: "timeline", label: "Timeline" },
+    { id: "community", label: "Community" }
+  ];
+
   return (
     <main className="about-page">
+      <AnchorNav anchors={anchorItems} />
       <AnimatedSection>
-        <section className="about-intro">
+        <section id="story" className="about-intro">
           <motion.h1 variants={fadeInUp}>About Me</motion.h1>
 
           <motion.div className="intro-content" variants={fadeInUp}>
@@ -266,7 +275,7 @@ const About: React.FC = () => {
       <VennDiagram />
 
       <AnimatedSection delay={0.2}>
-        <section className="philosophy-section">
+        <section id="philosophy" className="philosophy-section">
           <h2>My Philosophy</h2>
 
           <div className="philosophy-quote">
@@ -309,7 +318,7 @@ const About: React.FC = () => {
       </AnimatedSection>
 
       <AnimatedSection delay={0.3}>
-        <section className="career-timeline-section">
+        <section id="timeline" className="career-timeline-section">
           <div className="timeline-intro">
             <h2>Career timeline</h2>
             <p>
@@ -376,7 +385,7 @@ const About: React.FC = () => {
       </AnimatedSection>
 
       <AnimatedSection delay={0.4}>
-        <section className="volunteering-section">
+        <section id="community" className="volunteering-section">
           <h2>Community & Volunteer Work</h2>
           <p className="section-intro">
             Beyond professional work, I believe in giving back to the community through leadership,

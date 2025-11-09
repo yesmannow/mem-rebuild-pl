@@ -147,7 +147,7 @@ const CaseStudies: React.FC = () => {
       <WaveDivider flip />
 
       {/* Enhanced Filter Bar */}
-      <section className="filter-section">
+      <section id="filters" className="filter-section">
         <motion.div
           className="filter-controls"
           initial={{ opacity: 0, y: 20 }}
