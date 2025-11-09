@@ -1,8 +1,8 @@
 # 🚀 Deployment Guide
 ## Jacob Darling Cinematic Portfolio
 
-**Status**: ✅ **READY FOR DEPLOYMENT**  
-**Date**: October 12, 2025  
+**Status**: ✅ **READY FOR DEPLOYMENT**
+**Date**: October 12, 2025
 **Target Platform**: Vercel (Recommended)
 
 ---
@@ -259,6 +259,32 @@ npm run preview
 
 Then open Chrome DevTools → Lighthouse → Run audit on `http://localhost:4173`
 
+### Using MCP Lighthouse Service
+```bash
+# Start MCP server
+.\launch_mcp.ps1
+
+# Run audit via API
+curl -X POST http://localhost:8000/lighthouse/audit \
+  -H "Content-Type: application/json" \
+  -d '{"url": "http://localhost:4173", "device": "desktop"}'
+```
+
+## 🚀 MCP Optimization Services
+
+The site includes a comprehensive MCP Optimization Server with 8 optimization services:
+
+1. **Performance Analytics** - Track Core Web Vitals
+2. **Image Optimization** - Server-side image processing
+3. **SEO Generation** - Dynamic meta tag generation
+4. **Bundle Analysis** - JavaScript bundle optimization
+5. **Lighthouse Integration** - Automated audits
+6. **Resource Hints** - Preload/prefetch optimization
+7. **Content Analysis** - Content quality checks
+8. **Cache Optimization** - Cache header generation
+
+See [MCP Optimization Server Documentation](./MCP_OPTIMIZATION_SERVER.md) for full details.
+
 ### Production Testing
 After deployment, run Lighthouse on your production URL:
 ```
@@ -405,6 +431,7 @@ npm run build
 - [React Router Deployment](https://reactrouter.com/en/main/guides/deploying)
 
 ### Tools
+
 - [Google PageSpeed Insights](https://pagespeed.web.dev/)
 - [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)
 - [Twitter Card Validator](https://cards-dev.twitter.com/validator)
@@ -428,7 +455,7 @@ netlify deploy --prod
 
 **Status**: ✅ **READY FOR PRODUCTION DEPLOYMENT**
 
-*All systems validated. Performance optimized. Content refined. SEO configured.*  
+*All systems validated. Performance optimized. Content refined. SEO configured.*
 *The Jacob Darling Cinematic Portfolio is ready to launch.* 🎬
 
 ---
