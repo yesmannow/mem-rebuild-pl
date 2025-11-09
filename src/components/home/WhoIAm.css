@@ -22,6 +22,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .who-i-am__photo-card {
@@ -53,7 +54,7 @@
     #3b82f6
   );
   animation: rotate-border 8s linear infinite;
-  z-index: 1;
+  z-index: 0;
   clip-path: path(
     'M 50 0 C 70 0 88 8 95 25 C 100 40 98 55 92 68 C 88 78 80 85 70 90 C 60 95 50 98 40 95 C 30 92 20 85 15 75 C 8 60 5 45 10 30 C 15 15 30 5 50 0 Z'
   );
@@ -83,7 +84,7 @@
     rgba(236, 72, 153, 0.2) 30%,
     transparent 60%
   );
-  z-index: 2;
+  z-index: 1;
   pointer-events: none;
   filter: blur(20px);
   clip-path: path(
@@ -105,7 +106,7 @@
     transparent
   );
   transform: skewX(-20deg);
-  z-index: 4;
+  z-index: 2;
   pointer-events: none;
   clip-path: path(
     'M 50 0 C 70 0 88 8 95 25 C 100 40 98 55 92 68 C 88 78 80 85 70 90 C 60 95 50 98 40 95 C 30 92 20 85 15 75 C 8 60 5 45 10 30 C 15 15 30 5 50 0 Z'
@@ -126,6 +127,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: none;
 }
 
 .who-i-am__photo {
@@ -135,6 +137,10 @@
   object-position: center center;
   transition: transform 0.5s ease;
   image-rendering: auto;
+  z-index: 4;
+  position: relative;
+  filter: none;
+  opacity: 1;
 }
 
 .who-i-am__photo-wrapper:hover .who-i-am__photo {

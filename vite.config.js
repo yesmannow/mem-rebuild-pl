@@ -16,9 +16,14 @@ export default defineConfig({
   ].filter(Boolean),
   server: {
     fs: {
-      // Allow imports from cli-workflow directory only
-      allow: [resolve(__dirname, 'cli-workflow')]
-    }
+      // Allow imports from entire project directory
+      allow: [
+        resolve(__dirname),
+        resolve(__dirname, 'cli-workflow')
+      ]
+    },
+    port: 5173,
+    host: true,
   },
   build: {
     manifest: true,

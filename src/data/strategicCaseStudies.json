@@ -1,0 +1,143 @@
+[
+  {
+    "id": "graston-technique-ceu-system",
+    "title": "Graston Technique CEU System",
+    "category": "Healthcare Technology",
+    "client": "Graston Technique",
+    "role": "Marketing Director & Technologist",
+    "duration": "12 months",
+    "year": "2024",
+    "summary": "Built a comprehensive continuing education system that transformed the provider experience and reduced support burden while increasing conversions.",
+    "problem": "Healthcare providers struggled with a fragmented CEU purchasing process, leading to high support ticket volume and checkout abandonment. The existing system couldn't handle the complexity of continuing education credits across multiple states and specializations.",
+    "strategy": "Redesigned the entire CEU ecosystem with focus on user experience, automated compliance checking, and seamless payment processing. Implemented a CRM-driven approach that could handle complex credential validation and state-specific requirements.",
+    "execution": [
+      "Architected 400+ automation workflows using FluentCRM and WP Fusion",
+      "Integrated LearnDash LMS with WooCommerce for seamless course delivery",
+      "Built custom state-specific compliance validation system",
+      "Implemented multi-tier pricing with automatic credit allocation",
+      "Created automated email sequences for certificate generation and delivery",
+      "Integrated with external credential verification APIs"
+    ],
+    "results": {
+      "metrics": [
+        {
+          "label": "Support Ticket Reduction",
+          "value": "70%",
+          "description": "Automated responses and self-service solutions"
+        },
+        {
+          "label": "Checkout Conversion Lift",
+          "value": "40%",
+          "description": "Streamlined user experience and payment flow"
+        },
+        {
+          "label": "Automation Workflows",
+          "value": "400+",
+          "description": "Custom workflows for various processes"
+        },
+        {
+          "label": "System Uptime",
+          "value": "99.8%",
+          "description": "Reliable performance during peak usage"
+        }
+      ]
+    },
+    "tech": ["FluentCRM", "LearnDash", "WooCommerce", "WP Fusion", "Google Analytics 4", "Cloudflare", "PHP", "JavaScript"],
+    "tags": ["Automation", "CRM", "Healthcare", "E-learning", "Compliance", "UX"],
+    "featured": true
+  },
+  {
+    "id": "riley-bennett-egloff-overhaul",
+    "title": "Riley Bennett Egloff Brand & Digital Overhaul",
+    "category": "Legal Services",
+    "client": "Riley Bennett Egloff LLP",
+    "role": "Brand Strategist & Digital Marketing Lead",
+    "duration": "8 months",
+    "year": "2023",
+    "summary": "Complete brand repositioning and digital presence overhaul for a prestigious law firm, focusing on trust-building and client acquisition through strategic storytelling and modern web experience.",
+    "problem": "Established law firm with traditional marketing approach was losing market share to younger, digitally-savvy competitors. Their website and branding felt dated, and they struggled to communicate their expertise to both individual and corporate clients.",
+    "strategy": "Developed a trust-first brand strategy that positioned the firm as both traditional excellence and modern innovation. Created content hub focusing on legal insights, case studies, and thought leadership while improving user experience for both individual and corporate clients.",
+    "execution": [
+      "Complete brand identity refresh with modern, trustworthy aesthetic",
+      "Rebuilt website with improved case study presentation",
+      "Implemented content marketing strategy for SEO and thought leadership",
+      "Created client portal for case updates and document sharing",
+      "Launched targeted LinkedIn campaign for corporate clients",
+      "Optimized for local search and professional service rankings"
+    ],
+    "results": {
+      "metrics": [
+        {
+          "label": "Organic Search Traffic",
+          "value": "180%",
+          "description": "Increased through content strategy and SEO"
+        },
+        {
+          "label": "Corporate Client Inquiries",
+          "value": "65%",
+          "description": "Increase in qualified B2B leads"
+        },
+        {
+          "label": "Average Page Load Time",
+          "value": "1.8s",
+          "description": "Improved from 4.2s with optimization"
+        },
+        {
+          "label": "Mobile Conversion Rate",
+          "value": "45%",
+          "description": "Increase in mobile user conversions"
+        }
+      ]
+    },
+    "tech": ["WordPress", "ACF Pro", "Yoast SEO", "Google Analytics", "LinkedIn Campaign Manager", "Figma", "Adobe Creative Suite"],
+    "tags": ["Branding", "Web Design", "Content Marketing", "Legal", "SEO", "Thought Leadership"],
+    "featured": true
+  },
+  {
+    "id": "ultimate-technologies-ads-rebuild",
+    "title": "Ultimate Technologies ROI Growth",
+    "category": "Technology Services",
+    "client": "Ultimate Technologies Group",
+    "role": "Performance Marketing Strategist",
+    "duration": "6 months",
+    "year": "2024",
+    "summary": "Complete overhaul of paid advertising strategy for IT services company, focusing on ROI optimization and lead quality improvement across multiple channels.",
+    "problem": "IT services company was spending significantly on paid advertising but seeing poor lead quality and inconsistent ROI. Their campaigns were broad and unfocused, leading to high cost-per-lead and low conversion rates.",
+    "strategy": "Implemented account-based marketing (ABM) approach with laser-focused targeting, improved ad creative testing, and sophisticated lead scoring to ensure sales team only receives high-quality prospects.",
+    "execution": [
+      "Restructured Google Ads campaigns with negative keyword strategy",
+      "Launched LinkedIn ABM campaigns for enterprise clients",
+      "Implemented advanced conversion tracking with offline data",
+      "Created custom landing pages for different service lines",
+      "Established lead scoring models for sales prioritization",
+      "Set up automated bidding and budget optimization"
+    ],
+    "results": {
+      "metrics": [
+        {
+          "label": "ROI Improvement",
+          "value": "320%",
+          "description": "Overall return on advertising spend"
+        },
+        {
+          "label": "Cost Per Lead Reduction",
+          "value": "55%",
+          "description": "Through better targeting and optimization"
+        },
+        {
+          "label": "Lead Quality Score",
+          "value": "8.2/10",
+          "description": "Average lead qualification rating"
+        },
+        {
+          "label": "Conversion Rate",
+          "value": "4.8%",
+          "description": "From ads to qualified opportunities"
+        }
+      ]
+    },
+    "tech": ["Google Ads", "LinkedIn Campaign Manager", "HubSpot", "GA4", "Google Tag Manager", "Unbounce", "CallRail"],
+    "tags": ["Performance Marketing", "ABM", "IT Services", "ROI", "Lead Generation", "B2B"],
+    "featured": true
+  }
+]
