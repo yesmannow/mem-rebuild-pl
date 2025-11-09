@@ -43,6 +43,7 @@ export default function BearCaveHeader() {
       dropdown: [
         { to: '/inspiration', label: 'Inspiration', description: 'Design inspiration' },
         { to: '/brand-builder', label: 'Brand Builder', description: 'Brand identity builder' },
+        { to: '/gallery', label: 'Gallery', description: 'Brand gallery' },
       ],
     },
     {

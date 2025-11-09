@@ -1,88 +1,93 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Icon from '../Icon';
-import './Footer.css';
 
-const Footer: React.FC = () => (
-  <footer className="main-footer">
-    <div className="footer-content">
-      <div className="footer-brand">
-        <Link to="/about" className="footer-profile-link">
-          <img
-            src="/images/bio/241311036_10117555583372059_173429180650836298_n.webp"
-            alt="Jacob Darling"
-            className="footer-profile-image"
-          />
-          <div>
-            <h3 className="footer-profile-title">Jacob Darling</h3>
-            <p className="footer-profile-subtitle">Marketing Strategist & Systems Architect</p>
+const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+
+  const footerLinks = {
+    About: [
+      { name: 'About Me', href: '/about' },
+      { name: 'Resume', href: '/resume' },
+    ],
+    Work: [
+      { name: 'Case Studies', href: '/case-studies' },
+      { name: 'Projects', href: '/projects' },
+    ],
+    Connect: [
+      { name: 'Contact', href: '/contact' },
+      { name: 'LinkedIn', href: 'https://linkedin.com/in/jacobdarling', external: true },
+    ],
+  };
+
+  return (
+    <footer className="bg-gray-900 text-white py-12">
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          {/* Brand */}
+          <div className="col-span-1 md:col-span-1">
+            <h3 className="text-2xl font-bold mb-4">BearCave</h3>
+            <p className="text-gray-400 text-sm">
+              Marketing systems that drive measurable growth.
+            </p>
           </div>
-        </Link>
-      </div>
-      <div className="footer-links">
-        <div className="footer-section">
-          <h4>Navigation</h4>
-          <ul>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/case-studies">Case Studies</Link>
-            </li>
-            <li>
-              <Link to="/applications">Applications</Link>
-            </li>
-            <li>
-              <Link to="/design">Design</Link>
-            </li>
-            <li>
-              <Link to="/photography">Photography</Link>
-            </li>
-            <li>
-              <Link to="/toolbox">Toolbox</Link>
-            </li>
-            <li>
-              <Link to="/resume">Résumé</Link>
-            </li>
-          </ul>
+
+          {/* Links */}
+          {Object.entries(footerLinks).map(([category, links]) => (
+            <div key={category}>
+              <h4 className="font-semibold mb-4">{category}</h4>
+              <ul className="space-y-2">
+                {links.map((link) => (
+                  <li key={link.name}>
+                    {link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 hover:text-white transition-colors text-sm"
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="text-gray-400 hover:text-white transition-colors text-sm"
+                      >
+                        {link.name}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        <div className="footer-section">
-          <h4>Connect</h4>
-          <ul>
-            <li>
-              <a
-                href="https://linkedin.com/in/jacobdarling"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-link-with-icon"
-              >
-                <Icon slug="linkedin" className="footer-icon h-4 w-4" />
-                <span>LinkedIn</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/JdarlingGT"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-link-with-icon"
-              >
-                <Icon slug="github" className="footer-icon h-4 w-4" />
-                <span>GitHub</span>
-              </a>
-            </li>
-            <li>
-              <Link to="/contact">Contact Me</Link>
-            </li>
-          </ul>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-400 text-sm">
+            © {currentYear} Jacob Darling · All systems engineered in Indianapolis
+          </p>
+          <div className="flex gap-6 mt-4 md:mt-0">
+            <a
+              href="https://linkedin.com/in/jacobdarling"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors text-sm"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/JdarlingGT"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors text-sm"
+            >
+              GitHub
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="footer-bottom">
-      <p>&copy; 2025 Jacob Darling. All rights reserved.</p>
-      <p className="footer-quote">"Systems create freedom."</p>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
 
 export default Footer;

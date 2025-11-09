@@ -11,7 +11,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        // BearCave brand tokens
+        // GT Global Theme
+        turquoise: "#3CC6C4",
+        creamsicle: "#FF9E58",
+        "creamsicle-dark": "#E68A48",
+        "light-blue-gray": "#F3F6F7",
+        // Tailwind default colors (maintained)
+        gray: {
+          50: '#f9fafb',
+          100: '#f3f4f6',
+          200: '#e5e7eb',
+          300: '#d1d5db',
+          400: '#9ca3af',
+          500: '#6b7280',
+          600: '#4b5563',
+          700: '#374151',
+          800: '#1f2937',
+          900: '#111827',
+        },
+        // BearCave brand tokens (maintained for compatibility)
         cave: {
           bg: "#0D0D0F",
           text: "#E6E6E6",
@@ -63,11 +81,14 @@ export default {
         'soft-dark': '0 10px 30px rgba(0,0,0,.3)',
       },
       fontFamily: {
-        display: ["var(--font-clash)", 'Clash Display', 'system-ui', 'sans-serif'],
-        sans: ["var(--font-inter)", 'Inter', 'system-ui', 'sans-serif'],
-        brand: ['var(--font-brand)', 'Inter', 'system-ui', 'sans-serif'],
-        ui: ['var(--font-ui)', 'Inter', 'system-ui', 'sans-serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ["Montserrat", "sans-serif"],
+        display: ["Montserrat", "sans-serif"],
+        brand: ["Montserrat", "sans-serif"],
+        ui: ["Montserrat", "sans-serif"],
+        body: ["Montserrat", "sans-serif"],
+        // Legacy fonts (maintained for compatibility)
+        "clash": ["var(--font-clash)", 'Clash Display', 'system-ui', 'sans-serif'],
+        "inter": ["var(--font-inter)", 'Inter', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         'theme': 'var(--radius)',

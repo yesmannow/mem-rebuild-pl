@@ -1,0 +1,148 @@
+.cta-section {
+  padding: 6rem 2rem;
+  background: var(--bc-bg, #fff);
+}
+
+.cta-section__container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-section__content {
+  text-align: center;
+}
+
+.cta-section__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--bc-text-primary, #1a1a1a);
+}
+
+.cta-section__description {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--bc-text-secondary, #6b7280);
+  margin-bottom: 2.5rem;
+}
+
+.cta-section__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-section__button {
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-section__button--primary {
+  background: var(--bc-accent, #3b82f6);
+  color: #fff;
+}
+
+.cta-section__button--primary:hover {
+  background: var(--bc-accent-hover, #2563eb);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+
+.cta-section__button--secondary {
+  background: transparent;
+  color: var(--bc-text-primary, #1a1a1a);
+  border: 2px solid var(--bc-border, #e5e7eb);
+}
+
+.cta-section__button--secondary:hover {
+  border-color: var(--bc-accent, #3b82f6);
+  color: var(--bc-accent, #3b82f6);
+  transform: translateY(-2px);
+}
+
+/* Variants */
+.cta-section--gradient {
+  background: linear-gradient(
+    135deg,
+    var(--bc-primary, #3b82f6) 0%,
+    var(--bc-secondary, #8b5cf6) 100%
+  );
+}
+
+.cta-section--gradient .cta-section__title,
+.cta-section--gradient .cta-section__description {
+  color: #fff;
+}
+
+.cta-section--gradient .cta-section__button--primary {
+  background: #fff;
+  color: var(--bc-accent, #3b82f6);
+}
+
+.cta-section--gradient .cta-section__button--primary:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.cta-section--gradient .cta-section__button--secondary {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.cta-section--gradient .cta-section__button--secondary:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cta-section--minimal {
+  padding: 4rem 2rem;
+}
+
+.cta-section--split {
+  padding: 0;
+}
+
+.cta-section--split .cta-section__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+}
+
+.cta-section--split .cta-section__content {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .cta-section--split .cta-section__container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .cta-section--split .cta-section__content {
+    text-align: center;
+  }
+
+  .cta-section__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-section__button {
+    width: 100%;
+  }
+}
+
