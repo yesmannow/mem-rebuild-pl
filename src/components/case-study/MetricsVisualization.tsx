@@ -45,7 +45,7 @@ const MetricsVisualization: React.FC<MetricsVisualizationProps> = ({
   // Determine trend from value
   const getTrend = (metric: Metric): "up" | "down" | "neutral" => {
     if (metric.trend) return metric.trend;
-    
+
     const numValue = parseNumericValue(metric.value);
     if (numValue > 50) return "up";
     if (numValue < 50) return "down";

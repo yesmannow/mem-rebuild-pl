@@ -34,11 +34,11 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   // Generate WebP srcset if not provided
   const generateSrcSet = () => {
     if (srcSet) return srcSet;
-    
+
     // If src ends with common image extensions, generate responsive srcset
     const baseSrc = src.replace(/\.(jpg|jpeg|png)$/i, "");
     const webpSrc = `${baseSrc}.webp`;
-    
+
     // Generate multiple sizes
     const widths = [400, 800, 1200, 1600];
     return widths
@@ -75,7 +75,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   }, [onLoad, onError]);
 
   // Fallback to original src if WebP fails
-  const finalSrc = hasError && src.includes(".webp") 
+  const finalSrc = hasError && src.includes(".webp")
     ? src.replace(".webp", ".jpg")
     : src;
 

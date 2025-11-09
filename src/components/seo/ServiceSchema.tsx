@@ -10,7 +10,7 @@ interface ServiceSchemaProps {
   }>;
 }
 
-const ServiceSchema: React.FC<ServiceSchemaProps> = ({ 
+const ServiceSchema: React.FC<ServiceSchemaProps> = ({
   services = [
     {
       name: "Marketing Strategy",

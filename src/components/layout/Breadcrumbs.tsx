@@ -21,13 +21,13 @@ const Breadcrumbs: React.FC = () => {
   let currentPath = "";
   pathnames.forEach((name, index) => {
     currentPath += `/${name}`;
-    
+
     // Format label (capitalize, replace hyphens)
     const label = name
       .split("-")
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
-    
+
     breadcrumbs.push({
       label,
       path: currentPath,
@@ -44,7 +44,7 @@ const Breadcrumbs: React.FC = () => {
       <ol className="breadcrumbs-list">
         {breadcrumbs.map((crumb, index) => {
           const isLast = index === breadcrumbs.length - 1;
-          
+
           return (
             <li key={crumb.path} className="breadcrumbs-item">
               {isLast ? (

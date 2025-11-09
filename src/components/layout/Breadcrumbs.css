@@ -55,7 +55,7 @@
     padding: var(--bc-space-sm) 0;
     margin-bottom: var(--bc-space-lg);
   }
-  
+
   .breadcrumbs-link,
   .breadcrumbs-current {
     font-size: 0.8125rem;
