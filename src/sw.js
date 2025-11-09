@@ -1,27 +1,73 @@
 const CACHE_NAME = "jacob-portfolio-v2";
 const STATIC_CACHE = "jacob-static-v2";
 const DYNAMIC_CACHE = "jacob-dynamic-v2";
+const MANIFEST_URL = "/manifest.json";
+const APP_SHELL = ["/", "/index.html"];
 
-// Critical resources to cache immediately
-const CRITICAL_RESOURCES = [
-  "/",
-  "/index.html",
-  "/assets/index-D_B07x9e.css",
-  "/assets/index-1JZRqu4T.js",
-  "/assets/react-vendor-BTY1zH9O.js"
-];
+// Helper to normalise asset paths coming from the Vite manifest
+const withLeadingSlash = value => (value.startsWith("/") ? value : `/${value}`);
+
+async function precacheCriticalAssets() {
+  const cache = await caches.open(STATIC_CACHE);
+  const assets = await getManifestAssets();
+
+  await Promise.all(
+    assets.map(async asset => {
+      try {
+        await cache.add(asset);
+      } catch (error) {
+        console.warn("⚠️ Service Worker: Failed to precache", asset, error);
+      }
+    })
+  );
+}
+
+async function getManifestAssets() {
+  try {
+    const response = await fetch(MANIFEST_URL, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`Failed to load manifest: ${response.status}`);
+    }
+
+    const manifest = await response.json();
+    const assets = new Set(APP_SHELL);
+
+    Object.values(manifest).forEach(entry => {
+      if (!entry || typeof entry !== "object") return;
+
+      if (entry.file) assets.add(withLeadingSlash(entry.file));
+
+      if (Array.isArray(entry.css)) {
+        entry.css.forEach(file => assets.add(withLeadingSlash(file)));
+      }
+
+      if (Array.isArray(entry.assets)) {
+        entry.assets.forEach(file => assets.add(withLeadingSlash(file)));
+      }
+    });
+
+    return Array.from(assets);
+  } catch (error) {
+    console.error("❌ Service Worker: Unable to load manifest", error);
+    return APP_SHELL;
+  }
+}
 
 // Install event - cache critical resources
-self.addEventListener("install", e => {
+self.addEventListener("install", event => {
   console.log("🔧 Service Worker: Installing...");
-  e.waitUntil(
-    caches.open(STATIC_CACHE).then(cache => {
-      console.log("📦 Service Worker: Caching critical resources");
-      return cache.addAll(CRITICAL_RESOURCES);
-    }).then(() => {
-      console.log("✅ Service Worker: Critical resources cached");
-      return self.skipWaiting();
-    })
+  event.waitUntil(
+    (async () => {
+      try {
+        console.log("📦 Service Worker: Pre-caching critical resources");
+        await precacheCriticalAssets();
+        console.log("✅ Service Worker: Critical resources cached");
+      } catch (error) {
+        console.error("❌ Service Worker: Pre-cache failed", error);
+      } finally {
+        await self.skipWaiting();
+      }
+    })()
   );
 });
 
@@ -43,6 +89,13 @@ self.addEventListener("activate", e => {
       return self.clients.claim();
     })
   );
+});
+
+self.addEventListener("message", event => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    console.log("📨 Service Worker: Received SKIP_WAITING message");
+    self.skipWaiting();
+  }
 });
 
 // Fetch event - implement caching strategies

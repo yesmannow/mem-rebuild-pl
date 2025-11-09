@@ -25,6 +25,50 @@ if (typeof window !== 'undefined') {
   }
 }
 
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  const registerServiceWorker = async () => {
+    try {
+      const registration = await navigator.serviceWorker.register('/sw.js', { scope: '/' });
+
+      registration.update().catch(error => {
+        console.warn('Service worker update check failed:', error);
+      });
+
+      if (registration.waiting) {
+        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+      }
+
+      registration.addEventListener('updatefound', () => {
+        const installingWorker = registration.installing;
+        if (!installingWorker) return;
+
+        installingWorker.addEventListener('statechange', () => {
+          if (
+            installingWorker.state === 'installed' &&
+            navigator.serviceWorker.controller &&
+            registration.waiting
+          ) {
+            registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+          }
+        });
+      });
+    } catch (error) {
+      console.error('Service worker registration failed:', error);
+    }
+  };
+
+  window.addEventListener('load', () => {
+    void registerServiceWorker();
+
+    let refreshing = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (refreshing) return;
+      refreshing = true;
+      window.location.reload();
+    });
+  });
+}
+
 // Enhanced error suppression for TinyMCE and external script conflicts
 // This must run IMMEDIATELY before any other scripts to catch early registrations
 // Set up error suppression BEFORE any imports to catch early errors
