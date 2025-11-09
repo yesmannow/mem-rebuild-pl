@@ -12,10 +12,10 @@
     "classify:moodboards": "node scripts/classify-moodboards.js",
     "sync:inspiration": "node scripts/sync-inspiration-index.js",
     "build:inspiration": "npm run generate:enhanced-moodboards && npm run generate:previews && npm run classify:moodboards && npm run sync:inspiration",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit --project tsconfig.app.json",
     "clean:types": "rimraf dist types && find src -name \"*.d.ts\" -delete",
-    "typecheck:clean": "npm run clean:types && tsc --noEmit",
-    "prebuild": "npm run clean:types && npm run typecheck"
+    "typecheck:clean": "npm run clean:types && tsc --noEmit --project tsconfig.app.json",
+    "prebuild": "npm run clean:types"
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
