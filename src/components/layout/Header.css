@@ -1,4 +1,4 @@
-/* Header Styles - BearCave Brand */
+/* Header Styles - BearCave Brand with GT Accent Colors */
 .nav-container {
   display: flex;
   align-items: center;
@@ -53,7 +53,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--bc-gradient-brand);
+  background: linear-gradient(135deg, #3CC6C4 0%, #FF9E58 100%); /* GT accent gradient */
   transition: width var(--bc-transition-normal);
 }
 
@@ -87,15 +87,30 @@
   align-items: center;
   justify-content: center;
   transition: all var(--bc-transition-normal);
+  /* Enhanced mobile touch target */
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 8px;
 }
 
 .nav-mobile-toggle:hover {
-  opacity: 0.7;
+  background: rgba(60, 198, 196, 0.1); /* GT turquoise with opacity */
+  color: #3CC6C4; /* GT turquoise */
+}
+
+.nav-mobile-toggle:focus-visible {
+  outline: 2px solid #3CC6C4; /* GT turquoise */
+  outline-offset: 2px;
 }
 
 .nav-mobile-menu {
   border-top: 1px solid var(--bc-border);
   overflow: hidden;
+  /* Mobile-first glassmorphism */
+  background: rgba(13, 13, 15, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(60, 198, 196, 0.2); /* GT turquoise border */
 }
 
 .nav-mobile-links {
@@ -111,11 +126,32 @@
   display: block;
   padding: var(--bc-space-md) 0;
   font-size: 1.125rem;
+  /* Enhanced mobile touch interactions */
+  border-radius: 8px;
+  padding: 12px 16px;
+  transition: all 0.2s ease;
 }
 
+.nav-mobile-links .nav-link:hover {
+  background: rgba(60, 198, 196, 0.1); /* GT turquoise hover */
+  color: #3CC6C4; /* GT turquoise */
+  transform: translateX(4px);
+}
+
+.nav-mobile-links .nav-link.active {
+  background: rgba(60, 198, 196, 0.15);
+  color: #3CC6C4;
+  border-left: 3px solid #3CC6C4;
+}
+
+/* Mobile-first responsive enhancements */
 @media (max-width: 1023px) {
   .nav-links {
     display: none;
+  }
+
+  .nav-container {
+    padding: var(--bc-space-md) var(--bc-space-lg);
   }
 }
 
@@ -123,5 +159,18 @@
   .nav-mobile-controls,
   .nav-mobile-menu {
     display: none;
+  }
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  .nav-mobile-toggle {
+    /* Reduce animation complexity on mobile */
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .nav-mobile-links .nav-link {
+    /* Optimized animations for touch devices */
+    transition: all 0.15s ease;
   }
 }

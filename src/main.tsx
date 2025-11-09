@@ -27,32 +27,13 @@ if (typeof window !== 'undefined') {
 }
 
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  // Service worker registration temporarily disabled until sw.js file is created
+  // Uncomment and add '/sw.js' to public directory to enable
+  /*
   const registerServiceWorker = async () => {
     try {
       const registration = await navigator.serviceWorker.register('/sw.js', { scope: '/' });
-
-      registration.update().catch(error => {
-        console.warn('Service worker update check failed:', error);
-      });
-
-      if (registration.waiting) {
-        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
-      }
-
-      registration.addEventListener('updatefound', () => {
-        const installingWorker = registration.installing;
-        if (!installingWorker) return;
-
-        installingWorker.addEventListener('statechange', () => {
-          if (
-            installingWorker.state === 'installed' &&
-            navigator.serviceWorker.controller &&
-            registration.waiting
-          ) {
-            registration.waiting.postMessage({ type: 'SKIP_WAITING' });
-          }
-        });
-      });
+      console.log('Service worker registered successfully');
     } catch (error) {
       console.error('Service worker registration failed:', error);
     }
@@ -60,14 +41,8 @@ if (import.meta.env.PROD && 'serviceWorker' in navigator) {
 
   window.addEventListener('load', () => {
     void registerServiceWorker();
-
-    let refreshing = false;
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (refreshing) return;
-      refreshing = true;
-      window.location.reload();
-    });
   });
+  */
 }
 
 // Enhanced error suppression for TinyMCE and external script conflicts

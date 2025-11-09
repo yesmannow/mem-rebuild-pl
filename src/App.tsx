@@ -12,8 +12,8 @@ import JSONLD from './components/seo/JSONLD';
 import 'lenis/dist/lenis.css';
 import './styles/skip-to-content.css';
 
-const MainNavbar = lazy(() => import('./components/MainNavbar'));
-const BearCaveFooter = lazy(() => import('./components/layout/BearCaveFooter'));
+const MainNav = lazy(() => import('./components/nav/MainNav'));
+const Footer = lazy(() => import('./components/layout/Footer'));
 const ScrollToTop = lazy(() => import('./components/utils/ScrollToTop'));
 const BackToTop = lazy(() => import('./components/utilities/BackToTop'));
 const PersonSchema = lazy(() => import('./components/seo/PersonSchema'));
@@ -119,7 +119,7 @@ const App: React.FC = () => {
                   </header>
                 }
               >
-                <MainNavbar />
+                <MainNav />
               </Suspense>
               <Suspense fallback={null}>
                 <FloatingActionButtons />
@@ -136,7 +136,7 @@ const App: React.FC = () => {
                   </footer>
                 }
               >
-                <BearCaveFooter />
+                <Footer />
               </Suspense>
             </div>
           </ThemeProvider>

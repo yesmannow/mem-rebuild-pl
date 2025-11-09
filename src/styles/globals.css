@@ -1,274 +1,78 @@
-/* ===================================================================
-   JACOB DARLING PORTFOLIO - GLOBAL STYLES
-   Cinematic • Modern • Technological Elegance
-   =================================================================== */
-
-/* Import Brand Identity System */
-@import './tokens.css';
-@import './typography.css';
-@import './bio-cinematic.css';
-@import './enhanced-animations.css';
-@import './mobile-optimization.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --header-height: 80px;
-  color-scheme: dark;
-}
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  background-color: var(--bc-bg);
-  color: var(--bc-text-primary);
-}
-
-body {
-  margin: 0;
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: var(--bc-bg);
-  color: var(--bc-text-primary);
-  line-height: var(--leading-normal);
-  overflow-x: hidden;
-  padding-top: var(--header-height);
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
 }
 
 @layer base {
-  html,
+  * {
+    @apply border-border;
+  }
   body {
-    @apply bg-[color:theme('colors.cave.bg')] text-[color:theme('colors.cave.text')] antialiased;
-  }
-  h1,
-  h2,
-  h3 {
-    @apply font-display tracking-tight;
-  }
-  p {
-    @apply leading-relaxed;
+    @apply bg-background text-foreground;
   }
 }
 
-@layer components {
-  .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-2xl px-5 py-3 font-medium
-           bg-[color:theme('colors.cave.ember')] text-black hover:opacity-90 transition;
-  }
-  .btn-secondary {
-    @apply inline-flex items-center gap-2 rounded-2xl px-5 py-3 font-medium
-           border border-[color:theme('colors.cave.border')] hover:bg-white/5 transition;
-  }
-  .chip {
-    @apply inline-flex items-center rounded-full border border-[color:theme('colors.cave.border')] px-3 py-1 text-xs;
-  }
-  .card {
-    @apply rounded-2xl border border-[color:theme('colors.cave.border')] bg-white/5 backdrop-blur-sm shadow-card;
-  }
+/* BearCave brand customizations */
+:root {
+  --bc-bg: theme('colors.cave.bg');
+  --bc-text-primary: theme('colors.cave.text');
+  --bc-ember: theme('colors.cave.ember');
+  --bc-mist: theme('colors.cave.mist');
+  --bc-border: theme('colors.cave.border');
 }
-
-@layer utilities {
-  .container-px {
-    @apply px-5 md:px-8;
-  }
-}
-
-#root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--color-bg);
-}
-
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  position: relative; /* Required for Framer Motion scroll calculations */
-}
-
-/* Fix Framer Motion position:static warning - ensure all motion containers have positioning context */
-[data-framer-name],
-[data-framer-component],
-section,
-article {
-  position: relative; /* Ensure Framer Motion can calculate scroll offsets */
-}
-
-/* Ensure scroll containers have proper positioning for Framer Motion */
-.scroll-container,
-.scroll-wrapper,
-.animation-container {
-  position: relative;
-}
-
-main {
-  flex: 1;
-  position: relative;
-  z-index: 1;
-  margin-top: var(--header-height); /* Ensure content starts below fixed header */
-}
-
-/* Utility class for pages that need extra top spacing */
-.page-content {
-  padding-top: 2rem; /* Additional spacing for page content */
-}
-
-/* Ensure hero sections account for header */
-.hero-section {
-  margin-top: calc(var(--header-height) * -1); /* Negative margin to account for header */
-  padding-top: calc(var(--header-height) + 20px); /* Extra padding to compensate */
-}
-
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: color var(--duration-fast) ease;
-
-  &:hover {
-    color: var(--color-accent);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 3px;
-  }
-}
-
-/* ===== BRAND BUTTON STYLES ===== */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-md) var(--space-xl);
-  background: var(--gradient-brand);
-  color: white;
-  font-family: var(--font-body);
-  font-weight: var(--weight-semibold);
-  font-size: var(--text-base);
-  border: none;
-  border-radius: var(--radius-lg);
-  text-decoration: none;
-  cursor: pointer;
-  transition: all var(--duration-normal) ease;
-  box-shadow: var(--shadow-brand);
-
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: var(--glow-brand);
-    color: white;
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 4px;
-  }
-}
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-md) var(--space-xl);
-  background: transparent;
-  color: var(--color-text);
-  font-family: var(--font-body);
-  font-weight: var(--weight-semibold);
-  font-size: var(--text-base);
-  border: 2px solid var(--color-primary);
-  border-radius: var(--radius-lg);
-  text-decoration: none;
-  cursor: pointer;
-  transition: all var(--duration-normal) ease;
-
-  &:hover {
-    background: var(--gradient-brand);
-    color: white;
-    transform: scale(1.05);
-    box-shadow: var(--glow-brand);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 4px;
-  }
-}
-
-p {
-  margin: 0 0 1rem 0;
-}
-
-button {
-  cursor: pointer;
-  font-family: inherit;
-
-  &:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 3px;
-  }
-}
-
-input,
-textarea,
-select {
-  font-family: inherit;
-}
-
-/* Utility Classes */
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.gradient-bg {
-  background: linear-gradient(135deg, var(--color-primary-blue) 0%, var(--color-primary-dark) 100%);
-}
-
-/* Scrollbar Styling */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-bg-primary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-medium-gray);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
-}
-
-/* Animations */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-} */

@@ -4,16 +4,20 @@
    =================================================================== */
 
 /* ===== FONT IMPORTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap');
 
 /* ===== TYPOGRAPHY TOKENS ===== */
 :root {
-  /* ===== FONT FAMILIES ===== */
-  --font-heading: 'Clash Display', 'Arial Black', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  /* ===== FONT FAMILIES (Unified Montserrat System) ===== */
+  --font-heading: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-body: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-display: 'Montserrat', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  /* Legacy font variables for compatibility */
+  --font-primary: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-secondary: 'Montserrat', system-ui, -apple-system, sans-serif;
 
   /* ===== FONT WEIGHTS ===== */
   --weight-light: 300;

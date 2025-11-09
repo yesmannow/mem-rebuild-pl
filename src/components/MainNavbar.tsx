@@ -182,7 +182,7 @@ export default function MainNavbar() {
             className="text-[color:theme(colors.cave.text)] p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
-            aria-expanded={mobileMenuOpen}
+            aria-expanded={mobileMenuOpen ? "true" : "false"}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

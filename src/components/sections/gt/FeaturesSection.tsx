@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SectionWrapper from '../../ui/SectionWrapper';
+import SectionWrapper from '../../SectionWrapper';
 
 interface Feature {
   icon?: React.ReactNode;
@@ -37,7 +37,7 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({
       y: 0,
       transition: {
         duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
