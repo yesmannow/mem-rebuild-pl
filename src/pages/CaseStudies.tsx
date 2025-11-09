@@ -96,7 +96,7 @@ const CaseStudies: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            ★ Tech & Marketing
+            ★ Project Deep Dives
           </motion.div>
 
           <motion.h1
@@ -105,7 +105,7 @@ const CaseStudies: React.FC = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Selected Works
+            Project Deep Dives
           </motion.h1>
 
           <motion.p
@@ -114,8 +114,8 @@ const CaseStudies: React.FC = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Deep dives into transformative projects that showcase the power of strategic
-            marketing combined with technical excellence
+            From Spark to System: The Stories Behind the Work… I break down the challenge, the build,
+            and the measurable impact so you can see exactly how I operate.
           </motion.p>
 
           {/* Stats */}

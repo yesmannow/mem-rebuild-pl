@@ -299,7 +299,7 @@ const SideProjectDetail: React.FC = () => {
           <section className="content-section approach-section">
             <div className="section-header">
               <Lightbulb size={32} />
-              <h2>{project.logoOnly ? "Design Process & Rationale" : "Our Approach"}</h2>
+              <h2>{project.logoOnly ? "Design Process & Rationale" : "My Approach"}</h2>
             </div>
             <div className="section-content">
               <p>{project.approach}</p>
@@ -307,7 +307,7 @@ const SideProjectDetail: React.FC = () => {
                 <div className="design-breakdown">
                   <div className="design-element">
                     <h4>Concept Development</h4>
-                    <p>The design process began with in-depth research into the client's industry, target audience, and competitive landscape. Through collaborative discovery sessions, we identified key brand values and emotional connections that the logo needed to communicate.</p>
+                    <p>The design process began with in-depth research into the client's industry, target audience, and competitive landscape. Through collaborative discovery sessions, I identified key brand values and emotional connections that the logo needed to communicate.</p>
                   </div>
                   <div className="design-element">
                     <h4>Symbolism & Meaning</h4>
@@ -385,7 +385,7 @@ const SideProjectDetail: React.FC = () => {
                 <div className="brand-story-content">
                   <p><strong>The Brand Transformation:</strong> This logo represents more than just a visual mark—it's the foundation of the brand's identity. The design captures the essence of the brand's story, values, and promise to its audience.</p>
                   <p><strong>Strategic Impact:</strong> A well-designed logo serves as a powerful tool for brand recognition, emotional connection, and market differentiation. This identity establishes a memorable presence that supports marketing efforts and builds long-term brand equity.</p>
-                  <p><strong>Foundation for Growth:</strong> By creating a strong, versatile logo system, we've provided the client with a solid foundation for future brand expansion, ensuring consistency as the brand grows and evolves across new markets and applications.</p>
+                  <p><strong>Foundation for Growth:</strong> By creating a strong, versatile logo system, I've provided the client with a solid foundation for future brand expansion, ensuring consistency as the brand grows and evolves across new markets and applications.</p>
                 </div>
               </div>
             </section>

@@ -4,27 +4,71 @@ import Hero from "../components/Hero";
 import CaseStudy from "../components/CaseStudy";
 import StickyCTA from "../components/StickyCTA";
 import Testimonials from "../components/Testimonials";
-import { trackCTA, trackCaseStudy } from "../utils/analytics";
+import { trackCTA } from "../utils/analytics";
+
+const selectedWork = [
+  {
+    title: "317 BBQ Growth Engine",
+    summary:
+      "Rebuilt the brand narrative, redesigned the commerce experience, and automated lifecycle journeys that keep fans coming back.",
+    metrics: [
+      { label: "Online Orders", value: "↑ 29% in 90 days" },
+      { label: "Email Revenue", value: "+54%" },
+      { label: "Average Order Value", value: "+18%" }
+    ],
+    image: "/images/side-projects/317-bbq.svg",
+    tags: ["Brand System", "Lifecycle Automation", "CRO"],
+    slug: "the-launchpad",
+    accent: "#FF8A65"
+  },
+  {
+    title: "Graston Technique Lifecycle",
+    summary:
+      "Unified WooCommerce, LearnDash, and FluentCRM so education, sales, and support work from the same playbook.",
+    metrics: [
+      { label: "Enrollments", value: "↑ 38% YoY" },
+      { label: "Support Volume", value: "-70%" },
+      { label: "Automation Coverage", value: "400+ flows" }
+    ],
+    image: "/images/case-studies/graston-dashboard/cover.svg",
+    tags: ["Systems Architecture", "MarTech", "Analytics"],
+    slug: "the-conductor",
+    accent: "#7C5CFF"
+  },
+  {
+    title: "Next Build in Progress",
+    summary:
+      "Currently architecting a new growth system that fuses product, analytics, and automation for a healthcare operator.",
+    metrics: [
+      { label: "Launch Window", value: "Summer 2025" },
+      { label: "Focus", value: "Predictable pipeline" },
+      { label: "Status", value: "In build" }
+    ],
+    image: "/images/case-studies/promotional-campaigns.svg",
+    tags: ["Automation", "Analytics", "Ops"],
+    accent: "#64748B"
+  }
+];
 
 const testimonialsData = [
   {
-    quote: "Jacob transformed our marketing operations. The systems he built created predictable pipeline and measurable ROI.",
+    quote: "Jacob is the rare operator who can architect the system, build it, and prove the ROI inside the same sprint.",
     name: "Sarah Chen",
-    title: "CMO",
-    company: "Tech Startup",
+    title: "Chief Marketing Officer",
+    company: "Series B SaaS"
   },
   {
-    quote: "Working with Jacob was seamless. He moved from strategy to execution without handoffs, delivering results faster than expected.",
+    quote: "He turned our fragmented data into a growth engine. Strategy, implementation, and documentation all shipped together.",
     name: "Michael Rodriguez",
     title: "Founder",
-    company: "SaaS Company",
+    company: "Commerce Collective"
   },
   {
-    quote: "Jacob's approach to marketing systems is unmatched. He doesn't just build campaigns—he builds revenue engines.",
+    quote: "Jacob's marketing automation work gave our team time back and produced the most predictable pipeline we've ever had.",
     name: "Emily Johnson",
-    title: "VP Marketing",
-    company: "E-commerce Brand",
-  },
+    title: "VP of Growth",
+    company: "Healthcare Network"
+  }
 ];
 
 const HomePage: React.FC = () => {
@@ -46,40 +90,33 @@ const HomePage: React.FC = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl md:text-4xl font-display">Selected work</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <CaseStudy
-              title="317 BBQ — Brand, Web, Growth"
-              summary="I rebuilt the narrative, redesigned for conversions, and implemented CRM + automated flows."
-              statLabel="Online orders"
-              statValue="↑ 29% in 90 days"
-              image="/images/side-projects/317-bbq.svg"
-              tags={["Brand", "Web", "Email Automation"]}
-            />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <CaseStudy
-              title="Graston Technique — Education Funnel"
-              summary="I designed a CEU-first content engine and built a multi-step lifecycle that increased enrollments."
-              statLabel="Enrollments"
-              statValue="↑ 38% YoY"
-              image="/images/case-studies/graston-dashboard/cover.svg"
-              tags={["Lifecycle", "Content", "CRM"]}
-            />
-          </motion.div>
+        <div className="space-y-4">
+          <h2 className="text-3xl md:text-4xl font-display">Selected Work</h2>
+          <p className="max-w-2xl text-base md:text-lg opacity-80">
+            Real systems, real metrics. Every project below combines brand, product, analytics, and automation so the business can
+            scale without guesswork.
+          </p>
+        </div>
+        <div className="space-y-8">
+          {selectedWork.map((work, index) => (
+            <motion.div
+              key={work.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+            >
+              <CaseStudy
+                title={work.title}
+                summary={work.summary}
+                metrics={work.metrics}
+                image={work.image}
+                tags={work.tags}
+                slug={work.slug}
+                accent={work.accent}
+              />
+            </motion.div>
+          ))}
         </div>
       </motion.section>
 
@@ -98,7 +135,9 @@ const HomePage: React.FC = () => {
           <div className="md:col-span-3 space-y-4">
             <h2 className="text-3xl md:text-4xl font-display">About me</h2>
             <p>
-              I design and run growth systems that create predictable pipeline. 16+ years across brand, performance, and product-led growth. I move from strategy to execution without handoffs.
+              I’m Jacob Darling—a marketing strategist and systems architect. I connect product positioning, lifecycle marketing,
+              analytics, and automation so operators have a dependable revenue engine. I move from insight to implementation without
+              handoffs.
             </p>
             <div className="flex gap-2 flex-wrap">
               <span className="chip">Strategy</span>
@@ -107,6 +146,16 @@ const HomePage: React.FC = () => {
               <span className="chip">Lifecycle</span>
               <span className="chip">Paid</span>
               <span className="chip">Analytics</span>
+            </div>
+            <div>
+              <motion.a
+                href="/about"
+                className="btn-secondary inline-flex"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                Learn More
+              </motion.a>
             </div>
           </div>
         </div>
@@ -130,8 +179,8 @@ const HomePage: React.FC = () => {
         transition={{ duration: 0.6 }}
       >
         <div className="card p-8 md:p-10">
-          <h2 className="text-3xl md:text-4xl font-display mb-4">Let's talk</h2>
-          <p className="mb-6">Tell me your goal. I'll reply with options and cost.</p>
+          <h2 className="text-3xl md:text-4xl font-display mb-4">Ready to build your next growth system?</h2>
+          <p className="mb-6">Tell me what needs to work better. I’ll map the strategy, architect the system, and ship it.</p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
               href="mailto:hoosierdarling@gmail.com"

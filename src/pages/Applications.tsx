@@ -41,28 +41,6 @@ const Applications: React.FC = () => {
     return filtered;
   }, [activeFilter, searchTerm, sortBy]);
 
-  const getAppImage = (appId: string) => {
-    const imageMap: { [key: string]: string } = {
-      'clinical-compass': '/apps/clinical-compass-thumbnail.png',
-      'gt9-pricing-sheet': '/apps/gt9-pricing-thumbnail.png',
-      'license-requirements-tool': '/apps/license-requirements-thumbnail.png',
-      'roi-calculator': '/apps/roi-calculator-thumbnail.png',
-      'graston-growth-engine': '/apps/graston-growth-engine-thumbnail.png'
-    };
-    return imageMap[appId] || '';
-  };
-
-  const getAppIcon = (appId: string) => {
-    const iconMap: { [key: string]: { icon: string; gradient: string } } = {
-      'clinical-compass': { icon: '🧠', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' },
-      'gt9-pricing-sheet': { icon: '💎', gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' },
-      'license-requirements-tool': { icon: '📚', gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' },
-      'roi-calculator': { icon: '📊', gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)' },
-      'graston-growth-engine': { icon: '🚀', gradient: 'linear-gradient(135deg, #88ABF2 0%, #EC4899 100%)' }
-    };
-    return iconMap[appId] || { icon: '🎓', gradient: 'linear-gradient(135deg, #88ABF2 0%, #B8D0D9 100%)' };
-  };
-
   const totalApps = applications.length;
   const totalTechnologies = new Set(applications.flatMap(app => app.technicalDetails.techStack)).size;
 
@@ -204,8 +182,6 @@ const Applications: React.FC = () => {
             exit="hidden"
           >
             {filteredApplications.map((app) => {
-              const iconData = getAppIcon(app.id);
-
               return (
                 <motion.div
                   key={app.id}
@@ -219,7 +195,7 @@ const Applications: React.FC = () => {
                     <div className="app-screenshot-wrapper">
                       <div className="screenshot-frame">
                         <img
-                          src={getAppImage(app.id)}
+                          src={app.thumbnail}
                           alt={`${app.title} screenshot`}
                           className="app-screenshot"
                         />
@@ -240,8 +216,11 @@ const Applications: React.FC = () => {
                     {/* App Content */}
                     <div className="app-card-content">
                       <div className="app-header">
-                        <div className="app-icon-badge" data-gradient={iconData.gradient}>
-                          <span className="icon-emoji">{iconData.icon}</span>
+                        <div
+                          className="app-icon-badge"
+                          style={{ background: app.accentGradient || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}
+                        >
+                          <span className="icon-emoji">{app.icon}</span>
                         </div>
                         <div className="app-meta">
                           <h3>{app.title}</h3>

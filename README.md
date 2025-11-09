@@ -7,11 +7,11 @@ A modern, interactive portfolio showcasing expertise in marketing automation, fu
 
 ## 🚀 Features
 
-- **Interactive Applications Showcase** - Live demos of production web apps
-- **Detailed Case Studies** - 8 real-world projects with measurable impact
-- **Smooth Animations** - Framer Motion throughout for professional polish
-- **Fully Responsive** - Mobile-first design optimized for all devices
-- **Fast Performance** - Vite for lightning-fast builds and HMR
+- **BearCave cinematic hero** — looping tech backdrop, chip indicators, and gradient CTAs
+- **Filterable case study library** — six narrative deep dives with rich metrics and tag search
+- **Interactive applications hub** — live demos, sort/search, grid & list layouts, and metric cards
+- **Modern About experience** — rotating portrait gallery, accordion timeline, and community work showcase
+- **Assistant-ready data model** — case studies and applications defined in TypeScript for quick updates
 
 ## 🛠️ Tech Stack
 
@@ -24,23 +24,35 @@ A modern, interactive portfolio showcasing expertise in marketing automation, fu
 
 ## 📱 Key Sections
 
-### The Playground
-Interactive web applications demonstrating technical expertise:
-- **GT9 Smart Pricing Tool** - Sales enablement with dynamic quote building
-- **License Requirements Hub** - Multi-state CE compliance database
-- **ROI Calculator** - Investment planning with break-even modeling
-- **Clinical Compass** - Intelligent protocol builder for clinicians
+### 🧭 Site navigation
+
+- **Home** — hero, selected work, testimonials, and contact CTA
+- **Case Studies** — searchable hub plus `/case-studies/[slug]` detail pages
+- **Applications** — interactive listings and `/applications/[id]` detail views
+- **About** — rotating bio gallery, philosophy cards, accordion timeline, community impact
+- **Projects** — technical and value project catalog
+- **Contact** — accessible contact form with scheduling link
 
 ### Case Studies
-8 detailed project breakdowns showing problem → solution → impact:
-- The Proactive Support Engine (AI chatbot, 70% ticket reduction)
-- The Command Center (Events dashboard, revenue protection)
-- The Closer (Quote automation, 35% close rate increase)
-- The Spotlight (Analytics dashboard, 40% churn reduction)
-- The Compass (GTM/GA4 overhaul, 85% ROAS improvement)
-- The Pipeline (Training automation, near-zero errors)
-- The Fortress (Edge security, 85K+ threats blocked/month)
-- The Safety Net (CI/CD pipeline, 2-minute MTTR)
+Six narrative projects showing problem → strategy → impact:
+- **The Launchpad** — turned a static directory into a revenue engine (+212% qualified leads)
+- **The Guardian** — automated compliance assistant that reduces tickets 68%
+- **The Compass** — rebuilt analytics and attribution for precise ROI decisions
+- **The Fortress** — edge-first security overhaul blocking 85K+ malicious hits monthly
+- **The Conductor** — unified data pipeline across WooCommerce, LearnDash, FluentCRM, and Sheets
+- **The Engine Room** — server optimization that cut load times from 5.8s to 1.2s
+
+### Content management
+
+#### Adding a case study
+1. Update `src/data/caseStudies.ts` with a new object containing `slug`, `title`, `tagline`, `color`, `icon`, `metrics`, and `fullContent` (challenge/strategy/impact). The `fullContent` object supports `paragraphs` and `bullets` arrays for rich rendering.
+2. Add a lightweight entry to `src/data/caseStudies.json` so the Case Study Explorer highlights the new story.
+3. Provide a supporting image or illustration in `public/images/case-studies/` and reference it from the `image` field. Use TODO comments if an asset needs to be produced later.
+
+#### Adding an application
+1. Append a new application object in `src/data/applications.ts`. Provide an `icon` emoji, optional `accentGradient`, and ensure `thumbnail` points to an asset in `public/apps/`.
+2. Populate the `valueProposition`, `features`, and `technicalDetails` arrays so the detail view renders the Overview, Technical Deep Dive, and Live Demo tabs.
+3. Supply metrics and optional testimonial data to surface impact on both the listing card and detail page.
 
 ## 🎨 Brand Identity
 

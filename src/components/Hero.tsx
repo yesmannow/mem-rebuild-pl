@@ -1,53 +1,74 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { trackCTA } from "../utils/analytics";
+import "./home/Hero.css";
 
 export default function Hero() {
+  const [reduceMotion, setReduceMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const handleChange = () => setReduceMotion(mediaQuery.matches);
+
+    handleChange();
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
+
   return (
-    <section className="container-px mx-auto max-w-6xl py-16 md:py-28">
-      <div className="grid md:grid-cols-2 items-center gap-10">
-        <div className="space-y-6">
-          <div className="inline-flex items-center gap-2 text-xs opacity-80">
+    <section className="hero-modern" aria-labelledby="hero-heading">
+      <div className="hero-media" aria-hidden="true">
+        {!reduceMotion ? (
+          <video
+            className="hero-media__video"
+            src="/hero-broll.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            {/* TODO: replace with branded BearCave tech loop asset */}
+          </video>
+        ) : (
+          <div className="hero-media__fallback" />
+        )}
+        <div className="hero-media__overlay" />
+      </div>
+
+      <div className="hero-content container-px">
+        <div className="hero-inner">
+          <div className="hero-chips" aria-label="Experience highlights">
             <span className="chip">Solo operator</span>
             <span className="chip">16+ years</span>
             <span className="chip">Hands-on</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-display">
+          <h1 id="hero-heading" className="hero-title">
             I build marketing systems that turn brands into revenue engines.
           </h1>
-          <p className="text-base md:text-lg opacity-90">
-            Strategy, creative, analytics, and execution unified under one operator. I design and run growth systems
-            that create predictable pipeline.
+          <p className="hero-subtitle">
+            Strategy, creative, analytics, and execution—unified under one operator. I design and run growth systems that
+            create predictable pipeline.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <a
-              href="#contact"
-              className="btn-primary"
-              onClick={() => trackCTA("work_with_me", "hero")}
+          <div className="hero-ctas">
+            <Link
+              to="/contact"
+              className="btn-primary hero-cta"
+              aria-label="Contact me"
+              onClick={() => trackCTA("contact", "hero")}
             >
-              Work With Me
-            </a>
-            <a
-              href="#work"
-              className="btn-secondary"
+              Contact Me
+            </Link>
+            <Link
+              to="/case-studies"
+              className="btn-secondary hero-cta"
+              aria-label="See my work"
               onClick={() => trackCTA("view_case_studies", "hero")}
             >
-              View Case Studies
-            </a>
-          </div>
-        </div>
-        <div className="relative">
-          <div className="card overflow-hidden">
-            <video
-              className="w-full h-[320px] md:h-[420px] object-cover"
-              src="/hero-broll.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-            />
-          </div>
-          <div className="absolute -bottom-4 -right-4 hidden md:block">
-            <div className="chip bg-white/10">No buzzwords. Measurable outcomes.</div>
+              See My Work
+            </Link>
           </div>
         </div>
       </div>

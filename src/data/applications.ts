@@ -2,6 +2,8 @@ export interface Application {
   id: string;
   title: string;
   tagline: string;
+  icon: string;
+  accentGradient?: string;
   category: string[];
   tags: string[];
   thumbnail: string;
@@ -49,6 +51,8 @@ export const applications: Application[] = [
     id: "gt9-pricing-sheet",
     title: "GT9 Smart Pricing Tool",
     tagline: "Intelligent pricing and quote generation for Graston Technique products and training",
+    icon: "💎",
+    accentGradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
     category: ["Sales Tools", "E-Commerce"],
     tags: ["JavaScript", "Interactive UI", "Quote Generation", "Sales Automation"],
     thumbnail: "/apps/gt9-pricing-thumbnail.png",
@@ -215,6 +219,8 @@ export const applications: Application[] = [
     id: "license-requirements-tool",
     title: "Practitioner License Requirements Hub",
     tagline: "State-by-state continuing education requirements for healthcare professionals",
+    icon: "🗺️",
+    accentGradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
     category: ["Education Tools", "Compliance"],
     tags: ["JavaScript", "Data Visualization", "Regulatory Compliance", "Multi-State"],
     thumbnail: "/apps/license-requirements-thumbnail.png",
@@ -398,6 +404,8 @@ export const applications: Application[] = [
     id: "roi-calculator",
     title: "Essential Training ROI Calculator",
     tagline: "Interactive investment and return calculator for Graston Technique training bundles",
+    icon: "📈",
+    accentGradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
     category: ["Sales Tools", "Financial Planning"],
     tags: ["JavaScript", "ROI Modeling", "Interactive Forms", "Data Visualization"],
     thumbnail: "/apps/roi-calculator-thumbnail.png",
@@ -578,6 +586,8 @@ export const applications: Application[] = [
     id: "clinical-compass",
     title: "Graston Clinical Compass",
     tagline: "A Digital Mentor for Clinical Excellence.",
+    icon: "🧭",
+    accentGradient: "linear-gradient(135deg, #7C5CFF 0%, #C084FC 100%)",
     category: ["Clinical Tools", "Education"],
     tags: ["JavaScript", "Clinical Decision Support", "Protocol Generation", "Interactive Workflow"],
     thumbnail: "/apps/clinical-compass-thumbnail.png",
@@ -819,6 +829,8 @@ function showInstrumentInfo(instCode) {
     id: "graston-growth-engine",
     title: "Graston Growth Engine",
     tagline: "Comprehensive provider platform with analytics hub, marketing toolkit, and growth tools",
+    icon: "🚀",
+    accentGradient: "linear-gradient(135deg, #88ABF2 0%, #EC4899 100%)",
     category: ["Marketing Platform", "Analytics", "Provider Tools"],
     tags: ["WordPress", "PHP", "Google Analytics API", "Chart.js", "SQL", "React", "REST API"],
     thumbnail: "/apps/graston-growth-engine-thumbnail.png",

@@ -1,0 +1,49 @@
+.bearcave-footer {
+  padding: 3rem 1.5rem 2.5rem;
+  background: radial-gradient(circle at top, rgba(124, 92, 255, 0.12), transparent 60%), #08080c;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bearcave-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.bearcave-footer__brand {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.bearcave-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+}
+
+.bearcave-footer__link {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color var(--duration-fast) ease;
+}
+
+.bearcave-footer__link:hover,
+.bearcave-footer__link:focus-visible {
+  color: var(--color-text);
+}
+
+.bearcave-footer__meta {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .bearcave-footer__nav {
+    gap: var(--space-md);
+  }
+}
