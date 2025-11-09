@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="pipelineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1f2937" />
+      <stop offset="100%" stop-color="#ef4444" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="#0f172a" />
+  <g fill="none" stroke-width="12" opacity="0.4">
+    <path d="M160 400 H1040" stroke="#ef4444" stroke-linecap="round" />
+    <path d="M160 320 H900" stroke="#f97316" stroke-linecap="round" />
+    <path d="M160 240 H760" stroke="#facc15" stroke-linecap="round" />
+  </g>
+  <text x="160" y="360" fill="#fee2e2" font-family="'Inter', sans-serif" font-size="76" font-weight="700">
+    The Pipeline
+  </text>
+  <text x="160" y="430" fill="#fecaca" font-family="'Inter', sans-serif" font-size="34">
+    Revenue operations aligned to scale
+  </text>
+</svg>

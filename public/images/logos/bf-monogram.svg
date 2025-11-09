@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">BF Monogram Placeholder</title>
+  <desc id="desc">Abstract placeholder badge for the BF Monogram client logo.</desc>
+  <rect width="120" height="120" rx="16" fill="#0F172A" />
+  <path d="M34 30h28c14 0 24 8 24 22 0 11-6 18-16 20l18 28H72L56 73H48v27H34V30zm34 30c6 0 10-4 10-8s-4-8-10-8H48v16h20z" fill="#38BDF8" />
+</svg>

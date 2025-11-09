@@ -52,7 +52,7 @@ const LogoIntro: React.FC = () => {
             }}
           >
             <img
-              src="/images/design/logo-01.png"
+              src="/images/design/logo-01.svg"
               alt="Jacob Darling"
               className="logo-intro-image"
             />

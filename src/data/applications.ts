@@ -776,9 +776,9 @@ function validateCurrentStep() {
           description: "Modal dialog system displaying detailed instrument information with images and clinical guidance",
           language: "javascript",
           snippet: `const instrumentData = {
-    'GT1': { 
-        name: 'GT1: Scanner', 
-        image: 'https://grastontechnique.com/wp-content/uploads/2022/10/GT1.png',
+    'GT1': {
+        name: 'GT1: Scanner',
+        image: '/images/applications/graston-gt1.svg',
         rationale: \`The largest Graston instrument, GT1 is expertly designed for "scanning" and treating large muscle groups and fascia. Its broad, gently convex edges allow clinicians to quickly assess tissue texture and efficiently treat areas such as hamstrings, quadriceps, and the back.<br><br>
         <strong>Key Features:</strong><br>
         • Broad, convex surfaces for coverage<br>

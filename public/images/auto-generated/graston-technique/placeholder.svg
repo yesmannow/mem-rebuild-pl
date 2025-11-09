@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+  <defs>
+    <linearGradient id="gtGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2937" />
+      <stop offset="50%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#22d3ee" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" rx="32" fill="url(#gtGradient)" />
+  <g fill="none" stroke="#ecfeff" stroke-width="4" stroke-linecap="round">
+    <path d="M140 280c40-80 120-160 220-160s180 80 220 160" opacity="0.6" />
+    <path d="M160 308c38-68 116-136 200-136s162 68 200 136" opacity="0.35" />
+    <path d="M180 336c36-58 108-114 180-114s144 56 180 114" opacity="0.2" />
+  </g>
+  <text x="120" y="176" fill="#ecfeff" font-family="'Inter', sans-serif" font-size="54" font-weight="600">
+    Graston Technique
+  </text>
+  <text x="120" y="232" fill="#cffafe" font-family="'Inter', sans-serif" font-size="28" font-weight="500">
+    Marketing Director
+  </text>
+  <text x="120" y="288" fill="#ecfeff" font-family="'Inter', sans-serif" font-size="20" opacity="0.8">
+    Marketing systems • Education funnels • Practitioner engagement
+  </text>
+</svg>

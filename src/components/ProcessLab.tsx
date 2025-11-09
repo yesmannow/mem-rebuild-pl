@@ -6,31 +6,31 @@ const processSteps = [
     title: "Type Selection",
     description: "Choosing the right typeface and size for the project",
     details: "Each letterpress project begins with careful consideration of the message and the medium. We select typefaces that not only look beautiful but also print well under pressure.",
-    image: "/assets/brands/sutherland/process-type.jpg"
+    image: "/images/process/sutherland-process-type.svg"
   },
   {
     title: "Composition",
     description: "Arranging type and elements on the press bed",
     details: "This is where the magic happens. Each piece of type is placed individually, creating a tactile layout that will be impressed into paper. Precision is key - a single misaligned letter can ruin the entire print run.",
-    image: "/assets/brands/sutherland/process-compose.jpg"
+    image: "/images/process/sutherland-process-compose.svg"
   },
   {
     title: "Inking",
     description: "Applying ink to the type and plates",
     details: "The ink must be applied evenly and consistently. Too much ink creates blobs, too little results in faint impressions. We use traditional oil-based inks that provide rich, deep color.",
-    image: "/assets/brands/sutherland/process-ink.jpg"
+    image: "/images/process/sutherland-process-ink.svg"
   },
   {
     title: "Pressing",
     description: "Running the press to create impressions",
     details: "The moment of truth. The paper is fed through the press, and under tremendous pressure, the type impresses itself into the paper. Each sheet is a unique piece of art.",
-    image: "/assets/brands/sutherland/process-press.jpg"
+    image: "/images/process/sutherland-process-press.svg"
   },
   {
     title: "Finishing",
     description: "Trimming, folding, and final touches",
     details: "After printing, pieces are trimmed to size, folded if needed, and given any final embellishments. This step ensures the final product is as perfect as the printing process.",
-    image: "/assets/brands/sutherland/process-finish.jpg"
+    image: "/images/process/sutherland-process-finish.svg"
   }
 ];
 

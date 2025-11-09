@@ -90,10 +90,17 @@ export function loadProjectImages(): ProjectItem[] {
   // Manual mapping of project folders and their contents
   // This would ideally be generated dynamically, but for now we'll map the known structure
   const projectStructure = {
-    '317 bbq': ['317-bbq-logo.jpg', '317-bbq-branding.png'],
-    'Russell painting': ['russell-artwork.jpg'],
-    'Tuohy Bailey & Moore LLP': ['tbm-logo.png'],
-    'riley bennett egloff': [] // Empty folder
+    '317 bbq': ['317BBQLogo_wht.webp', 'download.jpg', 'download (1).jpg'],
+    'Russell painting': [
+      'Screenshot of Power Washing _ Russell Painting Company, Inc.jpg',
+      'New-Logo-Transparent-1.png'
+    ],
+    'Tuohy Bailey & Moore LLP': [
+      'Screenshot of Home - Tuohy Bailey & Moore LLP.jpg',
+      'Screenshot of Business Transactions - Tuohy Bailey & Moore LLP.jpg',
+      'Screenshot of Commercial Law - Tuohy Bailey & Moore LLP.jpg'
+    ],
+    'riley bennett egloff': ['attorneys.jpg', 'download.jpg', 'dss.jpg', 'RBE-Logo-with-®-RGB-jpg.jpg']
   };
 
   const allProjects: ProjectItem[] = [];

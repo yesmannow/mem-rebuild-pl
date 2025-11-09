@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
+  <rect width="400" height="200" fill="#7d0000" rx="24" />
+  <text x="200" y="120" fill="#ffffff" font-family="'Inter', sans-serif" font-size="96" font-weight="700" text-anchor="middle">
+    IU
+  </text>
+</svg>

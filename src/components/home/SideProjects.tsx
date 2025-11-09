@@ -12,7 +12,7 @@ const sideProjects = [
     id: "317-bbq",
     name: "317 BBQ",
     subtitle: "Brand Identity & Digital Presence",
-    image: "/images/side-projects/317-bbq-logo.png",
+    image: "/images/side-projects/317-bbq.svg",
     category: "Brand Identity",
     description: "Complete brand identity system for Indianapolis BBQ restaurant including logo, signage, and digital assets."
   },
@@ -20,7 +20,7 @@ const sideProjects = [
     id: "rbe-consulting",
     name: "RBE Consulting",
     subtitle: "Professional Services Branding",
-    image: "/images/side-projects/rbe-logo.png",
+    image: "/images/side-projects/rbe-consulting.svg",
     category: "Brand Identity",
     description: "Strategic brand development for business consulting firm with focus on trust and expertise."
   },
@@ -28,7 +28,7 @@ const sideProjects = [
     id: "pike-medical",
     name: "Pike Medical",
     subtitle: "Healthcare Marketing System",
-    image: "/images/side-projects/pike-medical-logo.png",
+    image: "/images/side-projects/pike-medical.svg",
     category: "Web Design",
     description: "Comprehensive marketing system for medical consultants including patient acquisition workflows."
   },
@@ -36,7 +36,7 @@ const sideProjects = [
     id: "graston-dashboard",
     name: "Graston Dashboard",
     subtitle: "Clinical Decision Support",
-    image: "/images/side-projects/graston-dashboard.png",
+    image: "/images/side-projects/graston-dashboard.svg",
     category: "Web Application",
     description: "Interactive dashboard for healthcare practitioners with treatment protocols and patient management."
   },
@@ -44,7 +44,7 @@ const sideProjects = [
     id: "ultimate-technologies",
     name: "Ultimate Technologies",
     subtitle: "Technology Solutions Branding",
-    image: "/images/side-projects/ultimate-tech-logo.png",
+    image: "/images/side-projects/ultimate-technologies.svg",
     category: "Brand Identity",
     description: "Modern brand identity for technology solutions provider with emphasis on innovation."
   }

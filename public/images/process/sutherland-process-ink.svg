@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <rect width="600" height="400" fill="#0f172a" rx="32" />
+  <text x="300" y="220" fill="#22d3ee" font-family="'Inter', sans-serif" font-size="48" font-weight="600" text-anchor="middle">
+    Ink & Iterate
+  </text>
+</svg>

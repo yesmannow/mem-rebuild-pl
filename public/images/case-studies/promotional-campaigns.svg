@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="promoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#831843" />
+      <stop offset="50%" stop-color="#db2777" />
+      <stop offset="100%" stop-color="#f472b6" />
+    </linearGradient>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <rect width="80" height="80" fill="none" stroke="#f9a8d4" stroke-width="2" opacity="0.3" />
+    </pattern>
+  </defs>
+  <rect width="1200" height="675" fill="url(#promoGradient)" />
+  <rect width="1200" height="675" fill="url(#grid)" />
+  <text x="120" y="320" fill="#fdf2f8" font-family="'Inter', sans-serif" font-size="78" font-weight="700">
+    Promotional Campaigns
+  </text>
+  <text x="120" y="400" fill="#fdf2f8" font-family="'Inter', sans-serif" font-size="34">
+    Seasonal storytelling that converts
+  </text>
+  <circle cx="950" cy="220" r="90" fill="#fdf2f8" opacity="0.15" />
+  <circle cx="1020" cy="480" r="140" fill="#fdf2f8" opacity="0.1" />
+</svg>

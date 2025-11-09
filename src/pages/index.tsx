@@ -60,7 +60,7 @@ const HomePage: React.FC = () => {
               summary="I rebuilt the narrative, redesigned for conversions, and implemented CRM + automated flows."
               statLabel="Online orders"
               statValue="↑ 29% in 90 days"
-              image="/images/317bbq.jpg"
+              image="/images/side-projects/317-bbq.svg"
               tags={["Brand", "Web", "Email Automation"]}
             />
           </motion.div>
@@ -76,7 +76,7 @@ const HomePage: React.FC = () => {
               summary="I designed a CEU-first content engine and built a multi-step lifecycle that increased enrollments."
               statLabel="Enrollments"
               statValue="↑ 38% YoY"
-              image="/images/graston.jpg"
+              image="/images/case-studies/graston-dashboard/cover.svg"
               tags={["Lifecycle", "Content", "CRM"]}
             />
           </motion.div>
@@ -93,7 +93,7 @@ const HomePage: React.FC = () => {
       >
         <div className="grid md:grid-cols-5 gap-8 items-start">
           <div className="md:col-span-2 card p-6">
-            <img src="/images/jacob.jpg" alt="Jacob Darling" className="rounded-xl w-full h-auto" loading="lazy" />
+            <img src="/images/bio/bio-photo.jpg" alt="Jacob Darling" className="rounded-xl w-full h-auto" loading="lazy" />
           </div>
           <div className="md:col-span-3 space-y-4">
             <h2 className="text-3xl md:text-4xl font-display">About me</h2>

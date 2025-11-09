@@ -200,9 +200,9 @@ const Resume: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="relative overflow-hidden text-center p-6 bg-blue-500/10 border border-blue-500/20 rounded-xl"
               >
-                <img src="/images/education/iu-campus.png" alt="Indiana University Campus" className="absolute top-0 left-0 w-full h-full object-cover opacity-10 z-0" />
+                <img src="/images/education/iu-campus.svg" alt="Indiana University Campus" className="absolute top-0 left-0 w-full h-full object-cover opacity-10 z-0" />
                 <div className="relative z-10 flex flex-col items-center">
-                    <img src="/images/education/iu-logo.png" alt="Indiana University Logo" className="w-16 h-16 mb-4" />
+                    <img src="/images/education/iu-logo.svg" alt="Indiana University Logo" className="w-16 h-16 mb-4" />
                     <h3 className="text-xl font-bold text-blue-400 mb-2">{edu.degree}</h3>
                     <p className="text-lg text-gray-300 mb-2">{edu.institution}</p>
                     <p className="text-gray-400 mb-3">{edu.year}</p>

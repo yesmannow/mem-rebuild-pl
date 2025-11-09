@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="fortressGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#facc15" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="#111827" />
+  <g fill="#facc15" opacity="0.25">
+    <rect x="260" y="200" width="80" height="220" />
+    <rect x="380" y="160" width="80" height="260" />
+    <rect x="500" y="180" width="80" height="240" />
+    <rect x="620" y="140" width="80" height="280" />
+    <rect x="740" y="200" width="80" height="220" />
+  </g>
+  <rect x="220" y="120" width="760" height="360" rx="32" fill="url(#fortressGradient)" opacity="0.8" />
+  <text x="260" y="320" fill="#fefce8" font-family="'Inter', sans-serif" font-size="76" font-weight="700">
+    The Fortress
+  </text>
+  <text x="260" y="390" fill="#fef08a" font-family="'Inter', sans-serif" font-size="34">
+    Security-first marketing infrastructure
+  </text>
+</svg>

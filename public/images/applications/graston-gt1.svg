@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <defs>
+    <linearGradient id="steel" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e2e8f0" />
+      <stop offset="50%" stop-color="#cbd5f5" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" rx="32" fill="#0f172a" />
+  <rect x="48" y="96" width="544" height="168" rx="84" fill="url(#steel)" />
+  <rect x="72" y="120" width="496" height="120" rx="60" fill="#1e293b" opacity="0.08" />
+  <g fill="#0f172a" opacity="0.12">
+    <ellipse cx="200" cy="180" rx="60" ry="42" />
+    <ellipse cx="320" cy="180" rx="48" ry="34" />
+    <ellipse cx="440" cy="180" rx="60" ry="42" />
+  </g>
+  <text x="80" y="256" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="24" font-weight="600">
+    GT1 Instrument Profile
+  </text>
+  <text x="80" y="288" fill="#cbd5f5" font-family="'Inter', sans-serif" font-size="18" opacity="0.85">
+    Sweeping coverage for large muscle groups and fascia scanning
+  </text>
+</svg>

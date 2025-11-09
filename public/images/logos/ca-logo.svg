@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-labelledby="title desc">
+  <title id="title">Tuohy Bailey &amp; Moore Placeholder</title>
+  <desc id="desc">Geometric courthouse-inspired placeholder for the Tuohy Bailey &amp; Moore branding.</desc>
+  <rect width="160" height="120" rx="14" fill="#111827" />
+  <path d="M30 92h100v10H30V92zm18-8h64l-12-38H60l-12 38zm14-50h36l-18-20-18 20z" fill="#C084FC" />
+  <path d="M44 84h72" stroke="#F9FAFB" stroke-width="4" stroke-linecap="round" />
+</svg>

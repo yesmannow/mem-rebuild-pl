@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" role="img" aria-labelledby="title desc">
+  <title id="title">Primary Care Placeholder</title>
+  <desc id="desc">Medical cross placeholder for the Primary Care identity.</desc>
+  <rect width="140" height="120" rx="18" fill="#1D4ED8" />
+  <path d="M70 30c-18 0-32 14-32 32s14 32 32 32 32-14 32-32S88 30 70 30zm0 14c10 0 18 8 18 18s-8 18-18 18-18-8-18-18 8-18 18-18z" fill="#BFDBFE" />
+  <path d="M70 44v16H54v12h16v16h12V72h16V60H82V44H70z" fill="#F8FAFC" />
+</svg>

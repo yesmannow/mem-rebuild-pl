@@ -17,7 +17,7 @@ const ArtifactExplorer: React.FC = () => {
 
       <div className="relative bg-gray-100 rounded-lg overflow-hidden">
         <img
-          src="/assets/brands/eames/kit-layout.jpg"
+          src="/images/artifacts/eames-kit.svg"
           alt="Eames Institute Launch Kit Layout"
           className="w-full h-auto"
         />
