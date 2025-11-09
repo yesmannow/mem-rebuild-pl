@@ -1,5 +1,5 @@
 import React from 'react';
-import InspirationExplorer from '../components/InspirationExplorer';
+import InspirationExplorer from '../components/inspiration/InspirationExplorer';
 import InspirationTimeline from '../components/InspirationTimeline';
 import CTASection from '../components/CTASection';
 import WaveDivider from '../components/WaveDivider';
@@ -9,6 +9,11 @@ import ProcessLab from '../components/ProcessLab';
 import SpecChips from '../components/SpecChips';
 import ArtifactExplorer from '../components/ArtifactExplorer';
 import BrandLineageSection from '../components/BrandLineageSection';
+import DesignPrinciplesExplorer from '../components/DesignPrinciplesExplorer';
+import BrandBuilderCTA from '../components/inspiration/BrandBuilderCTA';
+import DesignChallenges from '../components/inspiration/DesignChallenges';
+import inspirationsData from '../data/inspirations.json';
+import brandIdentitiesData from '../data/brand-identities.json';
 
 /**
  * Inspiration Page - Explorer + Timeline + CTA
@@ -16,11 +21,28 @@ import BrandLineageSection from '../components/BrandLineageSection';
  * A comprehensive showcase of creative influences featuring:
  * - Interactive Inspiration Explorer with filtering and expandable details
  * - Scroll-driven Inspiration Timeline showing creative evolution
+ * - Design Principles Explorer for discovering shared design philosophies
  * - Call-to-action section linking to Case Studies
  * - Cave/bear theming throughout with WaveDivider, NoiseOverlay, GlyphOverlay
  */
 
 const Inspiration: React.FC = () => {
+  // Prepare brand data for DesignPrinciplesExplorer
+  const inspirations = inspirationsData as any[];
+  const brandIdentities = (brandIdentitiesData as any).brands || [];
+
+  const getBrandData = (item: any) => {
+    if (!item.brandId) return null;
+    return brandIdentities.find((b: any) => b.id === item.brandId) || null;
+  };
+
+  const brandsWithData = inspirations
+    .map(item => {
+      const brandData = getBrandData(item);
+      return brandData ? { ...item, ...brandData } : null;
+    })
+    .filter(Boolean);
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
@@ -43,30 +65,45 @@ const Inspiration: React.FC = () => {
 
       <WaveDivider />
 
+      {/* Design Principles Explorer */}
+      <DesignPrinciplesExplorer brands={brandsWithData as any} />
+
+      <WaveDivider flip />
+
       {/* Inspiration Timeline */}
       <InspirationTimeline />
 
-      <WaveDivider flip />
+      <WaveDivider />
 
       {/* Brand Lineage Timeline */}
       <BrandLineageSection />
 
-      <WaveDivider />
+      <WaveDivider flip />
 
       {/* Process Lab (Studio Sutherland) */}
       <ProcessLab />
 
-      <WaveDivider flip />
+      <WaveDivider />
 
       {/* Spec Chips (Tokens) */}
       <SpecChips />
 
-      <WaveDivider />
+      <WaveDivider flip />
 
       {/* Artifact Explorer (Eames Institute) */}
       <ArtifactExplorer />
 
+      <WaveDivider />
+
+      {/* Design Challenges */}
+      <DesignChallenges />
+
       <WaveDivider flip />
+
+      {/* Brand Builder CTA */}
+      <BrandBuilderCTA />
+
+      <WaveDivider />
 
       {/* CTA Section */}
       <CTASection />

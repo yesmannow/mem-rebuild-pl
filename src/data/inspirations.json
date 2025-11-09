@@ -5,7 +5,11 @@
     "category": "Design Systems",
     "image": "/images/inspirations/ibm-design.svg",
     "reflection": "The precision and scalability of IBM's design system taught me the importance of consistency at scale.",
-    "details": "IBM's 8-bar logo and grid-based layouts influenced modern digital design principles."
+    "details": "IBM's 8-bar logo and grid-based layouts influenced modern digital design principles.",
+    "brandId": "ibm-design",
+    "sourceUrl": "https://www.ibm.com/design/language/",
+    "year": 2014,
+    "designer": "IBM Design"
   },
   {
     "id": "2",
@@ -13,7 +17,11 @@
     "category": "Branding",
     "image": "/images/inspirations/nasa-manual.svg",
     "reflection": "NASA's manual showed how technical constraints can inspire creative solutions.",
-    "details": "The worm logo and modular design system for space program materials."
+    "details": "The worm logo and modular design system for space program materials.",
+    "brandId": "nasa-manual",
+    "sourceUrl": "https://standardsmanual.com/products/nasa-graphics-standards-manual",
+    "year": 1975,
+    "designer": "Richard Danne & Bruce Blackburn"
   },
   {
     "id": "3",
@@ -21,7 +29,10 @@
     "category": "Transportation Design",
     "image": "/images/inspirations/british-rail.svg",
     "reflection": "The bold simplicity of British Rail's identity proved that less can be more impactful.",
-    "details": "Margaret Calvert's typeface and double-arrow symbol revolutionized transit design."
+    "details": "Margaret Calvert's typeface and double-arrow symbol revolutionized transit design.",
+    "brandId": "british-rail",
+    "year": 1965,
+    "designer": "Margaret Calvert & Jock Kinneir"
   },
   {
     "id": "4",
@@ -29,7 +40,8 @@
     "category": "Typography",
     "image": "/images/inspirations/sutherland-press.svg",
     "reflection": "The tactile quality of letterpress reminded me that craft lives in the details.",
-    "details": "Hand-set type and traditional printing techniques for modern applications."
+    "details": "Hand-set type and traditional printing techniques for modern applications.",
+    "brandId": "sutherland-press"
   },
   {
     "id": "5",
@@ -37,6 +49,139 @@
     "category": "Product Design",
     "image": "/images/inspirations/eames-kit.svg",
     "reflection": "The Eames' approach to education through design objects inspired my teaching philosophy.",
-    "details": "Modular furniture and educational tools that blend form and function."
+    "details": "Modular furniture and educational tools that blend form and function.",
+    "brandId": "eames-institute"
+  },
+  {
+    "id": "6",
+    "title": "Indiana University",
+    "category": "Institutional",
+    "image": "/images/inspirations/iu-brand.svg",
+    "reflection": "IU's comprehensive brand system demonstrates how institutions can maintain identity while allowing flexibility.",
+    "details": "The IU trident logo and comprehensive color palette create a cohesive yet adaptable identity system.",
+    "brandId": "indiana-university",
+    "sourceUrl": "https://iu.edu/brand/",
+    "year": 2017,
+    "designer": "Indiana University Marketing"
+  },
+  {
+    "id": "7",
+    "title": "Folklorious",
+    "category": "Fashion & Accessories",
+    "image": "/images/inspirations/folklorious.svg",
+    "reflection": "Folklorious demonstrates how eclectic design can create a distinctive brand identity.",
+    "details": "Barcelona-based accessories boutique blending classic artwork, illustration, and modern graphics.",
+    "brandId": "folklorious",
+    "sourceUrl": "https://folklorious.com",
+    "year": 2020,
+    "designer": "Quim Marin"
+  },
+  {
+    "id": "8",
+    "title": "EAT MY SHORTS!",
+    "category": "Fashion",
+    "image": "/images/inspirations/eat-my-shorts.svg",
+    "reflection": "Bold, gender-neutral design challenges traditional fashion branding conventions.",
+    "details": "Independent clothing line with contemporary identity and innovative pastel metallic packaging.",
+    "brandId": "eat-my-shorts",
+    "sourceUrl": "https://eatmyshorts.com",
+    "year": 2021,
+    "designer": "Tomás Salazar"
+  },
+  {
+    "id": "9",
+    "title": "Zonzo Estate",
+    "category": "Hospitality",
+    "image": "/images/inspirations/zonzo-estate.svg",
+    "reflection": "Versatile logo design that adapts to different contexts while maintaining brand recognition.",
+    "details": "Australian winery rebrand featuring a floating-letter logo that transforms from classic to youthful.",
+    "brandId": "zonzo-estate",
+    "sourceUrl": "https://zonzoestate.com.au",
+    "year": 2019,
+    "designer": "Swear Words"
+  },
+  {
+    "id": "10",
+    "title": "Qoñi",
+    "category": "Artisan & Craft",
+    "image": "/images/inspirations/qoni.svg",
+    "reflection": "Authentic branding that honors cultural heritage while creating modern appeal.",
+    "details": "Peruvian artisan community specializing in hand-knitted alpaca goods with warmth-focused branding.",
+    "brandId": "qoni",
+    "sourceUrl": "https://qoni.com",
+    "year": 2020,
+    "designer": "Leo Burnett Design"
+  },
+  {
+    "id": "11",
+    "title": "Lune Croissanterie",
+    "category": "Food & Beverage",
+    "image": "/images/inspirations/lune.svg",
+    "reflection": "Futuristic design transforms traditional bakery into something extraordinary.",
+    "details": "Melbourne bakery with galactic spaceship theme combining science and baked goods.",
+    "brandId": "lune-croissanterie",
+    "sourceUrl": "https://lune.com.au",
+    "year": 2018,
+    "designer": "A Friend of Mine"
+  },
+  {
+    "id": "12",
+    "title": "Tenth Muse Botanical Fragrance",
+    "category": "Beauty & Fragrance",
+    "image": "/images/inspirations/tenth-muse.svg",
+    "reflection": "Victorian-inspired design maintains modern relevance through clarity and beauty.",
+    "details": "Botanical fragrance brand with Victorian aesthetic that balances intrigue and clarity.",
+    "brandId": "tenth-muse",
+    "sourceUrl": "https://tenthmuse.com",
+    "year": 2019,
+    "designer": "Studio MPLS"
+  },
+  {
+    "id": "13",
+    "title": "Bombay Electric",
+    "category": "Fashion Retail",
+    "image": "/images/inspirations/bombay-electric.svg",
+    "reflection": "Intense color gradients create vibrant, memorable brand identity.",
+    "details": "Mumbai fashion select store with kaleidoscopic branding featuring intense color gradients.",
+    "brandId": "bombay-electric",
+    "sourceUrl": "https://bombayelectric.in",
+    "year": 2017,
+    "designer": "Michael Thorsby"
+  },
+  {
+    "id": "14",
+    "title": "Glorioso Super Nutrients",
+    "category": "Food & Beverage",
+    "image": "/images/inspirations/glorioso.svg",
+    "reflection": "Simple, whimsical packaging inspired by seed packets creates distinctive brand identity.",
+    "details": "Spanish superfood company with seed packet-inspired packaging featuring abstract circle motifs.",
+    "brandId": "glorioso",
+    "sourceUrl": "https://glorioso.com",
+    "year": 2020,
+    "designer": "Requena"
+  },
+  {
+    "id": "15",
+    "title": "Felony Case",
+    "category": "Tech Accessories",
+    "image": "/images/inspirations/felony-case.svg",
+    "reflection": "Dark luxury aesthetic transforms tech accessories into premium products.",
+    "details": "New York tech accessories brand with black-on-black minimalism and subtle gold accents.",
+    "brandId": "felony-case",
+    "sourceUrl": "https://felonycase.com",
+    "year": 2021,
+    "designer": "In-house"
+  },
+  {
+    "id": "16",
+    "title": "Yellow Owl Workshop",
+    "category": "Craft & Artisan",
+    "image": "/images/inspirations/yellow-owl.svg",
+    "reflection": "Whimsical design creates magical brand experience for craft products.",
+    "details": "San Francisco woman-run craft business with quirky, whimsical designs exuding unicorn magic.",
+    "brandId": "yellow-owl",
+    "sourceUrl": "https://yellowowlworkshop.com",
+    "year": 2015,
+    "designer": "Christine Schmidt"
   }
 ]

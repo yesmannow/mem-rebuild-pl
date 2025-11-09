@@ -1,0 +1,1614 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-11-09T11:17:14.442Z",
+  "brands": [
+    {
+      "id": "ibm-design",
+      "title": "IBM Design Language",
+      "category": "Design Systems",
+      "sourceUrl": "https://www.ibm.com/design/language/",
+      "year": 2014,
+      "designer": "IBM Design",
+      "image": "/images/inspirations/ibm-design.svg",
+      "reflection": "The precision and scalability of IBM's design system taught me the importance of consistency at scale.",
+      "details": "IBM's 8-bar logo and grid-based layouts influenced modern digital design principles.",
+      "brandInfo": {
+        "colors": {
+          "primary": [
+            "#0F62FE",
+            "#002D9C",
+            "#0043CE",
+            "#0066FF"
+          ],
+          "secondary": [
+            "#8A3FFC",
+            "#6E00FF",
+            "#A56EFF"
+          ],
+          "neutral": [
+            "#161616",
+            "#262626",
+            "#393939",
+            "#525252",
+            "#6F6F6F",
+            "#8D8D8D",
+            "#A8A8A8",
+            "#C6C6C6",
+            "#E0E0E0",
+            "#F4F4F4"
+          ],
+          "semantic": {
+            "success": "#24A148",
+            "warning": "#F1C21B",
+            "error": "#DA1E28",
+            "info": "#0043CE"
+          }
+        },
+        "typography": {
+          "primary": "IBM Plex Sans",
+          "secondary": "IBM Plex Mono",
+          "scale": {
+            "display": "3.75rem",
+            "h1": "3rem",
+            "h2": "2.25rem",
+            "h3": "1.75rem",
+            "h4": "1.25rem",
+            "body": "1rem",
+            "caption": "0.875rem"
+          }
+        },
+        "grid": {
+          "system": "2x Grid",
+          "baseUnit": "8px",
+          "columns": 12
+        }
+      },
+      "designPrinciples": [
+        "Think → Guide",
+        "Build Bonds",
+        "Systematic approach to design",
+        "Scalability and consistency",
+        "Accessibility first"
+      ],
+      "visualSpecs": {
+        "logo": {
+          "type": "8-bar logo",
+          "usage": "Systematic grid-based mark",
+          "clearspace": "Minimum 1x bar width"
+        },
+        "spacing": "8px base unit system"
+      },
+      "educationalContent": {
+        "history": "IBM Design Language was established to create a unified design system across all IBM products and services.",
+        "philosophy": "Focus on building bonds between users and technology through thoughtful, systematic design.",
+        "applications": "Used across IBM Cloud, Watson, and all enterprise software products."
+      },
+      "quiz": [
+        {
+          "question": "What is the primary color palette used in IBM Design Language?",
+          "options": [
+            "Warm tones",
+            "Cool tones",
+            "Neutral grays",
+            "Vibrant colors"
+          ],
+          "correctAnswer": 1,
+          "explanation": "IBM Design Language uses a carefully selected color palette that reflects its brand identity."
+        },
+        {
+          "question": "What year was IBM Design Language created?",
+          "options": [
+            "2009",
+            "2014",
+            "2019",
+            "2024"
+          ],
+          "correctAnswer": 1,
+          "explanation": "IBM Design Language was created in 2014."
+        },
+        {
+          "question": "What is a key design principle of IBM Design Language?",
+          "options": [
+            "Think → Guide",
+            "Build Bonds",
+            "Systematic approach to design",
+            "Scalability and consistency"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Think → Guide"
+        },
+        {
+          "question": "Who designed IBM Design Language?",
+          "options": [
+            "IBM Design",
+            "Various designers",
+            "In-house team",
+            "External agency"
+          ],
+          "correctAnswer": 0,
+          "explanation": "IBM Design Language was designed by IBM Design."
+        },
+        {
+          "question": "What category does IBM Design Language belong to?",
+          "options": [
+            "Design Systems",
+            "Other",
+            "Unknown",
+            "Mixed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "IBM Design Language is categorized as Design Systems."
+        }
+      ],
+      "comparisonData": {
+        "ibm-design-vs-nasa-manual": {
+          "similarities": [
+            "Both brands use systematic design approaches",
+            "Both emphasize visual consistency",
+            "Both have defined color palettes"
+          ],
+          "differences": [
+            "IBM Design Language focuses on Design Systems, while NASA Graphics Standards Manual focuses on Branding",
+            "Different color schemes reflect different brand personalities",
+            "Typography choices differ based on brand needs"
+          ],
+          "lessons": "Comparing IBM Design Language and NASA Graphics Standards Manual shows how different industries and contexts require different design approaches while maintaining core design principles.",
+          "whenToUse": {
+            "brand1": "Use IBM Design Language approach for Design Systems projects",
+            "brand2": "Use NASA Graphics Standards Manual approach for Branding projects"
+          }
+        },
+        "ibm-design-vs-indiana-university": {
+          "similarities": [
+            "Both brands use systematic design approaches",
+            "Both emphasize visual consistency",
+            "Both have defined color palettes"
+          ],
+          "differences": [
+            "IBM Design Language focuses on Design Systems, while Indiana University focuses on Institutional",
+            "Different color schemes reflect different brand personalities",
+            "Typography choices differ based on brand needs"
+          ],
+          "lessons": "Comparing IBM Design Language and Indiana University shows how different industries and contexts require different design approaches while maintaining core design principles.",
+          "whenToUse": {
+            "brand1": "Use IBM Design Language approach for Design Systems projects",
+            "brand2": "Use Indiana University approach for Institutional projects"
+          }
+        }
+      }
+    },
+    {
+      "id": "nasa-manual",
+      "title": "NASA Graphics Standards Manual",
+      "category": "Branding",
+      "sourceUrl": "https://standardsmanual.com/products/nasa-graphics-standards-manual",
+      "year": 1975,
+      "designer": "Richard Danne & Bruce Blackburn",
+      "image": "/images/inspirations/nasa-manual.svg",
+      "reflection": "NASA's manual showed how technical constraints can inspire creative solutions.",
+      "details": "The worm logo and modular design system for space program materials.",
+      "brandInfo": {
+        "colors": {
+          "primary": [
+            "#000000",
+            "#FFFFFF"
+          ],
+          "accent": [
+            "#E31837"
+          ],
+          "background": [
+            "#FFFFFF",
+            "#000000"
+          ],
+          "extracted": [
+            "#000000",
+            "#FFFFFF",
+            "#E31837"
+          ],
+          "extractedAt": "2025-11-09T10:51:47.321Z"
+        },
+        "typography": {
+          "primary": "Helvetica",
+          "style": "Modernist sans-serif",
+          "extractedFonts": [
+            "NYCTA"
+          ],
+          "extractedScales": {
+            "h1": "25.76px",
+            "h2": "14.56px",
+            "h3": "14.56px",
+            "h4": "14.56px",
+            "body": "22.4px"
+          },
+          "scale": {
+            "display": "Bold, condensed",
+            "body": "Regular weight"
+          }
+        },
+        "grid": {
+          "system": "Modular grid",
+          "baseUnit": "Flexible"
+        },
+        "specifications": {
+          "printing": "CMYK + 5 Pantone spot colors",
+          "pages": "220 pages",
+          "year": "1975",
+          "designers": "Richard Danne and Bruce Blackburn"
+        }
+      },
+      "designPrinciples": [
+        "Technical precision",
+        "Modular design system",
+        "Clarity and legibility",
+        "Futuristic aesthetic"
+      ],
+      "visualSpecs": {
+        "logo": {
+          "type": "Worm logo (1975-1992)",
+          "style": "Geometric, letterform-based",
+          "alternate": "Meatball logo"
+        }
+      },
+      "educationalContent": {
+        "history": "Created in 1975 to modernize NASA's visual identity. The 'worm' logo was replaced in 1992 but remains iconic. Designed by Richard Danne and Bruce Blackburn of Danne & Blackburn.",
+        "philosophy": "Technical constraints inspire creative solutions. Modular systems enable consistency across diverse applications. The manual represents a futuristic vision for an agency at the cutting edge of science and exploration.",
+        "applications": "Spacecraft, uniforms, signage, documentation",
+        "extractedPrinciples": [
+          "The NASA Graphics Standards Manual by Richard Danne and Bruce Blackburn is a futuristic vision for an agency at the cutting edge of science and exploration.",
+          "Technical precision",
+          "Modular design system",
+          "Clarity and legibility"
+        ]
+      },
+      "lastFetched": "2025-11-09T10:51:47.321Z",
+      "quiz": [
+        {
+          "question": "What is the primary color palette used in NASA Graphics Standards Manual?",
+          "options": [
+            "Warm tones",
+            "Cool tones",
+            "Neutral grays",
+            "Vibrant colors"
+          ],
+          "correctAnswer": 1,
+          "explanation": "NASA Graphics Standards Manual uses a carefully selected color palette that reflects its brand identity."
+        },
+        {
+          "question": "What year was NASA Graphics Standards Manual created?",
+          "options": [
+            "1970",
+            "1975",
+            "1980",
+            "1985"
+          ],
+          "correctAnswer": 1,
+          "explanation": "NASA Graphics Standards Manual was created in 1975."
+        },
+        {
+          "question": "What is a key design principle of NASA Graphics Standards Manual?",
+          "options": [
+            "Technical precision",
+            "Modular design system",
+            "Clarity and legibility",
+            "Futuristic aesthetic"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Technical precision"
+        },
+        {
+          "question": "Who designed NASA Graphics Standards Manual?",
+          "options": [
+            "Richard Danne & Bruce Blackburn",
+            "Various designers",
+            "In-house team",
+            "External agency"
+          ],
+          "correctAnswer": 0,
+          "explanation": "NASA Graphics Standards Manual was designed by Richard Danne & Bruce Blackburn."
+        },
+        {
+          "question": "What category does NASA Graphics Standards Manual belong to?",
+          "options": [
+            "Branding",
+            "Other",
+            "Unknown",
+            "Mixed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "NASA Graphics Standards Manual is categorized as Branding."
+        }
+      ],
+      "comparisonData": {
+        "ibm-design-vs-nasa-manual": {
+          "similarities": [
+            "Both brands use systematic design approaches",
+            "Both emphasize visual consistency",
+            "Both have defined color palettes"
+          ],
+          "differences": [
+            "IBM Design Language focuses on Design Systems, while NASA Graphics Standards Manual focuses on Branding",
+            "Different color schemes reflect different brand personalities",
+            "Typography choices differ based on brand needs"
+          ],
+          "lessons": "Comparing IBM Design Language and NASA Graphics Standards Manual shows how different industries and contexts require different design approaches while maintaining core design principles.",
+          "whenToUse": {
+            "brand1": "Use IBM Design Language approach for Design Systems projects",
+            "brand2": "Use NASA Graphics Standards Manual approach for Branding projects"
+          }
+        },
+        "nasa-manual-vs-indiana-university": {
+          "similarities": [
+            "Both brands use systematic design approaches",
+            "Both emphasize visual consistency",
+            "Both have defined color palettes"
+          ],
+          "differences": [
+            "NASA Graphics Standards Manual focuses on Branding, while Indiana University focuses on Institutional",
+            "Different color schemes reflect different brand personalities",
+            "Typography choices differ based on brand needs"
+          ],
+          "lessons": "Comparing NASA Graphics Standards Manual and Indiana University shows how different industries and contexts require different design approaches while maintaining core design principles.",
+          "whenToUse": {
+            "brand1": "Use NASA Graphics Standards Manual approach for Branding projects",
+            "brand2": "Use Indiana University approach for Institutional projects"
+          }
+        }
+      }
+    },
+    {
+      "id": "indiana-university",
+      "title": "Indiana University",
+      "category": "Institutional",
+      "sourceUrl": "https://iu.edu/brand/",
+      "year": 2017,
+      "designer": "Indiana University Marketing",
+      "image": "/images/inspirations/iu-brand.svg",
+      "reflection": "IU's comprehensive brand system demonstrates how institutions can maintain identity while allowing flexibility.",
+      "details": "The IU trident logo and comprehensive color palette create a cohesive yet adaptable identity system.",
+      "brandInfo": {
+        "colors": {
+          "primary": [
+            "#990000",
+            "#CC0000"
+          ],
+          "secondary": [
+            "#006298",
+            "#003865"
+          ],
+          "accent": [
+            "#FFCC00",
+            "#FFD700"
+          ],
+          "neutral": [
+            "#333333",
+            "#666666",
+            "#999999",
+            "#CCCCCC"
+          ]
+        },
+        "typography": {
+          "primary": "Merriweather",
+          "secondary": "Source Sans Pro",
+          "scale": {
+            "display": "2.5rem",
+            "h1": "2rem",
+            "h2": "1.75rem",
+            "body": "1rem"
+          }
+        }
+      },
+      "designPrinciples": [
+        "Excellence and purpose",
+        "Community impact",
+        "Visual consistency",
+        "Flexible application"
+      ],
+      "visualSpecs": {
+        "logo": {
+          "type": "Trident mark",
+          "symbolism": "Strength and legacy",
+          "usage": "Primary identifier"
+        }
+      },
+      "educationalContent": {
+        "history": "IU's brand identity emphasizes excellence, purpose, and community impact through consistent visual language.",
+        "philosophy": "Maintaining institutional identity while allowing creative expression across departments and programs.",
+        "applications": "University communications, athletics, academic departments, marketing materials"
+      },
+      "quiz": [
+        {
+          "question": "What is the primary color palette used in Indiana University?",
+          "options": [
+            "Warm tones",
+            "Cool tones",
+            "Neutral grays",
+            "Vibrant colors"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Indiana University uses a carefully selected color palette that reflects its brand identity."
+        },
+        {
+          "question": "What year was Indiana University created?",
+          "options": [
+            "2012",
+            "2017",
+            "2022",
+            "2027"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Indiana University was created in 2017."
+        },
+        {
+          "question": "What is a key design principle of Indiana University?",
+          "options": [
+            "Excellence and purpose",
+            "Community impact",
+            "Visual consistency",
+            "Flexible application"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Excellence and purpose"
+        },
+        {
+          "question": "Who designed Indiana University?",
+          "options": [
+            "Indiana University Marketing",
+            "Various designers",
+            "In-house team",
+            "External agency"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Indiana University was designed by Indiana University Marketing."
+        },
+        {
+          "question": "What category does Indiana University belong to?",
+          "options": [
+            "Institutional",
+            "Other",
+            "Unknown",
+            "Mixed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Indiana University is categorized as Institutional."
+        }
+      ],
+      "comparisonData": {
+        "nasa-manual-vs-indiana-university": {
+          "similarities": [
+            "Both brands use systematic design approaches",
+            "Both emphasize visual consistency",
+            "Both have defined color palettes"
+          ],
+          "differences": [
+            "NASA Graphics Standards Manual focuses on Branding, while Indiana University focuses on Institutional",
+            "Different color schemes reflect different brand personalities",
+            "Typography choices differ based on brand needs"
+          ],
+          "lessons": "Comparing NASA Graphics Standards Manual and Indiana University shows how different industries and contexts require different design approaches while maintaining core design principles.",
+          "whenToUse": {
+            "brand1": "Use NASA Graphics Standards Manual approach for Branding projects",
+            "brand2": "Use Indiana University approach for Institutional projects"
+          }
+        },
+        "ibm-design-vs-indiana-university": {
+          "similarities": [
+            "Both brands use systematic design approaches",
+            "Both emphasize visual consistency",
+            "Both have defined color palettes"
+          ],
+          "differences": [
+            "IBM Design Language focuses on Design Systems, while Indiana University focuses on Institutional",
+            "Different color schemes reflect different brand personalities",
+            "Typography choices differ based on brand needs"
+          ],
+          "lessons": "Comparing IBM Design Language and Indiana University shows how different industries and contexts require different design approaches while maintaining core design principles.",
+          "whenToUse": {
+            "brand1": "Use IBM Design Language approach for Design Systems projects",
+            "brand2": "Use Indiana University approach for Institutional projects"
+          }
+        }
+      }
+    },
+    {
+      "id": "folklorious",
+      "title": "Folklorious",
+      "category": "Fashion & Accessories",
+      "sourceUrl": "https://folklorious.com",
+      "year": 2020,
+      "designer": "Quim Marin",
+      "image": "/images/inspirations/folklorious.svg",
+      "reflection": "Folklorious demonstrates how eclectic design can create a distinctive brand identity.",
+      "details": "Barcelona-based accessories boutique blending classic artwork, illustration, and modern graphics.",
+      "brandInfo": {
+        "colors": {
+          "primary": [
+            "#D4AF37",
+            "#8B4513",
+            "#F5DEB3"
+          ],
+          "accent": [
+            "#FF6B6B",
+            "#4ECDC4",
+            "#FFE66D"
+          ],
+          "palette": "Warm, earthy tones with vibrant accents"
+        },
+        "typography": {
+          "style": "Eclectic mix of serif and sans-serif",
+          "approach": "Classic meets modern"
+        }
+      },
+      "designPrinciples": [
+        "Eclectic aesthetic",
+        "Classic meets modern",
+        "Artistic expression",
+        "Bold visual identity"
+      ],
+      "visualSpecs": {
+        "style": "Illustrated, artistic",
+        "packaging": "Distinctive, creative"
+      },
+      "educationalContent": {
+        "history": "Created by Barcelona designer Quim Marin, Folklorious blends traditional artistry with contemporary design.",
+        "philosophy": "Eclectic design that celebrates both classic artwork and modern graphic elements.",
+        "applications": "Accessories packaging, online presence, retail displays"
+      },
+      "quiz": [
+        {
+          "question": "What is the primary color palette used in Folklorious?",
+          "options": [
+            "Warm tones",
+            "Cool tones",
+            "Neutral grays",
+            "Vibrant colors"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Folklorious uses a carefully selected color palette that reflects its brand identity."
+        },
+        {
+          "question": "What year was Folklorious created?",
+          "options": [
+            "2015",
+            "2020",
+            "2025",
+            "2030"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Folklorious was created in 2020."
+        },
+        {
+          "question": "What is a key design principle of Folklorious?",
+          "options": [
+            "Eclectic aesthetic",
+            "Classic meets modern",
+            "Artistic expression",
+            "Bold visual identity"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Eclectic aesthetic"
+        },
+        {
+          "question": "Who designed Folklorious?",
+          "options": [
+            "Quim Marin",
+            "Various designers",
+            "In-house team",
+            "External agency"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Folklorious was designed by Quim Marin."
+        },
+        {
+          "question": "What category does Folklorious belong to?",
+          "options": [
+            "Fashion & Accessories",
+            "Other",
+            "Unknown",
+            "Mixed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Folklorious is categorized as Fashion & Accessories."
+        }
+      ],
+      "comparisonData": {
+        "folklorious-vs-eat-my-shorts": {
+          "similarities": [
+            "Both brands use systematic design approaches",
+            "Both emphasize visual consistency",
+            "Both have defined color palettes"
+          ],
+          "differences": [
+            "Folklorious focuses on Fashion & Accessories, while EAT MY SHORTS! focuses on Fashion",
+            "Different color schemes reflect different brand personalities",
+            "Typography choices differ based on brand needs"
+          ],
+          "lessons": "Comparing Folklorious and EAT MY SHORTS! shows how different industries and contexts require different design approaches while maintaining core design principles.",
+          "whenToUse": {
+            "brand1": "Use Folklorious approach for Fashion & Accessories projects",
+            "brand2": "Use EAT MY SHORTS! approach for Fashion projects"
+          }
+        }
+      }
+    },
+    {
+      "id": "eat-my-shorts",
+      "title": "EAT MY SHORTS!",
+      "category": "Fashion",
+      "sourceUrl": "https://eatmyshorts.com",
+      "year": 2021,
+      "designer": "Tomás Salazar",
+      "image": "/images/inspirations/eat-my-shorts.svg",
+      "reflection": "Bold, gender-neutral design challenges traditional fashion branding conventions.",
+      "details": "Independent clothing line with contemporary identity and innovative pastel metallic packaging.",
+      "brandInfo": {
+        "colors": {
+          "primary": [
+            "#FFB6C1",
+            "#FFC0CB",
+            "#FFD700"
+          ],
+          "metallic": [
+            "#C0C0C0",
+            "#FFD700"
+          ],
+          "palette": "Pastel metallics"
+        },
+        "typography": {
+          "style": "Bold, contemporary",
+          "approach": "Gender-neutral aesthetic"
+        }
+      },
+      "designPrinciples": [
+        "Gender-neutral design",
+        "Bold contemporary aesthetic",
+        "Innovative packaging",
+        "Inclusive branding"
+      ],
+      "visualSpecs": {
+        "packaging": "Pastel metallic pouches",
+        "style": "Modern, inclusive"
+      },
+      "educationalContent": {
+        "history": "Created by fashion designer Malena Blas with branding by Tomás Salazar, challenging traditional fashion norms.",
+        "philosophy": "Contemporary, inclusive design that breaks gender barriers in fashion branding.",
+        "applications": "Clothing packaging, brand identity, online presence"
+      },
+      "quiz": [
+        {
+          "question": "What is the primary color palette used in EAT MY SHORTS!?",
+          "options": [
+            "Warm tones",
+            "Cool tones",
+            "Neutral grays",
+            "Vibrant colors"
+          ],
+          "correctAnswer": 1,
+          "explanation": "EAT MY SHORTS! uses a carefully selected color palette that reflects its brand identity."
+        },
+        {
+          "question": "What year was EAT MY SHORTS! created?",
+          "options": [
+            "2016",
+            "2021",
+            "2026",
+            "2031"
+          ],
+          "correctAnswer": 1,
+          "explanation": "EAT MY SHORTS! was created in 2021."
+        },
+        {
+          "question": "What is a key design principle of EAT MY SHORTS!?",
+          "options": [
+            "Gender-neutral design",
+            "Bold contemporary aesthetic",
+            "Innovative packaging",
+            "Inclusive branding"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Gender-neutral design"
+        },
+        {
+          "question": "Who designed EAT MY SHORTS!?",
+          "options": [
+            "Tomás Salazar",
+            "Various designers",
+            "In-house team",
+            "External agency"
+          ],
+          "correctAnswer": 0,
+          "explanation": "EAT MY SHORTS! was designed by Tomás Salazar."
+        },
+        {
+          "question": "What category does EAT MY SHORTS! belong to?",
+          "options": [
+            "Fashion",
+            "Other",
+            "Unknown",
+            "Mixed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "EAT MY SHORTS! is categorized as Fashion."
+        }
+      ],
+      "comparisonData": {
+        "folklorious-vs-eat-my-shorts": {
+          "similarities": [
+            "Both brands use systematic design approaches",
+            "Both emphasize visual consistency",
+            "Both have defined color palettes"
+          ],
+          "differences": [
+            "Folklorious focuses on Fashion & Accessories, while EAT MY SHORTS! focuses on Fashion",
+            "Different color schemes reflect different brand personalities",
+            "Typography choices differ based on brand needs"
+          ],
+          "lessons": "Comparing Folklorious and EAT MY SHORTS! shows how different industries and contexts require different design approaches while maintaining core design principles.",
+          "whenToUse": {
+            "brand1": "Use Folklorious approach for Fashion & Accessories projects",
+            "brand2": "Use EAT MY SHORTS! approach for Fashion projects"
+          }
+        }
+      }
+    },
+    {
+      "id": "zonzo-estate",
+      "title": "Zonzo Estate",
+      "category": "Hospitality",
+      "sourceUrl": "https://zonzoestate.com.au",
+      "year": 2019,
+      "designer": "Swear Words",
+      "image": "/images/inspirations/zonzo-estate.svg",
+      "reflection": "Versatile logo design that adapts to different contexts while maintaining brand recognition.",
+      "details": "Australian winery rebrand featuring a floating-letter logo that transforms from classic to youthful.",
+      "brandInfo": {
+        "colors": {
+          "primary": [
+            "#8B4513",
+            "#D4AF37"
+          ],
+          "accent": [
+            "#FFFFFF",
+            "#000000"
+          ],
+          "palette": "Sophisticated wine country aesthetic"
+        },
+        "typography": {
+          "style": "Elegant serif",
+          "logo": "Floating letterforms"
+        }
+      },
+      "designPrinciples": [
+        "Versatile identity",
+        "Sophisticated yet approachable",
+        "Contextual adaptation",
+        "Modern energy"
+      ],
+      "visualSpecs": {
+        "logo": {
+          "type": "Floating-letter logo",
+          "variations": "Gold foil (classic), outline (youthful)",
+          "flexibility": "Adapts to context"
+        }
+      },
+      "educationalContent": {
+        "history": "Rebranded by Australian design firm Swear Words to position as sophisticated wedding destination.",
+        "philosophy": "Versatile identity that can appear classic or youthful depending on application.",
+        "applications": "Wine labels, menus, wedding materials, restaurant signage"
+      },
+      "quiz": [
+        {
+          "question": "What is the primary color palette used in Zonzo Estate?",
+          "options": [
+            "Warm tones",
+            "Cool tones",
+            "Neutral grays",
+            "Vibrant colors"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Zonzo Estate uses a carefully selected color palette that reflects its brand identity."
+        },
+        {
+          "question": "What year was Zonzo Estate created?",
+          "options": [
+            "2014",
+            "2019",
+            "2024",
+            "2029"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Zonzo Estate was created in 2019."
+        },
+        {
+          "question": "What is a key design principle of Zonzo Estate?",
+          "options": [
+            "Versatile identity",
+            "Sophisticated yet approachable",
+            "Contextual adaptation",
+            "Modern energy"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Versatile identity"
+        },
+        {
+          "question": "Who designed Zonzo Estate?",
+          "options": [
+            "Swear Words",
+            "Various designers",
+            "In-house team",
+            "External agency"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Zonzo Estate was designed by Swear Words."
+        },
+        {
+          "question": "What category does Zonzo Estate belong to?",
+          "options": [
+            "Hospitality",
+            "Other",
+            "Unknown",
+            "Mixed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Zonzo Estate is categorized as Hospitality."
+        }
+      ]
+    },
+    {
+      "id": "qoni",
+      "title": "Qoñi",
+      "category": "Artisan & Craft",
+      "sourceUrl": "https://qoni.com",
+      "year": 2020,
+      "designer": "Leo Burnett Design",
+      "image": "/images/inspirations/qoni.svg",
+      "reflection": "Authentic branding that honors cultural heritage while creating modern appeal.",
+      "details": "Peruvian artisan community specializing in hand-knitted alpaca goods with warmth-focused branding.",
+      "brandInfo": {
+        "colors": {
+          "primary": [
+            "#8B4513",
+            "#D2691E",
+            "#F4A460"
+          ],
+          "warmth": [
+            "#FF6B35",
+            "#F7931E",
+            "#FFD23F"
+          ],
+          "palette": "Warm, earthy, authentic"
+        },
+        "typography": {
+          "style": "Hand-crafted feel",
+          "approach": "Authentic, warm"
+        }
+      },
+      "designPrinciples": [
+        "Authenticity",
+        "Cultural heritage",
+        "Warmth and comfort",
+        "Modern presentation"
+      ],
+      "visualSpecs": {
+        "style": "Hand-crafted aesthetic",
+        "packaging": "Retail tags, lookbook"
+      },
+      "educationalContent": {
+        "history": "Brand identity created by Leo Burnett Design for artisan community in Puno, Peru.",
+        "philosophy": "Name means 'warmth' in native language, reflecting brand's focus on cozy, authentic products.",
+        "applications": "Product tags, lookbook, promotional materials, retail displays"
+      },
+      "quiz": [
+        {
+          "question": "What is the primary color palette used in Qoñi?",
+          "options": [
+            "Warm tones",
+            "Cool tones",
+            "Neutral grays",
+            "Vibrant colors"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Qoñi uses a carefully selected color palette that reflects its brand identity."
+        },
+        {
+          "question": "What year was Qoñi created?",
+          "options": [
+            "2015",
+            "2020",
+            "2025",
+            "2030"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Qoñi was created in 2020."
+        },
+        {
+          "question": "What is a key design principle of Qoñi?",
+          "options": [
+            "Authenticity",
+            "Cultural heritage",
+            "Warmth and comfort",
+            "Modern presentation"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Authenticity"
+        },
+        {
+          "question": "Who designed Qoñi?",
+          "options": [
+            "Leo Burnett Design",
+            "Various designers",
+            "In-house team",
+            "External agency"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Qoñi was designed by Leo Burnett Design."
+        },
+        {
+          "question": "What category does Qoñi belong to?",
+          "options": [
+            "Artisan & Craft",
+            "Other",
+            "Unknown",
+            "Mixed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Qoñi is categorized as Artisan & Craft."
+        }
+      ]
+    },
+    {
+      "id": "lune-croissanterie",
+      "title": "Lune Croissanterie",
+      "category": "Food & Beverage",
+      "sourceUrl": "https://lune.com.au",
+      "year": 2018,
+      "designer": "A Friend of Mine",
+      "image": "/images/inspirations/lune.svg",
+      "reflection": "Futuristic design transforms traditional bakery into something extraordinary.",
+      "details": "Melbourne bakery with galactic spaceship theme combining science and baked goods.",
+      "brandInfo": {
+        "colors": {
+          "primary": [
+            "#000000",
+            "#FFFFFF"
+          ],
+          "accent": [
+            "#FFD700",
+            "#C0C0C0"
+          ],
+          "galactic": [
+            "#1A1A2E",
+            "#16213E",
+            "#0F3460"
+          ]
+        },
+        "typography": {
+          "style": "Futuristic, geometric",
+          "approach": "Science meets pastry"
+        }
+      },
+      "designPrinciples": [
+        "Futuristic aesthetic",
+        "Science meets craft",
+        "Perfection through precision",
+        "Unique positioning"
+      ],
+      "visualSpecs": {
+        "logo": {
+          "type": "Croissant-tailed spaceship",
+          "packaging": "Die-cut hyperdrive ventilation slots",
+          "theme": "Galactic"
+        }
+      },
+      "educationalContent": {
+        "history": "Branding by Melbourne agency A Friend of Mine positions bakery as futuristic perfection.",
+        "philosophy": "Combining science and baked goods to create extraordinary experience.",
+        "applications": "Packaging, signage, online presence, retail experience"
+      },
+      "quiz": [
+        {
+          "question": "What is the primary color palette used in Lune Croissanterie?",
+          "options": [
+            "Warm tones",
+            "Cool tones",
+            "Neutral grays",
+            "Vibrant colors"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Lune Croissanterie uses a carefully selected color palette that reflects its brand identity."
+        },
+        {
+          "question": "What year was Lune Croissanterie created?",
+          "options": [
+            "2013",
+            "2018",
+            "2023",
+            "2028"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Lune Croissanterie was created in 2018."
+        },
+        {
+          "question": "What is a key design principle of Lune Croissanterie?",
+          "options": [
+            "Futuristic aesthetic",
+            "Science meets craft",
+            "Perfection through precision",
+            "Unique positioning"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Futuristic aesthetic"
+        },
+        {
+          "question": "Who designed Lune Croissanterie?",
+          "options": [
+            "A Friend of Mine",
+            "Various designers",
+            "In-house team",
+            "External agency"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Lune Croissanterie was designed by A Friend of Mine."
+        },
+        {
+          "question": "What category does Lune Croissanterie belong to?",
+          "options": [
+            "Food & Beverage",
+            "Other",
+            "Unknown",
+            "Mixed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Lune Croissanterie is categorized as Food & Beverage."
+        }
+      ],
+      "comparisonData": {
+        "lune-croissanterie-vs-tenth-muse": {
+          "similarities": [
+            "Both brands use systematic design approaches",
+            "Both emphasize visual consistency",
+            "Both have defined color palettes"
+          ],
+          "differences": [
+            "Lune Croissanterie focuses on Food & Beverage, while Tenth Muse Botanical Fragrance focuses on Beauty & Fragrance",
+            "Different color schemes reflect different brand personalities",
+            "Typography choices differ based on brand needs"
+          ],
+          "lessons": "Comparing Lune Croissanterie and Tenth Muse Botanical Fragrance shows how different industries and contexts require different design approaches while maintaining core design principles.",
+          "whenToUse": {
+            "brand1": "Use Lune Croissanterie approach for Food & Beverage projects",
+            "brand2": "Use Tenth Muse Botanical Fragrance approach for Beauty & Fragrance projects"
+          }
+        }
+      }
+    },
+    {
+      "id": "tenth-muse",
+      "title": "Tenth Muse Botanical Fragrance",
+      "category": "Beauty & Fragrance",
+      "sourceUrl": "https://tenthmuse.com",
+      "year": 2019,
+      "designer": "Studio MPLS",
+      "image": "/images/inspirations/tenth-muse.svg",
+      "reflection": "Victorian-inspired design maintains modern relevance through clarity and beauty.",
+      "details": "Botanical fragrance brand with Victorian aesthetic that balances intrigue and clarity.",
+      "brandInfo": {
+        "colors": {
+          "primary": [
+            "#8B7355",
+            "#D4AF37",
+            "#F5E6D3"
+          ],
+          "victorian": [
+            "#2C1810",
+            "#5C4033",
+            "#8B6F47"
+          ],
+          "palette": "Elegant, botanical"
+        },
+        "typography": {
+          "style": "Victorian-inspired serif",
+          "approach": "Classic meets modern"
+        }
+      },
+      "designPrinciples": [
+        "Victorian elegance",
+        "Modern clarity",
+        "Botanical beauty",
+        "Sustainable sourcing"
+      ],
+      "visualSpecs": {
+        "style": "Victorian-inspired",
+        "packaging": "Elegant, mysterious"
+      },
+      "educationalContent": {
+        "history": "Created by Studio MPLS, combining Victorian inspiration with modern design principles.",
+        "philosophy": "Clarity and beauty with intrigue and mystery, reflecting natural, sustainably sourced ingredients.",
+        "applications": "Fragrance packaging, promotional materials, online presence"
+      },
+      "quiz": [
+        {
+          "question": "What is the primary color palette used in Tenth Muse Botanical Fragrance?",
+          "options": [
+            "Warm tones",
+            "Cool tones",
+            "Neutral grays",
+            "Vibrant colors"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Tenth Muse Botanical Fragrance uses a carefully selected color palette that reflects its brand identity."
+        },
+        {
+          "question": "What year was Tenth Muse Botanical Fragrance created?",
+          "options": [
+            "2014",
+            "2019",
+            "2024",
+            "2029"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Tenth Muse Botanical Fragrance was created in 2019."
+        },
+        {
+          "question": "What is a key design principle of Tenth Muse Botanical Fragrance?",
+          "options": [
+            "Victorian elegance",
+            "Modern clarity",
+            "Botanical beauty",
+            "Sustainable sourcing"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Victorian elegance"
+        },
+        {
+          "question": "Who designed Tenth Muse Botanical Fragrance?",
+          "options": [
+            "Studio MPLS",
+            "Various designers",
+            "In-house team",
+            "External agency"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Tenth Muse Botanical Fragrance was designed by Studio MPLS."
+        },
+        {
+          "question": "What category does Tenth Muse Botanical Fragrance belong to?",
+          "options": [
+            "Beauty & Fragrance",
+            "Other",
+            "Unknown",
+            "Mixed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Tenth Muse Botanical Fragrance is categorized as Beauty & Fragrance."
+        }
+      ],
+      "comparisonData": {
+        "lune-croissanterie-vs-tenth-muse": {
+          "similarities": [
+            "Both brands use systematic design approaches",
+            "Both emphasize visual consistency",
+            "Both have defined color palettes"
+          ],
+          "differences": [
+            "Lune Croissanterie focuses on Food & Beverage, while Tenth Muse Botanical Fragrance focuses on Beauty & Fragrance",
+            "Different color schemes reflect different brand personalities",
+            "Typography choices differ based on brand needs"
+          ],
+          "lessons": "Comparing Lune Croissanterie and Tenth Muse Botanical Fragrance shows how different industries and contexts require different design approaches while maintaining core design principles.",
+          "whenToUse": {
+            "brand1": "Use Lune Croissanterie approach for Food & Beverage projects",
+            "brand2": "Use Tenth Muse Botanical Fragrance approach for Beauty & Fragrance projects"
+          }
+        }
+      }
+    },
+    {
+      "id": "bombay-electric",
+      "title": "Bombay Electric",
+      "category": "Fashion Retail",
+      "sourceUrl": "https://bombayelectric.in",
+      "year": 2017,
+      "designer": "Michael Thorsby",
+      "image": "/images/inspirations/bombay-electric.svg",
+      "reflection": "Intense color gradients create vibrant, memorable brand identity.",
+      "details": "Mumbai fashion select store with kaleidoscopic branding featuring intense color gradients.",
+      "brandInfo": {
+        "colors": {
+          "primary": [
+            "#FF006E",
+            "#8338EC",
+            "#3A86FF"
+          ],
+          "gradients": [
+            "#FF006E → #8338EC",
+            "#8338EC → #3A86FF",
+            "#FF006E → #FFBE0B"
+          ],
+          "palette": "Kaleidoscopic, vibrant"
+        },
+        "typography": {
+          "style": "Minimal, modern",
+          "approach": "Grid-based layout"
+        }
+      },
+      "designPrinciples": [
+        "Vibrant color gradients",
+        "Minimal typography",
+        "Grid-based layout",
+        "Modern energy"
+      ],
+      "visualSpecs": {
+        "style": "Kaleidoscopic gradients",
+        "layout": "Minimal typography on vibrant backgrounds"
+      },
+      "educationalContent": {
+        "history": "Branding by Paris-based designer Michael Thorsby creates vibrant, modern identity.",
+        "philosophy": "Intense color gradients framed by minimal typography and grid create modern, vibrant brand.",
+        "applications": "Store signage, online presence, fashion select displays"
+      },
+      "quiz": [
+        {
+          "question": "What is the primary color palette used in Bombay Electric?",
+          "options": [
+            "Warm tones",
+            "Cool tones",
+            "Neutral grays",
+            "Vibrant colors"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Bombay Electric uses a carefully selected color palette that reflects its brand identity."
+        },
+        {
+          "question": "What year was Bombay Electric created?",
+          "options": [
+            "2012",
+            "2017",
+            "2022",
+            "2027"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Bombay Electric was created in 2017."
+        },
+        {
+          "question": "What is a key design principle of Bombay Electric?",
+          "options": [
+            "Vibrant color gradients",
+            "Minimal typography",
+            "Grid-based layout",
+            "Modern energy"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Vibrant color gradients"
+        },
+        {
+          "question": "Who designed Bombay Electric?",
+          "options": [
+            "Michael Thorsby",
+            "Various designers",
+            "In-house team",
+            "External agency"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Bombay Electric was designed by Michael Thorsby."
+        },
+        {
+          "question": "What category does Bombay Electric belong to?",
+          "options": [
+            "Fashion Retail",
+            "Other",
+            "Unknown",
+            "Mixed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Bombay Electric is categorized as Fashion Retail."
+        }
+      ]
+    },
+    {
+      "id": "glorioso",
+      "title": "Glorioso Super Nutrients",
+      "category": "Food & Beverage",
+      "sourceUrl": "https://glorioso.com",
+      "year": 2020,
+      "designer": "Requena",
+      "image": "/images/inspirations/glorioso.svg",
+      "reflection": "Simple, whimsical packaging inspired by seed packets creates distinctive brand identity.",
+      "details": "Spanish superfood company with seed packet-inspired packaging featuring abstract circle motifs.",
+      "brandInfo": {
+        "colors": {
+          "primary": [
+            "#2D5016",
+            "#4A7C59",
+            "#8FBC8F"
+          ],
+          "natural": [
+            "#F5DEB3",
+            "#DEB887",
+            "#D2B48C"
+          ],
+          "palette": "Natural, organic"
+        },
+        "typography": {
+          "style": "Simple, clean",
+          "approach": "Seed packet aesthetic"
+        }
+      },
+      "designPrinciples": [
+        "Simple whimsy",
+        "Natural inspiration",
+        "Seed packet aesthetic",
+        "Organic feel"
+      ],
+      "visualSpecs": {
+        "packaging": "Seed packet-inspired",
+        "motif": "Abstract circles representing contents"
+      },
+      "educationalContent": {
+        "history": "Brand identity by Barcelona agency Requena draws inspiration from seed packet design.",
+        "philosophy": "Simple yet whimsical packaging that reflects natural, organic superfood products.",
+        "applications": "Product packaging, retail displays, online presence"
+      },
+      "quiz": [
+        {
+          "question": "What is the primary color palette used in Glorioso Super Nutrients?",
+          "options": [
+            "Warm tones",
+            "Cool tones",
+            "Neutral grays",
+            "Vibrant colors"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Glorioso Super Nutrients uses a carefully selected color palette that reflects its brand identity."
+        },
+        {
+          "question": "What year was Glorioso Super Nutrients created?",
+          "options": [
+            "2015",
+            "2020",
+            "2025",
+            "2030"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Glorioso Super Nutrients was created in 2020."
+        },
+        {
+          "question": "What is a key design principle of Glorioso Super Nutrients?",
+          "options": [
+            "Simple whimsy",
+            "Natural inspiration",
+            "Seed packet aesthetic",
+            "Organic feel"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Simple whimsy"
+        },
+        {
+          "question": "Who designed Glorioso Super Nutrients?",
+          "options": [
+            "Requena",
+            "Various designers",
+            "In-house team",
+            "External agency"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Glorioso Super Nutrients was designed by Requena."
+        },
+        {
+          "question": "What category does Glorioso Super Nutrients belong to?",
+          "options": [
+            "Food & Beverage",
+            "Other",
+            "Unknown",
+            "Mixed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Glorioso Super Nutrients is categorized as Food & Beverage."
+        }
+      ]
+    },
+    {
+      "id": "felony-case",
+      "title": "Felony Case",
+      "category": "Tech Accessories",
+      "sourceUrl": "https://felonycase.com",
+      "year": 2021,
+      "designer": "In-house",
+      "image": "/images/inspirations/felony-case.svg",
+      "reflection": "Dark luxury aesthetic transforms tech accessories into premium products.",
+      "details": "New York tech accessories brand with black-on-black minimalism and subtle gold accents.",
+      "brandInfo": {
+        "colors": {
+          "primary": [
+            "#000000",
+            "#1A1A1A",
+            "#2D2D2D"
+          ],
+          "accent": [
+            "#FFD700",
+            "#C0C0C0"
+          ],
+          "palette": "Dark luxury"
+        },
+        "typography": {
+          "style": "Minimal, modern",
+          "approach": "Black-on-black"
+        }
+      },
+      "designPrinciples": [
+        "Dark luxury",
+        "Minimalism",
+        "Premium positioning",
+        "Mystery and intrigue"
+      ],
+      "visualSpecs": {
+        "style": "Black-on-black with gold foil",
+        "aesthetic": "Luxury minimalism"
+      },
+      "educationalContent": {
+        "history": "NYC-based brand positioning tech accessories as luxury indulgences.",
+        "philosophy": "Dark, minimalist aesthetic with subtle gold accents creates premium, design-savvy appeal.",
+        "applications": "Product packaging, online presence, retail displays"
+      },
+      "quiz": [
+        {
+          "question": "What is the primary color palette used in Felony Case?",
+          "options": [
+            "Warm tones",
+            "Cool tones",
+            "Neutral grays",
+            "Vibrant colors"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Felony Case uses a carefully selected color palette that reflects its brand identity."
+        },
+        {
+          "question": "What year was Felony Case created?",
+          "options": [
+            "2016",
+            "2021",
+            "2026",
+            "2031"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Felony Case was created in 2021."
+        },
+        {
+          "question": "What is a key design principle of Felony Case?",
+          "options": [
+            "Dark luxury",
+            "Minimalism",
+            "Premium positioning",
+            "Mystery and intrigue"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Dark luxury"
+        },
+        {
+          "question": "Who designed Felony Case?",
+          "options": [
+            "In-house",
+            "Various designers",
+            "In-house team",
+            "External agency"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Felony Case was designed by In-house."
+        },
+        {
+          "question": "What category does Felony Case belong to?",
+          "options": [
+            "Tech Accessories",
+            "Other",
+            "Unknown",
+            "Mixed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Felony Case is categorized as Tech Accessories."
+        }
+      ]
+    },
+    {
+      "id": "yellow-owl",
+      "title": "Yellow Owl Workshop",
+      "category": "Craft & Artisan",
+      "sourceUrl": "https://yellowowlworkshop.com",
+      "year": 2015,
+      "designer": "Christine Schmidt",
+      "image": "/images/inspirations/yellow-owl.svg",
+      "reflection": "Whimsical design creates magical brand experience for craft products.",
+      "details": "San Francisco woman-run craft business with quirky, whimsical designs exuding unicorn magic.",
+      "brandInfo": {
+        "colors": {
+          "primary": [
+            "#FFD700",
+            "#FFA500",
+            "#FF69B4"
+          ],
+          "whimsical": [
+            "#FFB6C1",
+            "#87CEEB",
+            "#98FB98"
+          ],
+          "palette": "Bright, playful"
+        },
+        "typography": {
+          "style": "Hand-drawn, playful",
+          "approach": "Whimsical, magical"
+        }
+      },
+      "designPrinciples": [
+        "Whimsical aesthetic",
+        "Hand-crafted feel",
+        "Playful design",
+        "Magical experience"
+      ],
+      "visualSpecs": {
+        "style": "Hand-drawn, quirky",
+        "aesthetic": "Unicorn magic"
+      },
+      "educationalContent": {
+        "history": "Founded by artist Christine Schmidt, woman-run family business in San Francisco.",
+        "philosophy": "Quirky, whimsical designs that create sense of unicorn magic and joy.",
+        "applications": "Product packaging, online presence, craft workshops"
+      },
+      "quiz": [
+        {
+          "question": "What is the primary color palette used in Yellow Owl Workshop?",
+          "options": [
+            "Warm tones",
+            "Cool tones",
+            "Neutral grays",
+            "Vibrant colors"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Yellow Owl Workshop uses a carefully selected color palette that reflects its brand identity."
+        },
+        {
+          "question": "What year was Yellow Owl Workshop created?",
+          "options": [
+            "2010",
+            "2015",
+            "2020",
+            "2025"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Yellow Owl Workshop was created in 2015."
+        },
+        {
+          "question": "What is a key design principle of Yellow Owl Workshop?",
+          "options": [
+            "Whimsical aesthetic",
+            "Hand-crafted feel",
+            "Playful design",
+            "Magical experience"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Whimsical aesthetic"
+        },
+        {
+          "question": "Who designed Yellow Owl Workshop?",
+          "options": [
+            "Christine Schmidt",
+            "Various designers",
+            "In-house team",
+            "External agency"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Yellow Owl Workshop was designed by Christine Schmidt."
+        },
+        {
+          "question": "What category does Yellow Owl Workshop belong to?",
+          "options": [
+            "Craft & Artisan",
+            "Other",
+            "Unknown",
+            "Mixed"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Yellow Owl Workshop is categorized as Craft & Artisan."
+        }
+      ]
+    }
+  ],
+  "quizGeneratedAt": "2025-11-09T11:17:14.442Z"
+}
