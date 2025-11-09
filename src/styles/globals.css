@@ -9,6 +9,7 @@
 @import './bio-cinematic.css';
 @import './enhanced-animations.css';
 @import './mobile-optimization.css';
+@import './home-sections.css';
 
 @tailwind base;
 @tailwind components;
