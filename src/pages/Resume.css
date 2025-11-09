@@ -863,3 +863,210 @@ a:focus-visible {
   outline: 2px solid var(--bc-primary);
   outline-offset: 3px;
 }
+
+/* ===================================================================
+   DISTINCT SECTION STYLES - Visual Separation
+   =================================================================== */
+
+/* Section Style 1 - Gradient Background with Border Accent */
+.section-style-1 {
+  position: relative;
+  background: linear-gradient(135deg, rgba(13, 13, 15, 0.95) 0%, rgba(30, 30, 35, 0.98) 100%);
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, transparent, var(--bc-primary), transparent) 1;
+  padding-top: var(--bc-space-5xl);
+  padding-bottom: var(--bc-space-5xl);
+}
+
+.section-style-1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--bc-primary), transparent);
+  opacity: 0.3;
+}
+
+.section-style-1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--bc-primary), transparent);
+  opacity: 0.3;
+}
+
+/* Section Style 2 - Dark Background with Subtle Pattern */
+.section-style-2 {
+  position: relative;
+  background: var(--bc-bg);
+  padding-top: var(--bc-space-5xl);
+  padding-bottom: var(--bc-space-5xl);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-image: linear-gradient(180deg, transparent, var(--bc-accent), transparent) 1;
+}
+
+.section-style-2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-style-2 > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Style 3 - Elevated Card Style */
+.section-style-3 {
+  position: relative;
+  background: linear-gradient(180deg, rgba(20, 20, 25, 0.8) 0%, rgba(13, 13, 15, 0.9) 100%);
+  padding-top: var(--bc-space-5xl);
+  padding-bottom: var(--bc-space-5xl);
+  border-top: 2px solid rgba(59, 130, 246, 0.2);
+  border-bottom: 2px solid rgba(139, 92, 246, 0.2);
+}
+
+.section-style-3::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--bc-primary), var(--bc-accent));
+  opacity: 0.6;
+}
+
+.section-style-3::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--bc-accent), var(--bc-primary));
+  opacity: 0.6;
+}
+
+/* Section Header Wrapper */
+.section-header-wrapper {
+  margin-bottom: var(--bc-space-3xl);
+}
+
+.section-divider {
+  width: 80px;
+  height: 4px;
+  background: var(--bc-gradient-brand);
+  margin-top: var(--bc-space-md);
+  border-radius: 2px;
+}
+
+/* Executive Summary Section */
+.executive-summary-section {
+  padding: var(--bc-space-5xl) var(--bc-space-xl);
+}
+
+.executive-summary-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.executive-summary-text {
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  line-height: 1.8;
+  color: var(--bc-text-secondary);
+  text-align: justify;
+}
+
+/* Volunteer Section */
+.volunteer-section {
+  padding: var(--bc-space-5xl) var(--bc-space-xl);
+}
+
+.volunteer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--bc-space-xl);
+  margin-top: var(--bc-space-3xl);
+}
+
+.volunteer-card {
+  background: var(--bc-surface);
+  border: 1px solid var(--bc-border);
+  border-radius: var(--bc-radius-xl);
+  padding: var(--bc-space-2xl);
+  backdrop-filter: blur(16px);
+  transition: all var(--bc-transition-normal);
+}
+
+.volunteer-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--bc-primary);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+}
+
+.volunteer-header {
+  margin-bottom: var(--bc-space-md);
+}
+
+.volunteer-role {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--bc-space-xs);
+  color: var(--bc-text-primary);
+}
+
+.volunteer-organization {
+  color: var(--bc-primary);
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.volunteer-date {
+  display: flex;
+  align-items: center;
+  gap: var(--bc-space-xs);
+  color: var(--bc-text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: var(--bc-space-md);
+}
+
+.volunteer-summary {
+  color: var(--bc-text-secondary);
+  line-height: 1.7;
+  font-size: 0.9375rem;
+}
+
+/* Responsive adjustments for section styles */
+@media (max-width: 768px) {
+  .section-style-1,
+  .section-style-2,
+  .section-style-3 {
+    padding-top: var(--bc-space-3xl);
+    padding-bottom: var(--bc-space-3xl);
+  }
+
+  .volunteer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .executive-summary-text {
+    text-align: left;
+  }
+}

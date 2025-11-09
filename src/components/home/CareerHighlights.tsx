@@ -242,7 +242,9 @@ const CareerHighlights: React.FC = () => {
         {careerHighlights.map((role, index) => (
           <motion.div
             key={role.id}
-            ref={el => (cardRefs.current[role.id] = el)}
+            ref={el => {
+              cardRefs.current[role.id] = el;
+            }}
             id={`role-${role.id}`}
             className={`career-highlights__card ${index % 2 === 0 ? 'career-highlights__card--left' : 'career-highlights__card--right'}`}
             initial={{ opacity: 0, y: 20 }}
@@ -259,11 +261,6 @@ const CareerHighlights: React.FC = () => {
               {role.location && <div className="career-highlights__location">{role.location}</div>}
               <div className="career-highlights__period">{role.period}</div>
               <p className="career-highlights__summary">{role.summary}</p>
-              <ul className="career-highlights__achievements">
-                {role.achievements.map((achievement, i) => (
-                  <li key={i}>{achievement}</li>
-                ))}
-              </ul>
               <div className="career-highlights__tags">
                 {role.tags.map((tag, i) => (
                   <span key={i} className="chip">

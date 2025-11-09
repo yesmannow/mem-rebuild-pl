@@ -386,6 +386,210 @@ export const caseStudies: CaseStudy[] = [
     },
     featured: true,
   },
+  {
+    slug: 'graston-technique-ceu-system',
+    title: 'Graston Technique CEU System',
+    image: '/images/case-studies/graston-ceu-system.svg',
+    tagline: 'Building a comprehensive continuing education system that transforms provider experience',
+    category: ['Healthcare Technology', 'Automation'],
+    tags: [
+      'Marketing Automation',
+      'CRM Strategy',
+      'Healthcare Technology',
+      'E-learning Systems',
+      'Compliance Automation',
+      'UX Optimization',
+    ],
+    color: '#06B6D4',
+    icon: '🏥',
+    metrics: [
+      { label: 'Support Ticket Reduction', value: '70%' },
+      { label: 'Checkout Conversion Lift', value: '40%' },
+      { label: 'Automation Workflows', value: '400+' },
+      { label: 'System Uptime', value: '99.8%' },
+    ],
+    challenge:
+      'Healthcare providers struggled with a fragmented CEU purchasing process, leading to high support ticket volume and checkout abandonment. The existing system could not handle the complexity of continuing education credits across multiple states and specializations.',
+    strategy:
+      'Redesigned the entire CEU ecosystem with focus on user experience, automated compliance checking, and seamless payment processing. Implemented a CRM-driven approach that could handle complex credential validation and state-specific requirements.',
+    impact:
+      'Built a comprehensive system that reduced support burden, increased conversions, and created a scalable foundation for continuing education delivery across healthcare disciplines.',
+    fullContent: {
+      challenge: {
+        paragraphs: [
+          'The Graston Technique continuing education system was drowning in complexity. Providers needed to navigate different state requirements, credential types, and renewal cycles while trying to purchase courses. The existing checkout process was so confusing that support tickets flooded in daily, and qualified leads abandoned at the moment of purchase.',
+          'The technical debt was enormous: disconnected systems, manual compliance checking, and no way to track customer progress across their certification journey. The business was leaving money on the table with every abandoned cart.',
+        ],
+        bullets: [
+          'Support team spent 60% of time answering basic CEU questions',
+          'Checkout abandonment rate exceeded 45% due to complexity',
+          'No automated tracking of certification progress or renewals',
+          'Manual compliance verification for each state and credential type',
+        ],
+      },
+      strategy: {
+        paragraphs: [
+          'I approached this as a complete ecosystem rebuild, not just a website fix. The goal was to create a self-service experience that handled complexity behind the scenes while presenting a simple, trustworthy interface to healthcare providers.',
+        ],
+        bullets: [
+          'Architected 400+ automation workflows using FluentCRM and WP Fusion to handle every scenario',
+          'Integrated LearnDash LMS with WooCommerce for seamless course delivery and progress tracking',
+          'Built custom state-specific compliance validation system that checks requirements in real-time',
+          'Implemented multi-tier pricing with automatic credit allocation based on provider credentials',
+          'Created automated email sequences for certificate generation, delivery, and renewal reminders',
+          'Integrated with external credential verification APIs for instant validation',
+        ],
+      },
+      impact: {
+        paragraphs: [
+          'The transformation was immediate and measurable. Providers could now navigate the entire CEU process with confidence, support tickets virtually disappeared, and the business saw dramatic improvements in both customer satisfaction and revenue.',
+        ],
+        bullets: [
+          'Support ticket volume dropped 70% within the first month of launch',
+          'Checkout conversion rates improved 40% through simplified user experience',
+          'System achieved 99.8% uptime during peak enrollment periods',
+          'Created scalable foundation supporting 400+ automated workflows across the ecosystem',
+        ],
+      },
+    },
+    featured: true,
+  },
+  {
+    slug: 'riley-bennett-egloff-overhaul',
+    title: 'Riley Bennett Egloff Brand & Digital Overhaul',
+    image: '/images/case-studies/riley-bennett-egloff.svg',
+    tagline: 'Complete brand repositioning and digital presence overhaul for a prestigious law firm',
+    category: ['Legal Services', 'Branding'],
+    tags: [
+      'Brand Strategy',
+      'Web Design',
+      'Content Marketing',
+      'Legal Services',
+      'SEO Optimization',
+      'Thought Leadership',
+    ],
+    color: '#8B5CF6',
+    icon: '⚖️',
+    metrics: [
+      { label: 'Organic Search Traffic', value: '+180%' },
+      { label: 'Corporate Client Inquiries', value: '+65%' },
+      { label: 'Average Page Load Time', value: '1.8s' },
+      { label: 'Mobile Conversion Rate', value: '+45%' },
+    ],
+    challenge:
+      'Established law firm with traditional marketing approach was losing market share to younger, digitally-savvy competitors. Their website and branding felt dated, and they struggled to communicate their expertise to both individual and corporate clients.',
+    strategy:
+      'Developed a trust-first brand strategy that positioned the firm as both traditional excellence and modern innovation. Created content hub focusing on legal insights, case studies, and thought leadership while improving user experience for both individual and corporate clients.',
+    impact:
+      'Transformed the firms digital presence into a powerful lead generation and thought leadership platform that attracts both individual and corporate clients while building lasting brand authority.',
+    fullContent: {
+      challenge: {
+        paragraphs: [
+          'Riley Bennett Egloff was caught in a difficult position. As an established law firm, they had deep expertise and strong client relationships, but their digital presence communicated none of this authority. Their website looked like it was built in the early 2000s, their thought leadership was buried, and younger competitors with better digital strategies were capturing market share.',
+          'The firm needed to modernize without losing the gravitas and trust that came with decades of excellence. They wanted to attract both sophisticated corporate clients and individual clients, but their current approach spoke to neither audience effectively.',
+        ],
+        bullets: [
+          'Website design and user experience felt dated and untrustworthy',
+          'No clear content strategy or SEO optimization for legal keywords',
+          'Difficulty communicating complex legal expertise in accessible language',
+          'Competing against younger firms with stronger digital marketing',
+        ],
+      },
+      strategy: {
+        paragraphs: [
+          'I approached this as a complete brand and digital transformation, not just a website redesign. The strategy focused on building trust through modern design, clear communication of expertise, and a content strategy that established thought leadership.',
+        ],
+        bullets: [
+          'Complete brand identity refresh with modern, trustworthy aesthetic that maintains professional gravitas',
+          'Rebuilt website with improved case study presentation and clear service descriptions',
+          'Implemented comprehensive content marketing strategy for SEO and thought leadership positioning',
+          'Created secure client portal for case updates and document sharing',
+          'Launched targeted LinkedIn campaign for corporate client acquisition',
+          'Optimized all content for local search and professional service rankings',
+        ],
+      },
+      impact: {
+        paragraphs: [
+          'The transformation repositioned Riley Bennett Egloff as a modern, tech-savvy firm that still maintains the trust and expertise of their established practice. The new digital presence now actively generates qualified leads and builds their reputation as thought leaders.',
+        ],
+        bullets: [
+          'Organic search traffic increased 180% through content strategy and technical SEO',
+          'Corporate client inquiries increased 65% with higher quality prospects',
+          'Website page load time improved from 4.2s to 1.8s with modern optimization techniques',
+          'Mobile conversion rates increased 45% through responsive design and UX improvements',
+        ],
+      },
+    },
+    featured: true,
+  },
+  {
+    slug: 'ultimate-technologies-ads-rebuild',
+    title: 'Ultimate Technologies ROI Growth',
+    image: '/images/case-studies/ultimate-tech-ads.svg',
+    tagline: 'Complete overhaul of paid advertising strategy for IT services company',
+    category: ['Technology Services', 'Performance Marketing'],
+    tags: [
+      'Performance Marketing',
+      'Account-Based Marketing',
+      'IT Services',
+      'ROI Optimization',
+      'Lead Generation',
+      'B2B Marketing',
+    ],
+    color: '#F59E0B',
+    icon: '💻',
+    metrics: [
+      { label: 'ROI Improvement', value: '+320%' },
+      { label: 'Cost Per Lead Reduction', value: '-55%' },
+      { label: 'Lead Quality Score', value: '8.2/10' },
+      { label: 'Conversion Rate', value: '4.8%' },
+    ],
+    challenge:
+      'IT services company was spending significantly on paid advertising but seeing poor lead quality and inconsistent ROI. Their campaigns were broad and unfocused, leading to high cost-per-lead and low conversion rates.',
+    strategy:
+      'Implemented account-based marketing (ABM) approach with laser-focused targeting, improved ad creative testing, and sophisticated lead scoring to ensure sales team only receives high-quality prospects.',
+    impact:
+      'Transformed ineffective advertising spend into a predictable, high-ROI lead generation machine that delivers qualified prospects directly to the sales team.',
+    fullContent: {
+      challenge: {
+        paragraphs: [
+          'Ultimate Technologies was burning through marketing budget with little to show for it. Their paid advertising campaigns were broad, unfocused, and generated leads that sales would never close. The cost per lead was astronomical, and the sales team was frustrated with the poor quality of marketing-generated prospects.',
+          'The fundamental problem was a lack of focus. They were trying to appeal to everyone, which meant appealing to no one effectively. Without proper targeting and lead scoring, the sales team spent most of their time disqualifying prospects instead of closing deals.',
+        ],
+        bullets: [
+          'High advertising spend with poor ROI and lead quality',
+          'Broad, unfocused campaigns that attracted unqualified prospects',
+          'Sales team spending too much time on lead qualification',
+          'No systematic approach to account-based marketing',
+        ],
+      },
+      strategy: {
+        paragraphs: [
+          'I completely rebuilt their advertising strategy from the ground up, focusing on precision targeting, lead quality over quantity, and sophisticated nurturing that only delivered sales-ready prospects to the team.',
+        ],
+        bullets: [
+          'Restructured Google Ads campaigns with comprehensive negative keyword strategy and precise audience targeting',
+          'Launched LinkedIn ABM campaigns specifically targeting enterprise-level IT decision makers',
+          'Implemented advanced conversion tracking with offline data integration to track full customer journey',
+          'Created custom landing pages for different service lines with industry-specific messaging',
+          'Established lead scoring models that prioritize prospects most likely to convert',
+          'Set up automated bidding strategies and budget optimization based on performance data',
+        ],
+      },
+      impact: {
+        paragraphs: [
+          'The new approach transformed Ultimate Technologies from a company that spent money on advertising to one that invested in predictable, profitable growth. The sales team now receives high-quality, sales-ready leads consistently.',
+        ],
+        bullets: [
+          'Overall ROI improved by 320% through better targeting and optimization',
+          'Cost per lead reduced by 55% while improving lead quality significantly',
+          'Average lead quality score increased to 8.2/10 through better qualification',
+          'Conversion rate from ads to qualified opportunities reached 4.8%',
+        ],
+      },
+    },
+    featured: true,
+  },
 ];
 
 export const getCategories = (): string[] => {

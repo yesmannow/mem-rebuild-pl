@@ -67,16 +67,27 @@
 
 .bio-photo-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background: transparent;
+  z-index: 1;
 }
 
 .bio-photo {
   width: 100%;
   height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  object-position: center;
   border-radius: 20px;
   border: 3px solid var(--color-border-hover);
   box-shadow: var(--shadow-accent);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  z-index: 1;
+  display: block;
 }
 
 .bio-photo::after {
@@ -668,6 +679,10 @@
   height: 400px;
   border-radius: 1rem;
   overflow: hidden;
+  background: var(--bc-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bio-gallery-indicators {
@@ -678,4 +693,25 @@
   display: flex;
   gap: 0.5rem;
   z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.bio-gallery {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bio-gallery img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 1rem;
 }

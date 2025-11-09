@@ -56,6 +56,8 @@ const Resume: React.FC = () => {
     testimonials,
     awards,
     showreel,
+    executiveSummary,
+    volunteerExperience,
   } = resumeData;
 
   // Extract unique years from experience
@@ -193,9 +195,11 @@ const Resume: React.FC = () => {
   };
 
   const anchorItems = [
+    { id: 'executive-summary', label: 'Summary' },
     { id: 'experience', label: 'Experience' },
     { id: 'skills', label: 'Skills' },
     { id: 'testimonials', label: 'Testimonials' },
+    { id: 'volunteer', label: 'Volunteer' },
     { id: 'education', label: 'Education' },
   ];
 
@@ -327,8 +331,23 @@ const Resume: React.FC = () => {
           </motion.div>
         </section>
 
+        {/* Executive Summary Section */}
+        {executiveSummary && (
+          <section className="resume-section executive-summary-section section-style-1" id="executive-summary">
+            <div className="container">
+              <div className="section-header-wrapper">
+                <h2 className="section-heading">Executive Summary</h2>
+                <div className="section-divider"></div>
+              </div>
+              <div className="executive-summary-content">
+                <p className="executive-summary-text">{executiveSummary}</p>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Experience Timeline */}
-        <section className="resume-section experience-timeline-section" id="experience">
+        <section className="resume-section experience-timeline-section section-style-2" id="experience">
           <div className="container">
             <h2 className="section-heading">Career Journey</h2>
             <p className="section-subheading">
@@ -439,7 +458,7 @@ const Resume: React.FC = () => {
         </section>
 
         {/* Skills Matrix */}
-        <section className="resume-section skills-section" id="skills">
+        <section className="resume-section skills-section section-style-3" id="skills">
           <div className="container">
             <h2 className="section-heading">Skills & Expertise</h2>
             <p className="section-subheading">
@@ -505,7 +524,7 @@ const Resume: React.FC = () => {
 
         {/* Showreel Carousel */}
         {showreel && showreel.length > 0 && (
-          <section className="resume-section showreel-section" id="showreel">
+          <section className="resume-section showreel-section section-style-1" id="showreel">
             <div className="container">
               <h2 className="section-heading">Featured Work</h2>
               <p className="section-subheading">
@@ -569,7 +588,7 @@ const Resume: React.FC = () => {
         )}
 
         {/* Testimonials + Metrics Panel */}
-        <section className="resume-section testimonials-section" id="testimonials">
+        <section className="resume-section testimonials-section section-style-2" id="testimonials">
           <div className="container">
             <div className="testimonials-metrics-grid">
               {/* Testimonials */}
@@ -638,8 +657,45 @@ const Resume: React.FC = () => {
           </div>
         </section>
 
+        {/* Volunteer Experience */}
+        {volunteerExperience && volunteerExperience.length > 0 && (
+          <section className="resume-section volunteer-section section-style-3" id="volunteer">
+            <div className="container">
+              <div className="section-header-wrapper">
+                <h2 className="section-heading">
+                  <Users size={32} />
+                  Volunteer Experience
+                </h2>
+                <div className="section-divider"></div>
+              </div>
+              <div className="volunteer-grid">
+                {volunteerExperience.map((volunteer, idx) => (
+                  <motion.div
+                    key={idx}
+                    className="card volunteer-card"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                  >
+                    <div className="volunteer-header">
+                      <h3 className="volunteer-role">{volunteer.role}</h3>
+                      <div className="volunteer-organization">{volunteer.organization}</div>
+                    </div>
+                    <div className="volunteer-date">
+                      <Calendar size={16} />
+                      <span>{volunteer.dates}</span>
+                    </div>
+                    <p className="volunteer-summary">{volunteer.summary}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Education & Awards */}
-        <section className="resume-section education-section" id="education">
+        <section className="resume-section education-section section-style-1" id="education">
           <div className="container">
             <div className="education-awards-grid">
               {/* Education */}
@@ -694,7 +750,7 @@ const Resume: React.FC = () => {
         </section>
 
         {/* CTA Banner */}
-        <section className="resume-section cta-banner-section">
+        <section className="resume-section cta-banner-section section-style-2">
           <div className="cta-banner">
             <h2 className="cta-heading">Let's build your growth engine.</h2>
             <div className="cta-buttons">

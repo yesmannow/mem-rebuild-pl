@@ -34,38 +34,37 @@
     </script>
 
     <!-- Primary Meta Tags -->
-    <title>Jacob Darling — Marketing Strategist & Systems Architect</title>
-    <meta name="title" content="Jacob Darling — Marketing Strategist & Marketing Technologist" />
-    <meta name="description" content="Results-driven marketing professional specializing in digital marketing strategies, campaign automation, CRM integration, SEO/SEM, and analytics-driven strategy. Proven results: 400+ marketing automations, 70% ticket reduction, 40% conversion increase." />
-    <meta name="keywords" content="marketing strategist, marketing technologist, marketing automation, CRM campaigns, SEO SEM, digital marketing, campaign automation, marketing ROI, Google Ads, Meta Ads, LinkedIn Ads, analytics-driven strategy, cross-functional project management, marketing manager, marketing systems architect" />
+    <title>Jacob Darling | Fractional CMO & Marketing Technologist</title>
+    <meta name="title" content="Jacob Darling | Fractional CMO & Marketing Technologist" />
+    <meta name="description" content="16+ years of experience blending creative strategy, marketing automation, and systems thinking to drive scalable growth. Explore full-funnel campaigns, CRM architecture, and performance marketing across SaaS, healthcare, and more." />
+    <meta name="keywords" content="fractional CMO, marketing technologist, marketing strategist, marketing automation, CRM campaigns, systems architecture, growth marketing, performance marketing, Indianapolis marketing, marketing consultant, SaaS marketing, healthcare marketing" />
     <meta name="author" content="Jacob Darling" />
     <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
 
     <!-- Theme Color -->
-    <!-- Note: theme-color is supported by Chrome/Edge and Safari for browser chrome theming.
-          Firefox and Opera do not support this meta tag - we use CSS color-scheme property for those browsers.
-          The value is dynamically updated by ThemeProvider based on the current theme. -->
     <meta name="theme-color" content="#ffffff" />
     <meta name="msapplication-TileColor" content="#0b0b0c" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://bearcavemarketing.com/" />
-    <meta property="og:title" content="Jacob Darling — Marketing Strategist & Systems Architect" />
-    <meta property="og:description" content="Results-driven marketing professional specializing in digital marketing strategies, campaign automation, and CRM integration. Proven track record: 400+ automations, 70% ticket reduction, 40% conversion increase." />
-    <meta property="og:image" content="https://bearcavemarketing.com/og-image.jpg" />
+    <meta property="og:url" content="https://mem-rebuild-pl.pages.dev/" />
+    <meta property="og:title" content="Jacob Darling | Fractional CMO & Marketing Technologist" />
+    <meta property="og:description" content="16+ years of experience blending creative strategy, marketing automation, and systems thinking to drive scalable growth. Explore full-funnel campaigns, CRM architecture, and performance marketing across SaaS, healthcare, and more." />
+    <meta property="og:image" content="https://mem-rebuild-pl.pages.dev/og-image.jpg" />
     <meta property="og:site_name" content="Jacob Darling Portfolio" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://bearcavemarketing.com/" />
-    <meta name="twitter:title" content="Jacob Darling — Marketing Strategist & Marketing Technologist" />
-    <meta name="twitter:description" content="Marketing automation expert: 400+ workflows, 70% ticket reduction, 40% conversion increase. Specializing in CRM campaigns, SEO/SEM, and analytics-driven strategy." />
-    <meta name="twitter:image" content="https://bearcavemarketing.com/og-image.jpg" />
+    <meta name="twitter:url" content="https://mem-rebuild-pl.pages.dev/" />
+    <meta name="twitter:title" content="Jacob Darling | Fractional CMO & Marketing Technologist" />
+    <meta name="twitter:description" content="16+ years of experience blending creative strategy, marketing automation, and systems thinking to drive scalable growth." />
+    <meta name="twitter:image" content="https://mem-rebuild-pl.pages.dev/og-image.jpg" />
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://bearcavemarketing.com/" />
+    <link rel="canonical" href="https://mem-rebuild-pl.pages.dev/" />
 
     <!-- Resource Hints - Preconnect for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,16 +83,12 @@
     <link rel="preload" as="video" href="/hero-broll.mp4" />
     <link rel="preload" as="image" href="/images/bio/bio-photo.jpg" />
 
-    <!-- Preload critical CSS -->
-    <link rel="preload" href="/src/styles/bearcave-brand.css" as="style" />
-
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
     <!-- Custom Element Registration Guard - Prevents duplicate registration errors -->
-    <!-- This intercepts ALL customElements.define() calls to prevent re-registration -->
     <script>
       (function () {
         'use strict';
@@ -124,11 +119,17 @@
           } catch (error) {
             // Handle race conditions where element might be defined between check and call
             const errorMsg = error?.message || String(error);
-            if (errorMsg && errorMsg.includes('has already been used') ||
-                errorMsg.includes('has already been defined')) {
-              // Race condition - element was defined by another script between check and call
+            if (errorMsg && (
+                errorMsg.includes('has already been used') ||
+                errorMsg.includes('has already been defined') ||
+                errorMsg.includes('already been used') ||
+                errorMsg.includes('mce-autosize-textarea') ||
+                errorMsg.includes('mce-') ||
+                (name && name.startsWith && name.startsWith('mce-'))
+            )) {
+              // Race condition or TinyMCE conflict - silently skip duplicate definitions
               if (process?.env?.NODE_ENV === 'development' || window.location.hostname === 'localhost') {
-                console.warn(`Custom element "${name}" was defined by another script during registration. Skipping.`);
+                console.warn(`Custom element "${name}" conflict detected. Skipping registration.`);
               }
               return; // Silently skip duplicate definitions
             }
@@ -145,33 +146,42 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Jacob Darling",
-      "jobTitle": "Marketing Strategist & Marketing Technologist",
-      "url": "https://jacobdarling.com",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Marketing Strategist & Systems Architect"
-      },
+      "jobTitle": "Fractional CMO & Marketing Technologist",
+      "url": "https://mem-rebuild-pl.pages.dev/",
+      "email": "mailto:jacob@jacobdarling.com",
+      "image": "https://mem-rebuild-pl.pages.dev/og-image.jpg",
       "sameAs": [
         "https://linkedin.com/in/jacobdarling",
         "https://github.com/JdarlingGT"
       ],
-      "description": "Results-driven marketing professional specializing in digital marketing strategies, campaign automation, CRM integration, and analytics-driven strategy with proven ROI.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Indianapolis",
+        "addressRegion": "IN",
+        "addressCountry": "US"
+      },
+      "description": "16+ years of experience blending creative strategy, marketing automation, and systems thinking to drive scalable growth across SaaS, healthcare, and more.",
       "knowsAbout": [
+        "Fractional CMO",
         "Marketing Automation",
-        "CRM Campaigns",
-        "Digital Marketing Strategy",
-        "SEO/SEM",
-        "Google Ads",
-        "Meta Ads",
-        "LinkedIn Ads",
-        "Analytics-Driven Strategy",
-        "Campaign Automation",
-        "Marketing ROI",
-        "Cross-Functional Project Management",
-        "Marketing Technologist"
-      ]
+        "CRM Systems",
+        "Performance Marketing",
+        "Marketing Technology",
+        "Growth Marketing",
+        "Analytics",
+        "Conversion Optimization",
+        "SaaS Marketing",
+        "Healthcare Marketing",
+        "Lead Generation",
+        "Marketing Strategy"
+      ],
+      "alumniOf": {
+        "@type": "Organization",
+        "name": "Marketing & Technology Professional"
+      }
     }
     </script>
+
     <!-- Preload React for faster initialization -->
     <link rel="modulepreload" href="/src/main.tsx" />
 

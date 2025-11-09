@@ -67,39 +67,39 @@ export default function Hero() {
       <div className="hero-content container-px">
         <div className="hero-inner">
           <h1 id="hero-heading" className="hero-tagline">
-            Where Complexity Becomes Clarity
+            I Turn Marketing Chaos Into Scalable Systems
           </h1>
           <div className="hero-tagline-separator" />
           <p className="hero-subtitle">
-            I craft systems where design and technology move as one. Turning curiosity into conversion. Chaos into clarity.
+            I blend strategy, automation, and analytics into marketing engines that grow business without adding complexity.
           </p>
           <div className="hero-ctas">
             <a
-              href="#contact"
+              href="#case-studies"
               className="btn-primary hero-cta hero-cta--primary"
+              aria-label="View my work"
+              onClick={(e) => handleAnchorClick(e, 'case-studies')}
+            >
+              📂 View My Work
+            </a>
+            <a
+              href="#contact"
+              className="btn-secondary hero-cta hero-cta--secondary"
               aria-label="Start a conversation"
               onClick={(e) => handleAnchorClick(e, 'contact')}
             >
-              START A CONVERSATION
-            </a>
-            <a
-              href="#portfolio"
-              className="btn-secondary hero-cta hero-cta--secondary"
-              aria-label="View my work"
-              onClick={(e) => handleAnchorClick(e, 'portfolio')}
-            >
-              View My Work
+              📩 Start a Conversation
             </a>
           </div>
           {/* Tagline */}
           <div className="hero-tags" aria-label="Core competencies">
-            <span className="hero-tag">STRATEGY</span>
+            <span className="hero-tag">FRACTIONAL CMO</span>
             <span className="hero-tag-separator">•</span>
-            <span className="hero-tag">AUTOMATION</span>
+            <span className="hero-tag">MARKETING TECH</span>
             <span className="hero-tag-separator">•</span>
-            <span className="hero-tag hero-tag--emphasized">SYSTEMS</span>
+            <span className="hero-tag hero-tag--emphasized">AUTOMATION</span>
             <span className="hero-tag-separator">•</span>
-            <span className="hero-tag">STORYTELLING</span>
+            <span className="hero-tag">CREATIVE STRATEGY</span>
           </div>
         </div>
       </div>
