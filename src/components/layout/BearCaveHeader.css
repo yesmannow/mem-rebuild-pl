@@ -200,6 +200,29 @@
   display: flex;
 }
 
+.bearcave-header__resume-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  border-radius: 8px;
+  transition: all var(--duration-fast) ease;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.bearcave-header__resume-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+}
+
+.bearcave-header__resume-btn:active {
+  transform: translateY(0);
+}
+
 .bearcave-header__menu {
   display: none;
   background: transparent;
@@ -269,7 +292,21 @@
   }
 
   .bearcave-header__mobile.is-open {
-    max-height: 420px;
+    max-height: 800px;
+  }
+
+  .bearcave-header__mobile-resume {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: var(--space-md);
+    padding: 0.9rem 1.2rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
   }
 
   .bearcave-header__mobile-link {

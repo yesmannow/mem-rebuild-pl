@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { Download, Mail, ExternalLink, Users, TrendingUp, Zap, Shield, ChevronLeft, ChevronRight, Filter, Calendar, MapPin, Building2, Award, Code, GraduationCap, Quote } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import AnchorNav from "../components/navigation/AnchorNav";
 import resumeData from "../data/resume.json";
 import "../styles/bearcave-brand.css";
 import "./Resume.css";
@@ -146,6 +147,13 @@ const Resume: React.FC = () => {
     }
   };
 
+  const anchorItems = [
+    { id: "experience", label: "Experience" },
+    { id: "skills", label: "Skills" },
+    { id: "testimonials", label: "Testimonials" },
+    { id: "education", label: "Education" }
+  ];
+
   return (
     <>
       <Helmet>
@@ -172,6 +180,7 @@ const Resume: React.FC = () => {
       </Helmet>
 
       <main className="resume-page" id="resume-main">
+        <AnchorNav anchors={anchorItems} />
         {/* Skip to content link */}
         <a href="#resume-content" className="skip-link">
           Skip to content
