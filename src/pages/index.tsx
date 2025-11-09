@@ -44,17 +44,18 @@ const selectedWork = [
     accent: "#7C5CFF"
   },
   {
-    title: "Next Build in Progress",
+    title: "The Guardian Compliance Engine",
     summary:
-      "Currently architecting a new growth system that fuses product, analytics, and automation for a healthcare operator.",
+      "Transformed a compliance support queue into a proactive revenue channel with real-time guidance and automated upsells.",
     metrics: [
-      { label: "Launch Window", value: "Summer 2025" },
-      { label: "Focus", value: "Predictable pipeline" },
-      { label: "Status", value: "In build" }
+      { label: "Time to Compliance", value: "Minutes → Seconds" },
+      { label: "Upsell Conversion", value: "+27%" },
+      { label: "Support Tickets", value: "-68%" }
     ],
-    image: "/images/case-studies/promotional-campaigns.svg",
-    tags: ["Automation", "Analytics", "Ops"],
-    accent: "#64748B"
+    image: "/images/case-studies/the-closer.svg",
+    tags: ["Automation", "Customer Empathy", "Revenue Ops"],
+    slug: "the-guardian",
+    accent: "#FF7043"
   }
 ];
 
