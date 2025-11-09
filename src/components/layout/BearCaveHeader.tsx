@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { ChevronDown, FileText } from "lucide-react";
+import { CalendarDays, ChevronDown, FileText } from "lucide-react";
+import { trackCTA } from "../../utils/analytics";
 import "./BearCaveHeader.css";
 
 // Navigation menu structure
@@ -219,7 +220,22 @@ export default function BearCaveHeader() {
           </NavLink>
         </nav>
         <div className="bearcave-header__cta">
-          <Link to="/resume" className="btn-primary bearcave-header__resume-btn" aria-label="View Resume">
+          <a
+            href="https://cal.com/jacob-darling"
+            className="bearcave-header__booking-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackCTA("book_intro_call", "header")}
+          >
+            <CalendarDays size={18} />
+            <span>Book a Call</span>
+          </a>
+          <Link
+            to="/resume"
+            className="btn-primary bearcave-header__resume-btn"
+            aria-label="View Resume"
+            onClick={() => trackCTA("view_resume", "header")}
+          >
             <FileText size={18} />
             <span>View Resume</span>
           </Link>
@@ -239,8 +255,22 @@ export default function BearCaveHeader() {
         className={`bearcave-header__mobile ${isMenuOpen ? "is-open" : ""}`}
         aria-label="Mobile navigation"
       >
-        {/* Quick Action - View Resume */}
-        <Link to="/resume" className="btn-primary bearcave-header__mobile-cta bearcave-header__mobile-resume">
+        {/* Quick Actions */}
+        <a
+          href="https://cal.com/jacob-darling"
+          className="bearcave-header__mobile-cta bearcave-header__mobile-book"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackCTA("book_intro_call", "mobile_header")}
+        >
+          <CalendarDays size={18} />
+          <span>Book a Call</span>
+        </a>
+        <Link
+          to="/resume"
+          className="btn-primary bearcave-header__mobile-cta bearcave-header__mobile-resume"
+          onClick={() => trackCTA("view_resume", "mobile_header")}
+        >
           <FileText size={18} />
           <span>View Resume</span>
         </Link>
