@@ -86,9 +86,7 @@
       },
       "tags": ["fitness", "logo design", "brand identity", "wellness", "motivation"],
       "featured": false,
-      "images": [
-        "/images/side-projects/Perpetual Movement Fitness - Primary Logo TM.png"
-      ]
+      "images": ["/images/side-projects/Perpetual Movement Fitness - Primary Logo TM.png"]
     },
     {
       "id": "tbm-brand-playbook",
@@ -109,7 +107,13 @@
         "teamAlignment": "Improved clarity",
         "marketPosition": "Strengthened"
       },
-      "tags": ["brand strategy", "brand guidelines", "documentation", "business growth", "visual identity"],
+      "tags": [
+        "brand strategy",
+        "brand guidelines",
+        "documentation",
+        "business growth",
+        "visual identity"
+      ],
       "featured": true,
       "website": "https://www.tbmattorneys.com",
       "images": [
@@ -125,7 +129,12 @@
       "client": "CBD Pet Care Co.",
       "year": "2023",
       "duration": "3 months",
-      "services": ["Product Branding", "Package Design", "Marketing Materials", "E-commerce Design"],
+      "services": [
+        "Product Branding",
+        "Package Design",
+        "Marketing Materials",
+        "E-commerce Design"
+      ],
       "challenge": "Create trustworthy, professional branding for CBD pet care products in a heavily regulated market while maintaining approachable, pet-friendly appeal.",
       "approach": "Developed clean, scientific aesthetic that emphasizes safety, quality, and care for pets. Used calming colors and clear typography to build consumer confidence in product efficacy.",
       "execution": "Designed product packaging, marketing materials, and e-commerce presence. Created educational content design that helps pet owners understand CBD benefits and proper usage.",
@@ -169,9 +178,7 @@
       "tags": ["coffee", "artisanal", "logo design", "package design", "specialty food"],
       "featured": false,
       "logoOnly": true,
-      "images": [
-        "/images/side-projects/Black Letter - Full Logo (1).png"
-      ]
+      "images": ["/images/side-projects/Black Letter - Full Logo (1).png"]
     },
     {
       "id": "primary-colours",
@@ -181,7 +188,12 @@
       "client": "Primary Colours",
       "year": "2018-2019",
       "duration": "Board Tenure",
-      "services": ["Event Marketing", "Website Development", "Sponsorship Strategy", "Brand Development"],
+      "services": [
+        "Event Marketing",
+        "Website Development",
+        "Sponsorship Strategy",
+        "Brand Development"
+      ],
       "challenge": "Lead marketing and strategic development for a non-profit arts organization to increase community engagement, artist participation, and fundraising for Installation Nation 2018—a major outdoor art exhibition.",
       "approach": "Developed comprehensive marketing and sponsorship strategy for 23-day exhibition on 9.5-acre ArtsPark. Created multi-tier sponsorship program ($500-$5,000 levels), redesigned website for better artist connections, and executed integrated marketing campaigns.",
       "execution": "Led marketing strategy for Installation Nation 2018 with 13 artists/artist groups creating site-specific installations. Developed professional sponsorship packages, redesigned primarycolours.org website, created social media campaigns, and built community partnerships with major arts institutions.",
@@ -195,9 +207,7 @@
       },
       "tags": ["non-profit", "arts", "event marketing", "sponsorship", "community engagement"],
       "featured": true,
-      "images": [
-        "/images/side-projects/cropped-PC_LOGO1-1024x174.jpg"
-      ]
+      "images": ["/images/side-projects/cropped-PC_LOGO1-1024x174.jpg"]
     },
     {
       "id": "clean-aesthetic",
@@ -234,7 +244,13 @@
       "client": "UrgentCare Indy / Pike Medical Consultants",
       "year": "2023",
       "duration": "6 months",
-      "services": ["Web Design", "Digital Marketing", "SEO", "Patient Portal Integration", "Online Check-in System"],
+      "services": [
+        "Web Design",
+        "Digital Marketing",
+        "SEO",
+        "Patient Portal Integration",
+        "Online Check-in System"
+      ],
       "challenge": "Create comprehensive digital presence for urgent care facility to streamline patient check-in, reduce wait times, clearly communicate services, integrate with medical systems, and provide mobile-responsive patient experience.",
       "approach": "Developed patient-centered design focused on reducing friction and anxiety. Integrated Clockwise MD for real-time online check-in with wait time estimates, comprehensive insurance verification, clear service categorization, and telehealth integration options.",
       "execution": "Built healthcare website with Clockwise MD integration, insurance verification system, service pages with detailed information, mobile optimization, patient portal access, telehealth integration, and comprehensive local SEO strategy for 'urgent care Indianapolis' searches.",
@@ -266,7 +282,13 @@
       "client": "Russell Painting Company",
       "year": "2022",
       "duration": "3 months",
-      "services": ["Website Redesign", "UX Research", "Trust Optimization", "Local SEO", "Conversion Strategy"],
+      "services": [
+        "Website Redesign",
+        "UX Research",
+        "Trust Optimization",
+        "Local SEO",
+        "Conversion Strategy"
+      ],
       "challenge": "Modernize outdated website for established painting contractor (43+ years) to leverage experience and credibility, compete with larger contractors online, improve lead generation, and showcase quality credentials.",
       "approach": "Developed comprehensive trust-building strategy featuring HomeAdvisor Seal (4.9/5 rating), Angie's List 'A' Grade, 43+ years experience narrative, customer testimonials, and clear service categorization for exterior, interior, residential, and commercial work.",
       "execution": "Redesigned website with modern design, clear service categorization, high-quality before/after project galleries, multiple contact methods, mobile optimization, local SEO for Indianapolis market, and compelling content including multi-generational family business story.",
@@ -297,7 +319,13 @@
       "client": "Behr Pet Essentials",
       "year": "2023",
       "duration": "8 months",
-      "services": ["Brand Development", "E-commerce Design", "Amazon Optimization", "Product Photography", "Multi-Channel Marketing"],
+      "services": [
+        "Brand Development",
+        "E-commerce Design",
+        "Amazon Optimization",
+        "Product Photography",
+        "Multi-Channel Marketing"
+      ],
       "challenge": "Launch organic pet skin care products in competitive market by establishing credibility with veterinarians and pet owners, creating multi-channel sales strategy (direct + Amazon), and building customer trust through testimonials and results.",
       "approach": "Created comprehensive brand identity focused on organic, safe pet care positioning: 'Finally An All-Natural, Organic Skin Care For Pets That Actually Works!' Developed professional product photography, educational content about pet skin conditions, and veterinarian endorsement messaging.",
       "execution": "Developed direct-to-consumer e-commerce platform, optimized Amazon marketplace listings with keyword-rich descriptions, created product variations for dogs/cats/horses, managed customer reviews (maintained 4+ star ratings), integrated inventory management across channels, and executed social media, email, and paid advertising campaigns.",
@@ -328,7 +356,13 @@
       "client": "Graston Technique",
       "year": "2024",
       "duration": "8 months",
-      "services": ["Web Design", "Educational Platform", "E-commerce Integration", "Training Portal", "SEO"],
+      "services": [
+        "Web Design",
+        "Educational Platform",
+        "E-commerce Integration",
+        "Training Portal",
+        "SEO"
+      ],
       "challenge": "Build comprehensive educational platform for healthcare professionals learning the Graston Technique, including training course management, CEU tracking, e-commerce for instruments, and resource library.",
       "approach": "Developed multi-faceted platform supporting self-paced, virtual, and in-person training delivery. Created seamless e-commerce integration for instrument sales, comprehensive course management system, and resource library for clinicians.",
       "execution": "Built responsive website with flexible training delivery options (self-paced, virtual, in-person), integrated e-commerce for Graston instruments and training bundles, created course management and CEU tracking system, developed resource library with research materials, and implemented comprehensive SEO strategy.",
@@ -339,7 +373,13 @@
         "platformAccess": "Global reach",
         "ceusAvailable": "Multiple pathways"
       },
-      "tags": ["healthcare education", "training platform", "e-commerce", "ceus", "professional development"],
+      "tags": [
+        "healthcare education",
+        "training platform",
+        "e-commerce",
+        "ceus",
+        "professional development"
+      ],
       "featured": true,
       "website": "https://grastontechnique.com",
       "images": []
@@ -352,7 +392,13 @@
       "client": "RBE Law",
       "year": "2023",
       "duration": "4 months",
-      "services": ["Web Design", "Legal Marketing", "SEO", "Content Strategy", "Conversion Optimization"],
+      "services": [
+        "Web Design",
+        "Legal Marketing",
+        "SEO",
+        "Content Strategy",
+        "Conversion Optimization"
+      ],
       "challenge": "Create professional, trustworthy website for law firm that builds client confidence, clearly communicates legal services, and generates qualified leads in competitive legal market.",
       "approach": "Developed clean, professional design emphasizing trust and credibility. Focused on clear service descriptions, attorney profiles, case results, and easy contact methods. Implemented strong SEO strategy for local legal searches.",
       "execution": "Built responsive website with service pages, attorney bios, practice area descriptions, case study sections, client testimonials, easy contact forms, blog integration, and comprehensive local SEO optimization.",
@@ -376,7 +422,13 @@
       "client": "Hoosier Boy Barbershop",
       "year": "2023",
       "duration": "3 months",
-      "services": ["Web Design", "Brand Identity", "Local SEO", "Online Booking", "Social Media Integration"],
+      "services": [
+        "Web Design",
+        "Brand Identity",
+        "Local SEO",
+        "Online Booking",
+        "Social Media Integration"
+      ],
       "challenge": "Create modern, appealing website for barbershop that attracts local customers, enables online booking, showcases services and atmosphere, and builds brand recognition in competitive market.",
       "approach": "Developed clean, modern design reflecting barbershop's style and atmosphere. Focused on easy online booking, service descriptions, barber profiles, pricing transparency, and strong local SEO for Indianapolis market.",
       "execution": "Built responsive website with online booking integration, service and pricing pages, barber/stylist profiles, gallery showcasing work, location and hours information, and comprehensive local SEO strategy.",
@@ -400,7 +452,13 @@
       "client": "School 80 Condos",
       "year": "2024",
       "duration": "5 months",
-      "services": ["Web Design", "Real Estate Marketing", "Property Showcase", "Lead Generation", "SEO"],
+      "services": [
+        "Web Design",
+        "Real Estate Marketing",
+        "Property Showcase",
+        "Lead Generation",
+        "SEO"
+      ],
       "challenge": "Create compelling website for condominium development that showcases property features, generates qualified leads, provides virtual tour capabilities, and positions development as desirable living option.",
       "approach": "Developed immersive website showcasing condominium features, amenities, location benefits, and lifestyle. Focused on high-quality imagery, virtual tours, easy contact methods, and clear pricing/availability information.",
       "execution": "Built responsive website with property galleries, virtual tour integration, floor plans and specifications, amenities showcase, location information, contact forms, and SEO optimization for real estate searches.",
@@ -411,7 +469,13 @@
         "inquiryConversion": "Improved",
         "propertyVisibility": "Enhanced"
       },
-      "tags": ["real estate", "web design", "property marketing", "lead generation", "virtual tours"],
+      "tags": [
+        "real estate",
+        "web design",
+        "property marketing",
+        "lead generation",
+        "virtual tours"
+      ],
       "featured": false,
       "website": "https://school80condos.com",
       "images": []
@@ -424,7 +488,13 @@
       "client": "Pike Medical Consultants",
       "year": "2024",
       "duration": "6 months",
-      "services": ["Corporate Web Design", "Healthcare Branding", "Service Integration", "SEO", "Digital Strategy"],
+      "services": [
+        "Corporate Web Design",
+        "Healthcare Branding",
+        "Service Integration",
+        "SEO",
+        "Digital Strategy"
+      ],
       "challenge": "Create comprehensive corporate website for medical consulting group that showcases services across multiple divisions (UrgentCare, Primary Care), builds professional credibility, and supports business development.",
       "approach": "Developed cohesive corporate presence unifying multiple service divisions. Focused on clear service differentiation, professional credibility, comprehensive service information, and strategic positioning in healthcare market.",
       "execution": "Built corporate website with service division pages, comprehensive service descriptions, provider information, location details, integrated branding across divisions, and comprehensive SEO strategy.",
@@ -435,7 +505,13 @@
         "serviceVisibility": "Enhanced",
         "businessDevelopment": "Supported"
       },
-      "tags": ["healthcare corporate", "web design", "corporate branding", "service integration", "digital strategy"],
+      "tags": [
+        "healthcare corporate",
+        "web design",
+        "corporate branding",
+        "service integration",
+        "digital strategy"
+      ],
       "featured": false,
       "website": "https://pikemedical.com",
       "images": []
@@ -463,9 +539,7 @@
       "tags": ["event branding", "logo design", "arts", "non-profit", "outdoor exhibition"],
       "featured": true,
       "logoOnly": true,
-      "images": [
-        "/images/side-projects/cropped-PC_LOGO1-1024x174.jpg"
-      ]
+      "images": ["/images/side-projects/cropped-PC_LOGO1-1024x174.jpg"]
     },
     {
       "id": "circle-city-kicks",
@@ -606,7 +680,13 @@
         "socialEngagement": "Strong",
         "targetAppeal": "Younger demographics"
       },
-      "tags": ["food branding", "logo design", "character design", "restaurant", "playful branding"],
+      "tags": [
+        "food branding",
+        "logo design",
+        "character design",
+        "restaurant",
+        "playful branding"
+      ],
       "featured": false,
       "logoOnly": true,
       "images": []
@@ -614,8 +694,42 @@
   ],
   "metadata": {
     "totalProjects": 23,
-    "categories": ["Restaurant Branding", "Healthcare Branding", "Fitness Branding", "Brand Strategy", "Product Branding", "Coffee Branding", "Non-Profit Marketing", "Medical Branding", "Healthcare Digital", "Service Business", "E-commerce Branding", "Healthcare Education", "Legal Services", "Real Estate", "Healthcare Corporate", "Event Branding", "Retail Branding", "Civic Branding", "Lifestyle Branding", "Food Product Branding"],
-    "services": ["Brand Identity", "Logo Design", "Marketing Materials", "Web Design", "Package Design", "Brand Strategy", "Event Marketing", "Sponsorship Strategy", "E-commerce Design", "Amazon Optimization", "SEO", "Digital Marketing"],
+    "categories": [
+      "Restaurant Branding",
+      "Healthcare Branding",
+      "Fitness Branding",
+      "Brand Strategy",
+      "Product Branding",
+      "Coffee Branding",
+      "Non-Profit Marketing",
+      "Medical Branding",
+      "Healthcare Digital",
+      "Service Business",
+      "E-commerce Branding",
+      "Healthcare Education",
+      "Legal Services",
+      "Real Estate",
+      "Healthcare Corporate",
+      "Event Branding",
+      "Retail Branding",
+      "Civic Branding",
+      "Lifestyle Branding",
+      "Food Product Branding"
+    ],
+    "services": [
+      "Brand Identity",
+      "Logo Design",
+      "Marketing Materials",
+      "Web Design",
+      "Package Design",
+      "Brand Strategy",
+      "Event Marketing",
+      "Sponsorship Strategy",
+      "E-commerce Design",
+      "Amazon Optimization",
+      "SEO",
+      "Digital Marketing"
+    ],
     "lastUpdated": "2025-11-03",
     "brandTone": "cinematic, confident, intelligent, warmly human"
   }

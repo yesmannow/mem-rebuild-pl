@@ -1,34 +1,35 @@
-import React, { useEffect, useRef, useState, useMemo } from "react";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Link } from "react-router-dom";
-import { ExternalLink, Calendar, Tag, Filter, Palette } from "lucide-react";
-import sideProjectsData from "../data/side-projects-structured.json";
-import "./SideProjects.css";
+import React, { useEffect, useRef, useState, useMemo } from 'react';
+import { motion, Variants, Easing } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
+import { ExternalLink, Calendar, Tag, Filter, Palette } from 'lucide-react';
+import sideProjectsData from '../data/side-projects-structured.json';
+import './SideProjects.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const SideProjects: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
-  const [activeFilter, setActiveFilter] = useState<string>("All");
+  const [activeFilter, setActiveFilter] = useState<string>('All');
 
   useEffect(() => {
     // Hero parallax animation
     if (heroRef.current) {
-      gsap.fromTo(heroRef.current.querySelector('.hero-content'),
+      gsap.fromTo(
+        heroRef.current.querySelector('.hero-content'),
         {
           opacity: 0,
           y: 100,
-          scale: 0.95
+          scale: 0.95,
         },
         {
           opacity: 1,
           y: 0,
           scale: 1,
           duration: 1.2,
-          ease: "power3.out"
+          ease: 'power3.out',
         }
       );
     }
@@ -37,12 +38,13 @@ const SideProjects: React.FC = () => {
     if (gridRef.current) {
       const cards = gridRef.current.querySelectorAll('.project-card');
 
-      gsap.fromTo(cards,
+      gsap.fromTo(
+        cards,
         {
           opacity: 0,
           y: 60,
           scale: 0.9,
-          rotateX: 15
+          rotateX: 15,
         },
         {
           opacity: 1,
@@ -51,53 +53,55 @@ const SideProjects: React.FC = () => {
           rotateX: 0,
           duration: 0.8,
           stagger: 0.15,
-          ease: "power2.out",
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: gridRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse',
+          },
         }
       );
     }
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) => trigger.kill());
     };
   }, []);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     initial: { opacity: 0 },
     animate: {
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: { duration: 0.6, ease: 'easeOut' as Easing },
+    },
   };
 
-  const cardHoverVariants = {
+  const cardHoverVariants: Variants = {
     hover: {
       y: -8,
       scale: 1.02,
       rotateY: 2,
-      transition: { duration: 0.4, ease: "power2.out" }
-    }
+      transition: { duration: 0.4, ease: 'easeOut' as Easing },
+    },
   };
 
   // Filter projects based on active filter
   const filteredProjects = useMemo(() => {
-    if (activeFilter === "All") return sideProjectsData.projects;
-    if (activeFilter === "Logo Design") return sideProjectsData.projects.filter(p => p.logoOnly === true);
-    return sideProjectsData.projects.filter(p =>
-      p.category.toLowerCase().includes(activeFilter.toLowerCase()) ||
-      p.services.some(s => s.toLowerCase().includes(activeFilter.toLowerCase()))
+    if (activeFilter === 'All') return sideProjectsData.projects;
+    if (activeFilter === 'Logo Design')
+      return sideProjectsData.projects.filter(p => p.logoOnly === true);
+    return sideProjectsData.projects.filter(
+      p =>
+        p.category.toLowerCase().includes(activeFilter.toLowerCase()) ||
+        p.services.some(s => s.toLowerCase().includes(activeFilter.toLowerCase()))
     );
   }, [activeFilter]);
 
   // Get unique categories for filter buttons
   const categories = useMemo(() => {
     const cats = [...new Set(sideProjectsData.projects.map(p => p.category))];
-    return ["All", "Logo Design", ...cats].slice(0, 6); // Limit to 6 for UI
+    return ['All', 'Logo Design', ...cats].slice(0, 6); // Limit to 6 for UI
   }, []);
 
   return (
@@ -126,9 +130,9 @@ const SideProjects: React.FC = () => {
               <span className="gradient-text"> Services</span>
             </h1>
             <p className="hero-subtitle">
-              Contract marketing, branding, and design projects across diverse industries.
-              From healthcare to hospitality, e-commerce to non-profits—each project delivered
-              with strategic insight and creative excellence as an independent contractor.
+              Contract marketing, branding, and design projects across diverse industries. From
+              healthcare to hospitality, e-commerce to non-profits—each project delivered with
+              strategic insight and creative excellence as an independent contractor.
             </p>
           </motion.div>
 
@@ -143,7 +147,9 @@ const SideProjects: React.FC = () => {
               <span className="stat-label">Projects</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">{sideProjectsData.projects.filter(p => p.logoOnly).length}</span>
+              <span className="stat-number">
+                {sideProjectsData.projects.filter(p => p.logoOnly).length}
+              </span>
               <span className="stat-label">Logo Designs</span>
             </div>
             <div className="stat-item">
@@ -169,7 +175,10 @@ const SideProjects: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2>Contract Projects</h2>
-            <p>Strategic marketing, branding, and design solutions delivered as an independent contractor across diverse industries and business types.</p>
+            <p>
+              Strategic marketing, branding, and design solutions delivered as an independent
+              contractor across diverse industries and business types.
+            </p>
           </motion.div>
 
           {/* Filter Bar */}
@@ -186,13 +195,13 @@ const SideProjects: React.FC = () => {
                 <span>Filter:</span>
               </div>
               <div className="filter-buttons">
-                {categories.map((category) => (
+                {categories.map(category => (
                   <button
                     key={category}
                     className={`filter-button ${activeFilter === category ? 'active' : ''}`}
                     onClick={() => setActiveFilter(category)}
                   >
-                    {category === "Logo Design" && <Palette size={14} />}
+                    {category === 'Logo Design' && <Palette size={14} />}
                     <span>{category}</span>
                   </button>
                 ))}
@@ -211,11 +220,7 @@ const SideProjects: React.FC = () => {
                 <Link to={`/side-projects/${project.slug}`} className="card-link">
                   <div className="card-image">
                     {project.images && project.images.length > 0 ? (
-                      <img
-                        src={project.images[0]}
-                        alt={project.title}
-                        loading="lazy"
-                      />
+                      <img src={project.images[0]} alt={project.title} loading="lazy" />
                     ) : (
                       <div className="card-image-placeholder">
                         <Palette size={48} />
@@ -248,7 +253,7 @@ const SideProjects: React.FC = () => {
                         </div>
                         <div className="meta-item">
                           <Tag size={14} />
-                          <span>{project.services[0] || "Logo Design"}</span>
+                          <span>{project.services[0] || 'Logo Design'}</span>
                         </div>
                       </div>
                     </div>
@@ -281,8 +286,10 @@ const SideProjects: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2>Ready to Start Your Project?</h2>
-          <p>Let's create something extraordinary together. From concept to completion,
-             I bring strategic thinking and creative execution to every project.</p>
+          <p>
+            Let's create something extraordinary together. From concept to completion, I bring
+            strategic thinking and creative execution to every project.
+          </p>
           <Link to="/contact" className="cta-button">
             <span>Start a Conversation</span>
             <ExternalLink size={20} />

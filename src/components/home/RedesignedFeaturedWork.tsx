@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Link } from "react-router-dom";
-import { ExternalLink, ArrowRight, TrendingUp, Clock, Users } from "lucide-react";
-import { getFeaturedCaseStudies } from "../../data/caseStudies";
+import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
+import { ExternalLink, ArrowRight, TrendingUp, Clock, Users } from 'lucide-react';
+import { getFeaturedCaseStudies } from '../../data/caseStudies';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,7 +15,8 @@ const RedesignedFeaturedWork: React.FC = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Enhanced stagger animation for cards
-      gsap.fromTo(".case-study-card",
+      gsap.fromTo(
+        '.case-study-card',
         { opacity: 0, y: 120, scale: 0.8, rotationX: 15 },
         {
           opacity: 1,
@@ -24,42 +25,43 @@ const RedesignedFeaturedWork: React.FC = () => {
           rotationX: 0,
           duration: 1.2,
           stagger: 0.3,
-          ease: "power3.out",
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 75%",
-            end: "bottom 25%",
-            toggleActions: "play none none reverse"
-          }
+            start: 'top 75%',
+            end: 'bottom 25%',
+            toggleActions: 'play none none reverse',
+          },
         }
       );
 
       // Metrics counter animation
-      gsap.fromTo(".metric-counter",
+      gsap.fromTo(
+        '.metric-counter',
         { scale: 0, opacity: 0 },
         {
           scale: 1,
           opacity: 1,
           duration: 0.8,
           stagger: 0.1,
-          ease: "back.out(1.7)",
+          ease: 'back.out(1.7)',
           scrollTrigger: {
-            trigger: ".metrics-grid",
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
+            trigger: '.metrics-grid',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
         }
       );
 
       // Floating elements animation
-      gsap.to(".floating-element", {
+      gsap.to('.floating-element', {
         y: -20,
         rotation: 5,
         duration: 3,
         repeat: -1,
         yoyo: true,
-        ease: "sine.inOut",
-        stagger: 0.5
+        ease: 'sine.inOut',
+        stagger: 0.5,
       });
     });
 
@@ -73,7 +75,10 @@ const RedesignedFeaturedWork: React.FC = () => {
     if (label.toLowerCase().includes('time') || label.toLowerCase().includes('response')) {
       return <Clock className="w-4 h-4" />;
     }
-    if (label.toLowerCase().includes('satisfaction') || label.toLowerCase().includes('engagement')) {
+    if (
+      label.toLowerCase().includes('satisfaction') ||
+      label.toLowerCase().includes('engagement')
+    ) {
       return <Users className="w-4 h-4" />;
     }
     return <TrendingUp className="w-4 h-4" />;
@@ -106,7 +111,7 @@ const RedesignedFeaturedWork: React.FC = () => {
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+            transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
           >
             <span className="text-blue-300 text-sm font-medium">Featured Case Studies</span>
           </motion.div>
@@ -150,7 +155,7 @@ const RedesignedFeaturedWork: React.FC = () => {
               whileHover={{
                 y: -15,
                 scale: 1.02,
-                boxShadow: "0 25px 50px rgba(0, 0, 0, 0.4)"
+                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.4)',
               }}
             >
               {/* Card Header with Gradient */}
@@ -162,7 +167,7 @@ const RedesignedFeaturedWork: React.FC = () => {
                       key={cat}
                       className="px-4 py-2 text-xs font-semibold bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-200 rounded-full border border-blue-500/30 backdrop-blur-sm"
                       whileHover={{ scale: 1.05 }}
-                      transition={{ type: "spring", stiffness: 300 }}
+                      transition={{ type: 'spring', stiffness: 300 }}
                     >
                       {cat}
                     </motion.span>
@@ -175,9 +180,7 @@ const RedesignedFeaturedWork: React.FC = () => {
                 </h3>
 
                 {/* Improved Tagline */}
-                <p className="text-gray-300 mb-8 leading-relaxed text-base">
-                  {caseStudy.tagline}
-                </p>
+                <p className="text-gray-300 mb-8 leading-relaxed text-base">{caseStudy.tagline}</p>
 
                 {/* Enhanced Metrics Grid */}
                 <div className="metrics-grid grid grid-cols-1 gap-4 mb-8">

@@ -14,7 +14,7 @@ const PerformanceMonitor: React.FC = () => {
     fid: null,
     cls: null,
     fcp: null,
-    ttfb: null
+    ttfb: null,
   });
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const PerformanceMonitor: React.FC = () => {
       // Measure Core Web Vitals
       if ('PerformanceObserver' in window) {
         // Largest Contentful Paint (LCP)
-        lcpObserver = new PerformanceObserver((list) => {
+        lcpObserver = new PerformanceObserver(list => {
           const entries = list.getEntries();
           const lastEntry = entries[entries.length - 1];
           setMetrics(prev => ({ ...prev, lcp: lastEntry.startTime }));
@@ -41,7 +41,7 @@ const PerformanceMonitor: React.FC = () => {
         lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
 
         // First Input Delay (FID)
-        fidObserver = new PerformanceObserver((list) => {
+        fidObserver = new PerformanceObserver(list => {
           const entries = list.getEntries();
           entries.forEach((entry: any) => {
             setMetrics(prev => ({ ...prev, fid: entry.processingStart - entry.startTime }));
@@ -50,7 +50,7 @@ const PerformanceMonitor: React.FC = () => {
         fidObserver.observe({ entryTypes: ['first-input'] });
 
         // Cumulative Layout Shift (CLS)
-        clsObserver = new PerformanceObserver((list) => {
+        clsObserver = new PerformanceObserver(list => {
           const entries = list.getEntries();
           entries.forEach((entry: any) => {
             if (!entry.hadRecentInput) {
@@ -62,18 +62,23 @@ const PerformanceMonitor: React.FC = () => {
         clsObserver.observe({ entryTypes: ['layout-shift'] });
 
         // First Contentful Paint (FCP)
-        fcpObserver = new PerformanceObserver((list) => {
+        fcpObserver = new PerformanceObserver(list => {
           const entries = list.getEntries();
-          entries.forEach((entry) => {
+          entries.forEach(entry => {
             setMetrics(prev => ({ ...prev, fcp: entry.startTime }));
           });
         });
         fcpObserver.observe({ entryTypes: ['paint'] });
 
         // Time to First Byte (TTFB) - one-time measurement
-        const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+        const navigation = performance.getEntriesByType(
+          'navigation'
+        )[0] as PerformanceNavigationTiming;
         if (navigation) {
-          setMetrics(prev => ({ ...prev, ttfb: navigation.responseStart - navigation.requestStart }));
+          setMetrics(prev => ({
+            ...prev,
+            ttfb: navigation.responseStart - navigation.requestStart,
+          }));
         }
       }
     };
@@ -93,7 +98,7 @@ const PerformanceMonitor: React.FC = () => {
           FID: currentMetrics.fid ? `${currentMetrics.fid.toFixed(2)}ms` : 'Not measured',
           CLS: currentMetrics.cls ? currentMetrics.cls.toFixed(3) : 'Not measured',
           FCP: currentMetrics.fcp ? `${currentMetrics.fcp.toFixed(2)}ms` : 'Not measured',
-          TTFB: currentMetrics.ttfb ? `${currentMetrics.ttfb.toFixed(2)}ms` : 'Not measured'
+          TTFB: currentMetrics.ttfb ? `${currentMetrics.ttfb.toFixed(2)}ms` : 'Not measured',
         });
         return currentMetrics; // Return unchanged state
       });
@@ -122,8 +127,8 @@ const PerformanceMonitor: React.FC = () => {
           custom_map: {
             lcp: metrics.lcp,
             fid: metrics.fid,
-            cls: metrics.cls
-          }
+            cls: metrics.cls,
+          },
         });
       }
     }

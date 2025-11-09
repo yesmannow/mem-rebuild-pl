@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { getLenis } from "../../utils/motion-sync";
+import React, { useEffect, useState } from 'react';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
+import { getLenis } from '../../utils/motion-sync';
 
 const ScrollProgress: React.FC = () => {
   const scrollProgress = useMotionValue(0);
   const scaleY = useSpring(scrollProgress, {
     stiffness: 100,
     damping: 30,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   const [isVisible, setIsVisible] = useState(false);
-  const [percentText, setPercentText] = useState("0%");
+  const [percentText, setPercentText] = useState('0%');
 
   useEffect(() => {
     const lenis = getLenis();
@@ -81,7 +81,7 @@ const ScrollProgress: React.FC = () => {
       <motion.div
         className="absolute -right-12 bg-black/80 backdrop-blur-sm border border-white/20 rounded-lg px-2 py-1 text-xs text-white font-mono"
         style={{
-          bottom: useTransform(scaleY, (latest) => latest * 256 - 12)
+          bottom: useTransform(scaleY, latest => latest * 256 - 12),
         }}
       >
         {percentText}

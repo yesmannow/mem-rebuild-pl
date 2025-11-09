@@ -15,10 +15,10 @@ const InspirationTimeline: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ['start end', 'end start'],
   });
 
-  const progressHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const progressHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   const toggleExpanded = (year: string) => {
     const newExpanded = new Set(expandedItems);
@@ -37,10 +37,7 @@ const InspirationTimeline: React.FC = () => {
       <div className="relative">
         {/* Progress line */}
         <div className="absolute left-8 top-0 bottom-0 w-1 bg-gray-300">
-          <motion.div
-            className="w-full bg-amber-600"
-            style={{ height: progressHeight }}
-          />
+          <motion.div className="w-full bg-amber-600" style={{ height: progressHeight }} />
         </div>
 
         <div className="space-y-8">
@@ -69,7 +66,7 @@ const InspirationTimeline: React.FC = () => {
                   {expandedItems.has(item.year) && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
+                      animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       className="overflow-hidden"
                     >

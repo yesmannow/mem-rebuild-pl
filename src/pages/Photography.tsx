@@ -1,18 +1,23 @@
-import React, { useState, useRef, useEffect, useMemo } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import AnimatedSection from "../components/animations/AnimatedSection";
-import TextReveal from "../components/animations/TextReveal";
-import { fadeInUp } from "../utils/animations";
-import { loadPhotographyImages, getPhotoCategories, categoryColors, type PhotoItem } from "../utils/loadPhotography";
-import photographyManifest from "../../public/images/photography/manifest.json";
-import "./Photography.css";
+import React, { useState, useRef, useEffect, useMemo } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import AnimatedSection from '../components/animations/AnimatedSection';
+import TextReveal from '../components/animations/TextReveal';
+import { fadeInUp } from '../utils/animations';
+import {
+  loadPhotographyImages,
+  getPhotoCategories,
+  categoryColors,
+  type PhotoItem,
+} from '../utils/loadPhotography';
+import photographyManifest from '../../public/images/photography/manifest.json';
+import './Photography.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Photography: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState('All');
   const [selectedPhoto, setSelectedPhoto] = useState<PhotoItem | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
@@ -20,9 +25,10 @@ const Photography: React.FC = () => {
   const photoGallery = useMemo(() => loadPhotographyImages(), []);
   const categories = useMemo(() => getPhotoCategories(photoGallery), [photoGallery]);
 
-  const filteredPhotos = activeCategory === "All"
-    ? photoGallery
-    : photoGallery.filter(photo => photo.category === activeCategory);
+  const filteredPhotos =
+    activeCategory === 'All'
+      ? photoGallery
+      : photoGallery.filter(photo => photo.category === activeCategory);
 
   const handlePhotoClick = (photo: PhotoItem) => {
     const index = filteredPhotos.findIndex(item => item.id === photo.id);
@@ -71,7 +77,7 @@ const Photography: React.FC = () => {
 
   // Enhanced GSAP Cinematic Animations
   useEffect(() => {
-    const photos = gsap.utils.toArray(".photo-card");
+    const photos = gsap.utils.toArray('.photo-card');
 
     photos.forEach((photo: HTMLElement, index: number) => {
       // Cinematic entrance with depth
@@ -83,7 +89,7 @@ const Photography: React.FC = () => {
           scale: 0.85,
           rotateX: 25,
           rotateY: 5,
-          filter: "blur(8px)"
+          filter: 'blur(8px)',
         },
         {
           duration: 1.5,
@@ -92,56 +98,56 @@ const Photography: React.FC = () => {
           scale: 1,
           rotateX: 0,
           rotateY: 0,
-          filter: "blur(0px)",
-          ease: "power4.out",
+          filter: 'blur(0px)',
+          ease: 'power4.out',
           scrollTrigger: {
             trigger: photo,
-            start: "top 90%",
-            end: "top 30%",
-            toggleActions: "play none none reverse",
-            scrub: 0.3
+            start: 'top 90%',
+            end: 'top 30%',
+            toggleActions: 'play none none reverse',
+            scrub: 0.3,
           },
-          delay: index * 0.08
+          delay: index * 0.08,
         }
       );
 
       // Subtle parallax on individual images
-      gsap.to(photo.querySelector("img"), {
+      gsap.to(photo.querySelector('img'), {
         scrollTrigger: {
           trigger: photo,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
         },
         y: -30,
-        scale: 1.05
+        scale: 1.05,
       });
     });
 
     // Enhanced hero parallax with multiple layers
-    gsap.to(".photo-hero", {
+    gsap.to('.photo-hero', {
       scrollTrigger: {
-        trigger: ".photo-hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: 1
+        trigger: '.photo-hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1,
       },
       y: 250,
       opacity: 0.2,
       scale: 1.15,
-      filter: "blur(2px)"
+      filter: 'blur(2px)',
     });
 
     // Floating categories animation
-    gsap.to(".floating-categories", {
+    gsap.to('.floating-categories', {
       scrollTrigger: {
-        trigger: ".floating-categories",
-        start: "top 80%",
-        end: "bottom 20%",
-        scrub: 1
+        trigger: '.floating-categories',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        scrub: 1,
       },
       y: -50,
-      opacity: 0.8
+      opacity: 0.8,
     });
 
     return () => {
@@ -195,9 +201,10 @@ const Photography: React.FC = () => {
               whileHover={{ scale: 1.1, y: -3 }}
               whileTap={{ scale: 0.95 }}
               style={{
-                background: activeCategory === category
-                  ? `linear-gradient(135deg, ${categoryColors[category] || '#667eea'}, ${categoryColors[category] || '#764ba2'})`
-                  : 'rgba(136, 171, 242, 0.1)'
+                background:
+                  activeCategory === category
+                    ? `linear-gradient(135deg, ${categoryColors[category] || '#667eea'}, ${categoryColors[category] || '#764ba2'})`
+                    : 'rgba(136, 171, 242, 0.1)',
               }}
             >
               {category}
@@ -236,18 +243,12 @@ const Photography: React.FC = () => {
                   >
                     <div className="photo-info-content">
                       <h3>{photo.title}</h3>
-                      <span
-                        className="category-badge"
-                        data-category={photo.category}
-                      >
+                      <span className="category-badge" data-category={photo.category}>
                         {photo.category}
                       </span>
                     </div>
                   </motion.div>
-                  <div
-                    className="photo-card-gradient"
-                    data-category={photo.category}
-                  />
+                  <div className="photo-card-gradient" data-category={photo.category} />
                 </div>
               </motion.div>
             ))}
@@ -272,18 +273,32 @@ const Photography: React.FC = () => {
           whileTap={{ scale: 0.95 }}
         >
           <div className="cta-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <path d="M21 15l-5-5L5 21"/>
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="M21 15l-5-5L5 21" />
             </svg>
           </div>
           <div className="cta-text">
             <h3>Explore Full Collection</h3>
             <p>View 100+ photos in Adobe Lightroom</p>
           </div>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </motion.a>
       </motion.section>
@@ -300,14 +315,14 @@ const Photography: React.FC = () => {
           >
             <motion.div
               className="lightbox-backdrop"
-              initial={{ backdropFilter: "blur(0px)" }}
-              animate={{ backdropFilter: "blur(20px)" }}
-              exit={{ backdropFilter: "blur(0px)" }}
+              initial={{ backdropFilter: 'blur(0px)' }}
+              animate={{ backdropFilter: 'blur(20px)' }}
+              exit={{ backdropFilter: 'blur(0px)' }}
             />
 
             {/* Previous Button */}
             <motion.button
-              onClick={(e) => {
+              onClick={e => {
                 e.stopPropagation();
                 handlePrevious();
               }}
@@ -318,14 +333,21 @@ const Photography: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M15 18l-6-6 6-6"/>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M15 18l-6-6 6-6" />
               </svg>
             </motion.button>
 
             {/* Next Button */}
             <motion.button
-              onClick={(e) => {
+              onClick={e => {
                 e.stopPropagation();
                 handleNext();
               }}
@@ -336,8 +358,15 @@ const Photography: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M9 18l6-6-6-6"/>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M9 18l6-6-6-6" />
               </svg>
             </motion.button>
 
@@ -357,8 +386,15 @@ const Photography: React.FC = () => {
               whileHover={{ scale: 1.1, rotate: 90 }}
               whileTap={{ scale: 0.9 }}
             >
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M18 6L6 18M6 6l12 12"/>
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M18 6L6 18M6 6l12 12" />
               </svg>
             </motion.button>
 
@@ -367,8 +403,8 @@ const Photography: React.FC = () => {
               initial={{ scale: 0.8, y: 50 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.8, y: 50 }}
-              transition={{ type: "spring", damping: 25 }}
-              onClick={(e) => e.stopPropagation()}
+              transition={{ type: 'spring', damping: 25 }}
+              onClick={e => e.stopPropagation()}
               key={selectedPhoto.id} // Force re-mount for smooth transitions
             >
               <img src={selectedPhoto.src} alt={selectedPhoto.title} />
@@ -379,10 +415,7 @@ const Photography: React.FC = () => {
                 transition={{ delay: 0.2 }}
               >
                 <h2>{selectedPhoto.title}</h2>
-                <span
-                  className="lightbox-category"
-                  data-category={selectedPhoto.category}
-                >
+                <span className="lightbox-category" data-category={selectedPhoto.category}>
                   {selectedPhoto.category}
                 </span>
 

@@ -1,5 +1,16 @@
 import React from 'react';
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  LineChart,
+  Line,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts';
 import './Charts/ResultChart.css';
 
 interface DataPoint {
@@ -47,10 +58,7 @@ const ResultChart: React.FC<ResultChartProps> = ({
             stroke="var(--bc-text-secondary)"
             style={{ fontSize: '0.875rem' }}
           />
-          <YAxis
-            stroke="var(--bc-text-secondary)"
-            style={{ fontSize: '0.875rem' }}
-          />
+          <YAxis stroke="var(--bc-text-secondary)" style={{ fontSize: '0.875rem' }} />
           <Tooltip
             contentStyle={{
               backgroundColor: 'var(--bc-surface)',
@@ -74,4 +82,3 @@ const ResultChart: React.FC<ResultChartProps> = ({
 };
 
 export default ResultChart;
-

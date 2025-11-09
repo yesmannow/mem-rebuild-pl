@@ -1,20 +1,23 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { createStyleObject } from "@capsizecss/core";
-import interMetrics from "@capsizecss/metrics/inter";
-import robotoSlabMetrics from "@capsizecss/metrics/robotoSlab";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+// @ts-ignore - Optional dependency
+import { createStyleObject } from '@capsizecss/core';
+// @ts-ignore - Optional dependency
+import interMetrics from '@capsizecss/metrics/inter';
+// @ts-ignore - Optional dependency
+import robotoSlabMetrics from '@capsizecss/metrics/robotoSlab';
 
 const fontPairs = [
   {
-    id: "inter-roboto",
-    heading: { name: "Inter", metrics: interMetrics },
-    body: { name: "Roboto Slab", metrics: robotoSlabMetrics }
+    id: 'inter-roboto',
+    heading: { name: 'Inter', metrics: interMetrics },
+    body: { name: 'Roboto Slab', metrics: robotoSlabMetrics },
   },
   {
-    id: "inter-inter",
-    heading: { name: "Inter", metrics: interMetrics },
-    body: { name: "Inter", metrics: interMetrics }
-  }
+    id: 'inter-inter',
+    heading: { name: 'Inter', metrics: interMetrics },
+    body: { name: 'Inter', metrics: interMetrics },
+  },
   // Add more curated pairs here
 ];
 
@@ -25,13 +28,13 @@ export default function TypographyModule() {
   const headingStyle = createStyleObject({
     fontSize: 32,
     leading: 40,
-    fontMetrics: pair.heading.metrics
+    fontMetrics: pair.heading.metrics,
   });
 
   const bodyStyle = createStyleObject({
     fontSize: 18,
     leading: 28,
-    fontMetrics: pair.body.metrics
+    fontMetrics: pair.body.metrics,
   });
 
   return (
@@ -45,9 +48,7 @@ export default function TypographyModule() {
             key={p.id}
             onClick={() => setActive(i)}
             className={`px-4 py-2 rounded-full border transition ${
-              active === i
-                ? "bg-blue-600 text-white"
-                : "bg-white text-slate-700 hover:bg-slate-100"
+              active === i ? 'bg-blue-600 text-white' : 'bg-white text-slate-700 hover:bg-slate-100'
             }`}
           >
             {p.heading.name} + {p.body.name}
@@ -69,8 +70,8 @@ export default function TypographyModule() {
             Heading Preview — {pair.heading.name}
           </h1>
           <p style={bodyStyle} className="text-slate-700">
-            Body preview text using {pair.body.name}. The quick brown fox jumps
-            over the lazy dog. This shows rhythm, contrast, and readability.
+            Body preview text using {pair.body.name}. The quick brown fox jumps over the lazy dog.
+            This shows rhythm, contrast, and readability.
           </p>
         </motion.div>
       </AnimatePresence>

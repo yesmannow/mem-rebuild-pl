@@ -1,8 +1,9 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { motion as motionTokens } from "../../styles/motion-tokens.js";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import gsap from "gsap";
+import React from 'react';
+import { motion, Easing } from 'framer-motion';
+import { motion as motionTokens } from '../../styles/motion-tokens.js';
+import { castMotionProps } from '../../utils/motion-helpers';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from 'gsap';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +17,7 @@ const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ phases }) => {
       className="process-timeline"
       style={{
         padding: '4rem 2rem',
-        overflowX: 'auto'
+        overflowX: 'auto',
       }}
     >
       <div style={{ display: 'flex', gap: '2rem' }}>
@@ -29,9 +30,9 @@ const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ phases }) => {
               padding: '1rem',
               background: 'var(--color-neutral-800)',
               color: 'white',
-              borderRadius: '8px'
+              borderRadius: '8px',
             }}
-            {...motionTokens.fadeIn}
+            {...castMotionProps(motionTokens.fadeIn)}
           >
             <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>{phase}</h3>
           </motion.div>

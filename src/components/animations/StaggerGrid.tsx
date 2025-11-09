@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion, AnimationGeneratorType } from 'framer-motion';
 
 interface StaggerGridProps {
   children: React.ReactNode[];
@@ -7,10 +7,10 @@ interface StaggerGridProps {
   staggerDelay?: number;
 }
 
-const StaggerGrid: React.FC<StaggerGridProps> = ({ 
-  children, 
-  className = "",
-  staggerDelay = 0.1 
+const StaggerGrid: React.FC<StaggerGridProps> = ({
+  children,
+  className = '',
+  staggerDelay = 0.1,
 }) => {
   const container = {
     hidden: { opacity: 0 },
@@ -23,20 +23,20 @@ const StaggerGrid: React.FC<StaggerGridProps> = ({
   };
 
   const item = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 20,
-      scale: 0.95
+      scale: 0.95,
     },
-    show: { 
-      opacity: 1, 
+    show: {
+      opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        type: "spring",
+        type: 'spring' as AnimationGeneratorType,
         stiffness: 100,
         damping: 15,
-      }
+      },
     },
   };
 

@@ -14,7 +14,9 @@
   border: 1px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;
   backdrop-filter: blur(18px);
-  transition: transform var(--duration-normal) ease, box-shadow var(--duration-normal) ease;
+  transition:
+    transform var(--duration-normal) ease,
+    box-shadow var(--duration-normal) ease;
 }
 
 .selected-work-card__media {

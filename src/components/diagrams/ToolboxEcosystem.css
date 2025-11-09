@@ -98,7 +98,9 @@
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   filter: grayscale(30%);
-  transition: filter 0.3s ease, transform 0.3s ease;
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
 }
 
 .tool-node:hover .node-icon,
@@ -129,7 +131,8 @@
 }
 
 @keyframes pulse-ring {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 1;
   }
@@ -167,8 +170,12 @@
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .hub-label {

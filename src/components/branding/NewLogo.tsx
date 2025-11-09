@@ -1,30 +1,30 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion, Easing } from 'framer-motion';
 
 interface NewLogoProps {
   className?: string;
   size?: number;
-  variant?: "header" | "splash" | "footer";
+  variant?: 'header' | 'splash' | 'footer';
   animated?: boolean;
 }
 
-const NewLogo: React.FC<NewLogoProps> = ({ 
-  className = "", 
-  size = 48, 
-  variant = "header",
-  animated = true 
+const NewLogo: React.FC<NewLogoProps> = ({
+  className = '',
+  size = 48,
+  variant = 'header',
+  animated = true,
 }) => {
   const logoVariants = {
     initial: { opacity: 0, scale: 0.8 },
-    animate: { 
-      opacity: 1, 
+    animate: {
+      opacity: 1,
       scale: 1,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6, ease: 'easeOut' as Easing },
     },
-    hover: { 
+    hover: {
       scale: 1.05,
-      transition: { duration: 0.3 }
-    }
+      transition: { duration: 0.3 },
+    },
   };
 
   return (
@@ -36,9 +36,9 @@ const NewLogo: React.FC<NewLogoProps> = ({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       variants={animated ? logoVariants : undefined}
-      initial={animated ? "initial" : undefined}
-      animate={animated ? "animate" : undefined}
-      whileHover={animated ? "hover" : undefined}
+      initial={animated ? 'initial' : undefined}
+      animate={animated ? 'animate' : undefined}
+      whileHover={animated ? 'hover' : undefined}
     >
       {/* Outer ring */}
       <motion.circle
@@ -50,9 +50,9 @@ const NewLogo: React.FC<NewLogoProps> = ({
         fill="none"
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
-        transition={{ duration: 1.5, ease: "easeInOut" }}
+        transition={{ duration: 1.5, ease: 'easeInOut' }}
       />
-      
+
       {/* Inner geometric pattern */}
       <motion.path
         d="M30 60 L60 30 L90 60 L60 90 Z"
@@ -62,9 +62,9 @@ const NewLogo: React.FC<NewLogoProps> = ({
         strokeLinejoin="round"
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
-        transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
+        transition={{ duration: 1, delay: 0.5, ease: 'easeInOut' }}
       />
-      
+
       {/* Central "JD" monogram */}
       <motion.text
         x="60"
@@ -80,7 +80,7 @@ const NewLogo: React.FC<NewLogoProps> = ({
       >
         JD
       </motion.text>
-      
+
       {/* Accent dots */}
       <motion.circle
         cx="60"

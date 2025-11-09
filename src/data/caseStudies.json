@@ -17,11 +17,7 @@
     "problem": "Customers were anxious about compliance, flooding support with repeated questions. Agents had no reliable system to personalise responses or recommend upgrades.",
     "solution": "Centralised state rules, layered personalised automations, and built an authenticated experience that answered compliance questions instantly while surfacing relevant offers.",
     "outcome": "Compliance inquiries dropped 68%, 92% of questions are solved in under 30 seconds, and tailored upgrade prompts lifted advanced course conversions by 27%.",
-    "metrics": [
-      "Support Tickets: -68%",
-      "Self-Serve Resolution: 92%",
-      "Upsell Conversion: +27%"
-    ]
+    "metrics": ["Support Tickets: -68%", "Self-Serve Resolution: 92%", "Upsell Conversion: +27%"]
   },
   {
     "id": "the-compass",
@@ -41,11 +37,7 @@
     "problem": "Persistent bot attacks strained the storefront, slowed checkout, and introduced security risk at the exact moments revenue peaked.",
     "solution": "Shifted security to the edge with Cloudflare WAF, bot mitigation, surgical rate limiting, and observability that catches anomalies before customers feel them.",
     "outcome": "Blocked more than 85K malicious hits per month, increased cache hit ratio to 86%, and improved conversion-critical page speed by 210%.",
-    "metrics": [
-      "Threats Blocked: 85K+/month",
-      "Cache Hit Ratio: 86%",
-      "Page Speed: +210%"
-    ]
+    "metrics": ["Threats Blocked: 85K+/month", "Cache Hit Ratio: 86%", "Page Speed: +210%"]
   },
   {
     "id": "the-conductor",
@@ -53,11 +45,7 @@
     "problem": "WooCommerce, LearnDash, Gravity Forms, and the CRM all told different stories. Teams wasted days reconciling spreadsheets.",
     "solution": "Built a unified pipeline that synchronises purchases, learning progress, and customer state in real time while powering automation for every team.",
     "outcome": "Saved 48 hours of manual work every week, achieved 99.8% data accuracy, and gave leadership real-time dashboards that focus conversations on action.",
-    "metrics": [
-      "Platforms Unified: 6",
-      "Manual Hours Saved: 48/week",
-      "Data Accuracy: 99.8%"
-    ]
+    "metrics": ["Platforms Unified: 6", "Manual Hours Saved: 48/week", "Data Accuracy: 99.8%"]
   },
   {
     "id": "the-engine-room",

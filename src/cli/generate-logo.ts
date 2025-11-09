@@ -13,7 +13,9 @@ function writeToFile(outputPath: string, data: Buffer | string) {
 
 // Utility function to handle unsupported options
 function handleUnsupportedOption(option: string, value: string, supportedValues: string[]) {
-  console.error(`❌ Unsupported ${option}: ${value}. Supported ${option}s: ${supportedValues.join(', ')}`);
+  console.error(
+    `❌ Unsupported ${option}: ${value}. Supported ${option}s: ${supportedValues.join(', ')}`
+  );
   process.exit(1);
 }
 
@@ -23,9 +25,24 @@ const useRemote = process.argv.includes('--remote');
 
 const supportedThemes = ['light', 'dark', 'gradient'];
 const supportedFormats = ['svg', 'png'];
-const format = process.argv.includes('--format') ? process.argv[process.argv.indexOf('--format') + 1] : 'svg';
-const theme = process.argv.includes('--theme') ? process.argv[process.argv.indexOf('--theme') + 1] : config.defaultTheme;
-const initials = process.argv.includes('--initials') ? process.argv[process.argv.indexOf('--initials') + 1] : config.defaultInitials;
+const format = process.argv.includes('--format')
+  ? process.argv[process.argv.indexOf('--format') + 1]
+  : 'svg';
+const theme = process.argv.includes('--theme')
+  ? process.argv[process.argv.indexOf('--theme') + 1]
+  : config.defaultTheme;
+
+// Map CLI themes to logoFactory themes
+const themeMap: Record<string, 'modern' | 'classic' | 'bold'> = {
+  light: 'classic',
+  dark: 'modern',
+  gradient: 'bold',
+};
+
+const logoTheme = themeMap[theme] || 'modern';
+const initials = process.argv.includes('--initials')
+  ? process.argv[process.argv.indexOf('--initials') + 1]
+  : config.defaultInitials;
 
 if (!supportedThemes.includes(theme)) {
   handleUnsupportedOption('theme', theme, supportedThemes);
@@ -45,7 +62,7 @@ if (useRemote) {
     const res = await axios.post('http://localhost:8000/generate-logo', {
       initials,
       theme,
-      format
+      format,
     });
     const outputFilePath = path.join(config.outputDir, `logo.${format}`);
     writeToFile(outputFilePath, res.data[format]);
@@ -60,8 +77,8 @@ if (useRemote) {
   }
 } else {
   const svg = createSVGLogo({
-    theme,
-    initials
+    theme: logoTheme,
+    initials,
   });
 
   if (format === 'svg') {

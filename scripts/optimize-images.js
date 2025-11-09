@@ -7,8 +7,14 @@
  * Example: node scripts/optimize-images.js public/images
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { createRequire } from 'module';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const require = createRequire(import.meta.url);
 
 // Configuration
 const SUPPORTED_FORMATS = ['.jpg', '.jpeg', '.png'];
@@ -66,9 +72,7 @@ function getImageFiles(dir, fileList = []) {
 async function convertToWebP(inputPath, outputPath) {
   try {
     const sharp = require('sharp');
-    await sharp(inputPath)
-      .webp({ quality: QUALITY.webp })
-      .toFile(outputPath);
+    await sharp(inputPath).webp({ quality: QUALITY.webp }).toFile(outputPath);
     return true;
   } catch (error) {
     console.error(`❌ Failed to convert ${inputPath}:`, error.message);
@@ -165,7 +169,8 @@ async function optimizeImages(directory = 'public/images') {
 }
 
 // Run if called directly
-if (require.main === module) {
+const isMainModule = import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]);
+if (isMainModule || process.argv[1]?.endsWith('optimize-images.js')) {
   const directory = process.argv[2] || 'public/images';
   optimizeImages(directory).catch(error => {
     console.error('❌ Fatal error:', error);
@@ -173,5 +178,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { optimizeImages };
-
+export { optimizeImages };

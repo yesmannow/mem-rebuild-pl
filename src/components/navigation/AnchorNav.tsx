@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { ChevronUp } from "lucide-react";
-import "./AnchorNav.css";
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { ChevronUp } from 'lucide-react';
+import './AnchorNav.css';
 
 interface AnchorItem {
   id: string;
@@ -13,8 +13,8 @@ interface AnchorNavProps {
   className?: string;
 }
 
-const AnchorNav: React.FC<AnchorNavProps> = ({ anchors, className = "" }) => {
-  const [activeAnchor, setActiveAnchor] = useState<string>("");
+const AnchorNav: React.FC<AnchorNavProps> = ({ anchors, className = '' }) => {
+  const [activeAnchor, setActiveAnchor] = useState<string>('');
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -37,10 +37,10 @@ const AnchorNav: React.FC<AnchorNavProps> = ({ anchors, className = "" }) => {
       setIsVisible(window.scrollY > 300);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Initial check
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [anchors]);
 
   const scrollToSection = (id: string) => {
@@ -51,7 +51,7 @@ const AnchorNav: React.FC<AnchorNavProps> = ({ anchors, className = "" }) => {
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: 'smooth',
       });
     }
   };
@@ -59,7 +59,7 @@ const AnchorNav: React.FC<AnchorNavProps> = ({ anchors, className = "" }) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: 'smooth',
     });
   };
 
@@ -74,12 +74,12 @@ const AnchorNav: React.FC<AnchorNavProps> = ({ anchors, className = "" }) => {
       transition={{ duration: 0.3 }}
     >
       <div className="anchor-nav__list">
-        {anchors.map((anchor) => (
+        {anchors.map(anchor => (
           <button
             key={anchor.id}
             onClick={() => scrollToSection(anchor.id)}
             className={`anchor-nav__item ${
-              activeAnchor === anchor.id ? "anchor-nav__item--active" : ""
+              activeAnchor === anchor.id ? 'anchor-nav__item--active' : ''
             }`}
             aria-label={`Jump to ${anchor.label}`}
           >
@@ -87,11 +87,7 @@ const AnchorNav: React.FC<AnchorNavProps> = ({ anchors, className = "" }) => {
           </button>
         ))}
       </div>
-      <button
-        onClick={scrollToTop}
-        className="anchor-nav__top"
-        aria-label="Scroll to top"
-      >
+      <button onClick={scrollToTop} className="anchor-nav__top" aria-label="Scroll to top">
         <ChevronUp size={18} />
       </button>
     </motion.nav>
@@ -99,4 +95,3 @@ const AnchorNav: React.FC<AnchorNavProps> = ({ anchors, className = "" }) => {
 };
 
 export default AnchorNav;
-

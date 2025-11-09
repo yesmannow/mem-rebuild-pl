@@ -1,12 +1,12 @@
 import React from 'react';
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 // Fixed JSX namespace issue and marked props as readonly
 type ApplicationsPanelProps = {
   readonly tokens: {
     colors: { [key: string]: string };
     font: { heading: string; body: string };
-    mark?: JSX.Element;
+    mark?: React.ReactElement;
   };
 };
 
@@ -62,8 +62,8 @@ export default function ApplicationsPanel({ tokens }: ApplicationsPanelProps) {
             className="px-6 py-3 rounded font-semibold"
             style={{
               backgroundColor: tokens.colors[600],
-              color: "white",
-              fontFamily: tokens.font.body
+              color: 'white',
+              fontFamily: tokens.font.body,
             }}
           >
             Call to Action
@@ -81,8 +81,8 @@ export default function ApplicationsPanel({ tokens }: ApplicationsPanelProps) {
             className="px-4 py-2 rounded font-medium"
             style={{
               backgroundColor: tokens.colors[500],
-              color: "white",
-              fontFamily: tokens.font.body
+              color: 'white',
+              fontFamily: tokens.font.body,
             }}
           >
             Primary Button
@@ -92,16 +92,13 @@ export default function ApplicationsPanel({ tokens }: ApplicationsPanelProps) {
             style={{
               borderColor: tokens.colors[500],
               color: tokens.colors[500],
-              fontFamily: tokens.font.body
+              fontFamily: tokens.font.body,
             }}
           >
             Secondary Button
           </button>
 
-          <div
-            className="p-4 rounded"
-            style={{ backgroundColor: tokens.colors[100] }}
-          >
+          <div className="p-4 rounded" style={{ backgroundColor: tokens.colors[100] }}>
             <p
               className="font-medium"
               style={{ fontFamily: tokens.font.body, color: tokens.colors[900] }}
@@ -109,10 +106,7 @@ export default function ApplicationsPanel({ tokens }: ApplicationsPanelProps) {
               Success Alert
             </p>
           </div>
-          <div
-            className="p-4 rounded"
-            style={{ backgroundColor: tokens.colors[200] }}
-          >
+          <div className="p-4 rounded" style={{ backgroundColor: tokens.colors[200] }}>
             <p
               className="font-medium"
               style={{ fontFamily: tokens.font.body, color: tokens.colors[900] }}

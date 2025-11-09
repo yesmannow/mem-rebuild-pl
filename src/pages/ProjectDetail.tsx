@@ -1,11 +1,11 @@
-import React from "react";
-import { useParams, Link, Navigate } from "react-router-dom";
-import { projects } from "../data/projects";
-import "./ProjectDetail.css";
+import React from 'react';
+import { useParams, Link, Navigate } from 'react-router-dom';
+import { projects } from '../data/projects';
+import './ProjectDetail.css';
 
 const ProjectDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const project = projects.find((p) => p.slug === slug);
+  const project = projects.find(p => p.slug === slug);
 
   if (!project) {
     return <Navigate to="/projects" replace />;
@@ -13,13 +13,17 @@ const ProjectDetail: React.FC = () => {
 
   return (
     <main className="project-detail">
-      <Link to="/projects" className="back-link">← Back to Projects</Link>
-      
+      <Link to="/projects" className="back-link">
+        ← Back to Projects
+      </Link>
+
       <section className="project-header">
         <h1>{project.title}</h1>
         <div className="project-tags">
-          {project.tags.map((tag) => (
-            <span key={tag} className="tag">{tag}</span>
+          {project.tags.map(tag => (
+            <span key={tag} className="tag">
+              {tag}
+            </span>
           ))}
         </div>
       </section>
@@ -44,9 +48,9 @@ const ProjectDetail: React.FC = () => {
 
       <section className="project-links">
         {project.link && (
-          <a 
-            href={project.link} 
-            target="_blank" 
+          <a
+            href={project.link}
+            target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
           >
@@ -54,9 +58,9 @@ const ProjectDetail: React.FC = () => {
           </a>
         )}
         {project.github && (
-          <a 
-            href={project.github} 
-            target="_blank" 
+          <a
+            href={project.github}
+            target="_blank"
             rel="noopener noreferrer"
             className="btn btn-secondary"
           >

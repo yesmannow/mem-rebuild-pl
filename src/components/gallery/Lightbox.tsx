@@ -1,7 +1,7 @@
-import React, { useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, Download, Share2, Heart } from "lucide-react";
-import "./Lightbox.css";
+import React, { useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, ChevronLeft, ChevronRight, Download, Share2, Heart } from 'lucide-react';
+import './Lightbox.css';
 
 interface LightboxProps {
   isOpen: boolean;
@@ -24,42 +24,45 @@ const Lightbox: React.FC<LightboxProps> = ({
   currentIndex,
   onClose,
   onNext,
-  onPrevious
+  onPrevious,
 }) => {
   const currentImage = images[currentIndex];
 
   // Keyboard navigation
-  const handleKeyDown = useCallback((event: KeyboardEvent) => {
-    if (!isOpen) return;
-    
-    switch (event.key) {
-      case "Escape":
-        onClose();
-        break;
-      case "ArrowLeft":
-        onPrevious();
-        break;
-      case "ArrowRight":
-        onNext();
-        break;
-    }
-  }, [isOpen, onClose, onNext, onPrevious]);
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (!isOpen) return;
+
+      switch (event.key) {
+        case 'Escape':
+          onClose();
+          break;
+        case 'ArrowLeft':
+          onPrevious();
+          break;
+        case 'ArrowRight':
+          onNext();
+          break;
+      }
+    },
+    [isOpen, onClose, onNext, onPrevious]
+  );
 
   useEffect(() => {
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [handleKeyDown]);
 
   // Prevent body scroll when lightbox is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     }
-    
+
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
 
@@ -78,9 +81,9 @@ const Lightbox: React.FC<LightboxProps> = ({
         {/* Backdrop blur */}
         <motion.div
           className="lightbox-backdrop"
-          initial={{ backdropFilter: "blur(0px)" }}
-          animate={{ backdropFilter: "blur(20px)" }}
-          exit={{ backdropFilter: "blur(0px)" }}
+          initial={{ backdropFilter: 'blur(0px)' }}
+          animate={{ backdropFilter: 'blur(20px)' }}
+          exit={{ backdropFilter: 'blur(0px)' }}
           transition={{ duration: 0.4 }}
         />
 
@@ -90,8 +93,8 @@ const Lightbox: React.FC<LightboxProps> = ({
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.8, opacity: 0 }}
-          transition={{ type: "spring", damping: 25, stiffness: 300 }}
-          onClick={(e) => e.stopPropagation()}
+          transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+          onClick={e => e.stopPropagation()}
         >
           {/* Close button */}
           <motion.button
@@ -120,7 +123,7 @@ const Lightbox: React.FC<LightboxProps> = ({
               >
                 <ChevronLeft size={32} />
               </motion.button>
-              
+
               <motion.button
                 className="lightbox-nav lightbox-next"
                 onClick={onNext}
@@ -164,9 +167,7 @@ const Lightbox: React.FC<LightboxProps> = ({
                 {currentImage.title || `Image ${currentIndex + 1}`}
               </h3>
               {currentImage.category && (
-                <span className="lightbox-category">
-                  {currentImage.category}
-                </span>
+                <span className="lightbox-category">{currentImage.category}</span>
               )}
               {currentImage.tags && (
                 <div className="lightbox-tags">
@@ -195,7 +196,7 @@ const Lightbox: React.FC<LightboxProps> = ({
               >
                 <Download size={18} />
               </motion.button>
-              
+
               <motion.button
                 className="lightbox-action"
                 whileHover={{ scale: 1.1 }}
@@ -205,14 +206,14 @@ const Lightbox: React.FC<LightboxProps> = ({
                   if (navigator.share) {
                     navigator.share({
                       title: currentImage.title,
-                      url: currentImage.src
+                      url: currentImage.src,
                     });
                   }
                 }}
               >
                 <Share2 size={18} />
               </motion.button>
-              
+
               <motion.button
                 className="lightbox-action"
                 whileHover={{ scale: 1.1 }}

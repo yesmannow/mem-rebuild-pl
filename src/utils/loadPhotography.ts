@@ -9,7 +9,7 @@ export interface PhotoItem {
   title: string;
   category: string;
   filename: string;
-  size?: "small" | "medium" | "large" | "wide" | "tall";
+  size?: 'small' | 'medium' | 'large' | 'wide' | 'tall';
 }
 
 /**
@@ -17,13 +17,13 @@ export interface PhotoItem {
  */
 function categorizePhoto(filename: string): string {
   const lower = filename.toLowerCase();
-  
+
   if (lower.includes('portrait') || lower.includes('burst')) return 'Portrait';
   if (lower.includes('psx') || lower.includes('img_')) return 'Creative';
   if (lower.match(/202[0-4]0[6-9]|202[0-4]07/)) return 'Landscape'; // Summer months
   if (lower.match(/202[0-4]0[3-5]/)) return 'Nature'; // Spring months
   if (lower.match(/202[0-4]1[0-2]|202[0-4]01/)) return 'Urban'; // Winter months
-  
+
   return 'Creative';
 }
 
@@ -33,20 +33,33 @@ function categorizePhoto(filename: string): string {
 function generateTitle(filename: string): string {
   // Remove extension
   const nameWithoutExt = filename.replace(/\.(jpg|jpeg|png|webp|avif)$/i, '');
-  
+
   // Handle date-based filenames (20240704_175213 -> "July 4, 2024")
   const dateMatch = nameWithoutExt.match(/^(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})/);
   if (dateMatch) {
     const [, year, month, day] = dateMatch;
-    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const monthNames = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
     return `${monthNames[parseInt(month) - 1]} ${parseInt(day)}, ${year}`;
   }
-  
+
   // Handle special prefixes
   if (nameWithoutExt.startsWith('PSX_')) return 'Edited Scene';
   if (nameWithoutExt.startsWith('IMG_')) return 'Captured Moment';
   if (nameWithoutExt.includes('PORTRAIT')) return 'Portrait Study';
-  
+
   // Default: capitalize and clean up
   return nameWithoutExt
     .replace(/[_-]/g, ' ')
@@ -60,8 +73,19 @@ function generateTitle(filename: string): string {
 /**
  * Assign grid size based on index for visual variety
  */
-function assignSize(index: number): "small" | "medium" | "large" | "wide" | "tall" {
-  const pattern = ['large', 'tall', 'medium', 'wide', 'small', 'medium', 'tall', 'large', 'small', 'wide'];
+function assignSize(index: number): 'small' | 'medium' | 'large' | 'wide' | 'tall' {
+  const pattern = [
+    'large',
+    'tall',
+    'medium',
+    'wide',
+    'small',
+    'medium',
+    'tall',
+    'large',
+    'small',
+    'wide',
+  ];
   return pattern[index % pattern.length] as any;
 }
 
@@ -110,7 +134,7 @@ export function loadPhotographyImages(): PhotoItem[] {
     'PSX_20240717_043501.jpg',
     'PSX_20240717_044925.jpg',
     'QVZmSFl0bmlBMHVYd3JhSw.jpg',
-    'image.jpg'
+    'image.jpg',
   ];
 
   return imageFiles.map((filename, index) => ({
@@ -119,7 +143,7 @@ export function loadPhotographyImages(): PhotoItem[] {
     filename,
     title: generateTitle(filename),
     category: categorizePhoto(filename),
-    size: assignSize(index)
+    size: assignSize(index),
   }));
 }
 
@@ -141,5 +165,5 @@ export const categoryColors: Record<string, string> = {
   Architecture: '#9f7aea',
   Event: '#f56565',
   Portrait: '#ed64a6',
-  Creative: '#4299e1'
+  Creative: '#4299e1',
 };

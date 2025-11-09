@@ -1,16 +1,28 @@
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
-import useEmblaCarousel from "embla-carousel-react";
+import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import useEmblaCarousel from 'embla-carousel-react';
 
 type Testimonial = { quote: string; author: string; role?: string; logoSrc?: string; id: string };
 const testimonials: Testimonial[] = [
-  { id: "1", quote: "Jacob turned chaos into a scalable system that just works.", author: "Product Lead, Healthcare" },
-  { id: "2", quote: "Our support load dropped dramatically after his automation rollout.", author: "Ops Director, EdTech" },
-  { id: "3", quote: "Clear strategy, clean execution, measurable impact.", author: "Managing Partner, Legal" }
+  {
+    id: '1',
+    quote: 'Jacob turned chaos into a scalable system that just works.',
+    author: 'Product Lead, Healthcare',
+  },
+  {
+    id: '2',
+    quote: 'Our support load dropped dramatically after his automation rollout.',
+    author: 'Ops Director, EdTech',
+  },
+  {
+    id: '3',
+    quote: 'Clear strategy, clean execution, measurable impact.',
+    author: 'Managing Partner, Legal',
+  },
 ];
 
 export default function TestimonialsCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -24,7 +36,7 @@ export default function TestimonialsCarousel() {
         <h2 className="text-3xl font-bold mb-6">Testimonials</h2>
         <div className="embla" ref={emblaRef}>
           <div className="embla__container flex">
-            {testimonials.map((t) => (
+            {testimonials.map(t => (
               <motion.div
                 key={t.id}
                 className="embla__slide min-w-0 flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] pr-4"
@@ -36,7 +48,8 @@ export default function TestimonialsCarousel() {
                 <figure className="h-full p-6 bg-white rounded-lg shadow-sm">
                   <blockquote className="text-slate-700">“{t.quote}”</blockquote>
                   <figcaption className="mt-3 text-sm text-slate-500">
-                    — {t.author}{t.role ? `, ${t.role}` : ""}
+                    — {t.author}
+                    {t.role ? `, ${t.role}` : ''}
                   </figcaption>
                 </figure>
               </motion.div>

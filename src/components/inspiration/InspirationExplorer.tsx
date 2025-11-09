@@ -35,8 +35,9 @@ const InspirationExplorer: React.FC<InspirationExplorerProps> = ({ className = '
   const filteredInspirations = useMemo(() => {
     return inspirations.filter(item => {
       const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
-      const matchesSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           item.reflection.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesSearch =
+        item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.reflection.toLowerCase().includes(searchTerm.toLowerCase());
       return matchesCategory && matchesSearch;
     });
   }, [selectedCategory, searchTerm, inspirations]);
@@ -72,7 +73,7 @@ const InspirationExplorer: React.FC<InspirationExplorerProps> = ({ className = '
                 type="text"
                 placeholder="Search inspirations..."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={e => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
               />
             </div>
@@ -82,12 +83,14 @@ const InspirationExplorer: React.FC<InspirationExplorerProps> = ({ className = '
               <Filter className="text-gray-400 h-5 w-5" />
               <select
                 value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
+                onChange={e => setSelectedCategory(e.target.value)}
                 className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
               >
                 {categories.map(category => (
                   <option key={category} value={category}>
-                    {category === 'all' ? 'All Categories' : category.charAt(0).toUpperCase() + category.slice(1)}
+                    {category === 'all'
+                      ? 'All Categories'
+                      : category.charAt(0).toUpperCase() + category.slice(1)}
                   </option>
                 ))}
               </select>
@@ -96,10 +99,7 @@ const InspirationExplorer: React.FC<InspirationExplorerProps> = ({ className = '
         </div>
 
         {/* Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence>
             {filteredInspirations.map((item, index) => (
               <motion.div
@@ -164,7 +164,7 @@ const InspirationExplorer: React.FC<InspirationExplorerProps> = ({ className = '
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
+              onClick={e => e.stopPropagation()}
             >
               <div className="relative">
                 <button

@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #88ABF2, #a8c5ff);
+  background: linear-gradient(90deg, #88abf2, #a8c5ff);
   transform-origin: 0%;
   z-index: 9999;
   box-shadow: 0 2px 10px rgba(136, 171, 242, 0.5);

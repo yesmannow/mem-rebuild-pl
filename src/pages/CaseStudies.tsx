@@ -1,48 +1,48 @@
-import React, { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { caseStudies, getCategories } from "../data/caseStudies";
-import Icon from "../components/Icon";
-import "./CaseStudies.css";
-import "./CaseStudiesEnhanced.css";
-import CaseStudyExplorer from "../components/CaseStudyExplorer";
-import WaveDivider from "../components/WaveDivider";
+import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { caseStudies, getCategories } from '../data/caseStudies';
+import Icon from '../components/Icon';
+import './CaseStudies.css';
+import './CaseStudiesEnhanced.css';
+import CaseStudyExplorer from '../components/CaseStudyExplorer';
+import WaveDivider from '../components/WaveDivider';
 
 const CaseStudies: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<string>("All");
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
-  const [searchTerm, setSearchTerm] = useState<string>("");
-  const [sortBy, setSortBy] = useState<"default" | "name" | "recent" | "featured">("default");
-  const categories = ["All", ...getCategories()];
+  const [activeFilter, setActiveFilter] = useState<string>('All');
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [sortBy, setSortBy] = useState<'default' | 'name' | 'recent' | 'featured'>('default');
+  const categories = ['All', ...getCategories()];
 
   // Map technology names to icon slugs
   const getTechIconSlug = (techName: string): string => {
     const techMap: { [key: string]: string } = {
-      'React': 'react',
+      React: 'react',
       'Node.js': 'node',
-      'TypeScript': 'typescript',
+      TypeScript: 'typescript',
       'Tailwind CSS': 'tailwind',
-      'Vite': 'vite',
+      Vite: 'vite',
       'Git/GitHub': 'github',
-      'Python': 'python',
-      'Flask': 'flask',
-      'FastAPI': 'fastapi',
-      'Docker': 'docker',
-      'AWS': 'aws',
-      'Azure': 'azure',
-      'PostgreSQL': 'postgres',
-      'MySQL': 'mysql',
-      'Redis': 'redis',
-      'GraphQL': 'graphql',
-      'PHP': 'php',
-      'WordPress': 'wordpress',
+      Python: 'python',
+      Flask: 'flask',
+      FastAPI: 'fastapi',
+      Docker: 'docker',
+      AWS: 'aws',
+      Azure: 'azure',
+      PostgreSQL: 'postgres',
+      MySQL: 'mysql',
+      Redis: 'redis',
+      GraphQL: 'graphql',
+      PHP: 'php',
+      WordPress: 'wordpress',
       'Google Tag Manager': 'gtm',
-      'GA4': 'ga4',
-      'JavaScript': 'javascript',
-      'WooCommerce': 'woocommerce',
-      'Stripe': 'stripe',
+      GA4: 'ga4',
+      JavaScript: 'javascript',
+      WooCommerce: 'woocommerce',
+      Stripe: 'stripe',
       'Gravity Forms': 'gravityforms',
-      'ACF': 'acf'
+      ACF: 'acf',
     };
     return techMap[techName] || 'react'; // fallback to react icon
   };
@@ -51,26 +51,27 @@ const CaseStudies: React.FC = () => {
     let filtered = caseStudies;
 
     // Filter by category
-    if (activeFilter !== "All") {
+    if (activeFilter !== 'All') {
       filtered = filtered.filter(study => study.category.includes(activeFilter));
     }
 
     // Filter by search term
     if (searchTerm) {
-      filtered = filtered.filter(study =>
-        study.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        study.tagline.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        study.challenge.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        study.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+      filtered = filtered.filter(
+        study =>
+          study.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          study.tagline.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          study.challenge.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          study.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
       );
     }
 
     // Sort
-    if (sortBy === "name") {
+    if (sortBy === 'name') {
       filtered = [...filtered].sort((a, b) => a.title.localeCompare(b.title));
-    } else if (sortBy === "recent") {
+    } else if (sortBy === 'recent') {
       filtered = [...filtered].reverse();
-    } else if (sortBy === "featured") {
+    } else if (sortBy === 'featured') {
       filtered = [...filtered].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
     }
 
@@ -114,8 +115,8 @@ const CaseStudies: React.FC = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            From Spark to System: The Stories Behind the Work… I break down the challenge, the build,
-            and the measurable impact so you can see exactly how I operate.
+            From Spark to System: The Stories Behind the Work… I break down the challenge, the
+            build, and the measurable impact so you can see exactly how I operate.
           </motion.p>
 
           {/* Stats */}
@@ -161,7 +162,7 @@ const CaseStudies: React.FC = () => {
                 type="text"
                 placeholder="Search case studies..."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={e => setSearchTerm(e.target.value)}
                 className="search-input"
               />
               <Icon slug="search" className="search-icon h-5 w-5" />
@@ -190,7 +191,7 @@ const CaseStudies: React.FC = () => {
               {/* Sort Dropdown */}
               <select
                 value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as any)}
+                onChange={e => setSortBy(e.target.value as any)}
                 className="sort-select"
                 title="Sort by"
                 aria-label="Sort by"
@@ -204,16 +205,16 @@ const CaseStudies: React.FC = () => {
               {/* View Toggle */}
               <div className="view-toggle">
                 <button
-                  className={viewMode === "grid" ? "active" : ""}
-                  onClick={() => setViewMode("grid")}
+                  className={viewMode === 'grid' ? 'active' : ''}
+                  onClick={() => setViewMode('grid')}
                   aria-label="Grid view"
                   title="Grid view"
                 >
                   <Icon slug="grid" className="h-5 w-5" />
                 </button>
                 <button
-                  className={viewMode === "list" ? "active" : ""}
-                  onClick={() => setViewMode("list")}
+                  className={viewMode === 'list' ? 'active' : ''}
+                  onClick={() => setViewMode('list')}
                   aria-label="List view"
                   title="List view"
                 >
@@ -281,7 +282,9 @@ const CaseStudies: React.FC = () => {
                               />
                             ))}
                             {study.technologies.length > 4 && (
-                              <span className="tech-stack-more">+{study.technologies.length - 4}</span>
+                              <span className="tech-stack-more">
+                                +{study.technologies.length - 4}
+                              </span>
                             )}
                           </div>
                         </div>
@@ -330,10 +333,7 @@ const CaseStudies: React.FC = () => {
                     </div>
 
                     {/* Hover Gradient */}
-                    <div
-                      className="case-gradient-overlay"
-                      data-color={study.color}
-                    />
+                    <div className="case-gradient-overlay" data-color={study.color} />
                   </div>
                 </Link>
               </motion.div>
@@ -343,11 +343,7 @@ const CaseStudies: React.FC = () => {
 
         {/* No Results */}
         {filteredStudies.length === 0 && (
-          <motion.div
-            className="no-results"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
+          <motion.div className="no-results" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <div className="no-results-icon">🔍</div>
             <h3>No case studies found</h3>
             <p>Try selecting a different category filter</p>

@@ -3,8 +3,8 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #0A0A0A;
-  color: #FFFFFF;
+  background-color: #0a0a0a;
+  color: #ffffff;
   font-family: 'Inter', sans-serif;
   padding: 2rem;
   text-align: center;
@@ -15,7 +15,7 @@
 }
 
 .error-boundary-title {
-  color: #EF4444;
+  color: #ef4444;
   margin-bottom: 1rem;
 }
 
@@ -45,7 +45,7 @@
 
 .error-boundary-button {
   padding: 0.75rem 1.5rem;
-  background: #3B82F6;
+  background: #3b82f6;
   color: white;
   border: none;
   border-radius: 0.5rem;
@@ -56,10 +56,9 @@
 }
 
 .error-boundary-button:hover {
-  background: #2563EB;
+  background: #2563eb;
 }
 
 .error-boundary-button:active {
-  background: #1D4ED8;
+  background: #1d4ed8;
 }
-

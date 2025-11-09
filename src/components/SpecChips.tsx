@@ -4,24 +4,34 @@ import { motion } from 'framer-motion';
 const specData = {
   typography: [
     { name: 'Helvetica Bold', size: '24px', usage: 'Headlines', sample: 'THE QUICK BROWN FOX' },
-    { name: 'Helvetica Regular', size: '16px', usage: 'Body text', sample: 'The quick brown fox jumps over the lazy dog.' },
-    { name: 'Helvetica Light', size: '14px', usage: 'Captions', sample: 'The quick brown fox jumps over the lazy dog.' }
+    {
+      name: 'Helvetica Regular',
+      size: '16px',
+      usage: 'Body text',
+      sample: 'The quick brown fox jumps over the lazy dog.',
+    },
+    {
+      name: 'Helvetica Light',
+      size: '14px',
+      usage: 'Captions',
+      sample: 'The quick brown fox jumps over the lazy dog.',
+    },
   ],
   colors: [
     { name: 'IBM Blue', hex: '#0066CC', usage: 'Primary brand color' },
     { name: 'IBM Gray', hex: '#8C8C8C', usage: 'Secondary elements' },
-    { name: 'IBM Red', hex: '#CC0000', usage: 'Accents and warnings' }
+    { name: 'IBM Red', hex: '#CC0000', usage: 'Accents and warnings' },
   ],
   grid: [
     { name: '8px Base Unit', description: 'All spacing and sizing based on 8px increments' },
     { name: '12 Column Grid', description: 'Flexible grid system for layouts' },
-    { name: 'Baseline Grid', description: 'Text aligned to 4px baseline grid' }
+    { name: 'Baseline Grid', description: 'Text aligned to 4px baseline grid' },
   ],
   pictograms: [
     { name: 'Arrow', svg: '→', usage: 'Direction and navigation' },
     { name: 'Check', svg: '✓', usage: 'Success and completion' },
-    { name: 'Gear', svg: '⚙', usage: 'Settings and configuration' }
-  ]
+    { name: 'Gear', svg: '⚙', usage: 'Settings and configuration' },
+  ],
 };
 
 const SpecChips: React.FC = () => {
@@ -33,7 +43,7 @@ const SpecChips: React.FC = () => {
 
       {/* Category Tabs */}
       <div className="flex justify-center mb-8">
-        {Object.keys(specData).map((category) => (
+        {Object.keys(specData).map(category => (
           <button
             key={category}
             onClick={() => setActiveCategory(category as keyof typeof specData)}
@@ -49,10 +59,7 @@ const SpecChips: React.FC = () => {
       </div>
 
       {/* Specs Grid */}
-      <motion.div
-        layout
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-      >
+      <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {specData[activeCategory].map((item, index) => (
           <motion.div
             key={`${activeCategory}-${index}`}

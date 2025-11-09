@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Link } from "react-router-dom";
-import { ArrowRight, MapPin, Briefcase } from "lucide-react";
+import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
+import { ArrowRight, MapPin, Briefcase } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,27 +19,28 @@ const AboutSnapshot: React.FC = () => {
         y: -50,
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1
-        }
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+        },
       });
 
       // Stagger animation for content
-      gsap.fromTo(contentRef.current?.children || [],
+      gsap.fromTo(
+        contentRef.current?.children || [],
         { opacity: 0, x: 50 },
         {
           opacity: 1,
           x: 0,
           duration: 0.8,
           stagger: 0.2,
-          ease: "power2.out",
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: contentRef.current,
-            start: "top 70%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
+            start: 'top 70%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse',
+          },
         }
       );
     });
@@ -61,7 +62,6 @@ const AboutSnapshot: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
           {/* Portrait Section */}
           <motion.div
             ref={imageRef}
@@ -103,7 +103,6 @@ const AboutSnapshot: React.FC = () => {
 
           {/* Content Section */}
           <div ref={contentRef} className="space-y-8">
-
             {/* Section Title */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -128,17 +127,19 @@ const AboutSnapshot: React.FC = () => {
               transition={{ delay: 0.2, duration: 0.8 }}
             >
               <p className="text-xl text-gray-300 leading-relaxed">
-                I'm Jacob Darling, a marketing strategist and systems architect based in Indianapolis.
-                I specialize in marketing automation, CRM campaigns, SEO/SEM optimization, and analytics-driven
-                strategy. My unique strength is combining marketing strategy with technical implementation—building
-                the systems that make campaigns scalable, measurable, and profitable.
+                I'm Jacob Darling, a marketing strategist and systems architect based in
+                Indianapolis. I specialize in marketing automation, CRM campaigns, SEO/SEM
+                optimization, and analytics-driven strategy. My unique strength is combining
+                marketing strategy with technical implementation—building the systems that make
+                campaigns scalable, measurable, and profitable.
               </p>
 
               <p className="text-lg text-gray-400 leading-relaxed">
-                At Graston Technique®, I developed a marketing automation system with 400+ workflows that reduced
-                support tickets by 70% and increased checkout conversions by 40%. My marketing systems serve
-                30,000+ practitioners worldwide, and I've managed multi-channel campaigns with proven ROI across
-                Google Ads, Meta Ads, and LinkedIn advertising platforms.
+                At Graston Technique®, I developed a marketing automation system with 400+
+                workflows that reduced support tickets by 70% and increased checkout conversions by
+                40%. My marketing systems serve 30,000+ practitioners worldwide, and I've managed
+                multi-channel campaigns with proven ROI across Google Ads, Meta Ads, and LinkedIn
+                advertising platforms.
               </p>
             </motion.div>
 

@@ -1,14 +1,14 @@
-import React, { useEffect, useRef } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useEffect, useRef } from 'react';
+import { motion, useAnimation, Easing } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 // Particle System Animation
 export const ParticleSystem: React.FC<{ count?: number; className?: string }> = ({
   count = 50,
-  className = ""
+  className = '',
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -17,7 +17,8 @@ export const ParticleSystem: React.FC<{ count?: number; className?: string }> = 
 
     const particles = Array.from({ length: count }, (_, i) => {
       const particle = document.createElement('div');
-      particle.className = 'absolute w-1 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-60';
+      particle.className =
+        'absolute w-1 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-60';
       particle.style.left = `${Math.random() * 100}%`;
       particle.style.top = `${Math.random() * 100}%`;
       containerRef.current?.appendChild(particle);
@@ -33,8 +34,8 @@ export const ParticleSystem: React.FC<{ count?: number; className?: string }> = 
         duration: 3 + Math.random() * 2,
         repeat: -1,
         yoyo: true,
-        ease: "sine.inOut",
-        delay: i * 0.1
+        ease: 'sine.inOut',
+        delay: i * 0.1,
       });
     });
 
@@ -43,16 +44,11 @@ export const ParticleSystem: React.FC<{ count?: number; className?: string }> = 
     };
   }, [count]);
 
-  return (
-    <div
-      ref={containerRef}
-      className={`absolute inset-0 pointer-events-none ${className}`}
-    />
-  );
+  return <div ref={containerRef} className={`absolute inset-0 pointer-events-none ${className}`} />;
 };
 
 // Morphing Shapes Animation
-export const MorphingShapes: React.FC<{ className?: string }> = ({ className = "" }) => {
+export const MorphingShapes: React.FC<{ className?: string }> = ({ className = '' }) => {
   const shapesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -61,15 +57,15 @@ export const MorphingShapes: React.FC<{ className?: string }> = ({ className = "
     const shapes = shapesRef.current.children;
 
     gsap.to(shapes, {
-      scale: "random(0.8, 1.2)",
-      rotation: "random(0, 360)",
-      x: "random(-50, 50)",
-      y: "random(-50, 50)",
-      duration: "random(2, 4)",
+      scale: 'random(0.8, 1.2)',
+      rotation: 'random(0, 360)',
+      x: 'random(-50, 50)',
+      y: 'random(-50, 50)',
+      duration: 'random(2, 4)',
       repeat: -1,
       yoyo: true,
-      ease: "power2.inOut",
-      stagger: 0.2
+      ease: 'power2.inOut',
+      stagger: 0.2,
     });
   }, []);
 
@@ -92,7 +88,7 @@ export const FloatingElements: React.FC<{
     className?: string;
   }>;
   className?: string;
-}> = ({ elements, className = "" }) => {
+}> = ({ elements, className = '' }) => {
   return (
     <div className={`absolute inset-0 ${className}`}>
       {elements.map((element, index) => (
@@ -103,13 +99,13 @@ export const FloatingElements: React.FC<{
             y: [-20, 20, -20],
             x: [-10, 10, -10],
             rotate: [-5, 5, -5],
-            scale: [1, 1.1, 1]
+            scale: [1, 1.1, 1],
           }}
           transition={{
             duration: element.duration || 4,
             repeat: Infinity,
-            ease: "sine.inOut",
-            delay: element.delay || index * 0.5
+            ease: 'easeInOut' as Easing,
+            delay: element.delay || index * 0.5,
           }}
         >
           {element.content}
@@ -126,13 +122,7 @@ export const ScrollReveal: React.FC<{
   delay?: number;
   duration?: number;
   className?: string;
-}> = ({
-  children,
-  direction = 'up',
-  delay = 0,
-  duration = 0.8,
-  className = ""
-}) => {
+}> = ({ children, direction = 'up', delay = 0, duration = 0.8, className = '' }) => {
   const ref = useRef<HTMLDivElement>(null);
   const controls = useAnimation();
 
@@ -155,21 +145,31 @@ export const ScrollReveal: React.FC<{
 
   const getInitialPosition = () => {
     switch (direction) {
-      case 'up': return { y: 100, opacity: 0 };
-      case 'down': return { y: -100, opacity: 0 };
-      case 'left': return { x: 100, opacity: 0 };
-      case 'right': return { x: -100, opacity: 0 };
-      default: return { y: 100, opacity: 0 };
+      case 'up':
+        return { y: 100, opacity: 0 };
+      case 'down':
+        return { y: -100, opacity: 0 };
+      case 'left':
+        return { x: 100, opacity: 0 };
+      case 'right':
+        return { x: -100, opacity: 0 };
+      default:
+        return { y: 100, opacity: 0 };
     }
   };
 
   const getAnimatePosition = () => {
     switch (direction) {
-      case 'up': return { y: 0, opacity: 1 };
-      case 'down': return { y: 0, opacity: 1 };
-      case 'left': return { x: 0, opacity: 1 };
-      case 'right': return { x: 0, opacity: 1 };
-      default: return { y: 0, opacity: 1 };
+      case 'up':
+        return { y: 0, opacity: 1 };
+      case 'down':
+        return { y: 0, opacity: 1 };
+      case 'left':
+        return { x: 0, opacity: 1 };
+      case 'right':
+        return { x: 0, opacity: 1 };
+      default:
+        return { y: 0, opacity: 1 };
     }
   };
 
@@ -180,12 +180,12 @@ export const ScrollReveal: React.FC<{
       initial={getInitialPosition()}
       animate={controls}
       variants={{
-        visible: getAnimatePosition()
+        visible: getAnimatePosition(),
       }}
       transition={{
         duration,
         delay,
-        ease: "power2.out"
+        ease: 'easeOut' as Easing,
       }}
     >
       {children}
@@ -198,7 +198,7 @@ export const StaggerContainer: React.FC<{
   children: React.ReactNode;
   staggerDelay?: number;
   className?: string;
-}> = ({ children, staggerDelay = 0.1, className = "" }) => {
+}> = ({ children, staggerDelay = 0.1, className = '' }) => {
   return (
     <motion.div
       className={className}
@@ -210,9 +210,9 @@ export const StaggerContainer: React.FC<{
         visible: {
           opacity: 1,
           transition: {
-            staggerChildren: staggerDelay
-          }
-        }
+            staggerChildren: staggerDelay,
+          },
+        },
       }}
     >
       {children}
@@ -224,7 +224,7 @@ export const StaggerContainer: React.FC<{
 export const StaggerItem: React.FC<{
   children: React.ReactNode;
   className?: string;
-}> = ({ children, className = "" }) => {
+}> = ({ children, className = '' }) => {
   return (
     <motion.div
       className={className}
@@ -235,9 +235,9 @@ export const StaggerItem: React.FC<{
           y: 0,
           transition: {
             duration: 0.6,
-            ease: "power2.out"
-          }
-        }
+            ease: 'easeOut' as Easing,
+          },
+        },
       }}
     >
       {children}
@@ -250,7 +250,7 @@ export const MagneticHover: React.FC<{
   children: React.ReactNode;
   strength?: number;
   className?: string;
-}> = ({ children, strength = 0.3, className = "" }) => {
+}> = ({ children, strength = 0.3, className = '' }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -266,7 +266,7 @@ export const MagneticHover: React.FC<{
         x: x * strength,
         y: y * strength,
         duration: 0.3,
-        ease: "power2.out"
+        ease: 'easeOut' as Easing,
       });
     };
 
@@ -275,7 +275,7 @@ export const MagneticHover: React.FC<{
         x: 0,
         y: 0,
         duration: 0.5,
-        ease: "elastic.out(1, 0.3)"
+        ease: 'elastic.out(1, 0.3)',
       });
     };
 
@@ -300,7 +300,7 @@ export const ParallaxScroll: React.FC<{
   children: React.ReactNode;
   speed?: number;
   className?: string;
-}> = ({ children, speed = 0.5, className = "" }) => {
+}> = ({ children, speed = 0.5, className = '' }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -308,13 +308,13 @@ export const ParallaxScroll: React.FC<{
 
     gsap.to(ref.current, {
       y: () => -(window.innerHeight * speed),
-      ease: "none",
+      ease: 'none',
       scrollTrigger: {
         trigger: ref.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true
-      }
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+      },
     });
   }, [speed]);
 
@@ -330,7 +330,7 @@ export const TextReveal: React.FC<{
   text: string;
   className?: string;
   delay?: number;
-}> = ({ text, className = "", delay = 0 }) => {
+}> = ({ text, className = '', delay = 0 }) => {
   const words = text.split(' ');
 
   return (
@@ -345,7 +345,7 @@ export const TextReveal: React.FC<{
           transition={{
             duration: 0.6,
             delay: delay + index * 0.1,
-            ease: "power2.out"
+            ease: 'easeOut' as Easing,
           }}
         >
           {word}
@@ -359,11 +359,11 @@ export const TextReveal: React.FC<{
 export const LoadingSpinner: React.FC<{
   size?: 'sm' | 'md' | 'lg';
   className?: string;
-}> = ({ size = 'md', className = "" }) => {
+}> = ({ size = 'md', className = '' }) => {
   const sizeClasses = {
     sm: 'w-4 h-4',
     md: 'w-8 h-8',
-    lg: 'w-12 h-12'
+    lg: 'w-12 h-12',
   };
 
   return (
@@ -373,7 +373,7 @@ export const LoadingSpinner: React.FC<{
       transition={{
         duration: 1,
         repeat: Infinity,
-        ease: "linear"
+        ease: 'linear' as Easing,
       }}
     />
   );
@@ -389,5 +389,5 @@ export default {
   MagneticHover,
   ParallaxScroll,
   TextReveal,
-  LoadingSpinner
+  LoadingSpinner,
 };

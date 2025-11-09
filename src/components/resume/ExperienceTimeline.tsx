@@ -1,7 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Building2, Calendar, MapPin, TrendingUp, Code, Zap, Target, Award, ChevronDown, ChevronUp } from 'lucide-react';
-import { companyThemes, motionVariants, initNarrativeMotion, cleanupNarrativeMotion } from '../../utils/narrativeMotion';
+import {
+  Building2,
+  Calendar,
+  MapPin,
+  TrendingUp,
+  Code,
+  Zap,
+  Target,
+  Award,
+  ChevronDown,
+  ChevronUp,
+} from 'lucide-react';
+import {
+  companyThemes,
+  motionVariants,
+  initNarrativeMotion,
+  cleanupNarrativeMotion,
+} from '../../utils/narrativeMotion';
 import resumeData from '../../data/resume.json';
 import './ExperienceTimeline.css';
 
@@ -27,7 +43,7 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
 
   // Extract metrics from achievements
   const extractMetrics = (achievements: string[]) => {
-    const metrics: Array<{value: string, label: string, icon: React.ReactNode}> = [];
+    const metrics: Array<{ value: string; label: string; icon: React.ReactNode }> = [];
 
     achievements.forEach(achievement => {
       // Look for percentage increases
@@ -35,9 +51,12 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
       if (percentMatch) {
         metrics.push({
           value: `+${percentMatch[1]}%`,
-          label: achievement.includes('traffic') ? 'Traffic Growth' :
-                 achievement.includes('cost') ? 'Cost Reduction' : 'Performance',
-          icon: <TrendingUp className="w-4 h-4" />
+          label: achievement.includes('traffic')
+            ? 'Traffic Growth'
+            : achievement.includes('cost')
+              ? 'Cost Reduction'
+              : 'Performance',
+          icon: <TrendingUp className="w-4 h-4" />,
         });
       }
 
@@ -47,7 +66,7 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
         metrics.push({
           value: `$${dollarMatch[1]}`,
           label: achievement.includes('budget') ? 'Budget Managed' : 'Revenue Impact',
-          icon: <Target className="w-4 h-4" />
+          icon: <Target className="w-4 h-4" />,
         });
       }
 
@@ -56,10 +75,14 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
       if (numberMatch && !percentMatch && !dollarMatch) {
         metrics.push({
           value: numberMatch[1],
-          label: achievement.includes('contact') ? 'Contacts' :
-                 achievement.includes('visit') ? 'Patient Visits' :
-                 achievement.includes('workflow') ? 'Automations' : 'Results',
-          icon: <Zap className="w-4 h-4" />
+          label: achievement.includes('contact')
+            ? 'Contacts'
+            : achievement.includes('visit')
+              ? 'Patient Visits'
+              : achievement.includes('workflow')
+                ? 'Automations'
+                : 'Results',
+          icon: <Zap className="w-4 h-4" />,
         });
       }
     });
@@ -68,10 +91,13 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
   };
 
   // Animated Counter Component
-  const AnimatedCounter: React.FC<{ value: string, className?: string }> = ({ value, className = '' }) => {
+  const AnimatedCounter: React.FC<{ value: string; className?: string }> = ({
+    value,
+    className = '',
+  }) => {
     const [count, setCount] = useState(0);
     const ref = useRef<HTMLDivElement>(null);
-    const inView = useInView(ref, { once: true, margin: "-100px" });
+    const inView = useInView(ref, { once: true, margin: '-100px' });
 
     useEffect(() => {
       if (!inView) return;
@@ -110,16 +136,22 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
 
     return (
       <div ref={ref} className={className}>
-        {displayValue}{suffix}
+        {displayValue}
+        {suffix}
       </div>
     );
   };
 
   // Expandable Achievements Component
-  const AchievementsList: React.FC<{ achievements: string[], theme: any }> = ({ achievements, theme }) => {
+  const AchievementsList: React.FC<{ achievements: string[]; theme: any }> = ({
+    achievements,
+    theme,
+  }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const INITIAL_DISPLAY = 3;
-    const displayedAchievements = isExpanded ? achievements : achievements.slice(0, INITIAL_DISPLAY);
+    const displayedAchievements = isExpanded
+      ? achievements
+      : achievements.slice(0, INITIAL_DISPLAY);
     const hasMore = achievements.length > INITIAL_DISPLAY;
 
     return (
@@ -154,13 +186,19 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
           >
             {isExpanded ? (
               <>
-                <ChevronUp size={18} className="group-hover:translate-y-[-2px] transition-transform" />
+                <ChevronUp
+                  size={18}
+                  className="group-hover:translate-y-[-2px] transition-transform"
+                />
                 <span>Show Less</span>
               </>
             ) : (
               <>
                 <span>Show {achievements.length - INITIAL_DISPLAY} More Achievements</span>
-                <ChevronDown size={18} className="group-hover:translate-y-[2px] transition-transform" />
+                <ChevronDown
+                  size={18}
+                  className="group-hover:translate-y-[2px] transition-transform"
+                />
               </>
             )}
           </motion.button>
@@ -200,8 +238,9 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
           </h2>
 
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            A cinematic progression through strategic growth, technical innovation, and transformative leadership —
-            building systems that scale and strategies that deliver measurable impact.
+            A cinematic progression through strategic growth, technical innovation, and
+            transformative leadership — building systems that scale and strategies that deliver
+            measurable impact.
           </p>
         </motion.div>
 
@@ -224,7 +263,7 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
                 variants={motionVariants.sectionReveal}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: '-100px' }}
                 transition={{ delay: index * 0.2 }}
               >
                 {/* Timeline Dot */}
@@ -260,7 +299,6 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
 
                   {/* Main Content */}
                   <div className="relative bg-black/80 backdrop-blur-sm border border-white/10 rounded-3xl p-8 lg:p-12 hover:border-white/20 transition-all duration-500">
-
                     {/* Job Header */}
                     <div className="mb-8">
                       <motion.div
@@ -272,7 +310,12 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
                         <div>
                           <h3 className="text-3xl font-bold text-white mb-2">{job.role}</h3>
                           {/* eslint-disable-next-line react/no-inline-styles */}
-                          <div className="flex items-center gap-3 text-xl font-semibold mb-3" style={{ '--company-primary-color': theme.primary } as React.CSSProperties}>
+                          <div
+                            className="flex items-center gap-3 text-xl font-semibold mb-3"
+                            style={
+                              { '--company-primary-color': theme.primary } as React.CSSProperties
+                            }
+                          >
                             <Building2 className="w-5 h-5 company-icon" />
                             <span className="company-name">{job.company}</span>
                           </div>
@@ -317,7 +360,12 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
                             className="text-center p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors duration-300 cursor-pointer group"
                             variants={motionVariants.counterReveal}
                             whileHover={{ scale: 1.05, y: -5 }}
-                            style={{ '--metric-accent-color': theme.accent, '--metric-primary-color': theme.primary } as React.CSSProperties}
+                            style={
+                              {
+                                '--metric-accent-color': theme.accent,
+                                '--metric-primary-color': theme.primary,
+                              } as React.CSSProperties
+                            }
                           >
                             <div className="flex items-center justify-center mb-3 metric-icon-container group-hover:rotate-12 transition-transform duration-300">
                               {metric.icon}
@@ -341,10 +389,17 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
                       viewport={{ once: true }}
                     >
                       {/* eslint-disable-next-line react/no-inline-styles */}
-                      <h4 className="text-lg font-semibold mb-6 flex items-center gap-3 achievement-heading" style={{ '--achievement-primary-color': theme.primary } as React.CSSProperties}>
+                      <h4
+                        className="text-lg font-semibold mb-6 flex items-center gap-3 achievement-heading"
+                        style={
+                          { '--achievement-primary-color': theme.primary } as React.CSSProperties
+                        }
+                      >
                         <Award className="w-5 h-5" />
                         <span>Key Achievements</span>
-                        <span className="text-sm text-gray-500 ml-auto">({job.achievements.length})</span>
+                        <span className="text-sm text-gray-500 ml-auto">
+                          ({job.achievements.length})
+                        </span>
                       </h4>
 
                       <AchievementsList achievements={job.achievements} theme={theme} />
@@ -358,7 +413,12 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
                         transition={{ delay: 0.6 }}
                       >
                         {/* eslint-disable-next-line react/no-inline-styles */}
-                        <h4 className="text-lg font-semibold mb-4 flex items-center gap-3 technologies-heading" style={{ '--technologies-primary-color': theme.primary } as React.CSSProperties}>
+                        <h4
+                          className="text-lg font-semibold mb-4 flex items-center gap-3 technologies-heading"
+                          style={
+                            { '--technologies-primary-color': theme.primary } as React.CSSProperties
+                          }
+                        >
                           <Code className="w-5 h-5" />
                           <span>Technologies Used</span>
                         </h4>
@@ -369,14 +429,16 @@ const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ className = '' 
                             <motion.span
                               key={tech}
                               className="px-4 py-2 border rounded-full text-sm hover:scale-105 transition-transform duration-200 technology-badge"
-                              style={{
-                                '--technology-border-color': `${theme.primary}30`,
-                                '--technology-bg-color': `${theme.primary}10`,
-                                '--technology-text-color': theme.accent
-                              } as React.CSSProperties}
+                              style={
+                                {
+                                  '--technology-border-color': `${theme.primary}30`,
+                                  '--technology-bg-color': `${theme.primary}10`,
+                                  '--technology-text-color': theme.accent,
+                                } as React.CSSProperties
+                              }
                               initial={{ opacity: 0, scale: 0.8 }}
                               whileInView={{ opacity: 1, scale: 1 }}
-                              transition={{ delay: 0.7 + (idx * 0.05) }}
+                              transition={{ delay: 0.7 + idx * 0.05 }}
                             >
                               {tech}
                             </motion.span>

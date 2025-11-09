@@ -1,0 +1,281 @@
+{
+  "timestamp": "2025-11-09T09:01:12.583Z",
+  "summary": {
+    "issues": 10,
+    "warnings": 42
+  },
+  "issues": [
+    {
+      "type": "spelling",
+      "file": "Configuration Configuration Loader Error",
+      "issue": "Configuration Configuration Loader Error: Failed to resolve configuration file: \"@cspell/dict-javascript/cspell-ext.json\" referenced from \"./cspell.json\"",
+      "severity": "warning"
+    },
+    {
+      "type": "spelling",
+      "file": "-------------------------------------------",
+      "issue": "-------------------------------------------",
+      "severity": "warning"
+    },
+    {
+      "type": "spelling",
+      "file": "CSpell",
+      "issue": "CSpell: Files checked: 0, Issues found: 0 in 0 files with 1 error.",
+      "severity": "warning"
+    },
+    {
+      "type": "missing-alt",
+      "file": "src\\components\\animations\\BackgroundLogos.tsx",
+      "issue": "Image missing alt text or has empty alt attribute",
+      "severity": "error"
+    },
+    {
+      "type": "missing-alt",
+      "file": "src\\components\\animations\\BackgroundLogos.tsx",
+      "issue": "Image missing alt text or has empty alt attribute",
+      "severity": "error"
+    },
+    {
+      "type": "missing-alt",
+      "file": "src\\components\\animations\\BackgroundLogos.tsx",
+      "issue": "Image missing alt text or has empty alt attribute",
+      "severity": "error"
+    },
+    {
+      "type": "missing-alt",
+      "file": "src\\components\\common\\ResponsiveImage.tsx",
+      "issue": "Image missing alt text or has empty alt attribute",
+      "severity": "error"
+    },
+    {
+      "type": "missing-alt",
+      "file": "src\\components\\Hero.tsx",
+      "issue": "Image missing alt text or has empty alt attribute",
+      "severity": "error"
+    },
+    {
+      "type": "missing-alt",
+      "file": "src\\components\\mdx\\mdx-components.tsx",
+      "issue": "Image missing alt text or has empty alt attribute",
+      "severity": "error"
+    },
+    {
+      "type": "missing-alt",
+      "file": "src\\components\\MoodboardModule.tsx",
+      "issue": "Image missing alt text or has empty alt attribute",
+      "severity": "error"
+    }
+  ],
+  "warnings": [
+    {
+      "type": "placeholder",
+      "file": "src\\cli\\generate-logo.ts",
+      "issue": "Possible placeholder text found: \"Placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\automation\\AIAutomationShowcase.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\common\\OptimizedImage.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\common\\OptimizedImage.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\common\\OptimizedImage.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\common\\OptimizedImage.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\common\\ResponsiveImage.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\common\\ResponsiveImage.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\common\\ResponsiveImage.tsx",
+      "issue": "Possible placeholder text found: \"Placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\common\\ResponsiveImage.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\common\\ResponsiveImage.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\common\\ResponsiveImage.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\common\\ResponsiveImage.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\inspiration\\AdvancedFilterSystem.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\inspiration\\AdvancedFilterSystem.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\inspiration\\InspirationExplorer.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\inspiration\\MobileOptimizedInspiration.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\inspiration\\MobileOptimizedInspiration.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\inspiration\\PerformanceOptimizer.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\inspiration\\PerformanceOptimizer.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\inspiration\\PerformanceOptimizer.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\newsletter\\NewsletterForm.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\components\\resume\\AwardsSection.tsx",
+      "issue": "Possible placeholder text found: \"Placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\config\\loadConfig.ts",
+      "issue": "Possible placeholder text found: \"Placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\lib\\renderOG.ts",
+      "issue": "Possible placeholder text found: \"Placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\lib\\styleDictionary.ts",
+      "issue": "Possible placeholder text found: \"Placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\main.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\main.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\pages\\Applications.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\pages\\CaseStudies.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\pages\\Contact.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\pages\\Contact.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\pages\\Contact.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\pages\\Contact.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\pages\\Contact.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\pages\\gallery.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\pages\\SideProjects.tsx",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\sw.js",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\sw.js",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\sw.js",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\sw.js",
+      "issue": "Possible placeholder text found: \"placeholder...\""
+    },
+    {
+      "type": "placeholder",
+      "file": "src\\utils\\svgValidator.ts",
+      "issue": "Possible placeholder text found: \"Placeholder...\""
+    }
+  ]
+}

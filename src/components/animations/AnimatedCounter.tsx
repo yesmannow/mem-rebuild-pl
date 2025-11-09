@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
 
 interface AnimatedCounterProps {
   from?: number;
@@ -14,9 +14,9 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   from = 0,
   to,
   duration = 2,
-  suffix = "",
-  prefix = "",
-  className = ""
+  suffix = '',
+  prefix = '',
+  className = '',
 }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const motionValue = useMotionValue(from);
@@ -24,7 +24,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
     damping: 60,
     stiffness: 100,
   });
-  const isInView = useInView(ref, { once: true, margin: "0px" });
+  const isInView = useInView(ref, { once: true, margin: '0px' });
   const [value, setValue] = useState(from);
 
   useEffect(() => {
@@ -34,14 +34,16 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   }, [isInView, motionValue, to]);
 
   useEffect(() => {
-    springValue.on("change", (latest) => {
+    springValue.on('change', latest => {
       setValue(Math.round(latest));
     });
   }, [springValue]);
 
   return (
     <motion.span ref={ref} className={className}>
-      {prefix}{value}{suffix}
+      {prefix}
+      {value}
+      {suffix}
     </motion.span>
   );
 };

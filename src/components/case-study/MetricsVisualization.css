@@ -44,7 +44,7 @@
 .metric-card-enhanced__value {
   font-size: 2.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--accent-color), #EC4899);
+  background: linear-gradient(135deg, var(--accent-color), #ec4899);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -195,4 +195,3 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-

@@ -5,32 +5,34 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import fs from "fs";
-import path from "path";
-import OpenAI from "openai";
+import fs from 'fs';
+import path from 'path';
+import OpenAI from 'openai';
 import { fileURLToPath } from 'url';
 
 // ES module compatibility
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const moodboardDir = path.resolve(__dirname, "../public/moodboards");
+const moodboardDir = path.resolve(__dirname, '../public/moodboards');
 
 // Initialize OpenAI (will use OPENAI_API_KEY from environment)
-const openai = process.env.OPENAI_API_KEY ? new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-}) : null;
+const openai = process.env.OPENAI_API_KEY
+  ? new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    })
+  : null;
 
 /**
  * Fallback classification for when AI is not available
  */
 function fallbackClassification(data) {
   const { slug, dominantColors, keywords } = data;
-  
+
   // Simple rule-based classification
   const tags = [];
   const lower = slug.toLowerCase();
-  
+
   // Project type tags
   if (lower.includes('bbq') || lower.includes('food')) {
     tags.push('organic', 'warm', 'rustic');
@@ -41,7 +43,7 @@ function fallbackClassification(data) {
   } else {
     tags.push('modern', 'clean');
   }
-  
+
   // Color-based tags
   if (dominantColors && dominantColors.length > 0) {
     const firstColor = dominantColors[0];
@@ -50,22 +52,22 @@ function fallbackClassification(data) {
       const r = parseInt(hex.substr(0, 2), 16);
       const g = parseInt(hex.substr(2, 2), 16);
       const b = parseInt(hex.substr(4, 2), 16);
-      
+
       const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-      
+
       if (brightness > 200) tags.push('bright');
       else if (brightness < 50) tags.push('dark');
-      
+
       if (r > g && r > b) tags.push('warm');
       else if (b > r && b > g) tags.push('cool');
     }
   }
-  
+
   return {
     slug,
     tags: [...new Set(tags)].slice(0, 4), // Limit to 4 unique tags
     summary: `${data.title} project featuring ${tags.join(', ')} design elements with a focus on ${keywords.slice(0, 2).join(' and ')} aesthetics.`,
-    confidence: 'fallback'
+    confidence: 'fallback',
   };
 }
 
@@ -74,12 +76,12 @@ function fallbackClassification(data) {
  */
 async function classifyMoodboard(data) {
   const { slug, dominantColors, keywords, title } = data;
-  
+
   if (!openai) {
     console.log(`⚠️  No OpenAI API key found, using fallback classification for ${slug}`);
     return fallbackClassification(data);
   }
-  
+
   try {
     const prompt = `Analyze this design project and provide a JSON response with classification data.
 
@@ -96,27 +98,28 @@ Please return a JSON object with:
 Focus on the emotional and aesthetic qualities suggested by the color palette and keywords.`;
 
     const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: 'gpt-3.5-turbo',
       messages: [
         {
-          role: "system",
-          content: "You are a design expert analyzing visual projects. Always respond with valid JSON only."
+          role: 'system',
+          content:
+            'You are a design expert analyzing visual projects. Always respond with valid JSON only.',
         },
         {
-          role: "user",
-          content: prompt
-        }
+          role: 'user',
+          content: prompt,
+        },
       ],
       temperature: 0.7,
-      max_tokens: 300
+      max_tokens: 300,
     });
 
     const content = response.choices[0].message.content.trim();
-    
+
     // Try to parse the JSON response
     try {
       const parsed = JSON.parse(content);
-      
+
       // Validate the response structure
       if (parsed.slug && parsed.tags && parsed.summary) {
         console.log(`🧠 AI classified ${slug}: ${parsed.tags.join(', ')}`);
@@ -124,12 +127,10 @@ Focus on the emotional and aesthetic qualities suggested by the color palette an
       } else {
         throw new Error('Invalid response structure');
       }
-      
     } catch (parseError) {
       console.warn(`⚠️  Could not parse AI response for ${slug}, using fallback`);
       return fallbackClassification(data);
     }
-    
   } catch (error) {
     console.warn(`⚠️  AI classification failed for ${slug}: ${error.message}`);
     return fallbackClassification(data);
@@ -141,54 +142,54 @@ Focus on the emotional and aesthetic qualities suggested by the color palette an
  */
 async function classifyMoodboards() {
   console.log('🧠 Starting AI-powered moodboard classification...');
-  
+
   if (!fs.existsSync(moodboardDir)) {
     console.error(`❌ Moodboards directory not found: ${moodboardDir}`);
     return;
   }
-  
-  const files = fs.readdirSync(moodboardDir)
+
+  const files = fs
+    .readdirSync(moodboardDir)
     .filter(f => f.endsWith('.json') && !f.includes('classified') && !f.includes('enhanced'));
-  
+
   if (files.length === 0) {
     console.warn('⚠️  No moodboard files found to classify');
     return;
   }
-  
+
   console.log(`📁 Found ${files.length} moodboard files to classify`);
-  
+
   const classified = [];
-  
+
   for (const file of files) {
     try {
       const filePath = path.join(moodboardDir, file);
       const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      
+
       console.log(`🔍 Classifying ${data.slug}...`);
       const classification = await classifyMoodboard(data);
       classified.push(classification);
-      
+
       // Small delay to be respectful to API limits
       await new Promise(resolve => setTimeout(resolve, 500));
-      
     } catch (error) {
       console.error(`❌ Error processing ${file}:`, error.message);
     }
   }
-  
+
   // Save classified data
   const outputPath = path.join(moodboardDir, 'classified.json');
   const classifiedData = {
     generated: new Date().toISOString(),
     totalClassified: classified.length,
-    classifications: classified
+    classifications: classified,
   };
-  
+
   fs.writeFileSync(outputPath, JSON.stringify(classifiedData, null, 2));
-  
+
   console.log(`✅ Classification complete! Processed ${classified.length} projects`);
   console.log(`📁 Output saved to: ${outputPath}`);
-  
+
   // Summary statistics
   const tagCounts = {};
   classified.forEach(item => {
@@ -196,7 +197,7 @@ async function classifyMoodboards() {
       tagCounts[tag] = (tagCounts[tag] || 0) + 1;
     });
   });
-  
+
   console.log('📊 Tag distribution:', tagCounts);
 }
 

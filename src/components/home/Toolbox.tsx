@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ExternalLink, Code, Palette, Database, Globe, Zap, Camera, Wrench } from "lucide-react";
-import "./Toolbox.css";
+import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ExternalLink, Code, Palette, Database, Globe, Zap, Camera, Wrench } from 'lucide-react';
+import './Toolbox.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,159 +22,169 @@ interface Tool {
 const tools: Tool[] = [
   // Design & Creative
   {
-    id: "figma",
-    name: "Figma",
-    category: "Design",
+    id: 'figma',
+    name: 'Figma',
+    category: 'Design',
     icon: <Palette className="w-6 h-6" />,
-    description: "UI/UX Design & Prototyping",
+    description: 'UI/UX Design & Prototyping',
     proficiency: 95,
-    link: "https://figma.com",
-    color: "from-purple-400 to-pink-400",
-    glowColor: "rgba(147, 51, 234, 0.3)"
+    link: 'https://figma.com',
+    color: 'from-purple-400 to-pink-400',
+    glowColor: 'rgba(147, 51, 234, 0.3)',
   },
   {
-    id: "photoshop",
-    name: "Adobe Photoshop",
-    category: "Design",
+    id: 'photoshop',
+    name: 'Adobe Photoshop',
+    category: 'Design',
     icon: <Camera className="w-6 h-6" />,
-    description: "Photo Editing & Digital Art",
+    description: 'Photo Editing & Digital Art',
     proficiency: 90,
-    link: "https://adobe.com/photoshop",
-    color: "from-blue-400 to-cyan-400",
-    glowColor: "rgba(59, 130, 246, 0.3)"
+    link: 'https://adobe.com/photoshop',
+    color: 'from-blue-400 to-cyan-400',
+    glowColor: 'rgba(59, 130, 246, 0.3)',
   },
   {
-    id: "illustrator",
-    name: "Adobe Illustrator",
-    category: "Design",
+    id: 'illustrator',
+    name: 'Adobe Illustrator',
+    category: 'Design',
     icon: <Palette className="w-6 h-6" />,
-    description: "Vector Graphics & Branding",
+    description: 'Vector Graphics & Branding',
     proficiency: 85,
-    link: "https://adobe.com/illustrator",
-    color: "from-orange-400 to-yellow-400",
-    glowColor: "rgba(249, 115, 22, 0.3)"
+    link: 'https://adobe.com/illustrator',
+    color: 'from-orange-400 to-yellow-400',
+    glowColor: 'rgba(249, 115, 22, 0.3)',
   },
 
   // Development
   {
-    id: "react",
-    name: "React",
-    category: "Frontend",
+    id: 'react',
+    name: 'React',
+    category: 'Frontend',
     icon: <Code className="w-6 h-6" />,
-    description: "Component-Based UI Development",
+    description: 'Component-Based UI Development',
     proficiency: 95,
-    link: "https://react.dev",
-    color: "from-cyan-400 to-blue-400",
-    glowColor: "rgba(6, 182, 212, 0.3)"
+    link: 'https://react.dev',
+    color: 'from-cyan-400 to-blue-400',
+    glowColor: 'rgba(6, 182, 212, 0.3)',
   },
   {
-    id: "typescript",
-    name: "TypeScript",
-    category: "Frontend",
+    id: 'typescript',
+    name: 'TypeScript',
+    category: 'Frontend',
     icon: <Code className="w-6 h-6" />,
-    description: "Type-Safe JavaScript Development",
+    description: 'Type-Safe JavaScript Development',
     proficiency: 90,
-    link: "https://typescriptlang.org",
-    color: "from-blue-400 to-indigo-400",
-    glowColor: "rgba(59, 130, 246, 0.3)"
+    link: 'https://typescriptlang.org',
+    color: 'from-blue-400 to-indigo-400',
+    glowColor: 'rgba(59, 130, 246, 0.3)',
   },
   {
-    id: "nodejs",
-    name: "Node.js",
-    category: "Backend",
+    id: 'nodejs',
+    name: 'Node.js',
+    category: 'Backend',
     icon: <Database className="w-6 h-6" />,
-    description: "Server-Side JavaScript Runtime",
+    description: 'Server-Side JavaScript Runtime',
     proficiency: 85,
-    link: "https://nodejs.org",
-    color: "from-green-400 to-emerald-400",
-    glowColor: "rgba(34, 197, 94, 0.3)"
+    link: 'https://nodejs.org',
+    color: 'from-green-400 to-emerald-400',
+    glowColor: 'rgba(34, 197, 94, 0.3)',
   },
 
   // Marketing & Automation
   {
-    id: "hubspot",
-    name: "HubSpot",
-    category: "Marketing",
+    id: 'hubspot',
+    name: 'HubSpot',
+    category: 'Marketing',
     icon: <Zap className="w-6 h-6" />,
-    description: "CRM & Marketing Automation",
+    description: 'CRM & Marketing Automation',
     proficiency: 95,
-    link: "https://hubspot.com",
-    color: "from-orange-400 to-red-400",
-    glowColor: "rgba(249, 115, 22, 0.3)"
+    link: 'https://hubspot.com',
+    color: 'from-orange-400 to-red-400',
+    glowColor: 'rgba(249, 115, 22, 0.3)',
   },
   {
-    id: "zapier",
-    name: "Zapier",
-    category: "Automation",
+    id: 'zapier',
+    name: 'Zapier',
+    category: 'Automation',
     icon: <Zap className="w-6 h-6" />,
-    description: "Workflow Automation Platform",
+    description: 'Workflow Automation Platform',
     proficiency: 90,
-    link: "https://zapier.com",
-    color: "from-yellow-400 to-orange-400",
-    glowColor: "rgba(245, 158, 11, 0.3)"
+    link: 'https://zapier.com',
+    color: 'from-yellow-400 to-orange-400',
+    glowColor: 'rgba(245, 158, 11, 0.3)',
   },
   {
-    id: "wordpress",
-    name: "WordPress",
-    category: "CMS",
+    id: 'wordpress',
+    name: 'WordPress',
+    category: 'CMS',
     icon: <Globe className="w-6 h-6" />,
-    description: "Content Management & Development",
+    description: 'Content Management & Development',
     proficiency: 90,
-    link: "https://wordpress.org",
-    color: "from-blue-400 to-gray-400",
-    glowColor: "rgba(59, 130, 246, 0.3)"
+    link: 'https://wordpress.org',
+    color: 'from-blue-400 to-gray-400',
+    glowColor: 'rgba(59, 130, 246, 0.3)',
   },
 
   // Development Tools
   {
-    id: "vscode",
-    name: "VS Code",
-    category: "Development",
+    id: 'vscode',
+    name: 'VS Code',
+    category: 'Development',
     icon: <Code className="w-6 h-6" />,
-    description: "Primary Code Editor & IDE",
+    description: 'Primary Code Editor & IDE',
     proficiency: 95,
-    link: "https://code.visualstudio.com",
-    color: "from-blue-400 to-purple-400",
-    glowColor: "rgba(59, 130, 246, 0.3)"
+    link: 'https://code.visualstudio.com',
+    color: 'from-blue-400 to-purple-400',
+    glowColor: 'rgba(59, 130, 246, 0.3)',
   },
   {
-    id: "git",
-    name: "Git",
-    category: "Development",
+    id: 'git',
+    name: 'Git',
+    category: 'Development',
     icon: <Wrench className="w-6 h-6" />,
-    description: "Version Control & Collaboration",
+    description: 'Version Control & Collaboration',
     proficiency: 90,
-    link: "https://git-scm.com",
-    color: "from-red-400 to-pink-400",
-    glowColor: "rgba(239, 68, 68, 0.3)"
+    link: 'https://git-scm.com',
+    color: 'from-red-400 to-pink-400',
+    glowColor: 'rgba(239, 68, 68, 0.3)',
   },
   {
-    id: "gsap",
-    name: "GSAP",
-    category: "Animation",
+    id: 'gsap',
+    name: 'GSAP',
+    category: 'Animation',
     icon: <Zap className="w-6 h-6" />,
-    description: "High-Performance Web Animations",
+    description: 'High-Performance Web Animations',
     proficiency: 85,
-    link: "https://greensock.com/gsap",
-    color: "from-green-400 to-teal-400",
-    glowColor: "rgba(34, 197, 94, 0.3)"
-  }
+    link: 'https://greensock.com/gsap',
+    color: 'from-green-400 to-teal-400',
+    glowColor: 'rgba(34, 197, 94, 0.3)',
+  },
 ];
 
-const categories = ["All", "Design", "Frontend", "Backend", "Marketing", "Automation", "CMS", "Development", "Animation"];
+const categories = [
+  'All',
+  'Design',
+  'Frontend',
+  'Backend',
+  'Marketing',
+  'Automation',
+  'CMS',
+  'Development',
+  'Animation',
+];
 
 const Toolbox: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [selectedCategory, setSelectedCategory] = React.useState("All");
+  const [selectedCategory, setSelectedCategory] = React.useState('All');
 
-  const filteredTools = selectedCategory === "All"
-    ? tools
-    : tools.filter(tool => tool.category === selectedCategory);
+  const filteredTools =
+    selectedCategory === 'All' ? tools : tools.filter(tool => tool.category === selectedCategory);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Stagger animation for tool cards
-      gsap.fromTo(".tool-card",
+      gsap.fromTo(
+        '.tool-card',
         { opacity: 0, y: 60, scale: 0.9 },
         {
           opacity: 1,
@@ -182,17 +192,18 @@ const Toolbox: React.FC = () => {
           scale: 1,
           duration: 0.6,
           stagger: 0.1,
-          ease: "back.out(1.7)",
+          ease: 'back.out(1.7)',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 70%",
-            toggleActions: "play none none reverse"
-          }
+            start: 'top 70%',
+            toggleActions: 'play none none reverse',
+          },
         }
       );
 
       // Category filter animation
-      gsap.fromTo(".category-filter",
+      gsap.fromTo(
+        '.category-filter',
         { opacity: 0, x: -30 },
         {
           opacity: 1,
@@ -200,21 +211,21 @@ const Toolbox: React.FC = () => {
           duration: 0.5,
           stagger: 0.1,
           scrollTrigger: {
-            trigger: ".category-filters",
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
+            trigger: '.category-filters',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
         }
       );
 
       // Floating animation for cards
-      gsap.to(".tool-card", {
+      gsap.to('.tool-card', {
         y: -5,
         duration: 2,
         repeat: -1,
         yoyo: true,
         stagger: 0.2,
-        ease: "sine.inOut"
+        ease: 'sine.inOut',
       });
     });
 
@@ -233,7 +244,6 @@ const Toolbox: React.FC = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-
         {/* Section Header */}
         <motion.div
           className="text-center mb-16"
@@ -247,7 +257,7 @@ const Toolbox: React.FC = () => {
             whileHover={{
               scale: 1.1,
               rotate: 360,
-              boxShadow: "0 0 40px rgba(147, 51, 234, 0.6)"
+              boxShadow: '0 0 40px rgba(147, 51, 234, 0.6)',
             }}
             transition={{ duration: 0.8 }}
           >
@@ -261,8 +271,8 @@ const Toolbox: React.FC = () => {
           </h2>
 
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            The arsenal of tools, technologies, and platforms that power innovative solutions —
-            from design conception to technical execution.
+            The arsenal of tools, technologies, and platforms that power innovative solutions — from
+            design conception to technical execution.
           </p>
         </motion.div>
 
@@ -274,7 +284,7 @@ const Toolbox: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          {categories.map((category) => (
+          {categories.map(category => (
             <motion.button
               key={category}
               className={`category-filter px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
@@ -305,20 +315,21 @@ const Toolbox: React.FC = () => {
               whileHover={{
                 scale: 1.05,
                 rotateY: 5,
-                boxShadow: `0 20px 40px ${tool.glowColor}`
+                boxShadow: `0 20px 40px ${tool.glowColor}`,
               }}
             >
               {/* Card Background */}
               <div className="relative bg-gray-900/50 backdrop-blur-sm border border-white/10 rounded-2xl p-6 overflow-hidden group-hover:border-white/20 transition-all duration-300">
-
                 {/* Gradient Overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${tool.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${tool.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                />
 
                 {/* Icon */}
-                <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${tool.color} rounded-xl mb-4 shadow-lg`}>
-                  <div className="text-white">
-                    {tool.icon}
-                  </div>
+                <div
+                  className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${tool.color} rounded-xl mb-4 shadow-lg`}
+                >
+                  <div className="text-white">{tool.icon}</div>
                 </div>
 
                 {/* Tool Info */}
@@ -341,9 +352,7 @@ const Toolbox: React.FC = () => {
                     )}
                   </div>
 
-                  <p className="text-sm text-gray-400 mb-4">
-                    {tool.description}
-                  </p>
+                  <p className="text-sm text-gray-400 mb-4">{tool.description}</p>
 
                   {/* Category Badge */}
                   <div className="flex items-center justify-between">
@@ -362,21 +371,18 @@ const Toolbox: React.FC = () => {
                           transition={{ duration: 1, delay: index * 0.1 }}
                         />
                       </div>
-                      <span className="text-xs text-gray-500 font-mono">
-                        {tool.proficiency}%
-                      </span>
+                      <span className="text-xs text-gray-500 font-mono">{tool.proficiency}%</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Hover Glow */}
-                <div
-                  className="tool-hover-glow"
-                  data-glow-color={tool.glowColor}
-                />
+                <div className="tool-hover-glow" data-glow-color={tool.glowColor} />
 
                 {/* Corner Accent */}
-                <div className={`absolute top-2 right-2 w-2 h-2 bg-gradient-to-br ${tool.color} rounded-full opacity-60`} />
+                <div
+                  className={`absolute top-2 right-2 w-2 h-2 bg-gradient-to-br ${tool.color} rounded-full opacity-60`}
+                />
               </div>
             </motion.div>
           ))}

@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Users, Zap, TrendingUp, Award } from "lucide-react";
+import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Users, Zap, TrendingUp, Award } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,41 +37,41 @@ interface Metric {
 
 const metrics: Metric[] = [
   {
-    id: "ticket-reduction",
+    id: 'ticket-reduction',
     icon: <TrendingUp className="w-6 h-6" />,
     value: 70,
-    suffix: "%",
-    label: "Support Ticket Reduction",
-    color: "from-green-400 to-emerald-400",
-    glowColor: "rgba(34, 197, 94, 0.3)"
+    suffix: '%',
+    label: 'Support Ticket Reduction',
+    color: 'from-green-400 to-emerald-400',
+    glowColor: 'rgba(34, 197, 94, 0.3)',
   },
   {
-    id: "conversion-increase",
+    id: 'conversion-increase',
     icon: <Zap className="w-6 h-6" />,
     value: 40,
-    suffix: "%",
-    label: "Conversion Rate Increase",
-    color: "from-purple-400 to-pink-400",
-    glowColor: "rgba(147, 51, 234, 0.3)"
+    suffix: '%',
+    label: 'Conversion Rate Increase',
+    color: 'from-purple-400 to-pink-400',
+    glowColor: 'rgba(147, 51, 234, 0.3)',
   },
   {
-    id: "automations",
+    id: 'automations',
     icon: <Zap className="w-6 h-6" />,
     value: 400,
-    suffix: "+",
-    label: "Marketing Automations",
-    color: "from-blue-400 to-cyan-400",
-    glowColor: "rgba(59, 130, 246, 0.3)"
+    suffix: '+',
+    label: 'Marketing Automations',
+    color: 'from-blue-400 to-cyan-400',
+    glowColor: 'rgba(59, 130, 246, 0.3)',
   },
   {
-    id: "users",
+    id: 'users',
     icon: <Users className="w-6 h-6" />,
     value: 30,
-    suffix: "K+",
-    label: "Users Served Globally",
-    color: "from-orange-400 to-yellow-400",
-    glowColor: "rgba(249, 115, 22, 0.3)"
-  }
+    suffix: 'K+',
+    label: 'Users Served Globally',
+    color: 'from-orange-400 to-yellow-400',
+    glowColor: 'rgba(249, 115, 22, 0.3)',
+  },
 ];
 
 const GlanceMetrics: React.FC = () => {
@@ -79,7 +79,7 @@ const GlanceMetrics: React.FC = () => {
   const [animatedValues, setAnimatedValues] = useState<Record<string, number>>({});
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     if (prefersReducedMotion.matches) {
       return;
@@ -90,7 +90,7 @@ const GlanceMetrics: React.FC = () => {
 
     const ctx = gsap.context(() => {
       const q = gsap.utils.selector(section);
-      const cards = q(".metric-card");
+      const cards = q('.metric-card');
 
       // Entry animation for cards
       gsap.fromTo(
@@ -102,12 +102,12 @@ const GlanceMetrics: React.FC = () => {
           scale: 1,
           duration: 0.8,
           stagger: 0.1,
-          ease: "back.out(1.7)",
+          ease: 'back.out(1.7)',
           scrollTrigger: {
             trigger: section,
-            start: "top 70%",
-            toggleActions: "play none none reverse"
-          }
+            start: 'top 70%',
+            toggleActions: 'play none none reverse',
+          },
         }
       );
 
@@ -119,21 +119,21 @@ const GlanceMetrics: React.FC = () => {
         const counter = { value: 0 };
         ScrollTrigger.create({
           trigger: section,
-          start: "top 70%",
+          start: 'top 70%',
           once: false,
           onEnter: () => {
             gsap.to(counter, {
               value: metric.value,
               duration: 2,
-              ease: "power2.out",
+              ease: 'power2.out',
               onUpdate: () => {
                 setAnimatedValues(prev => ({
                   ...prev,
-                  [metric.id]: Math.floor(counter.value)
+                  [metric.id]: Math.floor(counter.value),
                 }));
-              }
+              },
             });
-          }
+          },
         });
       });
 
@@ -144,7 +144,7 @@ const GlanceMetrics: React.FC = () => {
         repeat: -1,
         yoyo: true,
         stagger: 0.2,
-        ease: "sine.inOut"
+        ease: 'sine.inOut',
       });
     }, section);
 
@@ -163,7 +163,6 @@ const GlanceMetrics: React.FC = () => {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
-
         {/* Section Header */}
         <motion.div
           className="text-center mb-12"
@@ -178,7 +177,8 @@ const GlanceMetrics: React.FC = () => {
             </span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Measurable results that demonstrate the intersection of strategic thinking and technical execution.
+            Measurable results that demonstrate the intersection of strategic thinking and technical
+            execution.
           </p>
         </motion.div>
 
@@ -191,41 +191,44 @@ const GlanceMetrics: React.FC = () => {
               whileHover={{
                 scale: 1.05,
                 rotateY: 5,
-                boxShadow: `0 20px 40px ${metric.glowColor}`
+                boxShadow: `0 20px 40px ${metric.glowColor}`,
               }}
               transition={{ duration: 0.3 }}
             >
               {/* Card Background */}
               <div className="relative bg-gray-900/50 backdrop-blur-sm border border-white/10 rounded-2xl p-6 overflow-hidden group-hover:border-white/20 transition-all duration-300">
-
                 {/* Gradient Overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${metric.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${metric.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                />
 
                 {/* Icon */}
-                <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${metric.color} rounded-xl mb-4 shadow-lg`}>
-                  <div className="text-white">
-                    {metric.icon}
-                  </div>
+                <div
+                  className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${metric.color} rounded-xl mb-4 shadow-lg`}
+                >
+                  <div className="text-white">{metric.icon}</div>
                 </div>
 
                 {/* Value */}
                 <div className="mb-2">
-                  <span className={`text-4xl font-bold bg-gradient-to-r ${metric.color} bg-clip-text text-transparent`}>
+                  <span
+                    className={`text-4xl font-bold bg-gradient-to-r ${metric.color} bg-clip-text text-transparent`}
+                  >
                     {animatedValues[metric.id] || 0}
                     <span className="text-2xl">{metric.suffix}</span>
                   </span>
                 </div>
 
                 {/* Label */}
-                <p className="text-gray-400 text-sm font-medium">
-                  {metric.label}
-                </p>
+                <p className="text-gray-400 text-sm font-medium">{metric.label}</p>
 
                 {/* Hover Glow - using CSS variable set via ref */}
                 <MetricGlow glowColor={metric.glowColor} />
 
                 {/* Corner Accent */}
-                <div className={`absolute top-2 right-2 w-2 h-2 bg-gradient-to-br ${metric.color} rounded-full opacity-60`} />
+                <div
+                  className={`absolute top-2 right-2 w-2 h-2 bg-gradient-to-br ${metric.color} rounded-full opacity-60`}
+                />
               </div>
             </motion.div>
           ))}

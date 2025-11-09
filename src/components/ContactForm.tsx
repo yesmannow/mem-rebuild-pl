@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { motion } from 'framer-motion';
 import { Send, Mail, MessageSquare } from 'lucide-react';
-import { trackCTA } from '../../utils/analytics';
+import { trackCTA } from '@/utils/analytics';
 import './ContactForm.css';
 
 const contactSchema = z.object({
@@ -146,4 +146,3 @@ const ContactForm: React.FC = () => {
 };
 
 export default ContactForm;
-

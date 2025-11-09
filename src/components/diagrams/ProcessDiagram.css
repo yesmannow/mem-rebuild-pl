@@ -234,7 +234,7 @@
   .process-step {
     width: 260px;
   }
-  
+
   .process-arrow {
     margin: 0;
     transform: rotate(90deg);
@@ -256,13 +256,13 @@
     max-width: 400px;
     min-height: auto;
   }
-  
+
   .step-icon-wrapper {
     width: 70px;
     height: 70px;
     margin-bottom: 1.25rem;
   }
-  
+
   .step-icon {
     width: 36px;
     height: 36px;
@@ -275,7 +275,7 @@
   .process-arrow svg {
     width: 30px;
   }
-  
+
   .process-note {
     padding: 1.5rem;
   }
@@ -285,11 +285,11 @@
   .process-step {
     padding: 2rem 1.5rem;
   }
-  
+
   .step-title {
     font-size: 1.3rem;
   }
-  
+
   .step-description {
     font-size: 0.9rem;
   }

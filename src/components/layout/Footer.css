@@ -15,7 +15,7 @@
 }
 
 .footer-brand h3 {
-  color: #88ABF2;
+  color: #88abf2;
   margin: 0 0 0.5rem 0;
   font-size: 1.5rem;
 }
@@ -53,7 +53,7 @@
 }
 
 .footer-section a:hover {
-  color: #88ABF2;
+  color: #88abf2;
 }
 
 .footer-link-with-icon {
@@ -65,7 +65,9 @@
 .footer-icon {
   flex-shrink: 0;
   opacity: 0.8;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .footer-link-with-icon:hover .footer-icon {
@@ -120,7 +122,7 @@
 
 .footer-quote {
   font-style: italic;
-  color: #88ABF2;
+  color: #88abf2;
 }
 
 @media (max-width: 768px) {

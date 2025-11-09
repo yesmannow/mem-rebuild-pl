@@ -1,0 +1,762 @@
+src/cli/generate-logo.ts(4,31): error TS2307: Cannot find module '@assets/logoFactory' or its corresponding type declarations.
+src/cli/generate-logo.ts(5,28): error TS2307: Cannot find module '@config/loadConfig' or its corresponding type declarations.
+src/cli/preview-layout.ts(3,34): error TS2307: Cannot find module '@utils/previewBuilder' or its corresponding type declarations.
+src/cli/preview-layout.ts(4,28): error TS2307: Cannot find module '@config/loadConfig' or its corresponding type declarations.
+src/cli/svg-export.ts(3,33): error TS2307: Cannot find module '@utils/svgExporter' or its corresponding type declarations.
+src/cli/svg-export.ts(4,28): error TS2307: Cannot find module '@config/loadConfig' or its corresponding type declarations.
+src/components/animations/FloatingElements.tsx(46,11): error TS2322: Type '{ y: string[]; x: string[]; rotate: number[]; transition: { y: { duration: number; repeat: number; ease: string; delay: number; }; x: { duration: number; repeat: number; ease: string; delay: number; }; rotate: { duration: number; repeat: number; ease: string; delay: number; }; }; }' is not assignable to type 'boolean | TargetAndTransition | VariantLabels | LegacyAnimationControls | undefined'.
+  Type '{ y: string[]; x: string[]; rotate: number[]; transition: { y: { duration: number; repeat: number; ease: string; delay: number; }; x: { duration: number; repeat: number; ease: string; delay: number; }; rotate: { duration: number; repeat: number; ease: string; delay: number; }; }; }' is not assignable to type 'TargetAndTransition'.
+    Types of property 'transition' are incompatible.
+      Type '{ y: { duration: number; repeat: number; ease: string; delay: number; }; x: { duration: number; repeat: number; ease: string; delay: number; }; rotate: { duration: number; repeat: number; ease: string; delay: number; }; }' is not assignable to type 'Transition<any> | undefined'.
+        Type '{ y: { duration: number; repeat: number; ease: string; delay: number; }; x: { duration: number; repeat: number; ease: string; delay: number; }; rotate: { duration: number; repeat: number; ease: string; delay: number; }; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+          Type '{ y: { duration: number; repeat: number; ease: string; delay: number; }; x: { duration: number; repeat: number; ease: string; delay: number; }; rotate: { duration: number; repeat: number; ease: string; delay: number; }; }' is not assignable to type 'StyleTransitions'.
+            The types of 'x.ease' are incompatible between these types.
+              Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/animations/MorphingBlob.tsx(38,9): error TS2322: Type '{ initial: { d: string; }; animate: { d: string[]; transition: { duration: number; repeat: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'animate' is incompatible with index signature.
+    Type '{ d: string[]; transition: { duration: number; repeat: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ d: string[]; transition: { duration: number; repeat: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ d: string[]; transition: { duration: number; repeat: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; repeat: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; repeat: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; repeat: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/animations/StaggerGrid.tsx(52,33): error TS2322: Type '{ hidden: { opacity: number; y: number; scale: number; }; show: { opacity: number; y: number; scale: number; transition: { type: string; stiffness: number; damping: number; }; }; }' is not assignable to type 'Variants'.
+  Property 'show' is incompatible with index signature.
+    Type '{ opacity: number; y: number; scale: number; transition: { type: string; stiffness: number; damping: number; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; scale: number; transition: { type: string; stiffness: number; damping: number; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; scale: number; transition: { type: string; stiffness: number; damping: number; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ type: string; stiffness: number; damping: number; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ type: string; stiffness: number; damping: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ type: string; stiffness: number; damping: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'type' are incompatible.
+                    Type 'string' is not assignable to type 'AnimationGeneratorType | undefined'.
+src/components/animations/TextReveal.tsx(50,11): error TS2322: Type '{ visible: { opacity: number; y: number; transition: { type: string; damping: number; stiffness: number; }; }; hidden: { opacity: number; y: number; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { type: string; damping: number; stiffness: number; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { type: string; damping: number; stiffness: number; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { type: string; damping: number; stiffness: number; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ type: string; damping: number; stiffness: number; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ type: string; damping: number; stiffness: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ type: string; damping: number; stiffness: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'type' are incompatible.
+                    Type 'string' is not assignable to type 'AnimationGeneratorType | undefined'.
+src/components/ApplicationsPanel.tsx(9,12): error TS2503: Cannot find namespace 'JSX'.
+src/components/awards/AwardCard.tsx(4,10): error TS2305: Module '"../../utils/narrativeMotion"' has no exported member 'motionVariants'.
+src/components/awards/AwardShowcase.tsx(5,10): error TS2305: Module '"../../utils/narrativeMotion"' has no exported member 'motionVariants'.
+src/components/branding/Logo.tsx(51,7): error TS2322: Type '{ hidden: { opacity: number; scale: number; }; visible: { opacity: number; scale: number; transition: { duration: number; ease: string; }; }; } | undefined' is not assignable to type 'Variants | undefined'.
+  Type '{ hidden: { opacity: number; scale: number; }; visible: { opacity: number; scale: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+    Property 'visible' is incompatible with index signature.
+      Type '{ opacity: number; scale: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+        Type '{ opacity: number; scale: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+          Type '{ opacity: number; scale: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+            Types of property 'transition' are incompatible.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                  Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                    Types of property 'ease' are incompatible.
+                      Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/branding/Logo.tsx(60,9): error TS2322: Type '{ hidden: { opacity: number; pathLength: number; }; visible: { opacity: number; pathLength: number; transition: { duration: number; ease: string; }; }; } | undefined' is not assignable to type 'Variants | undefined'.
+  Type '{ hidden: { opacity: number; pathLength: number; }; visible: { opacity: number; pathLength: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+    Property 'visible' is incompatible with index signature.
+      Type '{ opacity: number; pathLength: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+        Type '{ opacity: number; pathLength: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+          Type '{ opacity: number; pathLength: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+            Types of property 'transition' are incompatible.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                  Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                    Types of property 'ease' are incompatible.
+                      Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/branding/Logo.tsx(71,9): error TS2322: Type '{ hidden: { opacity: number; pathLength: number; }; visible: { opacity: number; pathLength: number; transition: { duration: number; ease: string; }; }; } | undefined' is not assignable to type 'Variants | undefined'.
+  Type '{ hidden: { opacity: number; pathLength: number; }; visible: { opacity: number; pathLength: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+    Property 'visible' is incompatible with index signature.
+      Type '{ opacity: number; pathLength: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+        Type '{ opacity: number; pathLength: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+          Type '{ opacity: number; pathLength: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+            Types of property 'transition' are incompatible.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                  Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                    Types of property 'ease' are incompatible.
+                      Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/branding/Logo.tsx(82,9): error TS2322: Type '{ hidden: { opacity: number; pathLength: number; }; visible: { opacity: number; pathLength: number; transition: { duration: number; ease: string; }; }; } | undefined' is not assignable to type 'Variants | undefined'.
+  Type '{ hidden: { opacity: number; pathLength: number; }; visible: { opacity: number; pathLength: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+    Property 'visible' is incompatible with index signature.
+      Type '{ opacity: number; pathLength: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+        Type '{ opacity: number; pathLength: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+          Type '{ opacity: number; pathLength: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+            Types of property 'transition' are incompatible.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                  Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                    Types of property 'ease' are incompatible.
+                      Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/branding/LogoFull.tsx(49,59): error TS2322: Type '{ transition: { delay: number; duration: number; }; hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { delay: number; duration: number; }; }; } | undefined' is not assignable to type 'Variants | undefined'.
+  Type '{ transition: { delay: number; duration: number; }; hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { delay: number; duration: number; }; }; }' is not assignable to type 'Variants'.
+    Property 'transition' is incompatible with index signature.
+      Object literal may only specify known properties, and 'delay' does not exist in type 'Variant'.
+src/components/branding/NewLogo.tsx(38,7): error TS2322: Type '{ initial: { opacity: number; scale: number; }; animate: { opacity: number; scale: number; transition: { duration: number; ease: string; }; }; hover: { scale: number; transition: { duration: number; }; }; } | undefined' is not assignable to type 'Variants | undefined'.
+  Type '{ initial: { opacity: number; scale: number; }; animate: { opacity: number; scale: number; transition: { duration: number; ease: string; }; }; hover: { scale: number; transition: { duration: number; }; }; }' is not assignable to type 'Variants'.
+    Property 'animate' is incompatible with index signature.
+      Type '{ opacity: number; scale: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+        Type '{ opacity: number; scale: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+          Type '{ opacity: number; scale: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+            Types of property 'transition' are incompatible.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                  Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                    Types of property 'ease' are incompatible.
+                      Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/branding/SplashIntro.tsx(114,11): error TS2322: Type '{ initial: { opacity: number; }; animate: { opacity: number; transition: { duration: number; ease: string; }; }; exit: { opacity: number; scale: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'animate' is incompatible with index signature.
+    Type '{ opacity: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/branding/SplashIntro.tsx(121,13): error TS2322: Type '{ initial: { background: string; }; animate: { background: string[]; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'animate' is incompatible with index signature.
+    Type '{ background: string[]; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ background: string[]; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ background: string[]; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/CareerTimeline.tsx(20,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimeline.tsx(21,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimeline.tsx(22,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimeline.tsx(23,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimeline.tsx(25,14): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimeline.tsx(33,16): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimeline.tsx(34,16): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimeline.tsx(37,16): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimelineProgress.tsx(31,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimelineProgress.tsx(32,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimelineProgress.tsx(33,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimelineProgress.tsx(34,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimelineProgress.tsx(35,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimelineProgress.tsx(36,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimelineProgress.tsx(42,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimelineProgress.tsx(44,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimelineProgress.tsx(50,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/CareerTimelineProgress.tsx(52,16): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/case-study/ChallengeSection.tsx(11,6): error TS2322: Type '{ children: Element[]; initial: { x: number; opacity: number; }; animate: { x: number; opacity: number; }; transition: { duration: number; ease: number[]; }; className: string; style: { padding: string; background: string; color: "white"; }; }' is not assignable to type 'Omit<HTMLMotionProps<"section">, "ref">'.
+  Types of property 'transition' are incompatible.
+    Type '{ duration: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+      Type '{ duration: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+        Type '{ duration: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+          Types of property 'ease' are incompatible.
+            Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+              Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                Type 'number[]' is not assignable to type 'Easing[]'.
+                  Type 'number' is not assignable to type 'Easing'.
+src/components/case-study/CTASection.tsx(4,40): error TS6307: File 'C:/Users/hoosi/Desktop/mem-rebuild-pl/src/styles/motion-tokens.js' is not listed within the file list of project 'C:/Users/hoosi/Desktop/mem-rebuild-pl/tsconfig.app.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via '../../styles/motion-tokens.js' from file 'C:/Users/hoosi/Desktop/mem-rebuild-pl/src/components/case-study/CTASection.tsx'
+    Imported via '../../styles/motion-tokens.js' from file 'C:/Users/hoosi/Desktop/mem-rebuild-pl/src/components/case-study/ChallengeSection.tsx'
+    Imported via '../../styles/motion-tokens.js' from file 'C:/Users/hoosi/Desktop/mem-rebuild-pl/src/components/case-study/HeroSection.tsx'
+    Imported via '../../styles/motion-tokens.js' from file 'C:/Users/hoosi/Desktop/mem-rebuild-pl/src/components/case-study/Overview.tsx'
+    Imported via '../../styles/motion-tokens.js' from file 'C:/Users/hoosi/Desktop/mem-rebuild-pl/src/components/case-study/ProcessTimeline.tsx'
+    Imported via '../../styles/motion-tokens.js' from file 'C:/Users/hoosi/Desktop/mem-rebuild-pl/src/components/case-study/ResultSection.tsx'
+    Imported via '../../styles/motion-tokens.js' from file 'C:/Users/hoosi/Desktop/mem-rebuild-pl/src/components/case-study/ShowcaseGallery.tsx'
+    Imported via '../../styles/motion-tokens.js' from file 'C:/Users/hoosi/Desktop/mem-rebuild-pl/src/components/hero/Hero.tsx'
+    Imported via '../../styles/motion-tokens.js' from file 'C:/Users/hoosi/Desktop/mem-rebuild-pl/src/components/home/About.tsx'
+    Imported via '../../styles/motion-tokens.js' from file 'C:/Users/hoosi/Desktop/mem-rebuild-pl/src/components/home/CaseStudies.tsx'
+    Imported via '../../styles/motion-tokens.js' from file 'C:/Users/hoosi/Desktop/mem-rebuild-pl/src/components/home/Contact.tsx'
+src/components/case-study/CTASection.tsx(13,6): error TS2322: Type '{ children: Element[]; animate: { scale: number[]; opacity: number[]; boxShadow: string[]; }; transition: { duration: number; repeat: number; ease: number[]; }; className: string; }' is not assignable to type 'Omit<HTMLMotionProps<"section">, "ref">'.
+  Types of property 'transition' are incompatible.
+    Type '{ duration: number; repeat: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+      Type '{ duration: number; repeat: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+        Type '{ duration: number; repeat: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+          Types of property 'ease' are incompatible.
+            Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+              Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                Type 'number[]' is not assignable to type 'Easing[]'.
+                  Type 'number' is not assignable to type 'Easing'.
+src/components/case-study/HeroSection.tsx(12,6): error TS2322: Type '{ children: Element; initial: { y: number; opacity: number; scale: number; filter: string; }; animate: { y: number; opacity: number; scale: number; filter: string; }; transition: { duration: number; ease: number[]; staggerChildren: number; }; className: string; style: { ...; }; }' is not assignable to type 'Omit<HTMLMotionProps<"section">, "ref">'.
+  Types of property 'transition' are incompatible.
+    Type '{ duration: number; ease: number[]; staggerChildren: number; }' is not assignable to type 'Transition<any> | undefined'.
+      Type '{ duration: number; ease: number[]; staggerChildren: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+        Type '{ duration: number; ease: number[]; staggerChildren: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+          Types of property 'ease' are incompatible.
+            Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+              Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                Type 'number[]' is not assignable to type 'Easing[]'.
+                  Type 'number' is not assignable to type 'Easing'.
+src/components/case-study/Overview.tsx(25,24): error TS2551: Property 'fadeInLeft' does not exist on type '{ fadeIn: { initial: { opacity: number; }; animate: { opacity: number; }; transition: { duration: number; ease: number[]; }; }; fadeInFast: { initial: { opacity: number; }; animate: { opacity: number; }; transition: { ...; }; }; ... 16 more ...; dramaticReveal: { ...; }; }'. Did you mean 'fadeInFast'?
+src/components/case-study/ProcessTimeline.tsx(24,12): error TS2322: Type '{ children: Element; initial: { opacity: number; }; animate: { opacity: number; }; transition: { duration: number; ease: number[]; }; key: number; className: string; style: { minWidth: string; padding: string; background: string; color: "white"; borderRadius: string; }; }' is not assignable to type 'Omit<HTMLMotionProps<"div">, "ref">'.
+  Types of property 'transition' are incompatible.
+    Type '{ duration: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+      Type '{ duration: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+        Type '{ duration: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+          Types of property 'ease' are incompatible.
+            Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+              Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                Type 'number[]' is not assignable to type 'Easing[]'.
+                  Type 'number' is not assignable to type 'Easing'.
+src/components/case-study/ResultSection.tsx(13,6): error TS2322: Type '{ children: Element[]; initial: { opacity: number; }; animate: { opacity: number; }; transition: { duration: number; ease: number[]; }; className: string; style: { padding: string; display: "flex"; alignItems: "center"; justifyContent: "space-between"; gap: string; }; }' is not assignable to type 'Omit<HTMLMotionProps<"section">, "ref">'.
+  Types of property 'transition' are incompatible.
+    Type '{ duration: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+      Type '{ duration: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+        Type '{ duration: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+          Types of property 'ease' are incompatible.
+            Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+              Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                Type 'number[]' is not assignable to type 'Easing[]'.
+                  Type 'number' is not assignable to type 'Easing'.
+src/components/case-study/ShowcaseGallery.tsx(12,6): error TS2322: Type '{ children: (Element[] | undefined)[]; initial: { opacity: number; }; animate: { opacity: number; }; transition: { duration: number; ease: number[]; }; className: string; style: { padding: string; display: "grid"; gridTemplateColumns: string; gap: string; }; }' is not assignable to type 'Omit<HTMLMotionProps<"section">, "ref">'.
+  Types of property 'transition' are incompatible.
+    Type '{ duration: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+      Type '{ duration: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+        Type '{ duration: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+          Types of property 'ease' are incompatible.
+            Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+              Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                Type 'number[]' is not assignable to type 'Easing[]'.
+                  Type 'number' is not assignable to type 'Easing'.
+src/components/ContactForm.tsx(7,26): error TS2307: Cannot find module '../../utils/analytics' or its corresponding type declarations.
+src/components/diagrams/ProcessDiagram.tsx(11,9): error TS2503: Cannot find namespace 'JSX'.
+src/components/gallery/TagFilter.tsx(28,29): error TS7053: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ All: string; landscape: string; portrait: string; nature: string; creative: string; artistic: string; digital: string; branding: string; logo: string; marketing: string; design: string; }'.
+  No index signature with a parameter of type 'string' was found on type '{ All: string; landscape: string; portrait: string; nature: string; creative: string; artistic: string; digital: string; branding: string; logo: string; marketing: string; design: string; }'.
+src/components/GlyphOverlay.tsx(3,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/GlyphOverlay.tsx(4,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/GlyphOverlay.tsx(9,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/hero/Hero.tsx(21,10): error TS2322: Type '{ children: (string | Element)[]; initial: { y: number; opacity: number; scale: number; filter: string; }; animate: { y: number; opacity: number; scale: number; filter: string; }; transition: { duration: number; ease: number[]; staggerChildren: number; }; className: string; }' is not assignable to type 'Omit<HTMLMotionProps<"h1">, "ref">'.
+  Types of property 'transition' are incompatible.
+    Type '{ duration: number; ease: number[]; staggerChildren: number; }' is not assignable to type 'Transition<any> | undefined'.
+      Type '{ duration: number; ease: number[]; staggerChildren: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+        Type '{ duration: number; ease: number[]; staggerChildren: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+          Types of property 'ease' are incompatible.
+            Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+              Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                Type 'number[]' is not assignable to type 'Easing[]'.
+                  Type 'number' is not assignable to type 'Easing'.
+src/components/hero/Hero.tsx(25,10): error TS2322: Type '{ children: string; initial: { y: number; opacity: number; }; animate: { y: number; opacity: number; }; transition: { duration: number; ease: number[]; }; className: string; }' is not assignable to type 'Omit<HTMLMotionProps<"p">, "ref">'.
+  Types of property 'transition' are incompatible.
+    Type '{ duration: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+      Type '{ duration: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+        Type '{ duration: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+          Types of property 'ease' are incompatible.
+            Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+              Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                Type 'number[]' is not assignable to type 'Easing[]'.
+                  Type 'number' is not assignable to type 'Easing'.
+src/components/hero/Hero.tsx(30,10): error TS2322: Type '{ children: Element[]; initial: { opacity: number; }; animate: { opacity: number; }; transition: { duration: number; ease: number[]; }; className: string; }' is not assignable to type 'Omit<HTMLMotionProps<"div">, "ref">'.
+  Types of property 'transition' are incompatible.
+    Type '{ duration: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+      Type '{ duration: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+        Type '{ duration: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+          Types of property 'ease' are incompatible.
+            Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+              Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                Type 'number[]' is not assignable to type 'Easing[]'.
+                  Type 'number' is not assignable to type 'Easing'.
+src/components/hero/Hero.tsx(31,23): error TS2322: Type '{ scale: number; boxShadow: string; transition: { duration: number; ease: number[]; }; }' is not assignable to type 'TargetAndTransition | VariantLabels | undefined'.
+  Type '{ scale: number; boxShadow: string; transition: { duration: number; ease: number[]; }; }' is not assignable to type 'TargetAndTransition'.
+    Type '{ scale: number; boxShadow: string; transition: { duration: number; ease: number[]; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+      Types of property 'transition' are incompatible.
+        Type '{ duration: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+          Type '{ duration: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+            Type '{ duration: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+              Types of property 'ease' are incompatible.
+                Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+                  Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                    Type 'number[]' is not assignable to type 'Easing[]'.
+                      Type 'number' is not assignable to type 'Easing'.
+src/components/hero/Hero.tsx(36,23): error TS2322: Type '{ scale: number; boxShadow: string; transition: { duration: number; ease: number[]; }; }' is not assignable to type 'TargetAndTransition | VariantLabels | undefined'.
+  Type '{ scale: number; boxShadow: string; transition: { duration: number; ease: number[]; }; }' is not assignable to type 'TargetAndTransition'.
+    Type '{ scale: number; boxShadow: string; transition: { duration: number; ease: number[]; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+      Types of property 'transition' are incompatible.
+        Type '{ duration: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+          Type '{ duration: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+            Type '{ duration: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+              Types of property 'ease' are incompatible.
+                Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+                  Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                    Type 'number[]' is not assignable to type 'Easing[]'.
+                      Type 'number' is not assignable to type 'Easing'.
+src/components/hero/Hero.tsx(49,10): error TS2322: Type '{ children: Element[]; initial: { opacity: number; }; animate: { opacity: number; }; transition: { duration: number; ease: number[]; }; className: string; }' is not assignable to type 'Omit<HTMLMotionProps<"div">, "ref">'.
+  Types of property 'transition' are incompatible.
+    Type '{ duration: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+      Type '{ duration: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+        Type '{ duration: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+          Types of property 'ease' are incompatible.
+            Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+              Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                Type 'number[]' is not assignable to type 'Easing[]'.
+                  Type 'number' is not assignable to type 'Easing'.
+src/components/hero/Hero.tsx(70,10): error TS2322: Type '{ animate: { scale: number[]; opacity: number[]; boxShadow: string[]; }; transition: { duration: number; repeat: number; ease: number[]; }; className: string; }' is not assignable to type 'Omit<HTMLMotionProps<"div">, "ref">'.
+  Types of property 'transition' are incompatible.
+    Type '{ duration: number; repeat: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+      Type '{ duration: number; repeat: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+        Type '{ duration: number; repeat: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+          Types of property 'ease' are incompatible.
+            Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+              Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                Type 'number[]' is not assignable to type 'Easing[]'.
+                  Type 'number' is not assignable to type 'Easing'.
+src/components/HeroAbout.tsx(5,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroAbout.tsx(6,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroAbout.tsx(7,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroAbout.tsx(15,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroAnimated.tsx(22,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroAnimated.tsx(23,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroAnimated.tsx(24,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroAnimated.tsx(27,11): error TS2322: Type '{ hidden: { opacity: number; y: number; }; show: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'show' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/HeroAnimated.tsx(32,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroAnimated.tsx(35,11): error TS2322: Type '{ hidden: { opacity: number; y: number; }; show: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'show' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/HeroAnimated.tsx(40,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroAnimated.tsx(41,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroAnimated.tsx(45,13): error TS2322: Type '{ hidden: { opacity: number; y: number; }; show: (i: number) => { opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'show' is incompatible with index signature.
+    Type '(i: number) => { opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '(i: number) => { opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }' is not assignable to type 'TargetResolver'.
+        Type '{ opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }' is not assignable to type 'string | TargetAndTransition'.
+          Type '{ opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+            Type '{ opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+              Types of property 'transition' are incompatible.
+                Type '{ delay: number; duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+                  Type '{ delay: number; duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                    Type '{ delay: number; duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                      Types of property 'ease' are incompatible.
+                        Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/HeroAnimated.tsx(51,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroAnimated.tsx(55,13): error TS2322: Type '{ hidden: { opacity: number; y: number; }; show: (i: number) => { opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'show' is incompatible with index signature.
+    Type '(i: number) => { opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '(i: number) => { opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }' is not assignable to type 'TargetResolver'.
+        Type '{ opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }' is not assignable to type 'string | TargetAndTransition'.
+          Type '{ opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+            Type '{ opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+              Types of property 'transition' are incompatible.
+                Type '{ delay: number; duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+                  Type '{ delay: number; duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                    Type '{ delay: number; duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                      Types of property 'ease' are incompatible.
+                        Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/HeroGradient.tsx(3,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroGradient.tsx(5,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroGradient.tsx(11,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroGradient.tsx(15,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroGradient.tsx(16,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroGradient.tsx(17,14): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroGradient.tsx(18,14): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/HeroGradient.tsx(23,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/home/About.tsx(17,24): error TS2551: Property 'fadeInLeft' does not exist on type '{ fadeIn: { initial: { opacity: number; }; animate: { opacity: number; }; transition: { duration: number; ease: number[]; }; }; fadeInFast: { initial: { opacity: number; }; animate: { opacity: number; }; transition: { ...; }; }; ... 16 more ...; dramaticReveal: { ...; }; }'. Did you mean 'fadeInFast'?
+src/components/home/CaseStudies.tsx(29,6): error TS2322: Type '{ children: Element[]; initial: { opacity: number; }; animate: { opacity: number; }; transition: { duration: number; ease: number[]; }; className: string; }' is not assignable to type 'Omit<HTMLMotionProps<"section">, "ref">'.
+  Types of property 'transition' are incompatible.
+    Type '{ duration: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+      Type '{ duration: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+        Type '{ duration: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+          Types of property 'ease' are incompatible.
+            Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+              Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                Type 'number[]' is not assignable to type 'Easing[]'.
+                  Type 'number' is not assignable to type 'Easing'.
+src/components/home/Contact.tsx(9,6): error TS2322: Type '{ children: Element[]; initial: { opacity: number; }; animate: { opacity: number; }; transition: { duration: number; ease: number[]; }; className: string; }' is not assignable to type 'Omit<HTMLMotionProps<"section">, "ref">'.
+  Types of property 'transition' are incompatible.
+    Type '{ duration: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+      Type '{ duration: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+        Type '{ duration: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+          Types of property 'ease' are incompatible.
+            Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+              Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                Type 'number[]' is not assignable to type 'Easing[]'.
+                  Type 'number' is not assignable to type 'Easing'.
+src/components/home/Process.tsx(84,15): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: (index: number) => { opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '(index: number) => { opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '(index: number) => { opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }' is not assignable to type 'TargetResolver'.
+        Type '{ opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }' is not assignable to type 'string | TargetAndTransition'.
+          Type '{ opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+            Type '{ opacity: number; y: number; transition: { delay: number; duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+              Types of property 'transition' are incompatible.
+                Type '{ delay: number; duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+                  Type '{ delay: number; duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                    Type '{ delay: number; duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                      Types of property 'ease' are incompatible.
+                        Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/icons/IconRegistry.tsx(2,17): error TS2614: Module '"../../data/icons"' has no exported member 'IconData'. Did you mean to use 'import IconData from "../../data/icons"' instead?
+src/components/inspiration/AnimationTemplates.tsx(107,13): error TS2322: Type '"sine.inOut"' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/inspiration/AnimationTemplates.tsx(188,9): error TS2322: Type '"power2.out"' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/inspiration/AnimationTemplates.tsx(238,13): error TS2322: Type '"power2.out"' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/inspiration/AnimationTemplates.tsx(348,13): error TS2322: Type '"power2.out"' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/inspiration/ColorPaletteExtractor.tsx(295,18): error TS2304: Cannot find name 'X'.
+src/components/layout/PageLayout.tsx(3,25): error TS2307: Cannot find module '../components/layout/Breadcrumbs' or its corresponding type declarations.
+src/components/MarkSandbox.tsx(7,17): error TS2503: Cannot find namespace 'JSX'.
+src/components/MarkSandbox.tsx(103,59): error TS2503: Cannot find namespace 'JSX'.
+src/components/MoodboardModule.tsx(4,29): error TS2307: Cannot find module 'react-dropzone' or its corresponding type declarations.
+src/components/MoodboardModule.tsx(5,71): error TS2307: Cannot find module '@dnd-kit/core' or its corresponding type declarations.
+src/components/MoodboardModule.tsx(6,8): error TS1192: Module '"C:/Users/hoosi/Desktop/mem-rebuild-pl/node_modules/node-vibrant/dist/esm/throw"' has no default export.
+src/components/MoodboardModule.tsx(51,37): error TS2339: Property 'getHex' does not exist on type '{}'.
+src/components/NoiseOverlay.tsx(3,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/NoiseOverlay.tsx(4,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/NoiseOverlay.tsx(5,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/NoiseOverlay.tsx(6,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/NoiseOverlay.tsx(7,14): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/NoiseOverlay.tsx(15,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/PaletteEditor.tsx(2,45): error TS2307: Cannot find module 'culori' or its corresponding type declarations.
+src/components/PaletteEditor.tsx(4,29): error TS2307: Cannot find module 'wcag-contrast' or its corresponding type declarations.
+src/components/PaletteEditor.tsx(23,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/PaletteEditor.tsx(24,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/PaletteEditor.tsx(27,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/PaletteEditor.tsx(29,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/PaletteEditor.tsx(42,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/PaletteEditor.tsx(43,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/PaletteEditor.tsx(57,16): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/PaletteEditor.tsx(62,18): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/PaletteEditor.tsx(63,18): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/playground/PlaygroundPreview.tsx(88,17): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/QuickWinsAbout.tsx(12,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/QuickWinsAbout.tsx(13,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/QuickWinsAbout.tsx(15,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/QuickWinsAbout.tsx(16,14): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/QuickWinsAbout.tsx(17,16): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/QuickWinsAbout.tsx(19,14): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/QuickWinsAnimated.tsx(13,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/QuickWinsAnimated.tsx(14,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/QuickWinsAnimated.tsx(16,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/QuickWinsAnimated.tsx(20,14): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/QuickWinsAnimated.tsx(21,16): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/QuickWinsAnimated.tsx(24,14): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/CTAButtons.tsx(91,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/CTAButtons.tsx(99,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/CTAButtons.tsx(106,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/CTAButtons.tsx(113,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/CTAButtons.tsx(114,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/CTAButtons.tsx(118,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/CTAButtons.tsx(127,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/CTAButtons.tsx(128,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/CTAButtons.tsx(132,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/CTAButtons.tsx(139,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/CTAButtons.tsx(140,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/CTAButtons.tsx(144,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/CTAButtons.tsx(151,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/CTAButtons.tsx(152,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/CTAButtons.tsx(156,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/ExperienceTimeline.tsx(16,3): error TS2305: Module '"../../utils/narrativeMotion"' has no exported member 'companyThemes'.
+src/components/resume/ExperienceTimeline.tsx(17,3): error TS2305: Module '"../../utils/narrativeMotion"' has no exported member 'motionVariants'.
+src/components/resume/ExperienceTimeline.tsx(18,3): error TS2724: '"../../utils/narrativeMotion"' has no exported member named 'initNarrativeMotion'. Did you mean 'useNarrativeMotion'?
+src/components/resume/ExperienceTimeline.tsx(19,3): error TS2724: '"../../utils/narrativeMotion"' has no exported member named 'cleanupNarrativeMotion'. Did you mean 'useNarrativeMotion'?
+src/components/resume/HeroIntro.tsx(21,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(23,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(29,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(30,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(31,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(32,14): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(33,16): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(35,14): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(36,16): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(37,16): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(38,16): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(41,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(46,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(58,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(72,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(74,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(80,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(87,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(93,14): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(94,14): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(105,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(112,16): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(119,18): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(120,18): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(136,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(142,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(149,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(154,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(163,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/HeroIntro.tsx(165,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/LazyPDFDownload.tsx(34,18): error TS2322: Type '{ isGeneratingPDF: boolean; setIsGeneratingPDF: (value: boolean) => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'isGeneratingPDF' does not exist on type 'IntrinsicAttributes'.
+src/components/resume/Section.tsx(36,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/Section.tsx(44,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/Section.tsx(45,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/Section.tsx(53,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/Section.tsx(64,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/Section.tsx(77,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/Section.tsx(85,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/Section.tsx(88,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/Section.tsx(91,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/Section.tsx(94,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/resume/StickyNavigation.tsx(167,9): error TS2322: Type '({ offset, duration, immediate, }?: ScrollOptions & { offset?: number | undefined; }) => void' is not assignable to type 'MouseEventHandler<HTMLButtonElement>'.
+  Types of parameters '__0' and 'event' are incompatible.
+    Type 'MouseEvent<HTMLButtonElement, MouseEvent>' has no properties in common with type 'ScrollOptions & { offset?: number | undefined; }'.
+src/components/resume/TimelineNavigation.tsx(4,10): error TS2305: Module '"../../utils/narrativeMotion"' has no exported member 'scrollToSection'.
+src/components/resume/TimelineNavigation.tsx(4,27): error TS2305: Module '"../../utils/narrativeMotion"' has no exported member 'companyThemes'.
+src/components/resume/TimelineNavigation.tsx(216,17): error TS2322: Type '({ offset, duration, immediate, }?: ScrollOptions & { offset?: number | undefined; }) => void' is not assignable to type 'MouseEventHandler<HTMLButtonElement>'.
+  Types of parameters '__0' and 'event' are incompatible.
+    Type 'MouseEvent<HTMLButtonElement, MouseEvent>' has no properties in common with type 'ScrollOptions & { offset?: number | undefined; }'.
+src/components/stats/Stats.tsx(62,13): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/components/StorySectionAccordion.tsx(30,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/StorySectionAccordion.tsx(31,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/StorySectionAccordion.tsx(32,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/StorySectionAccordion.tsx(33,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/StorySectionAccordion.tsx(35,14): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/StorySectionAccordion.tsx(36,16): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/StorySectionAccordion.tsx(40,18): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/StorySectionAccordion.tsx(41,18): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/StorySectionAccordion.tsx(43,39): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/TypographyModule.tsx(3,35): error TS2307: Cannot find module '@capsizecss/core' or its corresponding type declarations.
+src/components/TypographyModule.tsx(4,26): error TS2307: Cannot find module '@capsizecss/metrics/inter' or its corresponding type declarations.
+src/components/TypographyModule.tsx(5,31): error TS2307: Cannot find module '@capsizecss/metrics/robotoSlab' or its corresponding type declarations.
+src/components/TypographyModule.tsx(38,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/TypographyModule.tsx(39,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/TypographyModule.tsx(42,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/TypographyModule.tsx(44,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/TypographyModule.tsx(57,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/TypographyModule.tsx(58,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/TypographyModule.tsx(66,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/TypographyModule.tsx(69,12): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/WaveDivider.tsx(3,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/WaveDivider.tsx(4,8): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/components/WaveDivider.tsx(10,10): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/pages/About.tsx(200,22): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/pages/About.tsx(202,49): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/pages/ApplicationDetail.tsx(40,23): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/pages/ApplicationDetail.tsx(45,47): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/pages/ApplicationDetail.tsx(62,50): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/pages/ApplicationDetail.tsx(97,19): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/pages/Applications.tsx(204,19): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/pages/brand-builder.tsx(22,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/pages/brand-builder.tsx(23,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/pages/brand-builder.tsx(24,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/pages/brand-builder.tsx(25,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/pages/brand-builder.tsx(26,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/pages/brand-builder.tsx(27,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/pages/brand-builder.tsx(28,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/pages/brand-builder.tsx(32,6): error TS2686: 'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+src/pages/brand-builder.tsx(32,19): error TS2322: Type '{ children: Element; active: number; setActive: Dispatch<SetStateAction<number>>; }' is not assignable to type 'IntrinsicAttributes & { children: ReactNode; }'.
+  Property 'active' does not exist on type 'IntrinsicAttributes & { children: ReactNode; }'.
+src/pages/Contact.tsx(116,22): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/pages/Contact.tsx(117,38): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/pages/Design.tsx(13,28): error TS6307: File 'C:/Users/hoosi/Desktop/mem-rebuild-pl/public/images/design/manifest.json' is not listed within the file list of project 'C:/Users/hoosi/Desktop/mem-rebuild-pl/tsconfig.app.json'. Projects must list all files or use an 'include' pattern.
+src/pages/Design.tsx(81,35): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/pages/Design.tsx(178,62): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/pages/Design.tsx(199,38): error TS7006: Parameter 'trigger' implicitly has an 'any' type.
+src/pages/gallery.tsx(115,38): error TS7006: Parameter 'trigger' implicitly has an 'any' type.
+src/pages/Photography.tsx(14,33): error TS6307: File 'C:/Users/hoosi/Desktop/mem-rebuild-pl/public/images/photography/manifest.json' is not listed within the file list of project 'C:/Users/hoosi/Desktop/mem-rebuild-pl/tsconfig.app.json'. Projects must list all files or use an 'include' pattern.
+src/pages/Projects.tsx(109,47): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/pages/side-projects/SideProjectDetail.tsx(106,38): error TS7006: Parameter 'trigger' implicitly has an 'any' type.
+src/pages/SideProjects.tsx(68,38): error TS7006: Parameter 'trigger' implicitly has an 'any' type.
+src/pages/SideProjects.tsx(110,7): error TS2322: Type '{ initial: { opacity: number; }; animate: { opacity: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'animate' is incompatible with index signature.
+    Type '{ opacity: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/pages/SideProjects.tsx(217,17): error TS2322: Type '{ hover: { y: number; scale: number; rotateY: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'hover' is incompatible with index signature.
+    Type '{ y: number; scale: number; rotateY: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ y: number; scale: number; rotateY: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ y: number; scale: number; rotateY: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/pages/Testimonials.tsx(28,47): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/pages/Toolbox.tsx(73,22): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/pages/Toolbox.tsx(74,38): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/pages/Toolbox.tsx(180,17): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+src/utils/motion-sync.ts(187,3): error TS2347: Untyped function calls may not accept type arguments.
+src/utils/motion-sync.ts(187,68): error TS7006: Parameter 'section' implicitly has an 'any' type.

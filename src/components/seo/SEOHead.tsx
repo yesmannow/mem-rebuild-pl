@@ -1,5 +1,5 @@
-import React from "react";
-import { Helmet } from "react-helmet-async";
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 interface SEOHeadProps {
   title?: string;
@@ -16,22 +16,22 @@ interface SEOHeadProps {
 }
 
 export default function SEOHead({
-  title = "BearCave Marketing — Jacob Darling",
-  description = "I build marketing systems that turn brands into revenue engines.",
+  title = 'BearCave Marketing — Jacob Darling',
+  description = 'I build marketing systems that turn brands into revenue engines.',
   keywords,
-  image = "/og-image.jpg",
-  url = "https://www.bearcavemarketing.com",
-  type = "website",
+  image = '/og-image.jpg',
+  url = 'https://www.bearcavemarketing.com',
+  type = 'website',
   author,
   publishedTime,
   modifiedTime,
   section,
   tags,
 }: SEOHeadProps) {
-  const fullTitle = title.includes("BearCave") ? title : `${title} | BearCave Marketing`;
-  const fullUrl = url.startsWith("http") ? url : `https://www.bearcavemarketing.com${url}`;
-  const fullImage = image.startsWith("http") ? image : `https://www.bearcavemarketing.com${image}`;
-  const siteName = "BearCave Marketing";
+  const fullTitle = title.includes('BearCave') ? title : `${title} | BearCave Marketing`;
+  const fullUrl = url.startsWith('http') ? url : `https://www.bearcavemarketing.com${url}`;
+  const fullImage = image.startsWith('http') ? image : `https://www.bearcavemarketing.com${image}`;
+  const siteName = 'BearCave Marketing';
 
   return (
     <Helmet>
@@ -53,9 +53,7 @@ export default function SEOHead({
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
       {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
       {section && <meta property="article:section" content={section} />}
-      {tags && tags.map((tag, index) => (
-        <meta key={index} property="article:tag" content={tag} />
-      ))}
+      {tags && tags.map((tag, index) => <meta key={index} property="article:tag" content={tag} />)}
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />

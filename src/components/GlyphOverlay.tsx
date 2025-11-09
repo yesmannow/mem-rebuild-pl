@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function GlyphOverlay() {
   return (
     <div className="absolute inset-0 pointer-events-none">

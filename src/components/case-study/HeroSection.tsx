@@ -1,6 +1,7 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { motion as motionTokens } from "../../styles/motion-tokens.js";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { motion as motionTokens } from '../../styles/motion-tokens.js';
+import { castMotionProps } from '../../utils/motion-helpers';
 
 interface HeroSectionProps {
   title: string;
@@ -20,16 +21,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({ title, backgroundImage }) => 
         alignItems: 'center',
         justifyContent: 'center',
         color: 'white',
-        textShadow: '0 0 20px rgba(0, 0, 0, 0.5)'
+        textShadow: '0 0 20px rgba(0, 0, 0, 0.5)',
       }}
-      {...motionTokens.cinematicEntry}
+      {...castMotionProps(motionTokens.cinematicEntry)}
     >
       <motion.h1
         className="hero-title"
         style={{
           fontSize: 'clamp(2rem, 6vw, 5rem)',
           fontWeight: 800,
-          textAlign: 'center'
+          textAlign: 'center',
         }}
       >
         {title}

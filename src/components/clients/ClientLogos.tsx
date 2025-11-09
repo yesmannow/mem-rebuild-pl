@@ -1,18 +1,18 @@
-import React from "react";
-import { motion } from "framer-motion";
-import "./ClientLogos.css";
+import React from 'react';
+import { motion } from 'framer-motion';
+import './ClientLogos.css';
 
 const clientLogos = [
-  { name: "Primary Care", src: "/images/logos/primary-care.svg" },
-  { name: "Black Letter", src: "/images/logos/black-letter.svg" },
-  { name: "Perpetual Movement Fitness", src: "/images/logos/perpetual-movement.svg" },
-  { name: "Tuohy Bailey & Moore", src: "/images/logos/ca-logo.svg" },
-  { name: "Gomez BBQ", src: "/images/logos/gomez-bbq.svg" },
-  { name: "Herbs Rub", src: "/images/logos/herbs-rub.svg" },
-  { name: "TBM", src: "/images/logos/tbm.svg" },
-  { name: "BF Monogram", src: "/images/logos/bf-monogram.svg" },
-  { name: "Indiana University", src: "/images/logos/indiana-university.svg" },
-  { name: "Heart Health", src: "/images/logos/heart-mark.svg" },
+  { name: 'Primary Care', src: '/images/logos/primary-care.svg' },
+  { name: 'Black Letter', src: '/images/logos/black-letter.svg' },
+  { name: 'Perpetual Movement Fitness', src: '/images/logos/perpetual-movement.svg' },
+  { name: 'Tuohy Bailey & Moore', src: '/images/logos/ca-logo.svg' },
+  { name: 'Gomez BBQ', src: '/images/logos/gomez-bbq.svg' },
+  { name: 'Herbs Rub', src: '/images/logos/herbs-rub.svg' },
+  { name: 'TBM', src: '/images/logos/tbm.svg' },
+  { name: 'BF Monogram', src: '/images/logos/bf-monogram.svg' },
+  { name: 'Indiana University', src: '/images/logos/indiana-university.svg' },
+  { name: 'Heart Health', src: '/images/logos/heart-mark.svg' },
 ];
 
 const ClientLogos: React.FC = () => {

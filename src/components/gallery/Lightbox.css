@@ -98,7 +98,7 @@
   max-height: 70vh;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 25px 50px rgba(0, 0, 0, 0.5),
     0 0 50px rgba(59, 130, 246, 0.1);
 }
@@ -136,7 +136,7 @@
 
 .lightbox-category {
   display: inline-block;
-  background: linear-gradient(135deg, #3B82F6, #EC4899);
+  background: linear-gradient(135deg, #3b82f6, #ec4899);
   color: white;
   padding: 4px 12px;
   border-radius: 20px;
@@ -232,7 +232,7 @@
 }
 
 .lightbox-thumbnail.active {
-  border-color: #3B82F6;
+  border-color: #3b82f6;
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
 }
 
@@ -328,6 +328,6 @@
 .lightbox-nav:focus,
 .lightbox-action:focus,
 .lightbox-thumbnail:focus {
-  outline: 2px solid #3B82F6;
+  outline: 2px solid #3b82f6;
   outline-offset: 2px;
 }

@@ -1,53 +1,58 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 // Side projects data - you can move this to a separate data file later
 const sideProjects = [
   {
-    id: "317-bbq",
-    name: "317 BBQ",
-    subtitle: "Brand Identity & Digital Presence",
-    image: "/images/side-projects/317-bbq.svg",
-    category: "Brand Identity",
-    description: "Complete brand identity system for Indianapolis BBQ restaurant including logo, signage, and digital assets."
+    id: '317-bbq',
+    name: '317 BBQ',
+    subtitle: 'Brand Identity & Digital Presence',
+    image: '/images/side-projects/317-bbq.svg',
+    category: 'Brand Identity',
+    description:
+      'Complete brand identity system for Indianapolis BBQ restaurant including logo, signage, and digital assets.',
   },
   {
-    id: "rbe-consulting",
-    name: "RBE Consulting",
-    subtitle: "Professional Services Branding",
-    image: "/images/side-projects/rbe-consulting.svg",
-    category: "Brand Identity",
-    description: "Strategic brand development for business consulting firm with focus on trust and expertise."
+    id: 'rbe-consulting',
+    name: 'RBE Consulting',
+    subtitle: 'Professional Services Branding',
+    image: '/images/side-projects/rbe-consulting.svg',
+    category: 'Brand Identity',
+    description:
+      'Strategic brand development for business consulting firm with focus on trust and expertise.',
   },
   {
-    id: "pike-medical",
-    name: "Pike Medical",
-    subtitle: "Healthcare Marketing System",
-    image: "/images/side-projects/pike-medical.svg",
-    category: "Web Design",
-    description: "Comprehensive marketing system for medical consultants including patient acquisition workflows."
+    id: 'pike-medical',
+    name: 'Pike Medical',
+    subtitle: 'Healthcare Marketing System',
+    image: '/images/side-projects/pike-medical.svg',
+    category: 'Web Design',
+    description:
+      'Comprehensive marketing system for medical consultants including patient acquisition workflows.',
   },
   {
-    id: "graston-dashboard",
-    name: "Graston Dashboard",
-    subtitle: "Clinical Decision Support",
-    image: "/images/side-projects/graston-dashboard.svg",
-    category: "Web Application",
-    description: "Interactive dashboard for healthcare practitioners with treatment protocols and patient management."
+    id: 'graston-dashboard',
+    name: 'Graston Dashboard',
+    subtitle: 'Clinical Decision Support',
+    image: '/images/side-projects/graston-dashboard.svg',
+    category: 'Web Application',
+    description:
+      'Interactive dashboard for healthcare practitioners with treatment protocols and patient management.',
   },
   {
-    id: "ultimate-technologies",
-    name: "Ultimate Technologies",
-    subtitle: "Technology Solutions Branding",
-    image: "/images/side-projects/ultimate-technologies.svg",
-    category: "Brand Identity",
-    description: "Modern brand identity for technology solutions provider with emphasis on innovation."
-  }
+    id: 'ultimate-technologies',
+    name: 'Ultimate Technologies',
+    subtitle: 'Technology Solutions Branding',
+    image: '/images/side-projects/ultimate-technologies.svg',
+    category: 'Brand Identity',
+    description:
+      'Modern brand identity for technology solutions provider with emphasis on innovation.',
+  },
 ];
 
 const SideProjects: React.FC = () => {
@@ -59,24 +64,26 @@ const SideProjects: React.FC = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Section reveal animation
-      gsap.fromTo(sectionRef.current,
+      gsap.fromTo(
+        sectionRef.current,
         { opacity: 0, y: 100 },
         {
           opacity: 1,
           y: 0,
           duration: 1,
-          ease: "power2.out",
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 70%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
+            start: 'top 70%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse',
+          },
         }
       );
 
       // Cards stagger animation
-      gsap.fromTo(".project-card",
+      gsap.fromTo(
+        '.project-card',
         { opacity: 0, y: 50, scale: 0.9 },
         {
           opacity: 1,
@@ -84,12 +91,12 @@ const SideProjects: React.FC = () => {
           scale: 1,
           duration: 0.6,
           stagger: 0.1,
-          ease: "power2.out",
+          ease: 'power2.out',
           scrollTrigger: {
-            trigger: ".projects-grid",
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
+            trigger: '.projects-grid',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
         }
       );
     });
@@ -102,19 +109,19 @@ const SideProjects: React.FC = () => {
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % sideProjects.length);
+      setCurrentIndex(prev => (prev + 1) % sideProjects.length);
     }, 4000);
 
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
   const nextProject = () => {
-    setCurrentIndex((prev) => (prev + 1) % sideProjects.length);
+    setCurrentIndex(prev => (prev + 1) % sideProjects.length);
     setIsAutoPlaying(false);
   };
 
   const prevProject = () => {
-    setCurrentIndex((prev) => (prev - 1 + sideProjects.length) % sideProjects.length);
+    setCurrentIndex(prev => (prev - 1 + sideProjects.length) % sideProjects.length);
     setIsAutoPlaying(false);
   };
 
@@ -135,7 +142,6 @@ const SideProjects: React.FC = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-
         {/* Section Header */}
         <motion.div
           className="text-center mb-16"
@@ -150,8 +156,8 @@ const SideProjects: React.FC = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Applied design and branding work across diverse industries —
-            from healthcare to hospitality, each project tells a unique story.
+            Applied design and branding work across diverse industries — from healthcare to
+            hospitality, each project tells a unique story.
           </p>
         </motion.div>
 
@@ -164,7 +170,6 @@ const SideProjects: React.FC = () => {
             onMouseLeave={() => setIsAutoPlaying(true)}
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[400px]">
-
               {/* Project Image */}
               <div className="relative overflow-hidden bg-gray-800">
                 <motion.img
@@ -175,7 +180,7 @@ const SideProjects: React.FC = () => {
                   initial={{ scale: 1.1, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.6 }}
-                  onError={(e) => {
+                  onError={e => {
                     // Fallback for missing images
                     e.currentTarget.src = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="%23374151"/><text x="200" y="150" text-anchor="middle" fill="%23ffffff" font-family="Arial" font-size="16">${sideProjects[currentIndex].name}</text></svg>`;
                   }}
@@ -246,9 +251,7 @@ const SideProjects: React.FC = () => {
                   onClick={() => goToProject(index)}
                   aria-label={`Go to project ${index + 1}: ${project.name}`}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex
-                      ? 'bg-cyan-400 w-8'
-                      : 'bg-white/30 hover:bg-white/50'
+                    index === currentIndex ? 'bg-cyan-400 w-8' : 'bg-white/30 hover:bg-white/50'
                   }`}
                 />
               ))}
@@ -270,7 +273,7 @@ const SideProjects: React.FC = () => {
                   src={project.image}
                   alt={project.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  onError={(e) => {
+                  onError={e => {
                     e.currentTarget.src = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><rect width="300" height="200" fill="%23374151"/><text x="150" y="100" text-anchor="middle" fill="%23ffffff" font-family="Arial" font-size="14">${project.name}</text></svg>`;
                   }}
                 />
@@ -288,9 +291,7 @@ const SideProjects: React.FC = () => {
                   {project.name}
                 </h4>
 
-                <p className="text-sm text-gray-400 mt-1">
-                  {project.subtitle}
-                </p>
+                <p className="text-sm text-gray-400 mt-1">{project.subtitle}</p>
               </div>
 
               {/* Hover Overlay */}

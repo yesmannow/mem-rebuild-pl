@@ -95,13 +95,13 @@
 
 .radar-polygon {
   fill: rgba(136, 171, 242, 0.1);
-  stroke: #88ABF2;
+  stroke: #88abf2;
   stroke-width: 2;
   stroke-linejoin: round;
 }
 
 .radar-point {
-  stroke: #0D0D0D;
+  stroke: #0d0d0d;
   stroke-width: 2;
 }
 
@@ -140,7 +140,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   color: #d1d5db;
-  background: #0D0D0D;
+  background: #0d0d0d;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   border: 1px solid rgba(136, 171, 242, 0.2);
@@ -240,7 +240,7 @@
 .skill-level {
   font-size: 0.75rem;
   font-weight: 700;
-  color: #88ABF2;
+  color: #88abf2;
 }
 
 .skill-progress {

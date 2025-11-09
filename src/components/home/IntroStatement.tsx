@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,19 +12,20 @@ const IntroStatement: React.FC = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Scroll-triggered fade-in animation
-      gsap.fromTo(textRef.current,
+      gsap.fromTo(
+        textRef.current,
         { opacity: 0, y: 50 },
         {
           opacity: 1,
           y: 0,
           duration: 1,
-          ease: "power2.out",
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse',
+          },
         }
       );
 
@@ -33,10 +34,10 @@ const IntroStatement: React.FC = () => {
         y: -50,
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1
-        }
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+        },
       });
     });
 
@@ -44,10 +45,7 @@ const IntroStatement: React.FC = () => {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-32 bg-black relative overflow-hidden"
-    >
+    <section ref={sectionRef} className="py-32 bg-black relative overflow-hidden">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/20 to-black" />
 
@@ -59,7 +57,7 @@ const IntroStatement: React.FC = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          I combine{" "}
+          I combine{' '}
           <motion.span
             className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-semibold relative inline-block"
             whileHover={{ scale: 1.05 }}
@@ -72,8 +70,8 @@ const IntroStatement: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.8 }}
             />
-          </motion.span>
-          {" "}with{" "}
+          </motion.span>{' '}
+          with{' '}
           <motion.span
             className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold relative inline-block"
             whileHover={{ scale: 1.05 }}
@@ -86,8 +84,8 @@ const IntroStatement: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.8, duration: 0.8 }}
             />
-          </motion.span>
-          {" "}to deliver{" "}
+          </motion.span>{' '}
+          to deliver{' '}
           <motion.span
             className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent font-semibold relative inline-block"
             whileHover={{ scale: 1.05 }}
@@ -111,9 +109,9 @@ const IntroStatement: React.FC = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          Through analytics-driven strategy, cross-functional project management, and technical marketing expertise,
-          I deliver campaigns that convert—with 400+ marketing automations, 70% reduction in support tickets,
-          and 40% increase in checkout conversions to prove it.
+          Through analytics-driven strategy, cross-functional project management, and technical
+          marketing expertise, I deliver campaigns that convert—with 400+ marketing automations, 70%
+          reduction in support tickets, and 40% increase in checkout conversions to prove it.
         </motion.p>
 
         {/* Decorative elements */}

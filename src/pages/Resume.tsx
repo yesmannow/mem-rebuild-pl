@@ -1,14 +1,32 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
-import { Download, Mail, ExternalLink, Users, TrendingUp, Zap, Shield, ChevronLeft, ChevronRight, Filter, Calendar, MapPin, Building2, Award, Code, GraduationCap, Quote } from "lucide-react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import AnchorNav from "../components/navigation/AnchorNav";
-import resumeData from "../data/resume.json";
-import "../styles/bearcave-brand.css";
-import "./Resume.css";
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import {
+  Download,
+  Mail,
+  ExternalLink,
+  Users,
+  TrendingUp,
+  Zap,
+  Shield,
+  ChevronLeft,
+  ChevronRight,
+  Filter,
+  Calendar,
+  MapPin,
+  Building2,
+  Award,
+  Code,
+  GraduationCap,
+  Quote,
+} from 'lucide-react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import AnchorNav from '../components/navigation/AnchorNav';
+import resumeData from '../data/resume.json';
+import '../styles/bearcave-brand.css';
+import './Resume.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,29 +55,51 @@ const Resume: React.FC = () => {
     metrics,
     testimonials,
     awards,
-    showreel
+    showreel,
   } = resumeData;
 
   // Extract unique years from experience
-  const years = Array.from(new Set(
-    experience.map(exp => {
-      const match = exp.dates.match(/\d{4}/);
-      return match ? match[0] : null;
-    }).filter((year): year is string => year !== null)
-  )).sort((a, b) => parseInt(b) - parseInt(a));
+  const years = Array.from(
+    new Set(
+      experience
+        .map(exp => {
+          const match = exp.dates.match(/\d{4}/);
+          return match ? match[0] : null;
+        })
+        .filter((year): year is string => year !== null)
+    )
+  ).sort((a, b) => parseInt(b) - parseInt(a));
 
   // Group skills by category
   const skillCategories: { [key: string]: string[] } = {
-    "Automation": skills.filter(s => s.toLowerCase().includes("automation") || s.toLowerCase().includes("crm")),
-    "Analytics": skills.filter(s => s.toLowerCase().includes("analytics") || s.toLowerCase().includes("data") || s.toLowerCase().includes("attribution")),
-    "Development": skills.filter(s => s.toLowerCase().includes("development") || s.toLowerCase().includes("code") || s.toLowerCase().includes("javascript") || s.toLowerCase().includes("react")),
-    "Strategy": skills.filter(s => s.toLowerCase().includes("strategy") || s.toLowerCase().includes("leadership") || s.toLowerCase().includes("brand")),
-    "Tools": tools
+    Automation: skills.filter(
+      s => s.toLowerCase().includes('automation') || s.toLowerCase().includes('crm')
+    ),
+    Analytics: skills.filter(
+      s =>
+        s.toLowerCase().includes('analytics') ||
+        s.toLowerCase().includes('data') ||
+        s.toLowerCase().includes('attribution')
+    ),
+    Development: skills.filter(
+      s =>
+        s.toLowerCase().includes('development') ||
+        s.toLowerCase().includes('code') ||
+        s.toLowerCase().includes('javascript') ||
+        s.toLowerCase().includes('react')
+    ),
+    Strategy: skills.filter(
+      s =>
+        s.toLowerCase().includes('strategy') ||
+        s.toLowerCase().includes('leadership') ||
+        s.toLowerCase().includes('brand')
+    ),
+    Tools: tools,
   };
 
   // GSAP Scroll Animations
   useEffect(() => {
-    const sections = gsap.utils.toArray(".resume-section");
+    const sections = gsap.utils.toArray('.resume-section');
 
     sections.forEach((section: any) => {
       gsap.fromTo(
@@ -69,11 +109,11 @@ const Resume: React.FC = () => {
           opacity: 1,
           y: 0,
           duration: 1,
-          ease: "power3.out",
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: section,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
           },
         }
       );
@@ -86,8 +126,8 @@ const Resume: React.FC = () => {
         if (element) {
           ScrollTrigger.create({
             trigger: element,
-            start: "top center",
-            end: "bottom center",
+            start: 'top center',
+            end: 'bottom center',
             onEnter: () => {
               const match = exp.dates.match(/\d{4}/);
               if (match && match[0]) setActiveYear(match[0]);
@@ -109,7 +149,7 @@ const Resume: React.FC = () => {
   // Auto-advance showreel
   useEffect(() => {
     const interval = setInterval(() => {
-      setShowreelIndex((prev) => (prev + 1) % showreel.length);
+      setShowreelIndex(prev => (prev + 1) % showreel.length);
     }, 5000);
     return () => clearInterval(interval);
   }, [showreel.length]);
@@ -117,7 +157,7 @@ const Resume: React.FC = () => {
   // Auto-advance testimonials
   useEffect(() => {
     const interval = setInterval(() => {
-      setTestimonialIndex((prev) => (prev + 1) % testimonials.length);
+      setTestimonialIndex(prev => (prev + 1) % testimonials.length);
     }, 6000);
     return () => clearInterval(interval);
   }, [testimonials.length]);
@@ -133,25 +173,30 @@ const Resume: React.FC = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case "users": return <Users size={24} />;
-      case "trending": return <TrendingUp size={24} />;
-      case "zap": return <Zap size={24} />;
-      case "shield": return <Shield size={24} />;
-      default: return null;
+      case 'users':
+        return <Users size={24} />;
+      case 'trending':
+        return <TrendingUp size={24} />;
+      case 'zap':
+        return <Zap size={24} />;
+      case 'shield':
+        return <Shield size={24} />;
+      default:
+        return null;
     }
   };
 
   const anchorItems = [
-    { id: "experience", label: "Experience" },
-    { id: "skills", label: "Skills" },
-    { id: "testimonials", label: "Testimonials" },
-    { id: "education", label: "Education" }
+    { id: 'experience', label: 'Experience' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'testimonials', label: 'Testimonials' },
+    { id: 'education', label: 'Education' },
   ];
 
   return (
@@ -164,17 +209,17 @@ const Resume: React.FC = () => {
         <meta property="og:type" content="profile" />
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": name,
-            "jobTitle": title,
-            "url": links.website,
-            "sameAs": [links.linkedin, links.github],
-            "email": links.email,
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": contact.location
-            }
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: name,
+            jobTitle: title,
+            url: links.website,
+            sameAs: [links.linkedin, links.github],
+            email: links.email,
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: contact.location,
+            },
           })}
         </script>
       </Helmet>
@@ -243,7 +288,11 @@ const Resume: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
             >
-              <button className="btn-primary" onClick={handleDownloadPDF} aria-label="Download PDF resume">
+              <button
+                className="btn-primary"
+                onClick={handleDownloadPDF}
+                aria-label="Download PDF resume"
+              >
                 <Download size={20} />
                 Download PDF
               </button>
@@ -283,16 +332,17 @@ const Resume: React.FC = () => {
           <div className="container">
             <h2 className="section-heading">Career Journey</h2>
             <p className="section-subheading">
-              A progression through strategic growth, technical innovation, and transformative leadership
+              A progression through strategic growth, technical innovation, and transformative
+              leadership
             </p>
 
             <div className="timeline-wrapper" ref={timelineRef}>
               {/* Sticky Year Rail */}
               <div className="timeline-rail">
-                {years.map((year) => (
+                {years.map(year => (
                   <button
                     key={year}
-                    className={`year-marker ${activeYear === year ? "active" : ""}`}
+                    className={`year-marker ${activeYear === year ? 'active' : ''}`}
                     onClick={() => {
                       const expIndex = experience.findIndex(exp => exp.dates.includes(year));
                       if (expIndex !== -1) {
@@ -374,7 +424,9 @@ const Resume: React.FC = () => {
                         <Code size={18} />
                         <div className="tech-chips">
                           {exp.technologies.map((tech, idx) => (
-                            <span key={idx} className="chip">{tech}</span>
+                            <span key={idx} className="chip">
+                              {tech}
+                            </span>
                           ))}
                         </div>
                       </div>
@@ -397,16 +449,16 @@ const Resume: React.FC = () => {
             {/* Filter Toggles */}
             <div className="skill-filters">
               <button
-                className={`chip filter-chip ${activeSkillFilter === null ? "active" : ""}`}
+                className={`chip filter-chip ${activeSkillFilter === null ? 'active' : ''}`}
                 onClick={() => setActiveSkillFilter(null)}
               >
                 <Filter size={16} />
                 All Skills
               </button>
-              {Object.keys(skillCategories).map((category) => (
+              {Object.keys(skillCategories).map(category => (
                 <button
                   key={category}
-                  className={`chip filter-chip ${activeSkillFilter === category ? "active" : ""}`}
+                  className={`chip filter-chip ${activeSkillFilter === category ? 'active' : ''}`}
                   onClick={() => setActiveSkillFilter(category)}
                 >
                   {category}
@@ -485,14 +537,16 @@ const Resume: React.FC = () => {
                 {/* Navigation */}
                 <button
                   className="carousel-nav prev"
-                  onClick={() => setShowreelIndex((prev) => (prev - 1 + showreel.length) % showreel.length)}
+                  onClick={() =>
+                    setShowreelIndex(prev => (prev - 1 + showreel.length) % showreel.length)
+                  }
                   aria-label="Previous slide"
                 >
                   <ChevronLeft size={24} />
                 </button>
                 <button
                   className="carousel-nav next"
-                  onClick={() => setShowreelIndex((prev) => (prev + 1) % showreel.length)}
+                  onClick={() => setShowreelIndex(prev => (prev + 1) % showreel.length)}
                   aria-label="Next slide"
                 >
                   <ChevronRight size={24} />
@@ -503,7 +557,7 @@ const Resume: React.FC = () => {
                   {showreel.map((_, idx) => (
                     <button
                       key={idx}
-                      className={`indicator ${idx === showreelIndex ? "active" : ""}`}
+                      className={`indicator ${idx === showreelIndex ? 'active' : ''}`}
                       onClick={() => setShowreelIndex(idx)}
                       aria-label={`Go to slide ${idx + 1}`}
                     />
@@ -537,7 +591,9 @@ const Resume: React.FC = () => {
                         <h4>{testimonials[testimonialIndex].name}</h4>
                         <p>{testimonials[testimonialIndex].role}</p>
                         {testimonials[testimonialIndex].company && (
-                          <p className="testimonial-company">{testimonials[testimonialIndex].company}</p>
+                          <p className="testimonial-company">
+                            {testimonials[testimonialIndex].company}
+                          </p>
                         )}
                       </div>
                     </div>
@@ -549,7 +605,7 @@ const Resume: React.FC = () => {
                   {testimonials.map((_, idx) => (
                     <button
                       key={idx}
-                      className={`testimonial-dot ${idx === testimonialIndex ? "active" : ""}`}
+                      className={`testimonial-dot ${idx === testimonialIndex ? 'active' : ''}`}
                       onClick={() => setTestimonialIndex(idx)}
                       aria-label={`View testimonial ${idx + 1}`}
                     />
@@ -626,7 +682,9 @@ const Resume: React.FC = () => {
                       <h3>{award.title}</h3>
                       <p className="award-organization">{award.organization}</p>
                       <p className="award-year">{award.year}</p>
-                      {award.description && <p className="award-description">{award.description}</p>}
+                      {award.description && (
+                        <p className="award-description">{award.description}</p>
+                      )}
                     </motion.div>
                   ))}
                 </div>

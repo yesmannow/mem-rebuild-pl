@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Sparkles, Palette, Camera, Code, Zap, Brain, Layers, Grid3X3 } from "lucide-react";
+import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Sparkles, Palette, Camera, Code, Zap, Brain, Layers, Grid3X3 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,27 +18,31 @@ const ModernInspirationHero: React.FC = () => {
       // Hero entrance animation
       const tl = gsap.timeline();
 
-      tl.fromTo(titleRef.current,
+      tl.fromTo(
+        titleRef.current,
         { opacity: 0, y: 100, scale: 0.8 },
-        { opacity: 1, y: 0, scale: 1, duration: 1.2, ease: "power3.out" }
+        { opacity: 1, y: 0, scale: 1, duration: 1.2, ease: 'power3.out' }
       )
-      .fromTo(subtitleRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-        "-=0.6"
-      )
-      .fromTo(statsRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
-        "-=0.4"
-      );
+        .fromTo(
+          subtitleRef.current,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+          '-=0.6'
+        )
+        .fromTo(
+          statsRef.current,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+          '-=0.4'
+        );
 
       // Floating particles animation
-      gsap.fromTo(particlesRef.current?.children || [],
+      gsap.fromTo(
+        particlesRef.current?.children || [],
         {
           opacity: 0,
           scale: 0,
-          rotation: 0
+          rotation: 0,
         },
         {
           opacity: 1,
@@ -46,50 +50,52 @@ const ModernInspirationHero: React.FC = () => {
           rotation: 360,
           duration: 2,
           stagger: 0.1,
-          ease: "power2.out",
-          delay: 0.5
+          ease: 'power2.out',
+          delay: 0.5,
         }
       );
 
       // Continuous floating animation for particles
       gsap.to(particlesRef.current?.children || [], {
-        y: "random(-20, 20)",
-        x: "random(-10, 10)",
-        rotation: "random(-180, 180)",
-        duration: "random(3, 6)",
+        y: 'random(-20, 20)',
+        x: 'random(-10, 10)',
+        rotation: 'random(-180, 180)',
+        duration: 'random(3, 6)',
         repeat: -1,
         yoyo: true,
-        ease: "sine.inOut",
-        stagger: 0.2
+        ease: 'sine.inOut',
+        stagger: 0.2,
       });
 
       // Parallax effect
       gsap.to(heroRef.current, {
         scrollTrigger: {
           trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1.5
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1.5,
         },
         y: 200,
         scale: 1.05,
-        opacity: 0.3
+        opacity: 0.3,
       });
-
     }, heroRef);
 
     return () => ctx.revert();
   }, []);
 
   const stats = [
-    { icon: Palette, label: "Color Palettes", value: "50+", color: "from-purple-400 to-pink-400" },
-    { icon: Camera, label: "Photography", value: "200+", color: "from-blue-400 to-cyan-400" },
-    { icon: Code, label: "Design Systems", value: "15+", color: "from-green-400 to-emerald-400" },
-    { icon: Brain, label: "AI Projects", value: "8+", color: "from-orange-400 to-red-400" }
+    { icon: Palette, label: 'Color Palettes', value: '50+', color: 'from-purple-400 to-pink-400' },
+    { icon: Camera, label: 'Photography', value: '200+', color: 'from-blue-400 to-cyan-400' },
+    { icon: Code, label: 'Design Systems', value: '15+', color: 'from-green-400 to-emerald-400' },
+    { icon: Brain, label: 'AI Projects', value: '8+', color: 'from-orange-400 to-red-400' },
   ];
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      ref={heroRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Animated Background */}
       <div className="absolute inset-0">
         {/* Gradient Background */}
@@ -125,12 +131,12 @@ const ModernInspirationHero: React.FC = () => {
                 y: [-20, 20, -20],
                 x: [-10, 10, -10],
                 scale: [1, 1.5, 1],
-                opacity: [0.3, 0.8, 0.3]
+                opacity: [0.3, 0.8, 0.3],
               }}
               transition={{
                 duration: 4 + Math.random() * 2,
                 repeat: Infinity,
-                delay: Math.random() * 2
+                delay: Math.random() * 2,
               }}
             />
           ))}
@@ -141,17 +147,17 @@ const ModernInspirationHero: React.FC = () => {
           <motion.div
             className="absolute top-20 left-20 w-32 h-32 border-2 border-purple-400/30 rounded-full"
             animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
           />
           <motion.div
             className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-lg"
             animate={{ rotate: -360 }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
           />
           <motion.div
             className="absolute top-1/2 left-10 w-16 h-16 border-2 border-pink-400/30 transform rotate-45"
             animate={{ rotate: 180 }}
-            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
           />
         </div>
       </div>
@@ -189,7 +195,8 @@ const ModernInspirationHero: React.FC = () => {
         >
           A living canvas of colors, patterns, and motion drawn from every project.
           <br />
-          Explore the visual DNA that shapes creative decisions across design, photography, and development.
+          Explore the visual DNA that shapes creative decisions across design, photography, and
+          development.
         </motion.p>
 
         {/* Stats Grid */}
@@ -206,7 +213,9 @@ const ModernInspirationHero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 + index * 0.1, duration: 0.6 }}
             >
-              <div className={`w-12 h-12 mx-auto mb-4 bg-gradient-to-r ${stat.color} rounded-xl flex items-center justify-center`}>
+              <div
+                className={`w-12 h-12 mx-auto mb-4 bg-gradient-to-r ${stat.color} rounded-xl flex items-center justify-center`}
+              >
                 <stat.icon className="w-6 h-6 text-white" />
               </div>
               <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>

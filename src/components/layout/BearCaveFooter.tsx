@@ -1,45 +1,43 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import NewsletterForm from "../newsletter/NewsletterForm";
-import "./BearCaveFooter.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import NewsletterForm from '../newsletter/NewsletterForm';
+import './BearCaveFooter.css';
 
 const footerNavSections = [
   {
-    title: "About",
+    title: 'About',
     links: [
-      { label: "About Me", to: "/about" },
-      { label: "Interactive Resume", to: "/resume" }
-    ]
+      { label: 'About Me', to: '/about' },
+      { label: 'Interactive Resume', to: '/resume' },
+    ],
   },
   {
-    title: "Work",
+    title: 'Work',
     links: [
-      { label: "Case Studies", to: "/case-studies" },
-      { label: "Side Projects", to: "/side-projects" },
-      { label: "Graphic Design", to: "/design" },
-      { label: "Photography", to: "/photography" }
-    ]
+      { label: 'Case Studies', to: '/case-studies' },
+      { label: 'Side Projects', to: '/side-projects' },
+      { label: 'Graphic Design', to: '/design' },
+      { label: 'Photography', to: '/photography' },
+    ],
   },
   {
-    title: "Tools/Skills",
+    title: 'Tools/Skills',
     links: [
-      { label: "Developer Builds", to: "/applications" },
-      { label: "Toolbox", to: "/toolbox" }
-    ]
+      { label: 'Developer Builds', to: '/applications' },
+      { label: 'Toolbox', to: '/toolbox' },
+    ],
   },
   {
-    title: "Inspiration",
+    title: 'Inspiration',
     links: [
-      { label: "Brand Builder", to: "/brand-builder" },
-      { label: "Inspiration", to: "/inspiration" }
-    ]
+      { label: 'Brand Builder', to: '/brand-builder' },
+      { label: 'Inspiration', to: '/inspiration' },
+    ],
   },
   {
-    title: "Connect",
-    links: [
-      { label: "Contact", to: "/contact" }
-    ]
-  }
+    title: 'Connect',
+    links: [{ label: 'Contact', to: '/contact' }],
+  },
 ];
 
 export default function BearCaveFooter() {
@@ -49,7 +47,9 @@ export default function BearCaveFooter() {
         <div className="bearcave-footer__content">
           <div className="bearcave-footer__brand-section">
             <div className="bearcave-footer__brand">BearCave Marketing</div>
-            <p className="bearcave-footer__tagline">Marketing systems that drive measurable growth</p>
+            <p className="bearcave-footer__tagline">
+              Marketing systems that drive measurable growth
+            </p>
           </div>
           <nav className="bearcave-footer__nav" aria-label="Footer navigation">
             {footerNavSections.map(section => (
@@ -78,4 +78,3 @@ export default function BearCaveFooter() {
     </footer>
   );
 }
-

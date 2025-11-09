@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import React, { useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 interface TiltCardProps {
   children: React.ReactNode;
@@ -7,11 +7,7 @@ interface TiltCardProps {
   tiltAmount?: number;
 }
 
-const TiltCard: React.FC<TiltCardProps> = ({ 
-  children, 
-  className = "",
-  tiltAmount = 15
-}) => {
+const TiltCard: React.FC<TiltCardProps> = ({ children, className = '', tiltAmount = 15 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const x = useMotionValue(0);
@@ -53,13 +49,11 @@ const TiltCard: React.FC<TiltCardProps> = ({
       style={{
         rotateX,
         rotateY,
-        transformStyle: "preserve-3d",
+        transformStyle: 'preserve-3d',
       }}
       className={className}
     >
-      <div style={{ transform: "translateZ(50px)", transformStyle: "preserve-3d" }}>
-        {children}
-      </div>
+      <div style={{ transform: 'translateZ(50px)', transformStyle: 'preserve-3d' }}>{children}</div>
     </motion.div>
   );
 };

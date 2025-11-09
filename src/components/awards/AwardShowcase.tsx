@@ -12,7 +12,7 @@ const AwardShowcase: React.FC = () => {
       <div className="absolute inset-0">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-950/20 via-black to-orange-950/20" />
-        
+
         {/* Animated Particles */}
         <div className="absolute inset-0">
           {[...Array(20)].map((_, i) => (
@@ -49,10 +49,10 @@ const AwardShowcase: React.FC = () => {
           {/* Icon */}
           <motion.div
             className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full mb-6 shadow-2xl"
-            whileHover={{ 
-              scale: 1.1, 
+            whileHover={{
+              scale: 1.1,
               rotate: 360,
-              boxShadow: "0 0 40px rgba(255, 215, 0, 0.6)"
+              boxShadow: '0 0 40px rgba(255, 215, 0, 0.6)',
             }}
             transition={{ duration: 0.8 }}
           >
@@ -60,7 +60,7 @@ const AwardShowcase: React.FC = () => {
           </motion.div>
 
           {/* Title */}
-          <motion.h2 
+          <motion.h2
             className="text-5xl lg:text-6xl font-bold mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -72,18 +72,18 @@ const AwardShowcase: React.FC = () => {
           </motion.h2>
 
           {/* Subtitle */}
-          <motion.p 
+          <motion.p
             className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Celebrating excellence in creative achievement and artistic recognition — 
-            honoring the foundation of visual storytelling that continues to inspire innovative design solutions.
+            Celebrating excellence in creative achievement and artistic recognition — honoring the
+            foundation of visual storytelling that continues to inspire innovative design solutions.
           </motion.p>
 
           {/* Decorative Elements */}
-          <motion.div 
+          <motion.div
             className="flex items-center justify-center gap-4 mt-8"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -110,10 +110,7 @@ const AwardShowcase: React.FC = () => {
           viewport={{ once: true }}
         >
           {awardsData.map((award, index) => (
-            <motion.div
-              key={award.id}
-              variants={motionVariants.staggerItem}
-            >
+            <motion.div key={award.id} variants={motionVariants.staggerItem}>
               <AwardCard award={award} index={index} />
             </motion.div>
           ))}
@@ -133,10 +130,11 @@ const AwardShowcase: React.FC = () => {
             </span>
             <Star className="w-5 h-5 text-yellow-400" />
           </div>
-          
+
           <p className="text-gray-400 text-sm mt-4 max-w-2xl mx-auto">
-            These early recognitions in visual arts established the creative foundation that continues to drive 
-            innovative design thinking and aesthetic excellence in every marketing and technical project.
+            These early recognitions in visual arts established the creative foundation that
+            continues to drive innovative design thinking and aesthetic excellence in every
+            marketing and technical project.
           </p>
         </motion.div>
       </div>

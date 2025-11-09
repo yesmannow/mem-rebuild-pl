@@ -1,6 +1,8 @@
+import React from 'react';
+
 export default function WaveDivider({ flip = false }: Readonly<{ flip?: boolean }>) {
   return (
-    <div className={`relative w-full overflow-hidden ${flip ? "rotate-180" : ""}`}>
+    <div className={`relative w-full overflow-hidden ${flip ? 'rotate-180' : ''}`}>
       <svg
         className="w-full h-16 text-slate-100"
         xmlns="http://www.w3.org/2000/svg"

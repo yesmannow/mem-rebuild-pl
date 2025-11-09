@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function HeroGradient({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <section className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
@@ -20,9 +22,7 @@ export default function HeroGradient({ children }: Readonly<{ children: React.Re
         </defs>
       </svg>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 text-center">
-        {children}
-      </div>
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 text-center">{children}</div>
     </section>
   );
 }

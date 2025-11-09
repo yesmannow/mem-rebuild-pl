@@ -25,10 +25,10 @@ const InspirationTimeline: React.FC<InspirationTimelineProps> = ({ className = '
   // Scroll progress for the timeline line
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ['start end', 'end start'],
   });
 
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   const toggleExpanded = (year: string) => {
     const newExpanded = new Set(expandedItems);
@@ -49,7 +49,8 @@ const InspirationTimeline: React.FC<InspirationTimelineProps> = ({ className = '
             Journey of Inspiration
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            The experiences that shaped my creative philosophy and led to the founding of Bear Cave Marketing
+            The experiences that shaped my creative philosophy and led to the founding of Bear Cave
+            Marketing
           </p>
         </div>
 
@@ -57,10 +58,7 @@ const InspirationTimeline: React.FC<InspirationTimelineProps> = ({ className = '
         <div ref={containerRef} className="relative">
           {/* Timeline Line */}
           <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-700">
-            <motion.div
-              className="w-full bg-amber-500 origin-top"
-              style={{ height: lineHeight }}
-            />
+            <motion.div className="w-full bg-amber-500 origin-top" style={{ height: lineHeight }} />
           </div>
 
           {/* Timeline Items */}
@@ -74,7 +72,7 @@ const InspirationTimeline: React.FC<InspirationTimelineProps> = ({ className = '
                   key={item.year}
                   initial={{ opacity: 0, x: isEven ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  viewport={{ once: true, margin: '-100px' }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className={`relative flex items-start ${isEven ? 'flex-row' : 'flex-row-reverse'}`}
                 >
@@ -119,7 +117,7 @@ const InspirationTimeline: React.FC<InspirationTimelineProps> = ({ className = '
                         {isExpanded && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
+                            animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3 }}
                             className="overflow-hidden"

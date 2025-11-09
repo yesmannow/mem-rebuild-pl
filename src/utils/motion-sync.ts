@@ -1,6 +1,6 @@
-import Lenis from "lenis";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lenis from 'lenis';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,19 +40,19 @@ export function initLenis(): Lenis | null {
 
     // Sync Lenis scroll with ScrollTrigger
     if (lenis.on) {
-      lenis.on("scroll", () => {
+      lenis.on('scroll', () => {
         ScrollTrigger.update();
       });
     }
 
     // Only log on actual initialization (first call)
-      if (process.env.NODE_ENV === 'development') {
-        console.log("✅ Lenis initialized successfully", lenis);
-      }
+    if (process.env.NODE_ENV === 'development') {
+      console.log('✅ Lenis initialized successfully', lenis);
+    }
 
     return lenis;
   } catch (error) {
-    console.error("❌ Lenis initialization failed:", error);
+    console.error('❌ Lenis initialization failed:', error);
     // Ensure native scrolling works
     document.documentElement.style.overflow = 'auto';
     document.body.style.overflow = 'auto';
@@ -80,10 +80,10 @@ export function destroyLenis(): void {
       }
       lenis = null;
       if (process.env.NODE_ENV === 'development') {
-        console.log("🔄 Lenis destroyed (cleanup)");
+        console.log('🔄 Lenis destroyed (cleanup)');
       }
     } catch (error) {
-      console.error("Error destroying Lenis:", error);
+      console.error('Error destroying Lenis:', error);
       lenis = null;
     }
   }
@@ -142,12 +142,12 @@ class MotionSync {
   // Pause all animations (useful for performance)
   pauseAll() {
     this.activeAnimations.forEach(anim => {
-      if (anim && typeof anim.pause === "function") {
+      if (anim && typeof anim.pause === 'function') {
         anim.pause();
       }
     });
     this.scrollAnimations.forEach(anim => {
-      if (anim && typeof anim.pause === "function") {
+      if (anim && typeof anim.pause === 'function') {
         anim.pause();
       }
     });
@@ -156,12 +156,12 @@ class MotionSync {
   // Resume all animations
   resumeAll() {
     this.activeAnimations.forEach(anim => {
-      if (anim && typeof anim.play === "function") {
+      if (anim && typeof anim.play === 'function') {
         anim.play();
       }
     });
     this.scrollAnimations.forEach(anim => {
-      if (anim && typeof anim.resume === "function") {
+      if (anim && typeof anim.resume === 'function') {
         anim.resume();
       }
     });
@@ -184,19 +184,20 @@ export const motionSync = new MotionSync();
 
 // Cinematic scroll synchronization with enhanced effects
 export function useCinematicScrollSync() {
-  gsap.utils.toArray<HTMLElement>("[data-scroll-section]").forEach((section) => {
+  const sections = document.querySelectorAll<HTMLElement>('[data-scroll-section]');
+  sections.forEach((section: HTMLElement) => {
     const scrollTrigger = ScrollTrigger.create({
       trigger: section,
-      start: "top bottom",
-      end: "bottom top",
+      start: 'top bottom',
+      end: 'bottom top',
       onEnter: () => {
         const tween = gsap.to(section, {
           opacity: 1,
           y: 0,
           scale: 1,
-          filter: "blur(0px)",
+          filter: 'blur(0px)',
           duration: 1.2,
-          ease: "power3.out"
+          ease: 'power3.out',
         });
         motionSync.registerGsap(tween);
       },
@@ -205,9 +206,9 @@ export function useCinematicScrollSync() {
           opacity: 0.5,
           y: 50,
           scale: 0.98,
-          filter: "blur(2px)",
+          filter: 'blur(2px)',
           duration: 0.8,
-          ease: "power2.out"
+          ease: 'power2.out',
         });
         motionSync.registerGsap(tween);
       },
@@ -234,17 +235,20 @@ export function createPageTransition(element: HTMLElement, direction: 'in' | 'ou
     },
     onComplete: () => {
       element.style.pointerEvents = 'auto';
-    }
+    },
   });
 }
 
 // Synchronized hover effects
-export function createHoverSync(element: HTMLElement, options: {
-  scale?: number;
-  y?: number;
-  glow?: boolean;
-  duration?: number;
-}) {
+export function createHoverSync(
+  element: HTMLElement,
+  options: {
+    scale?: number;
+    y?: number;
+    glow?: boolean;
+    duration?: number;
+  }
+) {
   const { scale = 1.05, y = -5, glow = true, duration = 300 } = options;
 
   const enterAnimation = () => {
@@ -253,7 +257,7 @@ export function createHoverSync(element: HTMLElement, options: {
       y: y,
       filter: glow ? 'drop-shadow(0 10px 20px rgba(136, 171, 242, 0.3))' : 'none',
       duration: duration / 1000,
-      ease: 'power2.out'
+      ease: 'power2.out',
     });
     motionSync.registerGsap(gsapInstance);
   };
@@ -264,7 +268,7 @@ export function createHoverSync(element: HTMLElement, options: {
       y: 0,
       filter: 'drop-shadow(0 0 0px rgba(136, 171, 242, 0))',
       duration: duration / 1000,
-      ease: 'power2.out'
+      ease: 'power2.out',
     });
     motionSync.registerGsap(gsapInstance);
   };

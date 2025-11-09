@@ -28,7 +28,7 @@ export {
   IconCreditCard,
   IconClipboard,
   IconHospital,
-  type IconProps
+  type IconProps,
 } from './Icon';
 
 // Icon mapping for easy lookup
@@ -60,7 +60,7 @@ export const iconMap = {
   search: 'IconSearch',
   creditCard: 'IconCreditCard',
   clipboard: 'IconClipboard',
-  hospital: 'IconHospital'
+  hospital: 'IconHospital',
 };
 
 // Emoji to Icon mapping for migration
@@ -94,5 +94,5 @@ export const emojiToIconMap: Record<string, string> = {
   '💳': 'IconCreditCard',
   '📋': 'IconClipboard',
   '📑': 'IconClipboard',
-  '🏥': 'IconHospital'
+  '🏥': 'IconHospital',
 };

@@ -35,3 +35,7 @@ PR integrates*
 *Zustand store*
 *Embla wrapper*
 *BearCave brand integration*
+
+# Ignore accidental/temporary files
+tatus
+use BearCave CSS variables for consistent branding.*

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   Search,
   Filter,
@@ -11,8 +11,8 @@ import {
   ChevronDown,
   ChevronUp,
   Menu,
-  X as CloseIcon
-} from "lucide-react";
+  X as CloseIcon,
+} from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,12 +27,12 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
   items,
   onItemClick,
   onFilterChange,
-  availableTags
+  availableTags,
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [isScrolling, setIsScrolling] = useState(false);
@@ -41,11 +41,11 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
   const filterRef = useRef<HTMLDivElement>(null);
 
   const categories = [
-    { id: "All", label: "All", count: items.length },
-    { id: "Design", label: "Design", count: Math.floor(items.length * 0.4) },
-    { id: "Photography", label: "Photography", count: Math.floor(items.length * 0.3) },
-    { id: "Projects", label: "Projects", count: Math.floor(items.length * 0.2) },
-    { id: "Personal", label: "Personal", count: Math.floor(items.length * 0.1) }
+    { id: 'All', label: 'All', count: items.length },
+    { id: 'Design', label: 'Design', count: Math.floor(items.length * 0.4) },
+    { id: 'Photography', label: 'Photography', count: Math.floor(items.length * 0.3) },
+    { id: 'Projects', label: 'Projects', count: Math.floor(items.length * 0.2) },
+    { id: 'Personal', label: 'Personal', count: Math.floor(items.length * 0.1) },
   ];
 
   // Handle scroll performance
@@ -78,32 +78,30 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
       search: searchQuery,
       category: selectedCategory,
       tags: selectedTags,
-      viewMode
+      viewMode,
     });
   }, [searchQuery, selectedCategory, selectedTags, viewMode, onFilterChange]);
 
   const handleTagToggle = (tag: string) => {
-    setSelectedTags(prev =>
-      prev.includes(tag)
-        ? prev.filter(t => t !== tag)
-        : [...prev, tag]
-    );
+    setSelectedTags(prev => (prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]));
   };
 
   const clearFilters = () => {
-    setSearchQuery("");
-    setSelectedCategory("All");
+    setSearchQuery('');
+    setSelectedCategory('All');
     setSelectedTags([]);
   };
 
-  const hasActiveFilters = searchQuery || selectedCategory !== "All" || selectedTags.length > 0;
+  const hasActiveFilters = searchQuery || selectedCategory !== 'All' || selectedTags.length > 0;
 
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Mobile Header */}
-      <div className={`sticky top-0 z-50 bg-black/90 backdrop-blur-xl border-b border-white/10 transition-all duration-300 ${
-        isScrolling ? 'py-2' : 'py-4'
-      }`}>
+      <div
+        className={`sticky top-0 z-50 bg-black/90 backdrop-blur-xl border-b border-white/10 transition-all duration-300 ${
+          isScrolling ? 'py-2' : 'py-4'
+        }`}
+      >
         <div className="px-4">
           <div className="flex items-center justify-between">
             <h1 className="text-xl font-bold">Inspiration</h1>
@@ -122,9 +120,7 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
               <button
                 onClick={() => setIsFilterOpen(!isFilterOpen)}
                 className={`p-2 rounded-full text-white transition-colors ${
-                  hasActiveFilters
-                    ? 'bg-purple-500'
-                    : 'bg-white/10 hover:bg-white/20'
+                  hasActiveFilters ? 'bg-purple-500' : 'bg-white/10 hover:bg-white/20'
                 }`}
                 aria-label="Filters"
               >
@@ -162,7 +158,7 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
             {isSearchOpen && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
+                animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
                 className="mt-4"
               >
@@ -173,12 +169,12 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
                     type="text"
                     placeholder="Search inspiration..."
                     value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onChange={e => setSearchQuery(e.target.value)}
                     className="w-full pl-10 pr-10 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-400"
                   />
                   {searchQuery && (
                     <button
-                      onClick={() => setSearchQuery("")}
+                      onClick={() => setSearchQuery('')}
                       className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
                       title="Clear search"
                       aria-label="Clear search"
@@ -223,7 +219,7 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
                 <div>
                   <h3 className="text-sm font-medium text-gray-300 mb-3">Categories</h3>
                   <div className="space-y-2">
-                    {categories.map((category) => (
+                    {categories.map(category => (
                       <button
                         key={category.id}
                         onClick={() => setSelectedCategory(category.id)}
@@ -244,7 +240,7 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
                 <div>
                   <h3 className="text-sm font-medium text-gray-300 mb-3">Tags</h3>
                   <div className="flex flex-wrap gap-2">
-                    {availableTags.slice(0, 10).map((tag) => (
+                    {availableTags.slice(0, 10).map(tag => (
                       <button
                         key={tag}
                         onClick={() => handleTagToggle(tag)}
@@ -284,18 +280,12 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
               {items.length} items
               {selectedCategory !== 'All' && ` in ${selectedCategory}`}
             </h2>
-            {searchQuery && (
-              <p className="text-sm text-gray-400">Searching for "{searchQuery}"</p>
-            )}
+            {searchQuery && <p className="text-sm text-gray-400">Searching for "{searchQuery}"</p>}
           </div>
         </div>
 
         {/* Mobile Grid/List */}
-        <div className={
-          viewMode === 'grid'
-            ? 'grid grid-cols-2 gap-3'
-            : 'space-y-3'
-        }>
+        <div className={viewMode === 'grid' ? 'grid grid-cols-2 gap-3' : 'space-y-3'}>
           {items.map((item, index) => (
             <motion.div
               key={item.id || index}

@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { User, Briefcase, GraduationCap, Award, Users, Code, FileText, ArrowUp } from 'lucide-react';
+import {
+  User,
+  Briefcase,
+  GraduationCap,
+  Award,
+  Users,
+  Code,
+  FileText,
+  ArrowUp,
+} from 'lucide-react';
 import { scrollToPosition, scrollToTop } from '../../utils/scroll';
 
 interface NavItem {
@@ -72,7 +81,7 @@ const StickyNavigation: React.FC = () => {
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-      scrollToPosition(offsetPosition);
+      scrollToPosition(offsetPosition, { duration: 0.8 });
     }
   };
 
@@ -92,7 +101,7 @@ const StickyNavigation: React.FC = () => {
             <motion.div
               className="w-full bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"
               style={{
-                height: `${(navItems.findIndex(item => item.id === activeSection) + 1) / navItems.length * 100}%`,
+                height: `${((navItems.findIndex(item => item.id === activeSection) + 1) / navItems.length) * 100}%`,
               }}
               transition={{ duration: 0.3 }}
             />
@@ -137,14 +146,12 @@ const StickyNavigation: React.FC = () => {
         transition={{ duration: 0.3 }}
       >
         <div className="flex items-center justify-around px-4 py-3 overflow-x-auto">
-          {navItems.map((item) => (
+          {navItems.map(item => (
             <motion.button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-all duration-300 min-w-fit ${
-                activeSection === item.id
-                  ? 'text-blue-400 bg-blue-500/10'
-                  : 'text-gray-400'
+                activeSection === item.id ? 'text-blue-400 bg-blue-500/10' : 'text-gray-400'
               }`}
               whileTap={{ scale: 0.9 }}
             >
@@ -157,7 +164,7 @@ const StickyNavigation: React.FC = () => {
 
       {/* Scroll to Top Button */}
       <motion.button
-        onClick={scrollToTop}
+        onClick={() => scrollToTop({ offset: 0, duration: 0.8 })}
         className="fixed bottom-8 right-8 lg:bottom-8 lg:right-32 z-50 p-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0 }}
@@ -172,4 +179,3 @@ const StickyNavigation: React.FC = () => {
 };
 
 export default StickyNavigation;
-

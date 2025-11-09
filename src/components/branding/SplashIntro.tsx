@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence, Easing } from 'framer-motion';
 // import anime from "animejs"; // Temporarily disabled for deployment
-import AnimatedLogo from "./AnimatedLogo";
-import "./SplashIntro.css";
+import AnimatedLogo from './AnimatedLogo';
+import './SplashIntro.css';
 
 interface SplashIntroProps {
   onComplete?: () => void;
@@ -10,10 +10,10 @@ interface SplashIntroProps {
   enableAudio?: boolean;
 }
 
-const SplashIntro: React.FC<SplashIntroProps> = ({ 
-  onComplete, 
+const SplashIntro: React.FC<SplashIntroProps> = ({
+  onComplete,
   duration = 3000,
-  enableAudio = false 
+  enableAudio = false,
 }) => {
   const [showIntro, setShowIntro] = useState(true);
   const [logoAnimationComplete, setLogoAnimationComplete] = useState(false);
@@ -21,7 +21,7 @@ const SplashIntro: React.FC<SplashIntroProps> = ({
   useEffect(() => {
     // Optional audio cue
     if (enableAudio) {
-      const audio = new Audio("/audio/intro-flare.mp3");
+      const audio = new Audio('/audio/intro-flare.mp3');
       audio.volume = 0.3;
       audio.play().catch(() => {
         // Silently handle audio play failure (user interaction required)
@@ -48,19 +48,19 @@ const SplashIntro: React.FC<SplashIntroProps> = ({
       const tagline = document.querySelector('.splash-tagline') as HTMLElement;
       const subtitle = document.querySelector('.splash-subtitle') as HTMLElement;
       const particles = document.querySelector('.splash-particles') as HTMLElement;
-      
+
       if (tagline) {
         tagline.style.opacity = '1';
         tagline.style.transform = 'translateY(0)';
       }
-      
+
       setTimeout(() => {
         if (subtitle) {
           subtitle.style.opacity = '1';
           subtitle.style.transform = 'translateY(0)';
         }
       }, 200);
-      
+
       setTimeout(() => {
         if (particles) {
           particles.style.opacity = '1';
@@ -68,43 +68,42 @@ const SplashIntro: React.FC<SplashIntroProps> = ({
         }
       }, 400);
     }, 200);
-
   }, [logoAnimationComplete]);
 
   const containerVariants = {
     initial: { opacity: 0 },
-    animate: { 
+    animate: {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut"
-      }
+        ease: 'easeOut' as Easing,
+      },
     },
-    exit: { 
+    exit: {
       opacity: 0,
       scale: 1.1,
       transition: {
         duration: 0.8,
-        ease: "easeInOut"
-      }
-    }
+        ease: 'easeInOut' as Easing,
+      },
+    },
   };
 
   const backgroundVariants = {
-    initial: { 
-      background: "radial-gradient(circle at center, #0a0a0a 0%, #000000 100%)"
+    initial: {
+      background: 'radial-gradient(circle at center, #0a0a0a 0%, #000000 100%)',
     },
-    animate: { 
+    animate: {
       background: [
-        "radial-gradient(circle at center, #0a0a0a 0%, #000000 100%)",
-        "radial-gradient(circle at center, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)",
-        "radial-gradient(circle at center, #88ABF210 0%, #667eea05 50%, #000000 100%)"
+        'radial-gradient(circle at center, #0a0a0a 0%, #000000 100%)',
+        'radial-gradient(circle at center, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)',
+        'radial-gradient(circle at center, #88ABF210 0%, #667eea05 50%, #000000 100%)',
       ],
       transition: {
         duration: 2,
-        ease: "easeInOut"
-      }
-    }
+        ease: 'easeInOut' as Easing,
+      },
+    },
   };
 
   return (
@@ -117,13 +116,13 @@ const SplashIntro: React.FC<SplashIntroProps> = ({
           animate="animate"
           exit="exit"
         >
-          <motion.div 
+          <motion.div
             className="splash-background"
             variants={backgroundVariants}
             initial="initial"
             animate="animate"
           />
-          
+
           {/* Floating particles */}
           <div className="splash-particles">
             {Array.from({ length: 20 }).map((_, i) => (
@@ -134,20 +133,17 @@ const SplashIntro: React.FC<SplashIntroProps> = ({
                   opacity: 0,
                   x: Math.random() * window.innerWidth,
                   y: Math.random() * window.innerHeight,
-                  scale: 0
+                  scale: 0,
                 }}
                 animate={{
                   opacity: [0, 1, 0],
                   scale: [0, Math.random() * 0.5 + 0.5, 0],
-                  y: [
-                    Math.random() * window.innerHeight,
-                    Math.random() * window.innerHeight - 100
-                  ]
+                  y: [Math.random() * window.innerHeight, Math.random() * window.innerHeight - 100],
                 }}
                 transition={{
                   duration: Math.random() * 3 + 2,
                   repeat: Infinity,
-                  delay: Math.random() * 2
+                  delay: Math.random() * 2,
                 }}
               />
             ))}
@@ -159,9 +155,9 @@ const SplashIntro: React.FC<SplashIntroProps> = ({
               className="splash-logo-container"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.6, ease: 'easeOut' as Easing }}
             >
-              <AnimatedLogo 
+              <AnimatedLogo
                 size={120}
                 variant="splash"
                 onAnimationComplete={() => setLogoAnimationComplete(true)}
@@ -169,29 +165,23 @@ const SplashIntro: React.FC<SplashIntroProps> = ({
             </motion.div>
 
             {/* Main tagline */}
-            <motion.h1 
-              className="splash-tagline"
-              style={{ opacity: 0 }}
-            >
+            <motion.h1 className="splash-tagline" style={{ opacity: 0 }}>
               Design. Motion. Code.
             </motion.h1>
 
             {/* Subtitle */}
-            <motion.p 
-              className="splash-subtitle"
-              style={{ opacity: 0 }}
-            >
+            <motion.p className="splash-subtitle" style={{ opacity: 0 }}>
               Identity in Motion
             </motion.p>
 
             {/* Loading indicator */}
-            <motion.div 
+            <motion.div
               className="splash-loader"
               initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{ 
+              animate={{ width: '100%' }}
+              transition={{
                 duration: duration / 1000,
-                ease: "easeInOut"
+                ease: 'easeInOut' as Easing,
               }}
             />
           </div>

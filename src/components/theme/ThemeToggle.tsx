@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
-import { Sun, Moon } from "lucide-react";
-import { useUIStore } from "../../store/ui";
-import "./ThemeToggle.css";
+import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Sun, Moon } from 'lucide-react';
+import { useUIStore } from '../../store/ui';
+import './ThemeToggle.css';
 
 const ThemeToggle: React.FC = () => {
   const { theme, setTheme } = useUIStore();
@@ -23,17 +23,17 @@ const ThemeToggle: React.FC = () => {
   return (
     <motion.button
       className="theme-toggle"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
     >
       <motion.div
         initial={false}
-        animate={{ rotate: theme === "dark" ? 0 : 180 }}
+        animate={{ rotate: theme === 'dark' ? 0 : 180 }}
         transition={{ duration: 0.3 }}
       >
-        {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+        {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
       </motion.div>
     </motion.button>
   );

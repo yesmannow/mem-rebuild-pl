@@ -1,21 +1,21 @@
-import React, { useEffect } from "react";
-import { useParams, Link, Navigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { getCaseStudyBySlug } from "../data/caseStudies";
-import { staggerContainer, staggerItem } from "../utils/animations";
-import AnimatedSection from "../components/animations/AnimatedSection";
-import { getCaseStudyDiagrams } from "../components/diagrams/caseStudyDiagrams";
-import { trackPortfolioEngagement, createTimeTracker } from "../utils/analytics";
-import MetricsVisualization from "../components/case-study/MetricsVisualization";
-import Breadcrumbs from "../components/layout/Breadcrumbs";
-import caseStudyInspirationMap from "../data/caseStudyInspirationMap.json";
-import inspirationsData from "../data/inspirations.json";
-import "./CaseStudyDetail.css";
+import React, { useEffect } from 'react';
+import { useParams, Link, Navigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { getCaseStudyBySlug } from '../data/caseStudies';
+import { staggerContainer, staggerItem } from '../utils/animations';
+import AnimatedSection from '../components/animations/AnimatedSection';
+import { getCaseStudyDiagrams } from '../components/diagrams/caseStudyDiagrams';
+import { trackPortfolioEngagement, createTimeTracker } from '../utils/analytics';
+import MetricsVisualization from '../components/case-study/MetricsVisualization';
+import Breadcrumbs from '../components/layout/Breadcrumbs';
+import caseStudyInspirationMap from '../data/caseStudyInspirationMap.json';
+import inspirationsData from '../data/inspirations.json';
+import './CaseStudyDetail.css';
 
 const renderInlineText = (text: string, keyPrefix: string) => {
   const fragments = text.split(/(\*\*[^*]+\*\*)/g).filter(Boolean);
   return fragments.map((fragment, index) => {
-    if (fragment.startsWith("**") && fragment.endsWith("**")) {
+    if (fragment.startsWith('**') && fragment.endsWith('**')) {
       const value = fragment.slice(2, -2);
       return <strong key={`${keyPrefix}-strong-${index}`}>{value}</strong>;
     }
@@ -54,9 +54,7 @@ const renderRichSection = (content?: string | { paragraphs?: string[]; bullets?:
       // Check if it's a bullet point
       if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
         // Remove markdown bold formatting
-        const bulletText = trimmed
-          .replace(/^[-*]\s*/, '')
-          .replace(/\*\*(.*?)\*\*/g, '$1');
+        const bulletText = trimmed.replace(/^[-*]\s*/, '').replace(/\*\*(.*?)\*\*/g, '$1');
         bullets.push(bulletText);
       } else {
         // Regular paragraph
@@ -124,8 +122,15 @@ const CaseStudyDetail: React.FC = () => {
       >
         <div className="detail-hero-content">
           <Link to="/case-studies" className="back-link">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
             Back to Case Studies
           </Link>
@@ -172,7 +177,9 @@ const CaseStudyDetail: React.FC = () => {
             </div>
             <div className="meta-tags">
               {caseStudy.tags.map(tag => (
-                <span key={tag} className="meta-tag">{tag}</span>
+                <span key={tag} className="meta-tag">
+                  {tag}
+                </span>
               ))}
             </div>
           </motion.div>
@@ -245,7 +252,7 @@ const CaseStudyDetail: React.FC = () => {
             <section className="content-section inspirations">
               <h4>Inspired by</h4>
               <div className="inspirations-list">
-                {relatedInspirations.map((inspiration) => (
+                {relatedInspirations.map(inspiration => (
                   <Link
                     key={inspiration.id}
                     to={`/inspiration#${inspiration.id}`}

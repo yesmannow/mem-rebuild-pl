@@ -4,7 +4,11 @@
 /* Inspiration Page Modern Styles */
 
 .inspiration-page-modern {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
 }
 
 /* Enhanced Hero Styles */
@@ -20,9 +24,16 @@
 
 /* Particle animations */
 @keyframes float {
-  0%, 100% { transform: translateY(0px) translateX(0px); }
-  33% { transform: translateY(-20px) translateX(10px); }
-  66% { transform: translateY(10px) translateX(-10px); }
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  66% {
+    transform: translateY(10px) translateX(-10px);
+  }
 }
 
 /* Search Bar Enhancements */
@@ -420,18 +431,18 @@
 
 /* Playground Preview Styles */
 .playground-preview-card {
-  background-color: var(--playground-bg, #F3F4F6);
-  color: var(--playground-text, #0F172A);
+  background-color: var(--playground-bg, #f3f4f6);
+  color: var(--playground-text, #0f172a);
 }
 
 .playground-button {
-  background-color: var(--playground-primary, #2563EB);
+  background-color: var(--playground-primary, #2563eb);
   color: white;
 }
 
 .playground-metric-card {
   background-color: var(--playground-metric-bg, transparent);
-  color: var(--playground-text, #0F172A);
+  color: var(--playground-text, #0f172a);
 }
 
 /* Typography Sampler Styles */
@@ -445,7 +456,7 @@
 
 /* Font family options */
 .typography-sampler.cmo-theme {
-  --typography-font-family: "Newsreader", serif;
+  --typography-font-family: 'Newsreader', serif;
 }
 
 .typography-sampler.dev-theme {

@@ -9,7 +9,7 @@ export interface DesignItem {
   title: string;
   category: string;
   filename: string;
-  size?: "small" | "medium" | "large" | "wide" | "tall";
+  size?: 'small' | 'medium' | 'large' | 'wide' | 'tall';
 }
 
 /**
@@ -19,7 +19,8 @@ function categorizeDesign(filename: string): string {
   const lower = filename.toLowerCase();
 
   // Branding & Logos
-  if (lower.includes('logo') || lower.includes('brand') || lower.includes('monogram')) return 'Branding';
+  if (lower.includes('logo') || lower.includes('brand') || lower.includes('monogram'))
+    return 'Branding';
   if (lower.includes('font') || lower.includes('typography')) return 'Branding';
 
   // Print & Advertising
@@ -27,17 +28,21 @@ function categorizeDesign(filename: string): string {
   if (lower.includes('flu shot') || lower.includes('health care')) return 'Print';
 
   // Digital Marketing
-  if (lower.includes('instagram') || lower.includes('post') || lower.includes('social')) return 'Digital';
+  if (lower.includes('instagram') || lower.includes('post') || lower.includes('social'))
+    return 'Digital';
   if (lower.includes('online') || lower.includes('digital')) return 'Digital';
 
   // Sales & Promotions
-  if (lower.includes('sale') || lower.includes('promo') || lower.includes('discount')) return 'Sales';
+  if (lower.includes('sale') || lower.includes('promo') || lower.includes('discount'))
+    return 'Sales';
   if (lower.includes('percent') || lower.includes('%')) return 'Sales';
 
   // Product Design
-  if (lower.includes('koozie') || lower.includes('packaging') || lower.includes('product')) return 'Product';
+  if (lower.includes('koozie') || lower.includes('packaging') || lower.includes('product'))
+    return 'Product';
   if (lower.includes('front') || lower.includes('back')) return 'Product';
-  if (lower.includes('sandwich') || lower.includes('food') || lower.includes('menu')) return 'Product';
+  if (lower.includes('sandwich') || lower.includes('food') || lower.includes('menu'))
+    return 'Product';
 
   // Event & Racing
   if (lower.includes('indy') || lower.includes('racing') || lower.includes('event')) return 'Event';
@@ -45,7 +50,8 @@ function categorizeDesign(filename: string): string {
   if (lower.includes('bicentennial') || lower.includes('contest')) return 'Event';
 
   // Creative Concepts
-  if (lower.includes('hot-sauce') || lower.includes('dall') || lower.includes('concept')) return 'Concept';
+  if (lower.includes('hot-sauce') || lower.includes('dall') || lower.includes('concept'))
+    return 'Concept';
   if (lower.includes('bird') || lower.includes('illustration')) return 'Concept';
   if (lower.includes('file_')) return 'Concept';
 
@@ -105,7 +111,10 @@ function generateTitle(filename: string): string {
 /**
  * Assign grid size based on index for visual variety
  */
-function assignSize(index: number, category: string): "small" | "medium" | "large" | "wide" | "tall" {
+function assignSize(
+  index: number,
+  category: string
+): 'small' | 'medium' | 'large' | 'wide' | 'tall' {
   // Logos and small graphics should be small
   if (category === 'Branding' && index % 3 === 0) return 'small';
 
@@ -121,7 +130,18 @@ function assignSize(index: number, category: string): "small" | "medium" | "larg
   if (category === 'Concept') return index % 2 === 0 ? 'large' : 'wide';
 
   // Default pattern for variety
-  const pattern = ['medium', 'large', 'small', 'wide', 'medium', 'tall', 'small', 'large', 'medium', 'wide'];
+  const pattern = [
+    'medium',
+    'large',
+    'small',
+    'wide',
+    'medium',
+    'tall',
+    'small',
+    'large',
+    'medium',
+    'wide',
+  ];
   return pattern[index % pattern.length] as any;
 }
 
@@ -179,7 +199,7 @@ export function loadDesignImages(): DesignItem[] {
     'hot-sauce-dark.webp',
     'hot-sauce-playful.webp',
     'logo-01.svg',
-    'taco ninja logo.png'
+    'taco ninja logo.png',
   ];
 
   return imageFiles.map((filename, index) => {
@@ -190,7 +210,7 @@ export function loadDesignImages(): DesignItem[] {
       filename,
       title: generateTitle(filename),
       category,
-      size: assignSize(index, category)
+      size: assignSize(index, category),
     };
   });
 }
@@ -213,5 +233,5 @@ export const categoryColors: Record<string, string> = {
   Product: '#fa709a',
   Sales: '#feca57',
   Event: '#ff6b6b',
-  Concept: '#a8edea'
+  Concept: '#a8edea',
 };

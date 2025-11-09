@@ -33,11 +33,7 @@ const IdentityTile: React.FC<IdentityTileProps> = ({ brand }) => {
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.2 }}
       >
-        <img
-          src={brand.cover}
-          alt={brand.title}
-          className="w-full h-48 object-cover"
-        />
+        <img src={brand.cover} alt={brand.title} className="w-full h-48 object-cover" />
         <div className="p-4">
           <h3 className="text-xl font-semibold mb-2">{brand.title}</h3>
           <p className="text-gray-600">{brand.tagline}</p>
@@ -74,7 +70,7 @@ const IdentityTile: React.FC<IdentityTileProps> = ({ brand }) => {
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-              onClick={(e) => e.stopPropagation()}
+              onClick={e => e.stopPropagation()}
             >
               <div className="p-6">
                 <div className="flex justify-between items-start mb-6">
@@ -101,8 +97,11 @@ const IdentityTile: React.FC<IdentityTileProps> = ({ brand }) => {
                   <div className="mb-6">
                     <h3 className="text-xl font-semibold mb-3">Key Insights</h3>
                     <div className="space-y-2">
-                      {brand.quotes.map((quote) => (
-                        <blockquote key={quote} className="text-gray-700 italic border-l-4 border-amber-600 pl-4">
+                      {brand.quotes.map(quote => (
+                        <blockquote
+                          key={quote}
+                          className="text-gray-700 italic border-l-4 border-amber-600 pl-4"
+                        >
                           "{quote}"
                         </blockquote>
                       ))}
@@ -114,7 +113,7 @@ const IdentityTile: React.FC<IdentityTileProps> = ({ brand }) => {
                   <div className="mb-6">
                     <h3 className="text-xl font-semibold mb-3">Manual Spreads</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {brand.assets.spreads.map((spread) => (
+                      {brand.assets.spreads.map(spread => (
                         <img
                           key={spread}
                           src={spread}
@@ -130,7 +129,7 @@ const IdentityTile: React.FC<IdentityTileProps> = ({ brand }) => {
                   <div>
                     <h3 className="text-xl font-semibold mb-3">Learn More</h3>
                     <div className="space-y-2">
-                      {brand.links.map((link) => (
+                      {brand.links.map(link => (
                         <a
                           key={link}
                           href={link}

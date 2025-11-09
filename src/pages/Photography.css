@@ -30,8 +30,13 @@
 }
 
 @keyframes heroFloat {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(30px, -40px) scale(1.1); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -40px) scale(1.1);
+  }
 }
 
 .hero-content-photo {
@@ -507,63 +512,63 @@
 }
 
 /* Category-based styling */
-.category-badge[data-category="Portrait"] {
+.category-badge[data-category='Portrait'] {
   background-color: #667eea;
 }
 
-.category-badge[data-category="Landscape"] {
+.category-badge[data-category='Landscape'] {
   background-color: #4facfe;
 }
 
-.category-badge[data-category="Street"] {
+.category-badge[data-category='Street'] {
   background-color: #f093fb;
 }
 
-.category-badge[data-category="Architecture"] {
+.category-badge[data-category='Architecture'] {
   background-color: #43e97b;
 }
 
-.category-badge[data-category="Abstract"] {
+.category-badge[data-category='Abstract'] {
   background-color: #fa709a;
 }
 
-.photo-card-gradient[data-category="Portrait"] {
+.photo-card-gradient[data-category='Portrait'] {
   background: linear-gradient(135deg, #667eea15 0%, #667eea05 100%);
 }
 
-.photo-card-gradient[data-category="Landscape"] {
+.photo-card-gradient[data-category='Landscape'] {
   background: linear-gradient(135deg, #4facfe15 0%, #4facfe05 100%);
 }
 
-.photo-card-gradient[data-category="Street"] {
+.photo-card-gradient[data-category='Street'] {
   background: linear-gradient(135deg, #f093fb15 0%, #f093fb05 100%);
 }
 
-.photo-card-gradient[data-category="Architecture"] {
+.photo-card-gradient[data-category='Architecture'] {
   background: linear-gradient(135deg, #43e97b15 0%, #43e97b05 100%);
 }
 
-.photo-card-gradient[data-category="Abstract"] {
+.photo-card-gradient[data-category='Abstract'] {
   background: linear-gradient(135deg, #fa709a15 0%, #fa709a05 100%);
 }
 
-.lightbox-category[data-category="Portrait"] {
+.lightbox-category[data-category='Portrait'] {
   background-color: #667eea;
 }
 
-.lightbox-category[data-category="Landscape"] {
+.lightbox-category[data-category='Landscape'] {
   background-color: #4facfe;
 }
 
-.lightbox-category[data-category="Street"] {
+.lightbox-category[data-category='Street'] {
   background-color: #f093fb;
 }
 
-.lightbox-category[data-category="Architecture"] {
+.lightbox-category[data-category='Architecture'] {
   background-color: #43e97b;
 }
 
-.lightbox-category[data-category="Abstract"] {
+.lightbox-category[data-category='Abstract'] {
   background-color: #fa709a;
 }
 

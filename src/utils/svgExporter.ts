@@ -2,10 +2,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-export function exportSVGAssets(sourceDir: string, outputDir: string) {
+export function exportSVGAssets(sourceDir: string, outputDir: string): number {
   if (!fs.existsSync(sourceDir)) {
     console.warn(`⚠️ Source directory not found: ${sourceDir}`);
-    return;
+    return 0;
   }
 
   if (!fs.existsSync(outputDir)) {
@@ -20,4 +20,6 @@ export function exportSVGAssets(sourceDir: string, outputDir: string) {
     fs.copyFileSync(src, dest);
     console.log(`📤 Exported ${file} → ${outputDir}`);
   }
+
+  return files.length;
 }

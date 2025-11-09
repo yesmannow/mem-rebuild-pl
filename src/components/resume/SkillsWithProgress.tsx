@@ -67,7 +67,7 @@ const SkillsWithProgress: React.FC<SkillsWithProgressProps> = ({ className = '' 
           <Filter size={14} className="inline mr-2" />
           All Skills
         </motion.button>
-        {categories.map((category) => (
+        {categories.map(category => (
           <motion.button
             key={category}
             onClick={() => setActiveCategory(category)}
@@ -111,12 +111,14 @@ const SkillsWithProgress: React.FC<SkillsWithProgressProps> = ({ className = '' 
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: (categoryIndex * 0.1) + (index * 0.05) }}
+                  transition={{ duration: 0.5, delay: categoryIndex * 0.1 + index * 0.05 }}
                   className="bg-white/5 border border-white/10 rounded-lg p-4 hover:bg-white/10 transition-all duration-300 group cursor-pointer"
                   whileHover={{ x: 4, scale: 1.01 }}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-gray-300 font-medium group-hover:text-white transition-colors">{skill.name}</span>
+                    <span className="text-gray-300 font-medium group-hover:text-white transition-colors">
+                      {skill.name}
+                    </span>
                     <motion.span
                       className="text-blue-400 text-sm font-semibold"
                       whileHover={{ scale: 1.2 }}
@@ -132,7 +134,11 @@ const SkillsWithProgress: React.FC<SkillsWithProgressProps> = ({ className = '' 
                       initial={{ width: 0 }}
                       whileInView={{ width: `${skill.level}%` }}
                       viewport={{ once: true }}
-                      transition={{ duration: 1.2, delay: (categoryIndex * 0.1) + (index * 0.05), ease: "easeOut" }}
+                      transition={{
+                        duration: 1.2,
+                        delay: categoryIndex * 0.1 + index * 0.05,
+                        ease: 'easeOut',
+                      }}
                     />
                     {/* Tooltip on hover */}
                     <motion.div
@@ -153,4 +159,3 @@ const SkillsWithProgress: React.FC<SkillsWithProgressProps> = ({ className = '' 
 };
 
 export default SkillsWithProgress;
-

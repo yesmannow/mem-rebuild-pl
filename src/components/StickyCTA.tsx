@@ -1,5 +1,5 @@
-import React from "react";
-import { trackCTA } from "../utils/analytics";
+import React from 'react';
+import { trackCTA } from '../utils/analytics';
 
 export default function StickyCTA() {
   return (
@@ -7,11 +7,10 @@ export default function StickyCTA() {
       <a
         href="#contact"
         className="btn-primary w-full justify-center"
-        onClick={() => trackCTA("book_call", "sticky_mobile")}
+        onClick={() => trackCTA('book_call', 'sticky_mobile')}
       >
         Book a strategy call
       </a>
     </div>
   );
 }
-

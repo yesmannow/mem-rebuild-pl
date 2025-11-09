@@ -49,9 +49,9 @@
     width: 90px;
     height: 90px;
   }
-  
+
   /* Hide some logos on mobile for performance */
-  .bg-logo:nth-child(n+5) {
+  .bg-logo:nth-child(n + 5) {
     display: none;
   }
 }
@@ -61,9 +61,9 @@
     width: 70px;
     height: 70px;
   }
-  
+
   /* Show even fewer logos on small mobile */
-  .bg-logo:nth-child(n+4) {
+  .bg-logo:nth-child(n + 4) {
     display: none;
   }
 }
@@ -73,7 +73,7 @@
   .bg-logo {
     animation: none !important;
   }
-  
+
   .bg-logo-image {
     opacity: 0.02;
   }

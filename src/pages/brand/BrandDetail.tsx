@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Download, Share2, Copy } from "lucide-react";
-import AnimatedSection from "../../components/animations/AnimatedSection";
-import TextReveal from "../../components/animations/TextReveal";
-import { fadeInUp } from "../../utils/animations";
-import "./BrandDetail.css";
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useParams, Link } from 'react-router-dom';
+import { ArrowLeft, Download, Share2, Copy } from 'lucide-react';
+import AnimatedSection from '../../components/animations/AnimatedSection';
+import TextReveal from '../../components/animations/TextReveal';
+import { fadeInUp } from '../../utils/animations';
+import './BrandDetail.css';
 
 interface BrandTokens {
   name: string;
@@ -26,22 +26,22 @@ const BrandDetail: React.FC = () => {
     // Mock data - replace with actual API call
     setTimeout(() => {
       setTokens({
-        name: slug || "Brand Board",
+        name: slug || 'Brand Board',
         colors: {
-          50: "#eef2ff",
-          100: "#e0e7ff",
-          200: "#c7d2fe",
-          300: "#a5b4fc",
-          400: "#818cf8",
-          500: "#6366f1",
-          600: "#4f46e5",
-          700: "#4338ca",
-          800: "#3730a3",
-          900: "#312e81",
+          50: '#eef2ff',
+          100: '#e0e7ff',
+          200: '#c7d2fe',
+          300: '#a5b4fc',
+          400: '#818cf8',
+          500: '#6366f1',
+          600: '#4f46e5',
+          700: '#4338ca',
+          800: '#3730a3',
+          900: '#312e81',
         },
         fonts: {
-          heading: "Inter",
-          body: "Roboto",
+          heading: 'Inter',
+          body: 'Roboto',
         },
         mark: null,
       });
@@ -56,7 +56,7 @@ const BrandDetail: React.FC = () => {
           <motion.div
             className="loading-spinner"
             animate={{ rotate: 360 }}
-            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
           />
           <p>Loading brand board...</p>
         </div>
@@ -129,10 +129,7 @@ const BrandDetail: React.FC = () => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -5 }}
               >
-                <div
-                  className="color-preview"
-                  style={{ backgroundColor: color }}
-                />
+                <div className="color-preview" style={{ backgroundColor: color }} />
                 <div className="color-info">
                   <span className="color-label">{key}</span>
                   <span className="color-value">{color}</span>
@@ -184,10 +181,10 @@ const BrandDetail: React.FC = () => {
           <h2 className="section-title">Applications</h2>
           <div className="applications-preview">
             {[
-              { name: "Business Card", icon: "💼" },
-              { name: "Letterhead", icon: "📄" },
-              { name: "Website", icon: "🌐" },
-              { name: "Social Media", icon: "📱" },
+              { name: 'Business Card', icon: '💼' },
+              { name: 'Letterhead', icon: '📄' },
+              { name: 'Website', icon: '🌐' },
+              { name: 'Social Media', icon: '📱' },
             ].map((app, index) => (
               <motion.div
                 key={index}
@@ -210,4 +207,3 @@ const BrandDetail: React.FC = () => {
 };
 
 export default BrandDetail;
-

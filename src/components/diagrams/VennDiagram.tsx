@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import './VennDiagram.css';
 
 const VennDiagram: React.FC = () => {
-  const [hoveredCircle, setHoveredCircle] = useState<'strategy' | 'systems' | 'overlap' | null>(null);
+  const [hoveredCircle, setHoveredCircle] = useState<'strategy' | 'systems' | 'overlap' | null>(
+    null
+  );
 
   return (
     <section className="venn-diagram-section">
@@ -14,17 +16,20 @@ const VennDiagram: React.FC = () => {
         viewport={{ once: true }}
       >
         <h2>The Unique Overlap</h2>
-        <p>Where most marketers choose one lane, I operate in both—and the magic happens at the intersection</p>
+        <p>
+          Where most marketers choose one lane, I operate in both—and the magic happens at the
+          intersection
+        </p>
       </motion.div>
 
       <div className="venn-container">
         <svg className="venn-svg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet">
           <defs>
             <filter id="glow">
-              <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+              <feGaussianBlur stdDeviation="4" result="coloredBlur" />
               <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
           </defs>
@@ -45,9 +50,8 @@ const VennDiagram: React.FC = () => {
             onMouseEnter={() => setHoveredCircle('strategy')}
             onMouseLeave={() => setHoveredCircle(null)}
             style={{
-              opacity: hoveredCircle === 'systems' ? 0.3 : 
-                      hoveredCircle === 'strategy' ? 1 : 0.7,
-              transition: 'opacity 0.3s ease'
+              opacity: hoveredCircle === 'systems' ? 0.3 : hoveredCircle === 'strategy' ? 1 : 0.7,
+              transition: 'opacity 0.3s ease',
             }}
           />
 
@@ -67,9 +71,8 @@ const VennDiagram: React.FC = () => {
             onMouseEnter={() => setHoveredCircle('systems')}
             onMouseLeave={() => setHoveredCircle(null)}
             style={{
-              opacity: hoveredCircle === 'strategy' ? 0.3 : 
-                      hoveredCircle === 'systems' ? 1 : 0.7,
-              transition: 'opacity 0.3s ease'
+              opacity: hoveredCircle === 'strategy' ? 0.3 : hoveredCircle === 'systems' ? 1 : 0.7,
+              transition: 'opacity 0.3s ease',
             }}
           />
 
@@ -89,51 +92,23 @@ const VennDiagram: React.FC = () => {
             onMouseLeave={() => setHoveredCircle(null)}
             style={{
               opacity: hoveredCircle === 'overlap' ? 0.8 : 0.4,
-              transition: 'opacity 0.3s ease'
+              transition: 'opacity 0.3s ease',
             }}
           />
 
           {/* Text Labels */}
-          <text
-            x="150"
-            y="130"
-            fill="#88ABF2"
-            fontSize="20"
-            fontWeight="700"
-            textAnchor="middle"
-          >
+          <text x="150" y="130" fill="#88ABF2" fontSize="20" fontWeight="700" textAnchor="middle">
             Strategy
           </text>
-          
-          <text
-            x="450"
-            y="130"
-            fill="#B8D0D9"
-            fontSize="20"
-            fontWeight="700"
-            textAnchor="middle"
-          >
+
+          <text x="450" y="130" fill="#B8D0D9" fontSize="20" fontWeight="700" textAnchor="middle">
             Systems
           </text>
 
-          <text
-            x="300"
-            y="195"
-            fill="#fafbfc"
-            fontSize="18"
-            fontWeight="800"
-            textAnchor="middle"
-          >
+          <text x="300" y="195" fill="#fafbfc" fontSize="18" fontWeight="800" textAnchor="middle">
             Your Unique
           </text>
-          <text
-            x="300"
-            y="215"
-            fill="#fafbfc"
-            fontSize="18"
-            fontWeight="800"
-            textAnchor="middle"
-          >
+          <text x="300" y="215" fill="#fafbfc" fontSize="18" fontWeight="800" textAnchor="middle">
             Value Zone
           </text>
         </svg>
@@ -172,7 +147,8 @@ const VennDiagram: React.FC = () => {
             <div className="card-icon-large">✨</div>
             <h3>The Intersection</h3>
             <p className="highlight-text">
-              Strategy-driven technical implementation. Systems that execute marketing vision without translation loss.
+              Strategy-driven technical implementation. Systems that execute marketing vision
+              without translation loss.
             </p>
             <div className="intersection-tags">
               <span>Strategic Automation</span>
@@ -212,9 +188,12 @@ const VennDiagram: React.FC = () => {
       >
         <h4>Why This Matters</h4>
         <p>
-          Most teams have strategists who can't build and developers who don't understand marketing. 
-          The handoff between them is where ideas die, timelines explode, and ROI suffers. 
-          <strong> I eliminate that handoff entirely—conceiving and executing as a unified process.</strong>
+          Most teams have strategists who can't build and developers who don't understand marketing.
+          The handoff between them is where ideas die, timelines explode, and ROI suffers.
+          <strong>
+            {' '}
+            I eliminate that handoff entirely—conceiving and executing as a unified process.
+          </strong>
         </p>
       </motion.div>
     </section>

@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import {
   LineChart,
   Line,
@@ -13,14 +13,14 @@ import {
   Tooltip,
   ResponsiveContainer,
   Legend,
-  Cell
-} from "recharts";
-import { TrendingUp, TrendingDown, Mail, Users, DollarSign, MousePointerClick } from "lucide-react";
-import "./MarketingCommandCenter.css";
+  Cell,
+} from 'recharts';
+import { TrendingUp, TrendingDown, Mail, Users, DollarSign, MousePointerClick } from 'lucide-react';
+import './MarketingCommandCenter.css';
 
 // Mock data for the dashboard
 const generateMockData = () => {
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
   return months.map((month, index) => ({
     month,
     CTR: 2.5 + Math.random() * 1.5,
@@ -28,34 +28,34 @@ const generateMockData = () => {
     Conversions: 120 + Math.random() * 80,
     Revenue: 50000 + Math.random() * 20000,
     EmailOpenRate: 25 + Math.random() * 15,
-    EmailClickRate: 5 + Math.random() * 5
+    EmailClickRate: 5 + Math.random() * 5,
   }));
 };
 
 const channelData = [
-  { name: "Google Ads", value: 45000, color: "#4285F4" },
-  { name: "Meta Ads", value: 32000, color: "#1877F2" },
-  { name: "Email", value: 28000, color: "#EA4335" },
-  { name: "Organic", value: 15000, color: "#34A853" },
-  { name: "LinkedIn", value: 8000, color: "#0A66C2" }
+  { name: 'Google Ads', value: 45000, color: '#4285F4' },
+  { name: 'Meta Ads', value: 32000, color: '#1877F2' },
+  { name: 'Email', value: 28000, color: '#EA4335' },
+  { name: 'Organic', value: 15000, color: '#34A853' },
+  { name: 'LinkedIn', value: 8000, color: '#0A66C2' },
 ];
 
 interface KPICardProps {
   label: string;
   value: string;
   change: string;
-  trend: "up" | "down";
+  trend: 'up' | 'down';
   icon: React.ReactNode;
 }
 
 const KPICard: React.FC<KPICardProps> = ({ label, value, change, trend, icon }) => {
-  const [animatedValue, setAnimatedValue] = useState("0");
+  const [animatedValue, setAnimatedValue] = useState('0');
   const cardRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(cardRef, { once: true });
 
   useEffect(() => {
     if (isInView) {
-      const numericValue = parseFloat(value.replace(/[^0-9.]/g, ""));
+      const numericValue = parseFloat(value.replace(/[^0-9.]/g, ''));
       const duration = 2000;
       const steps = 60;
       const increment = numericValue / steps;
@@ -67,7 +67,7 @@ const KPICard: React.FC<KPICardProps> = ({ label, value, change, trend, icon }) 
           setAnimatedValue(value);
           clearInterval(timer);
         } else {
-          setAnimatedValue(current.toFixed(1) + value.replace(/[0-9.]/g, ""));
+          setAnimatedValue(current.toFixed(1) + value.replace(/[0-9.]/g, ''));
         }
       }, duration / steps);
 
@@ -89,7 +89,7 @@ const KPICard: React.FC<KPICardProps> = ({ label, value, change, trend, icon }) 
         <div className="kpi-label">{label}</div>
         <div className="kpi-value">{animatedValue}</div>
         <div className={`kpi-change ${trend}`}>
-          {trend === "up" ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
+          {trend === 'up' ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
           <span>{change}</span>
         </div>
       </div>
@@ -170,14 +170,18 @@ const MarketingCommandCenter: React.FC = () => {
                 <XAxis dataKey="month" stroke="#888" />
                 <YAxis stroke="#888" />
                 <Tooltip
-                  contentStyle={{ backgroundColor: "#1a1a1a", border: "1px solid #333", borderRadius: "8px" }}
+                  contentStyle={{
+                    backgroundColor: '#1a1a1a',
+                    border: '1px solid #333',
+                    borderRadius: '8px',
+                  }}
                 />
                 <Line
                   type="monotone"
                   dataKey="CTR"
                   stroke="#0ea5e9"
                   strokeWidth={3}
-                  dot={{ fill: "#0ea5e9", r: 5 }}
+                  dot={{ fill: '#0ea5e9', r: 5 }}
                   animationDuration={1000}
                 />
               </LineChart>
@@ -198,7 +202,11 @@ const MarketingCommandCenter: React.FC = () => {
                 <XAxis dataKey="month" stroke="#888" />
                 <YAxis stroke="#888" />
                 <Tooltip
-                  contentStyle={{ backgroundColor: "#1a1a1a", border: "1px solid #333", borderRadius: "8px" }}
+                  contentStyle={{
+                    backgroundColor: '#1a1a1a',
+                    border: '1px solid #333',
+                    borderRadius: '8px',
+                  }}
                 />
                 <Area
                   type="monotone"
@@ -226,7 +234,11 @@ const MarketingCommandCenter: React.FC = () => {
                 <XAxis dataKey="name" stroke="#888" />
                 <YAxis stroke="#888" />
                 <Tooltip
-                  contentStyle={{ backgroundColor: "#1a1a1a", border: "1px solid #333", borderRadius: "8px" }}
+                  contentStyle={{
+                    backgroundColor: '#1a1a1a',
+                    border: '1px solid #333',
+                    borderRadius: '8px',
+                  }}
                   formatter={(value: number) => `$${value.toLocaleString()}`}
                 />
                 <Bar dataKey="value" animationDuration={1000}>
@@ -252,7 +264,11 @@ const MarketingCommandCenter: React.FC = () => {
                 <XAxis dataKey="month" stroke="#888" />
                 <YAxis stroke="#888" />
                 <Tooltip
-                  contentStyle={{ backgroundColor: "#1a1a1a", border: "1px solid #333", borderRadius: "8px" }}
+                  contentStyle={{
+                    backgroundColor: '#1a1a1a',
+                    border: '1px solid #333',
+                    borderRadius: '8px',
+                  }}
                 />
                 <Legend />
                 <Line
@@ -281,4 +297,3 @@ const MarketingCommandCenter: React.FC = () => {
 };
 
 export default MarketingCommandCenter;
-

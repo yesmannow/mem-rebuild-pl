@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { FileText, Mail, ChevronUp } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
-import { scrollToTop } from "../../utils/scroll";
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FileText, Mail, ChevronUp } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { scrollToTop } from '../../utils/scroll';
 
 const FloatingActionButtons: React.FC = () => {
   const [showButtons, setShowButtons] = useState(false);
@@ -16,21 +16,21 @@ const FloatingActionButtons: React.FC = () => {
       setShowScrollTop(scrollY > 500);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleResumeDownload = () => {
-    const resumePath = "/resume/Resume JD draft.pdf";
-    const link = document.createElement("a");
+    const resumePath = '/resume/Resume JD draft.pdf';
+    const link = document.createElement('a');
     link.href = resumePath;
-    link.download = "Jacob-Darling-Resume.pdf";
+    link.download = 'Jacob-Darling-Resume.pdf';
     link.click();
   };
 
   // Hide on certain pages or mobile menu open
-  if (location.pathname === "/resume" || location.pathname === "/contact") {
+  if (location.pathname === '/resume' || location.pathname === '/contact') {
     return null;
   }
 
@@ -98,4 +98,3 @@ const FloatingActionButtons: React.FC = () => {
 };
 
 export default FloatingActionButtons;
-

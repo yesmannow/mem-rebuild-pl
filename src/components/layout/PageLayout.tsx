@@ -1,7 +1,7 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
-import Breadcrumbs from "../components/layout/Breadcrumbs";
-import "./PageLayout.css";
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import Breadcrumbs from './Breadcrumbs';
+import './PageLayout.css';
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -16,12 +16,12 @@ interface PageLayoutProps {
 const PageLayout: React.FC<PageLayoutProps> = ({
   children,
   showBreadcrumbs = true,
-  className = "",
+  className = '',
 }) => {
   const location = useLocation();
 
   // Don't show breadcrumbs on homepage
-  const shouldShowBreadcrumbs = showBreadcrumbs && location.pathname !== "/";
+  const shouldShowBreadcrumbs = showBreadcrumbs && location.pathname !== '/';
 
   return (
     <div className={`page-layout ${className}`}>
@@ -30,12 +30,9 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           <Breadcrumbs />
         </div>
       )}
-      <div className="page-layout__content">
-        {children}
-      </div>
+      <div className="page-layout__content">{children}</div>
     </div>
   );
 };
 
 export default PageLayout;
-

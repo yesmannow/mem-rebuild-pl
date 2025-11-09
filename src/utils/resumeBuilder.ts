@@ -17,12 +17,16 @@ type ResumeData = {
   sections: Section[];
 };
 
-export function buildResumeHTML(data: ResumeData, theme: 'modern' | 'minimal' | 'bold' = 'modern'): string {
-  const palette = theme === 'bold'
-    ? { bg: '#0b1220', fg: '#ffffff', accent: '#60a5fa' }
-    : theme === 'minimal'
-    ? { bg: '#ffffff', fg: '#111827', accent: '#4b5563' }
-    : { bg: '#ffffff', fg: '#111827', accent: '#1f6feb' };
+export function buildResumeHTML(
+  data: ResumeData,
+  theme: 'modern' | 'minimal' | 'bold' = 'modern'
+): string {
+  const palette =
+    theme === 'bold'
+      ? { bg: '#0b1220', fg: '#ffffff', accent: '#60a5fa' }
+      : theme === 'minimal'
+        ? { bg: '#ffffff', fg: '#111827', accent: '#4b5563' }
+        : { bg: '#ffffff', fg: '#111827', accent: '#1f6feb' };
 
   const header = `
   <header class="header">
@@ -33,10 +37,14 @@ export function buildResumeHTML(data: ResumeData, theme: 'modern' | 'minimal' | 
     ${data.contact?.location ? `<p class="contact">${data.contact.location}</p>` : ''}
   </header>`;
 
-  const sections = data.sections.map(sec => `
+  const sections = data.sections
+    .map(
+      sec => `
     <section class="section">
       <h2>${sec.heading}</h2>
-      ${sec.items.map(item => `
+      ${sec.items
+        .map(
+          item => `
         <div class="item">
           <div class="item-header">
             <strong>${item.role}</strong>
@@ -44,13 +52,19 @@ export function buildResumeHTML(data: ResumeData, theme: 'modern' | 'minimal' | 
             ${item.location ? ` · ${item.location}` : ''}
             ${item.dates ? ` <span class="dates">${item.dates}</span>` : ''}
           </div>
-          ${item.bullets && item.bullets.length
-            ? `<ul class="bullets">${item.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`
-            : ''}
+          ${
+            item.bullets && item.bullets.length
+              ? `<ul class="bullets">${item.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`
+              : ''
+          }
         </div>
-      `).join('')}
+      `
+        )
+        .join('')}
     </section>
-  `).join('');
+  `
+    )
+    .join('');
 
   const styles = `
     <style>

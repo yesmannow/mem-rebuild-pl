@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion, Easing } from 'framer-motion';
 
 interface LogoProps {
   className?: string;
@@ -7,7 +7,7 @@ interface LogoProps {
   size?: number;
 }
 
-const Logo: React.FC<LogoProps> = ({ className = "", animated = true, size = 48 }) => {
+const Logo: React.FC<LogoProps> = ({ className = '', animated = true, size = 48 }) => {
   const pathVariants = {
     hidden: {
       opacity: 0,
@@ -18,7 +18,7 @@ const Logo: React.FC<LogoProps> = ({ className = "", animated = true, size = 48 
       pathLength: 1,
       transition: {
         duration: 2,
-        ease: "easeInOut",
+        ease: 'easeInOut' as Easing,
       },
     },
   };
@@ -30,13 +30,13 @@ const Logo: React.FC<LogoProps> = ({ className = "", animated = true, size = 48 
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
+        ease: 'easeOut' as Easing,
       },
     },
   };
 
-  const Component = animated ? motion.svg : "svg";
-  const PathComponent = animated ? motion.path : "path";
+  const Component = animated ? motion.svg : 'svg';
+  const PathComponent = animated ? motion.path : 'path';
 
   return (
     <Component
@@ -46,8 +46,8 @@ const Logo: React.FC<LogoProps> = ({ className = "", animated = true, size = 48 
       viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      initial={animated ? "hidden" : undefined}
-      animate={animated ? "visible" : undefined}
+      initial={animated ? 'hidden' : undefined}
+      animate={animated ? 'visible' : undefined}
       variants={animated ? logoVariants : undefined}
     >
       {/* Outer hexagon frame */}
@@ -59,7 +59,7 @@ const Logo: React.FC<LogoProps> = ({ className = "", animated = true, size = 48 
         strokeLinejoin="round"
         variants={animated ? pathVariants : undefined}
       />
-      
+
       {/* Inner geometric "JD" monogram */}
       {/* Letter J */}
       <PathComponent
@@ -70,7 +70,7 @@ const Logo: React.FC<LogoProps> = ({ className = "", animated = true, size = 48 
         strokeLinecap="round"
         variants={animated ? pathVariants : undefined}
       />
-      
+
       {/* Letter D */}
       <PathComponent
         d="M58 30 L58 65 Q58 65 65 60 Q72 55 72 47.5 Q72 40 65 35 Q58 30 58 30"

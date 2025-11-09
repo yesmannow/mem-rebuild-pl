@@ -1,10 +1,10 @@
 // Ensure React loads first and is available globally
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App";
-import "./styles/globals.css";
-import "./styles/bearcave-brand.css";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import './styles/globals.css';
+import './styles/bearcave-brand.css';
 
 // Verify React is loaded before proceeding
 if (typeof React === 'undefined' || typeof ReactDOM === 'undefined') {
@@ -86,11 +86,12 @@ if (typeof window !== 'undefined') {
       (window.customElements as any)._defineBackupInstalled = true;
 
       // Check if already wrapped by index.html script
-      const isAlreadyWrapped = originalDefine.toString().includes('__defineGuardInstalled') ||
-                                (window.customElements as any).__defineGuardInstalled;
+      const isAlreadyWrapped =
+        originalDefine.toString().includes('__defineGuardInstalled') ||
+        (window.customElements as any).__defineGuardInstalled;
 
       if (!isAlreadyWrapped) {
-        window.customElements.define = function(name, constructor, options) {
+        window.customElements.define = function (name, constructor, options) {
           // Recommended pattern: Check if element is NOT already defined
           if (!customElements.get(name)) {
             try {
@@ -98,13 +99,17 @@ if (typeof window !== 'undefined') {
               return originalDefine.call(this, name, constructor, options);
             } catch (error: unknown) {
               // Handle race conditions where element might be defined between check and call
-              const errorMsg = error ? ((error as Error).message || String(error)) : '';
-              if (typeof errorMsg === 'string' &&
-                  (errorMsg.includes('has already been used') ||
-                   errorMsg.includes('has already been defined'))) {
+              const errorMsg = error ? (error as Error).message || String(error) : '';
+              if (
+                typeof errorMsg === 'string' &&
+                (errorMsg.includes('has already been used') ||
+                  errorMsg.includes('has already been defined'))
+              ) {
                 // Race condition - element was defined by another script between check and call
                 if (process.env.NODE_ENV === 'development') {
-                  console.warn(`[main.tsx] Custom element "${name}" was defined during registration. Skipping.`);
+                  console.warn(
+                    `[main.tsx] Custom element "${name}" was defined during registration. Skipping.`
+                  );
                 }
                 return; // Silently skip duplicate definitions
               }
@@ -175,7 +180,9 @@ const mountTimeout = setTimeout(() => {
           }
         </style>
       `;
-      rootElement.innerHTML = errorStyles + `
+      rootElement.innerHTML =
+        errorStyles +
+        `
         <div class="error-boundary-container">
           <div class="error-boundary-content">
             <h2 class="error-boundary-title">Loading Timeout</h2>
@@ -248,13 +255,17 @@ if (!React || !ReactDOM) {
       // Wrap in error boundary at the root level
       // Add React Router v7 future flags to suppress warnings and prepare for migration
       root.render(
-        React.createElement(React.StrictMode, null,
-          React.createElement(BrowserRouter, {
-            future: {
-              v7_startTransition: true,
-              v7_relativeSplatPath: true
-            }
-          },
+        React.createElement(
+          React.StrictMode,
+          null,
+          React.createElement(
+            BrowserRouter,
+            {
+              future: {
+                v7_startTransition: true,
+                v7_relativeSplatPath: true,
+              },
+            },
             React.createElement(App)
           )
         )
@@ -274,13 +285,13 @@ if (!React || !ReactDOM) {
     console.error('Error details:', {
       message: error instanceof Error ? error.message : String(error),
       stack: error instanceof Error ? error.stack : undefined,
-      name: error instanceof Error ? error.name : undefined
+      name: error instanceof Error ? error.name : undefined,
     });
     console.error('React availability check:', {
       React: !!React,
       ReactDOM: !!ReactDOM,
       ReactCreateElement: !!(React && React.createElement),
-      ReactStrictMode: !!(React && React.StrictMode)
+      ReactStrictMode: !!(React && React.StrictMode),
     });
 
     // Show error in the UI
@@ -336,7 +347,9 @@ if (!React || !ReactDOM) {
           }
         </style>
       `;
-      rootElement.innerHTML = errorStyles + `
+      rootElement.innerHTML =
+        errorStyles +
+        `
         <div class="error-boundary-container">
           <div class="error-boundary-content">
             <h2 class="error-boundary-title">Application Error</h2>

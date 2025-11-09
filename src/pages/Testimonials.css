@@ -13,7 +13,7 @@
 .page-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #88ABF2 0%, #a8c5ff 100%);
+  background: linear-gradient(135deg, #88abf2 0%, #a8c5ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -43,7 +43,7 @@
   font-size: 3rem;
   font-weight: 800;
   font-family: var(--font-primary);
-  background: linear-gradient(135deg, #88ABF2, #a8c5ff);
+  background: linear-gradient(135deg, #88abf2, #a8c5ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -99,7 +99,7 @@
 
 .quote-author strong {
   font-size: 1.1rem;
-  color: #88ABF2;
+  color: #88abf2;
   font-weight: 700;
 }
 
@@ -167,13 +167,13 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #88ABF2, #a8c5ff);
+  background: linear-gradient(135deg, #88abf2, #a8c5ff);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 1.1rem;
-  color: #0D0D0D;
+  color: #0d0d0d;
   flex-shrink: 0;
 }
 
@@ -197,7 +197,7 @@
 
 .author-company {
   font-size: 0.85rem;
-  color: #88ABF2;
+  color: #88abf2;
   margin: 0.25rem 0 0 0;
   font-weight: 600;
 }
@@ -217,7 +217,7 @@
   background: rgba(136, 171, 242, 0.1);
   border: 1px solid rgba(136, 171, 242, 0.2);
   border-radius: 12px;
-  color: #88ABF2;
+  color: #88abf2;
   font-weight: 500;
 }
 

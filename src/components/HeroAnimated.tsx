@@ -1,20 +1,21 @@
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion, Easing } from 'framer-motion';
 
 const container = {
   hidden: { opacity: 0, y: 12 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
+    transition: { duration: 0.6, ease: 'easeOut' as Easing },
+  },
 };
 const stagger = {
   hidden: { opacity: 0, y: 8 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: 0.25 + i * 0.1, duration: 0.5, ease: "easeOut" }
-  })
+    transition: { delay: 0.25 + i * 0.1, duration: 0.5, ease: 'easeOut' as Easing },
+  }),
 };
 
 export default function HeroAnimated() {

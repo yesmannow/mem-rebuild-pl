@@ -35,16 +35,15 @@ const AwardCard: React.FC<AwardCardProps> = ({ award, index = 0 }) => {
       transition={{ delay: index * 0.2 }}
     >
       {/* Glow Effect Background */}
-      <div 
+      <div
         className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"
         style={{
-          background: `radial-gradient(circle at center, ${award.glowColor}40, transparent 70%)`
+          background: `radial-gradient(circle at center, ${award.glowColor}40, transparent 70%)`,
         }}
       />
-      
+
       {/* Main Card */}
       <div className="relative bg-gradient-to-br from-black/80 via-gray-900/80 to-black/80 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-500">
-        
         {/* Award Badge */}
         <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
           <Award className="w-6 h-6 text-black" />
@@ -55,28 +54,30 @@ const AwardCard: React.FC<AwardCardProps> = ({ award, index = 0 }) => {
           <div className="flex-shrink-0">
             <div className="relative w-32 h-32 mx-auto lg:mx-0">
               {award.image ? (
-                <img 
-                  src={award.image} 
+                <img
+                  src={award.image}
                   alt={award.title}
                   className="w-full h-full object-contain rounded-xl"
-                  onError={(e) => {
+                  onError={e => {
                     // Fallback to icon if image fails to load
                     e.currentTarget.style.display = 'none';
                     e.currentTarget.nextElementSibling?.classList.remove('hidden');
                   }}
                 />
               ) : null}
-              
+
               {/* Fallback Icon */}
-              <div className={`${award.image ? 'hidden' : 'flex'} w-full h-full bg-gradient-to-br from-yellow-400/20 to-orange-500/20 rounded-xl items-center justify-center border border-yellow-400/30`}>
+              <div
+                className={`${award.image ? 'hidden' : 'flex'} w-full h-full bg-gradient-to-br from-yellow-400/20 to-orange-500/20 rounded-xl items-center justify-center border border-yellow-400/30`}
+              >
                 <Star className="w-16 h-16 text-yellow-400" />
               </div>
-              
+
               {/* Glow Ring */}
-              <div 
+              <div
                 className="absolute inset-0 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"
                 style={{
-                  boxShadow: `0 0 30px ${award.glowColor}60`
+                  boxShadow: `0 0 30px ${award.glowColor}60`,
                 }}
               />
             </div>
@@ -89,59 +90,59 @@ const AwardCard: React.FC<AwardCardProps> = ({ award, index = 0 }) => {
               className="inline-flex items-center gap-2 px-3 py-1 bg-yellow-400/20 border border-yellow-400/30 rounded-full text-xs text-yellow-300 mb-4"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: (index * 0.2) + 0.3 }}
+              transition={{ delay: index * 0.2 + 0.3 }}
             >
               <Star className="w-3 h-3" />
               {award.category}
             </motion.div>
 
             {/* Title */}
-            <motion.h3 
+            <motion.h3
               className="text-2xl font-bold text-white mb-2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: (index * 0.2) + 0.4 }}
+              transition={{ delay: index * 0.2 + 0.4 }}
             >
               {award.title}
             </motion.h3>
 
             {/* Organization */}
-            <motion.p 
+            <motion.p
               className="text-yellow-400 font-semibold mb-1"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: (index * 0.2) + 0.5 }}
+              transition={{ delay: index * 0.2 + 0.5 }}
             >
               {award.organization}
             </motion.p>
 
             {/* Date */}
-            <motion.div 
+            <motion.div
               className="flex items-center justify-center lg:justify-start gap-2 text-gray-400 text-sm mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: (index * 0.2) + 0.6 }}
+              transition={{ delay: index * 0.2 + 0.6 }}
             >
               <Calendar className="w-4 h-4" />
               {award.date}
             </motion.div>
 
             {/* Description */}
-            <motion.p 
+            <motion.p
               className="text-gray-300 text-sm leading-relaxed mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: (index * 0.2) + 0.7 }}
+              transition={{ delay: index * 0.2 + 0.7 }}
             >
               {award.description}
             </motion.p>
 
             {/* Significance */}
-            <motion.div 
+            <motion.div
               className="p-4 bg-yellow-400/10 border border-yellow-400/20 rounded-lg"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: (index * 0.2) + 0.8 }}
+              transition={{ delay: index * 0.2 + 0.8 }}
             >
               <p className="text-xs text-yellow-200 italic leading-relaxed">
                 <strong className="text-yellow-400">Significance:</strong> {award.significance}

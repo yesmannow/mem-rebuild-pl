@@ -9,7 +9,7 @@ export interface SideProjectItem {
   title: string;
   category: string;
   filename: string;
-  size?: "small" | "medium" | "large" | "wide" | "tall";
+  size?: 'small' | 'medium' | 'large' | 'wide' | 'tall';
 }
 
 /**
@@ -17,31 +17,38 @@ export interface SideProjectItem {
  */
 function categorizeSideProject(filename: string): string {
   const lower = filename.toLowerCase();
-  
+
   // Healthcare & Medical
-  if (lower.includes('doctor') || lower.includes('urgent care') || lower.includes('primary care')) return 'Healthcare';
-  if (lower.includes('covid') || lower.includes('physicals') || lower.includes('occ-health')) return 'Healthcare';
-  if (lower.includes('cbd') || lower.includes('skincare') || lower.includes('pets')) return 'Healthcare';
-  
+  if (lower.includes('doctor') || lower.includes('urgent care') || lower.includes('primary care'))
+    return 'Healthcare';
+  if (lower.includes('covid') || lower.includes('physicals') || lower.includes('occ-health'))
+    return 'Healthcare';
+  if (lower.includes('cbd') || lower.includes('skincare') || lower.includes('pets'))
+    return 'Healthcare';
+
   // Food & Restaurant
-  if (lower.includes('bbq') || lower.includes('gomez') || lower.includes('herbs rub')) return 'Food & Beverage';
+  if (lower.includes('bbq') || lower.includes('gomez') || lower.includes('herbs rub'))
+    return 'Food & Beverage';
   if (lower.includes('317bbq')) return 'Food & Beverage';
-  
+
   // Fitness & Wellness
   if (lower.includes('fitness') || lower.includes('movement')) return 'Fitness';
-  
+
   // Business & Professional
-  if (lower.includes('card') || lower.includes('logo') || lower.includes('brand')) return 'Branding';
+  if (lower.includes('card') || lower.includes('logo') || lower.includes('brand'))
+    return 'Branding';
   if (lower.includes('playbook') || lower.includes('tbm')) return 'Branding';
-  
+
   // Creative & Artistic
-  if (lower.includes('bird') || lower.includes('painting') || lower.includes('illustration')) return 'Creative';
+  if (lower.includes('bird') || lower.includes('painting') || lower.includes('illustration'))
+    return 'Creative';
   if (lower.includes('untitled') || lower.includes('my project')) return 'Creative';
-  
+
   // Digital & Social
-  if (lower.includes('instagram') || lower.includes('post') || lower.includes('online')) return 'Digital';
+  if (lower.includes('instagram') || lower.includes('post') || lower.includes('online'))
+    return 'Digital';
   if (lower.includes('google review')) return 'Digital';
-  
+
   return 'Branding';
 }
 
@@ -51,7 +58,7 @@ function categorizeSideProject(filename: string): string {
 function generateTitle(filename: string): string {
   // Remove extension
   const nameWithoutExt = filename.replace(/\.(jpg|jpeg|png|webp|avif)$/i, '');
-  
+
   // Handle specific known files
   if (nameWithoutExt.includes('317BBQ')) return '317 BBQ Branding';
   if (nameWithoutExt.includes('Urgent Care')) return 'Urgent Care Identity';
@@ -63,13 +70,13 @@ function generateTitle(filename: string): string {
   if (nameWithoutExt.includes('Online Doctor')) return 'Telehealth Social Media';
   if (nameWithoutExt.includes('Google Review')) return 'Review Card Design';
   if (nameWithoutExt.includes('bird')) return 'Bird Illustration';
-  
+
   // Handle generic patterns
   if (nameWithoutExt.includes('Logo')) return `${nameWithoutExt.split(' ')[0]} Logo Design`;
   if (nameWithoutExt.includes('B Card')) return 'Business Card Design';
   if (nameWithoutExt.includes('My Post')) return 'Social Media Post';
   if (nameWithoutExt.includes('My project')) return 'Creative Project';
-  
+
   // Default: Clean up and capitalize
   return nameWithoutExt
     .replace(/[_-]/g, ' ')
@@ -84,28 +91,31 @@ function generateTitle(filename: string): string {
 /**
  * Assign grid size based on category and index
  */
-function assignSize(index: number, category: string): "small" | "medium" | "large" | "wide" | "tall" {
+function assignSize(
+  index: number,
+  category: string
+): 'small' | 'medium' | 'large' | 'wide' | 'tall' {
   // Healthcare projects should be prominent
   if (category === 'Healthcare') {
     return index % 2 === 0 ? 'large' : 'wide';
   }
-  
+
   // Food & Beverage should be featured
   if (category === 'Food & Beverage') {
     return index % 3 === 0 ? 'large' : 'medium';
   }
-  
+
   // Branding should vary in size
   if (category === 'Branding') {
     const pattern = ['medium', 'small', 'large', 'tall'];
     return pattern[index % pattern.length] as any;
   }
-  
+
   // Creative projects should be tall or wide
   if (category === 'Creative') {
     return index % 2 === 0 ? 'tall' : 'wide';
   }
-  
+
   // Default pattern
   const pattern = ['medium', 'large', 'small', 'wide', 'tall', 'medium'];
   return pattern[index % pattern.length] as any;
@@ -171,7 +181,7 @@ export function loadSideProjectImages(): SideProjectItem[] {
     'pci-logo-retina-rev.png',
     'sfsdf.png',
     'sports-physical-header (1).jpg',
-    'what-we-treat-1.jpg'
+    'what-we-treat-1.jpg',
   ];
 
   return imageFiles.map((filename, index) => {
@@ -182,7 +192,7 @@ export function loadSideProjectImages(): SideProjectItem[] {
       filename,
       title: generateTitle(filename),
       category,
-      size: assignSize(index, category)
+      size: assignSize(index, category),
     };
   });
 }
@@ -204,5 +214,5 @@ export const categoryColors: Record<string, string> = {
   Fitness: '#9f7aea',
   Branding: '#4299e1',
   Creative: '#ed64a6',
-  Digital: '#667eea'
+  Digital: '#667eea',
 };

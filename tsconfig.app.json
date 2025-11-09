@@ -19,7 +19,12 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@assets/*": ["src/assets/*"],
+      "@config/*": ["src/config/*"],
+      "@utils/*": ["src/utils/*", "cli/utils/*"],
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"]
     },
     "composite": true, // Enable composite mode
     "outDir": "./dist", // Specify output directory to prevent overwriting source files
@@ -29,10 +34,11 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.d.ts",
-    "src/**/*.json"
+    "src/**/*.json",
+    "src/**/*.js",
+    "public/**/*.json"
   ],
   "exclude": [
-    "src/styles/motion-tokens.js", // Exclude this file to prevent overwrite
     "node_modules",
     "dist"
   ]

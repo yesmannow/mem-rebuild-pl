@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React, { useState, useCallback } from "react";
-import { useDropzone } from "react-dropzone";
-import { DndContext, closestCenter, useDroppable, useDraggable } from "@dnd-kit/core";
-import Vibrant from "node-vibrant";
+import React, { useState, useCallback } from 'react';
+import { useDropzone } from 'react-dropzone';
+import { DndContext, closestCenter, useDroppable, useDraggable } from '@dnd-kit/core';
+import Vibrant from 'node-vibrant';
 
 // --- Types ---
 type MoodboardImage = {
@@ -19,7 +19,7 @@ function SortableItem({ id, children }: { id: string; children: React.ReactNode 
     transform: transform ? `translate(${transform.x}px, ${transform.y}px)` : undefined,
   };
   return (
-    <div ref={setNodeRef} style={style} {...listeners} {...attributes}>
+    <div ref={setNodeRef} style={style} {...(listeners as any)} {...(attributes as any)}>
       {children}
     </div>
   );
@@ -47,16 +47,13 @@ export default function MoodboardModule() {
       const palette = await Vibrant.from(src).getPalette();
       // Add type assertion for swatch to ensure correct typing
       const colors: string[] = [];
-      Object.values(palette).forEach((swatch) => {
-        if (swatch && typeof swatch.getHex === "function") {
-          colors.push((swatch as Vibrant.Swatch).getHex());
+      Object.values(palette).forEach(swatch => {
+        if (swatch && swatch.getHex) {
+          colors.push(swatch.getHex());
         }
       });
 
-      setImages((prev) => [
-        ...prev,
-        { id: `${file.name}-${Date.now()}`, src, palette: colors },
-      ]);
+      setImages(prev => [...prev, { id: `${file.name}-${Date.now()}`, src, palette: colors }]);
     }
   }, []);
 
@@ -68,21 +65,21 @@ export default function MoodboardModule() {
 
       {/* Dropzone */}
       <div
-        {...getRootProps()}
+        {...(getRootProps() as any)}
         className={`p-10 border-2 border-dashed rounded-lg text-center cursor-pointer ${
-          isDragActive ? "bg-blue-50 border-blue-400" : "bg-slate-50 border-slate-300"
+          isDragActive ? 'bg-blue-50 border-blue-400' : 'bg-slate-50 border-slate-300'
         }`}
       >
         <input {...getInputProps()} />
         <p className="text-slate-600">
-          {isDragActive ? "Drop your images here…" : "Drag & drop images, or click to upload"}
+          {isDragActive ? 'Drop your images here…' : 'Drag & drop images, or click to upload'}
         </p>
       </div>
 
       {/* Images + Palettes */}
       <DndContext collisionDetection={closestCenter}>
         <DroppableArea id="moodboard">
-          {images.map((img) => (
+          {images.map(img => (
             <SortableItem key={img.id} id={img.id}>
               <div className="rounded-lg shadow overflow-hidden bg-white">
                 <img src={img.src} alt="" className="w-full h-32 object-cover" />

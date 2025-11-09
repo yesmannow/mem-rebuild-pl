@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -8,11 +8,11 @@ interface MagneticButtonProps {
   strength?: number;
 }
 
-const MagneticButton: React.FC<MagneticButtonProps> = ({ 
-  children, 
-  className = "",
+const MagneticButton: React.FC<MagneticButtonProps> = ({
+  children,
+  className = '',
   onClick,
-  strength = 0.3 
+  strength = 0.3,
 }) => {
   const ref = useRef<HTMLButtonElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -38,7 +38,7 @@ const MagneticButton: React.FC<MagneticButtonProps> = ({
       onMouseLeave={reset}
       onClick={onClick}
       animate={{ x, y }}
-      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+      transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
       className={className}
     >
       {children}

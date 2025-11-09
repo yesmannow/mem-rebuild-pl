@@ -1,9 +1,9 @@
-import { motion } from "framer-motion";
-import { Share2, Mail, ExternalLink, FileText } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import resumeData from "../../data/resume.json";
-import LazyPDFDownloadCTA from "./LazyPDFDownloadCTA";
-import { trackPortfolioEngagement } from "../../utils/analytics";
+import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { Share2, Mail, ExternalLink, FileText } from 'lucide-react';
+import resumeData from '../../data/resume.json';
+import LazyPDFDownloadCTA from './LazyPDFDownloadCTA';
+import { trackPortfolioEngagement } from '../../utils/analytics';
 
 export default function CTAButtons() {
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
@@ -21,29 +21,31 @@ export default function CTAButtons() {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "Jacob Darling - Resume",
+          title: 'Jacob Darling - Resume',
           text: "Check out Jacob Darling's professional resume - Marketing Director & System Architect",
-          url: window.location.href
+          url: window.location.href,
         });
-        setShareMessage("Thanks for sharing! Link sent.");
+        setShareMessage('Thanks for sharing! Link sent.');
       } catch (error: any) {
-        if (error?.name !== "AbortError") {
-          setShareMessage("Share failed. Copy the link manually.");
+        if (error?.name !== 'AbortError') {
+          setShareMessage('Share failed. Copy the link manually.');
         }
       }
     } else {
       try {
         await navigator.clipboard.writeText(window.location.href);
-        setShareMessage("Link copied to clipboard.");
+        setShareMessage('Link copied to clipboard.');
       } catch (error) {
-        setShareMessage("Copy failed. Try sharing manually.");
+        setShareMessage('Copy failed. Try sharing manually.');
       }
     }
   };
 
   const handleEmail = () => {
-    const subject = encodeURIComponent("Jacob Darling - Professional Resume");
-    const body = encodeURIComponent(`I'd like to share Jacob Darling's professional resume with you:\n\n${window.location.href}\n\nBest regards`);
+    const subject = encodeURIComponent('Jacob Darling - Professional Resume');
+    const body = encodeURIComponent(
+      `I'd like to share Jacob Darling's professional resume with you:\n\n${window.location.href}\n\nBest regards`
+    );
     window.location.href = `mailto:?subject=${subject}&body=${body}`;
   };
 
@@ -55,12 +57,12 @@ export default function CTAButtons() {
     hover: {
       scale: 1.05,
       y: -2,
-      transition: { duration: 0.2 }
+      transition: { duration: 0.2 },
     },
     tap: {
       scale: 0.95,
-      transition: { duration: 0.1 }
-    }
+      transition: { duration: 0.1 },
+    },
   };
 
   useEffect(() => {

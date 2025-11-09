@@ -1,7 +1,7 @@
-import React from "react";
-import { useLocation, Link } from "react-router-dom";
-import { ChevronRight, Home } from "lucide-react";
-import "./Breadcrumbs.css";
+import React from 'react';
+import { useLocation, Link } from 'react-router-dom';
+import { ChevronRight, Home } from 'lucide-react';
+import './Breadcrumbs.css';
 
 interface BreadcrumbItem {
   label: string;
@@ -10,23 +10,21 @@ interface BreadcrumbItem {
 
 const Breadcrumbs: React.FC = () => {
   const location = useLocation();
-  const pathnames = location.pathname.split("/").filter((x) => x);
+  const pathnames = location.pathname.split('/').filter(x => x);
 
   // Build breadcrumb items
-  const breadcrumbs: BreadcrumbItem[] = [
-    { label: "Home", path: "/" },
-  ];
+  const breadcrumbs: BreadcrumbItem[] = [{ label: 'Home', path: '/' }];
 
   // Add intermediate paths
-  let currentPath = "";
+  let currentPath = '';
   pathnames.forEach((name, index) => {
     currentPath += `/${name}`;
 
     // Format label (capitalize, replace hyphens)
     const label = name
-      .split("-")
+      .split('-')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
+      .join(' ');
 
     breadcrumbs.push({
       label,
@@ -72,4 +70,3 @@ const Breadcrumbs: React.FC = () => {
 };
 
 export default Breadcrumbs;
-

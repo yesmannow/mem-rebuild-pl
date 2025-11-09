@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Link } from "react-router-dom";
-import "./ProactiveSupportHero.css";
+import React, { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
+import './ProactiveSupportHero.css';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -28,26 +28,56 @@ const ProactiveSupportHero: React.FC = () => {
   const timersRef = useRef<number[]>([]);
 
   const chatMessages: ChatMessage[] = [
-    { id: '1', text: "Hi! I need help with my course access.", sender: 'user', delay: 1000 },
-    { id: '2', text: "I'd be happy to help! Let me check your enrollment status...", sender: 'bot', delay: 2000 },
-    { id: '3', text: "I can see you're enrolled in GT101. Your course is ready to go!", sender: 'bot', delay: 3000 },
-    { id: '4', text: "Perfect! Can you also check my certificate status?", sender: 'user', delay: 4000 },
-    { id: '5', text: "Your certificate will be available after course completion. You're 60% through!", sender: 'bot', delay: 5000 }
+    { id: '1', text: 'Hi! I need help with my course access.', sender: 'user', delay: 1000 },
+    {
+      id: '2',
+      text: "I'd be happy to help! Let me check your enrollment status...",
+      sender: 'bot',
+      delay: 2000,
+    },
+    {
+      id: '3',
+      text: "I can see you're enrolled in GT101. Your course is ready to go!",
+      sender: 'bot',
+      delay: 3000,
+    },
+    {
+      id: '4',
+      text: 'Perfect! Can you also check my certificate status?',
+      sender: 'user',
+      delay: 4000,
+    },
+    {
+      id: '5',
+      text: "Your certificate will be available after course completion. You're 60% through!",
+      sender: 'bot',
+      delay: 5000,
+    },
   ];
 
   const metrics = [
-    { label: "Ticket Reduction", value: "70%", color: "#10B981" },
-    { label: "Response Time", value: "Instant", color: "#3B82F6" },
-    { label: "Customer Satisfaction", value: "+45%", color: "#8B5CF6" }
+    { label: 'Ticket Reduction', value: '70%', color: '#10B981' },
+    { label: 'Response Time', value: 'Instant', color: '#3B82F6' },
+    { label: 'Customer Satisfaction', value: '+45%', color: '#8B5CF6' },
   ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Initial setup - hide all elements
-      gsap.set([titleRef.current, subtitleRef.current, chatbotRef.current, crmRef.current, metricsRef.current, ctaRef.current], {
-        opacity: 0,
-        y: 50
-      });
+      gsap.set(
+        [
+          titleRef.current,
+          subtitleRef.current,
+          chatbotRef.current,
+          crmRef.current,
+          metricsRef.current,
+          ctaRef.current,
+        ],
+        {
+          opacity: 0,
+          y: 50,
+        }
+      );
 
       // Create the main timeline
       const tl = gsap.timeline({ delay: 0.5 });
@@ -57,24 +87,32 @@ const ProactiveSupportHero: React.FC = () => {
         opacity: 1,
         y: 0,
         duration: 1,
-        ease: "power3.out"
+        ease: 'power3.out',
       });
 
       // Subtitle animation
-      tl.to(subtitleRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out"
-      }, "-=0.5");
+      tl.to(
+        subtitleRef.current,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+        },
+        '-=0.5'
+      );
 
       // Chatbot interface animation
-      tl.to(chatbotRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out"
-      }, "-=0.3");
+      tl.to(
+        chatbotRef.current,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+        },
+        '-=0.3'
+      );
 
       // Start chatbot conversation
       tl.call(() => {
@@ -82,29 +120,40 @@ const ProactiveSupportHero: React.FC = () => {
       });
 
       // CRM integration visualization
-      tl.to(crmRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out"
-      }, "-=0.5");
+      tl.to(
+        crmRef.current,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+        },
+        '-=0.5'
+      );
 
       // Metrics animation
-      tl.to(metricsRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out"
-      }, "-=0.3");
+      tl.to(
+        metricsRef.current,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+        },
+        '-=0.3'
+      );
 
       // CTA buttons
-      tl.to(ctaRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out"
-      }, "-=0.5");
-
+      tl.to(
+        ctaRef.current,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+        },
+        '-=0.5'
+      );
     }, heroRef);
 
     return () => ctx.revert();
@@ -153,14 +202,15 @@ const ProactiveSupportHero: React.FC = () => {
     // Metrics animation is scoped via gsap.context(..., heroRef) above
     // Selector `.metric-${index}` is already scoped to heroRef.current
     metrics.forEach((metric, index) => {
-      gsap.fromTo(`.metric-${index}`,
+      gsap.fromTo(
+        `.metric-${index}`,
         { scale: 0.8, opacity: 0 },
         {
           scale: 1,
           opacity: 1,
           duration: 0.6,
           delay: index * 0.2,
-          ease: "back.out(1.7)"
+          ease: 'back.out(1.7)',
         },
         heroRef // 🎯 Scoping argument - ensures selector only finds elements within heroRef
       );
@@ -184,10 +234,11 @@ const ProactiveSupportHero: React.FC = () => {
           </h1>
 
           <p ref={subtitleRef} className="hero-subtitle">
-            15+ years transforming marketing challenges into scalable solutions.
-            I build the systems and strategies that drive measurable growth—from marketing automation and CRM campaigns
-            to SEO/SEM optimization and analytics-driven decision making. Currently seeking senior marketing leadership
-            roles where I can combine strategic vision with technical execution.
+            15+ years transforming marketing challenges into scalable solutions. I build the systems
+            and strategies that drive measurable growth—from marketing automation and CRM campaigns
+            to SEO/SEM optimization and analytics-driven decision making. Currently seeking senior
+            marketing leadership roles where I can combine strategic vision with technical
+            execution.
           </p>
 
           {/* Interactive Demo Area */}
@@ -214,11 +265,9 @@ const ProactiveSupportHero: React.FC = () => {
                     className={`message ${message.sender}`}
                     style={{ '--delay': index * 0.3 } as React.CSSProperties}
                   >
-                    <div className="message-content">
-                      {message.text}
-                    </div>
+                    <div className="message-content">{message.text}</div>
                     <div className="message-time">
-                      {new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                      {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </div>
                   </div>
                 ))}

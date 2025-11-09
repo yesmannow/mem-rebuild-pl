@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useCallback, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Virtual Scrolling for Large Lists
 export const VirtualScroll: React.FC<{
@@ -8,7 +8,7 @@ export const VirtualScroll: React.FC<{
   containerHeight: number;
   renderItem: (item: any, index: number) => React.ReactNode;
   className?: string;
-}> = ({ items, itemHeight, containerHeight, renderItem, className = "" }) => {
+}> = ({ items, itemHeight, containerHeight, renderItem, className = '' }) => {
   const [scrollTop, setScrollTop] = useState(0);
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null);
 
@@ -50,9 +50,7 @@ export const VirtualScroll: React.FC<{
     >
       <div className="virtual-scroll-content">
         <div className="virtual-scroll-items">
-          {visibleItems.map((item, index) =>
-            renderItem(item, visibleStart + index)
-          )}
+          {visibleItems.map((item, index) => renderItem(item, visibleStart + index))}
         </div>
       </div>
     </div>
@@ -70,10 +68,10 @@ export const LazyImage: React.FC<{
 }> = ({
   src,
   alt,
-  className = "",
-  placeholder = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PC9zdmc+",
+  className = '',
+  placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PC9zdmc+',
   onLoad,
-  onError
+  onError,
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
@@ -114,9 +112,7 @@ export const LazyImage: React.FC<{
         ref={imgRef}
         src={isInView ? src : placeholder}
         alt={alt}
-        className={`transition-opacity duration-300 ${
-          isLoaded ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         onLoad={handleLoad}
         onError={handleError}
         loading="lazy"
@@ -168,8 +164,7 @@ export const useFilteredItems = <T,>(
       filtered = filtered.filter(item =>
         searchFields.some(field => {
           const value = item[field];
-          return typeof value === 'string' &&
-                 value.toLowerCase().includes(query);
+          return typeof value === 'string' && value.toLowerCase().includes(query);
         })
       );
     }
@@ -177,9 +172,7 @@ export const useFilteredItems = <T,>(
     // Apply other filters
     Object.entries(filters).forEach(([key, value]) => {
       if (value && value !== 'All') {
-        filtered = filtered.filter(item =>
-          (item as any)[key] === value
-        );
+        filtered = filtered.filter(item => (item as any)[key] === value);
       }
     });
 
@@ -192,7 +185,7 @@ export const usePerformanceMonitor = () => {
   const [metrics, setMetrics] = useState({
     renderTime: 0,
     memoryUsage: 0,
-    fps: 0
+    fps: 0,
   });
 
   useEffect(() => {
@@ -208,7 +201,7 @@ export const usePerformanceMonitor = () => {
         setMetrics(prev => ({
           ...prev,
           fps: Math.round((frameCount * 1000) / (currentTime - lastTime)),
-          memoryUsage: (performance as any).memory?.usedJSHeapSize || 0
+          memoryUsage: (performance as any).memory?.usedJSHeapSize || 0,
         }));
 
         frameCount = 0;
@@ -237,13 +230,7 @@ export const OptimizedGrid: React.FC<{
   columns?: number;
   gap?: number;
   className?: string;
-}> = ({
-  items,
-  renderItem,
-  columns = 3,
-  gap = 16,
-  className = ""
-}) => {
+}> = ({ items, renderItem, columns = 3, gap = 16, className = '' }) => {
   const [visibleItems, setVisibleItems] = useState(items.slice(0, 20));
   const [isLoading, setIsLoading] = useState(false);
 
@@ -252,10 +239,7 @@ export const OptimizedGrid: React.FC<{
 
     // Simulate loading delay
     setTimeout(() => {
-      setVisibleItems(prev => [
-        ...prev,
-        ...items.slice(prev.length, prev.length + 20)
-      ]);
+      setVisibleItems(prev => [...prev, ...items.slice(prev.length, prev.length + 20)]);
       setIsLoading(false);
     }, 500);
   }, [items]);
@@ -273,9 +257,7 @@ export const OptimizedGrid: React.FC<{
 
   return (
     <div className={className}>
-      <div
-        className="grid virtual-grid"
-      >
+      <div className="grid virtual-grid">
         {visibleItems.map((item, index) => (
           <motion.div
             key={item.id || index}
@@ -377,10 +359,7 @@ export const ScrollOptimizer: React.FC<{
 };
 
 // Throttle utility function
-const throttle = <T extends (...args: any[]) => any>(
-  func: T,
-  limit: number
-): T => {
+const throttle = <T extends (...args: any[]) => any>(func: T, limit: number): T => {
   let inThrottle: boolean;
   return ((...args: any[]) => {
     if (!inThrottle) {
@@ -399,5 +378,5 @@ export default {
   usePerformanceMonitor,
   OptimizedGrid,
   ImagePreloader,
-  ScrollOptimizer
+  ScrollOptimizer,
 };

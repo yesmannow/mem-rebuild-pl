@@ -1,16 +1,21 @@
-import React, { Suspense, lazy } from "react";
-import { motion } from "framer-motion";
-import { Download } from "lucide-react";
+import React, { Suspense, lazy } from 'react';
+import { motion } from 'framer-motion';
+import { Download } from 'lucide-react';
 
 // Lazy load the PDF component
-const ResumePDF = lazy(() => import("../../pdf/ResumePDF").then(module => ({ default: module.ResumePDF })));
+const ResumePDF = lazy(() =>
+  import('../../pdf/ResumePDF').then(module => ({ default: module.ResumePDF }))
+);
 
 interface LazyPDFDownloadProps {
   isGeneratingPDF: boolean;
   setIsGeneratingPDF: (value: boolean) => void;
 }
 
-const LazyPDFDownload: React.FC<LazyPDFDownloadProps> = ({ isGeneratingPDF, setIsGeneratingPDF }) => {
+const LazyPDFDownload: React.FC<LazyPDFDownloadProps> = ({
+  isGeneratingPDF,
+  setIsGeneratingPDF,
+}) => {
   return (
     <Suspense
       fallback={
@@ -26,10 +31,7 @@ const LazyPDFDownload: React.FC<LazyPDFDownloadProps> = ({ isGeneratingPDF, setI
         </motion.button>
       }
     >
-      <ResumePDF
-        isGeneratingPDF={isGeneratingPDF}
-        setIsGeneratingPDF={setIsGeneratingPDF}
-      />
+      <ResumePDF />
     </Suspense>
   );
 };

@@ -1,11 +1,12 @@
-import CountUp from "react-countup";
+import React from 'react';
+import CountUp from 'react-countup';
 
 type Win = { label: string; value: number; suffix?: string; prefix?: string };
 const wins: Win[] = [
-  { label: "Clinicians Served", value: 30000, suffix: "+" },
-  { label: "Automations Deployed", value: 400, suffix: "+" },
-  { label: "Support Ticket Reduction", value: 70, suffix: "%" },
-  { label: "Years Experience", value: 15, suffix: "+" }
+  { label: 'Clinicians Served', value: 30000, suffix: '+' },
+  { label: 'Automations Deployed', value: 400, suffix: '+' },
+  { label: 'Support Ticket Reduction', value: 70, suffix: '%' },
+  { label: 'Years Experience', value: 15, suffix: '+' },
 ];
 
 export default function QuickWinsAnimated() {

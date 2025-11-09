@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import "./SkillsRadar.css";
+import React from 'react';
+import { motion } from 'framer-motion';
+import './SkillsRadar.css';
 
 interface SkillCategory {
   name: string;
@@ -13,69 +13,69 @@ interface SkillCategory {
 
 const skillsData: SkillCategory[] = [
   {
-    name: "Marketing Strategy",
-    shortName: "Strategy",
+    name: 'Marketing Strategy',
+    shortName: 'Strategy',
     level: 94,
-    description: "Technical marketing strategy & systems thinking",
-    icon: "🎯",
-    color: "#84cc16"
+    description: 'Technical marketing strategy & systems thinking',
+    icon: '🎯',
+    color: '#84cc16',
   },
   {
-    name: "Performance Optimization",
-    shortName: "Performance",
+    name: 'Performance Optimization',
+    shortName: 'Performance',
     level: 95,
-    description: "Site speed optimization & Core Web Vitals",
-    icon: "⚡",
-    color: "#3b82f6"
+    description: 'Site speed optimization & Core Web Vitals',
+    icon: '⚡',
+    color: '#3b82f6',
   },
   {
-    name: "Security & Infrastructure",
-    shortName: "Security",
+    name: 'Security & Infrastructure',
+    shortName: 'Security',
     level: 90,
-    description: "Infrastructure security & WAF implementation",
-    icon: "🛡️",
-    color: "#10b981"
+    description: 'Infrastructure security & WAF implementation',
+    icon: '🛡️',
+    color: '#10b981',
   },
   {
-    name: "Analytics & Tracking",
-    shortName: "Analytics",
+    name: 'Analytics & Tracking',
+    shortName: 'Analytics',
     level: 88,
-    description: "GA4, GTM & conversion tracking",
-    icon: "📊",
-    color: "#f59e0b"
+    description: 'GA4, GTM & conversion tracking',
+    icon: '📊',
+    color: '#f59e0b',
   },
   {
-    name: "Server Administration",
-    shortName: "Server Admin",
+    name: 'Server Administration',
+    shortName: 'Server Admin',
     level: 85,
-    description: "Linux, Apache, PHP & MySQL management",
-    icon: "🖥️",
-    color: "#ef4444"
+    description: 'Linux, Apache, PHP & MySQL management',
+    icon: '🖥️',
+    color: '#ef4444',
   },
   {
-    name: "Development",
-    shortName: "Development",
+    name: 'Development',
+    shortName: 'Development',
     level: 82,
-    description: "PHP, JavaScript & WordPress development",
-    icon: "💻",
-    color: "#8b5cf6"
+    description: 'PHP, JavaScript & WordPress development',
+    icon: '💻',
+    color: '#8b5cf6',
   },
   {
-    name: "Database Management",
-    shortName: "Database",
+    name: 'Database Management',
+    shortName: 'Database',
     level: 80,
-    description: "SQL optimization & database design",
-    icon: "💾",
-    color: "#06b6d4"
+    description: 'SQL optimization & database design',
+    icon: '💾',
+    color: '#06b6d4',
   },
   {
-    name: "Marketing Technology",
-    shortName: "Marketing Tech",
+    name: 'Marketing Technology',
+    shortName: 'Marketing Tech',
     level: 92,
-    description: "CRM automation & ad platform integration",
-    icon: "🔄",
-    color: "#ec4899"
-  }
+    description: 'CRM automation & ad platform integration',
+    icon: '🔄',
+    color: '#ec4899',
+  },
 ];
 
 const SkillsRadar: React.FC = () => {
@@ -109,7 +109,7 @@ const SkillsRadar: React.FC = () => {
                       key={index}
                       className="radar-axis"
                       style={{
-                        transform: `rotate(${angle}deg)`
+                        transform: `rotate(${angle}deg)`,
                       }}
                     ></div>
                   );
@@ -120,13 +120,15 @@ const SkillsRadar: React.FC = () => {
               <svg className="radar-svg" viewBox="0 0 200 200">
                 <polygon
                   className="radar-polygon"
-                  points={skillsData.map((skill, index) => {
-                    const angle = (index * 2 * Math.PI) / skillsData.length - Math.PI / 2;
-                    const radius = (skill.level / 100) * 85;
-                    const x = 100 + radius * Math.cos(angle);
-                    const y = 100 + radius * Math.sin(angle);
-                    return `${x},${y}`;
-                  }).join(' ')}
+                  points={skillsData
+                    .map((skill, index) => {
+                      const angle = (index * 2 * Math.PI) / skillsData.length - Math.PI / 2;
+                      const radius = (skill.level / 100) * 85;
+                      const x = 100 + radius * Math.cos(angle);
+                      const y = 100 + radius * Math.sin(angle);
+                      return `${x},${y}`;
+                    })
+                    .join(' ')}
                 />
                 {skillsData.map((skill, index) => {
                   const angle = (index * 2 * Math.PI) / skillsData.length - Math.PI / 2;
@@ -153,14 +155,14 @@ const SkillsRadar: React.FC = () => {
                   const radian = ((angle - 90) * Math.PI) / 180;
                   const x = 50 + 55 * Math.cos(radian);
                   const y = 50 + 55 * Math.sin(radian);
-                  
+
                   return (
                     <div
                       key={index}
                       className="radar-label"
                       style={{
                         left: `${x}%`,
-                        top: `${y}%`
+                        top: `${y}%`,
                       }}
                     >
                       <span className="label-icon">{skill.icon}</span>
@@ -187,11 +189,11 @@ const SkillsRadar: React.FC = () => {
                   whileHover={{ translateX: 5 }}
                 >
                   <div className="skill-card-content">
-                    <div 
+                    <div
                       className="skill-icon"
-                      style={{ 
+                      style={{
                         backgroundColor: `${skill.color}20`,
-                        color: skill.color 
+                        color: skill.color,
                       }}
                     >
                       {skill.icon}
@@ -202,11 +204,11 @@ const SkillsRadar: React.FC = () => {
                         <span className="skill-level">{skill.level}%</span>
                       </div>
                       <div className="skill-progress">
-                        <div 
+                        <div
                           className="skill-progress-bar"
-                          style={{ 
+                          style={{
                             width: `${skill.level}%`,
-                            backgroundColor: skill.color
+                            backgroundColor: skill.color,
                           }}
                         ></div>
                       </div>

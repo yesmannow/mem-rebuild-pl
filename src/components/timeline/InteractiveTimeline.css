@@ -21,7 +21,7 @@
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #88ABF2, #ec4899);
+  background: linear-gradient(135deg, #88abf2, #ec4899);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -43,7 +43,7 @@
   transform: translateX(-50%);
   width: 2px;
   height: 100%;
-  background: linear-gradient(to bottom, #88ABF2, #ec4899);
+  background: linear-gradient(to bottom, #88abf2, #ec4899);
   z-index: 0;
 }
 
@@ -82,7 +82,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #88ABF2, #ec4899);
+  background: linear-gradient(135deg, #88abf2, #ec4899);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,7 +125,7 @@
 .card-header h4 {
   font-size: 1rem;
   font-weight: 500;
-  color: #88ABF2;
+  color: #88abf2;
   margin-bottom: 1rem;
 }
 
@@ -142,7 +142,7 @@
 }
 
 .card-achievements strong {
-  color: #88ABF2;
+  color: #88abf2;
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -162,10 +162,10 @@
 }
 
 .card-achievements li::before {
-  content: "→";
+  content: '→';
   position: absolute;
   left: 0;
-  color: #88ABF2;
+  color: #88abf2;
 }
 
 .card-technologies {
@@ -183,7 +183,7 @@
   background: rgba(136, 171, 242, 0.2);
   border: 1px solid rgba(136, 171, 242, 0.3);
   border-radius: 12px;
-  color: #88ABF2;
+  color: #88abf2;
 }
 
 @media (max-width: 968px) {
@@ -217,4 +217,3 @@
     padding: 1.5rem;
   }
 }
-

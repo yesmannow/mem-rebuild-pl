@@ -14,7 +14,10 @@ const TheGapDiagram: React.FC = () => {
         viewport={{ once: true }}
       >
         <h2>Bridging The Gap</h2>
-        <p>Where creative vision meets technical execution—and why most teams struggle at this intersection</p>
+        <p>
+          Where creative vision meets technical execution—and why most teams struggle at this
+          intersection
+        </p>
       </motion.div>
 
       <div className="gap-diagram">
@@ -54,13 +57,13 @@ const TheGapDiagram: React.FC = () => {
             className="bridge-icon"
             animate={{
               scale: hoveredSide === 'bridge' ? 1.1 : 1,
-              rotate: hoveredSide === 'bridge' ? 5 : 0
+              rotate: hoveredSide === 'bridge' ? 5 : 0,
             }}
             transition={{ duration: 0.3 }}
           >
             <div className="bridge-avatar">JD</div>
           </motion.div>
-          
+
           <div className="bridge-label">
             <h4>You</h4>
             <p>The Translator</p>
@@ -71,7 +74,7 @@ const TheGapDiagram: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{
               opacity: hoveredSide === 'bridge' ? 1 : 0,
-              height: hoveredSide === 'bridge' ? 'auto' : 0
+              height: hoveredSide === 'bridge' ? 'auto' : 0,
             }}
             transition={{ duration: 0.3 }}
           >
@@ -142,8 +145,8 @@ const TheGapDiagram: React.FC = () => {
         <div className="problem-content">
           <h4>The Common Breakdown</h4>
           <p>
-            Most teams have brilliant strategists and talented developers—but they speak different languages. 
-            Ideas get lost in translation. Timelines explode. Features ship incomplete. 
+            Most teams have brilliant strategists and talented developers—but they speak different
+            languages. Ideas get lost in translation. Timelines explode. Features ship incomplete.
             <strong> I fluently speak both languages and build the bridge between them.</strong>
           </p>
         </div>
