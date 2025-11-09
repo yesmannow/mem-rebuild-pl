@@ -6,7 +6,7 @@ import "./BearCaveFooter.css";
 const footerNav = [
   { label: "Home", to: "/" },
   { label: "Case Studies", to: "/case-studies" },
-  { label: "Applications", to: "/applications" },
+  { label: "Developer Tools", to: "/applications" },
   { label: "About", to: "/about" },
   { label: "Projects", to: "/projects" },
   { label: "Contact", to: "/contact" }

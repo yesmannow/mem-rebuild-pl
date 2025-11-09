@@ -52,9 +52,10 @@ const Applications: React.FC = () => {
             <span className="badge-dot"></span>
             <span>Live & Interactive</span>
           </div>
-          <h1>Interactive Applications</h1>
+          <h1>Developer Tools</h1>
           <p className="header-subtitle">
-            Explore production-ready web applications demonstrating full-stack development,
+            Custom tools and applications I've built to solve real problems.
+            Production-ready web tools demonstrating full-stack development,
             UX design, and complex problem-solving across marketing, sales, and clinical domains.
           </p>
 
@@ -62,7 +63,7 @@ const Applications: React.FC = () => {
           <div className="apps-stats">
             <div className="stat-item">
               <span className="stat-value">{totalApps}</span>
-              <span className="stat-label">Live Applications</span>
+              <span className="stat-label">Live Tools</span>
             </div>
             <div className="stat-item">
               <span className="stat-value">{totalTechnologies}+</span>
@@ -85,7 +86,7 @@ const Applications: React.FC = () => {
             </svg>
             <input
               type="text"
-              placeholder="Search applications..."
+              placeholder="Search tools..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="search-input"
@@ -125,8 +126,8 @@ const Applications: React.FC = () => {
                 className="sort-select"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-                title="Sort applications"
-                aria-label="Sort applications"
+                title="Sort tools"
+                aria-label="Sort tools"
               >
                 <option value="default">Default Order</option>
                 <option value="name">A-Z</option>
@@ -167,7 +168,7 @@ const Applications: React.FC = () => {
         {/* Results Info */}
         <div className="results-info">
           <span className="results-count">
-            {filteredApplications.length} {filteredApplications.length === 1 ? 'Application' : 'Applications'}
+            {filteredApplications.length} {filteredApplications.length === 1 ? 'Tool' : 'Tools'}
             {searchTerm && ` matching "${searchTerm}"`}
           </span>
         </div>
@@ -304,8 +305,8 @@ const Applications: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="no-results-icon">🔍</div>
-            <h3>No Applications Found</h3>
-            <p>No applications match your current filters or search term.</p>
+            <h3>No Tools Found</h3>
+            <p>No tools match your current filters or search term.</p>
             <button
               className="reset-filters-btn"
               onClick={() => {

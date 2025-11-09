@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Filter } from 'lucide-react';
 
 interface SkillWithProgress {
   name: string;
@@ -42,12 +43,51 @@ interface SkillsWithProgressProps {
 }
 
 const SkillsWithProgress: React.FC<SkillsWithProgressProps> = ({ className = '' }) => {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const categories = Array.from(new Set(skillsWithProgress.map(s => s.category || 'Other')));
+
+  const filteredSkills = activeCategory
+    ? skillsWithProgress.filter(s => s.category === activeCategory)
+    : skillsWithProgress;
 
   return (
     <div className={className}>
+      {/* Category Filter */}
+      <div className="mb-6 flex flex-wrap gap-2">
+        <motion.button
+          onClick={() => setActiveCategory(null)}
+          className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+            activeCategory === null
+              ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white'
+              : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
+          }`}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Filter size={14} className="inline mr-2" />
+          All Skills
+        </motion.button>
+        {categories.map((category) => (
+          <motion.button
+            key={category}
+            onClick={() => setActiveCategory(category)}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              activeCategory === category
+                ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white'
+                : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
+            }`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {category}
+          </motion.button>
+        ))}
+      </div>
+
       {categories.map((category, categoryIndex) => {
-        const categorySkills = skillsWithProgress.filter(s => s.category === category);
+        const categorySkills = filteredSkills.filter(s => s.category === category);
+
+        if (categorySkills.length === 0) return null;
 
         return (
           <motion.div
@@ -61,6 +101,7 @@ const SkillsWithProgress: React.FC<SkillsWithProgressProps> = ({ className = '' 
             <h3 className="text-xl font-semibold text-gray-300 mb-4 flex items-center gap-2">
               <div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full" />
               {category}
+              <span className="text-sm text-gray-500 ml-auto">({categorySkills.length})</span>
             </h3>
 
             <div className="space-y-4">
@@ -71,11 +112,17 @@ const SkillsWithProgress: React.FC<SkillsWithProgressProps> = ({ className = '' 
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: (categoryIndex * 0.1) + (index * 0.05) }}
-                  className="bg-white/5 border border-white/10 rounded-lg p-4 hover:bg-white/10 transition-colors duration-300"
+                  className="bg-white/5 border border-white/10 rounded-lg p-4 hover:bg-white/10 transition-all duration-300 group cursor-pointer"
+                  whileHover={{ x: 4, scale: 1.01 }}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-gray-300 font-medium">{skill.name}</span>
-                    <span className="text-blue-400 text-sm font-semibold">{skill.level}%</span>
+                    <span className="text-gray-300 font-medium group-hover:text-white transition-colors">{skill.name}</span>
+                    <motion.span
+                      className="text-blue-400 text-sm font-semibold"
+                      whileHover={{ scale: 1.2 }}
+                    >
+                      {skill.level}%
+                    </motion.span>
                   </div>
 
                   {/* Progress Bar */}
@@ -86,6 +133,13 @@ const SkillsWithProgress: React.FC<SkillsWithProgressProps> = ({ className = '' 
                       whileInView={{ width: `${skill.level}%` }}
                       viewport={{ once: true }}
                       transition={{ duration: 1.2, delay: (categoryIndex * 0.1) + (index * 0.05), ease: "easeOut" }}
+                    />
+                    {/* Tooltip on hover */}
+                    <motion.div
+                      className="absolute top-0 right-0 h-full bg-white/20 rounded-full"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: `${100 - skill.level}%` }}
+                      transition={{ duration: 0.3 }}
                     />
                   </div>
                 </motion.div>

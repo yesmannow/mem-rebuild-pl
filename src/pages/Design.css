@@ -507,64 +507,88 @@
 }
 
 /* Category-based styling */
-.category-badge[data-category="UI/UX"] {
+.category-badge[data-category="Branding"] {
   background-color: #f093fb;
 }
 
-.category-badge[data-category="Branding"] {
+.category-badge[data-category="Digital"] {
   background-color: #4facfe;
-}
-
-.category-badge[data-category="Web Design"] {
-  background-color: #43e97b;
 }
 
 .category-badge[data-category="Print"] {
-  background-color: #fa709a;
-}
-
-.category-badge[data-category="Motion"] {
-  background-color: #667eea;
-}
-
-.design-card-gradient[data-category="UI/UX"] {
-  background: linear-gradient(135deg, #f093fb15 0%, #f093fb05 100%);
-}
-
-.design-card-gradient[data-category="Branding"] {
-  background: linear-gradient(135deg, #4facfe15 0%, #4facfe05 100%);
-}
-
-.design-card-gradient[data-category="Web Design"] {
-  background: linear-gradient(135deg, #43e97b15 0%, #43e97b05 100%);
-}
-
-.design-card-gradient[data-category="Print"] {
-  background: linear-gradient(135deg, #fa709a15 0%, #fa709a05 100%);
-}
-
-.design-card-gradient[data-category="Motion"] {
-  background: linear-gradient(135deg, #667eea15 0%, #667eea05 100%);
-}
-
-.lightbox-category[data-category="UI/UX"] {
-  background-color: #f093fb;
-}
-
-.lightbox-category[data-category="Branding"] {
-  background-color: #4facfe;
-}
-
-.lightbox-category[data-category="Web Design"] {
   background-color: #43e97b;
 }
 
-.lightbox-category[data-category="Print"] {
+.category-badge[data-category="Product"] {
   background-color: #fa709a;
 }
 
-.lightbox-category[data-category="Motion"] {
-  background-color: #667eea;
+.category-badge[data-category="Sales"] {
+  background-color: #feca57;
+}
+
+.category-badge[data-category="Event"] {
+  background-color: #ff6b6b;
+}
+
+.category-badge[data-category="Concept"] {
+  background-color: #a8edea;
+}
+
+.design-card-gradient[data-category="Branding"] {
+  background: linear-gradient(135deg, #f093fb15 0%, #f093fb05 100%);
+}
+
+.design-card-gradient[data-category="Digital"] {
+  background: linear-gradient(135deg, #4facfe15 0%, #4facfe05 100%);
+}
+
+.design-card-gradient[data-category="Print"] {
+  background: linear-gradient(135deg, #43e97b15 0%, #43e97b05 100%);
+}
+
+.design-card-gradient[data-category="Product"] {
+  background: linear-gradient(135deg, #fa709a15 0%, #fa709a05 100%);
+}
+
+.design-card-gradient[data-category="Sales"] {
+  background: linear-gradient(135deg, #feca5715 0%, #feca5705 100%);
+}
+
+.design-card-gradient[data-category="Event"] {
+  background: linear-gradient(135deg, #ff6b6b15 0%, #ff6b6b05 100%);
+}
+
+.design-card-gradient[data-category="Concept"] {
+  background: linear-gradient(135deg, #a8edea15 0%, #a8edea05 100%);
+}
+
+.lightbox-category[data-category="Branding"] {
+  background-color: #f093fb;
+}
+
+.lightbox-category[data-category="Digital"] {
+  background-color: #4facfe;
+}
+
+.lightbox-category[data-category="Print"] {
+  background-color: #43e97b;
+}
+
+.lightbox-category[data-category="Product"] {
+  background-color: #fa709a;
+}
+
+.lightbox-category[data-category="Sales"] {
+  background-color: #feca57;
+}
+
+.lightbox-category[data-category="Event"] {
+  background-color: #ff6b6b;
+}
+
+.lightbox-category[data-category="Concept"] {
+  background-color: #a8edea;
 }
 
 /* Performance Optimizations */

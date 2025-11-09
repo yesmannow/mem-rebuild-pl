@@ -29,3 +29,9 @@ npm-debug.log*
 types/
 *.d.ts
 !src/vite-env.d.ts
+
+# Ignore GitHub CLI artifact files (from failed PR creation commands)
+PR integrates*
+*Zustand store*
+*Embla wrapper*
+*BearCave brand integration*

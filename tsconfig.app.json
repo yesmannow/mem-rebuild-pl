@@ -9,7 +9,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "noEmit": false, // Allow emit
+    "emitDeclarationOnly": true, // Only emit declaration files for project references; Vite handles JS bundling
     "jsx": "react",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -21,14 +21,19 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "composite": true // Enable composite mode
+    "composite": true, // Enable composite mode
+    "outDir": "./dist", // Specify output directory to prevent overwriting source files
+    "skipLibCheck": true // Skip type checking of declaration files
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "src/**/*.json"
   ],
   "exclude": [
-    "src/styles/motion-tokens.js" // Exclude this file to prevent overwrite
+    "src/styles/motion-tokens.js", // Exclude this file to prevent overwrite
+    "node_modules",
+    "dist"
   ]
 }
