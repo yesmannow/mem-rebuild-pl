@@ -1,0 +1,135 @@
+<svg width="200" height="180" viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BearCave Logo">
+  <defs>
+    <linearGradient id="bearcaveGradientMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="1" />
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="1" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="1" />
+    </linearGradient>
+
+    <linearGradient id="bearcaveGradientAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="1" />
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="1" />
+    </linearGradient>
+
+    <linearGradient id="bearcaveGradientFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.05" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer cave arch frame -->
+  <path
+    d="M20 140 L35 50 Q50 25 100 25 Q150 25 165 50 L180 140 L180 165 Q165 170 100 170 Q35 170 20 165 Z"
+    stroke="url(#bearcaveGradientMain)"
+    stroke-width="4"
+    fill="url(#bearcaveGradientFill)"
+    fill-opacity="0.08"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="bearcave-logo__arch-outer"
+  />
+
+  <!-- Middle arch layer -->
+  <path
+    d="M40 140 L50 70 Q60 50 100 50 Q140 50 150 70 L160 140"
+    stroke="url(#bearcaveGradientMain)"
+    stroke-width="3"
+    fill="none"
+    stroke-linecap="round"
+    opacity="0.5"
+    class="bearcave-logo__arch-middle"
+  />
+
+  <!-- Inner arch -->
+  <path
+    d="M60 140 Q70 100 100 100 Q130 100 140 140"
+    stroke="url(#bearcaveGradientAccent)"
+    stroke-width="2.5"
+    fill="none"
+    stroke-linecap="round"
+    opacity="0.6"
+    class="bearcave-logo__arch-inner"
+  />
+
+  <!-- Depth lines -->
+  <g class="bearcave-logo__depth-lines" opacity="0.4">
+    <line x1="70" y1="120" x2="70" y2="140" stroke="url(#bearcaveGradientMain)" stroke-width="1.5" stroke-linecap="round" />
+    <line x1="100" y1="110" x2="100" y2="140" stroke="url(#bearcaveGradientMain)" stroke-width="1.5" stroke-linecap="round" />
+    <line x1="130" y1="120" x2="130" y2="140" stroke="url(#bearcaveGradientMain)" stroke-width="1.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Handprint -->
+  <g class="bearcave-logo__handprint" opacity="0.85">
+    <ellipse cx="50" cy="60" rx="10" ry="12" fill="url(#bearcaveGradientMain)" fill-opacity="0.25" />
+    <path
+      d="M45 55 Q40 50 42 48 Q45 46 48 48 Q50 50 52 48 Q55 46 58 48 Q60 50 55 55 Q52 60 50 65 Q48 60 45 55"
+      stroke="url(#bearcaveGradientMain)"
+      stroke-width="2.5"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M42 58 Q38 54 36 50 Q34 46 32 42"
+      stroke="url(#bearcaveGradientMain)"
+      stroke-width="2.5"
+      fill="none"
+      stroke-linecap="round"
+    />
+    <path
+      d="M48 52 L48 38 M52 53 L52 36 M56 54 L56 40 M60 55 L60 42"
+      stroke="url(#bearcaveGradientMain)"
+      stroke-width="2.5"
+      stroke-linecap="round"
+    />
+    <circle cx="48" cy="38" r="2" fill="url(#bearcaveGradientMain)" opacity="0.6" />
+    <circle cx="52" cy="36" r="2" fill="url(#bearcaveGradientMain)" opacity="0.6" />
+    <circle cx="56" cy="40" r="1.5" fill="url(#bearcaveGradientMain)" opacity="0.6" />
+    <circle cx="60" cy="42" r="1.5" fill="url(#bearcaveGradientMain)" opacity="0.6" />
+  </g>
+
+  <!-- Sun symbol -->
+  <g class="bearcave-logo__sun" opacity="0.9">
+    <circle cx="150" cy="60" r="8" fill="url(#bearcaveGradientAccent)" fill-opacity="0.4" />
+    <circle cx="150" cy="60" r="6" fill="url(#bearcaveGradientMain)" fill-opacity="0.3" />
+    <g stroke="url(#bearcaveGradientMain)" stroke-width="2" stroke-linecap="round">
+      <line x1="150" y1="40" x2="150" y2="25" />
+      <line x1="170" y1="60" x2="185" y2="60" />
+      <line x1="150" y1="80" x2="150" y2="95" />
+      <line x1="130" y1="60" x2="115" y2="60" />
+    </g>
+    <g stroke="url(#bearcaveGradientAccent)" stroke-width="1.8" stroke-linecap="round">
+      <line x1="162" y1="48" x2="172" y2="38" />
+      <line x1="162" y1="72" x2="172" y2="82" />
+      <line x1="138" y1="72" x2="128" y2="82" />
+      <line x1="138" y1="48" x2="128" y2="38" />
+    </g>
+    <g stroke="url(#bearcaveGradientMain)" stroke-width="1.5" stroke-linecap="round" opacity="0.7">
+      <line x1="155" y1="45" x2="158" y2="42" />
+      <line x1="155" y1="75" x2="158" y2="78" />
+      <line x1="145" y1="75" x2="142" y2="78" />
+      <line x1="145" y1="45" x2="142" y2="42" />
+    </g>
+  </g>
+
+  <!-- Primitive marks -->
+  <g class="bearcave-logo__marks" opacity="0.65">
+    <g>
+      <line x1="75" y1="125" x2="75" y2="140" stroke="url(#bearcaveGradientMain)" stroke-width="2" stroke-linecap="round" />
+      <line x1="80" y1="128" x2="80" y2="142" stroke="url(#bearcaveGradientMain)" stroke-width="2" stroke-linecap="round" />
+      <circle cx="77.5" cy="145" r="1.5" fill="url(#bearcaveGradientMain)" opacity="0.8" />
+    </g>
+    <g>
+      <line x1="125" y1="125" x2="125" y2="140" stroke="url(#bearcaveGradientMain)" stroke-width="2" stroke-linecap="round" />
+      <line x1="120" y1="128" x2="120" y2="142" stroke="url(#bearcaveGradientMain)" stroke-width="2" stroke-linecap="round" />
+      <circle cx="122.5" cy="145" r="1.5" fill="url(#bearcaveGradientMain)" opacity="0.8" />
+    </g>
+  </g>
+
+  <!-- Texture overlay -->
+  <g class="bearcave-logo__texture" opacity="0.15">
+    <circle cx="50" cy="100" r="2" fill="url(#bearcaveGradientMain)" />
+    <circle cx="150" cy="100" r="2" fill="url(#bearcaveGradientMain)" />
+    <circle cx="100" cy="120" r="1.5" fill="url(#bearcaveGradientAccent)" />
+  </g>
+</svg>
