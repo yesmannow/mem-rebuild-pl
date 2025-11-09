@@ -1,0 +1,38 @@
+{
+  "timestamp": "2025-11-09T09:00:20.531Z",
+  "baseUrl": "http://localhost:4173",
+  "summary": {
+    "total": 5,
+    "passed": 1,
+    "failed": 3,
+    "warnings": 0,
+    "skipped": 1
+  },
+  "checks": [
+    {
+      "name": "TypeScript Type Check",
+      "status": "failed",
+      "command": "npm run typecheck",
+      "error": "Command failed: npm run typecheck"
+    },
+    {
+      "name": "Production Build",
+      "status": "skipped"
+    },
+    {
+      "name": "Image Validation",
+      "status": "failed",
+      "error": "Command failed: node scripts/check-images.js --check-src"
+    },
+    {
+      "name": "Content Validation",
+      "status": "failed",
+      "error": "Command failed: node scripts/validate-content.js --check-spelling"
+    },
+    {
+      "name": "Environment Variables",
+      "status": "passed"
+    }
+  ],
+  "deploymentReady": false
+}

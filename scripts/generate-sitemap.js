@@ -6,8 +6,12 @@
  * Usage: node scripts/generate-sitemap.js
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const BASE_URL = 'https://www.bearcavemarketing.com';
 const CURRENT_DATE = new Date().toISOString().split('T')[0];
@@ -43,12 +47,42 @@ const routes = [
 // Dynamic routes - These would be generated from data files
 const dynamicRoutes = [
   // Case studies (from caseStudies.ts)
-  { path: '/case-studies/the-launchpad', priority: '0.8', changefreq: 'monthly', lastmod: CURRENT_DATE },
-  { path: '/case-studies/the-conductor', priority: '0.8', changefreq: 'monthly', lastmod: CURRENT_DATE },
-  { path: '/case-studies/the-guardian', priority: '0.8', changefreq: 'monthly', lastmod: CURRENT_DATE },
-  { path: '/case-studies/the-compass', priority: '0.8', changefreq: 'monthly', lastmod: CURRENT_DATE },
-  { path: '/case-studies/the-fortress', priority: '0.8', changefreq: 'monthly', lastmod: CURRENT_DATE },
-  { path: '/case-studies/the-engine-room', priority: '0.8', changefreq: 'monthly', lastmod: CURRENT_DATE },
+  {
+    path: '/case-studies/the-launchpad',
+    priority: '0.8',
+    changefreq: 'monthly',
+    lastmod: CURRENT_DATE,
+  },
+  {
+    path: '/case-studies/the-conductor',
+    priority: '0.8',
+    changefreq: 'monthly',
+    lastmod: CURRENT_DATE,
+  },
+  {
+    path: '/case-studies/the-guardian',
+    priority: '0.8',
+    changefreq: 'monthly',
+    lastmod: CURRENT_DATE,
+  },
+  {
+    path: '/case-studies/the-compass',
+    priority: '0.8',
+    changefreq: 'monthly',
+    lastmod: CURRENT_DATE,
+  },
+  {
+    path: '/case-studies/the-fortress',
+    priority: '0.8',
+    changefreq: 'monthly',
+    lastmod: CURRENT_DATE,
+  },
+  {
+    path: '/case-studies/the-engine-room',
+    priority: '0.8',
+    changefreq: 'monthly',
+    lastmod: CURRENT_DATE,
+  },
 ];
 
 function generateSitemap() {
@@ -86,9 +120,9 @@ function generateSitemap() {
 }
 
 // Run if called directly
-if (require.main === module) {
+const isMainModule = import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]);
+if (isMainModule || process.argv[1]?.endsWith('generate-sitemap.js')) {
   generateSitemap();
 }
 
-module.exports = { generateSitemap };
-
+export { generateSitemap };

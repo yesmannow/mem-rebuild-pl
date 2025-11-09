@@ -1,0 +1,108 @@
+{
+  "timestamp": "2025-11-09T09:01:13.639Z",
+  "summary": {
+    "totalReferences": 17,
+    "found": 10,
+    "missing": 15,
+    "unused": 237
+  },
+  "missingImages": [
+    {
+      "reference": "/images/site-design-assets/tech-18050.gif",
+      "file": "src\\components\\hero\\Hero.css",
+      "expectedPath": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\site-design-assets\\tech-18050.gif"
+    },
+    {
+      "reference": "/images/hero-poster.jpg",
+      "file": "src\\components\\Hero.tsx",
+      "expectedPath": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\hero-poster.jpg"
+    },
+    {
+      "reference": "/images/site-design-assets/cranium-2099120_1280.png",
+      "file": "src\\pages\\About.css",
+      "expectedPath": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\site-design-assets\\cranium-2099120_1280.png"
+    },
+    {
+      "reference": "/images/site-design-assets/tech-18050.gif",
+      "file": "src\\pages\\ApplicationDetail.css",
+      "expectedPath": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\site-design-assets\\tech-18050.gif"
+    },
+    {
+      "reference": "/images/site-design-assets/tech-18050.gif",
+      "file": "src\\pages\\Applications.css",
+      "expectedPath": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\site-design-assets\\tech-18050.gif"
+    },
+    {
+      "reference": "/images/site design assests/blockchain-9027651_1280.png",
+      "file": "src\\pages\\Applications.css",
+      "expectedPath": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\site design assests\\blockchain-9027651_1280.png"
+    },
+    {
+      "reference": "/images/site-design-assets/connection-technology-4878379_1280.png",
+      "file": "src\\pages\\Contact.css",
+      "expectedPath": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\site-design-assets\\connection-technology-4878379_1280.png"
+    },
+    {
+      "reference": "/images/site-design-assets/geometric-5969508_1280.png",
+      "file": "src\\pages\\Home.css",
+      "expectedPath": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\site-design-assets\\geometric-5969508_1280.png"
+    },
+    {
+      "reference": "/images/site design assests/abstract-1262246_1280.png",
+      "file": "src\\pages\\Home.css",
+      "expectedPath": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\site design assests\\abstract-1262246_1280.png"
+    },
+    {
+      "reference": "/images/site design assests/gear-wheel-7163768_1280.png",
+      "file": "src\\pages\\Home.css",
+      "expectedPath": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\site design assests\\gear-wheel-7163768_1280.png"
+    },
+    {
+      "reference": "/images/site design assests/blockchain-9027651_1280.png",
+      "file": "src\\pages\\Home.css",
+      "expectedPath": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\site design assests\\blockchain-9027651_1280.png"
+    },
+    {
+      "reference": "/images/site design assests/connection-technology-4878379_1280.png",
+      "file": "src\\pages\\Home.css",
+      "expectedPath": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\site design assests\\connection-technology-4878379_1280.png"
+    },
+    {
+      "reference": "/images/site-design-assets/connection-technology-4878379_1280.png",
+      "file": "src\\pages\\ProjectDetail.css",
+      "expectedPath": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\site-design-assets\\connection-technology-4878379_1280.png"
+    },
+    {
+      "reference": "/images/site-design-assets/gear-wheel-7163768_1280.png",
+      "file": "src\\pages\\Toolbox.css",
+      "expectedPath": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\site-design-assets\\gear-wheel-7163768_1280.png"
+    },
+    {
+      "reference": "/images/site-design-assets/blockchain-9027651_1280.png",
+      "file": "src\\pages\\Toolbox.css",
+      "expectedPath": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\site-design-assets\\blockchain-9027651_1280.png"
+    }
+  ],
+  "unusedImages": [
+    "/apps/clinical-compass-thumbnail.png",
+    "/apps/graston-growth-engine-thumbnail.png",
+    "/apps/gt9-pricing-thumbnail.png",
+    "/apps/license-requirements-thumbnail.png",
+    "/apps/roi-calculator-thumbnail.png",
+    "/demos/Graston Growth Engine.jpg",
+    "/demos/images of apps/Screenshot of Graston Clinical Compass - Intelligent Protocol Builder.jpg",
+    "/demos/images of apps/Screenshot of Graston Technique ROI Calculator.jpg",
+    "/demos/images of apps/Screenshot of Graston Technique® Smart Pricing Tool.jpg",
+    "/demos/images of apps/Screenshot of Practitioner License Requirements _ Graston Technique.jpg",
+    "/images/applications/graston-gt1.svg",
+    "/images/auto-generated/graston-technique/placeholder.svg",
+    "/images/auto-generated/pike-medical/placeholder.svg",
+    "/images/auto-generated/riley-bennett-egloff/placeholder.svg",
+    "/images/awards/gold-key.svg",
+    "/images/bio/1732967007485.jpg",
+    "/images/bio/Untitled-1 (Custom).png",
+    "/images/case-studies/brand-identity-systems.svg",
+    "/images/case-studies/branding-reel/after.svg",
+    "/images/case-studies/branding-reel/before.svg"
+  ]
+}

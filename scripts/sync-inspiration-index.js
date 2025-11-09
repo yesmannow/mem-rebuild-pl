@@ -2,17 +2,17 @@
  * Global Sync - Combine everything into /public/inspiration.json
  * Merges moodboard data, classifications, and preview paths into unified feed
  */
-import fs from "fs";
-import path from "path";
+import fs from 'fs';
+import path from 'path';
 import { fileURLToPath } from 'url';
 
 // ES module compatibility
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const moodboardDir = path.resolve(__dirname, "../public/moodboards");
-const previewDir = path.join(moodboardDir, "previews");
-const outputPath = path.resolve(__dirname, "../public/inspiration.json");
+const moodboardDir = path.resolve(__dirname, '../public/moodboards');
+const previewDir = path.join(moodboardDir, 'previews');
+const outputPath = path.resolve(__dirname, '../public/inspiration.json');
 
 /**
  * Check if a file exists
@@ -54,53 +54,54 @@ function generateTitle(slug) {
  */
 async function syncInspirationIndex() {
   console.log('🔗 Starting global inspiration index sync...');
-  
+
   if (!fs.existsSync(moodboardDir)) {
     console.error(`❌ Moodboards directory not found: ${moodboardDir}`);
     return;
   }
-  
+
   // Load classifications if available
   const classifiedPath = path.join(moodboardDir, 'classified.json');
   const classifiedData = safeReadJSON(classifiedPath);
   const classifications = classifiedData?.classifications || [];
-  
+
   console.log(`📊 Found ${classifications.length} classifications`);
-  
+
   // Process all moodboard files
-  const moodboardFiles = fs.readdirSync(moodboardDir)
+  const moodboardFiles = fs
+    .readdirSync(moodboardDir)
     .filter(f => f.endsWith('.json') && !f.includes('classified') && !f.includes('enhanced'));
-  
+
   console.log(`📁 Processing ${moodboardFiles.length} moodboard files`);
-  
+
   const entries = [];
-  
+
   for (const file of moodboardFiles) {
     try {
       const moodboardPath = path.join(moodboardDir, file);
       const moodboardData = safeReadJSON(moodboardPath);
-      
+
       if (!moodboardData) {
         console.warn(`⚠️  Skipping invalid moodboard: ${file}`);
         continue;
       }
-      
+
       const { slug } = moodboardData;
-      
+
       // Find matching classification
       const classification = classifications.find(c => c.slug === slug) || {
         tags: ['design', 'creative'],
         summary: `${generateTitle(slug)} project showcasing creative design work.`,
-        confidence: 'fallback'
+        confidence: 'fallback',
       };
-      
+
       // Check for preview files
       const gridPath = `/moodboards/previews/${slug}-grid.jpg`;
       const swatchPath = `/moodboards/previews/${slug}-swatches.jpg`;
-      
+
       const gridExists = fileExists(path.join(__dirname, `../public${gridPath}`));
       const swatchExists = fileExists(path.join(__dirname, `../public${swatchPath}`));
-      
+
       // Create unified entry
       const entry = {
         slug,
@@ -114,47 +115,48 @@ async function syncInspirationIndex() {
         lastUpdated: moodboardData.lastUpdated || new Date().toISOString(),
         previews: {
           grid: gridExists ? gridPath : null,
-          swatches: swatchExists ? swatchPath : null
+          swatches: swatchExists ? swatchPath : null,
         },
         colorAnalysis: moodboardData.colorAnalysis || null,
-        images: moodboardData.images || []
+        images: moodboardData.images || [],
       };
-      
+
       entries.push(entry);
       console.log(`✅ Processed ${slug} (${entry.tags.join(', ')})`);
-      
     } catch (error) {
       console.error(`❌ Error processing ${file}:`, error.message);
     }
   }
-  
+
   // Sort entries by title
   entries.sort((a, b) => a.title.localeCompare(b.title));
-  
+
   // Create final inspiration index
   const inspirationIndex = {
     generated: new Date().toISOString(),
-    version: "1.0.0",
+    version: '1.0.0',
     totalProjects: entries.length,
     metadata: {
       totalColors: entries.reduce((sum, entry) => sum + entry.dominantColors.length, 0),
       uniqueTags: [...new Set(entries.flatMap(entry => entry.tags))].sort(),
-      averageImageCount: Math.round(entries.reduce((sum, entry) => sum + entry.imageCount, 0) / entries.length),
+      averageImageCount: Math.round(
+        entries.reduce((sum, entry) => sum + entry.imageCount, 0) / entries.length
+      ),
       lastProjectUpdate: entries.reduce((latest, entry) => {
         return new Date(entry.lastUpdated) > new Date(latest) ? entry.lastUpdated : latest;
-      }, '1970-01-01T00:00:00.000Z')
+      }, '1970-01-01T00:00:00.000Z'),
     },
-    projects: entries
+    projects: entries,
   };
-  
+
   // Write the final index
   fs.writeFileSync(outputPath, JSON.stringify(inspirationIndex, null, 2));
-  
+
   console.log('🎉 Global inspiration index sync complete!');
   console.log(`📊 Synced ${entries.length} projects`);
   console.log(`🏷️  Unique tags: ${inspirationIndex.metadata.uniqueTags.join(', ')}`);
   console.log(`📁 Output: ${outputPath}`);
-  
+
   // Generate summary statistics
   const tagDistribution = {};
   entries.forEach(entry => {
@@ -162,9 +164,9 @@ async function syncInspirationIndex() {
       tagDistribution[tag] = (tagDistribution[tag] || 0) + 1;
     });
   });
-  
+
   console.log('📈 Tag distribution:', tagDistribution);
-  
+
   return inspirationIndex;
 }
 
