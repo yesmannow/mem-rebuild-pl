@@ -1,0 +1,447 @@
+{
+  "timestamp": "2025-11-10T03:02:53.186Z",
+  "summary": {
+    "unusedImages": 137,
+    "unusedComponents": 86,
+    "unusedAnimations": 8,
+    "totalUnusedSize": 37829308
+  },
+  "unusedImages": [
+    {
+      "path": "/images/applications/graston-gt1.svg",
+      "size": 1112
+    },
+    {
+      "path": "/images/awards/gold-key.svg",
+      "size": 1743
+    },
+    {
+      "path": "/images/case-studies/brand-identity-systems.svg",
+      "size": 921
+    },
+    {
+      "path": "/images/case-studies/branding-reel/after.svg",
+      "size": 308
+    },
+    {
+      "path": "/images/case-studies/branding-reel/before.svg",
+      "size": 309
+    },
+    {
+      "path": "/images/case-studies/branding-reel/gallery-1.svg",
+      "size": 557
+    },
+    {
+      "path": "/images/case-studies/branding-reel/gallery-2.svg",
+      "size": 555
+    },
+    {
+      "path": "/images/case-studies/cinematic-portfolio/after.svg",
+      "size": 308
+    },
+    {
+      "path": "/images/case-studies/cinematic-portfolio/before.svg",
+      "size": 309
+    },
+    {
+      "path": "/images/case-studies/cinematic-portfolio/gallery-1.svg",
+      "size": 556
+    },
+    {
+      "path": "/images/case-studies/cinematic-portfolio/gallery-2.svg",
+      "size": 557
+    },
+    {
+      "path": "/images/case-studies/command-center.svg",
+      "size": 1123
+    },
+    {
+      "path": "/images/case-studies/graston-dashboard/after.svg",
+      "size": 308
+    },
+    {
+      "path": "/images/case-studies/graston-dashboard/before.svg",
+      "size": 309
+    },
+    {
+      "path": "/images/case-studies/graston-dashboard/gallery-1.svg",
+      "size": 552
+    },
+    {
+      "path": "/images/case-studies/graston-dashboard/gallery-2.svg",
+      "size": 555
+    },
+    {
+      "path": "/images/case-studies/healthcare-campaign.svg",
+      "size": 1020
+    },
+    {
+      "path": "/images/case-studies/proactive-support-engine.svg",
+      "size": 1086
+    },
+    {
+      "path": "/images/case-studies/promotional-campaigns.svg",
+      "size": 1111
+    },
+    {
+      "path": "/images/case-studies/the-closer.svg",
+      "size": 853
+    },
+    {
+      "path": "/images/case-studies/the-compass.svg",
+      "size": 924
+    },
+    {
+      "path": "/images/case-studies/the-fortress.svg",
+      "size": 1079
+    },
+    {
+      "path": "/images/case-studies/the-pipeline.svg",
+      "size": 929
+    },
+    {
+      "path": "/images/case-studies/the-safety-net.svg",
+      "size": 891
+    },
+    {
+      "path": "/images/case-studies/the-spotlight.svg",
+      "size": 862
+    },
+    {
+      "path": "/images/design/2020 Forty Under 40 Ad.jpg",
+      "size": 241596
+    },
+    {
+      "path": "/images/design/236802803_10117457411055169_5004587858113382909_n.jpg",
+      "size": 35495
+    },
+    {
+      "path": "/images/design/323700270_2415730071915448_2322941324611558798_n.jpg",
+      "size": 117275
+    },
+    {
+      "path": "/images/design/521745_229161850524724_1718400251_n.jpg",
+      "size": 119011
+    },
+    {
+      "path": "/images/design/Back 1.png",
+      "size": 784653
+    },
+    {
+      "path": "/images/design/bicentinial design contest.jpg",
+      "size": 287345
+    },
+    {
+      "path": "/images/design/bird.png",
+      "size": 409436
+    },
+    {
+      "path": "/images/design/Blue - RBE Indy 500 Design.png",
+      "size": 277131
+    },
+    {
+      "path": "/images/design/ChoppedBrisketSandwich_LG.jpg",
+      "size": 144036
+    },
+    {
+      "path": "/images/design/Font 1.png",
+      "size": 591707
+    },
+    {
+      "path": "/images/design/Front Updated.png",
+      "size": 578748
+    },
+    {
+      "path": "/images/design/hot-sauce-dark.webp",
+      "size": 325040
+    },
+    {
+      "path": "/images/design/hot-sauce-playful.webp",
+      "size": 336254
+    },
+    {
+      "path": "/images/design/IMG_20211225_203321_050.jpg",
+      "size": 1499506
+    },
+    {
+      "path": "/images/design/IMG_20220402_195539_486.jpg",
+      "size": 310109
+    },
+    {
+      "path": "/images/design/IMG_20220529_195734_101.jpg",
+      "size": 762825
+    },
+    {
+      "path": "/images/design/IMG_20220606_011741_906.jpg",
+      "size": 1192276
+    },
+    {
+      "path": "/images/design/IMG_20220607_151217_860.jpg",
+      "size": 380510
+    },
+    {
+      "path": "/images/design/IMG_20220612_010021_558.jpg",
+      "size": 1508463
+    },
+    {
+      "path": "/images/design/IMG_20220701_141651_802.jpg",
+      "size": 372005
+    },
+    {
+      "path": "/images/design/IMG_20220709_015653_187.jpg",
+      "size": 268573
+    },
+    {
+      "path": "/images/design/IMG_20220723_183814_569.jpg",
+      "size": 651287
+    },
+    {
+      "path": "/images/design/IMG_20220901_174114_810.jpg",
+      "size": 717190
+    },
+    {
+      "path": "/images/design/IMG_20221023_020849_206.jpg",
+      "size": 1483779
+    },
+    {
+      "path": "/images/design/IMG_20221029_025225_059.jpg",
+      "size": 241462
+    }
+  ],
+  "unusedComponents": [
+    {
+      "path": "src\\components\\animations\\AnimatedCounter.tsx",
+      "size": 1178
+    },
+    {
+      "path": "src\\components\\animations\\BackgroundLogos.tsx",
+      "size": 2919
+    },
+    {
+      "path": "src\\components\\animations\\Floating3DCard.tsx",
+      "size": 1586
+    },
+    {
+      "path": "src\\components\\animations\\FloatingElements.tsx",
+      "size": 1778
+    },
+    {
+      "path": "src\\components\\animations\\LogoIntro.tsx",
+      "size": 3638
+    },
+    {
+      "path": "src\\components\\animations\\MagneticButton.tsx",
+      "size": 2126
+    },
+    {
+      "path": "src\\components\\animations\\ScrollProgress.tsx",
+      "size": 444
+    },
+    {
+      "path": "src\\components\\animations\\ScrollReveal.tsx",
+      "size": 1897
+    },
+    {
+      "path": "src\\components\\ApplicationsPanel.tsx",
+      "size": 3928
+    },
+    {
+      "path": "src\\components\\ArtifactExplorer.tsx",
+      "size": 2879
+    },
+    {
+      "path": "src\\components\\automation\\AIAutomationShowcase.tsx",
+      "size": 9086
+    },
+    {
+      "path": "src\\components\\awards\\AwardShowcase.tsx",
+      "size": 5993
+    },
+    {
+      "path": "src\\components\\branding\\BearCaveLogo.tsx",
+      "size": 12227
+    },
+    {
+      "path": "src\\components\\branding\\Logo.tsx",
+      "size": 3061
+    },
+    {
+      "path": "src\\components\\branding\\SplashIntro.tsx",
+      "size": 6225
+    },
+    {
+      "path": "src\\components\\BrandLineageSection.tsx",
+      "size": 847
+    },
+    {
+      "path": "src\\components\\BuilderShell.tsx",
+      "size": 2301
+    },
+    {
+      "path": "src\\components\\CareerTimeline.tsx",
+      "size": 1480
+    },
+    {
+      "path": "src\\components\\CareerTimelineProgress.tsx",
+      "size": 2120
+    },
+    {
+      "path": "src\\components\\Carousel.tsx",
+      "size": 3914
+    },
+    {
+      "path": "src\\components\\case-study\\CaseStudyExplorer.tsx",
+      "size": 9837
+    },
+    {
+      "path": "src\\components\\CaseStudy.tsx",
+      "size": 2301
+    },
+    {
+      "path": "src\\components\\CaseStudyExplorer.tsx",
+      "size": 9831
+    },
+    {
+      "path": "src\\components\\Charts\\ResultChart.tsx",
+      "size": 2114
+    },
+    {
+      "path": "src\\components\\common\\ResponsiveImage.tsx",
+      "size": 3487
+    },
+    {
+      "path": "src\\components\\ContactForm.tsx",
+      "size": 5005
+    },
+    {
+      "path": "src\\components\\DesignPrinciplesExplorer.tsx",
+      "size": 9214
+    },
+    {
+      "path": "src\\components\\diagrams\\ProcessDiagram.tsx",
+      "size": 8253
+    },
+    {
+      "path": "src\\components\\examples\\ExamplePage.tsx",
+      "size": 4885
+    },
+    {
+      "path": "src\\components\\ExportPanel.tsx",
+      "size": 3424
+    },
+    {
+      "path": "src\\components\\gallery\\TagFilter.tsx",
+      "size": 2375
+    },
+    {
+      "path": "src\\components\\hero\\ProactiveSupportHero.tsx",
+      "size": 10963
+    },
+    {
+      "path": "src\\components\\HeroAbout.tsx",
+      "size": 950
+    },
+    {
+      "path": "src\\components\\HeroAnimated.tsx",
+      "size": 1947
+    },
+    {
+      "path": "src\\components\\HeroGradient.tsx",
+      "size": 1050
+    },
+    {
+      "path": "src\\components\\icons\\IconRegistry.tsx",
+      "size": 1013
+    },
+    {
+      "path": "src\\components\\IdentityTile.tsx",
+      "size": 5503
+    },
+    {
+      "path": "src\\components\\inspiration\\AnimationTemplates.tsx",
+      "size": 10156
+    },
+    {
+      "path": "src\\components\\inspiration\\BrandBuilderCTA.tsx",
+      "size": 6867
+    },
+    {
+      "path": "src\\components\\inspiration\\DesignChallenges.tsx",
+      "size": 9239
+    },
+    {
+      "path": "src\\components\\inspiration\\InspirationCTASection.tsx",
+      "size": 1289
+    },
+    {
+      "path": "src\\components\\inspiration\\InspirationExplorer.tsx",
+      "size": 13083
+    },
+    {
+      "path": "src\\components\\inspiration\\InspirationTimeline.tsx",
+      "size": 6407
+    },
+    {
+      "path": "src\\components\\inspiration\\PerformanceOptimizer.tsx",
+      "size": 10953
+    },
+    {
+      "path": "src\\components\\inspiration\\ResponsiveInspirationWrapper.tsx",
+      "size": 4709
+    },
+    {
+      "path": "src\\components\\InspirationExplorer.tsx",
+      "size": 4580
+    },
+    {
+      "path": "src\\components\\InspirationTimeline.tsx",
+      "size": 3523
+    },
+    {
+      "path": "src\\components\\interactive\\CustomCursor.tsx",
+      "size": 1863
+    },
+    {
+      "path": "src\\components\\interactive\\MagneticButton.tsx",
+      "size": 1298
+    },
+    {
+      "path": "src\\components\\ManualViewer.tsx",
+      "size": 3741
+    }
+  ],
+  "unusedAnimations": [
+    {
+      "path": "src\\components\\animations\\AnimatedCounter.tsx",
+      "size": 1178
+    },
+    {
+      "path": "src\\components\\animations\\BackgroundLogos.tsx",
+      "size": 2919
+    },
+    {
+      "path": "src\\components\\animations\\Floating3DCard.tsx",
+      "size": 1586
+    },
+    {
+      "path": "src\\components\\animations\\FloatingElements.tsx",
+      "size": 1778
+    },
+    {
+      "path": "src\\components\\animations\\LogoIntro.tsx",
+      "size": 3638
+    },
+    {
+      "path": "src\\components\\animations\\MagneticButton.tsx",
+      "size": 2126
+    },
+    {
+      "path": "src\\components\\animations\\ScrollProgress.tsx",
+      "size": 444
+    },
+    {
+      "path": "src\\components\\animations\\ScrollReveal.tsx",
+      "size": 1897
+    }
+  ]
+}

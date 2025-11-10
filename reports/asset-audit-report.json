@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-11-10T03:02:53.863Z",
+  "summary": {
+    "contentDuplicates": 0,
+    "nameDuplicates": 0,
+    "similarNames": 0,
+    "unusedImages": 0,
+    "unusedComponents": 0,
+    "unusedAnimations": 0,
+    "moodboardDuplicates": 0,
+    "svgExactDuplicates": 0,
+    "svgNormalizedDuplicates": 0,
+    "totalWastedSpace": 0,
+    "totalUnusedSize": 0
+  },
+  "recommendations": [],
+  "severity": "low",
+  "details": {
+    "duplicates": null,
+    "unusedAssets": null,
+    "moodboardDuplicates": null,
+    "svgDuplicates": null,
+    "unusedAnimations": null
+  }
+}

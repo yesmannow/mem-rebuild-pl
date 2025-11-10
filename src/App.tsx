@@ -19,7 +19,6 @@ const BackToTop = lazy(() => import('./components/utilities/BackToTop'));
 const PersonSchema = lazy(() => import('./components/seo/PersonSchema'));
 const PerformanceMonitor = lazy(() => import('./components/utils/PerformanceMonitor'));
 const AppRouter = lazy(() => import('./router/AppRouter'));
-const FloatingActionButtons = lazy(() => import('./components/utils/FloatingActionButtons'));
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -96,9 +95,6 @@ const App: React.FC = () => {
               </Suspense>
               <Suspense fallback={null}>
                 <MainNav key="main-nav" />
-              </Suspense>
-              <Suspense fallback={null}>
-                <FloatingActionButtons />
               </Suspense>
               <main className="flex-1">
                 <AppRouter />

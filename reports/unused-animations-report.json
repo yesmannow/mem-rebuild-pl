@@ -1,0 +1,123 @@
+{
+  "timestamp": "2025-11-10T03:02:53.830Z",
+  "summary": {
+    "totalAnimations": 16,
+    "unusedAnimations": 5,
+    "usedAnimations": 11,
+    "totalUnusedSize": 9957
+  },
+  "unusedAnimations": [
+    {
+      "path": "src\\components\\animations\\AnimatedCounter.tsx",
+      "name": "AnimatedCounter",
+      "filename": "AnimatedCounter.tsx",
+      "size": 1178
+    },
+    {
+      "path": "src\\components\\animations\\BackgroundLogos.tsx",
+      "name": "BackgroundLogos",
+      "filename": "BackgroundLogos.tsx",
+      "size": 2919
+    },
+    {
+      "path": "src\\components\\animations\\FloatingElements.tsx",
+      "name": "FloatingElements",
+      "filename": "FloatingElements.tsx",
+      "size": 1778
+    },
+    {
+      "path": "src\\components\\animations\\LogoIntro.tsx",
+      "name": "LogoIntro",
+      "filename": "LogoIntro.tsx",
+      "size": 3638
+    },
+    {
+      "path": "src\\components\\animations\\ScrollProgress.tsx",
+      "name": "ScrollProgress",
+      "filename": "ScrollProgress.tsx",
+      "size": 444
+    }
+  ],
+  "allAnimations": [
+    {
+      "path": "src\\components\\animations\\AnimatedCounter.tsx",
+      "name": "AnimatedCounter",
+      "used": false
+    },
+    {
+      "path": "src\\components\\animations\\AnimatedSection.tsx",
+      "name": "AnimatedSection",
+      "used": true
+    },
+    {
+      "path": "src\\components\\animations\\BackgroundLogos.tsx",
+      "name": "BackgroundLogos",
+      "used": false
+    },
+    {
+      "path": "src\\components\\animations\\Floating3DCard.tsx",
+      "name": "Floating3DCard",
+      "used": true
+    },
+    {
+      "path": "src\\components\\animations\\FloatingElements.tsx",
+      "name": "FloatingElements",
+      "used": false
+    },
+    {
+      "path": "src\\components\\animations\\index.ts",
+      "name": "index",
+      "used": true
+    },
+    {
+      "path": "src\\components\\animations\\LogoIntro.tsx",
+      "name": "LogoIntro",
+      "used": false
+    },
+    {
+      "path": "src\\components\\animations\\MagneticButton.tsx",
+      "name": "MagneticButton",
+      "used": true
+    },
+    {
+      "path": "src\\components\\animations\\MorphingBlob.tsx",
+      "name": "MorphingBlob",
+      "used": true
+    },
+    {
+      "path": "src\\components\\animations\\PageTransition.tsx",
+      "name": "PageTransition",
+      "used": true
+    },
+    {
+      "path": "src\\components\\animations\\ParallaxSection.tsx",
+      "name": "ParallaxSection",
+      "used": true
+    },
+    {
+      "path": "src\\components\\animations\\ScrollProgress.tsx",
+      "name": "ScrollProgress",
+      "used": false
+    },
+    {
+      "path": "src\\components\\animations\\ScrollReveal.tsx",
+      "name": "ScrollReveal",
+      "used": true
+    },
+    {
+      "path": "src\\components\\animations\\StaggerGrid.tsx",
+      "name": "StaggerGrid",
+      "used": true
+    },
+    {
+      "path": "src\\components\\animations\\TextReveal.tsx",
+      "name": "TextReveal",
+      "used": true
+    },
+    {
+      "path": "src\\components\\animations\\TiltCard.tsx",
+      "name": "TiltCard",
+      "used": true
+    }
+  ]
+}

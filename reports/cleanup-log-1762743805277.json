@@ -1,0 +1,434 @@
+{
+  "timestamp": "2025-11-10T03:03:25.276Z",
+  "mode": "dry-run",
+  "summary": {
+    "deleted": 0,
+    "wouldDelete": 70,
+    "skipped": 0,
+    "totalSize": 18802261
+  },
+  "deletions": [
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\cli-workflow\\images\\the-brand-identity-home-of-the-greatest-since-2015-thumb.jpg",
+      "reason": "Duplicate of public\\images\\the-brand-identity-home-of-the-greatest-since-2015-thumb.jpg",
+      "action": "would delete",
+      "size": 24381
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\for-fellowkids-studio-kiln-shows-how-brands-can-behave-like-fans-thumb.jpg",
+      "reason": "Duplicate of public\\images\\the-brand-identity-home-of-the-greatest-since-2015-thumb.jpg",
+      "action": "would delete",
+      "size": 24381
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\cli-workflow\\images\\for-fellowkids-studio-kiln-shows-how-brands-can-behave-like-fans-thumb.jpg",
+      "reason": "Duplicate of public\\images\\the-brand-identity-home-of-the-greatest-since-2015-thumb.jpg",
+      "action": "would delete",
+      "size": 24381
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\cli-workflow\\images\\how-kimera-built-cursors-identity-around-a-custom-typeface-system-thumb.jpg",
+      "reason": "Duplicate of public\\images\\how-kimera-built-cursors-identity-around-a-custom-typeface-system-thumb.jpg",
+      "action": "would delete",
+      "size": 44296
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\cli-workflow\\images\\how-wedge-shifted-allergen-brand-growhappy-from-fear-to-confidence-thumb.jpg",
+      "reason": "Duplicate of public\\images\\how-wedge-shifted-allergen-brand-growhappy-from-fear-to-confidence-thumb.jpg",
+      "action": "would delete",
+      "size": 34461
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\los-yorks-pixel-based-system-gives-netflixs-eyeline-a-bold-new-vision-thumb.jpg",
+      "reason": "Duplicate of images\\the-brand-identity-home-of-the-greatest-since-2015-thumb.jpg",
+      "action": "would delete",
+      "size": 32418
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\cli-workflow\\images\\los-yorks-pixel-based-system-gives-netflixs-eyeline-a-bold-new-vision-thumb.jpg",
+      "reason": "Duplicate of images\\the-brand-identity-home-of-the-greatest-since-2015-thumb.jpg",
+      "action": "would delete",
+      "size": 32418
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\demos\\images of apps\\Screenshot of Graston Clinical Compass - Intelligent Protocol Builder.jpg",
+      "reason": "Duplicate of public\\apps\\clinical-compass-thumbnail.png",
+      "action": "would delete",
+      "size": 248075
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\apps\\graston-growth-engine-thumbnail.png",
+      "reason": "Duplicate of public\\demos\\Graston Growth Engine.jpg",
+      "action": "would delete",
+      "size": 190458
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\demos\\images of apps\\Screenshot of Graston Technique® Smart Pricing Tool.jpg",
+      "reason": "Duplicate of public\\apps\\gt9-pricing-thumbnail.png",
+      "action": "would delete",
+      "size": 682046
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\demos\\images of apps\\Screenshot of Practitioner License Requirements _ Graston Technique.jpg",
+      "reason": "Duplicate of public\\apps\\license-requirements-thumbnail.png",
+      "action": "would delete",
+      "size": 107906
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\demos\\images of apps\\Screenshot of Graston Technique ROI Calculator.jpg",
+      "reason": "Duplicate of public\\apps\\roi-calculator-thumbnail.png",
+      "action": "would delete",
+      "size": 120173
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\side-projects\\Ayres Mechanical logo.png",
+      "reason": "Duplicate of public\\images\\design\\AM-Logo.png",
+      "action": "would delete",
+      "size": 76379
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\side-projects\\BF MOGOGRAM final-02 (1).jpg",
+      "reason": "Duplicate of public\\images\\design\\BF MOGOGRAM final-02.jpg",
+      "action": "would delete",
+      "size": 100710
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\side-projects\\bird (1).png",
+      "reason": "Duplicate of public\\images\\design\\bird.png",
+      "action": "would delete",
+      "size": 409436
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\side-projects\\Herbs Rub Logo (1).png",
+      "reason": "Duplicate of public\\images\\design\\Herbs Rub Logo.png",
+      "action": "would delete",
+      "size": 1073194
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\side-projects\\My Post (2).jpg",
+      "reason": "Duplicate of public\\images\\design\\My Post (2).jpg",
+      "action": "would delete",
+      "size": 736347
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\side-projects\\Online Doctor Consultation Instagram Post.png",
+      "reason": "Duplicate of public\\images\\design\\Online Doctor Consultation Instagram Post.png",
+      "action": "would delete",
+      "size": 458792
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\side-projects\\logo-01 (1).png",
+      "reason": "Duplicate of public\\images\\design\\taco ninja logo.png",
+      "action": "would delete",
+      "size": 588572
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\side-projects\\logo (2).png",
+      "reason": "Duplicate of public\\images\\side-projects\\logo.png",
+      "action": "would delete",
+      "size": 138888
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\applications\\graston-gt1.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 1112
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\awards\\gold-key.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 1743
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\brand-identity-systems.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 921
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\branding-reel\\after.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 308
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\branding-reel\\before.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 309
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\branding-reel\\gallery-1.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 557
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\branding-reel\\gallery-2.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 555
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\cinematic-portfolio\\after.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 308
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\cinematic-portfolio\\before.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 309
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\cinematic-portfolio\\gallery-1.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 556
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\cinematic-portfolio\\gallery-2.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 557
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\command-center.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 1123
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\graston-dashboard\\after.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 308
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\graston-dashboard\\before.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 309
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\graston-dashboard\\gallery-1.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 552
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\graston-dashboard\\gallery-2.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 555
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\healthcare-campaign.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 1020
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\proactive-support-engine.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 1086
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\promotional-campaigns.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 1111
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\the-closer.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 853
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\the-compass.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 924
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\the-fortress.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 1079
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\the-pipeline.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 929
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\the-safety-net.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 891
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\case-studies\\the-spotlight.svg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 862
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\2020 Forty Under 40 Ad.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 241596
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\236802803_10117457411055169_5004587858113382909_n.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 35495
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\323700270_2415730071915448_2322941324611558798_n.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 117275
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\521745_229161850524724_1718400251_n.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 119011
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\Back 1.png",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 784653
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\bicentinial design contest.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 287345
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\bird.png",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 409436
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\Blue - RBE Indy 500 Design.png",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 277131
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\ChoppedBrisketSandwich_LG.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 144036
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\Font 1.png",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 591707
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\Front Updated.png",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 578748
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\hot-sauce-dark.webp",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 325040
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\hot-sauce-playful.webp",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 336254
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\IMG_20211225_203321_050.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 1499506
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\IMG_20220402_195539_486.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 310109
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\IMG_20220529_195734_101.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 762825
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\IMG_20220606_011741_906.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 1192276
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\IMG_20220607_151217_860.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 380510
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\IMG_20220612_010021_558.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 1508463
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\IMG_20220701_141651_802.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 372005
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\IMG_20220709_015653_187.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 268573
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\IMG_20220723_183814_569.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 651287
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\IMG_20220901_174114_810.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 717190
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\IMG_20221023_020849_206.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 1483779
+    },
+    {
+      "path": "C:\\Users\\hoosi\\Desktop\\mem-rebuild-pl\\public\\images\\design\\IMG_20221029_025225_059.jpg",
+      "reason": "Unused image",
+      "action": "would delete",
+      "size": 241462
+    }
+  ],
+  "skipped": [],
+  "backupLocation": null
+}
