@@ -23,6 +23,48 @@
   --engine-room-gradient: linear-gradient(135deg, #0d1217 0%, #101a24 100%);
   --engine-room-glow: rgba(255, 184, 107, 0.45);
 
+  /* The Guardian Visual Identity */
+  --guardian-primary: #79f2c0;
+  --guardian-secondary: #0b1620;
+  --guardian-accent: #a7ffeb;
+  --guardian-gradient: linear-gradient(135deg, #0b1620 0%, #0f2232 100%);
+  --guardian-glow: rgba(121, 242, 192, 0.45);
+
+  /* The Fortress Visual Identity */
+  --fortress-primary: #ffbe0b;
+  --fortress-secondary: #111111;
+  --fortress-accent: #ffd166;
+  --fortress-gradient: linear-gradient(135deg, #111111 0%, #1b1b1b 100%);
+  --fortress-glow: rgba(255, 190, 11, 0.45);
+
+  /* The Conductor Visual Identity */
+  --conductor-primary: #6ea8ff;
+  --conductor-secondary: #0f0f2b;
+  --conductor-accent: #35e0ff;
+  --conductor-gradient: linear-gradient(135deg, #0f0f2b 0%, #1a1a4a 100%);
+  --conductor-glow: rgba(53, 224, 255, 0.45);
+
+  /* Graston CEU Visual Identity */
+  --graston-ceu-primary: #2bd4c5;
+  --graston-ceu-secondary: #062b2b;
+  --graston-ceu-accent: #9affd4;
+  --graston-ceu-gradient: linear-gradient(135deg, #062b2b 0%, #0d3d3a 100%);
+  --graston-ceu-glow: rgba(43, 212, 197, 0.45);
+
+  /* RBE Law Visual Identity */
+  --rbe-law-primary: #3d7eff;
+  --rbe-law-secondary: #0a1a3a;
+  --rbe-law-accent: #f3bd4f;
+  --rbe-law-gradient: linear-gradient(135deg, #0a1a3a 0%, #0e2650 100%);
+  --rbe-law-glow: rgba(61, 126, 255, 0.45);
+
+  /* Ultimate Tech ROI Visual Identity */
+  --ultimate-tech-roi-primary: #7f5af0;
+  --ultimate-tech-roi-secondary: #0a0b2a;
+  --ultimate-tech-roi-accent: #36c2ff;
+  --ultimate-tech-roi-gradient: linear-gradient(135deg, #0a0b2a 0%, #151646 100%);
+  --ultimate-tech-roi-glow: rgba(127, 90, 240, 0.45);
+
   /* Default case study tokens (can be overridden per case study) */
   --case-study-primary: var(--launchpad-primary);
   --case-study-secondary: var(--launchpad-secondary);
@@ -54,6 +96,54 @@
   --case-study-accent: var(--engine-room-accent);
   --case-study-gradient: var(--engine-room-gradient);
   --case-study-glow: var(--engine-room-glow);
+}
+
+[data-case-study="the-guardian"] {
+  --case-study-primary: var(--guardian-primary);
+  --case-study-secondary: var(--guardian-secondary);
+  --case-study-accent: var(--guardian-accent);
+  --case-study-gradient: var(--guardian-gradient);
+  --case-study-glow: var(--guardian-glow);
+}
+
+[data-case-study="the-fortress"] {
+  --case-study-primary: var(--fortress-primary);
+  --case-study-secondary: var(--fortress-secondary);
+  --case-study-accent: var(--fortress-accent);
+  --case-study-gradient: var(--fortress-gradient);
+  --case-study-glow: var(--fortress-glow);
+}
+
+[data-case-study="the-conductor"] {
+  --case-study-primary: var(--conductor-primary);
+  --case-study-secondary: var(--conductor-secondary);
+  --case-study-accent: var(--conductor-accent);
+  --case-study-gradient: var(--conductor-gradient);
+  --case-study-glow: var(--conductor-glow);
+}
+
+[data-case-study="graston-ceu-system"] {
+  --case-study-primary: var(--graston-ceu-primary);
+  --case-study-secondary: var(--graston-ceu-secondary);
+  --case-study-accent: var(--graston-ceu-accent);
+  --case-study-gradient: var(--graston-ceu-gradient);
+  --case-study-glow: var(--graston-ceu-glow);
+}
+
+[data-case-study="rbe-law-brand-and-digital"] {
+  --case-study-primary: var(--rbe-law-primary);
+  --case-study-secondary: var(--rbe-law-secondary);
+  --case-study-accent: var(--rbe-law-accent);
+  --case-study-gradient: var(--rbe-law-gradient);
+  --case-study-glow: var(--rbe-law-glow);
+}
+
+[data-case-study="ultimate-tech-roi-growth"] {
+  --case-study-primary: var(--ultimate-tech-roi-primary);
+  --case-study-secondary: var(--ultimate-tech-roi-secondary);
+  --case-study-accent: var(--ultimate-tech-roi-accent);
+  --case-study-gradient: var(--ultimate-tech-roi-gradient);
+  --case-study-glow: var(--ultimate-tech-roi-glow);
 }
 
 /* Ensure .cs-shell applies background and glow consistently */

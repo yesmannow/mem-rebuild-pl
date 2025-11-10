@@ -31,6 +31,12 @@ const BrandDetail = React.lazy(() => import('../pages/brand/BrandDetail'));
 const TheLaunchpad = React.lazy(() => import('../pages/case-studies/the-launchpad'));
 const TheCompass = React.lazy(() => import('../pages/case-studies/the-compass'));
 const TheEngineRoom = React.lazy(() => import('../pages/case-studies/the-engine-room'));
+const TheGuardian = React.lazy(() => import('../pages/case-studies/the-guardian'));
+const TheFortress = React.lazy(() => import('../pages/case-studies/the-fortress'));
+const TheConductor = React.lazy(() => import('../pages/case-studies/the-conductor'));
+const GrastonCEU = React.lazy(() => import('../pages/case-studies/graston-ceu-system'));
+const RBELaw = React.lazy(() => import('../pages/case-studies/rbe-law'));
+const UltimateTechROI = React.lazy(() => import('../pages/case-studies/ultimate-tech-roi'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
 
 // Loading component - use unique class to avoid GSAP selector conflicts
@@ -213,6 +219,54 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <TheEngineRoom />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/case-studies/the-guardian"
+              element={
+                <PageTransition>
+                  <TheGuardian />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/case-studies/the-fortress"
+              element={
+                <PageTransition>
+                  <TheFortress />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/case-studies/the-conductor"
+              element={
+                <PageTransition>
+                  <TheConductor />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/case-studies/graston-ceu-system"
+              element={
+                <PageTransition>
+                  <GrastonCEU />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/case-studies/rbe-law-brand-and-digital"
+              element={
+                <PageTransition>
+                  <RBELaw />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/case-studies/ultimate-tech-roi-growth"
+              element={
+                <PageTransition>
+                  <UltimateTechROI />
                 </PageTransition>
               }
             />
