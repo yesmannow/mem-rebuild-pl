@@ -1,0 +1,52 @@
+{
+  "excludePaths": [
+    "node_modules",
+    ".git",
+    "dist",
+    "build",
+    ".next",
+    ".vite",
+    "reports",
+    ".cleanup-backup"
+  ],
+  "excludePatterns": [
+    "*.test.ts",
+    "*.test.tsx",
+    "*.spec.ts",
+    "*.spec.tsx",
+    "*.d.ts",
+    "*.map"
+  ],
+  "whitelist": [
+    "src/main.tsx",
+    "src/App.tsx",
+    "src/router/AppRouter.tsx",
+    "public/sw.js",
+    "package.json",
+    "package-lock.json",
+    "tsconfig.json",
+    ".gitignore"
+  ],
+  "minFileSize": 1024,
+  "similarityThreshold": 0.95,
+  "imageExtensions": [
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".gif",
+    ".webp",
+    ".svg",
+    ".avif"
+  ],
+  "caseStudySvgTargets": [
+    "after.svg",
+    "before.svg",
+    "cover.svg",
+    "gallery-1.svg",
+    "gallery-2.svg"
+  ],
+  "moodboardDir": "public/moodboards",
+  "caseStudiesDir": "public/images/case-studies",
+  "animationsDir": "src/components/animations"
+}
+

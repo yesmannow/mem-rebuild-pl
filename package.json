@@ -51,7 +51,17 @@
     "mcp:clean:dry": "ts-node scripts/cleanup-automation.ts clean --dry-run",
     "mcp:validate-imports": "ts-node scripts/cleanup-automation.ts validate-imports",
     "mcp:validate-structure": "ts-node scripts/cleanup-automation.ts validate-structure",
-    "mcp:report": "ts-node scripts/cleanup-automation.ts report"
+    "mcp:report": "ts-node scripts/cleanup-automation.ts report",
+    "audit:duplicates": "node scripts/find-duplicates.js",
+    "audit:unused": "node scripts/find-unused-assets.js",
+    "audit:assets": "node scripts/asset-audit.js",
+    "audit:moodboards": "node scripts/find-moodboard-duplicates.js",
+    "audit:svgs": "node scripts/find-svg-duplicates.js",
+    "audit:animations": "node scripts/find-unused-animations.js",
+    "cleanup:duplicates": "node scripts/cleanup-duplicates.js --dry-run",
+    "cleanup:unused": "node scripts/cleanup-duplicates.js --unused-only --dry-run",
+    "cleanup:interactive": "node scripts/cleanup-duplicates.js --interactive",
+    "cleanup:auto": "node scripts/cleanup-duplicates.js --auto"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.16",
