@@ -29,6 +29,8 @@ const Gallery = React.lazy(() => import('../pages/Gallery'));
 const BrandBuilder = React.lazy(() => import('../pages/BrandBuilder'));
 const BrandDetail = React.lazy(() => import('../pages/brand/BrandDetail'));
 const TheLaunchpad = React.lazy(() => import('../pages/case-studies/the-launchpad'));
+const TheCompass = React.lazy(() => import('../pages/case-studies/the-compass'));
+const TheEngineRoom = React.lazy(() => import('../pages/case-studies/the-engine-room'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
 
 // Loading component - use unique class to avoid GSAP selector conflicts
@@ -195,6 +197,22 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <TheLaunchpad />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/case-studies/the-compass"
+              element={
+                <PageTransition>
+                  <TheCompass />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/case-studies/the-engine-room"
+              element={
+                <PageTransition>
+                  <TheEngineRoom />
                 </PageTransition>
               }
             />

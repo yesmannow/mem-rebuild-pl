@@ -9,6 +9,20 @@
   --launchpad-gradient: linear-gradient(135deg, #0D0D0F 0%, #1A1D1F 40%, #3CC6C4 100%);
   --launchpad-glow: rgba(60, 198, 196, 0.35);
 
+  /* The Compass Visual Identity */
+  --compass-primary: #43bdfd;
+  --compass-secondary: #0e1a2b;
+  --compass-accent: #7cf1d6;
+  --compass-gradient: linear-gradient(135deg, #0e1a2b 0%, #0f2d4a 100%);
+  --compass-glow: rgba(67, 189, 253, 0.45);
+
+  /* The Engine Room Visual Identity */
+  --engine-room-primary: #ffb86b;
+  --engine-room-secondary: #0d1217;
+  --engine-room-accent: #ffd166;
+  --engine-room-gradient: linear-gradient(135deg, #0d1217 0%, #101a24 100%);
+  --engine-room-glow: rgba(255, 184, 107, 0.45);
+
   /* Default case study tokens (can be overridden per case study) */
   --case-study-primary: var(--launchpad-primary);
   --case-study-secondary: var(--launchpad-secondary);
@@ -24,6 +38,31 @@
   --case-study-accent: var(--launchpad-accent);
   --case-study-gradient: var(--launchpad-gradient);
   --case-study-glow: var(--launchpad-glow);
+}
+
+[data-case-study="the-compass"] {
+  --case-study-primary: var(--compass-primary);
+  --case-study-secondary: var(--compass-secondary);
+  --case-study-accent: var(--compass-accent);
+  --case-study-gradient: var(--compass-gradient);
+  --case-study-glow: var(--compass-glow);
+}
+
+[data-case-study="the-engine-room"] {
+  --case-study-primary: var(--engine-room-primary);
+  --case-study-secondary: var(--engine-room-secondary);
+  --case-study-accent: var(--engine-room-accent);
+  --case-study-gradient: var(--engine-room-gradient);
+  --case-study-glow: var(--engine-room-glow);
+}
+
+/* Ensure .cs-shell applies background and glow consistently */
+.cs-shell {
+  background: var(--cs-bg, var(--case-study-gradient));
+  --cs-surface: var(--cs-surface, rgba(0,0,0,0.4));
+  --cs-primary: var(--cs-primary, var(--case-study-primary));
+  --cs-accent: var(--cs-accent, var(--case-study-accent));
+  --cs-glow: var(--cs-glow, var(--case-study-glow));
 }
 
 /* Typography tokens */
