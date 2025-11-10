@@ -17,134 +17,18 @@
 }
 
 .who-i-am__photo-wrapper {
-  position: relative;
-  perspective: 1000px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
-}
-
-.who-i-am__photo-card {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-  aspect-ratio: 1;
-  padding: 0;
-  overflow: visible;
-  background: transparent;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Animated conic gradient border */
-.who-i-am__photo-border {
-  position: absolute;
-  inset: -4px;
-  background: conic-gradient(
-    from 0deg,
-    #3b82f6,
-    #8b5cf6,
-    #ec4899,
-    #f472b6,
-    #ec4899,
-    #8b5cf6,
-    #3b82f6
-  );
-  animation: rotate-border 8s linear infinite;
-  z-index: 0;
-  clip-path: path(
-    'M 50 0 C 70 0 88 8 95 25 C 100 40 98 55 92 68 C 88 78 80 85 70 90 C 60 95 50 98 40 95 C 30 92 20 85 15 75 C 8 60 5 45 10 30 C 15 15 30 5 50 0 Z'
-  );
-  mask:
-    path('M 50 0 C 70 0 88 8 95 25 C 100 40 98 55 92 68 C 88 78 80 85 70 90 C 60 95 50 98 40 95 C 30 92 20 85 15 75 C 8 60 5 45 10 30 C 15 15 30 5 50 0 Z'),
-    radial-gradient(circle at center, transparent 45%, black 48%);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-
-@keyframes rotate-border {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Inner glow */
-.who-i-am__photo-glow {
-  position: absolute;
-  inset: 8px;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(59, 130, 246, 0.3) 0%,
-    rgba(236, 72, 153, 0.2) 30%,
-    transparent 60%
-  );
-  z-index: 1;
-  pointer-events: none;
-  filter: blur(20px);
-  clip-path: path(
-    'M 50 0 C 70 0 88 8 95 25 C 100 40 98 55 92 68 C 88 78 80 85 70 90 C 60 95 50 98 40 95 C 30 92 20 85 15 75 C 8 60 5 45 10 30 C 15 15 30 5 50 0 Z'
-  );
-}
-
-/* Reflection highlight */
-.who-i-am__photo-reflection {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
-  /* Transform handled by Framer Motion - no CSS transform to avoid conflicts */
-  z-index: 2;
-  pointer-events: none;
-  clip-path: path(
-    'M 50 0 C 70 0 88 8 95 25 C 100 40 98 55 92 68 C 88 78 80 85 70 90 C 60 95 50 98 40 95 C 30 92 20 85 15 75 C 8 60 5 45 10 30 C 15 15 30 5 50 0 Z'
-  );
-}
-
-/* Photo container with blob mask - organic blob shape */
-.who-i-am__photo-container {
-  position: relative;
-  width: 90%;
-  aspect-ratio: 1;
-  overflow: hidden;
-  clip-path: path(
-    'M 50 0 C 70 0 88 8 95 25 C 100 40 98 55 92 68 C 88 78 80 85 70 90 C 60 95 50 98 40 95 C 30 92 20 85 15 75 C 8 60 5 45 10 30 C 15 15 30 5 50 0 Z'
-  );
-  z-index: 3;
-  background: var(--bc-surface);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: none;
 }
 
 .who-i-am__photo {
   width: 100%;
-  height: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
   object-fit: cover;
   object-position: center center;
-  transition: transform 0.5s ease;
-  image-rendering: auto;
-  z-index: 4;
-  position: relative;
-  filter: none;
-  opacity: 1;
-}
-
-.who-i-am__photo-wrapper:hover .who-i-am__photo {
-  transform: scale(1.05);
 }
 
 .who-i-am__content {
@@ -167,28 +51,8 @@
 }
 
 @media (max-width: 768px) {
-  .who-i-am__photo-card {
+  .who-i-am__photo {
     max-width: 100%;
-  }
-
-  .who-i-am__photo-container {
-    width: 100%;
-    max-width: 350px;
-    margin: 0 auto;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .who-i-am__photo-border {
-    animation: none;
-  }
-
-  .who-i-am__photo-wrapper {
-    perspective: none;
-  }
-
-  .who-i-am__photo-wrapper:hover .who-i-am__photo {
-    transform: none;
   }
 }
 

@@ -1,0 +1,1227 @@
+{
+  "timestamp": "2025-11-10T03:02:46.087Z",
+  "summary": {
+    "contentDuplicates": 17,
+    "nameDuplicates": 52,
+    "similarNames": 5,
+    "totalWastedSpace": 5147712
+  },
+  "contentDuplicates": [
+    {
+      "hash": "629803c048c353fc33883460d4672264",
+      "original": {
+        "path": "public\\images\\the-brand-identity-home-of-the-greatest-since-2015-thumb.jpg",
+        "size": 24381
+      },
+      "duplicates": [
+        {
+          "path": "cli-workflow\\images\\the-brand-identity-home-of-the-greatest-since-2015-thumb.jpg",
+          "size": 24381
+        },
+        {
+          "path": "public\\images\\for-fellowkids-studio-kiln-shows-how-brands-can-behave-like-fans-thumb.jpg",
+          "size": 24381
+        },
+        {
+          "path": "cli-workflow\\images\\for-fellowkids-studio-kiln-shows-how-brands-can-behave-like-fans-thumb.jpg",
+          "size": 24381
+        }
+      ],
+      "totalSize": 97524,
+      "wastedSpace": 73143
+    },
+    {
+      "hash": "2702ac504e1ed5e363220ee33eb8e696",
+      "original": {
+        "path": "public\\images\\how-kimera-built-cursors-identity-around-a-custom-typeface-system-thumb.jpg",
+        "size": 44296
+      },
+      "duplicates": [
+        {
+          "path": "cli-workflow\\images\\how-kimera-built-cursors-identity-around-a-custom-typeface-system-thumb.jpg",
+          "size": 44296
+        }
+      ],
+      "totalSize": 88592,
+      "wastedSpace": 44296
+    },
+    {
+      "hash": "dc411ecea5fee151081c9234dc69b130",
+      "original": {
+        "path": "public\\images\\how-wedge-shifted-allergen-brand-growhappy-from-fear-to-confidence-thumb.jpg",
+        "size": 34461
+      },
+      "duplicates": [
+        {
+          "path": "cli-workflow\\images\\how-wedge-shifted-allergen-brand-growhappy-from-fear-to-confidence-thumb.jpg",
+          "size": 34461
+        }
+      ],
+      "totalSize": 68922,
+      "wastedSpace": 34461
+    },
+    {
+      "hash": "1da172580079732224ad65a151833ee9",
+      "original": {
+        "path": "images\\the-brand-identity-home-of-the-greatest-since-2015-thumb.jpg",
+        "size": 32418
+      },
+      "duplicates": [
+        {
+          "path": "public\\images\\los-yorks-pixel-based-system-gives-netflixs-eyeline-a-bold-new-vision-thumb.jpg",
+          "size": 32418
+        },
+        {
+          "path": "cli-workflow\\images\\los-yorks-pixel-based-system-gives-netflixs-eyeline-a-bold-new-vision-thumb.jpg",
+          "size": 32418
+        }
+      ],
+      "totalSize": 97254,
+      "wastedSpace": 64836
+    },
+    {
+      "hash": "673f679e77efb420bba7df411bc2257c",
+      "original": {
+        "path": "public\\apps\\clinical-compass-thumbnail.png",
+        "size": 248075
+      },
+      "duplicates": [
+        {
+          "path": "public\\demos\\images of apps\\Screenshot of Graston Clinical Compass - Intelligent Protocol Builder.jpg",
+          "size": 248075
+        }
+      ],
+      "totalSize": 496150,
+      "wastedSpace": 248075
+    },
+    {
+      "hash": "389947f94913e526e8ddfebab7c65063",
+      "original": {
+        "path": "public\\demos\\Graston Growth Engine.jpg",
+        "size": 190458
+      },
+      "duplicates": [
+        {
+          "path": "public\\apps\\graston-growth-engine-thumbnail.png",
+          "size": 190458
+        }
+      ],
+      "totalSize": 380916,
+      "wastedSpace": 190458
+    },
+    {
+      "hash": "703932fe5e00b1de17156efeafb4a4bc",
+      "original": {
+        "path": "public\\apps\\gt9-pricing-thumbnail.png",
+        "size": 682046
+      },
+      "duplicates": [
+        {
+          "path": "public\\demos\\images of apps\\Screenshot of Graston Technique® Smart Pricing Tool.jpg",
+          "size": 682046
+        }
+      ],
+      "totalSize": 1364092,
+      "wastedSpace": 682046
+    },
+    {
+      "hash": "1a12345cc6bd7cf3b8fa3734b5184579",
+      "original": {
+        "path": "public\\apps\\license-requirements-thumbnail.png",
+        "size": 107906
+      },
+      "duplicates": [
+        {
+          "path": "public\\demos\\images of apps\\Screenshot of Practitioner License Requirements _ Graston Technique.jpg",
+          "size": 107906
+        }
+      ],
+      "totalSize": 215812,
+      "wastedSpace": 107906
+    },
+    {
+      "hash": "ea2b1247221ffbe25e8c101309482749",
+      "original": {
+        "path": "public\\apps\\roi-calculator-thumbnail.png",
+        "size": 120173
+      },
+      "duplicates": [
+        {
+          "path": "public\\demos\\images of apps\\Screenshot of Graston Technique ROI Calculator.jpg",
+          "size": 120173
+        }
+      ],
+      "totalSize": 240346,
+      "wastedSpace": 120173
+    },
+    {
+      "hash": "4bbf0c601b77bb5742b5e033a1c3790d",
+      "original": {
+        "path": "public\\images\\design\\AM-Logo.png",
+        "size": 76379
+      },
+      "duplicates": [
+        {
+          "path": "public\\images\\side-projects\\Ayres Mechanical logo.png",
+          "size": 76379
+        }
+      ],
+      "totalSize": 152758,
+      "wastedSpace": 76379
+    },
+    {
+      "hash": "e0be4ba0b49e9683f493c6b054d91aac",
+      "original": {
+        "path": "public\\images\\design\\BF MOGOGRAM final-02.jpg",
+        "size": 100710
+      },
+      "duplicates": [
+        {
+          "path": "public\\images\\side-projects\\BF MOGOGRAM final-02 (1).jpg",
+          "size": 100710
+        }
+      ],
+      "totalSize": 201420,
+      "wastedSpace": 100710
+    },
+    {
+      "hash": "5a6cb4f5d9c52301871a3f2e963d588e",
+      "original": {
+        "path": "public\\images\\design\\bird.png",
+        "size": 409436
+      },
+      "duplicates": [
+        {
+          "path": "public\\images\\side-projects\\bird (1).png",
+          "size": 409436
+        }
+      ],
+      "totalSize": 818872,
+      "wastedSpace": 409436
+    },
+    {
+      "hash": "97c7e503a5165385238a9ed5498aba45",
+      "original": {
+        "path": "public\\images\\design\\Herbs Rub Logo.png",
+        "size": 1073194
+      },
+      "duplicates": [
+        {
+          "path": "public\\images\\side-projects\\Herbs Rub Logo (1).png",
+          "size": 1073194
+        }
+      ],
+      "totalSize": 2146388,
+      "wastedSpace": 1073194
+    },
+    {
+      "hash": "a6f0e2fafd2d743174b1a84dafbff28b",
+      "original": {
+        "path": "public\\images\\design\\My Post (2).jpg",
+        "size": 736347
+      },
+      "duplicates": [
+        {
+          "path": "public\\images\\side-projects\\My Post (2).jpg",
+          "size": 736347
+        }
+      ],
+      "totalSize": 1472694,
+      "wastedSpace": 736347
+    },
+    {
+      "hash": "381c6c5dc6b75af29f14321c3bed10dd",
+      "original": {
+        "path": "public\\images\\design\\Online Doctor Consultation Instagram Post.png",
+        "size": 458792
+      },
+      "duplicates": [
+        {
+          "path": "public\\images\\side-projects\\Online Doctor Consultation Instagram Post.png",
+          "size": 458792
+        }
+      ],
+      "totalSize": 917584,
+      "wastedSpace": 458792
+    },
+    {
+      "hash": "67def384c04959be396ea9001566b8b9",
+      "original": {
+        "path": "public\\images\\design\\taco ninja logo.png",
+        "size": 588572
+      },
+      "duplicates": [
+        {
+          "path": "public\\images\\side-projects\\logo-01 (1).png",
+          "size": 588572
+        }
+      ],
+      "totalSize": 1177144,
+      "wastedSpace": 588572
+    },
+    {
+      "hash": "6eea998337f6928a3069e4acf4b2dd98",
+      "original": {
+        "path": "public\\images\\side-projects\\logo.png",
+        "size": 138888
+      },
+      "duplicates": [
+        {
+          "path": "public\\images\\side-projects\\logo (2).png",
+          "size": 138888
+        }
+      ],
+      "totalSize": 277776,
+      "wastedSpace": 138888
+    }
+  ],
+  "nameDuplicates": [
+    {
+      "name": ".env",
+      "files": [
+        {
+          "path": ".env",
+          "size": 235,
+          "hash": "04083ce4498f004dcab906180bdf4890"
+        },
+        {
+          "path": "cli-workflow\\.env",
+          "size": 77,
+          "hash": "f07edac3633e54132d9bd8d6502fb739"
+        }
+      ]
+    },
+    {
+      "name": "cleanup_report.md",
+      "files": [
+        {
+          "path": "CLEANUP_REPORT.md",
+          "size": 6423,
+          "hash": "dfd4804ccdc38cf7355ae478b841e4f3"
+        },
+        {
+          "path": "docs\\CLEANUP_REPORT.md",
+          "size": 9384,
+          "hash": "a36676daa2d325236db5b7f9fefeb069"
+        }
+      ]
+    },
+    {
+      "name": "loadconfig.ts",
+      "files": [
+        {
+          "path": "cli\\utils\\loadConfig.ts",
+          "size": 598,
+          "hash": "dd584e7777b68d54d9365909f8262ef8"
+        },
+        {
+          "path": "src\\config\\loadConfig.ts",
+          "size": 207,
+          "hash": "fac8ebd2f7c42a646340f3a1ebb9884d"
+        }
+      ]
+    },
+    {
+      "name": "the-brand-identity-home-of-the-greatest-since-2015-thumb.jpg",
+      "files": [
+        {
+          "path": "cli-workflow\\images\\the-brand-identity-home-of-the-greatest-since-2015-thumb.jpg",
+          "size": 24381,
+          "hash": "629803c048c353fc33883460d4672264"
+        },
+        {
+          "path": "images\\the-brand-identity-home-of-the-greatest-since-2015-thumb.jpg",
+          "size": 32418,
+          "hash": "1da172580079732224ad65a151833ee9"
+        },
+        {
+          "path": "public\\images\\the-brand-identity-home-of-the-greatest-since-2015-thumb.jpg",
+          "size": 24381,
+          "hash": "629803c048c353fc33883460d4672264"
+        }
+      ]
+    },
+    {
+      "name": "package-lock.json",
+      "files": [
+        {
+          "path": "cli-workflow\\package-lock.json",
+          "size": 43728,
+          "hash": "dc58bab9ee3a6f38b6d71fac982e38ad"
+        },
+        {
+          "path": "package-lock.json",
+          "size": 577378,
+          "hash": "8a1820e59ea77345f55fc4a250c7212f"
+        }
+      ]
+    },
+    {
+      "name": "package.json",
+      "files": [
+        {
+          "path": "cli-workflow\\package.json",
+          "size": 611,
+          "hash": "63482fdfeb580c07fa90df81195a4957"
+        },
+        {
+          "path": "package.json",
+          "size": 6851,
+          "hash": "f2ccfb7e59076036e8246c9960f45bd6"
+        }
+      ]
+    },
+    {
+      "name": "readme.md",
+      "files": [
+        {
+          "path": "cli-workflow\\README.md",
+          "size": 3713,
+          "hash": "a42730460cc5aad9e4dbe9215d1cd1e9"
+        },
+        {
+          "path": "README.md",
+          "size": 5130,
+          "hash": "0c1238c6164604750bb22335e9b46cdf"
+        },
+        {
+          "path": "src\\design-system\\README.md",
+          "size": 3580,
+          "hash": "6196eca8179e0ec432193e65f0a6b008"
+        }
+      ]
+    },
+    {
+      "name": "components.json",
+      "files": [
+        {
+          "path": "components.json",
+          "size": 501,
+          "hash": "5a66115d5c45cb11c6e225d1a002ec04"
+        },
+        {
+          "path": "src\\config\\components.json",
+          "size": 396,
+          "hash": "3ce774fc4962cdd1f4d969b0702a21ae"
+        }
+      ]
+    },
+    {
+      "name": "resume.json",
+      "files": [
+        {
+          "path": "data\\resume.json",
+          "size": 1254,
+          "hash": "2c817bbec71f2d9be31986e6fa836e02"
+        },
+        {
+          "path": "src\\data\\resume.json",
+          "size": 21905,
+          "hash": "56e569f1f7fe331a1d1143c33845d438"
+        }
+      ]
+    },
+    {
+      "name": "analytics.py",
+      "files": [
+        {
+          "path": "mcp\\models\\analytics.py",
+          "size": 767,
+          "hash": "d750cf6ec4ad15ea853665d5faa84fbb"
+        },
+        {
+          "path": "mcp\\routes\\analytics.py",
+          "size": 1826,
+          "hash": "70ba9f43a6282b2ef6ccf7065322c564"
+        }
+      ]
+    },
+    {
+      "name": "bundles.py",
+      "files": [
+        {
+          "path": "mcp\\models\\bundles.py",
+          "size": 656,
+          "hash": "72c1b21fd4ad61d34c05df04ce4eff18"
+        },
+        {
+          "path": "mcp\\routes\\bundles.py",
+          "size": 1431,
+          "hash": "b751a0ef0dafc40678c897c463290bba"
+        }
+      ]
+    },
+    {
+      "name": "cache.py",
+      "files": [
+        {
+          "path": "mcp\\models\\cache.py",
+          "size": 643,
+          "hash": "4d066fde7095a199cc0a0c04cce7384a"
+        },
+        {
+          "path": "mcp\\routes\\cache.py",
+          "size": 1128,
+          "hash": "8ee0de3bbae8bc69429e5125aac795fb"
+        }
+      ]
+    },
+    {
+      "name": "content.py",
+      "files": [
+        {
+          "path": "mcp\\models\\content.py",
+          "size": 775,
+          "hash": "3862c230980ca8bd60742b30067b462a"
+        },
+        {
+          "path": "mcp\\routes\\content.py",
+          "size": 1407,
+          "hash": "5e606e1ebf222a6b8fca72b00fd8de18"
+        }
+      ]
+    },
+    {
+      "name": "images.py",
+      "files": [
+        {
+          "path": "mcp\\models\\images.py",
+          "size": 527,
+          "hash": "f66c42864f8ca6e3cd9a9178601e4713"
+        },
+        {
+          "path": "mcp\\routes\\images.py",
+          "size": 1410,
+          "hash": "ce91dc40e3b8dc68f53a76b61adb157d"
+        }
+      ]
+    },
+    {
+      "name": "lighthouse.py",
+      "files": [
+        {
+          "path": "mcp\\models\\lighthouse.py",
+          "size": 696,
+          "hash": "743a3498639b594c90f522a94a395351"
+        },
+        {
+          "path": "mcp\\routes\\lighthouse.py",
+          "size": 1682,
+          "hash": "f50faf2f0aa6a99fe9d654a4d51b7f17"
+        }
+      ]
+    },
+    {
+      "name": "resource_hints.py",
+      "files": [
+        {
+          "path": "mcp\\models\\resource_hints.py",
+          "size": 800,
+          "hash": "0aab39ce65af7d79d9fa74b53d3b6d85"
+        },
+        {
+          "path": "mcp\\routes\\resource_hints.py",
+          "size": 1041,
+          "hash": "5a4589feca55cb62e990d85f11388fe7"
+        },
+        {
+          "path": "mcp\\utils\\resource_hints.py",
+          "size": 3591,
+          "hash": "080b34096c3478122060d3301ec7986d"
+        }
+      ]
+    },
+    {
+      "name": "seo.py",
+      "files": [
+        {
+          "path": "mcp\\models\\seo.py",
+          "size": 717,
+          "hash": "974b17e54fbf0bf0ca1c68df59b015c5"
+        },
+        {
+          "path": "mcp\\routes\\seo.py",
+          "size": 1322,
+          "hash": "8999912a8284bf12951ddd2898830651"
+        }
+      ]
+    },
+    {
+      "name": "__init__.py",
+      "files": [
+        {
+          "path": "mcp\\models\\__init__.py",
+          "size": 114,
+          "hash": "f77c97d3a936efd1c3096fef966a59d6"
+        },
+        {
+          "path": "mcp\\routes\\__init__.py",
+          "size": 109,
+          "hash": "2a974359bef804860c99134bb48135fc"
+        },
+        {
+          "path": "mcp\\utils\\__init__.py",
+          "size": 99,
+          "hash": "4a4d537176d5355ed7dbc37c6f91b247"
+        },
+        {
+          "path": "mcp\\__init__.py",
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      ]
+    },
+    {
+      "name": "eames-kit.svg",
+      "files": [
+        {
+          "path": "public\\images\\artifacts\\eames-kit.svg",
+          "size": 834,
+          "hash": "12117a693eab5509a33157455b6afc5b"
+        },
+        {
+          "path": "public\\images\\inspirations\\eames-kit.svg",
+          "size": 304,
+          "hash": "9b8d830a140ebd1b6f6bd823e0acaaab"
+        }
+      ]
+    },
+    {
+      "name": "gold-key-award.png",
+      "files": [
+        {
+          "path": "public\\images\\auto-generated\\awards\\gold-key-award.png",
+          "size": 199172,
+          "hash": "db1d1e731f346ca50ec3bf9d492fcfc8"
+        },
+        {
+          "path": "public\\images\\awards\\gold-key-award.png",
+          "size": 491504,
+          "hash": "dce6c0dd95738f2a96dbf853f45bd857"
+        }
+      ]
+    },
+    {
+      "name": "placeholder.svg",
+      "files": [
+        {
+          "path": "public\\images\\auto-generated\\graston-technique\\placeholder.svg",
+          "size": 1226,
+          "hash": "3c3b224064f0e2737a4544e10d3c7362"
+        },
+        {
+          "path": "public\\images\\auto-generated\\pike-medical\\placeholder.svg",
+          "size": 1263,
+          "hash": "1a08c9e2b050d235d0ea1d4e8379f08b"
+        },
+        {
+          "path": "public\\images\\auto-generated\\riley-bennett-egloff\\placeholder.svg",
+          "size": 1164,
+          "hash": "cb9bea14a54e5e054b4609a2711f6dee"
+        }
+      ]
+    },
+    {
+      "name": "manifest.json",
+      "files": [
+        {
+          "path": "public\\images\\bio\\manifest.json",
+          "size": 2113,
+          "hash": "c048bb6192f3bdfdae9c30561098b73d"
+        },
+        {
+          "path": "public\\images\\design\\manifest.json",
+          "size": 5743,
+          "hash": "72ddcb24160fa38a082538eb6e188445"
+        },
+        {
+          "path": "public\\images\\photography\\manifest.json",
+          "size": 3790,
+          "hash": "e1804d33150de265d5ef1da7efd17a0a"
+        }
+      ]
+    },
+    {
+      "name": "after.svg",
+      "files": [
+        {
+          "path": "public\\images\\case-studies\\branding-reel\\after.svg",
+          "size": 308,
+          "hash": "2eb8309e84ff7a2a411e3ffad90c9a1f"
+        },
+        {
+          "path": "public\\images\\case-studies\\cinematic-portfolio\\after.svg",
+          "size": 308,
+          "hash": "8d0297a513575506d0857d85162d22b8"
+        },
+        {
+          "path": "public\\images\\case-studies\\graston-dashboard\\after.svg",
+          "size": 308,
+          "hash": "08bb620f362a2b3b87af9d808798fb43"
+        }
+      ]
+    },
+    {
+      "name": "before.svg",
+      "files": [
+        {
+          "path": "public\\images\\case-studies\\branding-reel\\before.svg",
+          "size": 309,
+          "hash": "331330f8fd001f3acd66ccebe56384ba"
+        },
+        {
+          "path": "public\\images\\case-studies\\cinematic-portfolio\\before.svg",
+          "size": 309,
+          "hash": "fb9ee1ac660084a2ad6022507d4da40b"
+        },
+        {
+          "path": "public\\images\\case-studies\\graston-dashboard\\before.svg",
+          "size": 309,
+          "hash": "3ad08a0415928b1fdf7fd18d177eb223"
+        }
+      ]
+    },
+    {
+      "name": "cover.svg",
+      "files": [
+        {
+          "path": "public\\images\\case-studies\\branding-reel\\cover.svg",
+          "size": 709,
+          "hash": "300f2c9dbf8af622182dc9f9c9586ef2"
+        },
+        {
+          "path": "public\\images\\case-studies\\cinematic-portfolio\\cover.svg",
+          "size": 721,
+          "hash": "cd7ec5cb23278733e6208e2895d0ce78"
+        },
+        {
+          "path": "public\\images\\case-studies\\graston-dashboard\\cover.svg",
+          "size": 721,
+          "hash": "4ddc80aab8721c39f469002002d1ef4d"
+        }
+      ]
+    },
+    {
+      "name": "gallery-1.svg",
+      "files": [
+        {
+          "path": "public\\images\\case-studies\\branding-reel\\gallery-1.svg",
+          "size": 557,
+          "hash": "ea2ea01a40c33fc70eea5fddc800ce27"
+        },
+        {
+          "path": "public\\images\\case-studies\\cinematic-portfolio\\gallery-1.svg",
+          "size": 556,
+          "hash": "d6d9d67eddc0bcdd12e42a1acb2af278"
+        },
+        {
+          "path": "public\\images\\case-studies\\graston-dashboard\\gallery-1.svg",
+          "size": 552,
+          "hash": "719b4765c32193757a0a531cf6fa8cc8"
+        }
+      ]
+    },
+    {
+      "name": "gallery-2.svg",
+      "files": [
+        {
+          "path": "public\\images\\case-studies\\branding-reel\\gallery-2.svg",
+          "size": 555,
+          "hash": "9d822a7474b6506f3f3ae78711464694"
+        },
+        {
+          "path": "public\\images\\case-studies\\cinematic-portfolio\\gallery-2.svg",
+          "size": 557,
+          "hash": "84c0f3a65fb05aebec95b9f12187d4a0"
+        },
+        {
+          "path": "public\\images\\case-studies\\graston-dashboard\\gallery-2.svg",
+          "size": 555,
+          "hash": "2b9184bcb2634dc7cf09140482b1ce07"
+        }
+      ]
+    },
+    {
+      "name": "20231008_175026.jpg",
+      "files": [
+        {
+          "path": "public\\images\\photography\\20231008_175026.jpg",
+          "size": 772185,
+          "hash": "674ca9ff8f5c9f954b7a113072ae389b"
+        },
+        {
+          "path": "public\\images\\projects\\317 bbq\\20231008_175026.jpg",
+          "size": 106813,
+          "hash": "38a9884019064bb0cdac393bf71ac8cc"
+        }
+      ]
+    },
+    {
+      "name": "download.jpg",
+      "files": [
+        {
+          "path": "public\\images\\projects\\317 bbq\\download.jpg",
+          "size": 1114391,
+          "hash": "bff651199bbe116aa8e858824805580d"
+        },
+        {
+          "path": "public\\images\\projects\\riley bennett egloff\\download.jpg",
+          "size": 525374,
+          "hash": "9aa8f5d424fc75a950a6ac50b2562d2f"
+        }
+      ]
+    },
+    {
+      "name": "screen recording (2).webm",
+      "files": [
+        {
+          "path": "public\\images\\projects\\317 bbq\\Screen recording (2).webm",
+          "size": 7189758,
+          "hash": "bc06dc6edc50e9fd5a2f6f442451dc74"
+        },
+        {
+          "path": "public\\images\\projects\\Russell painting\\Screen recording (2).webm",
+          "size": 4759795,
+          "hash": "271324a967e4e5bbdf9f3f50b04aced6"
+        },
+        {
+          "path": "public\\images\\projects\\Tuohy Bailey & Moore LLP\\Screen recording (2).webm",
+          "size": 2717198,
+          "hash": "4dd05689072d4e513ec2123cb79b5c28"
+        }
+      ]
+    },
+    {
+      "name": "index.ts",
+      "files": [
+        {
+          "path": "src\\components\\animations\\index.ts",
+          "size": 303,
+          "hash": "7a73a5030ceac62049dd347bb14f49ec"
+        },
+        {
+          "path": "src\\components\\gt\\index.ts",
+          "size": 153,
+          "hash": "75128dbe6b6cc7019f57827afbea0c83"
+        },
+        {
+          "path": "src\\components\\icons\\index.ts",
+          "size": 2217,
+          "hash": "9c442f3877215e62d6552a8c6ec270b2"
+        },
+        {
+          "path": "src\\components\\sections\\index.ts",
+          "size": 311,
+          "hash": "1ca708da9d491efa8e358687317e3e08"
+        }
+      ]
+    },
+    {
+      "name": "magneticbutton.tsx",
+      "files": [
+        {
+          "path": "src\\components\\animations\\MagneticButton.tsx",
+          "size": 2126,
+          "hash": "655594b8648625cc6f97f8f6ca151f28"
+        },
+        {
+          "path": "src\\components\\interactive\\MagneticButton.tsx",
+          "size": 1298,
+          "hash": "4f098d71bc045da16a9d949d74636a5f"
+        }
+      ]
+    },
+    {
+      "name": "scrollprogress.tsx",
+      "files": [
+        {
+          "path": "src\\components\\animations\\ScrollProgress.tsx",
+          "size": 444,
+          "hash": "777791607bc8d8394207a59e2ce2c796"
+        },
+        {
+          "path": "src\\components\\ui\\ScrollProgress.tsx",
+          "size": 3292,
+          "hash": "db398fcde95a15512a89cc95b14b5e83"
+        }
+      ]
+    },
+    {
+      "name": "tiltcard.tsx",
+      "files": [
+        {
+          "path": "src\\components\\animations\\TiltCard.tsx",
+          "size": 1878,
+          "hash": "9bf257af048ddee239b07186a197c6b6"
+        },
+        {
+          "path": "src\\components\\interactive\\TiltCard.tsx",
+          "size": 1693,
+          "hash": "db09539d3c9b6cc2fc5a9d755345306f"
+        }
+      ]
+    },
+    {
+      "name": "casestudyexplorer.tsx",
+      "files": [
+        {
+          "path": "src\\components\\case-study\\CaseStudyExplorer.tsx",
+          "size": 9837,
+          "hash": "5054914188bd496373d8d41924a94222"
+        },
+        {
+          "path": "src\\components\\CaseStudyExplorer.tsx",
+          "size": 9831,
+          "hash": "467b0f67a03b16b70f95ba97c45b8f48"
+        }
+      ]
+    },
+    {
+      "name": "ctasection.css",
+      "files": [
+        {
+          "path": "src\\components\\case-study\\CTASection.css",
+          "size": 249,
+          "hash": "633331891217c2fe1bbb3256eeb733a3"
+        },
+        {
+          "path": "src\\components\\sections\\CTASection.css",
+          "size": 2979,
+          "hash": "4e272037d43ad448c16d96388f718118"
+        }
+      ]
+    },
+    {
+      "name": "ctasection.tsx",
+      "files": [
+        {
+          "path": "src\\components\\case-study\\CTASection.tsx",
+          "size": 792,
+          "hash": "6a3fa76a6be2b308b31f51c1bf41e030"
+        },
+        {
+          "path": "src\\components\\CTASection.tsx",
+          "size": 1718,
+          "hash": "74eabac1b94205a0b029a616d6b30c15"
+        },
+        {
+          "path": "src\\components\\sections\\CTASection.tsx",
+          "size": 2961,
+          "hash": "d34915be0667c1b64f723d6c7d443c74"
+        }
+      ]
+    },
+    {
+      "name": "hero.css",
+      "files": [
+        {
+          "path": "src\\components\\case-study\\Hero.css",
+          "size": 488,
+          "hash": "40fb0da2b458f4684083ff649d792628"
+        },
+        {
+          "path": "src\\components\\hero\\Hero.css",
+          "size": 7278,
+          "hash": "4f6c1294708350e37df464dbc64f9c96"
+        },
+        {
+          "path": "src\\components\\home\\Hero.css",
+          "size": 4852,
+          "hash": "6dcf90f03aaf8b6978e9982a173aefb7"
+        }
+      ]
+    },
+    {
+      "name": "hero.tsx",
+      "files": [
+        {
+          "path": "src\\components\\case-study\\Hero.tsx",
+          "size": 1753,
+          "hash": "7076602cd528a801d573e1d2be6fa5e8"
+        },
+        {
+          "path": "src\\components\\hero\\Hero.tsx",
+          "size": 3254,
+          "hash": "7c3f1b9f5c167c58d896885b6ccb4791"
+        },
+        {
+          "path": "src\\components\\Hero.tsx",
+          "size": 4082,
+          "hash": "e9cbb84f6abf3b4c13b5e5a66329a52e"
+        }
+      ]
+    },
+    {
+      "name": "herosection.tsx",
+      "files": [
+        {
+          "path": "src\\components\\case-study\\HeroSection.tsx",
+          "size": 1144,
+          "hash": "d1ad50910ab51795771a0cdbf4d9b295"
+        },
+        {
+          "path": "src\\components\\sections\\HeroSection.tsx",
+          "size": 3492,
+          "hash": "7f63a9d6a4266be8b6fe303c570aa7c2"
+        }
+      ]
+    },
+    {
+      "name": "testimonials.css",
+      "files": [
+        {
+          "path": "src\\components\\home\\Testimonials.css",
+          "size": 4497,
+          "hash": "a59076b1214d54a6eef11a7759e779b0"
+        },
+        {
+          "path": "src\\pages\\Testimonials.css",
+          "size": 6378,
+          "hash": "3bb5af88a9e0c9ec208b88ea23e9d993"
+        }
+      ]
+    },
+    {
+      "name": "testimonials.tsx",
+      "files": [
+        {
+          "path": "src\\components\\home\\Testimonials.tsx",
+          "size": 5110,
+          "hash": "3aa8c2b3519b938940a58bb2a945849e"
+        },
+        {
+          "path": "src\\components\\Testimonials.tsx",
+          "size": 1548,
+          "hash": "25e5b571c5e016b13e2089566f1c6758"
+        },
+        {
+          "path": "src\\pages\\Testimonials.tsx",
+          "size": 6623,
+          "hash": "18d0fab40a2f9563c27ecae528c5250b"
+        }
+      ]
+    },
+    {
+      "name": "icon.tsx",
+      "files": [
+        {
+          "path": "src\\components\\Icon.tsx",
+          "size": 911,
+          "hash": "1fdd0586c777dff3fb96f0056010a275"
+        },
+        {
+          "path": "src\\components\\icons\\Icon.tsx",
+          "size": 18296,
+          "hash": "719eb80666eadb2265693478972ee96a"
+        }
+      ]
+    },
+    {
+      "name": "inspirationexplorer.tsx",
+      "files": [
+        {
+          "path": "src\\components\\inspiration\\InspirationExplorer.tsx",
+          "size": 13083,
+          "hash": "de7762b8381ed0510d75ff016320f29b"
+        },
+        {
+          "path": "src\\components\\InspirationExplorer.tsx",
+          "size": 4580,
+          "hash": "917a6a1f469062d636cc5eb530b12a8e"
+        }
+      ]
+    },
+    {
+      "name": "inspirationtimeline.tsx",
+      "files": [
+        {
+          "path": "src\\components\\inspiration\\InspirationTimeline.tsx",
+          "size": 6407,
+          "hash": "ba4a6a30d797cdd33066439e132d0356"
+        },
+        {
+          "path": "src\\components\\InspirationTimeline.tsx",
+          "size": 3523,
+          "hash": "181345a1f932c74d973484ca9a2ca967"
+        }
+      ]
+    },
+    {
+      "name": "customcursor.tsx",
+      "files": [
+        {
+          "path": "src\\components\\interactive\\CustomCursor.tsx",
+          "size": 1863,
+          "hash": "aac69e05f9372f0e72c27bfd3d99474f"
+        },
+        {
+          "path": "src\\components\\ui\\CustomCursor.tsx",
+          "size": 4999,
+          "hash": "1734932dcdaad1d20f8ace492e5d2524"
+        }
+      ]
+    },
+    {
+      "name": "gallery.tsx",
+      "files": [
+        {
+          "path": "src\\components\\mdx\\Gallery.tsx",
+          "size": 343,
+          "hash": "c5ff02ace28dc10b043a5722d163ab24"
+        },
+        {
+          "path": "src\\pages\\Gallery.tsx",
+          "size": 11315,
+          "hash": "39b70bbc53522875c2dfff16a63b3d5c"
+        }
+      ]
+    },
+    {
+      "name": "testimonialscarousel.tsx",
+      "files": [
+        {
+          "path": "src\\components\\testimonials\\TestimonialsCarousel.tsx",
+          "size": 4044,
+          "hash": "cafa625103db136188bdd6d0ee725a42"
+        },
+        {
+          "path": "src\\components\\TestimonialsCarousel.tsx",
+          "size": 2242,
+          "hash": "6943630bffb302f310ab7a22b9fbdd2e"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu.tsx",
+      "files": [
+        {
+          "path": "src\\components\\ui\\navigation-menu.tsx",
+          "size": 5300,
+          "hash": "98ce904ad45ecacb220d349a92367b4b"
+        },
+        {
+          "path": "src\\config\\components\\ui\\navigation-menu.tsx",
+          "size": 5130,
+          "hash": "ad85d30fd8916da8c5c7251032bebbfe"
+        }
+      ]
+    },
+    {
+      "name": "utils.ts",
+      "files": [
+        {
+          "path": "src\\config\\lib\\utils.ts",
+          "size": 166,
+          "hash": "5a6fd53fdcf2be529e9cc0b718fde352"
+        },
+        {
+          "path": "src\\lib\\utils.ts",
+          "size": 170,
+          "hash": "9771a6e166ec8274408b98dcc537a902"
+        }
+      ]
+    }
+  ],
+  "similarNames": [
+    {
+      "normalized": "cleanup-report-md",
+      "variants": [
+        "CLEANUP_REPORT.md",
+        "cleanup-report.md"
+      ],
+      "files": [
+        {
+          "path": "CLEANUP_REPORT.md",
+          "name": "CLEANUP_REPORT.md",
+          "size": 6423
+        },
+        {
+          "path": "docs\\cleanup-report.md",
+          "name": "cleanup-report.md",
+          "size": 8339
+        },
+        {
+          "path": "docs\\CLEANUP_REPORT.md",
+          "name": "CLEANUP_REPORT.md",
+          "size": 9384
+        }
+      ]
+    },
+    {
+      "normalized": "317-bbq-json",
+      "variants": [
+        "317 bbq.json",
+        "317-bbq.json"
+      ],
+      "files": [
+        {
+          "path": "public\\moodboards\\317 bbq.json",
+          "name": "317 bbq.json",
+          "size": 1227
+        },
+        {
+          "path": "public\\moodboards\\317-bbq.json",
+          "name": "317-bbq.json",
+          "size": 1188
+        }
+      ]
+    },
+    {
+      "normalized": "riley-bennett-egloff-json",
+      "variants": [
+        "riley bennett egloff.json",
+        "riley-bennett-egloff.json"
+      ],
+      "files": [
+        {
+          "path": "public\\moodboards\\riley bennett egloff.json",
+          "name": "riley bennett egloff.json",
+          "size": 743
+        },
+        {
+          "path": "public\\moodboards\\riley-bennett-egloff.json",
+          "name": "riley-bennett-egloff.json",
+          "size": 626
+        }
+      ]
+    },
+    {
+      "normalized": "russell-painting-json",
+      "variants": [
+        "Russell painting.json",
+        "russell-painting.json"
+      ],
+      "files": [
+        {
+          "path": "public\\moodboards\\Russell painting.json",
+          "name": "Russell painting.json",
+          "size": 661
+        },
+        {
+          "path": "public\\moodboards\\russell-painting.json",
+          "name": "russell-painting.json",
+          "size": 628
+        }
+      ]
+    },
+    {
+      "normalized": "tuohy-bailey-moore-llp-json",
+      "variants": [
+        "Tuohy Bailey & Moore LLP.json",
+        "tuohy-bailey-moore-llp.json"
+      ],
+      "files": [
+        {
+          "path": "public\\moodboards\\Tuohy Bailey & Moore LLP.json",
+          "name": "Tuohy Bailey & Moore LLP.json",
+          "size": 825
+        },
+        {
+          "path": "public\\moodboards\\tuohy-bailey-moore-llp.json",
+          "name": "tuohy-bailey-moore-llp.json",
+          "size": 794
+        }
+      ]
+    }
+  ]
+}

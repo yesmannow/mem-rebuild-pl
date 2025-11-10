@@ -261,13 +261,12 @@ export default function MainNav() {
       >
         <div className="container mx-auto flex items-center justify-between px-6">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-turquoise to-creamsicle rounded-lg flex items-center justify-center transform transition-transform group-hover:scale-105">
-              <span className="text-cave-bg font-bold text-lg">BC</span>
-            </div>
-            <span className="text-2xl font-bold text-cave-text group-hover:text-turquoise transition-colors">
-              BearCave
-            </span>
+          <Link to="/" className="flex items-center group">
+            <img
+              src="/images/logos/header-logo.png"
+              alt="BearCave Marketing"
+              className="h-10 w-auto transition-transform group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -328,7 +327,7 @@ export default function MainNav() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-cave-text hover:text-turquoise transition-colors"
               aria-label="Toggle menu"
-              aria-expanded={mobileMenuOpen}
+              aria-expanded={mobileMenuOpen ? 'true' : 'false'}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

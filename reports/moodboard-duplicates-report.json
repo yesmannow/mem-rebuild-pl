@@ -1,0 +1,135 @@
+{
+  "timestamp": "2025-11-10T03:02:53.369Z",
+  "summary": {
+    "duplicates": 0,
+    "similarNames": 4,
+    "totalFilesToReview": 0
+  },
+  "duplicates": [],
+  "similarNames": [
+    {
+      "normalized": "317-bbq-json",
+      "variants": [
+        "317 bbq.json",
+        "317-bbq.json"
+      ],
+      "files": [
+        {
+          "filename": "317 bbq.json",
+          "path": "public\\moodboards\\317 bbq.json",
+          "size": 1227,
+          "lastModified": "2025-11-09T02:21:31.502Z"
+        },
+        {
+          "filename": "317-bbq.json",
+          "path": "public\\moodboards\\317-bbq.json",
+          "size": 1188,
+          "lastModified": "2025-11-09T02:21:31.506Z"
+        }
+      ],
+      "comparisons": [
+        {
+          "file1": "317 bbq.json",
+          "file2": "317-bbq.json",
+          "identical": false,
+          "similarity": 0
+        }
+      ],
+      "averageSimilarity": 0,
+      "recommendation": "Files have different content - review manually"
+    },
+    {
+      "normalized": "riley-bennett-egloff-json",
+      "variants": [
+        "riley bennett egloff.json",
+        "riley-bennett-egloff.json"
+      ],
+      "files": [
+        {
+          "filename": "riley bennett egloff.json",
+          "path": "public\\moodboards\\riley bennett egloff.json",
+          "size": 743,
+          "lastModified": "2025-11-09T02:21:31.528Z"
+        },
+        {
+          "filename": "riley-bennett-egloff.json",
+          "path": "public\\moodboards\\riley-bennett-egloff.json",
+          "size": 626,
+          "lastModified": "2025-11-09T02:21:31.530Z"
+        }
+      ],
+      "comparisons": [
+        {
+          "file1": "riley bennett egloff.json",
+          "file2": "riley-bennett-egloff.json",
+          "identical": false,
+          "similarity": 0
+        }
+      ],
+      "averageSimilarity": 0,
+      "recommendation": "Files have different content - review manually"
+    },
+    {
+      "normalized": "russell-painting-json",
+      "variants": [
+        "Russell painting.json",
+        "russell-painting.json"
+      ],
+      "files": [
+        {
+          "filename": "Russell painting.json",
+          "path": "public\\moodboards\\Russell painting.json",
+          "size": 661,
+          "lastModified": "2025-11-09T02:21:31.510Z"
+        },
+        {
+          "filename": "russell-painting.json",
+          "path": "public\\moodboards\\russell-painting.json",
+          "size": 628,
+          "lastModified": "2025-11-09T02:21:31.535Z"
+        }
+      ],
+      "comparisons": [
+        {
+          "file1": "Russell painting.json",
+          "file2": "russell-painting.json",
+          "identical": false,
+          "similarity": 0
+        }
+      ],
+      "averageSimilarity": 0,
+      "recommendation": "Files have different content - review manually"
+    },
+    {
+      "normalized": "tuohy-bailey-moore-llp-json",
+      "variants": [
+        "Tuohy Bailey & Moore LLP.json",
+        "tuohy-bailey-moore-llp.json"
+      ],
+      "files": [
+        {
+          "filename": "Tuohy Bailey & Moore LLP.json",
+          "path": "public\\moodboards\\Tuohy Bailey & Moore LLP.json",
+          "size": 825,
+          "lastModified": "2025-11-09T02:21:31.513Z"
+        },
+        {
+          "filename": "tuohy-bailey-moore-llp.json",
+          "path": "public\\moodboards\\tuohy-bailey-moore-llp.json",
+          "size": 794,
+          "lastModified": "2025-11-09T02:21:31.537Z"
+        }
+      ],
+      "comparisons": [
+        {
+          "file1": "Tuohy Bailey & Moore LLP.json",
+          "file2": "tuohy-bailey-moore-llp.json",
+          "identical": false,
+          "similarity": 0
+        }
+      ],
+      "averageSimilarity": 0,
+      "recommendation": "Files have different content - review manually"
+    }
+  ]
+}
