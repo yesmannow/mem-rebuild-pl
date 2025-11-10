@@ -108,7 +108,7 @@ const Toolbox: React.FC = () => {
                   <button
                     className="category-header"
                     onClick={() => toggleCategory(index)}
-                    {...(isExpanded ? { 'aria-expanded': true } : { 'aria-expanded': false })}
+                    {...(isExpanded ? { 'aria-expanded': "true" } : { 'aria-expanded': "false" })}
                   >
                     <div className="header-content">
                       <div className="icon-wrapper">{getIconForCategory(category.title)}</div>

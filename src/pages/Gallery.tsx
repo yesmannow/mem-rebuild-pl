@@ -63,10 +63,13 @@ const Gallery: React.FC = () => {
 
   // GSAP animations
   useEffect(() => {
-    const cards = gsap.utils.toArray('.brand-card');
+    const cards = gsap.utils.toArray('.brand-card') as HTMLElement[];
+    const scrollTriggers: ScrollTrigger[] = [];
+    const eventHandlers: Array<{ element: HTMLElement; event: string; handler: () => void }> = [];
 
-    cards.forEach((card: any, index: number) => {
-      gsap.fromTo(
+    cards.forEach((card: HTMLElement, index: number) => {
+      // Create ScrollTrigger animation
+      const scrollTrigger = gsap.fromTo(
         card,
         {
           autoAlpha: 0,
@@ -90,7 +93,14 @@ const Gallery: React.FC = () => {
         }
       );
 
-      card.addEventListener('mouseenter', () => {
+      // Store ScrollTrigger reference
+      const trigger = scrollTrigger.scrollTrigger;
+      if (trigger) {
+        scrollTriggers.push(trigger);
+      }
+
+      // Create event handlers
+      const handleMouseEnter = () => {
         gsap.to(card, {
           scale: 1.05,
           y: -10,
@@ -98,9 +108,9 @@ const Gallery: React.FC = () => {
           duration: 0.4,
           ease: 'power2.out',
         });
-      });
+      };
 
-      card.addEventListener('mouseleave', () => {
+      const handleMouseLeave = () => {
         gsap.to(card, {
           scale: 1,
           y: 0,
@@ -108,11 +118,37 @@ const Gallery: React.FC = () => {
           duration: 0.4,
           ease: 'power2.out',
         });
-      });
+      };
+
+      // Add event listeners
+      card.addEventListener('mouseenter', handleMouseEnter);
+      card.addEventListener('mouseleave', handleMouseLeave);
+
+      // Store event handler references for cleanup
+      eventHandlers.push(
+        { element: card, event: 'mouseenter', handler: handleMouseEnter },
+        { element: card, event: 'mouseleave', handler: handleMouseLeave }
+      );
     });
 
+    // Cleanup function
     return () => {
-      ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) => trigger.kill());
+      // Remove all event listeners
+      eventHandlers.forEach(({ element, event, handler }) => {
+        element.removeEventListener(event, handler);
+      });
+
+      // Kill all ScrollTrigger instances
+      scrollTriggers.forEach((trigger) => {
+        trigger.kill();
+      });
+
+      // Also kill any remaining ScrollTriggers as a safety measure
+      ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) => {
+        if (!scrollTriggers.includes(trigger)) {
+          trigger.kill();
+        }
+      });
     };
   }, [filteredBoards]);
 

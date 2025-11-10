@@ -351,7 +351,7 @@ const About: React.FC = () => {
                   <button
                     className="timeline-card__header"
                     onClick={() => setActiveTimeline(isOpen ? '' : node.id)}
-                    aria-expanded={isOpen}
+                    aria-expanded={isOpen ? "true" : "false"}
                     aria-controls={`${node.id}-panel`}
                   >
                     <div>

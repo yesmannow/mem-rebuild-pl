@@ -105,7 +105,7 @@
     rgba(255, 255, 255, 0.4),
     transparent
   );
-  transform: skewX(-20deg);
+  /* Transform handled by Framer Motion - no CSS transform to avoid conflicts */
   z-index: 2;
   pointer-events: none;
   clip-path: path(

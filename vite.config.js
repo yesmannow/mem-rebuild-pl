@@ -25,6 +25,11 @@ export default defineConfig({
     port: 5173,
     host: true,
   },
+  // Optimize dependencies for dev server
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion', 'gsap', 'lenis'],
+    exclude: ['@tanstack/react-query'], // Exclude if not used on initial load
+  },
   build: {
     manifest: false, // Set to false to avoid HTML proxy issues
     rollupOptions: {
@@ -44,20 +49,9 @@ export default defineConfig({
     },
     // Optimize chunk size warning limit
     chunkSizeWarningLimit: 1000,
-    // Optimize dependencies
-    optimizeDeps: {
-      include: ['react', 'react-dom', 'react-router-dom', 'framer-motion', 'gsap', 'lenis'],
-      exclude: ['@tanstack/react-query'], // Exclude if not used on initial load
-    },
     // Enable source maps for production debugging (optional)
     sourcemap: false,
-    // Minify with terser for better compression
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true, // Remove console.logs in production
-        drop_debugger: true,
-      },
-    },
+    // Minify with esbuild (default, faster than terser)
+    minify: 'esbuild',
   }
 });

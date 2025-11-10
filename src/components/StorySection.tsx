@@ -17,7 +17,7 @@ export default function StorySection() {
         </div>
         <div>
           <h2 className="text-3xl font-bold mb-4">How I Work</h2>
-          <button onClick={toggleAccordion} aria-expanded={expanded} className="text-left w-full">
+          <button onClick={toggleAccordion} aria-expanded={expanded ? "true" : "false"} className="text-left w-full">
             <h3 className="text-xl font-semibold mb-2">{expanded ? '▼' : '►'} Principles</h3>
           </button>
           {expanded && (

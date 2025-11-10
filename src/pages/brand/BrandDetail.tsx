@@ -128,6 +128,7 @@ const BrandDetail: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -5 }}
+                style={{ '--color-value': color } as React.CSSProperties}
               >
                 <div className="color-preview" style={{ backgroundColor: color }} />
                 <div className="color-info">

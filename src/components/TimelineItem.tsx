@@ -50,7 +50,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ milestone, index, isLeft = 
         <button
           onClick={toggleExpanded}
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-amber-600 hover:text-amber-700 hover:bg-amber-50 rounded-md transition-colors focus:ring-2 focus:ring-amber-500 focus:outline-none"
-          aria-expanded={isExpanded}
+          aria-expanded={isExpanded ? "true" : "false"}
           aria-label={`${isExpanded ? 'Hide' : 'Show'} details for ${milestone.role} at ${milestone.company}`}
         >
           {isExpanded ? 'Hide Details' : 'Show Details'}

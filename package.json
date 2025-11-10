@@ -45,7 +45,12 @@
     "audit:all": "npm run audit:lighthouse && npm run audit:accessibility && npm run check:links",
     "predeploy": "npm run typecheck && npm run lint && npm run build && npm run validate:seo",
     "predeploy:full": "node scripts/pre-deploy-check.js",
-    "validate:all": "npm run validate:seo && npm run validate:content && npm run validate:routes && npm run check:links && npm run check:images"
+    "validate:all": "npm run validate:seo && npm run validate:content && npm run validate:routes && npm run check:links && npm run check:images",
+    "mcp:clean": "ts-node scripts/cleanup-automation.ts clean",
+    "mcp:clean:dry": "ts-node scripts/cleanup-automation.ts clean --dry-run",
+    "mcp:validate-imports": "ts-node scripts/cleanup-automation.ts validate-imports",
+    "mcp:validate-structure": "ts-node scripts/cleanup-automation.ts validate-structure",
+    "mcp:report": "ts-node scripts/cleanup-automation.ts report"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.16",

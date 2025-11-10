@@ -27,14 +27,15 @@ if (typeof window !== 'undefined') {
 }
 
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
-  // Service worker registration temporarily disabled until sw.js file is created
-  // Uncomment and add '/sw.js' to public directory to enable
-  /*
   const registerServiceWorker = async () => {
     try {
-      const registration = await navigator.serviceWorker.register('/sw.js', { scope: '/' });
-      console.log('Service worker registered successfully');
+      await navigator.serviceWorker.register('/sw.js', { scope: '/' });
+      if (process.env.NODE_ENV === 'development') {
+        // eslint-disable-next-line no-console
+        console.log('Service worker registered successfully');
+      }
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('Service worker registration failed:', error);
     }
   };
@@ -42,7 +43,6 @@ if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     void registerServiceWorker();
   });
-  */
 }
 
 // Enhanced error suppression for TinyMCE and external script conflicts
@@ -82,6 +82,7 @@ if (typeof window !== 'undefined') {
               ) {
                 // Race condition - element was defined by another script between check and call
                 if (process.env.NODE_ENV === 'development') {
+                  // eslint-disable-next-line no-console
                   console.warn(
                     `[main.tsx] Custom element "${name}" was defined during registration. Skipping.`
                   );
@@ -94,6 +95,7 @@ if (typeof window !== 'undefined') {
           }
           // Element already exists - skip registration
           if (process.env.NODE_ENV === 'development') {
+            // eslint-disable-next-line no-console
             console.warn(`[main.tsx] Custom element "${name}" is already registered. Skipping.`);
           }
         };
@@ -109,6 +111,7 @@ const mountTimeout = setTimeout(() => {
     const firstChild = rootElement.children.length > 0 ? rootElement.children[0] : null;
     // Check if we're still showing the loading spinner
     if (firstChild && firstChild.classList && firstChild.classList.contains('initial-loader')) {
+      // eslint-disable-next-line no-console
       console.error('React app failed to mount within timeout');
       const errorStyles = `
         <style>
@@ -182,6 +185,7 @@ const mountTimeout = setTimeout(() => {
 
 // Verify React and ReactDOM are available before proceeding
 if (!React || !ReactDOM) {
+  // eslint-disable-next-line no-console
   console.error('React or ReactDOM is not available', { React, ReactDOM });
   const rootElement = document.getElementById('root');
   if (rootElement) {
@@ -200,27 +204,36 @@ if (!React || !ReactDOM) {
     `;
   }
   clearTimeout(mountTimeout);
-} else {
-  try {
-    const rootElement = document.getElementById('root');
-    if (!rootElement) {
-      console.error('Root element not found');
-      clearTimeout(mountTimeout);
     } else {
-      // Always log initialization in production for debugging
-      console.log('Initializing React app...');
-      console.log('React version:', React.version);
-      console.log('ReactDOM available:', !!ReactDOM);
-      console.log('Environment:', process.env.NODE_ENV || 'unknown');
+      try {
+        const rootElement = document.getElementById('root');
+        if (!rootElement) {
+          // eslint-disable-next-line no-console
+          console.error('Root element not found');
+          clearTimeout(mountTimeout);
+        } else {
+          // Always log initialization in production for debugging
+          if (process.env.NODE_ENV === 'development') {
+            // eslint-disable-next-line no-console
+            console.log('Initializing React app...');
+            // eslint-disable-next-line no-console
+            console.log('React version:', React.version);
+            // eslint-disable-next-line no-console
+            console.log('ReactDOM available:', !!ReactDOM);
+            // eslint-disable-next-line no-console
+            console.log('Environment:', process.env.NODE_ENV || 'unknown');
 
-      // Log script loading status
-      const scripts = document.querySelectorAll('script[type="module"]');
-      console.log('Module scripts found:', scripts.length);
-      scripts.forEach((script, i) => {
-        console.log(`Script ${i}:`, (script as HTMLScriptElement).src || 'inline');
-      });
+            // Log script loading status
+            const scripts = document.querySelectorAll('script[type="module"]');
+            // eslint-disable-next-line no-console
+            console.log('Module scripts found:', scripts.length);
+            scripts.forEach((script, i) => {
+              // eslint-disable-next-line no-console
+              console.log(`Script ${i}:`, (script as HTMLScriptElement).src || 'inline');
+            });
+          }
 
-      const root = ReactDOM.createRoot(rootElement);
+          const root = ReactDOM.createRoot(rootElement);
 
       // Verify React.createElement exists
       if (!React.createElement) {
@@ -246,22 +259,26 @@ if (!React || !ReactDOM) {
         )
       );
 
-      // Clear timeout once React mounts
-      setTimeout(() => {
-        clearTimeout(mountTimeout);
-        if (process.env.NODE_ENV === 'development') {
-          console.log('React app initialized successfully');
-        }
-      }, 100);
+          // Clear timeout once React mounts
+          setTimeout(() => {
+            clearTimeout(mountTimeout);
+            if (process.env.NODE_ENV === 'development') {
+              // eslint-disable-next-line no-console
+              console.log('React app initialized successfully');
+            }
+          }, 100);
     }
   } catch (error) {
     clearTimeout(mountTimeout);
+    // eslint-disable-next-line no-console
     console.error('Failed to initialize React app:', error);
+    // eslint-disable-next-line no-console
     console.error('Error details:', {
       message: error instanceof Error ? error.message : String(error),
       stack: error instanceof Error ? error.stack : undefined,
       name: error instanceof Error ? error.name : undefined,
     });
+    // eslint-disable-next-line no-console
     console.error('React availability check:', {
       React: !!React,
       ReactDOM: !!ReactDOM,
