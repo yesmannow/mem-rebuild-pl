@@ -20,6 +20,7 @@ import {
   Mail
 } from 'lucide-react';
 import CommandMenuToggle from '../command/CommandMenuToggle';
+import Logo from '../branding/Logo';
 
 // Navigation data structure
 const NAV_SECTIONS = [
@@ -70,6 +71,12 @@ const NAV_SECTIONS = [
         to: '/applications',
         icon: Code,
         description: 'Custom applications and interactive tools'
+      },
+      {
+        label: 'Demos',
+        to: '/demos',
+        icon: Code,
+        description: 'Interactive demos and prototypes'
       },
       {
         label: 'Toolbox',
@@ -262,11 +269,7 @@ export default function MainNav() {
         <div className="container mx-auto flex items-center justify-between px-6">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
-            <img
-              src="/images/logos/header-logo.png"
-              alt="BearCave Marketing"
-              className="h-10 w-auto transition-transform group-hover:scale-105"
-            />
+            <Logo variant="lockup" size={56} />
           </Link>
 
           {/* Desktop Navigation */}

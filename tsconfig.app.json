@@ -24,7 +24,8 @@
       "@config/*": ["src/config/*"],
       "@utils/*": ["src/utils/*", "cli/utils/*"],
       "@components/*": ["src/components/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@hooks/*": ["src/hooks/*"],
+      "@data/*": ["src/data/*"]
     },
     "composite": true, // Enable composite mode
     "outDir": "./dist", // Specify output directory to prevent overwriting source files
@@ -40,6 +41,10 @@
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "public/moodboards/317 bbq.json",
+    "public/moodboards/Russell painting.json",
+    "public/moodboards/Tuohy Bailey & Moore LLP.json",
+    "public/moodboards/riley bennett egloff.json"
   ]
 }
