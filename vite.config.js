@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
+import { existsSync } from 'fs';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig({
@@ -33,10 +34,16 @@ export default defineConfig({
   build: {
     manifest: false, // Set to false to avoid HTML proxy issues
     rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        sw: resolve(__dirname, 'src/sw.js')
-      },
+      input: (() => {
+        const entries = {
+          main: resolve(__dirname, 'index.html'),
+        };
+        const serviceWorkerPath = resolve(__dirname, 'src/sw.js');
+        if (existsSync(serviceWorkerPath)) {
+          entries.sw = serviceWorkerPath;
+        }
+        return entries;
+      })(),
       output: {
         entryFileNames: chunk => (chunk.name === 'sw' ? 'sw.js' : 'assets/[name]-[hash].js'),
         manualChunks: {
