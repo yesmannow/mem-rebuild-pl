@@ -36,7 +36,13 @@ export default defineConfig({
       ]
     },
     port: 5173,
-    host: true,
+    host: 'localhost',
+    strictPort: false,
+    hmr: {
+      // Fix WebSocket connection issues
+      protocol: 'ws',
+      host: 'localhost',
+    },
   },
   // Optimize dependencies for dev server
   optimizeDeps: {
