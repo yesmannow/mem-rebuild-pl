@@ -72,5 +72,22 @@ export default defineConfig({
     sourcemap: false,
     // Minify with esbuild (default, faster than terser)
     minify: 'esbuild',
-  }
+    // Copy Cloudflare Pages config files
+    copyPublicDir: true,
+  },
+  // Ensure proper MIME types in dev server
+  server: {
+    fs: {
+      // Allow imports from entire project directory
+      allow: [
+        resolve(__dirname),
+        resolve(__dirname, 'cli-workflow')
+      ]
+    },
+    port: 5173,
+    host: true,
+    headers: {
+      'Content-Type': 'application/javascript; charset=utf-8',
+    },
+  },
 });

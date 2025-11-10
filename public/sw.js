@@ -201,11 +201,15 @@ async function staleWhileRevalidate(request, cacheName) {
   const cached = await caches.match(request);
 
   const fetchPromise = fetch(request).then(response => {
-    if (response.ok) {
-      // Clone response before caching since response body can only be read once
+    if (response.ok && response.status === 200) {
+      // Clone response BEFORE returning it, since response body can only be read once
       const responseClone = response.clone();
-      const cache = caches.open(cacheName);
-      cache.then(c => c.put(request, responseClone));
+      // Cache the clone asynchronously
+      caches.open(cacheName).then(cache => {
+        cache.put(request, responseClone).catch(() => {
+          // Silently fail if caching fails
+        });
+      });
     }
     return response;
   }).catch(() => {
