@@ -303,7 +303,7 @@ const Contact: React.FC = () => {
                           required
                           className={formErrors.name ? 'error' : ''}
                           aria-label="Your name"
-                          aria-invalid={!!formErrors.name}
+                          {...(formErrors.name && { 'aria-invalid': 'true' })}
                           aria-describedby={formErrors.name ? 'name-error' : undefined}
                         />
                         <label htmlFor="name" className={formData.name ? 'floating' : ''}>
@@ -339,7 +339,7 @@ const Contact: React.FC = () => {
                           required
                           className={formErrors.email ? 'error' : ''}
                           aria-label="Your email address"
-                          aria-invalid={!!formErrors.email}
+                          {...(formErrors.email && { 'aria-invalid': 'true' })}
                           aria-describedby={formErrors.email ? 'email-error' : undefined}
                         />
                         <label htmlFor="email" className={formData.email ? 'floating' : ''}>
@@ -373,7 +373,7 @@ const Contact: React.FC = () => {
                           required
                           className={formErrors.reason ? 'error' : ''}
                           aria-label="Reason for contact"
-                          aria-invalid={!!formErrors.reason}
+                          {...(formErrors.reason && { 'aria-invalid': 'true' })}
                           aria-describedby={formErrors.reason ? 'reason-error' : undefined}
                         >
                           <option value="">Select a reason...</option>
@@ -456,7 +456,7 @@ const Contact: React.FC = () => {
                           required
                           className={formErrors.message ? 'error' : ''}
                           aria-label="Your message"
-                          aria-invalid={!!formErrors.message}
+                          {...(formErrors.message && { 'aria-invalid': 'true' })}
                           aria-describedby={formErrors.message ? 'message-error' : undefined}
                         />
                         <label htmlFor="message" className={formData.message ? 'floating-textarea' : ''}>

@@ -81,7 +81,7 @@ const App: React.FC = () => {
             >
               Skip to content
             </a>
-            <div className="app min-h-dvh flex flex-col" style={{ background: 'var(--bc-bg)', color: 'var(--bc-text-primary)' }}>
+            <div className="app min-h-dvh flex flex-col bg-[var(--bc-bg)] text-[var(--bc-text-primary)]">
               <Suspense fallback={null}>
                 <PersonSchema />
               </Suspense>
@@ -94,32 +94,8 @@ const App: React.FC = () => {
               <Suspense fallback={null}>
                 <BackToTop />
               </Suspense>
-              <Suspense
-                fallback={
-                  <header className="container-px">
-                    <div className="mx-auto max-w-6xl py-6 flex items-center justify-between">
-                      <Link to="/" className="font-display text-xl">
-                        BearCave
-                      </Link>
-                      <nav className="hidden md:flex items-center gap-6 text-sm">
-                        <a href="#work" className="hover:opacity-75">
-                          Work
-                        </a>
-                        <a href="#about" className="hover:opacity-75">
-                          About
-                        </a>
-                        <a href="#contact" className="hover:opacity-75">
-                          Contact
-                        </a>
-                        <a href="#contact" className="btn-primary">
-                          Work With Me
-                        </a>
-                      </nav>
-                    </div>
-                  </header>
-                }
-              >
-                <MainNav />
+              <Suspense fallback={null}>
+                <MainNav key="main-nav" />
               </Suspense>
               <Suspense fallback={null}>
                 <FloatingActionButtons />

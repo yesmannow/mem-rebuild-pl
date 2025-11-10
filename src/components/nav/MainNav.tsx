@@ -120,13 +120,15 @@ const QUICK_ACTIONS = [
 interface NavItemProps {
   item: typeof NAV_SECTIONS[0];
   isActive: boolean;
+  hoveredSection: string | null;
   onHover: (label: string | null) => void;
   onClick: () => void;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ item, isActive, onHover, onClick }) => {
+const NavItem: React.FC<NavItemProps> = ({ item, isActive, hoveredSection, onHover, onClick }) => {
   const hasSubItems = item.subItems && item.subItems.length > 0;
   const Icon = item.icon;
+  const isHovered = hoveredSection === item.label;
 
   return (
     <li
@@ -167,7 +169,7 @@ const NavItem: React.FC<NavItemProps> = ({ item, isActive, onHover, onClick }) =
 
       {/* Mega-nav dropdown */}
       <AnimatePresence>
-        {hasSubItems && (
+        {hasSubItems && isHovered && (
           <motion.div
             initial={{ opacity: 0, y: -10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -247,6 +249,7 @@ export default function MainNav() {
   return (
     <>
       <motion.nav
+        key="main-nav" // Ensure unique key to prevent duplicates
         initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -275,6 +278,7 @@ export default function MainNav() {
                   key={item.label}
                   item={item}
                   isActive={!item.subItems && isActive(item.to!)}
+                  hoveredSection={hoveredSection}
                   onHover={setHoveredSection}
                   onClick={() => setMobileMenuOpen(false)}
                 />
@@ -324,7 +328,7 @@ export default function MainNav() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-cave-text hover:text-turquoise transition-colors"
               aria-label="Toggle menu"
-              aria-expanded={mobileMenuOpen ? "true" : "false"}
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

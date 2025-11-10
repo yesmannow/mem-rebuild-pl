@@ -25,7 +25,7 @@ const Resume = React.lazy(() => import('../pages/Resume'));
 const Contact = React.lazy(() => import('../pages/Contact'));
 const Inspiration = React.lazy(() => import('../pages/InspirationPage'));
 const InspirationDetail = React.lazy(() => import('../pages/InspirationDetail'));
-const Gallery = React.lazy(() => import('../pages/gallery'));
+const Gallery = React.lazy(() => import('../pages/Gallery'));
 const BrandBuilder = React.lazy(() => import('../pages/BrandBuilder'));
 const BrandDetail = React.lazy(() => import('../pages/brand/BrandDetail'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));

@@ -1,0 +1,87 @@
+{
+  "tasks": {
+    "clean:repo": {
+      "name": "Clean Repository",
+      "description": "Delete legacy/test files and empty folders",
+      "type": "cleanup",
+      "targets": {
+        "files": [
+          "src/sw.js",
+          "test-page.html",
+          "src/test-nav-implementation.tsx",
+          "tatus",
+          "use BearCave CSS variables for consistent branding.",
+          "PR integrates modern React UX patterns into the portfolio site, enhancing user experience with professional libraries and best practices."
+        ],
+        "folders": [
+          "src/components/resume",
+          "src/components/services",
+          "src/sections",
+          "src/components/sections/gt"
+        ],
+        "patterns": [
+          "vite.config.js.timestamp-*.mjs"
+        ]
+      },
+      "safety": {
+        "dryRun": true,
+        "backup": false
+      }
+    },
+    "validate:imports": {
+      "name": "Validate Imports",
+      "description": "Scan codebase for broken/invalid import paths",
+      "type": "validation",
+      "checks": [
+        "components/resume",
+        "components/services",
+        "sections/gt",
+        "sections[^/]"
+      ],
+      "output": {
+        "format": "json",
+        "reportPath": "reports/import-validation.json"
+      }
+    },
+    "generate:component": {
+      "name": "Generate Component",
+      "description": "Create new component with proper structure",
+      "type": "generator",
+      "template": "plop-templates/component.tsx.hbs",
+      "validation": {
+        "naming": "PascalCase",
+        "folder": "src/components",
+        "preventDuplicates": true
+      },
+      "outputs": [
+        "Component.tsx",
+        "Component.css",
+        "index.ts (export)"
+      ]
+    },
+    "generate:page": {
+      "name": "Generate Page",
+      "description": "Create new page with route and lazy import",
+      "type": "generator",
+      "template": "plop-templates/page.tsx.hbs",
+      "validation": {
+        "naming": "PascalCase",
+        "folder": "src/pages",
+        "routeConflictCheck": true
+      },
+      "outputs": [
+        "Page.tsx",
+        "Page.css",
+        "Route entry in AppRouter.tsx",
+        "Lazy import setup"
+      ]
+    }
+  },
+  "scripts": {
+    "mcp:clean": "ts-node scripts/cleanup-automation.ts clean",
+    "mcp:validate-imports": "ts-node scripts/cleanup-automation.ts validate-imports",
+    "mcp:validate-structure": "ts-node scripts/cleanup-automation.ts validate-structure",
+    "mcp:report": "ts-node scripts/cleanup-automation.ts report"
+  }
+}
+

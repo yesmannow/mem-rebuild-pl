@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import SectionWrapper from '../SectionWrapper';
 import './WhoIAm.css';
 
@@ -44,14 +44,21 @@ const WhoIAm: React.FC = () => {
             <div className="who-i-am__photo-glow" />
 
             {/* Reflection highlight */}
-            {isHovered && !prefersReducedMotion && (
-              <motion.div
-                className="who-i-am__photo-reflection"
-                initial={{ x: '-100%', opacity: 0 }}
-                animate={{ x: '100%', opacity: [0, 0.6, 0] }}
-                transition={{ duration: 0.8, ease: 'easeInOut' }}
-              />
-            )}
+            <AnimatePresence>
+              {isHovered && !prefersReducedMotion && (
+                <motion.div
+                  className="who-i-am__photo-reflection"
+                  initial={{ x: '-100%', opacity: 0, skewX: -20 }}
+                  animate={{
+                    x: '100%',
+                    opacity: [0, 0.6, 0],
+                    skewX: -20
+                  }}
+                  exit={{ x: '100%', opacity: 0, skewX: -20 }}
+                  transition={{ duration: 0.8, ease: 'easeInOut' }}
+                />
+              )}
+            </AnimatePresence>
 
             {/* Photo with blob mask */}
             <div className="who-i-am__photo-container">

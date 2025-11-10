@@ -78,7 +78,7 @@ const InspirationTimeline: React.FC = () => {
                 <button
                   onClick={() => toggleExpanded(item.year)}
                   className="mt-4 text-amber-600 hover:text-amber-800 font-medium"
-                  aria-expanded={expandedItems.has(item.year)}
+                  aria-expanded={expandedItems.has(item.year) ? "true" : "false"}
                 >
                   {expandedItems.has(item.year) ? 'Show Less' : 'Learn More'}
                 </button>

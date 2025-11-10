@@ -47,7 +47,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -106,7 +106,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
               )}
 
               <blockquote className="testimonials-section__quote">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
 
               <div className="testimonials-section__author">
