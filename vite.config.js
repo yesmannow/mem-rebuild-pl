@@ -5,6 +5,18 @@ import { existsSync } from 'fs';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+      '@components': resolve(__dirname, 'src/components'),
+      '@pages': resolve(__dirname, 'src/pages'),
+      '@data': resolve(__dirname, 'src/data'),
+      '@utils': resolve(__dirname, 'src/utils'),
+      '@assets': resolve(__dirname, 'src/assets'),
+      '@config': resolve(__dirname, 'src/config'),
+      '@hooks': resolve(__dirname, 'src/hooks'),
+    },
+  },
   plugins: [
     react(),
     // Bundle analyzer - run with ANALYZE=true npm run build

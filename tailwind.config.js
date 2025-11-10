@@ -23,6 +23,11 @@ export default {
   			creamsicle: '#FF9E58',
   			'creamsicle-dark': '#E68A48',
   			'light-blue-gray': '#F3F6F7',
+  			'case-study': {
+  				primary: 'var(--case-study-primary)',
+  				secondary: 'var(--case-study-secondary)',
+  				accent: 'var(--case-study-accent)',
+  			},
   			gray: {
   				'50': '#f9fafb',
   				'100': '#f3f4f6',
@@ -107,7 +112,11 @@ export default {
   			soft: '0 10px 30px rgba(0,0,0,.06)',
   			'soft-dark': '0 10px 30px rgba(0,0,0,.3)',
   			accent: '0 4px 20px rgba(60, 198, 196, 0.3)',
-  			cta: '0 8px 25px rgba(255, 158, 88, 0.4)'
+  			cta: '0 8px 25px rgba(255, 158, 88, 0.4)',
+  			'case-study-glow': '0px 0px 40px var(--case-study-glow)',
+  		},
+  		backgroundImage: {
+  			'case-study-gradient': 'var(--case-study-gradient)',
   		},
   		fontFamily: {
   			sans: [

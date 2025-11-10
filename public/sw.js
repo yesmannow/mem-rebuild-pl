@@ -165,8 +165,10 @@ async function cacheFirst(request, cacheName) {
   try {
     const response = await fetch(request);
     if (response.ok) {
+      // Clone response before caching since response body can only be read once
+      const responseClone = response.clone();
       const cache = await caches.open(cacheName);
-      cache.put(request, response.clone());
+      cache.put(request, responseClone);
     }
     return response;
   } catch (error) {
@@ -182,8 +184,10 @@ async function networkFirst(request, cacheName) {
   try {
     const response = await fetch(request);
     if (response.ok) {
+      // Clone response before caching since response body can only be read once
+      const responseClone = response.clone();
       const cache = await caches.open(cacheName);
-      cache.put(request, response.clone());
+      cache.put(request, responseClone);
     }
     return response;
   } catch (error) {
@@ -198,8 +202,10 @@ async function staleWhileRevalidate(request, cacheName) {
 
   const fetchPromise = fetch(request).then(response => {
     if (response.ok) {
+      // Clone response before caching since response body can only be read once
+      const responseClone = response.clone();
       const cache = caches.open(cacheName);
-      cache.then(c => c.put(request, response.clone()));
+      cache.then(c => c.put(request, responseClone));
     }
     return response;
   }).catch(() => {
@@ -220,8 +226,10 @@ async function imageCacheStrategy(request, cacheName) {
   try {
     const response = await fetch(request);
     if (response.ok) {
+      // Clone response before caching since response body can only be read once
+      const responseClone = response.clone();
       const cache = await caches.open(cacheName);
-      cache.put(request, response.clone());
+      cache.put(request, responseClone);
     }
     return response;
   } catch (error) {

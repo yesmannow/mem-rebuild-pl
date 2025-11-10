@@ -1,0 +1,37 @@
+/* Case Study Visual Identity Tokens */
+/* CSS Variables for dynamic theming per case study */
+
+:root {
+  /* The Launchpad Visual Identity */
+  --launchpad-primary: #3CC6C4;
+  --launchpad-secondary: #0D0D0F;
+  --launchpad-accent: #FF9E58;
+  --launchpad-gradient: linear-gradient(135deg, #0D0D0F 0%, #1A1D1F 40%, #3CC6C4 100%);
+  --launchpad-glow: rgba(60, 198, 196, 0.35);
+
+  /* Default case study tokens (can be overridden per case study) */
+  --case-study-primary: var(--launchpad-primary);
+  --case-study-secondary: var(--launchpad-secondary);
+  --case-study-accent: var(--launchpad-accent);
+  --case-study-gradient: var(--launchpad-gradient);
+  --case-study-glow: var(--launchpad-glow);
+}
+
+/* Case study specific overrides */
+[data-case-study="the-launchpad"] {
+  --case-study-primary: var(--launchpad-primary);
+  --case-study-secondary: var(--launchpad-secondary);
+  --case-study-accent: var(--launchpad-accent);
+  --case-study-gradient: var(--launchpad-gradient);
+  --case-study-glow: var(--launchpad-glow);
+}
+
+/* Typography tokens */
+:root {
+  --case-study-display-font: 'Montserrat', system-ui, sans-serif;
+  --case-study-body-font: 'Inter', system-ui, sans-serif;
+  --case-study-display-weight: 900; /* Black */
+  --case-study-display-weight-alt: 600; /* SemiBold */
+  --case-study-body-weight: 400; /* Book */
+}
+
