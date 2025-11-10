@@ -44,7 +44,7 @@ export default defineConfig({
     exclude: ['@tanstack/react-query'], // Exclude if not used on initial load
   },
   build: {
-    manifest: false, // Set to false to avoid HTML proxy issues
+    manifest: true, // Enable manifest for service worker precaching
     rollupOptions: {
       input: (() => {
         const entries = {

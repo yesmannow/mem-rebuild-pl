@@ -37,28 +37,56 @@ async function getManifestAssets() {
       throw new Error(`Failed to load manifest: ${response.status}`);
     }
 
+    const contentType = response.headers.get("content-type");
+    // Check if response is actually JSON, not HTML (404 page)
+    if (!contentType || !contentType.includes("application/json")) {
+      const text = await response.text();
+      // If we got HTML (like a 404 page), don't try to parse as JSON
+      if (text.trim().startsWith("<!") || text.trim().startsWith("<html")) {
+        console.warn("⚠️ Service Worker: Manifest returned HTML instead of JSON, manifest may not exist");
+        return APP_SHELL;
+      }
+      // Try to parse as JSON anyway if it's not HTML
+      try {
+        const manifest = JSON.parse(text);
+        return processManifest(manifest);
+      } catch (parseError) {
+        console.warn("⚠️ Service Worker: Manifest is not valid JSON, using fallback");
+        return APP_SHELL;
+      }
+    }
+
     const manifest = await response.json();
-    const assets = new Set(APP_SHELL);
-
-    Object.values(manifest).forEach(entry => {
-      if (!entry || typeof entry !== "object") return;
-
-      if (entry.file) assets.add(withLeadingSlash(entry.file));
-
-      if (Array.isArray(entry.css)) {
-        entry.css.forEach(file => assets.add(withLeadingSlash(file)));
-      }
-
-      if (Array.isArray(entry.assets)) {
-        entry.assets.forEach(file => assets.add(withLeadingSlash(file)));
-      }
-    });
-
-    return Array.from(assets);
+    return processManifest(manifest);
   } catch (error) {
-    console.error("❌ Service Worker: Unable to load manifest", error);
+    // Silently handle manifest loading errors - it's optional
+    if (error.message && (error.message.includes("Unexpected token") || error.message.includes("JSON"))) {
+      console.warn("⚠️ Service Worker: Manifest file not found or invalid, using fallback");
+    } else {
+      console.warn("⚠️ Service Worker: Unable to load manifest, using fallback:", error.message);
+    }
     return APP_SHELL;
   }
+}
+
+function processManifest(manifest) {
+  const assets = new Set(APP_SHELL);
+
+  Object.values(manifest).forEach(entry => {
+    if (!entry || typeof entry !== "object") return;
+
+    if (entry.file) assets.add(withLeadingSlash(entry.file));
+
+    if (Array.isArray(entry.css)) {
+      entry.css.forEach(file => assets.add(withLeadingSlash(file)));
+    }
+
+    if (Array.isArray(entry.assets)) {
+      entry.assets.forEach(file => assets.add(withLeadingSlash(file)));
+    }
+  });
+
+  return Array.from(assets);
 }
 
 // Install event - cache critical resources
