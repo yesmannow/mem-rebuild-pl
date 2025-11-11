@@ -8,17 +8,12 @@
 const PORT = process.env.PORT || process.env.MCP_PORT || 5174;
 const AUTH_TOKEN = process.env.MCP_AUTH_TOKEN;
 
-if (!AUTH_TOKEN) {
-  console.error("❌ MCP_AUTH_TOKEN not set!");
-  console.log("Set it with: export MCP_AUTH_TOKEN=\"$(openssl rand -hex 24)\"");
-  process.exit(1);
-}
-
 const BASE_URL = `http://localhost:${PORT}`;
-const headers = {
-  "Authorization": `Bearer ${AUTH_TOKEN}`,
-  "Content-Type": "application/json"
-};
+const headers = (() => {
+  const base = { "Content-Type": "application/json" };
+  if (AUTH_TOKEN) base["Authorization"] = `Bearer ${AUTH_TOKEN}`;
+  return base;
+})();
 
 async function testHealth() {
   try {
