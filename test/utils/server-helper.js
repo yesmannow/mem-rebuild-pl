@@ -17,7 +17,7 @@ export async function startServer({ port = 5174, env = {}, timeout = 15000 } = {
 	const baseUrl = `http://localhost:${port}`;
 	const ok = await waitForHealth(baseUrl, timeout);
 	if (!ok) {
-		try { child.kill(); } catch {}
+		try { child.kill(); } catch { /* Ignore kill errors */ }
 		throw new Error(`Server did not become healthy within ${timeout}ms.\n${stdout}\n${stderr}`);
 	}
 	return {
@@ -32,7 +32,7 @@ export async function stopServer(child) {
 	return new Promise((resolve) => {
 		if (!child || child.killed) return resolve();
 		child.once("exit", () => resolve());
-		try { child.kill(); } catch {}
+		try { child.kill(); } catch { /* Ignore kill errors */ }
 		setTimeout(() => resolve(), 2000);
 	});
 }
@@ -50,7 +50,7 @@ async function waitForHealth(baseUrl, timeoutMs = 15000) {
 		try {
 			const res = await agent.get("/health");
 			if (res.status === 200) return true;
-		} catch {}
+		} catch { /* Ignore connection errors during startup */ }
 		await sleep(200);
 	}
 	return false;
