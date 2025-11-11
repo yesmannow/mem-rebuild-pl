@@ -1,110 +1,250 @@
 #!/usr/bin/env node
 
 import fs from "fs";
-
 import express from "express";
-
 import path from "path";
-
 import { fileURLToPath } from "url";
 
-
-
 const __filename = fileURLToPath(import.meta.url);
-
 const __dirname = path.dirname(__filename);
 
-
-
 const app = express();
-
 app.use(express.json());
 
-
-
 const root = path.resolve(__dirname, "..");
+const PORT = process.env.MCP_PORT || 7465;
+const AUTH_TOKEN = process.env.MCP_AUTH_TOKEN;
 
+// Load config
+const configPath = path.join(__dirname, "config.json");
+const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
 
+// Setup logging
+const logDir = path.join(__dirname);
+const logFile = path.join(logDir, "mcp.log");
 
-// List directory
+function log(message) {
+  const timestamp = new Date().toISOString();
+  const logLine = `[${timestamp}] ${message}\n`;
+  fs.appendFileSync(logFile, logLine);
+  console.log(message);
+}
 
-app.get("/ls", (req, res) => {
-
-  const target = path.join(root, req.query.path || ".");
-
-  const entries = fs.readdirSync(target, { withFileTypes: true });
-
-  res.json(entries.map(e => ({ name: e.name, dir: e.isDirectory() })));
-
-});
-
-
-
-// Read file
-
-app.get("/read", (req, res) => {
-
-  const file = path.join(root, req.query.path);
-
-  res.send(fs.readFileSync(file, "utf8"));
-
-});
-
-
-
-// Write file
-
-app.post("/write", (req, res) => {
-
-  const file = path.join(root, req.body.path);
-
-  fs.writeFileSync(file, req.body.content, "utf8");
-
-  res.send("ok");
-
-});
-
-
-
-// Search text
-
-app.get("/search", (req, res) => {
-
-  const term = req.query.q;
-
-  let results = [];
-
-  function walk(dir) {
-
-    for (const entry of fs.readdirSync(dir)) {
-
-      const full = path.join(dir, entry);
-
-      if (fs.statSync(full).isDirectory()) walk(full);
-
-      else {
-
-        const text = fs.readFileSync(full, "utf8");
-
-        if (text.includes(term)) results.push(full.replace(root + "/", ""));
-
-      }
-
-    }
-
+// Authentication middleware
+function requireAuth(req, res, next) {
+  if (!AUTH_TOKEN) {
+    log("WARN: MCP_AUTH_TOKEN not set - server running without auth");
+    return next();
   }
 
-  walk(root);
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    log(`WARN: Unauthorized request from ${req.ip}`);
+    return res.status(403).json({ error: "Unauthorized" });
+  }
 
-  res.json(results);
+  const token = authHeader.substring(7);
+  if (token !== AUTH_TOKEN) {
+    log(`WARN: Invalid token from ${req.ip}`);
+    return res.status(403).json({ error: "Unauthorized" });
+  }
 
+  next();
+}
+
+// Path validation
+function validatePath(filePath) {
+  if (!filePath) return { valid: false, error: "Path required" };
+
+  const normalized = path.normalize(filePath);
+  const fullPath = path.resolve(root, normalized);
+
+  // Ensure path is within root
+  if (!fullPath.startsWith(root)) {
+    return { valid: false, error: "Path outside root directory" };
+  }
+
+  // Check allowed paths if configured
+  if (config.allowedPaths && Array.isArray(config.allowedPaths)) {
+    const allowed = config.allowedPaths.some(allowedPath => {
+      const allowedFull = path.resolve(root, allowedPath);
+      return fullPath.startsWith(allowedFull);
+    });
+    if (!allowed) {
+      return { valid: false, error: "Path not in allowedPaths" };
+    }
+  }
+
+  return { valid: true, fullPath };
+}
+
+// Apply auth to all routes
+app.use(requireAuth);
+
+// Health check
+app.get("/health", (req, res) => {
+  res.json({ ok: true });
 });
 
+// List directory
+app.get("/ls", (req, res) => {
+  try {
+    const validation = validatePath(req.query.path || ".");
+    if (!validation.valid) {
+      return res.status(400).json({ error: validation.error });
+    }
 
+    const target = validation.fullPath;
+    if (!fs.existsSync(target)) {
+      return res.status(404).json({ error: "Path not found" });
+    }
 
-app.listen(3333, () =>
+    const stat = fs.statSync(target);
+    if (!stat.isDirectory()) {
+      return res.status(400).json({ error: "Path is not a directory" });
+    }
 
-  console.log("✅ MCP Server Running → http://localhost:3333")
+    const entries = fs.readdirSync(target, { withFileTypes: true });
+    const result = entries.map(e => ({ name: e.name, dir: e.isDirectory() }));
+    log(`GET /ls: ${req.query.path || "."}`);
+    res.json(result);
+  } catch (error) {
+    log(`ERROR /ls: ${error.message}`);
+    res.status(500).json({ error: error.message });
+  }
+});
 
-);
+// Read file (GET)
+app.get("/read", (req, res) => {
+  try {
+    const validation = validatePath(req.query.path);
+    if (!validation.valid) {
+      return res.status(400).json({ error: validation.error });
+    }
 
+    const file = validation.fullPath;
+    if (!fs.existsSync(file)) {
+      return res.status(404).json({ error: "File not found" });
+    }
+
+    const content = fs.readFileSync(file, "utf8");
+    log(`GET /read: ${req.query.path}`);
+    res.json({ path: req.query.path, content });
+  } catch (error) {
+    log(`ERROR /read: ${error.message}`);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Read file (POST)
+app.post("/read", (req, res) => {
+  try {
+    const validation = validatePath(req.body.path);
+    if (!validation.valid) {
+      return res.status(400).json({ error: validation.error });
+    }
+
+    const file = validation.fullPath;
+    if (!fs.existsSync(file)) {
+      return res.status(404).json({ error: "File not found" });
+    }
+
+    const content = fs.readFileSync(file, "utf8");
+    log(`POST /read: ${req.body.path}`);
+    res.json({ path: req.body.path, content });
+  } catch (error) {
+    log(`ERROR /read: ${error.message}`);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Write file
+app.post("/write", (req, res) => {
+  try {
+    if (config.readOnly) {
+      log(`WARN: Write blocked - server in read-only mode`);
+      return res.status(403).json({ error: "Server is in read-only mode" });
+    }
+
+    const validation = validatePath(req.body.path);
+    if (!validation.valid) {
+      return res.status(400).json({ error: validation.error });
+    }
+
+    const file = validation.fullPath;
+    fs.writeFileSync(file, req.body.content, "utf8");
+    log(`POST /write: ${req.body.path}`);
+    res.json({ ok: true, path: req.body.path });
+  } catch (error) {
+    log(`ERROR /write: ${error.message}`);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Search text
+app.get("/search", (req, res) => {
+  try {
+    const term = req.query.q;
+    if (!term) {
+      return res.status(400).json({ error: "Query parameter 'q' required" });
+    }
+
+    let results = [];
+    const searchRoot = config.allowedPaths && config.allowedPaths.length > 0
+      ? config.allowedPaths.map(p => path.resolve(root, p))
+      : [root];
+
+    function walk(dir) {
+      try {
+        for (const entry of fs.readdirSync(dir)) {
+          const full = path.join(dir, entry);
+          const stat = fs.statSync(full);
+
+          // Skip node_modules, .git, and other common exclusions
+          if (entry === "node_modules" || entry === ".git" || entry.startsWith(".")) {
+            continue;
+          }
+
+          if (stat.isDirectory()) {
+            walk(full);
+          } else {
+            try {
+              const text = fs.readFileSync(full, "utf8");
+              if (text.includes(term)) {
+                const relative = path.relative(root, full).replace(/\\/g, "/");
+                results.push(relative);
+              }
+            } catch (err) {
+              // Skip binary files or unreadable files
+            }
+          }
+        }
+      } catch (err) {
+        // Skip directories we can't read
+      }
+    }
+
+    searchRoot.forEach(dir => {
+      if (fs.existsSync(dir)) {
+        walk(dir);
+      }
+    });
+
+    log(`GET /search: "${term}" (${results.length} results)`);
+    res.json(results);
+  } catch (error) {
+    log(`ERROR /search: ${error.message}`);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Start server
+app.listen(PORT, "127.0.0.1", () => {
+  log(`✅ MCP Server Running → http://127.0.0.1:${PORT}`);
+  if (!AUTH_TOKEN) {
+    log("⚠️  WARNING: MCP_AUTH_TOKEN not set - server running without authentication");
+  }
+  if (config.readOnly) {
+    log("📖 Server running in READ-ONLY mode");
+  }
+});

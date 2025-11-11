@@ -1,22 +1,19 @@
 {
-
   "name": "mem-rebuild-pl-mcp",
-
   "version": "1.0.0",
-
   "root": "../",
-
+  "readOnly": true,
+  "allowedPaths": [
+    "src",
+    "public",
+    "scripts",
+    "content"
+  ],
   "endpoints": {
-
+    "health": "/health",
     "list": "/ls",
-
     "read": "/read",
-
     "write": "/write",
-
     "search": "/search"
-
   }
-
 }
-
