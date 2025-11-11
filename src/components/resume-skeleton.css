@@ -1,0 +1,10 @@
+.resume-skeleton { display:block; max-width:900px; margin:16px auto; }
+
+.resume-skeleton .s-header { height:28px; width:60%; background:#e8e8e8; margin-bottom:12px; border-radius:4px; }
+
+.resume-skeleton .s-line { height:12px; width:100%; background:#f0f0f0; margin:8px 0; border-radius:3px; }
+
+.resume-skeleton .s-line.short { width:45%; }
+
+.resume-skeleton .s-section { margin-top:12px; padding:8px 0; }
+
