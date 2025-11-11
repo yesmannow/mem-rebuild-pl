@@ -179,7 +179,7 @@ const CareerHighlights: React.FC = () => {
         }
       });
 
-      if (closestCard) {
+      if (closestCard !== null) {
         setActiveYear(closestCard.year);
       }
     };
