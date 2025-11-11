@@ -1,0 +1,45 @@
+.portfolio-list {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.portfolio-list h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.portfolio-list dl {
+  margin: 0;
+  padding: 0;
+}
+
+.portfolio-list dt {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-top: 1.5rem;
+}
+
+.portfolio-list dt:first-child {
+  margin-top: 0;
+}
+
+.portfolio-list dd {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.portfolio-item-dates {
+  margin-left: 0.5rem;
+}
+
+.portfolio-item-location {
+  margin-left: 0.5rem;
+}
+
+.portfolio-item-summary {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+

@@ -1,4 +1,5 @@
 import React from 'react';
+import './portfolio-list.css';
 
 interface ExperienceItem {
   role?: string;
@@ -29,19 +30,19 @@ export default function PortfolioList({ data }: PortfolioListProps) {
       <h2>Experience</h2>
       <dl>
         {data.map((item, index) => (
-          <div key={index} style={{ marginBottom: '1.5rem' }}>
-            <dt style={{ fontWeight: 'bold', fontSize: '1.1em' }}>
+          <React.Fragment key={index}>
+            <dt className="portfolio-item-term">
               {item.role || item.title || item.name || `Item ${index + 1}`}
             </dt>
-            <dd style={{ marginLeft: '1rem', marginTop: '0.5rem' }}>
+            <dd className="portfolio-item-details">
               {item.company && <strong>{item.company}</strong>}
-              {item.dates && <span style={{ marginLeft: '0.5rem' }}>— {item.dates}</span>}
-              {item.location && <span style={{ marginLeft: '0.5rem' }}>({item.location})</span>}
+              {item.dates && <span className="portfolio-item-dates">— {item.dates}</span>}
+              {item.location && <span className="portfolio-item-location">({item.location})</span>}
               {item.summary && (
-                <p style={{ marginTop: '0.5rem', marginBottom: 0 }}>{item.summary}</p>
+                <p className="portfolio-item-summary">{item.summary}</p>
               )}
             </dd>
-          </div>
+          </React.Fragment>
         ))}
       </dl>
     </div>
