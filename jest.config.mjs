@@ -4,7 +4,6 @@ export default {
     "/node_modules/",
     "/tests/a11y/"
   ],
-  extensionsToTreatAsEsm: [".mjs"],
   transform: {}
 };
 
