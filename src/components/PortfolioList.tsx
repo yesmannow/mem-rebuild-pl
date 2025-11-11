@@ -1,7 +1,21 @@
 import React from 'react';
 
+interface ExperienceItem {
+  role?: string;
+  title?: string;
+  name?: string;
+  company?: string;
+  dates?: string;
+  location?: string;
+  summary?: string;
+}
+
+interface PortfolioListProps {
+  data: ExperienceItem[] | null;
+}
+
 // PortfolioList component - renders portfolio/experience data
-export default function PortfolioList({ data }) {
+export default function PortfolioList({ data }: PortfolioListProps) {
   if (!data || !Array.isArray(data)) {
     return (
       <div className="portfolio-list">
@@ -33,4 +47,3 @@ export default function PortfolioList({ data }) {
     </div>
   );
 }
-
