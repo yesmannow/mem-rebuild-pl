@@ -150,6 +150,13 @@ const AppRouter: React.FC = () => {
           'Explore curated brand identity systems and design systems created with the Brand Builder',
         keywords: 'brand gallery, brand boards, design systems, brand identity',
       };
+    } else if (path === '/demos') {
+      return {
+        title: 'Interactive Demos | BearCave Marketing',
+        description:
+          'Explore interactive demos and tools built for marketing automation, lead generation, and growth systems',
+        keywords: 'interactive demos, marketing tools, marketing automation demos, lead generation tools',
+      };
     } else if (path === '/brand-builder') {
       return {
         title: 'Brand Builder | BearCave Marketing',
