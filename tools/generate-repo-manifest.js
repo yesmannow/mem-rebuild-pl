@@ -51,7 +51,7 @@ async function walkDirectory(dir, relativePath = '') {
         entries.push(...await walkDirectory(fullPath, relPath));
       } else if (item.isFile()) {
         entries.push({
-          relativePath: relPath,
+          relativePath: relPath.replace(/\\/g, '/'),
           fullPath: fullPath
         });
       }
@@ -119,10 +119,10 @@ async function generateManifest() {
 
   // Find global styles under src/styles
   const allFiles = await walkDirectory(repoRoot);
-  const styleFiles = allFiles.filter(file => 
-    file.relativePath.startsWith('src/styles/') && 
-    file.relativePath.endsWith('.css')
-  );
+  const styleFiles = allFiles.filter(file => {
+    const normalized = file.relativePath.replace(/\\/g, '/');
+    return normalized.startsWith('src/styles/') && normalized.endsWith('.css');
+  });
   manifest.globalStyles = await Promise.all(styleFiles.map(getFileInfo));
 
   // Find motion files (*Motion* or animationVariants)

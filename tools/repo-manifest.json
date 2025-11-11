@@ -1,0 +1,1547 @@
+{
+  "generatedAt": "2025-11-11T03:07:32.793Z",
+  "repoRoot": ".",
+  "tailwindConfig": {
+    "path": "tailwind.config.js",
+    "size": 6652,
+    "snippet": "/** @type {import('tailwindcss').Config} */\r\nexport default {\r\n  darkMode: ['class'], // controlled via .dark class on <html>\r\n  content: [\r\n    \"./index.html\",\r\n    \"./src/**/*.{js,ts,jsx,tsx}\","
+  },
+  "globalStyles": [
+    {
+      "path": "src/styles/bearcave-brand.css",
+      "size": 11304,
+      "snippet": "/* ===================================================================\r\n   BEARCAVE MARKETING - BRAND IDENTITY SYSTEM\r\n   Dark Gradient Aesthetic • Professional • Modern\r\n   =========================="
+    },
+    {
+      "path": "src/styles/bio-cinematic.css",
+      "size": 2929,
+      "snippet": "/* ===================================================================\r\n   JACOB DARLING PORTFOLIO - CINEMATIC BIO STYLING\r\n   Human-Centered Visual System\r\n   ========================================"
+    },
+    {
+      "path": "src/styles/case-study-tokens.css",
+      "size": 6284,
+      "snippet": "/* Case Study Visual Identity Tokens */\r\n/* CSS Variables for dynamic theming per case study */\r\n\r\n:root {\r\n  /* The Launchpad Visual Identity */\r\n  --launchpad-primary: #3CC6C4;\r\n  --launchpad-second"
+    },
+    {
+      "path": "src/styles/critical.css",
+      "size": 1730,
+      "snippet": "/* Critical CSS - Above-the-fold styles */\r\n:root {\r\n  --bc-bg: #0D0D0F;\r\n  --bc-text-primary: #FFFFFF;\r\n  --bc-primary: #3B82F6;\r\n  --bc-accent: #EC4899;\r\n  --bc-gradient-brand: linear-gradient(135de"
+    },
+    {
+      "path": "src/styles/enhanced-animations.css",
+      "size": 3847,
+      "snippet": "/* Enhanced Micro-Interactions and Animations */\r\n\r\n/* Glow Pulse Animation for CTAs */\r\n@keyframes glowPulse {\r\n  0%,\r\n  100% {\r\n    box-shadow:\r\n      0 0 10px rgba(59, 130, 246, 0.3),\r\n      0 0 20"
+    },
+    {
+      "path": "src/styles/globals.css",
+      "size": 2699,
+      "snippet": "@tailwind base;\r\n@tailwind components;\r\n@tailwind utilities;\r\n\r\n@layer base {\r\n  :root {\r\n    --background: 0 0% 100%;\r\n    --foreground: 222.2 84% 4.9%;\r\n    --card: 0 0% 100%;\r\n    --card-foreground"
+    },
+    {
+      "path": "src/styles/home-sections.css",
+      "size": 6239,
+      "snippet": "/* ===================================================================\r\n   Home Page Section Treatments\r\n   Creates visual variety and separation between major homepage blocks\r\n   ===================="
+    },
+    {
+      "path": "src/styles/mobile-optimization.css",
+      "size": 7150,
+      "snippet": "/* Mobile-First Optimization Styles */\n\n/* Hero Section Mobile Fixes */\n@media (max-width: 768px) {\n  .proactive-support-hero {\n    padding-top: 4rem;\n    padding-bottom: 2rem;\n  }\n\n  .hero-container"
+    },
+    {
+      "path": "src/styles/skip-to-content.css",
+      "size": 508,
+      "snippet": "/* Skip to content link - hidden by default, visible on focus */\r\n.skip-to-content {\r\n  position: absolute;\r\n  top: -100px;\r\n  left: 0;\r\n  z-index: 10000;\r\n  padding: var(--bc-space-md) var(--bc-space"
+    },
+    {
+      "path": "src/styles/tokens.css",
+      "size": 6957,
+      "snippet": "/* ===================================================================\r\n   JACOB DARLING PORTFOLIO - DESIGN TOKENS\r\n   Cinematic • Modern • Technological Elegance\r\n   ================================="
+    },
+    {
+      "path": "src/styles/typography.css",
+      "size": 9031,
+      "snippet": "/* ===================================================================\r\n   JACOB DARLING PORTFOLIO - TYPOGRAPHY SYSTEM\r\n   Cinematic • Modern • Technological Elegance\r\n   ============================="
+    }
+  ],
+  "motionFiles": [
+    {
+      "path": "dist/images/case-studies/promotional-campaigns.svg",
+      "size": 1111
+    },
+    {
+      "path": "public/images/case-studies/promotional-campaigns.svg",
+      "size": 1111
+    },
+    {
+      "path": "src/components/shared/MotionVariants.ts",
+      "size": 546,
+      "snippet": "import { Variants } from 'framer-motion';\r\nimport { fadeInUp, scaleIn, staggerContainer } from '../../utils/animationVariants';\r\n\r\n// Re-export existing variants\r\nexport { fadeInUp, scaleIn, staggerCo"
+    },
+    {
+      "path": "src/pages/case-studies/promotional-campaigns/data.json",
+      "size": 3448,
+      "snippet": "{\n  \"id\": \"promotional-campaigns\",\n  \"title\": \"Seasonal Promotional Campaigns\",\n  \"subtitle\": \"Dynamic promotional design system for retail marketing\",\n  \"client\": \"Retail Chain\",\n  \"year\": \"2022\","
+    },
+    {
+      "path": "src/styles/motion-tokens.js",
+      "size": 7929,
+      "snippet": "/* ===================================================================\r\n   JACOB DARLING PORTFOLIO - MOTION & INTERACTION SYSTEM\r\n   Cinematic • Modern • Technological Elegance\r\n   ==================="
+    },
+    {
+      "path": "src/utils/animationVariants.ts",
+      "size": 2484,
+      "snippet": "import { Variants } from 'framer-motion';\r\n\r\nexport const fadeInUp: Variants = {\r\n  hidden: { opacity: 0, y: 30 },\r\n  visible: {\r\n    opacity: 1,\r\n    y: 0,\r\n    transition: {\r\n      duration: 0.6,"
+    },
+    {
+      "path": "src/utils/motion-helpers.ts",
+      "size": 1018,
+      "snippet": "// Helper to cast motion token props with proper easing types\r\nimport { HTMLMotionProps, Easing, TargetAndTransition } from 'framer-motion';\r\n\r\nexport function castMotionProps<T extends Record<string,"
+    },
+    {
+      "path": "src/utils/motion-sync.ts",
+      "size": 8356,
+      "snippet": "import Lenis from 'lenis';\r\nimport { gsap } from 'gsap';\r\nimport { ScrollTrigger } from 'gsap/ScrollTrigger';\r\n\r\ngsap.registerPlugin(ScrollTrigger);\r\n\r\n// Global Lenis instance - single source of trut"
+    },
+    {
+      "path": "src/utils/motion-tokens-typed.ts",
+      "size": 1963,
+      "snippet": "// Type-safe wrapper for motion-tokens.js\r\nimport { motion as jsMotionTokens, stagger as jsStagger } from '../styles/motion-tokens.js';\r\nimport { HTMLMotionProps, Easing } from 'framer-motion';\r\n\r\ntyp"
+    },
+    {
+      "path": "src/utils/narrativeMotion.js",
+      "size": 6532,
+      "snippet": "// Narrative Motion Utilities for Cinematic Resume Experience\r\nimport { gsap } from 'gsap';\r\nimport { ScrollTrigger } from 'gsap/ScrollTrigger';\r\nimport { ScrollToPlugin } from 'gsap/ScrollToPlugin';"
+    },
+    {
+      "path": "src/utils/narrativeMotion.ts",
+      "size": 5078,
+      "snippet": "// 🎞️ Scroll-triggered animation presets for cinematic résumé\r\nimport gsap from 'gsap';\r\nimport { ScrollTrigger } from 'gsap/ScrollTrigger';\r\nimport { Variants, Easing } from 'framer-motion';\r\n\r\ngsap"
+    }
+  ],
+  "pages": [
+    {
+      "directory": null,
+      "files": [
+        {
+          "path": "src/pages/About.css",
+          "size": 14386,
+          "snippet": ".about-page {\r\n  min-height: 100vh;\r\n  padding-top: 2rem;\r\n  position: relative;\r\n  overflow-x: hidden;\r\n  background: linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 30%, #0a0a0a 70%, #0d0d0d 100%);\r\n  c"
+        },
+        {
+          "path": "src/pages/About.tsx",
+          "size": 19045,
+          "snippet": "import React, { useState, useEffect } from 'react';\r\nimport { Link } from 'react-router-dom';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport AnimatedSection from '../components/anim"
+        },
+        {
+          "path": "src/pages/ApplicationDetail.css",
+          "size": 12335,
+          "snippet": ".application-detail {\r\n  min-height: 100vh;\r\n  padding: 3rem 2rem 5rem;\r\n  max-width: 1200px;\r\n  margin: 0 auto;\r\n  position: relative;\r\n  background: linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 30%,"
+        },
+        {
+          "path": "src/pages/ApplicationDetail.tsx",
+          "size": 12692,
+          "snippet": "import React, { useState } from 'react';\r\nimport { useParams, Link, Navigate } from 'react-router-dom';\r\nimport { motion } from 'framer-motion';\r\nimport { getApplicationById } from '../data/applicatio"
+        },
+        {
+          "path": "src/pages/Applications.css",
+          "size": 22924,
+          "snippet": ".applications-page {\r\n  min-height: 100vh;\r\n  padding: 3rem 2rem 6rem;\r\n  position: relative;\r\n  overflow-x: hidden;\r\n  background: linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 30%, #0a0a0a 70%, #0d0d0"
+        },
+        {
+          "path": "src/pages/Applications.tsx",
+          "size": 14964,
+          "snippet": "import React, { useState, useMemo } from 'react';\r\nimport { Link } from 'react-router-dom';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { applications, getAllCategories } from '."
+        },
+        {
+          "path": "src/pages/brand-builder.tsx",
+          "size": 175,
+          "snippet": "// Backward-compatibility alias for brand-builder route\r\n// This file can be removed after confirming no external references exist\r\nexport { default } from './BrandBuilder';"
+        },
+        {
+          "path": "src/pages/BrandBuilder.css",
+          "size": 9077,
+          "snippet": "/* Brand Builder Page Styles */\r\n.brand-builder-page {\r\n  min-height: 100vh;\r\n  background: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);\r\n  position: relative;\r\n  overflow-x: hidden"
+        },
+        {
+          "path": "src/pages/BrandBuilder.tsx",
+          "size": 13534,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport {\r\n  ChevronRight,\r\n  Sparkles,\r\n  Palette,\r\n  Type,\r\n  Image,\r\n  Download,\r\n  Share2,\r\n  Che"
+        },
+        {
+          "path": "src/pages/CaseStudies.css",
+          "size": 13592,
+          "snippet": "/* Modern Case Studies Page */\r\n.case-studies-modern {\r\n  min-height: 100vh;\r\n  background: linear-gradient(180deg, #0a0e27 0%, #0d0d0d 50%, #0a0e27 100%);\r\n  position: relative;\r\n  overflow-x: hidden"
+        },
+        {
+          "path": "src/pages/CaseStudies.tsx",
+          "size": 13398,
+          "snippet": "import React, { useState, useMemo } from 'react';\r\nimport { Link } from 'react-router-dom';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { caseStudies, getCategories } from '../da"
+        },
+        {
+          "path": "src/pages/CaseStudiesEnhanced.css",
+          "size": 1670,
+          "snippet": "/* Enhanced Case Studies Filter Controls */\n\n.search-controls {\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  margin-bottom: 1rem;\n}\n\n.search-bar {\n  position: relative;\n  max-width: 40"
+        },
+        {
+          "path": "src/pages/CaseStudyDetail.css",
+          "size": 9468,
+          "snippet": "/* Case Study Detail Page - Modern Styling */\r\n.case-study-detail-modern {\r\n  min-height: 100vh;\r\n  background: linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 30%, #0a0a0a 70%, #0d0d0d 100%);\r\n  color: #"
+        },
+        {
+          "path": "src/pages/CaseStudyDetail.tsx",
+          "size": 10252,
+          "snippet": "import React, { useEffect } from 'react';\r\nimport { useParams, Link, Navigate } from 'react-router-dom';\r\nimport { motion } from 'framer-motion';\r\nimport { getCaseStudyBySlug } from '../data/caseStudi"
+        },
+        {
+          "path": "src/pages/Contact.css",
+          "size": 10421,
+          "snippet": "/* Modern Contact Page - Light Design */\r\n.contact-page {\r\n  min-height: 100vh;\r\n  background: #ffffff;\r\n  color: #1f2937;\r\n}\r\n\r\n.contact-header {\r\n  text-align: center;\r\n  max-width: 1200px;\r\n  margi"
+        },
+        {
+          "path": "src/pages/Contact.tsx",
+          "size": 27200,
+          "snippet": "import React, { useState, useEffect, useCallback } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { Link } from 'react-router-dom';\r\nimport {\r\n  Mail,\r\n  Linkedin,"
+        },
+        {
+          "path": "src/pages/Demos.tsx",
+          "size": 1222,
+          "snippet": "import React from 'react';\r\nimport { Helmet } from 'react-helmet-async';\r\n// @ts-ignore - dataset may not exist during dev\r\nimport demos from '@data/demos.json';\r\nimport DemoCard from '@components/dem"
+        },
+        {
+          "path": "src/pages/Design.css",
+          "size": 12154,
+          "snippet": "/* Modern Design Page */\r\n.design-page-modern {\r\n  min-height: 100vh;\r\n  background: linear-gradient(180deg, #1a0e2e 0%, #0d0d0d 50%, #1a0e2e 100%);\r\n  position: relative;\r\n  overflow-x: hidden;\r\n}"
+        },
+        {
+          "path": "src/pages/Design.tsx",
+          "size": 16125,
+          "snippet": "import React, { useState, useEffect, useMemo } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport gsap from 'gsap';\r\nimport ScrollTrigger from 'gsap/ScrollTrigger';\r\nimpor"
+        },
+        {
+          "path": "src/pages/Gallery.css",
+          "size": 7565,
+          "snippet": "/* Gallery Page Styles */\r\n.gallery-page {\r\n  min-height: 100vh;\r\n  background: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);\r\n  position: relative;\r\n  overflow-x: hidden;\r\n}\r\n\r\n/* H"
+        },
+        {
+          "path": "src/pages/Gallery.tsx",
+          "size": 980,
+          "snippet": "import React from 'react';\r\nimport { Helmet } from 'react-helmet-async';\r\nimport items from '@data/gallery.json';\r\nimport GalleryGrid from '@components/gallery/GalleryGrid';\r\nimport PageLayout from '@"
+        },
+        {
+          "path": "src/pages/Home.css",
+          "size": 10858,
+          "snippet": ".home {\r\n  min-height: 100vh;\r\n  position: relative;\r\n  overflow-x: hidden;\r\n}\r\n\r\n/* Background patterns using design assets */\r\n.home::before {\r\n  content: '';\r\n  position: fixed;\r\n  top: 50%;\r\n  rig"
+        },
+        {
+          "path": "src/pages/index.tsx",
+          "size": 8409,
+          "snippet": "import React, { lazy, Suspense } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Helmet } from 'react-helmet-async';\r\nimport BrandHero from '../components/hero/BrandHero';\r\nimport Her"
+        },
+        {
+          "path": "src/pages/InspirationDetail.css",
+          "size": 4287,
+          "snippet": ".inspiration-detail {\r\n  min-height: 100vh;\r\n  background: linear-gradient(to bottom, #f9fafb, #ffffff);\r\n  padding: 2rem 0;\r\n}\r\n\r\n.inspiration-detail__container {\r\n  max-width: 900px;\r\n  margin: 0 au"
+        },
+        {
+          "path": "src/pages/InspirationDetail.tsx",
+          "size": 6829,
+          "snippet": "import React, { useMemo } from 'react';\r\nimport { useParams, Link, Navigate } from 'react-router-dom';\r\nimport { ArrowLeft, ExternalLink, Calendar, Tag } from 'lucide-react';\r\nimport inspirationProjec"
+        },
+        {
+          "path": "src/pages/InspirationPage.css",
+          "size": 712,
+          "snippet": "/* Inspiration Page Specific Styles */\r\n.inspiration-page-wrapper {\r\n  position: relative;\r\n  min-height: 100vh;\r\n  background: transparent !important;\r\n  isolation: isolate;\r\n  z-index: 0;\r\n}\r\n\r\n/* E"
+        },
+        {
+          "path": "src/pages/InspirationPage.tsx",
+          "size": 10109,
+          "snippet": "import React, { useState, useEffect } from 'react';\r\nimport { Link } from 'react-router-dom';\r\nimport InspirationCard from '../components/InspirationCard';\r\nimport AnimatedBackground from '../componen"
+        },
+        {
+          "path": "src/pages/NotFound.tsx",
+          "size": 1166,
+          "snippet": "import React from 'react';\r\nimport { Link } from 'react-router-dom';\r\n\r\nexport default function NotFound() {\r\n  return (\r\n    <main className=\"min-h-dvh flex items-center justify-center container-px\">"
+        },
+        {
+          "path": "src/pages/Photography.css",
+          "size": 11573,
+          "snippet": "/* Modern Photography Page */\r\n.photography-page-modern {\r\n  min-height: 100vh;\r\n  background: linear-gradient(180deg, #0a0e27 0%, #0d0d0d 50%, #0a0e27 100%);\r\n  position: relative;\r\n  overflow-x: hid"
+        },
+        {
+          "path": "src/pages/Photography.tsx",
+          "size": 14876,
+          "snippet": "import React, { useState, useRef, useEffect, useMemo } from 'react';\r\nimport { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';\r\nimport gsap from 'gsap';\r\nimport ScrollTrigger"
+        },
+        {
+          "path": "src/pages/ProjectDetail.css",
+          "size": 4237,
+          "snippet": ".project-detail {\r\n  min-height: 100vh;\r\n  padding: 3rem 2rem 5rem;\r\n  max-width: 1200px;\r\n  margin: 0 auto;\r\n  position: relative;\r\n}\r\n\r\n/* Subtle connection pattern for project details */\r\n.project-"
+        },
+        {
+          "path": "src/pages/ProjectDetail.tsx",
+          "size": 2093,
+          "snippet": "import React from 'react';\r\nimport { useParams, Link, Navigate } from 'react-router-dom';\r\nimport { projects } from '../data/projects';\r\nimport './ProjectDetail.css';\r\n\r\nconst ProjectDetail: React.FC"
+        },
+        {
+          "path": "src/pages/Projects.css",
+          "size": 13315,
+          "snippet": ".projects-page {\r\n  min-height: 100vh;\r\n  padding: 3rem 2rem;\r\n  max-width: 1400px;\r\n  margin: 0 auto;\r\n  position: relative;\r\n}\r\n\r\n/* Background Pattern */\r\n.projects-page::before {\r\n  content: '';"
+        },
+        {
+          "path": "src/pages/Projects.tsx",
+          "size": 10287,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport AnimatedSection from '../components/animations/AnimatedSection';\r\nimport TextReveal from '../components/animat"
+        },
+        {
+          "path": "src/pages/Resume.css",
+          "size": 22360,
+          "snippet": "/* ===================================================================\r\n   CINEMATIC RESUME PAGE - BEARCAVE BRANDING\r\n   =================================================================== */\r\n\r\n.resu"
+        },
+        {
+          "path": "src/pages/Resume.tsx",
+          "size": 28334,
+          "snippet": "import React, { useState, useEffect, useRef } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { Link } from 'react-router-dom';\r\nimport { Helmet } from 'react-helmet-as"
+        },
+        {
+          "path": "src/pages/SideProjects.css",
+          "size": 11899,
+          "snippet": "/* Marketing Services Page Styles */\r\n.side-projects-page {\r\n  min-height: 100vh;\r\n  background: linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 30%, #0a0a0a 70%, #0d0d0d 100%);\r\n  color: #ffffff;\r\n  over"
+        },
+        {
+          "path": "src/pages/SideProjects.tsx",
+          "size": 10747,
+          "snippet": "import React, { useEffect, useRef, useState, useMemo } from 'react';\r\nimport { motion, Variants, Easing } from 'framer-motion';\r\nimport { gsap } from 'gsap';\r\nimport { ScrollTrigger } from 'gsap/Scrol"
+        },
+        {
+          "path": "src/pages/Testimonials.css",
+          "size": 6378,
+          "snippet": ".testimonials-page {\r\n  min-height: 100vh;\r\n  padding: 3rem 2rem;\r\n  position: relative;\r\n}\r\n\r\n.testimonials-header {\r\n  text-align: center;\r\n  max-width: 900px;\r\n  margin: 0 auto 4rem;\r\n}\r\n\r\n.page-ti"
+        },
+        {
+          "path": "src/pages/Testimonials.tsx",
+          "size": 6623,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport AnimatedSection from '../components/animations/AnimatedSection';\r\nimport TextReveal from '../components/animat"
+        },
+        {
+          "path": "src/pages/Toolbox.css",
+          "size": 7840,
+          "snippet": ".toolbox-page {\r\n  min-height: 100vh;\r\n  padding-top: 2rem;\r\n  position: relative;\r\n  overflow-x: hidden;\r\n  background: linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 30%, #0a0a0a 70%, #0d0d0d 100%);"
+        },
+        {
+          "path": "src/pages/Toolbox.tsx",
+          "size": 9672,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport AnimatedSection from '../components/animations/AnimatedSection';\r\nimport SkillsRadar from '.."
+        }
+      ]
+    },
+    {
+      "directory": "brand",
+      "files": [
+        {
+          "path": "src/pages/brand/BrandDetail.css",
+          "size": 6154,
+          "snippet": "/* Brand Detail Page Styles */\r\n.brand-detail-page {\r\n  min-height: 100vh;\r\n  background: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);\r\n  padding: 2rem;\r\n}\r\n\r\n/* Header */\r\n.brand-h"
+        },
+        {
+          "path": "src/pages/brand/BrandDetail.tsx",
+          "size": 6894,
+          "snippet": "import React, { useState, useEffect } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { useParams, Link } from 'react-router-dom';\r\nimport { ArrowLeft, Download, Share2, Copy } from 'lu"
+        },
+        {
+          "path": "src/pages/brand/[slug].css",
+          "size": 6137,
+          "snippet": "/* Brand Detail Page Styles */\r\n.brand-detail-page {\r\n  min-height: 100vh;\r\n  background: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);\r\n  padding: 2rem;\r\n}\r\n\r\n/* Header */\r\n.brand-h"
+        },
+        {
+          "path": "src/pages/brand/[slug].tsx",
+          "size": 6826,
+          "snippet": "import React, { useState, useEffect } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { useParams, Link } from 'react-router-dom';\r\nimport { ArrowLeft, Download, Share2, Copy } from 'lu"
+        }
+      ]
+    },
+    {
+      "directory": "case-studies",
+      "files": [
+        {
+          "path": "src/pages/case-studies/brand-identity-systems/data.json",
+          "size": 3576,
+          "snippet": "{\n  \"id\": \"brand-identity-systems\",\n  \"title\": \"Brand Identity Systems\",\n  \"subtitle\": \"Comprehensive brand identity development for diverse clients\",\n  \"client\": \"Multiple Clients\",\n  \"year\": \"2022-2"
+        },
+        {
+          "path": "src/pages/case-studies/branding-reel/data.json",
+          "size": 356,
+          "snippet": "{\n  \"title\": \"Branding Reel\",\n  \"subtitle\": \"Capturing the essence of the brand\",\n  \"role\": \"Brand Strategist, Motion Designer\",\n  \"tools\": [\"Illustrator\", \"After Effects\", \"Premiere Pro\"],\n  \"summary"
+        },
+        {
+          "path": "src/pages/case-studies/branding-reel/index.tsx",
+          "size": 1754,
+          "snippet": "import React from 'react';\r\nimport CaseStudyLayout from '../../../components/case-study/CaseStudyLayout';\r\nimport HeroSection from '../../../components/case-study/HeroSection';\r\nimport Overview from '"
+        },
+        {
+          "path": "src/pages/case-studies/cinematic-portfolio/data.json",
+          "size": 360,
+          "snippet": "{\n  \"title\": \"Cinematic Portfolio\",\n  \"subtitle\": \"Dynamic storytelling through motion\",\n  \"role\": \"Creative Director, Animator\",\n  \"tools\": [\"After Effects\", \"Premiere Pro\", \"GSAP\"],\n  \"summary\": \"Ev"
+        },
+        {
+          "path": "src/pages/case-studies/cinematic-portfolio/index.tsx",
+          "size": 1786,
+          "snippet": "import React from 'react';\r\nimport CaseStudyLayout from '../../../components/case-study/CaseStudyLayout';\r\nimport HeroSection from '../../../components/case-study/HeroSection';\r\nimport Overview from '"
+        },
+        {
+          "path": "src/pages/case-studies/graston-ceu-system/index.tsx",
+          "size": 3890,
+          "snippet": "import React from 'react';\r\nimport { Helmet } from 'react-helmet-async';\r\nimport { grastonCEU } from '@data/case-studies/graston-ceu';\r\nimport HeroBlock from '@components/case-study/HeroBlock';\r\nimpor"
+        },
+        {
+          "path": "src/pages/case-studies/graston-dashboard/data.json",
+          "size": 380,
+          "snippet": "{\n  \"title\": \"Graston Dashboard Redesign\",\n  \"subtitle\": \"UX/UI overhaul for healthcare SaaS\",\n  \"role\": \"Design Lead, Front-End Dev\",\n  \"tools\": [\"React\", \"Figma\", \"GSAP\"],\n  \"summary\": \"Healthcare d"
+        },
+        {
+          "path": "src/pages/case-studies/graston-dashboard/index.tsx",
+          "size": 2113,
+          "snippet": "import React, { Suspense, lazy } from 'react';\r\nimport CaseStudyLayout from '../../../components/case-study/CaseStudyLayout';\r\nimport HeroSection from '../../../components/case-study/HeroSection';\r\nim"
+        },
+        {
+          "path": "src/pages/case-studies/healthcare-campaign/data.json",
+          "size": 3525,
+          "snippet": "{\n  \"id\": \"healthcare-campaign\",\n  \"title\": \"Healthcare Marketing Campaign\",\n  \"subtitle\": \"Comprehensive healthcare advertising design system\",\n  \"client\": \"Healthcare Provider\",\n  \"year\": \"2021\","
+        },
+        {
+          "path": "src/pages/case-studies/promotional-campaigns/data.json",
+          "size": 3448,
+          "snippet": "{\n  \"id\": \"promotional-campaigns\",\n  \"title\": \"Seasonal Promotional Campaigns\",\n  \"subtitle\": \"Dynamic promotional design system for retail marketing\",\n  \"client\": \"Retail Chain\",\n  \"year\": \"2022\","
+        },
+        {
+          "path": "src/pages/case-studies/rbe-law/index.tsx",
+          "size": 3804,
+          "snippet": "import React from 'react';\r\nimport { Helmet } from 'react-helmet-async';\r\nimport { rbeLaw } from '@data/case-studies/rbe-law';\r\nimport HeroBlock from '@components/case-study/HeroBlock';\r\nimport Challe"
+        },
+        {
+          "path": "src/pages/case-studies/the-compass/index.tsx",
+          "size": 4277,
+          "snippet": "import React from 'react';\r\nimport { Helmet } from 'react-helmet-async';\r\nimport { theCompass } from '@data/case-studies/the-compass';\r\nimport HeroBlock from '@components/case-study/HeroBlock';\r\nimpor"
+        },
+        {
+          "path": "src/pages/case-studies/the-conductor/index.tsx",
+          "size": 3940,
+          "snippet": "import React from 'react';\r\nimport { Helmet } from 'react-helmet-async';\r\nimport { theConductor } from '@data/case-studies/the-conductor';\r\nimport HeroBlock from '@components/case-study/HeroBlock';\r\ni"
+        },
+        {
+          "path": "src/pages/case-studies/the-engine-room/index.tsx",
+          "size": 4374,
+          "snippet": "import React from 'react';\r\nimport { Helmet } from 'react-helmet-async';\r\nimport { theEngineRoom } from '@data/case-studies/the-engine-room';\r\nimport HeroBlock from '@components/case-study/HeroBlock';"
+        },
+        {
+          "path": "src/pages/case-studies/the-fortress/index.tsx",
+          "size": 3897,
+          "snippet": "import React from 'react';\r\nimport { Helmet } from 'react-helmet-async';\r\nimport { theFortress } from '@data/case-studies/the-fortress';\r\nimport HeroBlock from '@components/case-study/HeroBlock';\r\nimp"
+        },
+        {
+          "path": "src/pages/case-studies/the-guardian/index.tsx",
+          "size": 3888,
+          "snippet": "import React from 'react';\r\nimport { Helmet } from 'react-helmet-async';\r\nimport { theGuardian } from '@data/case-studies/the-guardian';\r\nimport HeroBlock from '@components/case-study/HeroBlock';\r\nimp"
+        },
+        {
+          "path": "src/pages/case-studies/the-launchpad/index.tsx",
+          "size": 4291,
+          "snippet": "import React from 'react';\r\nimport { Helmet } from 'react-helmet-async';\r\nimport HeroBlock from '@components/case-study/HeroBlock';\r\nimport ChallengeSection from '@components/case-study/ChallengeSecti"
+        },
+        {
+          "path": "src/pages/case-studies/ultimate-tech-roi/index.tsx",
+          "size": 4042,
+          "snippet": "import React from 'react';\r\nimport { Helmet } from 'react-helmet-async';\r\nimport { ultimateTechRoi } from '@data/case-studies/ultimate-tech-roi';\r\nimport HeroBlock from '@components/case-study/HeroBlo"
+        }
+      ]
+    },
+    {
+      "directory": "side-projects",
+      "files": [
+        {
+          "path": "src/pages/side-projects/SideProjectDetail.css",
+          "size": 17120,
+          "snippet": "/* Marketing Services Detail Page Styles */\r\n.side-project-detail {\r\n  min-height: 100vh;\r\n  background: linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 30%, #0a0a0a 70%, #0d0d0d 100%);\r\n  color: #ffffff;"
+        },
+        {
+          "path": "src/pages/side-projects/SideProjectDetail.tsx",
+          "size": 20280,
+          "snippet": "import React, { useEffect, useRef, useState } from 'react';\r\nimport { useParams, Link } from 'react-router-dom';\r\nimport { motion } from 'framer-motion';\r\nimport { gsap } from 'gsap';\r\nimport { Scroll"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "directory": null,
+      "files": [
+        {
+          "path": "src/components/AnimatedBackground.css",
+          "size": 1631,
+          "snippet": ".animated-background {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100vw;\r\n  height: 100vh;\r\n  overflow: hidden;\r\n  z-index: -1;\r\n  pointer-events: none;\r\n  background: linear-gradient(135deg"
+        },
+        {
+          "path": "src/components/AnimatedBackground.tsx",
+          "size": 1722,
+          "snippet": "import React, { useEffect, useRef } from 'react';\r\nimport './AnimatedBackground.css';\r\n\r\ninterface AnimatedBackgroundProps {\r\n  images: string[];\r\n  className?: string;\r\n}\r\n\r\nconst AnimatedBackground:"
+        },
+        {
+          "path": "src/components/ApplicationsPanel.tsx",
+          "size": 3928,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\n// Fixed JSX namespace issue and marked props as readonly\r\ntype ApplicationsPanelProps = {\r\n  readonly tokens: {\r\n    colors: { ["
+        },
+        {
+          "path": "src/components/ArtifactExplorer.tsx",
+          "size": 2879,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nconst hotspots = [\r\n  {\r\n    id: 'chair',\r\n    x: 20,\r\n    y: 30,\r\n    title: 'Eames Molded Plastic Chair',\r\n    de"
+        },
+        {
+          "path": "src/components/BrandComparison.tsx",
+          "size": 8359,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { X, GitCompare, CheckCircle2 } from 'lucide-react';\r\nimport OptimizedImage from './common/OptimizedImage';\r\ni"
+        },
+        {
+          "path": "src/components/BrandLineageSection.tsx",
+          "size": 847,
+          "snippet": "import React from 'react';\r\nimport SystemsTimeline from './SystemsTimeline';\r\n\r\nconst BrandLineageSection: React.FC = () => {\r\n  return (\r\n    <section className=\"py-16 bg-white\">\r\n      <div classNam"
+        },
+        {
+          "path": "src/components/BuilderShell.tsx",
+          "size": 2301,
+          "snippet": "import React, { useState } from 'react';\r\n\r\nconst steps = [\r\n  'Moodboard',\r\n  'Palette',\r\n  'Typography',\r\n  'Mark',\r\n  'Applications',\r\n  'Export',\r\n  'Save/Share',\r\n];\r\n\r\n// Properly typed props: e"
+        },
+        {
+          "path": "src/components/CareerTimeline.tsx",
+          "size": 1480,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nconst timeline = [\r\n  {\r\n    id: 'marketing-director',\r\n    role: 'Marketing Director',\r\n    company: 'Graston Technique®',"
+        },
+        {
+          "path": "src/components/CareerTimelineProgress.tsx",
+          "size": 2120,
+          "snippet": "import React, { useRef } from 'react';\r\nimport { motion, useScroll, useSpring } from 'framer-motion';\r\nimport TimelineItem from './TimelineItem';\r\nimport NoiseOverlay from './NoiseOverlay';\r\nimport Gl"
+        },
+        {
+          "path": "src/components/Carousel.css",
+          "size": 2151,
+          "snippet": "/* Carousel Styles */\r\n.carousel-container {\r\n  position: relative;\r\n  width: 100%;\r\n}\r\n\r\n.carousel-viewport {\r\n  overflow: hidden;\r\n}\r\n\r\n.carousel-container-inner {\r\n  display: flex;\r\n  touch-action:"
+        }
+      ]
+    },
+    {
+      "directory": "animations",
+      "files": [
+        {
+          "path": "src/components/animations/AnimatedCounter.tsx",
+          "size": 1178,
+          "snippet": "import React, { useEffect, useRef, useState } from 'react';\r\nimport { motion, useInView, useMotionValue, useSpring } from 'framer-motion';\r\n\r\ninterface AnimatedCounterProps {\r\n  from?: number;\r\n  to:"
+        },
+        {
+          "path": "src/components/animations/AnimatedSection.tsx",
+          "size": 990,
+          "snippet": "import React, { ReactNode } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { useInView } from 'framer-motion';\r\nimport { useRef } from 'react';\r\n\r\ninterface AnimatedSectionProps {\r\n  c"
+        },
+        {
+          "path": "src/components/animations/BackgroundLogos.css",
+          "size": 1400,
+          "snippet": ".background-logos {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  pointer-events: none;\r\n  z-index: 0;\r\n  overflow: hidden;\r\n}\r\n\r\n.bg-logo {\r\n  position: absolute;"
+        },
+        {
+          "path": "src/components/animations/BackgroundLogos.tsx",
+          "size": 2919,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport './BackgroundLogos.css';\r\n\r\nconst BackgroundLogos: React.FC = () => {\r\n  // Create multiple logo instances with different po"
+        },
+        {
+          "path": "src/components/animations/Floating3DCard.css",
+          "size": 439,
+          "snippet": ".floating-3d-card {\r\n  position: relative;\r\n  width: 100%;\r\n  height: 400px;\r\n  border-radius: 1rem;\r\n  overflow: hidden;\r\n}\r\n\r\n.floating-3d-card canvas {\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.float"
+        },
+        {
+          "path": "src/components/animations/Floating3DCard.tsx",
+          "size": 1586,
+          "snippet": "import React, { useRef, useEffect } from 'react';\r\nimport { Canvas, useFrame } from '@react-three/fiber';\r\nimport { Mesh } from 'three';\r\nimport { OrbitControls, PerspectiveCamera } from '@react-three"
+        },
+        {
+          "path": "src/components/animations/FloatingElements.css",
+          "size": 272,
+          "snippet": ".floating-elements-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100vh;\n  overflow: hidden;\n  pointer-events: none;\n  z-index: 0;\n}\n\n.floating-element {\n  position: abso"
+        },
+        {
+          "path": "src/components/animations/FloatingElements.tsx",
+          "size": 1778,
+          "snippet": "import React from 'react';\r\nimport { motion, Easing } from 'framer-motion';\r\nimport './FloatingElements.css';\r\n\r\nconst FloatingElements: React.FC = () => {\r\n  const createFloatingAnimation = (delay: n"
+        },
+        {
+          "path": "src/components/animations/index.ts",
+          "size": 303,
+          "snippet": "export { default as MagneticButton } from './MagneticButton';\r\nexport { default as ParallaxSection } from './ParallaxSection';\r\nexport { default as TiltCard } from './TiltCard';\r\nexport { default as F"
+        },
+        {
+          "path": "src/components/animations/LogoIntro.css",
+          "size": 1844,
+          "snippet": ".logo-intro-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);\n  display: flex;\n  flex-direction: colum"
+        }
+      ]
+    },
+    {
+      "directory": "automation",
+      "files": [
+        {
+          "path": "src/components/automation/AIAutomationShowcase.css",
+          "size": 7001,
+          "snippet": ".ai-automation-showcase {\r\n  padding: 5rem 0;\r\n  background: linear-gradient(to bottom, #000000, #0a0a0a);\r\n  color: #ffffff;\r\n}\r\n\r\n.showcase-container {\r\n  max-width: 1400px;\r\n  margin: 0 auto;\r\n  pa"
+        },
+        {
+          "path": "src/components/automation/AIAutomationShowcase.tsx",
+          "size": 9086,
+          "snippet": "import React, { useState, useRef } from 'react';\r\nimport { motion, useInView } from 'framer-motion';\r\nimport { Bot, Zap, MessageSquare, Mail, ArrowRight, Sparkles } from 'lucide-react';\r\nimport './AIA"
+        }
+      ]
+    },
+    {
+      "directory": "awards",
+      "files": [
+        {
+          "path": "src/components/awards/AwardCard.tsx",
+          "size": 6182,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Award, Star, Calendar } from 'lucide-react';\r\nimport { motionVariants } from '../../utils/narrativeMotion';\r\n\r\ninterface A"
+        },
+        {
+          "path": "src/components/awards/AwardShowcase.tsx",
+          "size": 5993,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Trophy, Sparkles, Star } from 'lucide-react';\r\nimport AwardCard from './AwardCard';\r\nimport { motionVariants } from '../.."
+        }
+      ]
+    },
+    {
+      "directory": "branding",
+      "files": [
+        {
+          "path": "src/components/branding/AnimatedLogo.css",
+          "size": 1338,
+          "snippet": ".animated-logo {\r\n  cursor: pointer;\r\n  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);\r\n  filter: drop-shadow(0 0 0px rgba(136, 171, 242, 0));\r\n}\r\n\r\n.animated-logo:hover {\r\n  filter: drop-shadow(0"
+        },
+        {
+          "path": "src/components/branding/AnimatedLogo.tsx",
+          "size": 4938,
+          "snippet": "import React, { useEffect, useRef, useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\n// import anime from \"animejs\"; // Temporarily disabled for deployment\r\nimport './AnimatedLogo.css"
+        },
+        {
+          "path": "src/components/branding/BearCaveLogo.css",
+          "size": 2391,
+          "snippet": "/* BearCave Logo Styles - Enhanced */\r\n.bearcave-logo {\r\n  display: inline-block;\r\n  vertical-align: middle;\r\n  filter: drop-shadow(0 2px 6px rgba(59, 130, 246, 0.15));\r\n  transition: filter 0.3s ease"
+        },
+        {
+          "path": "src/components/branding/BearCaveLogo.tsx",
+          "size": 12227,
+          "snippet": "import React from 'react';\r\nimport { motion, MotionProps } from 'framer-motion';\r\nimport './BearCaveLogo.css';\r\n\r\ninterface BearCaveLogoProps {\r\n  variant?: 'icon' | 'full';\r\n  size?: number;\r\n  class"
+        },
+        {
+          "path": "src/components/branding/Logo.tsx",
+          "size": 3138,
+          "snippet": "import React from \"react\";\r\nimport { motion } from \"framer-motion\";\r\n\r\ntype Variant = \"icon\" | \"word\" | \"lockup\";\r\ntype Tone = \"default\" | \"mono\";\r\n\r\nexport interface LogoProps {\r\n  variant?: Variant;"
+        },
+        {
+          "path": "src/components/branding/SplashIntro.css",
+          "size": 3253,
+          "snippet": ".splash-intro {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100vw;\r\n  height: 100vh;\r\n  z-index: 9999;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  overflow: hidde"
+        },
+        {
+          "path": "src/components/branding/SplashIntro.tsx",
+          "size": 6225,
+          "snippet": "import React, { useState, useEffect } from 'react';\r\nimport { motion, AnimatePresence, Easing } from 'framer-motion';\r\n// import anime from \"animejs\"; // Temporarily disabled for deployment\r\nimport An"
+        }
+      ]
+    },
+    {
+      "directory": "cards",
+      "files": [
+        {
+          "path": "src/components/cards/CaseStudyCard.tsx",
+          "size": 5150,
+          "snippet": "import React from 'react';\r\nimport { Link } from 'react-router-dom';\r\nimport { motion } from 'framer-motion';\r\n// @ts-ignore - manifest may not exist during dev\r\nimport manifest from '@data/images.man"
+        }
+      ]
+    },
+    {
+      "directory": "case-study",
+      "files": [
+        {
+          "path": "src/components/case-study/BuildSection.tsx",
+          "size": 298,
+          "snippet": "import React from 'react';\r\nimport NarrativeSection, { NarrativeSectionProps } from './ChallengeSection';\r\n\r\nconst BuildSection: React.FC<NarrativeSectionProps> = (props) => {\r\n  return <NarrativeSect"
+        },
+        {
+          "path": "src/components/case-study/CapabilitiesBadges.tsx",
+          "size": 1778,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport interface CapabilitiesBadgesProps {\r\n  capabilities: string[];\r\n  visualIdentity?: {\r\n    primaryColor?: string;\r\n  };\r\n}"
+        },
+        {
+          "path": "src/components/case-study/CaseStudyExplorer.tsx",
+          "size": 9837,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport caseStudiesData from '../../data/caseStudies.json';\r\nimport WaveDivider from '../WaveDivider'"
+        },
+        {
+          "path": "src/components/case-study/CaseStudyLayout.tsx",
+          "size": 385,
+          "snippet": "import React from 'react';\r\n\r\ninterface CaseStudyLayoutProps {\r\n  children: React.ReactNode;\r\n}\r\n\r\nconst CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({ children }) => {\r\n  return (\r\n    <main"
+        },
+        {
+          "path": "src/components/case-study/ChallengeSection.tsx",
+          "size": 2158,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport interface RichSection {\r\n  paragraphs?: string[];\r\n  bullets?: string[];\r\n}\r\n\r\nexport interface NarrativeSectionProps {"
+        },
+        {
+          "path": "src/components/case-study/CTA.tsx",
+          "size": 2051,
+          "snippet": "import React from 'react';\r\nimport { Link } from 'react-router-dom';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport interface CaseStudyCTAProps {\r\n  title?: string;\r\n  description?: string;\r\n  pri"
+        },
+        {
+          "path": "src/components/case-study/CTASection.css",
+          "size": 249,
+          "snippet": ".cta-section {\r\n  padding: 4rem 2rem;\r\n  background: var(--gradient-brand);\r\n  text-align: center;\r\n  color: white;\r\n}\r\n\r\n.cta-section h3 {\r\n  font-size: 2rem;\r\n  font-weight: 700;\r\n}\r\n\r\n.cta-section"
+        },
+        {
+          "path": "src/components/case-study/CTASection.tsx",
+          "size": 792,
+          "snippet": "import './CTASection.css';\r\nimport React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { motion as motionTokens } from '../../styles/motion-tokens.js';\r\nimport { castMotionProps } fro"
+        },
+        {
+          "path": "src/components/case-study/Hero.css",
+          "size": 488,
+          "snippet": ".hero {\r\n  height: 100vh;\r\n  background-image: var(--hero-background-image);\r\n  background-size: cover;\r\n  background-position: center;\r\n  position: relative;\r\n}\r\n\r\n.hero .hero-content {\r\n  position:"
+        },
+        {
+          "path": "src/components/case-study/Hero.tsx",
+          "size": 1753,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { gsap } from 'gsap';\r\nimport { ScrollTrigger } from 'gsap/ScrollTrigger';\r\nimport './Hero.css';\r\n\r\ngsap.registerPlugin(Scro"
+        }
+      ]
+    },
+    {
+      "directory": "Charts",
+      "files": [
+        {
+          "path": "src/components/Charts/ResultChart.css",
+          "size": 549,
+          "snippet": "/* Result Chart Styles */\r\n.result-chart-container {\r\n  width: 100%;\r\n  padding: var(--bc-space-xl);\r\n  background: var(--bc-surface);\r\n  border: 1px solid var(--bc-border);\r\n  border-radius: var(--bc"
+        },
+        {
+          "path": "src/components/Charts/ResultChart.tsx",
+          "size": 2114,
+          "snippet": "import React from 'react';\r\nimport {\r\n  LineChart,\r\n  Line,\r\n  BarChart,\r\n  Bar,\r\n  XAxis,\r\n  YAxis,\r\n  CartesianGrid,\r\n  Tooltip,\r\n  Legend,\r\n  ResponsiveContainer,\r\n} from 'recharts';\r\nimport './Cha"
+        }
+      ]
+    },
+    {
+      "directory": "clients",
+      "files": [
+        {
+          "path": "src/components/clients/ClientLogos.css",
+          "size": 1598,
+          "snippet": ".client-logos-section {\r\n  padding: 4rem 2rem;\r\n  max-width: 1200px;\r\n  margin: 0 auto;\r\n}\r\n\r\n.client-logos-section h2 {\r\n  text-align: center;\r\n  font-size: 2.5rem;\r\n  color: #fafbfc;\r\n  margin-botto"
+        },
+        {
+          "path": "src/components/clients/ClientLogos.tsx",
+          "size": 1953,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport './ClientLogos.css';\r\n\r\nconst clientLogos = [\r\n  { name: 'Primary Care', src: '/images/logos/primary-care.svg' },\r\n  { name:"
+        }
+      ]
+    },
+    {
+      "directory": "command",
+      "files": [
+        {
+          "path": "src/components/command/CommandMenu.tsx",
+          "size": 12334,
+          "snippet": "import React, { useState, useMemo, useEffect } from 'react';\r\nimport { Link, useNavigate } from 'react-router-dom';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport {\r\n  Search,\r\n  Co"
+        },
+        {
+          "path": "src/components/command/CommandMenuToggle.tsx",
+          "size": 2762,
+          "snippet": "import React, { useEffect, useState, useCallback } from 'react';\r\nimport CommandMenu from './CommandMenu';\r\n\r\ninterface CommandMenuToggleProps {\r\n  className?: string;\r\n}\r\n\r\nexport default function Co"
+        }
+      ]
+    },
+    {
+      "directory": "common",
+      "files": [
+        {
+          "path": "src/components/common/OptimizedImage.tsx",
+          "size": 6375,
+          "snippet": "import React, { useState, useRef, useEffect } from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\ninterface OptimizedImageProps {\r\n  src: string;\r\n  alt: string;\r\n  className?: string;\r\n  style?"
+        },
+        {
+          "path": "src/components/common/ResponsiveImage.tsx",
+          "size": 3487,
+          "snippet": "import React, { useState, useEffect, useRef } from 'react';\r\n\r\ninterface ResponsiveImageProps {\r\n  src: string;\r\n  alt: string;\r\n  className?: string;\r\n  loading?: 'lazy' | 'eager';\r\n  sizes?: string;"
+        }
+      ]
+    },
+    {
+      "directory": "dashboard",
+      "files": [
+        {
+          "path": "src/components/dashboard/MarketingCommandCenter.css",
+          "size": 2508,
+          "snippet": ".marketing-command-center {\r\n  padding: 5rem 0;\r\n  background: linear-gradient(to bottom, #000000, #0a0a0a);\r\n  color: #ffffff;\r\n}\r\n\r\n.dashboard-container {\r\n  max-width: 1400px;\r\n  margin: 0 auto;"
+        },
+        {
+          "path": "src/components/dashboard/MarketingCommandCenter.tsx",
+          "size": 10154,
+          "snippet": "import React, { useEffect, useState, useRef } from 'react';\r\nimport { motion, useInView } from 'framer-motion';\r\nimport {\r\n  LineChart,\r\n  Line,\r\n  AreaChart,\r\n  Area,\r\n  BarChart,\r\n  Bar,\r\n  XAxis,"
+        }
+      ]
+    },
+    {
+      "directory": "demos",
+      "files": [
+        {
+          "path": "src/components/demos/DemoCard.tsx",
+          "size": 1128,
+          "snippet": "import React from 'react';\r\n// @ts-ignore - manifest may not exist during dev\r\nimport manifest from '@data/images.manifest.json';\r\nimport OptimizedImage from '@components/media/OptimizedImage';\r\n\r\nexp"
+        }
+      ]
+    },
+    {
+      "directory": "diagrams",
+      "files": [
+        {
+          "path": "src/components/diagrams/caseStudyDiagrams.tsx",
+          "size": 7479,
+          "snippet": "import React from 'react';\r\nimport SystemArchitecture from './SystemArchitecture';\r\n\r\n// Proactive Support Engine Diagrams\r\nexport const ProactiveSupportArchitecture = () => {\r\n  const nodes = ["
+        },
+        {
+          "path": "src/components/diagrams/ProcessDiagram.css",
+          "size": 5460,
+          "snippet": ".process-diagram-section {\r\n  max-width: 1400px;\r\n  margin: 0 auto;\r\n  padding: 6rem 2rem;\r\n  position: relative;\r\n  z-index: 1;\r\n}\r\n\r\n.process-header {\r\n  text-align: center;\r\n  margin-bottom: 4rem;"
+        },
+        {
+          "path": "src/components/diagrams/ProcessDiagram.tsx",
+          "size": 8253,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport './ProcessDiagram.css';\r\n\r\ninterface ProcessStep {\r\n  id: string;\r\n  number: number;\r\n  title: string;\r\n  desc"
+        },
+        {
+          "path": "src/components/diagrams/SystemArchitecture.css",
+          "size": 2158,
+          "snippet": ".system-architecture {\r\n  margin: 3rem 0;\r\n  padding: 2rem;\r\n  background: var(--color-bg-card);\r\n  border: 1px solid var(--color-border);\r\n  border-radius: 16px;\r\n  position: relative;\r\n}\r\n\r\n.diagram"
+        },
+        {
+          "path": "src/components/diagrams/SystemArchitecture.tsx",
+          "size": 6450,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport './SystemArchitecture.css';\r\n\r\ninterface Node {\r\n  id: string;\r\n  label: string;\r\n  sublabel?: string;\r\n  icon?: string;"
+        },
+        {
+          "path": "src/components/diagrams/TheGapDiagram.css",
+          "size": 6918,
+          "snippet": ".gap-diagram-section {\r\n  max-width: 1400px;\r\n  margin: 0 auto;\r\n  padding: 6rem 2rem;\r\n  position: relative;\r\n  z-index: 1;\r\n}\r\n\r\n.gap-header {\r\n  text-align: center;\r\n  margin-bottom: 4rem;\r\n}\r\n\r\n.g"
+        },
+        {
+          "path": "src/components/diagrams/TheGapDiagram.tsx",
+          "size": 6659,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport './TheGapDiagram.css';\r\n\r\nconst TheGapDiagram: React.FC = () => {\r\n  const [hoveredSide, setHoveredSide] = use"
+        },
+        {
+          "path": "src/components/diagrams/ToolboxEcosystem.css",
+          "size": 8117,
+          "snippet": ".toolbox-ecosystem-section {\r\n  max-width: 1400px;\r\n  margin: 0 auto;\r\n  padding: 6rem 2rem;\r\n  position: relative;\r\n  z-index: 1;\r\n}\r\n\r\n.ecosystem-header {\r\n  text-align: center;\r\n  margin-bottom: 4r"
+        },
+        {
+          "path": "src/components/diagrams/ToolboxEcosystem.tsx",
+          "size": 11149,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport './ToolboxEcosystem.css';\r\n\r\ninterface ToolNode {\r\n  id: string;\r\n  name: string;\r\n  icon: st"
+        },
+        {
+          "path": "src/components/diagrams/VennDiagram.css",
+          "size": 4975,
+          "snippet": ".venn-diagram-section {\r\n  max-width: 1400px;\r\n  margin: 0 auto;\r\n  padding: 6rem 2rem;\r\n  position: relative;\r\n  z-index: 1;\r\n}\r\n\r\n.venn-header {\r\n  text-align: center;\r\n  margin-bottom: 3rem;\r\n}"
+        }
+      ]
+    },
+    {
+      "directory": "examples",
+      "files": [
+        {
+          "path": "src/components/examples/ExamplePage.tsx",
+          "size": 4885,
+          "snippet": "import React from 'react';\r\nimport {\r\n  HeroSection,\r\n  FeaturesSection,\r\n  StatsSection,\r\n  TestimonialsSection,\r\n  CTASection,\r\n} from '@/components/sections';\r\nimport {\r\n  MagneticButton,\r\n  Scroll"
+        }
+      ]
+    },
+    {
+      "directory": "gallery",
+      "files": [
+        {
+          "path": "src/components/gallery/GalleryGrid.tsx",
+          "size": 623,
+          "snippet": "import React from 'react';\r\nimport ImageLightbox from '@components/media/ImageLightbox';\r\n\r\nexport interface GalleryGridProps {\r\n  items: { file: string }[];\r\n}\r\n\r\nexport default function GalleryGrid("
+        },
+        {
+          "path": "src/components/gallery/Lightbox.css",
+          "size": 6373,
+          "snippet": "/* ===================================================================\r\n   LIGHTBOX COMPONENT - CINEMATIC FULL-SCREEN GALLERY\r\n   =================================================================== */"
+        },
+        {
+          "path": "src/components/gallery/Lightbox.tsx",
+          "size": 8450,
+          "snippet": "import React, { useEffect, useCallback } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { X, ChevronLeft, ChevronRight, Download, Share2, Heart } from 'lucide-react';"
+        },
+        {
+          "path": "src/components/gallery/TagFilter.css",
+          "size": 2678,
+          "snippet": "/* ===================================================================\r\n   TAG FILTER COMPONENT - CINEMATIC FILTER SYSTEM\r\n   =================================================================== */"
+        },
+        {
+          "path": "src/components/gallery/TagFilter.tsx",
+          "size": 2375,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport './TagFilter.css';\r\n\r\ninterface TagFilterProps {\r\n  tags: string[];\r\n  activeTag: string;\r\n  onTagChange: (tag: string) => v"
+        }
+      ]
+    },
+    {
+      "directory": "gt",
+      "files": [
+        {
+          "path": "src/components/gt/index.ts",
+          "size": 153,
+          "snippet": "export { default as SectionWrapper } from '@components/SectionWrapper';\r\n// GT sections removed - use main sections from @components/sections instead"
+        }
+      ]
+    },
+    {
+      "directory": "hero",
+      "files": [
+        {
+          "path": "src/components/hero/BrandHero.tsx",
+          "size": 844,
+          "snippet": "import { motion, useScroll, useTransform } from \"framer-motion\";\r\n\r\nexport default function BrandHero() {\r\n  const { scrollY } = useScroll();\r\n  const y = useTransform(scrollY, [0, 400], [0, -30]);"
+        },
+        {
+          "path": "src/components/hero/Hero.css",
+          "size": 7278,
+          "snippet": "/* ===================================================================\r\n   HERO SECTION - ZERO-FOUC VISIBILITY FIXES\r\n   ===================================================================\r\n   FIXES A"
+        },
+        {
+          "path": "src/components/hero/Hero.tsx",
+          "size": 3254,
+          "snippet": "import React, { useEffect, useState } from 'react';\r\nimport { Link } from 'react-router-dom';\r\nimport { motion, Easing } from 'framer-motion';\r\nimport { motion as motionTokens, stagger } from '../../s"
+        },
+        {
+          "path": "src/components/hero/ProactiveSupportHero.css",
+          "size": 12044,
+          "snippet": "/* Proactive Support Engine Hero Styles */\r\n.proactive-support-hero {\r\n  position: relative;\r\n  min-height: 100vh;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  overflow: hi"
+        },
+        {
+          "path": "src/components/hero/ProactiveSupportHero.tsx",
+          "size": 10963,
+          "snippet": "import React, { useEffect, useRef, useState } from 'react';\r\nimport { gsap } from 'gsap';\r\nimport { ScrollTrigger } from 'gsap/ScrollTrigger';\r\nimport { Link } from 'react-router-dom';\r\nimport './Proa"
+        }
+      ]
+    },
+    {
+      "directory": "home",
+      "files": [
+        {
+          "path": "src/components/home/CareerHighlights.css",
+          "size": 5730,
+          "snippet": ".career-highlights {\r\n  scroll-margin-top: 80px;\r\n}\r\n\r\n.career-highlights__header {\r\n  text-align: center;\r\n  margin-bottom: var(--bc-space-3xl);\r\n}\r\n\r\n/* Year Navigation */\r\n.career-highlights__year-"
+        },
+        {
+          "path": "src/components/home/CareerHighlights.tsx",
+          "size": 11836,
+          "snippet": "import React, { useState, useEffect, useRef } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Briefcase } from 'lucide-react';\r\nimport './CareerHighlights.css';\r\n\r\nconst careerHighlig"
+        },
+        {
+          "path": "src/components/home/FinalCTA.css",
+          "size": 3031,
+          "snippet": ".final-cta {\r\n  scroll-margin-top: 80px;\r\n  position: relative;\r\n  padding: var(--bc-space-5xl) var(--bc-space-2xl);\r\n}\r\n\r\n.final-cta::before {\r\n  content: '';\r\n  position: absolute;\r\n  inset: 0;\r\n  b"
+        },
+        {
+          "path": "src/components/home/FinalCTA.tsx",
+          "size": 2000,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Link } from 'react-router-dom';\r\nimport { Mail, Calendar } from 'lucide-react';\r\nimport SectionWrapper from '../SectionWra"
+        },
+        {
+          "path": "src/components/home/Hero.css",
+          "size": 4852,
+          "snippet": ".hero-modern {\r\n  position: relative;\r\n  display: flex;\r\n  align-items: center;\r\n  min-height: calc(100vh - var(--header-height));\r\n  overflow: hidden;\r\n  background: radial-gradient(circle at top rig"
+        },
+        {
+          "path": "src/components/home/HeroIntro.tsx",
+          "size": 8170,
+          "snippet": "import React, { useState, useEffect, useRef } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { fadeInUp, scaleIn, staggerContainer, hoverLift } from '../shared/MotionV"
+        },
+        {
+          "path": "src/components/home/MySkills.css",
+          "size": 1823,
+          "snippet": ".my-skills {\r\n  scroll-margin-top: 80px;\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(30, 30, 35, 0.8) 0%,\r\n    rgba(60, 60, 70, 0.9) 50%,\r\n    rgba(30, 30, 35, 0.8) 100%\r\n  );\r\n  border-r"
+        },
+        {
+          "path": "src/components/home/MySkills.tsx",
+          "size": 3111,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Zap, BarChart3, Code2, Search, Palette, Users, Server } from 'lucide-react';\r\nimport './MySkills.css';\r\n\r\nconst skills = ["
+        },
+        {
+          "path": "src/components/home/Portfolio.css",
+          "size": 2636,
+          "snippet": ".portfolio {\r\n  scroll-margin-top: 80px;\r\n}\r\n\r\n.portfolio__header {\r\n  text-align: center;\r\n  margin-bottom: var(--bc-space-3xl);\r\n}\r\n\r\n.portfolio__grid {\r\n  display: grid;\r\n  grid-template-columns: r"
+        },
+        {
+          "path": "src/components/home/Portfolio.tsx",
+          "size": 2769,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Link } from 'react-router-dom';\r\nimport { ExternalLink } from 'lucide-react';\r\nimport CaseStudyCard from '@components/card"
+        }
+      ]
+    },
+    {
+      "directory": "icons",
+      "files": [
+        {
+          "path": "src/components/icons/Icon.tsx",
+          "size": 18296,
+          "snippet": "import React from 'react';\r\n\r\nexport interface IconProps {\r\n  size?: number;\r\n  color?: string;\r\n  className?: string;\r\n  strokeWidth?: number;\r\n}\r\n\r\nconst defaultProps: Required<IconProps> = {\r\n  siz"
+        },
+        {
+          "path": "src/components/icons/IconRegistry.tsx",
+          "size": 1013,
+          "snippet": "import React from 'react';\r\nimport { icons, IconData } from '../../data/icons';\r\n\r\nexport interface IconProps {\r\n  slug: string;\r\n  size?: number;\r\n  color?: string;\r\n  className?: string;\r\n  title?:"
+        },
+        {
+          "path": "src/components/icons/index.ts",
+          "size": 2217,
+          "snippet": "// Export all icons from a single location for easy importing\r\nexport {\r\n  IconBrain,\r\n  IconDiamond,\r\n  IconBook,\r\n  IconChart,\r\n  IconBuilding,\r\n  IconRefresh,\r\n  IconTarget,\r\n  IconRocket,\r\n  IconA"
+        },
+        {
+          "path": "src/components/icons/TechIcons.tsx",
+          "size": 4646,
+          "snippet": "import React from 'react';\r\n\r\nexport const ZapIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (\r\n  <svg\r\n    xmlns=\"http://www.w3.org/2000/svg\"\r\n    className={className}"
+        }
+      ]
+    },
+    {
+      "directory": "inspiration",
+      "files": [
+        {
+          "path": "src/components/inspiration/AdvancedFilterSystem.tsx",
+          "size": 11772,
+          "snippet": "import React, { useState, useRef, useEffect } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { gsap } from 'gsap';\r\nimport { ScrollTrigger } from 'gsap/ScrollTrigger';"
+        },
+        {
+          "path": "src/components/inspiration/AnimationTemplates.tsx",
+          "size": 10156,
+          "snippet": "import React, { useEffect, useRef } from 'react';\r\nimport { motion, useAnimation, Easing } from 'framer-motion';\r\nimport { gsap } from 'gsap';\r\nimport { ScrollTrigger } from 'gsap/ScrollTrigger';\r\n\r\ng"
+        },
+        {
+          "path": "src/components/inspiration/BrandBuilderCTA.tsx",
+          "size": 6867,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Link } from 'react-router-dom';\r\nimport { Sparkles, Palette, Type, Lightbulb, ArrowRight } from 'lucide-react';\r\n\r\nconst B"
+        },
+        {
+          "path": "src/components/inspiration/BrandColorPalette.tsx",
+          "size": 7298,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Copy, Check, Download } from 'lucide-react';\r\n\r\ninterface ColorPalette {\r\n  primary?: string[];\r\n  secondary"
+        },
+        {
+          "path": "src/components/inspiration/BrandDetailModal.tsx",
+          "size": 23814,
+          "snippet": "import React, { useState, useMemo } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { X, Palette, Type, Lightbulb, Info, ExternalLink, BookOpen, TrendingUp, BarChart3 }"
+        },
+        {
+          "path": "src/components/inspiration/ColorPaletteExtractor.tsx",
+          "size": 11889,
+          "snippet": "import React, { useState, useEffect, useRef } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { gsap } from 'gsap';\r\nimport { ScrollTrigger } from 'gsap/ScrollTrigger';"
+        },
+        {
+          "path": "src/components/inspiration/DesignChallenges.tsx",
+          "size": 9239,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { Target, Lightbulb, Sparkles, RotateCcw } from 'lucide-react';\r\n\r\ninterface DesignChallenge"
+        },
+        {
+          "path": "src/components/inspiration/InspirationCTASection.tsx",
+          "size": 1289,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Link } from 'react-router-dom';\r\nimport { ArrowRight } from 'lucide-react';\r\n\r\nconst InspirationCTASection: React.FC = ()"
+        },
+        {
+          "path": "src/components/inspiration/InspirationExplorer.tsx",
+          "size": 13083,
+          "snippet": "import React, { useState, useMemo } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { Filter, X, Search, GitCompare } from 'lucide-react';\r\nimport OptimizedImage from '"
+        },
+        {
+          "path": "src/components/inspiration/InspirationTimeline.tsx",
+          "size": 6407,
+          "snippet": "import React, { useState, useRef } from 'react';\r\nimport { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';\r\nimport { ChevronDown } from 'lucide-react';\r\nimport timelineData fr"
+        }
+      ]
+    },
+    {
+      "directory": "interactive",
+      "files": [
+        {
+          "path": "src/components/interactive/CustomCursor.css",
+          "size": 695,
+          "snippet": ".custom-cursor {\r\n  position: fixed;\r\n  width: 32px;\r\n  height: 32px;\r\n  border: 2px solid rgba(136, 171, 242, 0.5);\r\n  border-radius: 50%;\r\n  pointer-events: none;\r\n  z-index: 9999;\r\n  mix-blend-mode"
+        },
+        {
+          "path": "src/components/interactive/CustomCursor.tsx",
+          "size": 1863,
+          "snippet": "import React, { useEffect, useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport './CustomCursor.css';\r\n\r\nconst CustomCursor: React.FC = () => {\r\n  const [mousePosition, setMousePo"
+        },
+        {
+          "path": "src/components/interactive/MagneticButton.tsx",
+          "size": 1298,
+          "snippet": "import React, { useRef, useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\ninterface MagneticButtonProps {\r\n  children: React.ReactNode;\r\n  className?: string;\r\n  onClick?: () => voi"
+        },
+        {
+          "path": "src/components/interactive/TiltCard.tsx",
+          "size": 1693,
+          "snippet": "import React, { useRef } from 'react';\r\nimport { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';\r\n\r\ninterface TiltCardProps {\r\n  children: React.ReactNode;\r\n  className?: strin"
+        }
+      ]
+    },
+    {
+      "directory": "layout",
+      "files": [
+        {
+          "path": "src/components/layout/Breadcrumbs.css",
+          "size": 1176,
+          "snippet": "/* Breadcrumbs Component Styles */\r\n.breadcrumbs {\r\n  padding: var(--bc-space-md) 0;\r\n  margin-bottom: var(--bc-space-xl);\r\n}\r\n\r\n.breadcrumbs-list {\r\n  display: flex;\r\n  align-items: center;\r\n  flex-w"
+        },
+        {
+          "path": "src/components/layout/Breadcrumbs.tsx",
+          "size": 2025,
+          "snippet": "import React from 'react';\r\nimport { useLocation, Link } from 'react-router-dom';\r\nimport { ChevronRight, Home } from 'lucide-react';\r\nimport './Breadcrumbs.css';\r\n\r\ninterface BreadcrumbItem {\r\n  labe"
+        },
+        {
+          "path": "src/components/layout/Footer.css",
+          "size": 2321,
+          "snippet": ".main-footer {\r\n  background: #0a0a0a;\r\n  border-top: 1px solid rgba(136, 171, 242, 0.1);\r\n  margin-top: 4rem;\r\n  padding: 3rem 2rem 1.5rem;\r\n}\r\n\r\n.footer-content {\r\n  max-width: 1400px;\r\n  margin: 0"
+        },
+        {
+          "path": "src/components/layout/Footer.tsx",
+          "size": 3206,
+          "snippet": "import React from 'react';\r\nimport Logo from '../branding/Logo';\r\n\r\nconst Footer: React.FC = () => {\r\n  const currentYear = new Date().getFullYear();\r\n\r\n  const footerLinks = {\r\n    About: [\r\n      {"
+        },
+        {
+          "path": "src/components/layout/PageLayout.css",
+          "size": 494,
+          "snippet": "/* PageLayout Component Styles */\r\n.page-layout {\r\n  min-height: 100vh;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.page-layout__breadcrumbs {\r\n  padding: var(--bc-space-lg) var(--bc-space-xl)"
+        },
+        {
+          "path": "src/components/layout/PageLayout.tsx",
+          "size": 956,
+          "snippet": "import React from 'react';\r\nimport { useLocation } from 'react-router-dom';\r\nimport Breadcrumbs from './Breadcrumbs';\r\nimport './PageLayout.css';\r\n\r\ninterface PageLayoutProps {\r\n  children: React.Reac"
+        }
+      ]
+    },
+    {
+      "directory": "mdx",
+      "files": [
+        {
+          "path": "src/components/mdx/Callout.tsx",
+          "size": 575,
+          "snippet": "import React from 'react';\r\n\r\ninterface CalloutProps {\r\n  type?: 'info' | 'warning' | 'success';\r\n  children: React.ReactNode;\r\n}\r\n\r\nexport default function Callout({ type = 'info', children }: Callou"
+        },
+        {
+          "path": "src/components/mdx/Gallery.tsx",
+          "size": 343,
+          "snippet": "import React from 'react';\r\n\r\ninterface GalleryProps {\r\n  children: React.ReactNode;\r\n  cols?: 2 | 3;\r\n}\r\n\r\nexport default function Gallery({ children, cols = 3 }: GalleryProps) {\r\n  const gridCols ="
+        },
+        {
+          "path": "src/components/mdx/mdx-components.tsx",
+          "size": 1383,
+          "snippet": "import React from 'react';\r\nimport { MDXProvider } from '@mdx-js/react';\r\nimport Metric from './Metric';\r\nimport Callout from './Callout';\r\nimport Gallery from './Gallery';\r\nimport TwoColumn from './T"
+        },
+        {
+          "path": "src/components/mdx/Metric.tsx",
+          "size": 700,
+          "snippet": "import React from 'react';\r\n\r\ninterface MetricProps {\r\n  label: string;\r\n  value: string;\r\n  trend?: 'up' | 'down' | 'neutral';\r\n}\r\n\r\nexport default function Metric({ label, value, trend = 'neutral' }"
+        },
+        {
+          "path": "src/components/mdx/TwoColumn.tsx",
+          "size": 239,
+          "snippet": "import React from 'react';\r\n\r\ninterface TwoColumnProps {\r\n  children: React.ReactNode;\r\n}\r\n\r\nexport default function TwoColumn({ children }: TwoColumnProps) {\r\n  return <div className=\"grid md:grid-co"
+        }
+      ]
+    },
+    {
+      "directory": "media",
+      "files": [
+        {
+          "path": "src/components/media/ImageLightbox.tsx",
+          "size": 1870,
+          "snippet": "import React, { useState, useEffect } from 'react';\r\nimport OptimizedImage from '@components/media/OptimizedImage';\r\n\r\nexport interface ImageLightboxProps {\r\n  src: string;\r\n  alt?: string;\r\n  classNa"
+        },
+        {
+          "path": "src/components/media/OptimizedImage.tsx",
+          "size": 1656,
+          "snippet": "import React from \"react\";\r\n\r\n// Type definition for manifest entry\r\ninterface ImageManifestEntry {\r\n  width: number;\r\n  height: number;\r\n  base: string;\r\n  color: string;\r\n  blurDataURL: string;\r\n}"
+        }
+      ]
+    },
+    {
+      "directory": "modals",
+      "files": [
+        {
+          "path": "src/components/modals/AppDemoModal.css",
+          "size": 4238,
+          "snippet": "/* App Demo Modal - Cinematic Pop-out View */\r\n.app-demo-modal-overlay {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  z-index: 10000;\r\n  display: flex;\r\n  align-items: cent"
+        },
+        {
+          "path": "src/components/modals/AppDemoModal.tsx",
+          "size": 3713,
+          "snippet": "import React, { useEffect } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport './AppDemoModal.css';\r\n\r\ninterface AppDemoModalProps {\r\n  isOpen: boolean;\r\n  onClose: () =>"
+        }
+      ]
+    },
+    {
+      "directory": "nav",
+      "files": [
+        {
+          "path": "src/components/nav/MainNav.tsx",
+          "size": 14943,
+          "snippet": "import React, { useState, useEffect } from 'react';\r\nimport { Link, useLocation } from 'react-router-dom';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport {\r\n  ChevronDown,\r\n  Menu,"
+        }
+      ]
+    },
+    {
+      "directory": "navigation",
+      "files": [
+        {
+          "path": "src/components/navigation/AnchorNav.css",
+          "size": 2047,
+          "snippet": ".anchor-nav {\r\n  position: fixed;\r\n  right: 2rem;\r\n  top: 50%;\r\n  transform: translateY(-50%);\r\n  z-index: 100;\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 0.5rem;\r\n  background: rgba(10, 10,"
+        },
+        {
+          "path": "src/components/navigation/AnchorNav.tsx",
+          "size": 2767,
+          "snippet": "import React, { useState, useEffect } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { ChevronUp } from 'lucide-react';\r\nimport './AnchorNav.css';\r\n\r\ninterface AnchorItem {\r\n  id: stri"
+        }
+      ]
+    },
+    {
+      "directory": "newsletter",
+      "files": [
+        {
+          "path": "src/components/newsletter/NewsletterForm.css",
+          "size": 2735,
+          "snippet": "/* Newsletter Form Styles */\r\n.newsletter-form {\r\n  background: var(--bc-gradient-surface);\r\n  border: 1px solid var(--bc-border);\r\n  border-radius: var(--bc-radius-xl);\r\n  padding: var(--bc-space-2xl"
+        },
+        {
+          "path": "src/components/newsletter/NewsletterForm.tsx",
+          "size": 3769,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Mail, Send, Check } from 'lucide-react';\r\nimport { trackCTA } from '../../utils/analytics';\r\nimport './Newsl"
+        }
+      ]
+    },
+    {
+      "directory": "playground",
+      "files": [
+        {
+          "path": "src/components/playground/PlaygroundPreview.css",
+          "size": 10595,
+          "snippet": ".playground-preview {\r\n  padding: 6rem 2rem;\r\n  background: linear-gradient(180deg, rgba(136, 171, 242, 0.03) 0%, transparent 100%);\r\n  position: relative;\r\n  overflow: hidden;\r\n}\r\n\r\n.playground-conte"
+        },
+        {
+          "path": "src/components/playground/PlaygroundPreview.tsx",
+          "size": 8488,
+          "snippet": "import React, { useState } from 'react';\r\nimport { Link } from 'react-router-dom';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { applications } from '../../data/applications';\r\ni"
+        }
+      ]
+    },
+    {
+      "directory": "sections",
+      "files": [
+        {
+          "path": "src/components/sections/CTASection.css",
+          "size": 2979,
+          "snippet": ".cta-section {\r\n  padding: 6rem 2rem;\r\n  background: var(--bc-bg, #fff);\r\n}\r\n\r\n.cta-section__container {\r\n  max-width: 800px;\r\n  margin: 0 auto;\r\n}\r\n\r\n.cta-section__content {\r\n  text-align: center;\r\n}"
+        },
+        {
+          "path": "src/components/sections/CTASection.tsx",
+          "size": 2961,
+          "snippet": "import React from 'react';\r\nimport { motion, useInView } from 'framer-motion';\r\nimport './CTASection.css';\r\n\r\ninterface CTASectionProps {\r\n  title: string;\r\n  description?: string;\r\n  primaryCTA: {"
+        },
+        {
+          "path": "src/components/sections/FeaturesSection.css",
+          "size": 2948,
+          "snippet": ".features-section {\r\n  padding: 6rem 2rem;\r\n  background: var(--bc-bg, #fff);\r\n}\r\n\r\n.features-section__container {\r\n  max-width: 1200px;\r\n  margin: 0 auto;\r\n}\r\n\r\n.features-section__header {\r\n  text-al"
+        },
+        {
+          "path": "src/components/sections/FeaturesSection.tsx",
+          "size": 3078,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { useInView } from 'framer-motion';\r\nimport './FeaturesSection.css';\r\n\r\ninterface Feature {\r\n  icon?: React.ReactNode;\r\n  ti"
+        },
+        {
+          "path": "src/components/sections/FromTheWork.tsx",
+          "size": 1195,
+          "snippet": "import React from \"react\";\r\nimport OptimizedImage from \"@components/media/OptimizedImage\";\r\n\r\n// Import manifest - will be generated by build script\r\n// Handle missing manifest gracefully in developme"
+        },
+        {
+          "path": "src/components/sections/HeroSection.css",
+          "size": 2694,
+          "snippet": ".hero-section {\r\n  position: relative;\r\n  min-height: 80vh;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  padding: 6rem 2rem;\r\n  overflow: hidden;\r\n}\r\n\r\n.hero-section__backg"
+        },
+        {
+          "path": "src/components/sections/HeroSection.tsx",
+          "size": 3492,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { useSpring, animated } from '@react-spring/web';\r\nimport './HeroSection.css';\r\n\r\ninterface HeroSectionProps {\r\n  title: str"
+        },
+        {
+          "path": "src/components/sections/index.ts",
+          "size": 311,
+          "snippet": "export { default as HeroSection } from './HeroSection';\r\nexport { default as FeaturesSection } from './FeaturesSection';\r\nexport { default as StatsSection } from './StatsSection';\r\nexport { default as"
+        },
+        {
+          "path": "src/components/sections/StatsSection.css",
+          "size": 2427,
+          "snippet": ".stats-section {\r\n  padding: 6rem 2rem;\r\n  background: var(--bc-bg, #fff);\r\n}\r\n\r\n.stats-section__container {\r\n  max-width: 1200px;\r\n  margin: 0 auto;\r\n}\r\n\r\n.stats-section__header {\r\n  text-align: cent"
+        },
+        {
+          "path": "src/components/sections/StatsSection.tsx",
+          "size": 3339,
+          "snippet": "import React from 'react';\r\nimport { motion, useInView } from 'framer-motion';\r\nimport { useSpring, animated } from '@react-spring/web';\r\nimport './StatsSection.css';\r\n\r\ninterface Stat {\r\n  value: str"
+        }
+      ]
+    },
+    {
+      "directory": "seo",
+      "files": [
+        {
+          "path": "src/components/seo/GallerySchema.tsx",
+          "size": 3929,
+          "snippet": "import React from 'react';\r\n\r\ninterface ImageObject {\r\n  src: string;\r\n  alt: string;\r\n  title?: string;\r\n  category?: string;\r\n  tags?: string[];\r\n}\r\n\r\ninterface GallerySchemaProps {\r\n  type: 'photog"
+        },
+        {
+          "path": "src/components/seo/JSONLD.tsx",
+          "size": 1295,
+          "snippet": "import React from 'react';\r\n\r\nexport default function JSONLD() {\r\n  const personSchema = {\r\n    '@context': 'https://schema.org',\r\n    '@type': 'Person',\r\n    name: 'Jacob Darling',\r\n    url: 'https:/"
+        },
+        {
+          "path": "src/components/seo/OrganizationSchema.tsx",
+          "size": 1215,
+          "snippet": "import React from 'react';\r\n\r\nconst BASE_URL = 'https://www.bearcavemarketing.com';\r\n\r\nconst OrganizationSchema: React.FC = () => {\r\n  const schemaData = {\r\n    '@context': 'https://schema.org',"
+        },
+        {
+          "path": "src/components/seo/PersonSchema.tsx",
+          "size": 1520,
+          "snippet": "import React from 'react';\r\n\r\nconst BASE_URL = 'https://www.bearcavemarketing.com';\r\nconst BIO_IMAGE_PATH = '/images/bio/bio-photo.jpg';\r\n\r\nconst PersonSchema: React.FC = () => {\r\n  const schemaData ="
+        },
+        {
+          "path": "src/components/seo/ReviewSchema.tsx",
+          "size": 2664,
+          "snippet": "import React from 'react';\r\n\r\nconst BASE_URL = 'https://www.bearcavemarketing.com';\r\n\r\ninterface ReviewSchemaProps {\r\n  reviews?: Array<{\r\n    author: string;\r\n    authorTitle?: string;\r\n    authorCom"
+        },
+        {
+          "path": "src/components/seo/SEOHead.tsx",
+          "size": 2826,
+          "snippet": "import React from 'react';\r\nimport { Helmet } from 'react-helmet-async';\r\n\r\ninterface SEOHeadProps {\r\n  title?: string;\r\n  description?: string;\r\n  keywords?: string;\r\n  image?: string;\r\n  url?: strin"
+        },
+        {
+          "path": "src/components/seo/ServiceSchema.tsx",
+          "size": 2351,
+          "snippet": "import React from 'react';\r\n\r\nconst BASE_URL = 'https://www.bearcavemarketing.com';\r\n\r\ninterface ServiceSchemaProps {\r\n  services?: Array<{\r\n    name: string;\r\n    description: string;\r\n    category?:"
+        },
+        {
+          "path": "src/components/seo/SideProjectSchema.tsx",
+          "size": 4116,
+          "snippet": "import React from 'react';\r\nimport { Helmet } from 'react-helmet-async';\r\n\r\ninterface SideProjectSchemaProps {\r\n  project: {\r\n    id: string;\r\n    title: string;\r\n    slug: string;\r\n    category: stri"
+        }
+      ]
+    },
+    {
+      "directory": "shared",
+      "files": [
+        {
+          "path": "src/components/shared/MotionVariants.ts",
+          "size": 546,
+          "snippet": "import { Variants } from 'framer-motion';\r\nimport { fadeInUp, scaleIn, staggerContainer } from '../../utils/animationVariants';\r\n\r\n// Re-export existing variants\r\nexport { fadeInUp, scaleIn, staggerCo"
+        }
+      ]
+    },
+    {
+      "directory": "skills",
+      "files": [
+        {
+          "path": "src/components/skills/SkillsRadar.css",
+          "size": 5187,
+          "snippet": ".skills-radar-section {\r\n  padding: 5rem 2rem;\r\n  max-width: 1400px;\r\n  margin: 0 auto;\r\n}\r\n\r\n.skills-radar-content {\r\n  width: 100%;\r\n}\r\n\r\n.section-intro {\r\n  text-align: center;\r\n  margin-bottom: 4r"
+        },
+        {
+          "path": "src/components/skills/SkillsRadar.tsx",
+          "size": 7777,
+          "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport './SkillsRadar.css';\r\n\r\ninterface SkillCategory {\r\n  name: string;\r\n  shortName: string;\r\n  level: number;\r\n  description: s"
+        }
+      ]
+    },
+    {
+      "directory": "stats",
+      "files": [
+        {
+          "path": "src/components/stats/Stats.css",
+          "size": 1057,
+          "snippet": ".stats {\r\n  padding: 4rem 2rem;\r\n  background: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(136, 171, 242, 0.03) 100%);\r\n}\r\n\r\n.stats-container {\r\n  max-width: 1200px;\r\n  margin: 0 auto;\r\n  dis"
+        },
+        {
+          "path": "src/components/stats/Stats.tsx",
+          "size": 2351,
+          "snippet": "import React, { useEffect, useRef, useState } from 'react';\r\nimport { motion, useInView, useMotionValue, useSpring } from 'framer-motion';\r\nimport { staggerContainer, staggerItem } from '../../utils/a"
+        }
+      ]
+    },
+    {
+      "directory": "testimonials",
+      "files": [
+        {
+          "path": "src/components/testimonials/TestimonialsCarousel.css",
+          "size": 1548,
+          "snippet": "/* Testimonials Carousel Styles */\r\n.testimonials-carousel-section {\r\n  padding: var(--bc-space-5xl) var(--bc-space-xl);\r\n  max-width: 1200px;\r\n  margin: 0 auto;\r\n  text-align: center;\r\n}\r\n\r\n.testimon"
+        },
+        {
+          "path": "src/components/testimonials/TestimonialsCarousel.tsx",
+          "size": 4044,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { ChevronLeft, ChevronRight, Quote } from 'lucide-react';\r\nimport './TestimonialsCarousel.css"
+        }
+      ]
+    },
+    {
+      "directory": "theme",
+      "files": [
+        {
+          "path": "src/components/theme/ThemeProvider.tsx",
+          "size": 4122,
+          "snippet": "import React, { createContext, useContext, useEffect, useState } from 'react';\r\n\r\ntype Theme = 'light' | 'dark' | 'system';\r\ntype Brand = 'cmo' | 'dev';\r\n\r\ntype ThemeContextType = {\r\n  theme: Theme;"
+        },
+        {
+          "path": "src/components/theme/ThemeToggle.css",
+          "size": 589,
+          "snippet": "/* Theme Toggle Styles */\r\n.theme-toggle {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 40px;\r\n  height: 40px;\r\n  background: var(--bc-surface);\r\n  border: 1px solid"
+        },
+        {
+          "path": "src/components/theme/ThemeToggle.tsx",
+          "size": 1244,
+          "snippet": "import React, { useEffect } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Sun, Moon } from 'lucide-react';\r\nimport { useUIStore } from '../../store/ui';\r\nimport './ThemeToggle.css';"
+        }
+      ]
+    },
+    {
+      "directory": "timeline",
+      "files": [
+        {
+          "path": "src/components/timeline/InteractiveTimeline.css",
+          "size": 3990,
+          "snippet": ".interactive-timeline {\r\n  padding: 5rem 0;\r\n  background: linear-gradient(to bottom, #0a0a0a, #000000);\r\n  color: #ffffff;\r\n  position: relative;\r\n  overflow: hidden;\r\n}\r\n\r\n.timeline-container {\r\n  m"
+        },
+        {
+          "path": "src/components/timeline/InteractiveTimeline.tsx",
+          "size": 5141,
+          "snippet": "import React, { useRef } from 'react';\r\nimport { motion, useInView } from 'framer-motion';\r\nimport { TrendingUp, Bot, Palette, Target, Database, Shield } from 'lucide-react';\r\nimport resumeData from '"
+        }
+      ]
+    },
+    {
+      "directory": "tooltips",
+      "files": [
+        {
+          "path": "src/components/tooltips/TechTooltip.css",
+          "size": 3219,
+          "snippet": ".tech-tooltip {\r\n  position: absolute;\r\n  z-index: 50;\r\n  pointer-events: none;\r\n  /* Prevent tooltip from going off-screen */\r\n  max-width: calc(100vw - 2rem);\r\n}\r\n\r\n.tech-tooltip.top {\r\n  bottom: 10"
+        },
+        {
+          "path": "src/components/tooltips/TechTooltip.tsx",
+          "size": 2511,
+          "snippet": "import React from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport './TechTooltip.css';\r\n\r\ninterface TechTooltipProps {\r\n  tech: string;\r\n  description: string;\r\n  usage: str"
+        }
+      ]
+    },
+    {
+      "directory": "ui",
+      "files": [
+        {
+          "path": "src/components/ui/Badges.tsx",
+          "size": 484,
+          "snippet": "import React from \"react\";\r\n\r\nexport interface BadgesProps {\r\n  items: string[];\r\n  className?: string;\r\n}\r\n\r\nexport function Badges({ items, className = \"\" }: BadgesProps) {\r\n  return (\r\n    <ul clas"
+        },
+        {
+          "path": "src/components/ui/CustomCursor.tsx",
+          "size": 4999,
+          "snippet": "import React, { useEffect, useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nconst CustomCursor: React.FC = () => {\r\n  const [mousePosition, setMousePosition] = useState({ x: 0, y:"
+        },
+        {
+          "path": "src/components/ui/dialog.tsx",
+          "size": 3994,
+          "snippet": "\"use client\"\r\n\r\nimport * as React from \"react\"\r\nimport * as DialogPrimitive from \"@radix-ui/react-dialog\"\r\nimport { X } from \"lucide-react\"\r\n\r\nimport { cn } from \"../../lib/utils\"\r\n\r\nconst Dialog = Di"
+        },
+        {
+          "path": "src/components/ui/hover-card.tsx",
+          "size": 2625,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { cn } from '../../lib/utils';\r\n\r\ninterface HoverCardProps {\r\n  children: React.ReactNode;"
+        },
+        {
+          "path": "src/components/ui/navigation-menu.tsx",
+          "size": 5300,
+          "snippet": "\"use client\"\r\n\r\nimport * as React from \"react\"\r\nimport * as NavigationMenuPrimitive from \"@radix-ui/react-navigation-menu\"\r\nimport { cva } from \"class-variance-authority\"\r\n\r\nimport { cn } from \"../../"
+        },
+        {
+          "path": "src/components/ui/scroll-area.tsx",
+          "size": 2152,
+          "snippet": "import React, { useRef, useEffect } from 'react';\r\nimport { cn } from '../../lib/utils';\r\n\r\ninterface ScrollAreaProps extends React.HTMLAttributes<HTMLDivElement> {\r\n  children: React.ReactNode;\r\n  or"
+        },
+        {
+          "path": "src/components/ui/ScrollProgress.tsx",
+          "size": 3292,
+          "snippet": "import React, { useEffect, useState } from 'react';\r\nimport { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';\r\nimport { getLenis } from '../../utils/motion-sync';\r\n\r\nconst Scro"
+        },
+        {
+          "path": "src/components/ui/sheet.tsx",
+          "size": 4443,
+          "snippet": "\"use client\"\r\n\r\nimport * as React from \"react\"\r\nimport * as SheetPrimitive from \"@radix-ui/react-dialog\"\r\nimport { cva, type VariantProps } from \"class-variance-authority\"\r\nimport { X } from \"lucide-r"
+        },
+        {
+          "path": "src/components/ui/tooltip.tsx",
+          "size": 2525,
+          "snippet": "import React, { useState } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { cn } from '../../lib/utils';\r\n\r\ninterface TooltipProps {\r\n  content: string | React.ReactNo"
+        }
+      ]
+    },
+    {
+      "directory": "utilities",
+      "files": [
+        {
+          "path": "src/components/utilities/BackToTop.css",
+          "size": 602,
+          "snippet": ".back-to-top {\n  position: fixed;\n  bottom: 2rem;\n  right: 2rem;\n  z-index: 1000;\n  background: var(--color-primary-blue);\n  color: var(--color-bg-primary);\n  border: none;\n  border-radius: 50%;\n  wid"
+        },
+        {
+          "path": "src/components/utilities/BackToTop.tsx",
+          "size": 1158,
+          "snippet": "import React, { useState, useEffect } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { ChevronUp } from 'lucide-react';\r\nimport { scrollToTop } from '../../utils/scroll';\r\nimport './Ba"
+        }
+      ]
+    },
+    {
+      "directory": "utils",
+      "files": [
+        {
+          "path": "src/components/utils/FloatingActionButtons.tsx",
+          "size": 5680,
+          "snippet": "import React, { useState, useEffect } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { FileText, Mail, ChevronUp } from 'lucide-react';\r\nimport { useNavigate, useLocat"
+        },
+        {
+          "path": "src/components/utils/PerformanceMonitor.tsx",
+          "size": 5134,
+          "snippet": "import React, { useEffect, useState } from 'react';\r\n\r\ninterface PerformanceMetrics {\r\n  lcp: number | null;\r\n  fid: number | null;\r\n  cls: number | null;\r\n  fcp: number | null;\r\n  ttfb: number | null"
+        },
+        {
+          "path": "src/components/utils/ScrollToTop.tsx",
+          "size": 765,
+          "snippet": "import { useEffect } from 'react';\nimport { useLocation } from 'react-router-dom';\nimport { refreshLenis } from '../../utils/motion-sync';\nimport { scrollToTop } from '../../utils/scroll';\n\nconst Scro"
+        }
+      ]
+    }
+  ],
+  "package": {
+    "path": "package.json",
+    "name": "jacob-darling-portfolio",
+    "version": "1.0.0"
+  },
+  "storybook": false,
+  "envPresent": false
+}
