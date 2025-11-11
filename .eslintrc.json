@@ -37,6 +37,14 @@
       "version": "detect"
     }
   },
+  "overrides": [
+    {
+      "files": ["src/components/animations/**/*.tsx", "src/components/3d/**/*.tsx"],
+      "rules": {
+        "react/no-unknown-property": "off"
+      }
+    }
+  ],
   "ignorePatterns": ["dist", "node_modules", "*.config.js"]
 }
 
