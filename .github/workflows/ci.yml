@@ -26,6 +26,8 @@ jobs:
         run: npm run typecheck --if-present || true
       - name: Build
         run: npm run build
+      - name: Check for customElements.define in production bundle
+        run: bash .github/actions/check-ce.sh dist || true
       - name: Playwright install
         run: npx playwright install --with-deps
       - name: A11y tests
