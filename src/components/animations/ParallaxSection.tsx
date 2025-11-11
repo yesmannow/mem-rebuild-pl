@@ -20,7 +20,8 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset,
+    // TODO: Properly type offset prop - framer-motion expects specific offset types
+    offset: offset as [string, string] as any,
   });
 
   const y = useTransform(
