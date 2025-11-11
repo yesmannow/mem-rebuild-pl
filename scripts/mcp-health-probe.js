@@ -1,4 +1,36 @@
 #!/usr/bin/env node
+const args = Object.fromEntries(process.argv.slice(2).map(a => {
+	const [k, v = ""] = a.replace(/^--/, "").split("=");
+	return [k, v || "true"];
+}));
+
+const url = args.url || process.env.MCP_URL || "http://localhost:5174";
+
+async function main() {
+	try {
+		const started = Date.now();
+		const res = await fetch(`${url.replace(/\/$/, "")}/health`);
+		const ms = Date.now() - started;
+		if (!res.ok) {
+			console.error(`❌ Health probe failed: HTTP ${res.status}`);
+			process.exit(1);
+		}
+		const data = await res.json().catch(() => ({}));
+		if (data && (data.ok === true || data.status === "ok")) {
+			console.log(`✅ Health OK (${ms}ms)`);
+		} else {
+			console.error(`❌ Health payload unexpected: ${JSON.stringify(data).slice(0, 200)}`);
+			process.exit(1);
+		}
+	} catch (e) {
+		console.error(`❌ Health probe error: ${e.message}`);
+		process.exit(1);
+	}
+}
+
+main();
+
+#!/usr/bin/env node
 /**
  * Simple health probe for MCP server.
  * Usage:

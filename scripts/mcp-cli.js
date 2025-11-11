@@ -1,4 +1,36 @@
 #!/usr/bin/env node
+const [, , cmd = "help", ...rest] = process.argv;
+
+const run = async () => {
+	switch (cmd) {
+		case "start":
+			await import("../mcp/server.js");
+			break;
+		case "probe":
+			await import("./mcp-health-probe.js");
+			break;
+		case "monitor":
+			await import("./mcp-monitor.js");
+			break;
+		case "smoke":
+			await import("./mcp-smoke-test.js");
+			break;
+		case "deletions":
+			await import("./find-deletions.js");
+			break;
+		default:
+			console.log(`mcp-cli commands:
+  start       Start the MCP server
+  probe       Run health probe
+  monitor     Fetch monitoring stats
+  smoke       Run basic health/ls/read checks
+  deletions   Generate DELETIONS_CANDIDATES.md`);
+	}
+};
+
+run();
+
+#!/usr/bin/env node
 /**
  * Minimal MCP CLI wrapper to dispatch to npm scripts with optional --dry-run.
  * Usage: node scripts/mcp-cli.js <command> [--dry-run] [-- ...args]

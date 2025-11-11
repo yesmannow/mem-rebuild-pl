@@ -1,5 +1,62 @@
 #!/usr/bin/env node
 /**
+ * Generate DELETIONS_CANDIDATES.md with metadata for likely-removable files.
+ * Non-destructive: only writes a report.
+ */
+import fs from "fs";
+import path from "path";
+
+const root = process.cwd();
+const candidates = [];
+const maxSizeBytes = Number(process.env.DELETION_SIZE_THRESHOLD || 5 * 1024 * 1024); // 5MB
+const patterns = [
+	/\.bak$/i, /~$/, /\.tmp$/i, /^Thumbs\.db$/i, /^\.DS_Store$/i,
+	/^tatus.*/i, /^use BearCave CSS variables for consistent branding\.*$/i,
+	/^PR integrates.*$/i
+];
+
+function walk(dir) {
+	for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+		if (entry.name === "node_modules" || entry.name === ".git" || entry.name === "dist" || entry.name === "build") continue;
+		const full = path.join(dir, entry.name);
+		if (entry.isDirectory()) {
+			walk(full);
+			continue;
+		}
+		const rel = path.relative(root, full).replace(/\\/g, "/");
+		const stat = fs.statSync(full);
+		const reason = [];
+		if (patterns.some(p => p.test(entry.name))) reason.push("suspicious/temporary filename");
+		if (stat.size >= maxSizeBytes) reason.push(`large file >= ${maxSizeBytes}B`);
+		if (rel.endsWith(".map")) reason.push("source map (build artifact)");
+		if (!reason.length) continue;
+		candidates.push({
+			path: rel,
+			size: stat.size,
+			mtime: stat.mtime.toISOString(),
+			reasonCandidate: reason.join(", ")
+		});
+	}
+}
+
+walk(root);
+
+const out = [
+	"# Candidate Deletions",
+	"",
+	"Note: This is a non-destructive report. Review before deletion.",
+	"",
+	"| Path | Size (bytes) | Modified | Reason |",
+	"|------|--------------:|----------|--------|",
+	...candidates.map(c => `| ${c.path} | ${c.size} | ${c.mtime} | ${c.reasonCandidate} |`),
+	""
+].join("\n");
+
+fs.writeFileSync("DELETIONS_CANDIDATES.md", out, "utf8");
+console.log(`Wrote DELETIONS_CANDIDATES.md with ${candidates.length} candidates`);
+
+#!/usr/bin/env node
+/**
  * Deletions Candidate Scanner
  * - Walks the repository
  * - Identifies likely removable files (.bak, ~, temp files), large assets (> threshold), and unreferenced files
