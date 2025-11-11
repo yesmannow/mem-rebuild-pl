@@ -86,11 +86,10 @@ const NarrativeSection: React.FC<NarrativeSectionProps> = ({
   );
 };
 
-export default NarrativeSection;
-
 // ChallengeSection component that wraps NarrativeSection
 const ChallengeSection: React.FC<ChallengeSectionProps> = ({ challenge }) => {
   return <NarrativeSection title="The Challenge" content={challenge} />;
 };
 
-export { ChallengeSection };
+export default ChallengeSection;
+export { NarrativeSection };
