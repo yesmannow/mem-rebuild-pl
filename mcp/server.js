@@ -1,110 +1,236 @@
 #!/usr/bin/env node
+
 import fs from "fs";
+
 import express from "express";
+
 import path from "path";
 
+import { fileURLToPath } from "url";
+
+
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+
+
+
 const app = express();
+
 app.use(express.json());
+
+
 
 const root = path.resolve(__dirname, "..");
 
-// Prefer PORT (generic), then MCP_PORT; default to 5174 for local API dev
+
+
+// env + config
+
 const PORT = process.env.PORT || process.env.MCP_PORT || 5174;
-const AUTH_TOKEN = process.env.MCP_AUTH_TOKEN;
 
-// Load config
-const configPath = path.join(__dirname, "config.json");
+const AUTH_TOKEN = process.env.MCP_AUTH_TOKEN || "";
+
+const MCP_WRITE_ENABLED = (process.env.MCP_WRITE_ENABLED || "false").toLowerCase() === "true";
+
+
+
+// load config.json safely
+
 let config = {};
+
 try {
+
+  const configPath = path.join(__dirname, "config.json");
+
   config = JSON.parse(fs.readFileSync(configPath, "utf8"));
+
 } catch (err) {
-  console.warn("Could not load mcp config.json, continuing with defaults");
+
+  console.warn("WARN: could not load mcp/config.json, using defaults");
+
+  config = { readOnly: true, allowedPaths: ["src", "public", "scripts", "content"] };
+
 }
 
-// Setup logging
-const logDir = path.join(__dirname);
-const logFile = path.join(logDir, "mcp.log");
 
-function log(message) {
-  const timestamp = new Date().toISOString();
-  const logLine = `[${timestamp}] ${message}\n`;
-  try { fs.appendFileSync(logFile, logLine); } catch (e) {}
-  console.log(message);
+
+// helper: check allowedPaths and prevent traversal
+
+function safeJoin(rootDir, requestedPath) {
+
+  const joined = path.join(rootDir, requestedPath || ".");
+
+  const resolved = path.resolve(joined);
+
+  if (!resolved.startsWith(rootDir)) {
+
+    throw new Error("Path traversal detected");
+
+  }
+
+  // ensure requested path is within one of allowedPaths if configured
+
+  if (Array.isArray(config.allowedPaths) && config.allowedPaths.length) {
+
+    const isAllowed = config.allowedPaths.some(p => {
+
+      const allowedAbs = path.resolve(path.join(rootDir, p));
+
+      return resolved === allowedAbs || resolved.startsWith(allowedAbs + path.sep);
+
+    });
+
+    if (!isAllowed) throw new Error("Path not allowed by config.allowedPaths");
+
+  }
+
+  return resolved;
+
 }
 
-// Authentication middleware
+
+
+// logging helper
+
+function log(msg) {
+
+  const ts = new Date().toISOString();
+
+  console.log(`[mcp:${ts}] ${msg}`);
+
+}
+
+
+
+// auth middleware for write
+
 function requireAuth(req, res, next) {
+
   if (!AUTH_TOKEN) {
-    log("WARN: MCP_AUTH_TOKEN not set - server running without auth");
+
+    log("WARN: MCP_AUTH_TOKEN not set - running without auth");
+
     return next();
+
   }
 
-  const authHeader = req.headers.authorization;
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    log(`WARN: Unauthorized request from ${req.ip}`);
-    return res.status(401).json({ error: "Unauthorized" });
-  }
+  const auth = req.headers.authorization || "";
 
-  const token = authHeader.split(" ")[1];
-  if (token !== AUTH_TOKEN) {
-    log(`WARN: Invalid token attempt from ${req.ip}`);
-    return res.status(403).json({ error: "Forbidden" });
-  }
+  if (!auth.startsWith("Bearer ")) return res.status(401).json({ error: "Unauthorized" });
+
+  const token = auth.slice("Bearer ".length);
+
+  if (token !== AUTH_TOKEN) return res.status(403).json({ error: "Forbidden" });
 
   next();
+
 }
 
-// List directory
-app.get("/ls", (req, res) => {
-  const target = path.join(root, req.query.path || ".");
-  try {
-    const entries = fs.readdirSync(target, { withFileTypes: true });
-    res.json(entries.map(e => ({ name: e.name, dir: e.isDirectory() })));
-  } catch (err) {
-    res.status(500).json({ error: String(err) });
-  }
-});
 
-// Read file
-app.get("/read", (req, res) => {
-  const file = path.join(root, req.query.path || "");
-  try {
-    res.send(fs.readFileSync(file, "utf8"));
-  } catch (err) {
-    res.status(500).json({ error: String(err) });
-  }
-});
 
-// Write file (protected)
-app.post("/write", requireAuth, (req, res) => {
-  const file = path.join(root, req.body.path || "");
-  try {
-    fs.writeFileSync(file, req.body.content || "", "utf8");
-    res.json({ ok: true });
-  } catch (err) {
-    res.status(500).json({ error: String(err) });
-  }
-});
+// endpoints
 
-// Search (simple)
-app.get("/search", (req, res) => {
-  const query = req.query.q || "";
-  // naive search implementation
-  res.json({ query, result: [] });
-});
-
-// Health endpoint
 app.get("/health", (req, res) => {
+
   res.json({ status: "ok", version: config.version || "unknown" });
+
 });
 
-// Example portfolio endpoint (if present in incoming commit)
-app.get("/api/portfolio", (req, res) => {
-  // placeholder: implement portfolio logic here
-  res.json({ message: "portfolio endpoint placeholder" });
+
+
+app.get("/ls", (req, res) => {
+
+  try {
+
+    const p = req.query.path || ".";
+
+    const target = safeJoin(root, p);
+
+    const entries = fs.readdirSync(target, { withFileTypes: true });
+
+    res.json(entries.map(e => ({ name: e.name, dir: e.isDirectory() })));
+
+  } catch (err) {
+
+    log(`ls error: ${String(err)}`);
+
+    res.status(400).json({ error: String(err) });
+
+  }
+
 });
+
+
+
+app.get("/read", (req, res) => {
+
+  try {
+
+    const p = req.query.path || "";
+
+    const file = safeJoin(root, p);
+
+    res.type("text/plain").send(fs.readFileSync(file, "utf8"));
+
+  } catch (err) {
+
+    log(`read error: ${String(err)}`);
+
+    res.status(400).json({ error: String(err) });
+
+  }
+
+});
+
+
+
+app.post("/write", requireAuth, (req, res) => {
+
+  try {
+
+    if (config.readOnly) return res.status(403).json({ error: "Server is readOnly" });
+
+    if (!MCP_WRITE_ENABLED) return res.status(403).json({ error: "Writes disabled by MCP_WRITE_ENABLED" });
+
+
+
+    const filePath = req.body.path;
+
+    const content = req.body.content || "";
+
+    const target = safeJoin(root, filePath);
+
+    fs.writeFileSync(target, content, "utf8");
+
+    res.json({ ok: true });
+
+  } catch (err) {
+
+    log(`write error: ${String(err)}`);
+
+    res.status(400).json({ error: String(err) });
+
+  }
+
+});
+
+
+
+// placeholder portfolio endpoint
+
+app.get("/api/portfolio", (req, res) => {
+
+  res.json({ message: "portfolio endpoint placeholder" });
+
+});
+
+
 
 app.listen(PORT, () => {
+
   log(`MCP server listening on port ${PORT}`);
+
 });
 
