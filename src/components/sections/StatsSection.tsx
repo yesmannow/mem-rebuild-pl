@@ -46,7 +46,8 @@ const StatsSection: React.FC<StatsSectionProps> = ({
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
+        // TODO: Convert cubic-bezier array to proper easing type - using string format for compatibility
+        ease: 'cubic-bezier(0.22, 1, 0.36, 1)' as any,
       },
     },
   };
@@ -112,7 +113,8 @@ const StatItem: React.FC<StatItemProps> = ({ stat, variants, isInView }) => {
         {numericValue !== null ? (
           <>
             {stat.prefix}
-            <animated.span>
+            {/* TODO: React Spring animated.span type issue - using type assertion for compatibility */}
+            <animated.span as any>
               {number.to((n) => Math.floor(n))}
             </animated.span>
             {stat.suffix}
