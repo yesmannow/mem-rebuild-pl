@@ -44,9 +44,9 @@ async function walkDirectory(dir, relativePath = '') {
     for (const item of items) {
       const fullPath = join(dir, item.name);
       const relPath = relativePath ? join(relativePath, item.name) : item.name;
-      
+
       if (shouldExclude(fullPath)) continue;
-      
+
       if (item.isDirectory()) {
         entries.push(...await walkDirectory(fullPath, relPath));
       } else if (item.isFile()) {
@@ -78,7 +78,7 @@ async function getFileInfo(file) {
     const snippet = isCodeFile(file.relativePath) && !shouldExclude(file.relativePath)
       ? await getFileSnippet(file.fullPath)
       : '';
-    
+
     return {
       path: file.relativePath,
       size: stats.size,
@@ -137,7 +137,7 @@ async function generateManifest() {
   manifest.motionFiles = await Promise.all(motionFiles.map(getFileInfo));
 
   // Find pages under src/pages
-  const pageFiles = allFiles.filter(file => 
+  const pageFiles = allFiles.filter(file =>
     file.relativePath.startsWith('src/pages/')
   );
   // Group by directory structure
@@ -156,7 +156,7 @@ async function generateManifest() {
   }));
 
   // Find component directories under src/components
-  const componentFiles = allFiles.filter(file => 
+  const componentFiles = allFiles.filter(file =>
     file.relativePath.startsWith('src/components/')
   );
   const componentMap = new Map();
@@ -188,13 +188,13 @@ async function generateManifest() {
   }
 
   // Check for Storybook config
-  const storybookDirs = allFiles.filter(file => 
+  const storybookDirs = allFiles.filter(file =>
     file.relativePath.startsWith('.storybook/')
   );
   manifest.storybook = storybookDirs.length > 0;
 
   // Check for .env file (boolean only)
-  const envFiles = allFiles.filter(file => 
+  const envFiles = allFiles.filter(file =>
     file.relativePath === '.env' || file.relativePath.startsWith('.env.')
   );
   manifest.envPresent = envFiles.length > 0;

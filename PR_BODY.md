@@ -1,47 +1,65 @@
-# Modern React UX Integration
+## Executive Summary
 
-This PR integrates modern React UX patterns into the portfolio site, enhancing user experience with professional libraries and best practices.
+- **Added FeaturedProjectCard component** - Reusable card component with hover lift animation, gradient overlay, and semantic anchor structure
+- **Created FeaturedProjectsGrid composer** - Responsive grid layout (1/2/3 columns) with stagger animations using centralized motion variants
+- **Integrated canonical dataset** - Projects page now uses `src/data/projects.ts` with featured flag filtering, replacing inline demo data
 
-## Key Features
+## Files Changed
 
-### Infrastructure
-- **TanStack Query**: Data fetching and caching with sensible defaults
-- **Zustand**: Lightweight state management for UI state (theme, nav, filters)
-- **react-hook-form + Zod**: Schema-based form validation with minimal re-renders
-- **Floating UI**: Accessible positioning primitives for menus/popovers
+### Created
+- `src/components/home/FeaturedProjectCard.tsx` - Card component with motion variants
+- `src/components/home/FeaturedProjectsGrid.tsx` - Grid composer with stagger animations
+- `src/components/about/OriginTimeline.tsx` - Timeline component with responsive layout
+- `src/stories/HeroIntro.stories.tsx` - Storybook scaffold
+- `src/stories/FeaturedProjectCard.stories.tsx` - Storybook scaffold
+- `src/stories/FeaturedProjectsGrid.stories.tsx` - Storybook scaffold
+- `src/stories/OriginTimeline.stories.tsx` - Storybook scaffold
 
-### Components Created
-- **Carousel**: Embla wrapper with full accessibility (ARIA labels, keyboard nav, pause on hover)
-- **ResultChart**: Recharts component for visualizing case study metrics
-- **ContactForm**: Form with react-hook-form + Zod validation and accessible error handling
+### Modified
+- `src/pages/Projects.tsx` - Replaced inline demo projects with FeaturedProjectsGrid using canonical dataset
 
-### Enhancements
-- **Header**: Enhanced with Floating UI for accessible mobile menu positioning
-- **ThemeToggle**: Updated to use Zustand store with data-theme attribute
-- **Homepage**: Added Helmet SEO, Carousel integration, Framer Motion variants
-- **Animations**: Staggered animations and whileHover lift effects
+## How to Run Locally
 
-## Dependencies Added
-- @tanstack/react-query
-- react-hook-form
-- @hookform/resolvers
-- zod
-- zustand
-- @floating-ui/react
+```bash
+npm ci
+npm run dev
+```
 
-## Styling
-All components use BearCave CSS variables for consistent branding.
+Navigate to `/projects` to see the new grid layout.
 
-## Testing
-- Theme toggle persistence
-- Mobile menu positioning
-- Carousel accessibility
-- Form validation
-- SEO meta tags
+## QA Steps
 
-## Documentation
-See docs/MODERN_UX_INTEGRATION.md for detailed implementation notes.
+- [ ] **Hover lift**: Cards should lift slightly on hover with smooth transition
+- [ ] **Keyboard focus**: Tab navigation should show focus ring, Enter should navigate
+- [ ] **Responsive grid**: Verify 1 column (mobile), 2 columns (tablet), 3 columns (desktop)
+- [ ] **Timeline collapse**: OriginTimeline should stack vertically on small screens
+- [ ] **Image loading**: Project images should lazy load with proper aspect ratios
+- [ ] **Motion variants**: All animations should use centralized variants from `src/components/shared/MotionVariants.ts`
 
-## Related
-Builds on BearCave brand integration from previous PR.
+## Checklist
 
+- [x] Semantic HTML (`<a>`, `<main>`, proper heading hierarchy)
+- [x] Accessibility (aria-label, focus-ring helper, keyboard navigation)
+- [x] TypeScript types (all props typed, no `any` types)
+- [x] Tailwind tokens used (responsive utilities, dark mode support)
+- [x] Motion variants used centrally (imported from `src/components/shared/MotionVariants.ts`)
+
+## Data Mapping Notes
+
+**Dataset Structure** (`src/data/projects.ts`):
+- `slug` → `slug` (for routing)
+- `title` → `title`
+- `description` → `description` (short description used)
+- `image` → `image`
+- `tags` → `tags`
+- `link` → `link` (external URL)
+- `featured` → Used for filtering (prefers featured items, falls back to all if none featured)
+
+**Demo Assets**: Storybook stories reference `/demoAssets/` placeholders - replace with actual images when setting up Storybook.
+
+## Notes
+
+- All components use centralized motion variants from `src/components/shared/MotionVariants.ts`
+- Projects page filters for `featured: true` items, displays all projects if none are featured
+- Storybook scaffolds are provided but require Storybook setup (no devDependencies added per requirements)
+- Pre-existing TypeScript errors exist in other files (not introduced by this PR)

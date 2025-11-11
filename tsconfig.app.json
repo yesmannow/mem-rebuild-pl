@@ -14,8 +14,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "types": [
-      "node",
-      "vite/client"
+      "node"
     ],
     "baseUrl": "./",
     "paths": {

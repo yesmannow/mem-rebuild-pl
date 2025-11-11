@@ -13,7 +13,7 @@ const Projects: React.FC = () => {
   const featuredItems: FeaturedProjectCardProps[] = useMemo(() => {
     const featuredProjects = projects.filter(p => p.featured);
     const itemsToUse = featuredProjects.length > 0 ? featuredProjects : projects;
-    
+
     return itemsToUse.map(project => ({
       slug: project.slug,
       title: project.title,
