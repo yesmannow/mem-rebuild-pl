@@ -1,7 +1,7 @@
-// TODO: Temporary shim for Three.js JSX elements until official @react-three/fiber types are properly configured
-// This should be replaced with proper type definitions from @react-three/fiber in a follow-up PR
-
-// Global JSX namespace augmentation for Three.js elements
+/**
+ * Temporary JSX shim for react-three-fiber elements.
+ * TODO: remove after @react-three/fiber types are properly loaded.
+ */
 declare global {
   namespace JSX {
     interface IntrinsicElements {

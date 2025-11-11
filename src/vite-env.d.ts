@@ -1,12 +1,21 @@
 /// <reference types="vite/client" />
 
-// Type declarations for @react-three/fiber JSX elements
-// TODO: This is a workaround - @react-three/fiber should provide these types automatically
-import { ThreeElements } from '@react-three/fiber';
-
+/**
+ * Temporary JSX shim for react-three-fiber elements.
+ * TODO: remove after @react-three/fiber types are properly loaded.
+ */
 declare global {
   namespace JSX {
-    interface IntrinsicElements extends ThreeElements {}
+    interface IntrinsicElements {
+      mesh: any;
+      boxGeometry: any;
+      meshStandardMaterial: any;
+      ambientLight: any;
+      pointLight: any;
+      [key: string]: any;
+    }
   }
 }
+
+export {};
 
