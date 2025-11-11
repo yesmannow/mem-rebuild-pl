@@ -59,8 +59,12 @@ function validatePath(filePath) {
   const normalized = path.normalize(filePath);
   const fullPath = path.resolve(root, normalized);
 
-  // Ensure path is within root
-  if (!fullPath.startsWith(root)) {
+  // Ensure path is within root using path.relative() to prevent path traversal
+  // path.relative() returns a path with '..' if the target is outside the root
+  const relativePath = path.relative(root, fullPath);
+
+  // Check if path escapes root directory (contains '..' or is absolute)
+  if (relativePath.startsWith('..') || path.isAbsolute(relativePath)) {
     return { valid: false, error: "Path outside root directory" };
   }
 
@@ -68,7 +72,9 @@ function validatePath(filePath) {
   if (config.allowedPaths && Array.isArray(config.allowedPaths)) {
     const allowed = config.allowedPaths.some(allowedPath => {
       const allowedFull = path.resolve(root, allowedPath);
-      return fullPath.startsWith(allowedFull);
+      const allowedRelative = path.relative(allowedFull, fullPath);
+      // Ensure the path is within the allowed path (not escaping with '..')
+      return !allowedRelative.startsWith('..') && !path.isAbsolute(allowedRelative);
     });
     if (!allowed) {
       return { valid: false, error: "Path not in allowedPaths" };
