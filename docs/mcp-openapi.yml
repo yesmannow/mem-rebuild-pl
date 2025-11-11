@@ -1,0 +1,150 @@
+openapi: 3.0.3
+info:
+  title: MCP Server API
+  version: 1.0.0
+  description: |
+    Minimal OpenAPI spec for the MCP server.
+    Notes:
+    - /write requires a Bearer token when MCP_AUTH_TOKEN is configured in the environment.
+servers:
+  - url: http://localhost:5174
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  version:
+                    type: string
+  /ls:
+    get:
+      summary: List directory entries
+      parameters:
+        - in: query
+          name: path
+          schema:
+            type: string
+          description: Relative path from repository root
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    dir:
+                      type: boolean
+        "4XX":
+          description: Invalid path
+        "5XX":
+          description: Error reading directory
+  /read:
+    get:
+      summary: Read a file (UTF-8)
+      parameters:
+        - in: query
+          name: path
+          required: true
+          schema:
+            type: string
+          description: Relative file path from repository root
+      responses:
+        "200":
+          description: File content
+          content:
+            text/plain:
+              schema:
+                type: string
+        "4XX":
+          description: Invalid path
+        "5XX":
+          description: Error reading file
+  /write:
+    post:
+      summary: Write a file (protected)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [path, content]
+              properties:
+                path:
+                  type: string
+                content:
+                  type: string
+      responses:
+        "200":
+          description: Wrote file
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+        "401":
+          description: Unauthorized (no token)
+        "403":
+          description: Forbidden (invalid token)
+        "5XX":
+          description: Error writing file
+  /search:
+    get:
+      summary: Naive search endpoint
+      parameters:
+        - in: query
+          name: q
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Query accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  query:
+                    type: string
+                  result:
+                    type: array
+                    items: {}
+  /api/portfolio:
+    get:
+      summary: Portfolio endpoint (placeholder)
+      responses:
+        "200":
+          description: Placeholder portfolio response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+

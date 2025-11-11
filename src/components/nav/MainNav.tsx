@@ -330,7 +330,7 @@ export default function MainNav() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-cave-text hover:text-turquoise transition-colors"
               aria-label="Toggle menu"
-              aria-expanded={mobileMenuOpen ? 'true' : 'false'}
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

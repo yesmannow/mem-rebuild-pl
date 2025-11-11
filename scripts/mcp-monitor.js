@@ -75,8 +75,8 @@ function analyzeStats(stats, threshold = ERROR_THRESHOLD) {
 	return {
 		alert: false,
 		message: `Monitoring OK (${totalRequests} requests, ${totalErrors} errors, ${stats.totalChecks || 0} health checks)`,
-		details: { 
-			totalRequests, 
+		details: {
+			totalRequests,
 			totalErrors,
 			totalChecks: stats.totalChecks,
 			avgResponseMs: stats.avgResponseMs
