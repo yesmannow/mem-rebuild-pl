@@ -1,5 +1,5 @@
 /**
- * ce-guard.js
+ * ce-guard.js — dev-only guard
  *
  * Lightweight runtime guard to avoid throwing on duplicate customElements.define calls.
  *
@@ -8,10 +8,21 @@
 (function installCEGuard(){
   try {
     if (typeof window === 'undefined') return;
-    if (!window.customElements) return;
-    if (window.customElements.ce_guard_installed) return;
-
+    
+    // Only run in non-production builds
+    try {
+      if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'production') {
+        return;
+      }
+    } catch(e) {}
+    
+    if (window.__CE_GUARD_INSTALLED_DEV__) return;
+    
+    console.info('[CE-GUARD] dev guard active; will log duplicate customElements.define attempts');
+    
     const nativeCE = window.customElements;
+    if (!nativeCE) return;
+    
     const origDefine = nativeCE.define.bind(nativeCE);
 
     nativeCE.define = function(name, ctor, options) {
@@ -34,13 +45,13 @@
       return origDefine(name, ctor, options);
     };
 
-    Object.defineProperty(nativeCE, 'ce_guard_installed', {
+    Object.defineProperty(nativeCE, '__CE_GUARD_INSTALLED_DEV__', {
       value: true,
       configurable: true
     });
-    if (window.CE_GUARD_TRACE) {
-      console.info('[CE-GUARD] installed');
-    }
+    
+    // Expose a toggle for wrappers to enable extra tracing
+    window.__CE_GUARD_TRACE__ = window.__CE_GUARD_TRACE__ || false;
   } catch (err) {
     try {
       console.warn('[CE-GUARD] install failed', err);
