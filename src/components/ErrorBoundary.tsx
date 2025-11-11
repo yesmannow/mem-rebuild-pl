@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react/react-in-jsx-scope */
+import React, { Component, ErrorInfo, ReactNode } from 'react';
 import styles from './ErrorBoundary.module.css';
 
 type State = {
@@ -7,10 +8,10 @@ type State = {
 };
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
-export class ErrorBoundary extends React.Component<Props, State> {
+export class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = { hasError: false, error: null };
@@ -28,7 +29,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
     return { hasError: true, error: errorObj };
   }
 
-  componentDidCatch(error: Error | unknown, info: React.ErrorInfo) {
+  componentDidCatch(error: Error | unknown, info: ErrorInfo) {
     // Ensure we always log a proper error object
     const errorObj =
       error instanceof Error

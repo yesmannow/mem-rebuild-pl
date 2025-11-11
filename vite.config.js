@@ -18,7 +18,15 @@ export default defineConfig({
     },
   },
   plugins: [
-    react(),
+    react({
+      // Fix preamble detection issues - use classic runtime for class components
+      jsxRuntime: 'automatic',
+      jsxImportSource: 'react',
+      // Include all files for transformation
+      include: '**/*.{jsx,tsx}',
+      // Don't exclude anything
+      exclude: undefined,
+    }),
     // Bundle analyzer - run with ANALYZE=true npm run build
     process.env.ANALYZE && visualizer({
       open: true,
@@ -39,10 +47,16 @@ export default defineConfig({
     host: 'localhost',
     strictPort: false,
     hmr: {
-      // Fix WebSocket connection issues
+      // Fix WebSocket connection issues - use same port as server
       protocol: 'ws',
       host: 'localhost',
+      port: 5173,
+      clientPort: 5173,
     },
+    // Suppress overlay for known harmless errors (TinyMCE custom element duplicates)
+    // Overlay is disabled - errors are caught and handled by our error handlers in index.html
+    // Set to true if you want to see Vite's error overlay for debugging
+    overlay: false,
   },
   // Optimize dependencies for dev server
   optimizeDeps: {
@@ -50,7 +64,10 @@ export default defineConfig({
     exclude: ['@tanstack/react-query'], // Exclude if not used on initial load
   },
   build: {
+    outDir: 'dist', // Explicit output directory for Cloudflare Pages
+    assetsDir: 'assets', // Explicit assets directory to match _headers rules
     manifest: true, // Enable manifest for service worker precaching
+    cssCodeSplit: true, // Extract CSS into separate files (default, but explicit)
     rollupOptions: {
       input: (() => {
         const entries = {
@@ -63,7 +80,16 @@ export default defineConfig({
         return entries;
       })(),
       output: {
+        format: 'es', // Explicitly set ES module format
         entryFileNames: chunk => (chunk.name === 'sw' ? 'sw.js' : 'assets/[name]-[hash].js'),
+        chunkFileNames: 'assets/[name]-[hash].js', // Ensure all chunks have .js extension
+        assetFileNames: (assetInfo) => {
+          // Ensure CSS files have .css extension
+          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            return 'assets/[name]-[hash][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        },
         manualChunks: {
           // Vendor chunks for better caching
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],

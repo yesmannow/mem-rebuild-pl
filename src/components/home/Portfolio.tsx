@@ -2,39 +2,39 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
+import CaseStudyCard from '@components/cards/CaseStudyCard';
+import { caseStudies } from '@data/caseStudies';
 import './Portfolio.css';
 
-const caseStudies = [
-  {
-    slug: 'healthcare-advertising-system',
-    title: 'Healthcare Advertising System',
-    summary: 'Designed a scalable, trust-first advertising framework for healthcare brand.',
-    metrics: [
-      { label: 'Patient Engagement', value: '+40%' },
-      { label: 'Brand Recognition', value: '+65%' },
-      { label: 'Campaign ROI', value: '3.2x' },
-    ],
-  },
-  {
-    slug: 'seasonal-promo-engine',
-    title: 'Seasonal Promo Engine',
-    summary: 'Built dynamic templates to optimize retail campaign cycles.',
-    metrics: [
-      { label: 'Sales Lift', value: '+35%' },
-      { label: 'Production Efficiency', value: '+50%' },
-      { label: 'Brand Consistency', value: '95%' },
-    ],
-  },
-  {
-    slug: 'brand-identity-systems',
-    title: 'Brand Identity Systems',
-    summary: 'Developed full visual identity systems for multi-sector clients.',
-    metrics: [
-      { label: 'Brand Launches', value: '12+' },
-      { label: 'Market Visibility', value: '+45%' },
-    ],
-  },
-];
+// Map case studies to CaseStudyCard format
+const featuredCaseStudies = caseStudies
+  .filter(cs => cs.featured)
+  .slice(0, 3)
+  .map(cs => {
+    // Extract first metric value for statLine
+    const statLine = cs.metrics.length > 0 ? cs.metrics[0].value : '';
+
+    // Create gradient from color or use default
+    const gradient = cs.color
+      ? `linear-gradient(135deg, ${cs.color}15 0%, ${cs.color}30 50%, ${cs.color}50 100%)`
+      : 'linear-gradient(135deg, #0D0D0F 0%, #1A1D1F 40%, #3CC6C4 100%)';
+
+    // Use color for hoverGlow or default
+    const hoverGlow = cs.color || '#3CC6C4';
+
+    return {
+      slug: cs.slug,
+      title: cs.title,
+      microtagline: cs.tagline,
+      emoji: typeof cs.icon === 'string' ? cs.icon : '🚀',
+      statLine,
+      badges: cs.tags.slice(0, 3),
+      gradient,
+      hoverGlow,
+      thumbnail: cs.image?.replace(/^\//, ''),
+      impactValue: 0.7, // Default impact value
+    };
+  });
 
 const Portfolio: React.FC = () => {
   return (
@@ -49,29 +49,16 @@ const Portfolio: React.FC = () => {
         <h2 className="section-heading">Featured Case Studies</h2>
       </motion.div>
 
-      <div className="portfolio__grid">
-        {caseStudies.map((study, index) => (
+      <div className="portfolio__grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+        {featuredCaseStudies.map((study, index) => (
           <motion.div
             key={study.slug}
-            className="portfolio__card card"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ y: -4 }}
           >
-            <Link to={`/case-studies/${study.slug}`} className="portfolio__card-link">
-              <h3 className="portfolio__card-title">{study.title}</h3>
-              <p className="portfolio__card-summary">{study.summary}</p>
-              <div className="portfolio__metrics">
-                {study.metrics.map((metric, i) => (
-                  <div key={i} className="portfolio__metric">
-                    <div className="portfolio__metric-value">{metric.value}</div>
-                    <div className="portfolio__metric-label">{metric.label}</div>
-                  </div>
-                ))}
-              </div>
-            </Link>
+            <CaseStudyCard {...study} />
           </motion.div>
         ))}
       </div>

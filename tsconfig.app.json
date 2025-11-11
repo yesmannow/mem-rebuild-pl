@@ -10,7 +10,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "emitDeclarationOnly": true, // Only emit declaration files for project references; Vite handles JS bundling
-    "jsx": "react",
+    "jsx": "react-jsx",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "types": [

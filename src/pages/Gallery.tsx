@@ -18,7 +18,7 @@ export default function GalleryPage() {
       <PageLayout>
         <main className="mx-auto max-w-6xl px-6 py-12">
           <h1 className="mb-6 text-3xl font-bold text-white">From the Work</h1>
-          {items && items.length > 0 ? (
+          {items && Array.isArray(items) && items.length > 0 ? (
             <GalleryGrid items={items} />
           ) : (
             <p className="text-neutral-400">No gallery items available yet.</p>

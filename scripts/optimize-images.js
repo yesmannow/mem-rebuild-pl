@@ -20,7 +20,7 @@ const require = createRequire(import.meta.url);
 const SUPPORTED_FORMATS = ['.jpg', '.jpeg', '.png'];
 const OUTPUT_FORMATS = {
   webp: true,
-  avif: false, // AVIF requires sharp or imagemin-avif
+  avif: true, // Enable AVIF if sharp supports it
 };
 
 const QUALITY = {
@@ -81,6 +81,20 @@ async function convertToWebP(inputPath, outputPath) {
 }
 
 /**
+ * Generate AVIF version using sharp
+ */
+async function convertToAVIF(inputPath, outputPath) {
+  try {
+    const sharp = require('sharp');
+    await sharp(inputPath).avif({ quality: 80 }).toFile(outputPath);
+    return true;
+  } catch (error) {
+    console.error(`❌ Failed to convert ${inputPath} to AVIF:`, error.message);
+    return false;
+  }
+}
+
+/**
  * Get file size in KB
  */
 function getFileSize(filePath) {
@@ -123,9 +137,9 @@ async function optimizeImages(directory = 'public/images') {
 
     const originalSize = getFileSize(imagePath);
 
-    if (hasSharp && OUTPUT_FORMATS.webp) {
+    if (hasSharp) {
       // Convert to WebP
-      if (!fs.existsSync(webpPath)) {
+      if (OUTPUT_FORMATS.webp && !fs.existsSync(webpPath)) {
         const success = await convertToWebP(imagePath, webpPath);
         if (success) {
           const webpSize = getFileSize(webpPath);
@@ -135,9 +149,28 @@ async function optimizeImages(directory = 'public/images') {
         } else {
           errors++;
         }
-      } else {
+      } else if (OUTPUT_FORMATS.webp) {
         console.log(`⏭️  ${basename}.webp already exists`);
         skipped++;
+      }
+
+      // Convert to AVIF
+      if (OUTPUT_FORMATS.avif) {
+        const avifPath = path.join(dir, `${basename}.avif`);
+        if (!fs.existsSync(avifPath)) {
+          const success = await convertToAVIF(imagePath, avifPath);
+          if (success) {
+            const avifSize = getFileSize(avifPath);
+            const savings = ((1 - avifSize / originalSize) * 100).toFixed(1);
+            console.log(`✅ ${path.basename(imagePath)} → ${basename}.avif (${savings}% smaller)`);
+            processed++;
+          } else {
+            errors++;
+          }
+        } else {
+          console.log(`⏭️  ${basename}.avif already exists`);
+          skipped++;
+        }
       }
     } else {
       // Just provide recommendations

@@ -8,11 +8,16 @@ import OutcomesSection from '@components/case-study/OutcomesSection';
 import PullQuote from '@components/case-study/PullQuote';
 import CapabilitiesBadges from '@components/case-study/CapabilitiesBadges';
 import CaseStudyCTA from '@components/case-study/CTA';
+import HeroMedia from '@components/case-study/HeroMedia';
+import { useDominantTheme } from '@hooks/useDominantTheme';
 import { theLaunchpad } from '@data/case-studies/the-launchpad';
 import PageLayout from '@components/layout/PageLayout';
 
 const TheLaunchpadPage: React.FC = () => {
   const { visualIdentity } = theLaunchpad;
+
+  // Use dominant theme from hero image
+  useDominantTheme('demos/Graston Growth Engine.jpg');
 
   return (
     <>
@@ -26,6 +31,17 @@ const TheLaunchpadPage: React.FC = () => {
 
       <div data-case-study="the-launchpad">
         <PageLayout>
+          {/* Hero Media */}
+          <HeroMedia src="demos/Graston Growth Engine.jpg" alt="The Launchpad - Growth Engine" />
+
+          {/* Ambient glow background */}
+          <div
+            className="pointer-events-none fixed inset-x-0 top-[10vh] -z-10 h-[40vh] blur-3xl"
+            style={{
+              background: "radial-gradient(50% 60% at 50% 0%, var(--case-glow, rgba(73,195,178,.25)), transparent 70%)"
+            }}
+          />
+
           {/* Hero Block */}
           <HeroBlock
             title={theLaunchpad.title}

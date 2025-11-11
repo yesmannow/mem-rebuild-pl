@@ -8,14 +8,27 @@ date: 2025-11-10
 slug: how-kimera-built-cursors-identity-around-a-custom-typeface-system
 ---
 
-Kimera led a comprehensive brand refresh for Cursor, an AI code editor targeting professional developers. The project established a bespoke typographic system, Cursor Gothic, that seamlessly integrated brand and product applications. This refined identity balances technical precision with a user-centric design ethos. Unique "logo ligatures" and a custom icon set ensure fluid brand expression across Cursor's digital ecosystem, elevating its perception as an indispensable, high-performance tool.
+------------------------------------------------------------------------------------------------------------------------
+
+DATE
+
+Nov 03 2025
+
+WORDS
+
+The Brand Identity
+0 min read
+javascript:void(0)javascript:void(0)
+
+
+HOW KIMERA BUILT CURSOR’S IDENTITY AROUND A CUSTOM TYPEFACE SYSTEM
+
+3D [/search?fil...
 
 ---
 
 ## Full Content
 
-Cursor, a leading type foundry, embarked on a distinctive branding journey that deliberately eschewed wholesale reinvention. The core challenge was to meticulously refine Ben Barry’s original logo, enhancing its versatility and optimizing it for modern digital screens. This required articulating a brand voice that could seamlessly blend high-end technical sophistication, essential for a developer tool, with moments of authentic human warmth. The typographic solution stemmed from an existing affinity: Cursor was captivated by Kimera’s Waldenburg, seeking a bespoke adaptation capable of bridging elegant brand communication with the rigorous demands of a future monospace version for their flagship code editor. It was a brief rooted in evolution, demanding a profound understanding of continuity and future utility.
+The brief carried an unusual directive: don’t reinvent. “The unique situation we were in as a type foundry was to not only create a custom typeface, but also the environment it is used in,” Clasen explains. Cursor wanted to refine Ben Barry’s original logo rather than start from scratch, making it more versatile and screen-optimised. The tone needed to balance two seemingly contradictory qualities – high-end technical sophistication paired with soft, human moments.
 
-At the heart of this comprehensive refresh lies Cursor Gothic, a bespoke typeface meticulously crafted from Kimera’s Waldenburg. While retaining Waldenburg’s intrinsic blend of rationalism and analogue warmth, Kimera subtly condensed letterforms, accentuating squarish characteristics and high contrast for optimal legibility. A pivotal innovation is the "logo ligatures" – a sophisticated system embedding Cursor’s logotypes directly into the typeface with optical adjustments, ensuring perfect alignment with text and dissolving the boundary between brand mark and type. This integration extends to a custom icon set, where rounded caps and subtly squarish forms, echoing Waldenburg’s geometry, achieve seamless functionality across UI and code editor. The core cube logo, derived from Barry's original, was expanded into versatile flat, 2.5D, and 3D versions, each refined with optical adjustments prioritizing visual truth over geometric precision for screen-based impact.
-
-The brand’s distinctive colour palette further reinforces this dual nature, deliberately diverging from typical tech cool tones for a subtly warm undertone. An accent orange, inspired by industrial power tools, grounds Cursor’s technical prowess while echoing its human-centric warmth. The digital experience redefines industry standards; Cursor’s website transcends static showcases by integrating dynamic, interactive product elements. Users engage with real UI components, exploring key features directly in-browser via CSS-built mini code editors, demonstrating product capabilities experientially. This holistic approach, as articulated by Justin Jay Wang, represented a strategic 'foundation reset'—refining core ingredients to be 'fewer but better.' The forthcoming Cursor Mono, a monospace extension, will ultimately complete this vision, seamlessly integrating the brand's bespoke typography into the code editor itself. This project stands as a testament to the power of a unified typographic language, where brand and product design coexist in harmony, fostering consistency across every touchpoint.
+At the heart of the refresh sits Cursor Gothic, a bespoke typeface built on Kimera’s retail offering, Waldenburg. This wasn’t Kimera’s choice – Cursor approached them specifically because they already loved Waldenburg and didn’t want changes to the letterforms themselves. They wanted improvements in how the typeface functioned, including logo ligatures and the creation of all product and website icons. “It was vital to always keep the bigger picture in mind: a custom typeface that would later be adapted into a monospace ver...

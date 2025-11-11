@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from '../branding/Logo';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -24,12 +25,8 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="col-span-1 md:col-span-1">
-            <img
-              src="/images/logos/header-logo-secondary.png"
-              alt="BearCave Marketing"
-              className="h-8 w-auto mb-4"
-            />
-            <p className="text-gray-400 text-sm">
+            <Logo variant="lockup" size={32} tone="mono" />
+            <p className="text-gray-400 text-sm mt-4">
               Marketing systems that drive measurable growth.
             </p>
           </div>

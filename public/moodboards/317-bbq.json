@@ -1,24 +1,18 @@
 {
-  "slug": "317-bbq",
-  "title": "317 Bbq",
+  "slug": "317 bbq",
+  "title": "317 bbq",
   "dominantColors": [
-    "#374151",
-    "#6B7280",
-    "#9CA3AF",
-    "#D1D5DB",
-    "#F3F4F6",
-    "#8B4513",
-    "#D2691E",
-    "#CD853F"
+    "#c0712f",
+    "#9d4931",
+    "#d69d69",
+    "#a7805a",
+    "#51392b",
+    "#e2e3df"
   ],
   "keywords": [
     "restaurant",
-    "branding",
-    "food",
-    "rustic",
-    "authentic",
-    "logo design",
-    "identity"
+    "vibrant",
+    "warm"
   ],
   "imageCount": 14,
   "images": [
@@ -37,5 +31,11 @@
     "/images/projects/317 bbq/download.jpg",
     "/images/projects/317 bbq/Screenshot of 317 BBQ _ Really Good BBQ.jpg"
   ],
-  "lastUpdated": "2025-10-13T02:14:20.858Z"
+  "lastUpdated": "2025-10-13T02:35:04.977Z",
+  "colorAnalysis": {
+    "vibrant": "#c0712f",
+    "muted": "#a7805a",
+    "darkVibrant": "#9d4931",
+    "lightVibrant": "#d69d69"
+  }
 }

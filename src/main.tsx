@@ -27,6 +27,17 @@ if (typeof window !== 'undefined') {
   }
 }
 
+// Unregister service workers in development to prevent caching issues
+if (import.meta.env.DEV && 'serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(registrations => {
+    registrations.forEach(registration => {
+      registration.unregister().then(() => {
+        console.log('Service worker unregistered for development');
+      });
+    });
+  });
+}
+
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   const registerServiceWorker = async () => {
     try {

@@ -1,13 +1,14 @@
 import React, { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import Hero from '../components/Hero';
+import BrandHero from '../components/hero/BrandHero';
 import WhoIAm from '../components/home/WhoIAm';
 import CareerHighlights from '../components/home/CareerHighlights';
 import Portfolio from '../components/home/Portfolio';
 import MySkills from '../components/home/MySkills';
 import Testimonials from '../components/home/Testimonials';
 import FinalCTA from '../components/home/FinalCTA';
+import FromTheWork from '../components/sections/FromTheWork';
 import OrganizationSchema from '../components/seo/OrganizationSchema';
 import ServiceSchema from '../components/seo/ServiceSchema';
 import ReviewSchema from '../components/seo/ReviewSchema';
@@ -101,7 +102,7 @@ const HomePage: React.FC = () => {
       <ReviewSchema />
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-        <Hero />
+        <BrandHero />
       </motion.div>
 
       <main id="main-content">
@@ -113,6 +114,9 @@ const HomePage: React.FC = () => {
 
         {/* Portfolio Section */}
         <Portfolio />
+
+        {/* From the Work Section */}
+        <FromTheWork />
 
         {/* Skills Section */}
         <MySkills />

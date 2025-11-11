@@ -15,7 +15,7 @@
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"]
     },
-    "jsx": "react",
+    "jsx": "react-jsx",
     "types": ["@types/react"],
     "esModuleInterop": true,
     "resolveJsonModule": true,

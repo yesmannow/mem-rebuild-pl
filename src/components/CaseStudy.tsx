@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { trackCaseStudy } from '../utils/analytics';
+import OptimizedImage from '@components/media/OptimizedImage';
 import './home/SelectedWorkCard.css';
 
 interface CaseStudyMetric {
@@ -42,7 +43,7 @@ export default function CaseStudy({
       variants={hoverVariants}
     >
       <div className="selected-work-card__media" style={{ borderColor: accent }}>
-        <img src={image} alt={title} loading="lazy" />
+        <OptimizedImage src={image.replace(/^\//, '')} alt={title} className="selected-work-card__image" />
         <div className="selected-work-card__glow" style={{ background: accent }} />
       </div>
       <div className="selected-work-card__body">

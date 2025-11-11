@@ -11,6 +11,14 @@ export default {
   theme: {
   	extend: {
   		colors: {
+  			brand: {
+  				400: '#6BE1CE',
+  				500: '#49C3B2'
+  			},
+  			accent: {
+  				400: '#F4A264',
+  				500: '#F08A45'
+  			},
   			cave: {
   				bg: '#0D0D0F',
   				text: '#E6E6E6',
@@ -117,6 +125,7 @@ export default {
   		},
   		backgroundImage: {
   			'case-study-gradient': 'var(--case-study-gradient)',
+  			'brand-grad': 'linear-gradient(135deg, rgb(105 223 206 / 0.35), rgb(242 163 96 / 0.35))'
   		},
   		fontFamily: {
   			sans: [

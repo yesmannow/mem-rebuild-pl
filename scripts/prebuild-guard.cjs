@@ -6,20 +6,66 @@ if (process.env.PREBUILD_PIPELINE !== 'on') {
   console.log('ℹ️ PREBUILD_PIPELINE=off → skipping any AI/content generation.');
 }
 
-// Always build image manifest
-const { execSync } = require('child_process');
-try {
-  console.log('📸 Building image manifest...');
-  execSync('npm run images:build', { stdio: 'inherit' });
-} catch (error) {
-  console.warn('⚠️ Image build failed, continuing anyway:', error.message);
+// Always build image manifest with timeout
+const { execSync, spawn } = require('child_process');
+const TIMEOUT_MS = 120000; // 2 minutes timeout
+
+function runWithTimeout(command, args, timeout) {
+  return new Promise((resolve, reject) => {
+    const proc = spawn(command, args, { stdio: 'inherit', shell: true });
+    let finished = false;
+
+    const timeoutId = setTimeout(() => {
+      if (!finished) {
+        finished = true;
+        proc.kill('SIGTERM');
+        reject(new Error(`Command timed out after ${timeout}ms`));
+      }
+    }, timeout);
+
+    proc.on('exit', (code) => {
+      if (!finished) {
+        finished = true;
+        clearTimeout(timeoutId);
+        if (code === 0) {
+          resolve();
+        } else {
+          reject(new Error(`Command exited with code ${code}`));
+        }
+      }
+    });
+
+    proc.on('error', (err) => {
+      if (!finished) {
+        finished = true;
+        clearTimeout(timeoutId);
+        reject(err);
+      }
+    });
+  });
 }
 
-// Always build datasets (demos.json and gallery.json)
-try {
-  console.log('📊 Building datasets...');
-  execSync('npm run datasets:build', { stdio: 'inherit' });
-} catch (error) {
-  console.warn('⚠️ Dataset build failed, continuing anyway:', error.message);
-}
+(async () => {
+  let exitCode = 0;
+
+  // Always build image manifest
+  try {
+    console.log('📸 Building image manifest...');
+    await runWithTimeout('npm', ['run', 'images:build'], TIMEOUT_MS);
+  } catch (error) {
+    console.warn('⚠️ Image build failed or timed out, continuing anyway:', error.message);
+    // Don't exit with error - allow build to continue
+  }
+
+  // Always build datasets (demos.json and gallery.json)
+  try {
+    console.log('📊 Building datasets...');
+    execSync('npm run datasets:build', { stdio: 'inherit', timeout: 30000 });
+  } catch (error) {
+    console.warn('⚠️ Dataset build failed, continuing anyway:', error.message);
+    // Don't exit with error - allow build to continue
+  }
+
+  process.exit(exitCode);
+})();
 

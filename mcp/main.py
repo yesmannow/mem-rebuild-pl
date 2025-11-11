@@ -4,7 +4,7 @@ from mcp.routes import (
     logo, preview, export,
     analytics, images, seo,
     bundles, lighthouse, resource_hints,
-    content, cache, cleanup
+    content, cache, cleanup, pr_validation
 )
 
 app = FastAPI(title="MCP Optimization Server")
@@ -31,12 +31,13 @@ app.include_router(resource_hints.router, prefix="/resource-hints", tags=["Resou
 app.include_router(content.router, prefix="/content", tags=["Content Analysis"])
 app.include_router(cache.router, prefix="/cache", tags=["Cache Optimization"])
 app.include_router(cleanup.router, prefix="/cleanup", tags=["Cleanup & Validation"])
+app.include_router(pr_validation.router, prefix="/pr", tags=["PR Validation"])
 
 @app.get("/health")
 def health_check():
     return {"status": "ok", "services": [
         "branding", "analytics", "images", "seo",
-        "bundles", "lighthouse", "resource-hints", "content", "cache", "cleanup"
+        "bundles", "lighthouse", "resource-hints", "content", "cache", "cleanup", "pr-validation"
     ]}
 
 @app.get("/version")

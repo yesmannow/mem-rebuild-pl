@@ -26,6 +26,7 @@ const Contact = React.lazy(() => import('../pages/Contact'));
 const Inspiration = React.lazy(() => import('../pages/InspirationPage'));
 const InspirationDetail = React.lazy(() => import('../pages/InspirationDetail'));
 const Gallery = React.lazy(() => import('../pages/Gallery'));
+const Demos = React.lazy(() => import('../pages/Demos'));
 const BrandBuilder = React.lazy(() => import('../pages/BrandBuilder'));
 const BrandDetail = React.lazy(() => import('../pages/brand/BrandDetail'));
 const TheLaunchpad = React.lazy(() => import('../pages/case-studies/the-launchpad'));
@@ -395,6 +396,14 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <Gallery />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/demos"
+              element={
+                <PageTransition>
+                  <Demos />
                 </PageTransition>
               }
             />

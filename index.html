@@ -4,7 +4,80 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Theme Init - Zero-FOUC theme loading (must be first script) -->
+    <!-- Custom Element Registration Guard - MUST be FIRST to catch TinyMCE/Vite overlay -->
+    <script>
+      (function () {
+        'use strict';
+        if (typeof window === "undefined") return;
+
+        // Store original customElements reference
+        let originalCustomElements = window.customElements;
+
+        // Intercept customElements before polyfills can set it
+        Object.defineProperty(window, 'customElements', {
+          configurable: true,
+          enumerable: true,
+          get() {
+            return originalCustomElements;
+          },
+          set(value) {
+            originalCustomElements = value;
+            wrapCustomElementsDefine();
+          }
+        });
+
+        function wrapCustomElementsDefine() {
+          if (!originalCustomElements || !originalCustomElements.define) {
+            return;
+          }
+
+          const originalDefine = originalCustomElements.define.bind(originalCustomElements);
+          originalCustomElements.define = function(name, constructor, options) {
+            if (name === 'mce-autosize-textarea') {
+              // Suppress duplicate definition error
+              if (originalCustomElements.get(name)) {
+                return;
+              }
+            }
+            return originalDefine(name, constructor, options);
+          };
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', wrapCustomElementsDefine);
+        } else {
+          wrapCustomElementsDefine();
+        }
+      })();
+    </script>
+
+    <!-- Error Constructor Wrapping - Suppress TinyMCE errors at source -->
+    <script>
+      (function() {
+        'use strict';
+        if (typeof window === "undefined") return;
+
+        const OriginalError = window.Error;
+        window.Error = function(message) {
+          if (typeof message === 'string' && message.includes('mce-autosize-textarea')) {
+            // Suppress this error - return a dummy error object that won't throw
+            const dummyError = new OriginalError(message);
+            dummyError.name = 'SuppressedError';
+            return dummyError;
+          }
+          return new OriginalError(message);
+        };
+        // Preserve Error prototype and static properties
+        window.Error.prototype = OriginalError.prototype;
+        Object.setPrototypeOf(window.Error, OriginalError);
+        // Copy static properties
+        Object.keys(OriginalError).forEach(function(key) {
+          window.Error[key] = OriginalError[key];
+        });
+      })();
+    </script>
+
+    <!-- Theme Init - Zero-FOUC theme loading -->
     <script>
       (function() {
         'use strict';
@@ -80,76 +153,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
     <!-- Preload critical assets -->
-    <link rel="preload" as="video" href="/hero-broll.mp4" />
-    <link rel="preload" as="image" href="/images/bio/bio-photo.jpg" />
+    <!-- Note: Only preload resources that are used immediately on page load -->
+    <!-- Video preload removed - let browser handle video loading -->
+    <!-- Image preloads removed - images are loaded when components render -->
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-
-    <!-- Custom Element Registration Guard - Prevents duplicate registration errors -->
-    <script>
-      (function () {
-        'use strict';
-
-        if (typeof window === "undefined" || !window.customElements) return;
-
-        const originalDefine = window.customElements.define;
-        if (!originalDefine) return;
-
-        // Prevent double-wrapping
-        if (window.customElements.__defineGuardInstalled) return;
-        window.customElements.__defineGuardInstalled = true;
-
-        // Track registered elements to prevent duplicates
-        const registeredElements = new Set();
-
-        // Override customElements.define to check before defining
-        window.customElements.define = function (name, constructor, options) {
-          // Special handling for TinyMCE elements (mce-*)
-          if (name && name.startsWith && name.startsWith('mce-')) {
-            if (registeredElements.has(name) || window.customElements.get(name)) {
-              // Silently skip TinyMCE duplicate registrations
-              return;
-            }
-            registeredElements.add(name);
-          }
-
-          // Check if element is already defined - this is the recommended pattern
-          if (window.customElements.get(name)) {
-            // Element already exists - skip re-registration
-            if (process?.env?.NODE_ENV === 'development' || window.location.hostname === 'localhost') {
-              console.warn(`Custom element "${name}" is already registered. Skipping re-registration.`);
-            }
-            return;
-          }
-
-          // Element doesn't exist yet - safe to define
-          try {
-            registeredElements.add(name);
-            return originalDefine.call(this, name, constructor, options);
-          } catch (error) {
-            // Handle race conditions where element might be defined between check and call
-            const errorMsg = error?.message || String(error);
-            if (errorMsg && (
-                errorMsg.includes('has already been used') ||
-                errorMsg.includes('has already been defined') ||
-                errorMsg.includes('already been used') ||
-                errorMsg.includes('mce-autosize-textarea') ||
-                errorMsg.includes('mce-') ||
-                (name && name.startsWith && name.startsWith('mce-'))
-            )) {
-              // Race condition or TinyMCE conflict - silently skip duplicate definitions
-              registeredElements.delete(name); // Remove from tracking if registration failed
-              return; // Silently skip duplicate definitions
-            }
-            // Re-throw other errors (not duplicate registration errors)
-            throw error;
-          }
-        };
-      })();
-    </script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -193,12 +204,8 @@
     }
     </script>
 
-    <!-- Preload React for faster initialization -->
-    <link rel="modulepreload" href="/src/main.tsx" />
-
-    <!-- Critical CSS for initial render - Inlined for faster FCP -->
-    <link rel="preload" href="/src/styles/critical.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/src/styles/critical.css"></noscript>
+    <!-- Vite will inject modulepreload links for built assets during build -->
+    <!-- Critical CSS is inlined in the build output -->
   </head>
   <body>
     <div id="root">
@@ -218,20 +225,22 @@
       </div>
     </noscript>
     <!-- Vite will automatically inject the correct entry script during build -->
-    <script type="module" crossorigin src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
 
     <!-- Enhanced error detection for production -->
     <script>
       // Enhanced error detection to help diagnose loading issues
       window.addEventListener('error', function(e) {
-        // Suppress TinyMCE custom element errors (from Vite overlay)
-        if (e.message && (
-          e.message.includes('mce-autosize-textarea') ||
-          e.message.includes('has already been defined') ||
-          (e.filename && e.filename.includes('overlay_bundle.js'))
-        )) {
+        if (!e) return;
+
+        // Aggressively suppress TinyMCE custom element errors (from Vite overlay)
+        const message = e.message || '';
+        const filename = e.filename || '';
+
+        if (message.includes('mce-autosize-textarea') || filename.includes('webcomponents-ce.js')) {
           // Silently ignore TinyMCE/Vite overlay errors
           e.preventDefault();
+          e.stopPropagation();
           return false;
         }
 
@@ -302,12 +311,18 @@
 
       // Also catch unhandled promise rejections
       window.addEventListener('unhandledrejection', function(e) {
-        // Suppress TinyMCE custom element errors
-        if (e.reason && (
-          String(e.reason).includes('mce-autosize-textarea') ||
-          String(e.reason).includes('has already been defined')
-        )) {
+        // Aggressively suppress TinyMCE custom element errors
+        const reason = String(e.reason || '');
+        if (
+          reason.includes('mce-autosize-textarea') ||
+          reason.includes('mce-') ||
+          reason.includes('has already been defined') ||
+          reason.includes('has already been used') ||
+          reason.includes('webcomponents-ce') ||
+          reason.includes('overlay_bundle')
+        ) {
           e.preventDefault();
+          e.stopPropagation();
           return;
         }
         console.error('Unhandled promise rejection:', e.reason);

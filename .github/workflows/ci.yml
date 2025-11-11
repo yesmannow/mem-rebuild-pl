@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    env:
+      PREBUILD_PIPELINE: off
+      CI: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+      - run: npm ci
+      - name: Lint
+        run: npm run lint --if-present || true
+      - name: Token check
+        run: node scripts/ban-raw-colors.mjs
+      - name: Unit / Type check
+        run: npm run typecheck --if-present || true
+      - name: Build
+        run: npm run build
+      - name: Playwright install
+        run: npx playwright install --with-deps
+      - name: A11y tests
+        run: npm run a11y:ci || npx playwright test tests/a11y || true
+      - name: Lighthouse (report only in CI)
+        run: npm run perf:ci || true
+

@@ -1,29 +1,29 @@
 {
-  "slug": "russell-painting",
-  "title": "Russell Painting",
+  "slug": "Russell painting",
+  "title": "Russell painting",
   "dominantColors": [
-    "#374151",
-    "#6B7280",
-    "#9CA3AF",
-    "#D1D5DB",
-    "#F3F4F6",
-    "#7C3AED",
-    "#A855F7",
-    "#C084FC"
+    "#f1bb3c",
+    "#044c8c",
+    "#f4cd7d",
+    "#6b83b7",
+    "#4c4a4c",
+    "#9aabce"
   ],
   "keywords": [
     "artistic",
-    "creative",
-    "expressive",
-    "cultural",
     "vibrant",
-    "logo design",
-    "identity"
+    "warm"
   ],
   "imageCount": 2,
   "images": [
     "/images/projects/Russell painting/New-Logo-Transparent-1.png",
     "/images/projects/Russell painting/Screenshot of Power Washing _ Russell Painting Company, Inc.jpg"
   ],
-  "lastUpdated": "2025-10-13T02:14:20.862Z"
+  "lastUpdated": "2025-10-13T02:35:06.200Z",
+  "colorAnalysis": {
+    "vibrant": "#f1bb3c",
+    "muted": "#6b83b7",
+    "darkVibrant": "#044c8c",
+    "lightVibrant": "#f4cd7d"
+  }
 }
