@@ -14,7 +14,6 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
-    "types": ["@react-three/fiber", "node"],
     "paths": {
       "@/*": ["src/*"],
       "@assets/*": ["src/assets/*"],
