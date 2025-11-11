@@ -11,7 +11,7 @@
       'use strict';
       try {
         if (typeof window === 'undefined') return;
-        if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'production') return;
+        // Guard should work in all environments, including production
 
         (function installCEGuard() {
           try {
@@ -237,6 +237,12 @@
           e.preventDefault();
           e.stopPropagation();
           return false;
+        }
+
+        // Only log errors with meaningful information
+        if (!e.message && !e.filename && !e.error) {
+          // Skip logging undefined errors
+          return;
         }
 
         console.error('Global error caught:', {

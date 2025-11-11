@@ -1,0 +1,36 @@
+name: Verify Signed Commits
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify commit signatures
+        run: |
+          BASE_REF="${{ github.event.pull_request.base.sha }}"
+          HEAD_REF="${{ github.event.pull_request.head.sha }}"
+          echo "Verifying commits from $BASE_REF..$HEAD_REF"
+          # List signature status for commits in range
+          STATUSES=$(git log --format='%H %G?' $BASE_REF..$HEAD_REF || true)
+          echo "$STATUSES"
+          # Fail if any commit is not 'G' (good) or 'U' (good, untrusted)
+          BAD=$(git log --format='%H %G?' $BASE_REF..$HEAD_REF | awk '{print $2}' | grep -vE '^(G|U)$' || true)
+          if [ -n "$BAD" ]; then
+            echo "Found commits without valid signatures:"
+            git log --format='%h %s %G?' $BASE_REF..$HEAD_REF
+            exit 1
+          fi
+          echo "All commits are signed (G/U)."
+
+
