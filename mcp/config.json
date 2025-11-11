@@ -1,0 +1,11 @@
+{
+  "name": "mem-rebuild-pl-mcp",
+  "version": "1.0.0",
+  "root": "../",
+  "endpoints": {
+    "list": "/ls",
+    "read": "/read",
+    "write": "/write",
+    "search": "/search"
+  }
+}
