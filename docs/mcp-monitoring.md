@@ -1,3 +1,82 @@
+# MCP Monitoring and Scheduling
+
+This document explains how to run the MCP health probe and monitoring scripts on a schedule and how to receive alerts.
+
+## Scripts
+
+- Health probe:
+  - `npm run mcp:health-probe -- --url=http://localhost:5174 [--verbose] [--notify-hook=https://webhook.test]`
+- Monitor stats:
+  - `npm run mcp:monitor -- --url=http://localhost:5174 --threshold=10 [--verbose] [--notify-hook=https://webhook.test]`
+
+## Environment flags
+
+- MCP_READONLY=true|false
+- MCP_WRITE_ENABLED=true|false
+- MCP_AUTH_TOKEN=token (enables write auth)
+- MCP_RATE_LIMIT_WINDOW_MS=1000
+- MCP_RATE_LIMIT_MAX=60
+- MCP_RATE_LIMIT_KEY=static (for deterministic tests)
+
+## Scheduling examples
+
+### Cron (Linux/macOS)
+
+```
+*/5 * * * * cd /path/to/repo && npm run mcp:health-probe -- --url=http://localhost:5174 --notify-hook=https://example.com/hook >> /var/log/mcp-health.log 2>&1
+*/10 * * * * cd /path/to/repo && npm run mcp:monitor -- --url=http://localhost:5174 --threshold=10 --notify-hook=https://example.com/hook >> /var/log/mcp-monitor.log 2>&1
+```
+
+### systemd unit + timer
+
+Create `/etc/systemd/system/mcp-health.service`:
+```
+[Unit]
+Description=MCP Health Probe
+
+[Service]
+Type=oneshot
+WorkingDirectory=/path/to/repo
+ExecStart=/usr/bin/npm run mcp:health-probe -- --url=http://localhost:5174
+```
+
+Timer `/etc/systemd/system/mcp-health.timer`:
+```
+[Unit]
+Description=Run MCP Health Probe every 5 minutes
+
+[Timer]
+OnBootSec=60
+OnUnitActiveSec=300
+Unit=mcp-health.service
+
+[Install]
+WantedBy=timers.target
+```
+
+### Windows Task Scheduler
+
+Action:
+- Program/script: `powershell.exe`
+- Arguments:
+  ```
+  -NoLogo -NoProfile -Command "cd 'C:\path\to\repo'; npm run mcp:health-probe -- --url=http://localhost:5174 --verbose"
+  ```
+
+## Webhook payload
+
+On failures, the scripts can POST JSON to `--notify-hook`:
+
+```json
+{
+  "type": "health-fail | stats-404 | stats-error | stats-threshold | monitor-exception",
+  "url": "http://localhost:5174/health",
+  "status": 500,
+  "body": "...",
+  "ms": 123
+}
+```
+
 # MCP Monitoring & Health Checks
 
 This directory contains scripts for monitoring the MCP server health and detecting issues.
