@@ -14,7 +14,8 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "types": [
-      "node"
+      "node",
+      "@react-three/fiber"
     ],
     "baseUrl": "./",
     "paths": {
@@ -31,11 +32,14 @@
     "skipLibCheck": true // Skip type checking of declaration files
   },
   "include": [
+    "src",
+    "src/types",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.d.ts",
     "src/**/*.json",
     "src/**/*.js",
+    "vite-env.d.ts",
     "public/**/*.json"
   ],
   "exclude": [
