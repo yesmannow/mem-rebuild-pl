@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import BrandHero from '../components/hero/BrandHero';
+import HeroIntro from '../components/home/HeroIntro';
 import WhoIAm from '../components/home/WhoIAm';
 import CareerHighlights from '../components/home/CareerHighlights';
 import Portfolio from '../components/home/Portfolio';
@@ -12,6 +13,7 @@ import FromTheWork from '../components/sections/FromTheWork';
 import OrganizationSchema from '../components/seo/OrganizationSchema';
 import ServiceSchema from '../components/seo/ServiceSchema';
 import ReviewSchema from '../components/seo/ReviewSchema';
+import CaseStudyCard from '../components/cards/CaseStudyCard';
 
 // Lazy load heavy components
 const PersonSchema = lazy(() => import('../components/seo/PersonSchema'));
@@ -104,6 +106,30 @@ const HomePage: React.FC = () => {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
         <BrandHero />
       </motion.div>
+
+      {/* Hero Intro Section */}
+      <HeroIntro
+        metrics={[
+          { label: 'Years Experience', value: '16+' },
+          { label: 'Projects Delivered', value: '200+' },
+          { label: 'Clients Served', value: '50+' },
+          { label: 'Systems Built', value: '100+' },
+        ]}
+      />
+
+      {/* Featured Project Placeholder */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <CaseStudyCard
+          title="Featured Project"
+          microtagline="A showcase of recent work"
+          emoji="🚀"
+          statLine="2024"
+          badges={['Design', 'Development', 'Strategy']}
+          gradient="linear-gradient(135deg, #0f1720 0%, #16a34a 100%)"
+          hoverGlow="#16a34a"
+          slug="/case-studies"
+        />
+      </section>
 
       <main id="main-content">
         {/* About Section */}
