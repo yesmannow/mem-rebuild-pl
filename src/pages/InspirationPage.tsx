@@ -258,7 +258,7 @@ const InspirationPage: React.FC = () => {
               className="block"
             >
               <InspirationCard
-                project={{ data: project }}
+                project={{ data: { ...project, url: project.url || `/inspiration/${project.slug || ''}` } }}
               />
             </Link>
           ))}
