@@ -22,6 +22,15 @@ const headers = {
 async function testHealth() {
   try {
     const response = await fetch(`${BASE_URL}/health`, { headers });
+    
+    // Check HTTP status before parsing JSON
+    if (!response.ok) {
+      const text = await response.text();
+      console.error(`❌ Health check failed: HTTP ${response.status} ${response.statusText}`);
+      if (text) console.error(`   Response: ${text.substring(0, 200)}`);
+      return false;
+    }
+    
     const data = await response.json();
     if (data.ok === true) {
       console.log("✅ Health check passed");
@@ -43,6 +52,15 @@ async function testRead() {
       headers,
       body: JSON.stringify({ path: "src/main.tsx" })
     });
+    
+    // Check HTTP status before parsing JSON
+    if (!response.ok) {
+      const text = await response.text();
+      console.error(`❌ Read test failed: HTTP ${response.status} ${response.statusText}`);
+      if (text) console.error(`   Response: ${text.substring(0, 200)}`);
+      return false;
+    }
+    
     const data = await response.json();
     if (data.path && data.content) {
       console.log("✅ Read test passed");
