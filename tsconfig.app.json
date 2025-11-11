@@ -13,10 +13,6 @@
     "jsx": "react-jsx",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "types": [
-      "node",
-      "@react-three/fiber"
-    ],
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],

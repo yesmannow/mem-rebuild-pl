@@ -1,3 +1,4 @@
+/// <reference path="../../types/three-js.d.ts" />
 import React, { useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Mesh } from 'three';
