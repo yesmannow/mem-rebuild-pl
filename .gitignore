@@ -23,6 +23,8 @@ mcp/mcp.log
 
 # Temporary files
 *.tmp
+.mcp.bak
+*.mcp.bak
 .cache/
 .vercel
 
