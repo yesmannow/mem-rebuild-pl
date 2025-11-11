@@ -3,27 +3,45 @@ import fetchWithRetry from '../utils/fetchWithRetry';
 import { sendTelemetry } from '../utils/telemetry';
 import ResumeSkeleton from '../components/ResumeSkeleton';
 import PortfolioList from '../components/PortfolioList';
+import resumeData from '../data/resume.json';
+
+interface ExperienceItem {
+  role?: string;
+  title?: string;
+  name?: string;
+  company?: string;
+  dates?: string;
+  location?: string;
+  summary?: string;
+}
 
 export default function ResumePage() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [data, setData] = useState<ExperienceItem[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     let mounted = true;
     setLoading(true);
     fetchWithRetry('/api/portfolio', {}, 2, 200)
-      .then(d => {
+      .then((d: ExperienceItem[]) => {
         if (!mounted) return;
         setData(d);
         setLoading(false);
       })
-      .catch(err => {
+      .catch((err: Error) => {
         if (!mounted) return;
-        setError(err);
-        setLoading(false);
-        console.warn('[RESUME] portfolio fetch failed', err);
-        sendTelemetry('resume-fetch-failed', { message: String(err) });
+        // Dev fallback: use local resume data when API fails
+        if (import.meta.env.DEV) {
+          console.warn('[RESUME] portfolio fetch failed, using local fallback', err);
+          setData((resumeData as any).experience || []);
+          setLoading(false);
+        } else {
+          setError(err);
+          setLoading(false);
+          console.warn('[RESUME] portfolio fetch failed', err);
+          sendTelemetry('resume-fetch-failed', { message: String(err) });
+        }
       });
     return () => { mounted = false; };
   }, []);
