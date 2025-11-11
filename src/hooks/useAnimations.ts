@@ -1,6 +1,9 @@
-import { useSpring, animated, SpringConfig } from '@react-spring/web';
+import { useSpring, animated as _animated, SpringConfig } from '@react-spring/web';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+
+// TODO: React Spring animated API type issue - refine types in follow-up PR
+const animatedAny = _animated as any;
 
 interface UseFadeInOptions {
   delay?: number;
@@ -27,7 +30,7 @@ export const useFadeIn = ({
   });
 
   // TODO: React Spring animated API type issue - animated.div should exist but types are strict
-  return { ref, springs, Animated: animated.div as any };
+  return { ref, springs, Animated: animatedAny.div };
 };
 
 interface UseSlideInOptions {
@@ -66,7 +69,7 @@ export const useSlideIn = ({
   });
 
   // TODO: React Spring animated API type issue - animated.div should exist but types are strict
-  return { ref, springs, Animated: animated.div as any };
+  return { ref, springs, Animated: animatedAny.div };
 };
 
 interface UseScaleInOptions {
@@ -93,7 +96,7 @@ export const useScaleIn = ({
   });
 
   // TODO: React Spring animated API type issue - animated.div should exist but types are strict
-  return { ref, springs, Animated: animated.div as any };
+  return { ref, springs, Animated: animatedAny.div };
 };
 
 export const useCounter = (target: number, duration = 2000) => {

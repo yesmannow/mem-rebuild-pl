@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
-import { useSpring, animated } from '@react-spring/web';
+import { useSpring, animated as _animated } from '@react-spring/web';
 import './StatsSection.css';
+
+// TODO: React Spring animated API type issue - refine types in follow-up PR
+const animatedAny = _animated as any;
 
 interface Stat {
   value: string | number;
@@ -114,9 +117,9 @@ const StatItem: React.FC<StatItemProps> = ({ stat, variants, isInView }) => {
           <>
             {stat.prefix}
             {/* TODO: React Spring animated.span type issue - using type assertion for compatibility */}
-            <animated.span as any>
+            <animatedAny.span>
               {number.to((n) => Math.floor(n))}
-            </animated.span>
+            </animatedAny.span>
             {stat.suffix}
           </>
         ) : (
