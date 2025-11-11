@@ -4,77 +4,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Custom Element Registration Guard - MUST be FIRST to catch TinyMCE/Vite overlay -->
+    <!-- DEV-ONLY: customElements define guard + safe Error filter
+         TODO: remove after tracing and fixing duplicate customElement registrations. -->
     <script>
-      (function () {
-        'use strict';
-        if (typeof window === "undefined") return;
+    (function () {
+      'use strict';
+      try {
+        if (typeof window === 'undefined') return;
+        if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 'production') return;
 
-        // Store original customElements reference
-        let originalCustomElements = window.customElements;
-
-        // Intercept customElements before polyfills can set it
-        Object.defineProperty(window, 'customElements', {
-          configurable: true,
-          enumerable: true,
-          get() {
-            return originalCustomElements;
-          },
-          set(value) {
-            originalCustomElements = value;
-            wrapCustomElementsDefine();
-          }
-        });
-
-        function wrapCustomElementsDefine() {
-          if (!originalCustomElements || !originalCustomElements.define) {
-            return;
-          }
-
-          const originalDefine = originalCustomElements.define.bind(originalCustomElements);
-          originalCustomElements.define = function(name, constructor, options) {
-            if (name === 'mce-autosize-textarea') {
-              // Suppress duplicate definition error
-              if (originalCustomElements.get(name)) {
+        (function installCEGuard() {
+          try {
+            if (!window.customElements) return;
+            if (window.customElements.__ce_guard_installed__) return;
+            const nativeCE = window.customElements;
+            const origDefine = nativeCE.define.bind(nativeCE);
+            nativeCE.define = function(name, ctor, options) {
+              if (nativeCE.get(name)) {
+                try {
+                  const e = new Error('[CE-GUARD] Skipping duplicate customElements.define: ' + name);
+                  console.warn('[CE-GUARD] duplicate define:', name, { time: new Date().toISOString(), stack: e.stack });
+                } catch (err) {
+                  console.warn('[CE-GUARD] duplicate define (no stack):', name);
+                }
                 return;
               }
-            }
-            return originalDefine(name, constructor, options);
-          };
-        }
+              return origDefine(name, ctor, options);
+            };
+            Object.defineProperty(nativeCE, '__ce_guard_installed__', { value: true, configurable: true });
+          } catch (err) { console.warn('[CE-GUARD] install failed', err); }
+        })();
 
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', wrapCustomElementsDefine);
-        } else {
-          wrapCustomElementsDefine();
-        }
-      })();
-    </script>
-
-    <!-- Error Constructor Wrapping - Suppress TinyMCE errors at source -->
-    <script>
-      (function() {
-        'use strict';
-        if (typeof window === "undefined") return;
-
-        const OriginalError = window.Error;
-        window.Error = function(message) {
-          if (typeof message === 'string' && message.includes('mce-autosize-textarea')) {
-            // Suppress this error - return a dummy error object that won't throw
-            const dummyError = new OriginalError(message);
-            dummyError.name = 'SuppressedError';
-            return dummyError;
+        try {
+          const desc = Object.getOwnPropertyDescriptor(window, 'customElements');
+          if (!desc || desc.configurable) {
+            let internalCE = window.customElements;
+            Object.defineProperty(window, 'customElements', {
+              configurable: true,
+              enumerable: true,
+              get: () => internalCE,
+              set: (val) => { internalCE = val; try { if (internalCE && !internalCE.__ce_guard_installed__) { const d = internalCE.define.bind(internalCE); internalCE.define = function(name, ctor, options){ if (internalCE.get(name)){ try{ const e = new Error('[CE-GUARD] Skipping duplicate customElements.define: ' + name); console.warn('[CE-GUARD] duplicate define:', name, { time: new Date().toISOString(), stack: e.stack }); } catch(_) { console.warn('[CE-GUARD] duplicate define (no stack):', name); } return; } return d(name, ctor, options); }; Object.defineProperty(internalCE, '__ce_guard_installed__', { value: true, configurable: true }); } } catch(e) { console.warn('[CE-GUARD] rewrap failed', e); } }
+            });
           }
-          return new OriginalError(message);
-        };
-        // Preserve Error prototype and static properties
-        window.Error.prototype = OriginalError.prototype;
-        Object.setPrototypeOf(window.Error, OriginalError);
-        // Copy static properties
-        Object.keys(OriginalError).forEach(function(key) {
-          window.Error[key] = OriginalError[key];
-        });
-      })();
+        } catch (e) { /* noop */ }
+
+        (function installErrorFilter() {
+          try {
+            const NativeError = window.Error;
+            function FilteredError(message) {
+              if (typeof message === 'string' && message.indexOf('mce-autosize-textarea') !== -1) {
+                try {
+                  const suppressed = new NativeError('Suppressed mce-autosize-textarea error: ' + message);
+                  suppressed.name = 'SuppressedError';
+                  suppressed.stack = (new NativeError()).stack;
+                  console.warn('[CE-GUARD] suppressed error for mce-autosize-textarea', { message: String(message), time: new Date().toISOString(), stack: suppressed.stack });
+                  return suppressed;
+                } catch (inner) { return new NativeError('SuppressedError'); }
+              }
+              return new NativeError(message);
+            }
+            FilteredError.prototype = NativeError.prototype;
+            try { Object.defineProperty(window, 'Error', { configurable: true, enumerable: false, writable: true, value: FilteredError }); } catch (err) { try { window.Error = FilteredError; } catch (_) { /* ignore */ } }
+          } catch (err) { console.warn('[CE-GUARD] Error filter install failed', err); }
+        })();
+
+      } catch (err) { console.warn('[CE-GUARD] unexpected failure', err); }
+    })();
     </script>
 
     <!-- Theme Init - Zero-FOUC theme loading -->
