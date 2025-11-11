@@ -27,6 +27,7 @@
     "outDir": "./dist", // Specify output directory to prevent overwriting source files
     "skipLibCheck": true, // Skip type checking of declaration files
     "types": [
+      "node",
       "@react-three/fiber",
       "vite/client"
     ]
