@@ -1,0 +1,9 @@
+commit f46357c174b448fb5e90098bdd021ee486b26106
+Author: yesmannow <hoosierdarling@gmail.com>
+Date:   Tue Nov 11 05:26:21 2025 -0500
+
+    ci: add quick-checks and full-build workflows with caching and image job
+
+ .github/workflows/full-build.yml   | 106 +++++++++++++++++++++++++++++++++++++
+ .github/workflows/quick-checks.yml |  77 +++++++++++++++++++++++++++
+ 2 files changed, 183 insertions(+)

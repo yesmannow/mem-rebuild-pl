@@ -11,8 +11,10 @@
 import process from 'process';
 import path from 'path';
 import { promises as fs } from 'fs';
+import { createRequire } from 'module';
 import puppeteer from 'puppeteer';
-import axeModule from 'axe-core';
+
+const require = createRequire(import.meta.url);
 
 function parseArgs(argv) {
   const args = argv.slice(2);
@@ -81,9 +83,19 @@ async function run() {
     targets = await deriveDefaultTargets();
   }
 
-  const axeSource = axeModule?.source ?? axeModule?.default?.source;
-  if (!axeSource) {
-    throw new Error('Unable to load axe-core source for injection.');
+  // Load axe-core source file from node_modules
+  let axeSource;
+  try {
+    const axeCorePath = require.resolve('axe-core/axe.min.js');
+    axeSource = await fs.readFile(axeCorePath, 'utf-8');
+  } catch (error) {
+    // Fallback to non-minified version if minified is not available
+    try {
+      const axeCorePath = require.resolve('axe-core/axe.js');
+      axeSource = await fs.readFile(axeCorePath, 'utf-8');
+    } catch (fallbackError) {
+      throw new Error(`Unable to load axe-core source for injection: ${error.message}. Fallback also failed: ${fallbackError.message}`);
+    }
   }
 
   const browser = await puppeteer.launch({

@@ -258,7 +258,6 @@ const ProactiveSupportHero: React.FC = () => {
               <div className="chatbot-messages">
                 {chatMessages.slice(0, currentMessage + 1).map((message, index) => (
                   // CSS custom properties must be set inline - this is a valid exception
-                  // eslint-disable-next-line react/no-inline-styles
                   <div
                     key={message.id}
                     className={`message ${message.sender}`}

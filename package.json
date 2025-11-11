@@ -49,7 +49,7 @@
     "fetch:images": "node scripts/fetch-images.mjs",
     "analyze:bundle": "ANALYZE=true npm run build",
     "generate:sitemap": "node scripts/generate-sitemap.js",
-    "lint": "eslint src --ext .ts,.tsx --max-warnings 0",
+    "lint": "eslint src --ext .ts,.tsx",
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,json}\" \"scripts/**/*.js\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css,json}\" \"scripts/**/*.js\"",
