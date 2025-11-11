@@ -55,8 +55,8 @@
       "used": false
     },
     {
-      "path": "src\\components\\animations\\Floating3DCard.tsx",
-      "name": "Floating3DCard",
+      "path": "src\\components\\animations\\TiltCard.tsx",
+      "name": "TiltCard",
       "used": true
     },
     {

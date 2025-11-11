@@ -223,24 +223,22 @@ import { TiltCard } from '@/components/animations';
 </TiltCard>
 ```
 
-### 4. Floating3DCard
+### 4. TiltCard (replacement for Floating3DCard)
 
-3D floating box using Three.js.
+Lightweight parallax tilt card using Framer Motion.
 
 **Features:**
-- 3D box geometry
-- Auto-rotation
-- Floating animation
-- Customizable color and speed
-- Orbit controls
+- Smooth tilt on cursor movement
+- Optional background image with gradient caption overlay
+- No WebGL/three.js dependencies
 
 **Usage:**
 ```tsx
-import { Floating3DCard } from '@/components/animations';
+import { TiltCard } from '@/components/animations';
 
-<Floating3DCard color="#3b82f6" speed={1}>
-  <div>Overlay content</div>
-</Floating3DCard>
+<TiltCard imageSrc="/images/example.jpg" className="rounded-xl">
+  Overlay caption
+</TiltCard>
 ```
 
 ### 5. ScrollReveal
