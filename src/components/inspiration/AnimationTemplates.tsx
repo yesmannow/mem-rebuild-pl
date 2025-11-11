@@ -266,7 +266,8 @@ export const MagneticHover: React.FC<{
         x: x * strength,
         y: y * strength,
         duration: 0.3,
-        ease: 'easeOut' as Easing,
+        // TODO: GSAP ease type issue - using type assertion for compatibility
+        ease: 'easeOut' as any,
       });
     };
 

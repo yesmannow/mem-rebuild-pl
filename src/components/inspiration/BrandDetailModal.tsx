@@ -78,8 +78,9 @@ const BrandDetailModal: React.FC<BrandDetailModalProps> = ({
   onClose,
   onBrandClick,
 }) => {
+  // TODO: Properly type brandIdentitiesData - currently using assertion due to complex nested structure
   const allBrands = inspirationsData as any[];
-  const allBrandIdentities = brandIdentitiesData as any[];
+  const allBrandIdentities = (brandIdentitiesData as unknown) as any[];
   const [activeTab, setActiveTab] = useState<'overview' | 'colors' | 'typography' | 'principles' | 'learn'>(
     'overview'
   );

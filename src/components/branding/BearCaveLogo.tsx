@@ -28,7 +28,8 @@ const BearCaveLogo: React.FC<BearCaveLogoProps> = ({
     animate: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+      // TODO: Convert cubic-bezier array to proper easing type - using string format for compatibility
+      transition: { duration: 0.6, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' as any },
     },
     hover: {
       scale: 1.03,
@@ -41,7 +42,8 @@ const BearCaveLogo: React.FC<BearCaveLogoProps> = ({
     animate: {
       pathLength: 1,
       opacity: 1,
-      transition: { duration: 1.2, ease: 'easeInOut' },
+      // TODO: Ease string needs type assertion for framer-motion compatibility
+      transition: { duration: 1.2, ease: 'easeInOut' as any },
     },
   };
 

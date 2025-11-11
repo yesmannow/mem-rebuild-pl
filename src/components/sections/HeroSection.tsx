@@ -52,7 +52,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
+        // TODO: Convert cubic-bezier array to proper easing type - using string format for compatibility
+        ease: 'cubic-bezier(0.22, 1, 0.36, 1)' as any,
       },
     },
   };

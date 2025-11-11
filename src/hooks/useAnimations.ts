@@ -26,7 +26,8 @@ export const useFadeIn = ({
     delay,
   });
 
-  return { ref, springs, Animated: animated.div };
+  // TODO: React Spring animated API type issue - animated.div should exist but types are strict
+  return { ref, springs, Animated: animated.div as any };
 };
 
 interface UseSlideInOptions {
@@ -64,7 +65,8 @@ export const useSlideIn = ({
     delay,
   });
 
-  return { ref, springs, Animated: animated.div };
+  // TODO: React Spring animated API type issue - animated.div should exist but types are strict
+  return { ref, springs, Animated: animated.div as any };
 };
 
 interface UseScaleInOptions {
@@ -90,7 +92,8 @@ export const useScaleIn = ({
     delay,
   });
 
-  return { ref, springs, Animated: animated.div };
+  // TODO: React Spring animated API type issue - animated.div should exist but types are strict
+  return { ref, springs, Animated: animated.div as any };
 };
 
 export const useCounter = (target: number, duration = 2000) => {

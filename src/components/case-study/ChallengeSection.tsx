@@ -15,6 +15,17 @@ export interface NarrativeSectionProps {
   };
 }
 
+// ChallengeSection specific props - can accept either challenge string or full NarrativeSection props
+export interface ChallengeSectionProps {
+  challenge?: string;
+  title?: string;
+  content?: string | RichSection;
+  visualIdentity?: {
+    primaryColor?: string;
+    secondaryColor?: string;
+  };
+}
+
 const renderContent = (content: string | RichSection) => {
   if (typeof content === 'string') {
     // Parse string into paragraphs
@@ -81,5 +92,19 @@ const NarrativeSection: React.FC<NarrativeSectionProps> = ({
   );
 };
 
-export default NarrativeSection;
-export type { NarrativeSectionProps };
+// ChallengeSection component that wraps NarrativeSection
+const ChallengeSection: React.FC<ChallengeSectionProps> = ({ challenge, title, content, visualIdentity }) => {
+  // If challenge prop is provided, use it as content with default title
+  if (challenge) {
+    return <NarrativeSection title="The Challenge" content={challenge} visualIdentity={visualIdentity} />;
+  }
+  // Otherwise, use provided title and content (for backward compatibility)
+  if (title && content) {
+    return <NarrativeSection title={title} content={content} visualIdentity={visualIdentity} />;
+  }
+  // Fallback
+  return null;
+};
+
+export default ChallengeSection;
+export { NarrativeSection };

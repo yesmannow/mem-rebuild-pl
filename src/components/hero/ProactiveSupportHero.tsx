@@ -211,8 +211,7 @@ const ProactiveSupportHero: React.FC = () => {
           duration: 0.6,
           delay: index * 0.2,
           ease: 'back.out(1.7)',
-        },
-        heroRef // 🎯 Scoping argument - ensures selector only finds elements within heroRef
+        }
       );
     });
   };
