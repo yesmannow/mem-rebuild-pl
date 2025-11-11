@@ -82,4 +82,3 @@ const NarrativeSection: React.FC<NarrativeSectionProps> = ({
 };
 
 export default NarrativeSection;
-export type { NarrativeSectionProps };
