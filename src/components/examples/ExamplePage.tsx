@@ -141,7 +141,7 @@ const ExamplePage: React.FC = () => {
           <h2 style={{ marginBottom: '2rem', textAlign: 'center' }}>
             Tilt Card Example
           </h2>
-          <TiltCard maxTilt={15} scale={1.05}>
+          <TiltCard>
             <div
               style={{
                 padding: '2rem',

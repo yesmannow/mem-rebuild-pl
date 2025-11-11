@@ -23,7 +23,7 @@ Located in `src/components/animations/`:
 - ✅ **MagneticButton** - Button that follows mouse with magnetic effect
 - ✅ **ParallaxSection** - Parallax scrolling effects
 - ✅ **TiltCard** - 3D tilt effect on mouse movement
-- ✅ **Floating3DCard** - 3D floating box using Three.js
+// Floating3DCard removed in favor of TiltCard (Framer Motion)
 - ✅ **ScrollReveal** - Content reveal on scroll with directions
 
 ### 4. Created Animation Utilities & Hooks
@@ -77,7 +77,7 @@ import {
   MagneticButton,
   ParallaxSection,
   TiltCard,
-  Floating3DCard,
+  TiltCard,
   ScrollReveal
 } from '@/components/animations';
 ```

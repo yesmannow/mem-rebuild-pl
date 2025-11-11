@@ -550,12 +550,12 @@
           "snippet": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport './BackgroundLogos.css';\r\n\r\nconst BackgroundLogos: React.FC = () => {\r\n  // Create multiple logo instances with different po"
         },
         {
-          "path": "src/components/animations/Floating3DCard.css",
+          
           "size": 439,
           "snippet": ".floating-3d-card {\r\n  position: relative;\r\n  width: 100%;\r\n  height: 400px;\r\n  border-radius: 1rem;\r\n  overflow: hidden;\r\n}\r\n\r\n.floating-3d-card canvas {\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.float"
         },
         {
-          "path": "src/components/animations/Floating3DCard.tsx",
+          
           "size": 1586,
           "snippet": "import React, { useRef, useEffect } from 'react';\r\nimport { Canvas, useFrame } from '@react-three/fiber';\r\nimport { Mesh } from 'three';\r\nimport { OrbitControls, PerspectiveCamera } from '@react-three"
         },

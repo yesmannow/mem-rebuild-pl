@@ -1,6 +1,6 @@
 export { default as MagneticButton } from './MagneticButton';
 export { default as ParallaxSection } from './ParallaxSection';
-export { default as TiltCard } from './TiltCard';
-export { default as Floating3DCard } from './Floating3DCard';
+// Floating3DCard removed; export new TiltCard
+export { TiltCard } from './TiltCard';
 export { default as ScrollReveal } from './ScrollReveal';
 

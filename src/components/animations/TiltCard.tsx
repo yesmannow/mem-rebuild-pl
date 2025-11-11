@@ -1,71 +1,65 @@
-import React, { useRef } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import './TiltCard.css';
+import { useMotionValue, useTransform, motion } from "framer-motion";
+import { useRef } from "react";
+import clsx from "clsx";
 
 interface TiltCardProps {
-  children: React.ReactNode;
   className?: string;
-  maxTilt?: number;
-  perspective?: number;
-  scale?: number;
+  imageSrc?: string;
+  alt?: string;
+  children?: React.ReactNode;
 }
 
-const TiltCard: React.FC<TiltCardProps> = ({
-  children,
-  className = '',
-  maxTilt = 15,
-  perspective = 1000,
-  scale = 1.05,
-}) => {
+export function TiltCard({ className, imageSrc, alt, children }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const mouseXSpring = useSpring(x, { stiffness: 500, damping: 100 });
-  const mouseYSpring = useSpring(y, { stiffness: 500, damping: 100 });
+  const rotateX = useTransform(y, [-50, 50], [8, -8]);
+  const rotateY = useTransform(x, [-50, 50], [-8, 8]);
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [maxTilt, -maxTilt]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-maxTilt, maxTilt]);
+  function handleMouseMove(e: React.MouseEvent) {
+    const rect = ref.current?.getBoundingClientRect();
+    if (!rect) return;
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
+    const offsetX = e.clientX - (rect.left + rect.width / 2);
+    const offsetY = e.clientY - (rect.top + rect.height / 2);
 
-    const rect = ref.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
+    x.set(offsetX);
+    y.set(offsetY);
+  }
 
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
+  function handleMouseLeave() {
     x.set(0);
     y.set(0);
-  };
+  }
 
   return (
     <motion.div
       ref={ref}
-      className={`tilt-card ${className}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: 'preserve-3d',
-      }}
-      whileHover={{ scale }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+      style={{ rotateX, rotateY }}
+      className={clsx(
+        "relative transition-transform duration-200 ease-out will-change-transform",
+        "hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.35)]",
+        className
+      )}
     >
-      <div style={{ transform: 'translateZ(20px)' }}>{children}</div>
+      {imageSrc && (
+        <img
+          src={imageSrc}
+          alt={alt}
+          className="w-full h-full object-cover rounded-xl pointer-events-none"
+        />
+      )}
+
+      {children && (
+        <div className="absolute inset-0 flex items-end p-4 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl">
+          <div className="text-white font-medium">{children}</div>
+        </div>
+      )}
     </motion.div>
   );
-};
-
-export default TiltCard;
+}
 
