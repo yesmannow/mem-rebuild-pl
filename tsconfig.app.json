@@ -25,7 +25,11 @@
     },
     "composite": true, // Enable composite mode
     "outDir": "./dist", // Specify output directory to prevent overwriting source files
-    "skipLibCheck": true // Skip type checking of declaration files
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "types": [
+      "@react-three/fiber",
+      "vite/client"
+    ]
   },
   "include": [
     "src",
