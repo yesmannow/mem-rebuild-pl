@@ -65,6 +65,8 @@
     "predeploy": "npm run typecheck && npm run lint && npm run build && npm run validate:seo",
     "predeploy:full": "node scripts/pre-deploy-check.js",
     "validate:all": "npm run validate:seo && npm run validate:content && npm run validate:routes && npm run check:links && npm run check:images",
+    "storybook": "start-storybook -p 6006",
+    "visual-test": "node scripts/visual-test.js",
     "mcp:clean": "ts-node scripts/cleanup-automation.ts clean",
     "mcp:clean:dry": "ts-node scripts/cleanup-automation.ts clean --dry-run",
     "mcp:validate-imports": "ts-node scripts/cleanup-automation.ts validate-imports",

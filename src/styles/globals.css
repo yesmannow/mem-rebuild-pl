@@ -29,6 +29,13 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    
+    /* New seed tokens */
+    --brand-bg: #0f1720;
+    --brand-accent: #16a34a;
+    --neutral-muted: #94a3b8;
+    --card-base: #0b1220;
+    --highlight: #ffdd57;
   }
 
   .dark {
@@ -75,4 +82,18 @@
   --bc-ember: theme('colors.cave.ember');
   --bc-mist: theme('colors.cave.mist');
   --bc-border: theme('colors.cave.border');
+}
+
+/* Helper classes */
+.image-mask {
+  mask-image: linear-gradient(to bottom, black, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent;
+}
+
+.modal-backdrop {
+  @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-40;
 }
