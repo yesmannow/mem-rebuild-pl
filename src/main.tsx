@@ -1,3 +1,5 @@
+import './shims/ce-guard';
+
 // Ensure React loads first and is available globally
 import React from 'react';
 import ReactDOM from 'react-dom/client';
