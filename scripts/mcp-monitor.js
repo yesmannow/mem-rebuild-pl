@@ -1,4 +1,44 @@
 #!/usr/bin/env node
+const args = Object.fromEntries(process.argv.slice(2).map(a => {
+	const [k, v = ""] = a.replace(/^--/, "").split("=");
+	return [k, v || "true"];
+}));
+
+const url = args.url || process.env.MCP_URL || "http://localhost:5174";
+const threshold = Number(args.threshold || 10);
+
+async function main() {
+	try {
+		const endpoint = `${url.replace(/\/$/, "")}/api/monitoring/stats`;
+		const res = await fetch(endpoint);
+		if (res.status === 404) {
+			console.error("❌ Stats endpoint returned 404.");
+			process.exit(1);
+		}
+		if (!res.ok) {
+			console.error(`❌ Stats endpoint error: HTTP ${res.status}`);
+			process.exit(1);
+		}
+		const data = await res.json();
+		if (!data || typeof data !== "object") {
+			console.error("❌ Stats payload not JSON");
+			process.exit(1);
+		}
+		console.log(JSON.stringify(data, null, 2));
+		if (typeof data.consecutiveFailures === "number" && data.consecutiveFailures > threshold) {
+			console.error(`❌ consecutiveFailures ${data.consecutiveFailures} exceeds threshold ${threshold}`);
+			process.exit(2);
+		}
+		console.log("✅ Monitor OK");
+	} catch (e) {
+		console.error(`❌ Monitor error: ${e.message}`);
+		process.exit(1);
+	}
+}
+
+main();
+
+#!/usr/bin/env node
 /**
  * MCP monitoring fetcher.
  * Usage:
