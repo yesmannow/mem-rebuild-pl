@@ -15,6 +15,11 @@ export interface NarrativeSectionProps {
   };
 }
 
+// ChallengeSection specific props
+export interface ChallengeSectionProps {
+  challenge: string;
+}
+
 const renderContent = (content: string | RichSection) => {
   if (typeof content === 'string') {
     // Parse string into paragraphs
@@ -82,3 +87,10 @@ const NarrativeSection: React.FC<NarrativeSectionProps> = ({
 };
 
 export default NarrativeSection;
+
+// ChallengeSection component that wraps NarrativeSection
+const ChallengeSection: React.FC<ChallengeSectionProps> = ({ challenge }) => {
+  return <NarrativeSection title="The Challenge" content={challenge} />;
+};
+
+export { ChallengeSection };
