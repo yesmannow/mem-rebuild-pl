@@ -226,6 +226,9 @@ export default function MainNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Compute aria-expanded value for accessibility
+  const ariaExpanded: "true" | "false" = mobileMenuOpen ? "true" : "false";
+
   // Handle scroll effects
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -326,11 +329,12 @@ export default function MainNav() {
               <Search size={20} />
             </button>
 
+            {/* eslint-disable-next-line react/aria-props */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-cave-text hover:text-turquoise transition-colors"
               aria-label="Toggle menu"
-              aria-expanded={mobileMenuOpen}
+              aria-expanded={ariaExpanded}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
