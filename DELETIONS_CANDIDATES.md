@@ -2,21 +2,10 @@
 
 - Repo root: C:\Users\hoosi\Desktop\mem-rebuild-pl
 - Scan threshold: 1.00 MB (1048576 bytes)
-- Generated: 2025-11-11T22:08:08.904Z
+- Generated: 2025-11-11T22:10:47.454Z
 
 This is a non-destructive report enumerating likely removable files and artifacts.
 It does not delete anything. Review reasons and verification steps before removal.
-
-Reviewer notes
-
-- Focus first on high-confidence items: files ending with .bak, .orig, or large screen-recording .webm files under project subfolders.
-- For images with multiple formats (jpg/webp/avif), keep modern formats (webp/avif) and remove legacy jpg only if unreferenced.
-- Verification steps before proposing removal:
-  - ripgrep search: rg -n "<filename>" across repo (src, scripts, docs).
-  - URL reference check: rg -n "/<basename>" src scripts docs.
-  - Build smoke: npm run build should succeed.
-  - Visual spot-check: page(s) that used the asset still render.
-- Do not auto-delete. Open PR with notes if confident, otherwise keep and annotate here.
 
 | path | size | lastModified | reason | confidence | howToVerify | checksum |
 |------|------|--------------|--------|------------|-------------|----------|
