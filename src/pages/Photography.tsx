@@ -77,7 +77,8 @@ const Photography: React.FC = () => {
 
   // Enhanced GSAP Cinematic Animations
   useEffect(() => {
-    const photos = gsap.utils.toArray('.photo-card');
+    // TODO: gsap.utils.toArray returns unknown[] - properly type based on selector return type
+    const photos = gsap.utils.toArray('.photo-card') as HTMLElement[];
 
     photos.forEach((photo: HTMLElement, index: number) => {
       // Cinematic entrance with depth
