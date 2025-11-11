@@ -26,6 +26,13 @@ jobs:
         run: npm run typecheck --if-present || true
       - name: Build
         run: npm run build
+      - name: Export resume static HTML
+        run: |
+          npm run export-resume
+          if [ ! -f dist/resume/index.html ]; then
+            echo "ERROR: dist/resume/index.html not found"
+            exit 1
+          fi
       - name: Check for customElements.define in production bundle
         run: bash .github/actions/check-ce.sh dist || true
       - name: Playwright install

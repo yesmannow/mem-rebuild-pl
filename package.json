@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "export-resume": "node scripts/export-resume.cjs",
+    "build:export": "npm run build && npm run export-resume",
     "build:verify": "npm run build && node scripts/verify-build.mjs",
     "preview": "vite preview",
     "generate:moodboards": "node scripts/generate-moodboards.js",
