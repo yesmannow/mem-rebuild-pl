@@ -180,7 +180,8 @@ const CareerHighlights: React.FC = () => {
       });
 
       if (closestCard !== null) {
-        setActiveYear(closestCard.year);
+        // TODO: TypeScript narrowing issue - use type assertion for compatibility
+        setActiveYear((closestCard as { year: number; distance: number }).year);
       }
     };
 
