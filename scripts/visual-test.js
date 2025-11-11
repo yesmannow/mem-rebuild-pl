@@ -2,15 +2,15 @@
 
 /**
  * Visual test scaffold for Storybook components
- * 
+ *
  * This is a placeholder script that can be extended to:
  * - Run Puppeteer to capture screenshots of Storybook stories
  * - Use pixelmatch for visual diff comparison
  * - Generate visual regression test reports
- * 
+ *
  * Usage:
  *   node scripts/visual-test.js
- * 
+ *
  * Future implementation:
  *   - Install puppeteer and pixelmatch dependencies
  *   - Configure Storybook build output path
