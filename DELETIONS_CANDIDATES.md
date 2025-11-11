@@ -7,6 +7,15 @@
 This is a non-destructive report enumerating likely removable files and artifacts.
 It does not delete anything. Review reasons and verification steps before removal.
 
+## Reviewer notes
+
+- High-confidence safe removals to verify first:
+  - Temporary/backup artifacts: files ending with .bak, ~, .tmp, .orig, .swp, .swo
+  - OS artifacts: .DS_Store, Thumbs.db
+  - Accidental filenames previously observed in this repo: entries starting with “tatus”, “PR integrates…”, “use BearCave CSS variables…”
+- Large assets: prefer optimization or relocation before deletion; confirm no references in components or data files.
+- Unreferenced: double-check via IDE/global search and in content JSON/MD before removal.
+
 | path | size | lastModified | reason | confidence | howToVerify | checksum |
 |------|------|--------------|--------|------------|-------------|----------|
 | `public/images/photography/20240628_215608-2.jpg.bak` | 7.92 MB | 2025-11-11T13:41:02.784Z | temporary/backup artifact | high | Open a PR to remove; confirm no build or script references this file. | `84874630a5151e6641ad2a53dcffda9dceaf0c1d247ee6a11b4a5d481179059a` |
