@@ -10,11 +10,16 @@ export default {
   ],
   theme: {
   	extend: {
-  		colors: {
-  			brand: {
-  				400: '#6BE1CE',
-  				500: '#49C3B2'
-  			},
+		colors: {
+			brand: {
+				bg: '#0f1720',
+				accent: '#16a34a',
+				400: '#6BE1CE',
+				500: '#49C3B2'
+			},
+			neutral: {
+				muted: '#94a3b8'
+			},
   			accent: {
   				400: '#F4A264',
   				500: '#F08A45'
@@ -49,10 +54,8 @@ export default {
   				'900': '#111827'
   			},
   			bg: 'var(--bg)',
-  			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
-  			},
+  			card: '#0b1220',
+  			highlight: '#ffdd57',
   			text: 'var(--text)',
   			mute: 'var(--muted)',
   			accent: {
@@ -127,32 +130,33 @@ export default {
   			'case-study-gradient': 'var(--case-study-gradient)',
   			'brand-grad': 'linear-gradient(135deg, rgb(105 223 206 / 0.35), rgb(242 163 96 / 0.35))'
   		},
-  		fontFamily: {
-  			sans: [
-  				'Montserrat',
-  				'system-ui',
-  				'sans-serif'
-  			],
-  			display: [
-  				'Montserrat',
-  				'system-ui',
-  				'sans-serif'
-  			],
-  			brand: [
-  				'Montserrat',
-  				'system-ui',
-  				'sans-serif'
-  			],
-  			ui: [
-  				'Montserrat',
-  				'system-ui',
-  				'sans-serif'
-  			],
-  			body: [
-  				'Montserrat',
-  				'system-ui',
-  				'sans-serif'
-  			],
+		fontFamily: {
+			sans: [
+				'Montserrat',
+				'system-ui',
+				'sans-serif'
+			],
+			display: [
+				'Georgia',
+				'Merriweather',
+				'serif'
+			],
+			brand: [
+				'Montserrat',
+				'system-ui',
+				'sans-serif'
+			],
+			ui: [
+				'Montserrat',
+				'system-ui',
+				'sans-serif'
+			],
+			body: [
+				'Inter',
+				'ui-sans-serif',
+				'system-ui',
+				'sans-serif'
+			],
   			'clash': [
   				'var(--font-clash)',
   				'Clash Display',
