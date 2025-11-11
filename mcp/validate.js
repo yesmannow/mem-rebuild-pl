@@ -61,10 +61,10 @@ async function testRead() {
 
 async function runTests() {
   console.log(`\n🔍 Testing MCP Server at ${BASE_URL}\n`);
-  
+
   const healthOk = await testHealth();
   const readOk = await testRead();
-  
+
   console.log("\n" + "=".repeat(50));
   if (healthOk && readOk) {
     console.log("✅ All validation tests passed!");
