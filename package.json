@@ -85,6 +85,7 @@
     "cleanup:unused": "node scripts/cleanup-duplicates.js --unused-only --dry-run",
     "cleanup:interactive": "node scripts/cleanup-duplicates.js --interactive",
     "cleanup:auto": "node scripts/cleanup-duplicates.js --auto",
+    "start:server": "node mcp/server.js",
     "mcp": "node mcp/server.js",
     "mcp:validate": "node mcp/validate.js"
   },

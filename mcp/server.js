@@ -12,7 +12,8 @@ const app = express();
 app.use(express.json());
 
 const root = path.resolve(__dirname, "..");
-const PORT = process.env.MCP_PORT || 7465;
+// Prefer PORT (generic), then MCP_PORT; default to 5174 for local API dev
+const PORT = process.env.PORT || process.env.MCP_PORT || 5174;
 const AUTH_TOKEN = process.env.MCP_AUTH_TOKEN;
 
 // Load config
@@ -90,6 +91,26 @@ app.use(requireAuth);
 // Health check
 app.get("/health", (req, res) => {
   res.json({ ok: true });
+});
+
+// Portfolio API - serve resume data from repo
+app.get("/api/portfolio", (req, res) => {
+  try {
+    const candidates = [
+      path.resolve(root, "src", "data", "resume.json"),
+      path.resolve(root, "public", "resume.json"),
+    ];
+    const file = candidates.find(p => fs.existsSync(p));
+    if (!file) {
+      return res.status(404).json({ error: "resume.json not found" });
+    }
+    const data = JSON.parse(fs.readFileSync(file, "utf8"));
+    const experience = Array.isArray(data?.experience) ? data.experience : [];
+    res.json(experience);
+  } catch (error) {
+    log(`ERROR /api/portfolio: ${error.message}`);
+    res.status(500).json({ error: error.message });
+  }
 });
 
 // List directory
