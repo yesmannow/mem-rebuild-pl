@@ -273,6 +273,7 @@ const BearCaveLogo: React.FC<BearCaveLogoProps> = ({
     </g>
   );
 
+  // TODO: MotionStyle -> SVGProps mismatch - wrap props with type assertion for compatibility
   return (
     <Component
       className={`bearcave-logo bearcave-logo--${variant} ${className}`}
@@ -283,7 +284,7 @@ const BearCaveLogo: React.FC<BearCaveLogoProps> = ({
       xmlns="http://www.w3.org/2000/svg"
       role="img"
       aria-label={variant === 'full' ? 'BearCave Marketing Logo' : 'BearCave Logo'}
-      {...svgProps}
+      {...(svgProps as unknown as any)}
     >
       <defs>
         {/* Main brand gradient */}
