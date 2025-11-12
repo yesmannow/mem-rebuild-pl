@@ -13,16 +13,12 @@
     "mcp:start": "node mcp/server.js",
     "mcp:dev": "node mcp/server.js",
     "mcp:test": "node scripts/mcp-smoke-test.js",
+    "mcp:lint": "node scripts/mcp-cli.js lint",
     "repo-audit": "npm run typecheck || true && npm run lint || true && npm test || true && npm run mcp:test",
     "lock:validate": "node scripts/validate-no-package-lock.js",
     "list:deletions": "node scripts/find-deletions.js",
     "validate:mime": "node scripts/validate-asset-mime-types.mjs",
     "preview": "vite preview",
-    "mcp:start": "node scripts/mcp-cli.js start",
-    "mcp:dev": "node scripts/mcp-cli.js dev",
-    "mcp:test": "node scripts/mcp-cli.js test",
-    "mcp:lint": "node scripts/mcp-cli.js lint",
-    "repo-audit": "node scripts/mcp-cli.js repo-audit",
     "create-prs": "node scripts/mcp-cli.js create-prs",
     "generate:moodboards": "node scripts/generate-moodboards.js",
     "generate:enhanced-moodboards": "node scripts/generate-enhanced-moodboards.js",
@@ -205,6 +201,10 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "vite": "^5.4.21",
-    "vite-plugin-html": "^3.2.2"
+    "vite-plugin-html": "^3.2.2",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.0",
+    "supertest": "^6.3.0",
+    "@types/supertest": "^6.0.0"
   }
 }
