@@ -260,6 +260,283 @@ app.get("/api/portfolio", (req, res) => {
 // Mount AI routes (with built-in rate limiting and feature flag checks)
 app.use("/api/ai", aiRoutes);
 
+// AI Playground UI
+app.get("/ai-playground", (req, res) => {
+	const aiEnabled = (process.env.AI_FEATURES_ENABLED || "false").toLowerCase() === "true";
+	
+	res.send(`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AI Playground - MCP Server</title>
+	<style>
+		* { box-sizing: border-box; }
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 2rem;
+			background: #f5f5f5;
+		}
+		h1 { color: #333; margin-bottom: 0.5rem; }
+		.status { 
+			padding: 0.5rem 1rem; 
+			border-radius: 4px; 
+			margin-bottom: 2rem;
+			font-weight: 500;
+		}
+		.status.enabled { background: #d4edda; color: #155724; }
+		.status.disabled { background: #f8d7da; color: #721c24; }
+		.endpoints {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 1.5rem;
+			margin-top: 2rem;
+		}
+		.endpoint {
+			background: white;
+			border-radius: 8px;
+			padding: 1.5rem;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		}
+		.endpoint h3 { margin-top: 0; color: #0066cc; }
+		.endpoint p { color: #666; font-size: 0.9rem; margin: 0.5rem 0; }
+		.form-group {
+			margin: 1rem 0;
+		}
+		label {
+			display: block;
+			font-weight: 500;
+			margin-bottom: 0.25rem;
+			color: #333;
+		}
+		input, textarea {
+			width: 100%;
+			padding: 0.5rem;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			font-family: inherit;
+		}
+		textarea { min-height: 80px; resize: vertical; }
+		button {
+			background: #0066cc;
+			color: white;
+			border: none;
+			padding: 0.5rem 1.5rem;
+			border-radius: 4px;
+			cursor: pointer;
+			font-weight: 500;
+		}
+		button:hover { background: #0052a3; }
+		button:disabled { background: #ccc; cursor: not-allowed; }
+		.result {
+			margin-top: 1rem;
+			padding: 1rem;
+			background: #f8f9fa;
+			border-radius: 4px;
+			max-height: 300px;
+			overflow-y: auto;
+			display: none;
+		}
+		.result.show { display: block; }
+		.result pre {
+			margin: 0;
+			white-space: pre-wrap;
+			word-wrap: break-word;
+			font-size: 0.85rem;
+		}
+		.error { color: #dc3545; }
+		.loading { color: #0066cc; }
+	</style>
+</head>
+<body>
+	<h1>🤖 AI Playground</h1>
+	<div class="status ${aiEnabled ? "enabled" : "disabled"}">
+		${aiEnabled ? "✓ AI Features Enabled" : "✗ AI Features Disabled - Set AI_FEATURES_ENABLED=true"}
+	</div>
+
+	<div class="endpoints">
+		<!-- Log Summarize -->
+		<div class="endpoint">
+			<h3>📊 Log Summarize</h3>
+			<p>Analyze logs and identify root causes</p>
+			<form onsubmit="return handleSubmit(event, '/api/ai/log-summarize', 'logs-result')">
+				<div class="form-group">
+					<label>Logs:</label>
+					<textarea name="logs" placeholder="Error: ECONNREFUSED..." required></textarea>
+				</div>
+				<div class="form-group">
+					<label>Context (optional):</label>
+					<input type="text" name="context" placeholder="Server startup issue">
+				</div>
+				<button type="submit">Summarize</button>
+				<div id="logs-result" class="result"></div>
+			</form>
+		</div>
+
+		<!-- Code Review -->
+		<div class="endpoint">
+			<h3>🔍 Code Review</h3>
+			<p>Get patch suggestions for errors</p>
+			<form onsubmit="return handleSubmit(event, '/api/ai/code-review', 'review-result')">
+				<div class="form-group">
+					<label>Code:</label>
+					<textarea name="code" placeholder="function test() { ... }" required></textarea>
+				</div>
+				<div class="form-group">
+					<label>Error:</label>
+					<input type="text" name="error" placeholder="TypeError: ..." required>
+				</div>
+				<div class="form-group">
+					<label>Language:</label>
+					<input type="text" name="language" value="javascript">
+				</div>
+				<button type="submit">Review</button>
+				<div id="review-result" class="result"></div>
+			</form>
+		</div>
+
+		<!-- Design Tokens -->
+		<div class="endpoint">
+			<h3>🎨 Design Tokens</h3>
+			<p>Generate Tailwind tokens from brand brief</p>
+			<form onsubmit="return handleSubmit(event, '/api/ai/design-tokens', 'tokens-result')">
+				<div class="form-group">
+					<label>Brand Brief:</label>
+					<textarea name="brief" placeholder="Modern, minimal, tactile..." required></textarea>
+				</div>
+				<div class="form-group">
+					<label>Base Color (optional):</label>
+					<input type="text" name="baseColor" placeholder="#2d5f5f">
+				</div>
+				<button type="submit">Generate</button>
+				<div id="tokens-result" class="result"></div>
+			</form>
+		</div>
+
+		<!-- Microcopy -->
+		<div class="endpoint">
+			<h3>✍️ Microcopy</h3>
+			<p>Generate UX copy variations</p>
+			<form onsubmit="return handleSubmit(event, '/api/ai/microcopy', 'copy-result')">
+				<div class="form-group">
+					<label>Component:</label>
+					<input type="text" name="component" placeholder="Subscribe button" required>
+				</div>
+				<div class="form-group">
+					<label>Intent:</label>
+					<input type="text" name="intent" placeholder="Encourage signup" required>
+				</div>
+				<div class="form-group">
+					<label>Tone:</label>
+					<input type="text" name="tone" value="professional">
+				</div>
+				<button type="submit">Generate</button>
+				<div id="copy-result" class="result"></div>
+			</form>
+		</div>
+
+		<!-- Debug Canvas -->
+		<div class="endpoint">
+			<h3>🐛 Debug Canvas</h3>
+			<p>Natural language debugging</p>
+			<form onsubmit="return handleSubmit(event, '/api/ai/debug-canvas', 'debug-result')">
+				<div class="form-group">
+					<label>Query:</label>
+					<textarea name="query" placeholder="Why is my server slow?" required></textarea>
+				</div>
+				<div class="form-group">
+					<label>Context (optional):</label>
+					<input type="text" name="context" placeholder="Production server">
+				</div>
+				<button type="submit">Debug</button>
+				<div id="debug-result" class="result"></div>
+			</form>
+		</div>
+
+		<!-- Stats -->
+		<div class="endpoint">
+			<h3>📈 Usage Stats</h3>
+			<p>View AI usage statistics</p>
+			<button onclick="fetchStats()">Refresh Stats</button>
+			<div id="stats-result" class="result"></div>
+		</div>
+	</div>
+
+	<script>
+		async function handleSubmit(event, endpoint, resultId) {
+			event.preventDefault();
+			const form = event.target;
+			const resultDiv = document.getElementById(resultId);
+			const button = form.querySelector('button[type="submit"]');
+			
+			// Get form data
+			const formData = new FormData(form);
+			const data = {};
+			for (const [key, value] of formData.entries()) {
+				if (value) data[key] = value;
+			}
+			
+			// Show loading
+			resultDiv.className = 'result show loading';
+			resultDiv.innerHTML = '<pre>Loading...</pre>';
+			button.disabled = true;
+			
+			try {
+				const response = await fetch(endpoint, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(data)
+				});
+				
+				const result = await response.json();
+				
+				if (response.ok) {
+					resultDiv.className = 'result show';
+					resultDiv.innerHTML = '<pre>' + JSON.stringify(result, null, 2) + '</pre>';
+				} else {
+					resultDiv.className = 'result show error';
+					resultDiv.innerHTML = '<pre>Error: ' + JSON.stringify(result, null, 2) + '</pre>';
+				}
+			} catch (error) {
+				resultDiv.className = 'result show error';
+				resultDiv.innerHTML = '<pre>Error: ' + error.message + '</pre>';
+			} finally {
+				button.disabled = false;
+			}
+			
+			return false;
+		}
+		
+		async function fetchStats() {
+			const resultDiv = document.getElementById('stats-result');
+			resultDiv.className = 'result show loading';
+			resultDiv.innerHTML = '<pre>Loading...</pre>';
+			
+			try {
+				const response = await fetch('/api/ai/stats');
+				const result = await response.json();
+				
+				if (response.ok) {
+					resultDiv.className = 'result show';
+					resultDiv.innerHTML = '<pre>' + JSON.stringify(result, null, 2) + '</pre>';
+				} else {
+					resultDiv.className = 'result show error';
+					resultDiv.innerHTML = '<pre>Error: ' + JSON.stringify(result, null, 2) + '</pre>';
+				}
+			} catch (error) {
+				resultDiv.className = 'result show error';
+				resultDiv.innerHTML = '<pre>Error: ' + error.message + '</pre>';
+			}
+		}
+	</script>
+</body>
+</html>
+	`);
+});
+
 // only start server when executed directly (not when imported for tests)
 const isMain = fileURLToPath(import.meta.url) === path.resolve(process.argv[1] || "");
 if (isMain) {

@@ -11,6 +11,14 @@ export const aiUsageStats = {
 	gpt: { calls: 0, tokens: 0, errors: 0 },
 	gemini: { calls: 0, tokens: 0, errors: 0 },
 	cache: { hits: 0, misses: 0 },
+	// Per-endpoint tracking
+	endpoints: {
+		"log-summarize": { calls: 0, tokens: 0, errors: 0, cacheHits: 0 },
+		"code-review": { calls: 0, tokens: 0, errors: 0, cacheHits: 0 },
+		"design-tokens": { calls: 0, tokens: 0, errors: 0, cacheHits: 0 },
+		"microcopy": { calls: 0, tokens: 0, errors: 0, cacheHits: 0 },
+		"debug-canvas": { calls: 0, tokens: 0, errors: 0, cacheHits: 0 },
+	},
 };
 
 // Simple in-memory cache for AI responses
@@ -233,6 +241,26 @@ export function getAIStats() {
 }
 
 /**
+ * Record endpoint usage for monitoring
+ * @param {string} endpoint - Endpoint name (e.g., "log-summarize")
+ * @param {number} tokens - Tokens used
+ * @param {boolean} error - Whether an error occurred
+ * @param {boolean} cacheHit - Whether response was from cache
+ */
+export function recordEndpointUsage(endpoint, tokens = 0, error = false, cacheHit = false) {
+	if (aiUsageStats.endpoints[endpoint]) {
+		aiUsageStats.endpoints[endpoint].calls++;
+		aiUsageStats.endpoints[endpoint].tokens += tokens;
+		if (error) {
+			aiUsageStats.endpoints[endpoint].errors++;
+		}
+		if (cacheHit) {
+			aiUsageStats.endpoints[endpoint].cacheHits++;
+		}
+	}
+}
+
+/**
  * Reset usage stats (for testing)
  */
 export function resetAIStats() {
@@ -244,5 +272,11 @@ export function resetAIStats() {
 	aiUsageStats.gemini.errors = 0;
 	aiUsageStats.cache.hits = 0;
 	aiUsageStats.cache.misses = 0;
+	
+	// Reset per-endpoint stats
+	for (const endpoint in aiUsageStats.endpoints) {
+		aiUsageStats.endpoints[endpoint] = { calls: 0, tokens: 0, errors: 0, cacheHits: 0 };
+	}
+	
 	cache.clear();
 }

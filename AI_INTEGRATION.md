@@ -443,3 +443,282 @@ For issues or questions:
 2. Review test examples in `test/ai.test.js`
 3. Check monitoring stats: `GET /api/monitoring/stats`
 4. Review server logs for API errors
+
+## Developer Tools & Enhancements
+
+### CLI Wrappers
+
+Command-line interface for easy access to all AI endpoints without curl:
+
+```bash
+# Summarize logs
+npm run ai:summarize -- --logs "Error: ECONNREFUSED" --context "startup"
+
+# Suggest code patch
+npm run ai:patch -- --code "function() {}" --error "TypeError: Cannot read property"
+
+# Generate design tokens
+npm run ai:tokens -- --brief "modern, minimal, tactile"
+
+# Generate microcopy
+npm run ai:copy -- --component "button" --intent "submit form" --tone "playful"
+
+# Debug query
+npm run ai:debug -- --query "why is my server slow?" --context "production"
+
+# View statistics
+npm run ai:stats
+```
+
+**CLI Features:**
+- Automatic JSON formatting
+- Error handling with clear messages
+- Optional trace logging via `AI_TRACE_ENABLED=true`
+- Help text: `node scripts/cli-ai.js --help`
+
+**Trace Mode:**
+```bash
+AI_TRACE_ENABLED=true npm run ai:summarize -- --logs "test"
+```
+
+Outputs detailed timing and request/response information to stderr.
+
+### AI Playground UI
+
+Interactive web interface for testing AI endpoints at `/ai-playground`:
+
+**Features:**
+- Visual forms for all 5 AI endpoints
+- Real-time response display
+- Feature flag status indicator
+- No authentication required (uses server-side keys)
+- Works with AI_FEATURES_ENABLED flag
+
+**Access:**
+```bash
+# Start server
+npm run mcp:start
+
+# Open browser
+open http://localhost:5174/ai-playground
+```
+
+**Screenshot:**
+
+![AI Playground UI](https://github.com/user-attachments/assets/cc784cf1-241d-4f50-806b-96279092d1a1)
+
+The playground includes:
+- 📊 Log Summarize
+- 🔍 Code Review
+- 🎨 Design Tokens
+- ✍️ Microcopy
+- 🐛 Debug Canvas
+- 📈 Usage Stats
+
+### Enhanced Monitoring
+
+Per-endpoint tracking in `/api/monitoring/stats`:
+
+```json
+{
+  "aiCalls": {
+    "gpt": { "calls": 42, "tokens": 15000, "errors": 1 },
+    "gemini": { "calls": 10, "tokens": 5000, "errors": 0 },
+    "cache": { "hits": 15, "misses": 37 },
+    "endpoints": {
+      "log-summarize": {
+        "calls": 12,
+        "tokens": 6000,
+        "errors": 0,
+        "cacheHits": 0
+      },
+      "code-review": {
+        "calls": 8,
+        "tokens": 8000,
+        "errors": 1,
+        "cacheHits": 0
+      },
+      "design-tokens": {
+        "calls": 15,
+        "tokens": 12000,
+        "errors": 0,
+        "cacheHits": 10
+      },
+      "microcopy": {
+        "calls": 20,
+        "tokens": 4000,
+        "errors": 0,
+        "cacheHits": 15
+      },
+      "debug-canvas": {
+        "calls": 5,
+        "tokens": 5000,
+        "errors": 0,
+        "cacheHits": 0
+      }
+    }
+  }
+}
+```
+
+**Monitoring Benefits:**
+- Track usage per endpoint
+- Identify expensive operations
+- Monitor error rates
+- Measure cache effectiveness
+- Set per-endpoint alerts
+
+**Example Alert Rules:**
+```bash
+# Alert if log-summarize has high error rate
+if endpoints["log-summarize"].errors / endpoints["log-summarize"].calls > 0.1
+  alert "Log summarize error rate > 10%"
+
+# Alert if token usage exceeds budget
+if endpoints["code-review"].tokens > 50000
+  alert "Code review token budget exceeded"
+```
+
+### Developer Environment Variables
+
+```bash
+# Enable detailed tracing
+AI_TRACE_ENABLED=true
+
+# Dry run mode (coming soon)
+AI_DRY_RUN=false
+```
+
+## Testing
+
+### New Test Coverage
+
+Enhanced test suite covers:
+- ✅ Playground UI rendering
+- ✅ Feature flag status display
+- ✅ Per-endpoint statistics tracking
+- ✅ Endpoint call counting
+- ✅ Error tracking
+- ✅ AI stats endpoint
+
+**Run tests:**
+```bash
+# All AI tests
+npm test -- test/ai.test.js test/ai-enhancements.test.js
+
+# Just enhancements
+npm test -- test/ai-enhancements.test.js
+```
+
+**Test Results:**
+```
+AI Playground UI
+  ✓ should serve playground UI at /ai-playground
+  ✓ should show disabled status when AI features are off
+Enhanced Monitoring
+  ✓ should include per-endpoint stats in monitoring
+  ✓ should track endpoint calls
+AI Stats endpoint
+  ✓ should return endpoint statistics
+
+Test Suites: 1 passed
+Tests:       5 passed
+```
+
+## Quick Start Workflows
+
+### 1. Local Development with Playground
+
+```bash
+# 1. Configure
+cp .env.example .env
+# Add GPT_API_KEY and GEMINI_API_KEY
+
+# 2. Enable AI
+export AI_FEATURES_ENABLED=true
+
+# 3. Start server
+npm run mcp:start
+
+# 4. Open playground
+open http://localhost:5174/ai-playground
+
+# 5. Test endpoints interactively
+```
+
+### 2. CLI-Based Debugging
+
+```bash
+# Enable tracing for detailed logs
+export AI_TRACE_ENABLED=true
+
+# Analyze recent error
+npm run ai:summarize -- \
+  --logs "$(tail -100 /var/log/app.log)" \
+  --context "Production server crashed"
+
+# Get suggested fix
+npm run ai:patch -- \
+  --code "$(cat src/problematic-file.js)" \
+  --error "TypeError: Cannot read property 'foo' of undefined"
+```
+
+### 3. Design System Generation
+
+```bash
+# Generate theme tokens
+npm run ai:tokens -- \
+  --brief "Modern SaaS, trust-building, accessible, professional" \
+  --baseColor "#2d5f5f"
+
+# Generate microcopy variations
+npm run ai:copy -- \
+  --component "pricing-cta" \
+  --intent "Encourage free trial signup" \
+  --tone "confident,urgent,friendly"
+```
+
+### 4. Monitoring & Alerting
+
+```bash
+# Check current usage
+npm run ai:stats
+
+# Or via HTTP
+curl http://localhost:5174/api/monitoring/stats | jq '.aiCalls'
+
+# Set up cron job for monitoring
+*/5 * * * * curl -s http://localhost:5174/api/ai/stats | \
+  jq '.stats.gpt.tokens' | \
+  awk '{if($1>100000) print "Token budget alert!"}'
+```
+
+## Changelog
+
+### v1.1.0 - Developer Experience Enhancements
+
+**Added:**
+- CLI wrappers for all AI endpoints (6 new npm scripts)
+- Interactive playground UI at `/ai-playground`
+- Per-endpoint usage tracking in monitoring
+- Trace logging with `AI_TRACE_ENABLED`
+- Enhanced test coverage (5 new tests)
+
+**Improved:**
+- Monitoring stats now include per-endpoint metrics
+- Better error tracking per endpoint
+- Cache hit tracking per endpoint
+- Documentation expanded with CLI examples
+
+**Files:**
+- `scripts/cli-ai.js` - New CLI wrapper (242 lines)
+- `mcp/server.js` - Added playground UI route
+- `mcp/utils/ai-proxy.js` - Added per-endpoint tracking
+- `mcp/routes/ai.js` - Integrated endpoint usage recording
+- `test/ai-enhancements.test.js` - New test suite
+- `.env.example` - Added developer flags
+- `package.json` - Added 6 CLI scripts
+
+---
+
+For issues or questions, refer to the main documentation above or check test examples in `test/ai-enhancements.test.js`.

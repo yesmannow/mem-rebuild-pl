@@ -8,6 +8,7 @@ import {
 	parseAIJson,
 	callWithCache,
 	getAIStats,
+	recordEndpointUsage,
 } from "../utils/ai-proxy.js";
 
 const router = express.Router();
@@ -107,6 +108,10 @@ Return ONLY a JSON object with this exact structure (no other text):
 			severity: "unknown",
 		});
 		
+		// Record usage
+		const tokensUsed = response?.usage?.total_tokens || 0;
+		recordEndpointUsage("log-summarize", tokensUsed, false, false);
+		
 		res.json({
 			success: true,
 			data: parsed,
@@ -114,6 +119,7 @@ Return ONLY a JSON object with this exact structure (no other text):
 		});
 	} catch (error) {
 		console.error("Error in log-summarize:", error);
+		recordEndpointUsage("log-summarize", 0, true, false);
 		res.status(500).json({
 			error: "Failed to summarize logs",
 			message: error.message,

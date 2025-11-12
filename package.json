@@ -103,7 +103,13 @@
     "mcp:validate": "node mcp/validate.js",
     "mcp:health-probe": "node scripts/mcp-health-probe.js",
     "mcp:monitor": "node scripts/mcp-monitor.js",
-    "mcp:smoke": "node scripts/mcp-smoke.js"
+    "mcp:smoke": "node scripts/mcp-smoke.js",
+    "ai:summarize": "node scripts/cli-ai.js summarize",
+    "ai:patch": "node scripts/cli-ai.js patch",
+    "ai:tokens": "node scripts/cli-ai.js tokens",
+    "ai:copy": "node scripts/cli-ai.js copy",
+    "ai:debug": "node scripts/cli-ai.js debug",
+    "ai:stats": "node scripts/cli-ai.js stats"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
