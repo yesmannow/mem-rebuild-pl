@@ -1,0 +1,10 @@
+<svg width="200" height="80" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="15" width="50" height="50" rx="4" fill="#88ABF2" opacity="0.3"/>
+  <path d="M 20 35 Q 35 20, 50 35 T 35 50" stroke="#88ABF2" stroke-width="3" fill="none"/>
+  <text x="70" y="38" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">
+    Russell Painting
+  </text>
+  <text x="70" y="56" font-family="Arial, sans-serif" font-size="14" fill="#88ABF2">
+    Company, Inc.
+  </text>
+</svg>
