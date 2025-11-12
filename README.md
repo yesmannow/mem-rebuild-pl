@@ -90,9 +90,23 @@ A working portfolio build powered by Vite, React, TailwindCSS, and assistant-rea
 ## 🚀 Getting Started
 
 ```bash
-npm install
+# Install dependencies (skip puppeteer download if network restricted)
+PUPPETEER_SKIP_DOWNLOAD=true npm ci
+# or for npm install
+PUPPETEER_SKIP_DOWNLOAD=true npm install
+
+# Start development server
 npm run dev
 ```
+
+### Troubleshooting Installation
+
+If you encounter puppeteer download errors during `npm install`, use:
+```bash
+PUPPETEER_SKIP_DOWNLOAD=true npm ci
+```
+
+Puppeteer is used for some optional scripts but is not required for the core build and development workflow.
 
 ## 🧱 Folder Structure
 
