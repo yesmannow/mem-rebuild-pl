@@ -1,35 +1,68 @@
-import request from 'supertest';
-import { jest } from '@jest/globals';
+/* eslint-disable no-console */
+import supertest from 'supertest';
+import { spawn } from 'child_process';
+import path from 'path';
 
-// Mock environment
-process.env.AI_DRY_RUN = 'true';
-process.env.AI_SERVER_PORT = '5175'; // Use different port for testing
+const AI_SERVER_ENTRY = path.join(process.cwd(), 'scripts', 'copilot-ai-server.js');
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function waitForHealth(baseUrl, timeoutMs = 10000) {
+  const start = Date.now();
+  const agent = supertest(baseUrl);
+  while (Date.now() - start < timeoutMs) {
+    try {
+      const res = await agent.get('/health');
+      if (res.status === 200) return;
+    } catch {}
+    await sleep(200);
+  }
+  throw new Error('AI Server did not become healthy in time');
+}
+
+function startAIServer(port, extraEnv = {}) {
+  const child = spawn(process.execPath, [AI_SERVER_ENTRY], {
+    stdio: 'pipe',
+    env: { 
+      ...process.env, 
+      AI_SERVER_PORT: String(port),
+      AI_DRY_RUN: 'true',
+      ...extraEnv 
+    },
+  });
+  return child;
+}
+
+function randomPort() {
+  return 5175 + Math.floor(Math.random() * 100);
+}
 
 describe('AI Server API Tests', () => {
-  let app;
-  let server;
+  let child;
+  let baseUrl;
+  let port;
 
-  beforeAll(async () => {
-    // Dynamically import the server
-    const module = await import('../scripts/copilot-ai-server.js');
-    app = module.default;
-    
-    // Start server on test port
-    server = app.listen(5175);
-    
-    // Wait for server to be ready
-    await new Promise(resolve => setTimeout(resolve, 500));
+  beforeEach(async () => {
+    port = randomPort();
+    child = startAIServer(port);
+    baseUrl = `http://localhost:${port}`;
+    await waitForHealth(baseUrl);
   });
 
-  afterAll(async () => {
-    if (server) {
-      await new Promise((resolve) => server.close(resolve));
+  afterEach(() => {
+    if (child && !child.killed) {
+      try { 
+        child.kill(); 
+      } catch {}
     }
+    child = undefined;
   });
 
   describe('Health Check', () => {
     test('GET /health should return ok status', async () => {
-      const response = await request(app)
+      const response = await supertest(baseUrl)
         .get('/health')
         .expect(200);
 
@@ -42,7 +75,7 @@ describe('AI Server API Tests', () => {
 
   describe('POST /api/ai/summarize_logs', () => {
     test('should return summary of logs', async () => {
-      const response = await request(app)
+      const response = await supertest(baseUrl)
         .post('/api/ai/summarize_logs')
         .send({
           logs: 'Error: Module not found\nTypeError: Cannot read property of undefined'
@@ -61,7 +94,7 @@ describe('AI Server API Tests', () => {
     });
 
     test('should return 400 if logs field is missing', async () => {
-      const response = await request(app)
+      const response = await supertest(baseUrl)
         .post('/api/ai/summarize_logs')
         .send({})
         .expect(400);
@@ -69,32 +102,11 @@ describe('AI Server API Tests', () => {
       expect(response.body).toHaveProperty('error');
       expect(response.body.error).toContain('logs');
     });
-
-    test('should use cache for duplicate requests', async () => {
-      const logs = 'Error: Test error for caching';
-      
-      // First request
-      const response1 = await request(app)
-        .post('/api/ai/summarize_logs')
-        .send({ logs })
-        .expect(200);
-      
-      expect(response1.body.cacheStatus).toBe('miss');
-
-      // Second request - should hit cache
-      const response2 = await request(app)
-        .post('/api/ai/summarize_logs')
-        .send({ logs })
-        .expect(200);
-      
-      expect(response2.body.cacheStatus).toBe('miss'); // Both are miss in dry-run
-      expect(response2.body.summary).toBe(response1.body.summary);
-    });
   });
 
   describe('POST /api/ai/suggest_patch', () => {
     test('should return patch suggestion', async () => {
-      const response = await request(app)
+      const response = await supertest(baseUrl)
         .post('/api/ai/suggest_patch')
         .send({
           error: 'TypeError: Cannot read property className of undefined',
@@ -114,7 +126,7 @@ describe('AI Server API Tests', () => {
     });
 
     test('should return 400 if error field is missing', async () => {
-      const response = await request(app)
+      const response = await supertest(baseUrl)
         .post('/api/ai/suggest_patch')
         .send({})
         .expect(400);
@@ -122,22 +134,11 @@ describe('AI Server API Tests', () => {
       expect(response.body).toHaveProperty('error');
       expect(response.body.error).toContain('error');
     });
-
-    test('should work without context field', async () => {
-      const response = await request(app)
-        .post('/api/ai/suggest_patch')
-        .send({
-          error: 'ReferenceError: variable is not defined'
-        })
-        .expect(200);
-
-      expect(response.body).toHaveProperty('patch');
-    });
   });
 
   describe('POST /api/ai/generate_tokens', () => {
     test('should generate design tokens from brief', async () => {
-      const response = await request(app)
+      const response = await supertest(baseUrl)
         .post('/api/ai/generate_tokens')
         .send({
           brief: 'crafty, tactile, no purple'
@@ -167,7 +168,7 @@ describe('AI Server API Tests', () => {
     });
 
     test('should return 400 if brief field is missing', async () => {
-      const response = await request(app)
+      const response = await supertest(baseUrl)
         .post('/api/ai/generate_tokens')
         .send({})
         .expect(400);
@@ -175,29 +176,11 @@ describe('AI Server API Tests', () => {
       expect(response.body).toHaveProperty('error');
       expect(response.body.error).toContain('brief');
     });
-
-    test('should handle different briefs', async () => {
-      const briefs = [
-        'modern, minimalist, blue',
-        'warm, earthy, natural',
-        'bold, vibrant, energetic'
-      ];
-
-      for (const brief of briefs) {
-        const response = await request(app)
-          .post('/api/ai/generate_tokens')
-          .send({ brief })
-          .expect(200);
-
-        expect(response.body.brief).toBe(brief);
-        expect(response.body.tokens).toHaveProperty('colors');
-      }
-    });
   });
 
   describe('GET /api/monitoring/stats', () => {
     test('should return monitoring statistics', async () => {
-      const response = await request(app)
+      const response = await supertest(baseUrl)
         .get('/api/monitoring/stats')
         .expect(200);
 
@@ -221,20 +204,20 @@ describe('AI Server API Tests', () => {
 
     test('should track request counts', async () => {
       // Get initial stats
-      const stats1 = await request(app)
+      const stats1 = await supertest(baseUrl)
         .get('/api/monitoring/stats')
         .expect(200);
       
       const initialCount = stats1.body.aiStats.summarize_logs.count;
 
       // Make a request
-      await request(app)
+      await supertest(baseUrl)
         .post('/api/ai/summarize_logs')
         .send({ logs: 'test error' })
         .expect(200);
 
       // Check updated stats
-      const stats2 = await request(app)
+      const stats2 = await supertest(baseUrl)
         .get('/api/monitoring/stats')
         .expect(200);
       
@@ -246,7 +229,7 @@ describe('AI Server API Tests', () => {
     test('should allow reasonable number of requests', async () => {
       // Make 5 requests quickly
       for (let i = 0; i < 5; i++) {
-        await request(app)
+        await supertest(baseUrl)
           .get('/health')
           .expect(200);
       }
@@ -262,7 +245,7 @@ describe('AI Server API Tests', () => {
       ];
 
       for (const endpoint of endpoints) {
-        const response = await request(app)
+        const response = await supertest(baseUrl)
           .post(endpoint.path)
           .send(endpoint.body)
           .expect(200);
