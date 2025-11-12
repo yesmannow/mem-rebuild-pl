@@ -26,6 +26,7 @@ mcp/mcp.log
 *.tmp
 .cache/
 .vercel
+mcp/tmp-*
 
 # Ignore generated type declarations
 types/
