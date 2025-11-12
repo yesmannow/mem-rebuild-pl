@@ -40,3 +40,4 @@ PR integrates*
 # Ignore accidental/temporary files
 tatus*
 use BearCave CSS variables for consistent branding.*
+tmp-*.txt
