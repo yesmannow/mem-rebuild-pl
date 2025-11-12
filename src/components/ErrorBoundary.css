@@ -3,10 +3,10 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #0a0a0a;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-  padding: 2rem;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  padding: var(--space-2xl);
   text-align: center;
 }
 
@@ -15,50 +15,57 @@
 }
 
 .error-boundary-title {
-  color: #ef4444;
-  margin-bottom: 1rem;
+  color: var(--color-error);
+  margin-bottom: var(--space-lg);
 }
 
 .error-boundary-message {
   opacity: 0.8;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-lg);
 }
 
 .error-boundary-details {
   opacity: 0.6;
   font-size: 0.9rem;
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-2xl);
 }
 
 .error-boundary-details-summary {
   cursor: pointer;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-sm);
 }
 
 .error-boundary-details-pre {
   text-align: left;
   overflow: auto;
-  padding: 1rem;
+  padding: var(--space-lg);
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
 }
 
 .error-boundary-button {
-  padding: 0.75rem 1.5rem;
-  background: #3b82f6;
+  padding: var(--space-md) var(--space-xl);
+  background: var(--color-primary);
   color: white;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  margin-top: 1rem;
-  transition: background-color 0.2s ease;
+  font-family: var(--font-ui);
+  margin-top: var(--space-lg);
+  transition: all var(--duration-fast);
 }
 
 .error-boundary-button:hover {
-  background: #2563eb;
+  background: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-brand);
 }
 
 .error-boundary-button:active {
-  background: #1d4ed8;
+  transform: translateY(0);
+}
+
+.error-boundary-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }

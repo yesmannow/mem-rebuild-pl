@@ -1,9 +1,10 @@
 import React, { lazy, Suspense, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClientProvider } from '@tanstack/react-query';
 import ErrorBoundary from './components/ErrorBoundary';
 import { ThemeProvider } from './components/theme/ThemeProvider';
+import { ToastProvider } from './components/ui/Toast';
+import Layout from './components/layout/Layout';
 import { queryClient } from './lib/queryClient';
 import { initLenis, destroyLenis } from './utils/motion-sync';
 import { initAnalytics } from './utils/analytics';
@@ -12,10 +13,6 @@ import JSONLD from './components/seo/JSONLD';
 import 'lenis/dist/lenis.css';
 import './styles/skip-to-content.css';
 
-const MainNav = lazy(() => import('./components/nav/MainNav'));
-const Footer = lazy(() => import('./components/layout/Footer'));
-const ScrollToTop = lazy(() => import('./components/utils/ScrollToTop'));
-const BackToTop = lazy(() => import('./components/utilities/BackToTop'));
 const PersonSchema = lazy(() => import('./components/seo/PersonSchema'));
 const PerformanceMonitor = lazy(() => import('./components/utils/PerformanceMonitor'));
 const AppRouter = lazy(() => import('./router/AppRouter'));
@@ -71,46 +68,18 @@ const App: React.FC = () => {
       <QueryClientProvider client={queryClient}>
         <HelmetProvider>
           <ThemeProvider>
-            <JSONLD />
-            {/* Skip to content link */}
-            <a
-              href="#main-content"
-              className="skip-to-content"
-              aria-label="Skip to main content"
-            >
-              Skip to content
-            </a>
-            <div className="app min-h-dvh flex flex-col bg-[var(--bc-bg)] text-[var(--bc-text-primary)]">
+            <ToastProvider>
+              <JSONLD />
               <Suspense fallback={null}>
                 <PersonSchema />
               </Suspense>
               <Suspense fallback={null}>
                 <PerformanceMonitor />
               </Suspense>
-              <Suspense fallback={null}>
-                <ScrollToTop />
-              </Suspense>
-              <Suspense fallback={null}>
-                <BackToTop />
-              </Suspense>
-              <Suspense fallback={null}>
-                <MainNav key="main-nav" />
-              </Suspense>
-              <main className="flex-1">
+              <Layout>
                 <AppRouter />
-              </main>
-              <Suspense
-                fallback={
-                  <footer className="container-px py-12">
-                    <div className="mx-auto max-w-6xl text-sm opacity-70">
-                      © {new Date().getFullYear()} Jacob Darling — BearCave Marketing
-                    </div>
-                  </footer>
-                }
-              >
-                <Footer />
-              </Suspense>
-            </div>
+              </Layout>
+            </ToastProvider>
           </ThemeProvider>
         </HelmetProvider>
       </QueryClientProvider>

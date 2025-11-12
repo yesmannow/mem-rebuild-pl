@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './Carousel.css';
 
@@ -47,6 +46,26 @@ const Carousel: React.FC<CarouselProps> = ({
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
+  // Handle keyboard navigation
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent) => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        scrollPrev();
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        scrollNext();
+      } else if (event.key === 'Home') {
+        event.preventDefault();
+        scrollTo(0);
+      } else if (event.key === 'End') {
+        event.preventDefault();
+        scrollTo(children.length - 1);
+      }
+    },
+    [scrollPrev, scrollNext, scrollTo, children.length]
+  );
+
   useEffect(() => {
     if (!emblaApi) return;
     onSelect();
@@ -76,15 +95,25 @@ const Carousel: React.FC<CarouselProps> = ({
     <div
       className="carousel-container"
       aria-label={ariaLabel}
+      aria-roledescription="carousel"
       onMouseEnter={() => pauseOnHover && setIsPaused(true)}
       onMouseLeave={() => pauseOnHover && setIsPaused(false)}
       onFocus={() => pauseOnHover && setIsPaused(true)}
       onBlur={() => pauseOnHover && setIsPaused(false)}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      role="region"
     >
       <div className="carousel-viewport" ref={emblaRef}>
         <div className="carousel-container-inner">
           {children.map((child, index) => (
-            <div key={index} className="carousel-slide">
+            <div
+              key={index}
+              className="carousel-slide"
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`Slide ${index + 1} of ${children.length}`}
+            >
               {child}
             </div>
           ))}
@@ -98,22 +127,24 @@ const Carousel: React.FC<CarouselProps> = ({
             onClick={scrollPrev}
             aria-label="Previous slide"
             type="button"
+            tabIndex={0}
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={24} aria-hidden="true" />
           </button>
           <button
             className="carousel-button carousel-button-next"
             onClick={scrollNext}
             aria-label="Next slide"
             type="button"
+            tabIndex={0}
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={24} aria-hidden="true" />
           </button>
         </>
       )}
 
       {showDots && (
-        <div className="carousel-dots" role="tablist" aria-label="Carousel navigation">
+        <div className="carousel-dots" role="tablist" aria-label="Carousel pagination">
           {children.map((_, index) => (
             <button
               key={index}
@@ -121,8 +152,10 @@ const Carousel: React.FC<CarouselProps> = ({
               onClick={() => scrollTo(index)}
               aria-label={`Go to slide ${index + 1}`}
               aria-selected={index === selectedIndex}
+              aria-current={index === selectedIndex ? 'true' : 'false'}
               role="tab"
               type="button"
+              tabIndex={0}
             />
           ))}
         </div>
