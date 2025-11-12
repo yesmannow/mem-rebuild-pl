@@ -4,6 +4,11 @@ node_modules/
 # Build output
 dist/
 
+# Auto-generated images
+public/images/**/*.avif
+public/images/**/*.webp
+public/images/auto-generated/
+
 # Environment variables
 .env
 .env.local
@@ -25,6 +30,7 @@ mcp/mcp.log
 *.tmp
 .cache/
 .vercel
+mcp/tmp-*
 
 # Ignore generated type declarations
 types/

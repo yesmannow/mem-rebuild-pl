@@ -6,6 +6,12 @@ if (process.env.PREBUILD_PIPELINE !== 'on') {
   console.log('ℹ️ PREBUILD_PIPELINE=off → skipping any AI/content generation.');
 }
 
+// Skip image build if explicitly requested (useful for CI or fast local builds)
+if (process.env.SKIP_IMAGE_BUILD === '1' || process.env.SKIP_IMAGE_BUILD === 'true') {
+  console.log('⏭️  SKIP_IMAGE_BUILD=1 → skipping image manifest build');
+  process.exit(0);
+}
+
 // Always build image manifest with timeout
 const { execSync, spawn } = require('child_process');
 const TIMEOUT_MS = 120000; // 2 minutes timeout

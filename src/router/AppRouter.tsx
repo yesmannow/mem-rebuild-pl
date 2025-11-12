@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import PageTransition from '../components/animations/PageTransition';
 import SEOHead from '../components/seo/SEOHead';
-import PageLayout from '../components/layout/PageLayout';
+import Loader from '../components/ui/Loader';
 import './AppRouter.css';
 
 // Lazy load pages for code splitting with better chunking
@@ -40,10 +40,10 @@ const RBELaw = React.lazy(() => import('../pages/case-studies/rbe-law'));
 const UltimateTechROI = React.lazy(() => import('../pages/case-studies/ultimate-tech-roi'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
 
-// Loading component - use unique class to avoid GSAP selector conflicts
+// Loading component with accessible Loader
 const PageLoader = () => (
-  <div className="route-loader-fallback initial-loader">
-    <div className="loading-spinner"></div>
+  <div className="route-loader-fallback flex items-center justify-center min-h-[50vh]">
+    <Loader size="lg" message="Loading page..." />
   </div>
 );
 

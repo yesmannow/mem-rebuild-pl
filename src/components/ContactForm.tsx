@@ -3,8 +3,9 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { motion } from 'framer-motion';
-import { Send, Mail, MessageSquare } from 'lucide-react';
+import { Send, Mail } from 'lucide-react';
 import { trackCTA } from '@/utils/analytics';
+import { useToast } from './ui/Toast';
 import './ContactForm.css';
 
 const contactSchema = z.object({
@@ -16,6 +17,7 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const ContactForm: React.FC = () => {
+  const { showToast } = useToast();
   const {
     register,
     handleSubmit,
@@ -30,7 +32,11 @@ const ContactForm: React.FC = () => {
       const web3formsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
       if (!web3formsKey) {
-        alert('Form submission is not configured. Please contact me directly.');
+        showToast(
+          'Form submission is not configured. Please contact me directly.',
+          'error',
+          7000
+        );
         return;
       }
 
@@ -53,13 +59,13 @@ const ContactForm: React.FC = () => {
       if (result.success) {
         trackCTA('contact_form_submit', 'contact');
         reset();
-        alert('Thank you! Your message has been sent.');
+        showToast('Thank you! Your message has been sent successfully.', 'success');
       } else {
-        alert('Failed to send message. Please try again.');
+        showToast('Failed to send message. Please try again.', 'error');
       }
     } catch (error) {
       console.error('Form submission error:', error);
-      alert('An error occurred. Please try again later.');
+      showToast('An error occurred. Please try again later.', 'error');
     }
   };
 
@@ -70,6 +76,7 @@ const ContactForm: React.FC = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
+      noValidate
     >
       <div className="contact-form-header">
         <Mail className="contact-form-icon" size={32} />
@@ -82,7 +89,7 @@ const ContactForm: React.FC = () => {
       <div className="contact-form-fields">
         <div className="form-field">
           <label htmlFor="name" className="form-label">
-            Name
+            Name <span aria-label="required">*</span>
           </label>
           <input
             id="name"
@@ -91,6 +98,7 @@ const ContactForm: React.FC = () => {
             {...register('name')}
             aria-invalid={errors.name ? 'true' : 'false'}
             aria-describedby={errors.name ? 'name-error' : undefined}
+            aria-required="true"
           />
           {errors.name && (
             <span id="name-error" className="form-error" role="alert">
@@ -101,7 +109,7 @@ const ContactForm: React.FC = () => {
 
         <div className="form-field">
           <label htmlFor="email" className="form-label">
-            Email
+            Email <span aria-label="required">*</span>
           </label>
           <input
             id="email"
@@ -110,6 +118,7 @@ const ContactForm: React.FC = () => {
             {...register('email')}
             aria-invalid={errors.email ? 'true' : 'false'}
             aria-describedby={errors.email ? 'email-error' : undefined}
+            aria-required="true"
           />
           {errors.email && (
             <span id="email-error" className="form-error" role="alert">
@@ -120,7 +129,7 @@ const ContactForm: React.FC = () => {
 
         <div className="form-field">
           <label htmlFor="message" className="form-label">
-            Message
+            Message <span aria-label="required">*</span>
           </label>
           <textarea
             id="message"
@@ -129,6 +138,7 @@ const ContactForm: React.FC = () => {
             {...register('message')}
             aria-invalid={errors.message ? 'true' : 'false'}
             aria-describedby={errors.message ? 'message-error' : undefined}
+            aria-required="true"
           />
           {errors.message && (
             <span id="message-error" className="form-error" role="alert">
@@ -144,8 +154,9 @@ const ContactForm: React.FC = () => {
         disabled={isSubmitting}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
+        aria-busy={isSubmitting}
       >
-        <Send size={18} />
+        <Send size={18} aria-hidden="true" />
         {isSubmitting ? 'Sending...' : 'Send Message'}
       </motion.button>
     </motion.form>
