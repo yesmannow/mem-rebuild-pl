@@ -29,6 +29,8 @@ const Gallery = React.lazy(() => import('../pages/Gallery'));
 const Demos = React.lazy(() => import('../pages/Demos'));
 const BrandBuilder = React.lazy(() => import('../pages/BrandBuilder'));
 const BrandDetail = React.lazy(() => import('../pages/brand/BrandDetail'));
+const Resources = React.lazy(() => import('../pages/resources'));
+const AITools = React.lazy(() => import('../pages/ai-tools'));
 const TheLaunchpad = React.lazy(() => import('../pages/case-studies/the-launchpad'));
 const TheCompass = React.lazy(() => import('../pages/case-studies/the-compass'));
 const TheEngineRoom = React.lazy(() => import('../pages/case-studies/the-engine-room'));
@@ -168,6 +170,20 @@ const AppRouter: React.FC = () => {
       return {
         title: 'Brand Board | BearCave Marketing',
         description: 'Explore this brand identity system and design tokens',
+      };
+    } else if (path === '/resources') {
+      return {
+        title: 'API Resources | BearCave Marketing',
+        description:
+          'Curated collection of powerful, free APIs to enhance your projects with real-time data and dynamic content',
+        keywords: 'API resources, public APIs, free APIs, web development, API integration',
+      };
+    } else if (path === '/ai-tools') {
+      return {
+        title: 'API Integrations & Live Demos | BearCave Marketing',
+        description:
+          'Explore live demonstrations of API integrations including weather widgets, currency converters, and more',
+        keywords: 'API demos, live integrations, weather API, currency converter, developer tools',
       };
     }
 
@@ -427,6 +443,22 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <BrandDetail />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/resources"
+              element={
+                <PageTransition>
+                  <Resources />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/ai-tools"
+              element={
+                <PageTransition>
+                  <AITools />
                 </PageTransition>
               }
             />
