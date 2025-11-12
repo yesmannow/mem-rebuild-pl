@@ -38,19 +38,57 @@ export class ErrorBoundary extends Component<Props, State> {
             error === undefined || error === null ? 'Unknown error (undefined/null)' : String(error)
           );
 
-    // You can log error to an external service here
+    // Log error to console
     console.error('ErrorBoundary caught:', errorObj, info);
+
+    // Report to external service if available (e.g., Sentry)
+    if (typeof window !== 'undefined' && (window as Record<string, unknown>).Sentry) {
+      try {
+        ((window as Record<string, unknown>).Sentry as { captureException: (error: Error, context: unknown) => void }).captureException(errorObj, {
+          contexts: {
+            react: {
+              componentStack: info.componentStack,
+            },
+          },
+        });
+      } catch (sentryError) {
+        console.error('Failed to report error to Sentry:', sentryError);
+      }
+    }
   }
+
+  handleReload = () => {
+    window.location.reload();
+  };
 
   render() {
     if (this.state.hasError) {
       return (
-        <div className={styles.container}>
-          <div className={styles.card}>
-            <h1 className={styles.title}>Loading profile....</h1>
+        <div className={styles.container} role="alert" aria-live="assertive">
+          <div className={styles.card} role="region" aria-labelledby="error-title">
+            <h1 id="error-title" className={styles.title}>
+              Something went wrong
+            </h1>
             <p className={styles.message}>
-              Something went wrong while loading the profile. Try reloading the page.
+              We encountered an unexpected error while loading the application. Please try reloading
+              the page.
             </p>
+            {this.state.error && process.env.NODE_ENV === 'development' && (
+              <details className={styles.details}>
+                <summary className={styles.detailsToggle}>Error details</summary>
+                <pre className={styles.errorText}>{this.state.error.message}</pre>
+                {this.state.error.stack && (
+                  <pre className={styles.stackTrace}>{this.state.error.stack}</pre>
+                )}
+              </details>
+            )}
+            <button
+              onClick={this.handleReload}
+              className={styles.reloadButton}
+              aria-label="Reload page"
+            >
+              Reload Page
+            </button>
           </div>
         </div>
       );
