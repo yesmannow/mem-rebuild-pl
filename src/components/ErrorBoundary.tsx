@@ -42,17 +42,23 @@ export class ErrorBoundary extends Component<Props, State> {
     console.error('ErrorBoundary caught:', errorObj, info);
 
     // Report to external service if available (e.g., Sentry)
-    if (typeof window !== 'undefined' && (window as Record<string, unknown>).Sentry) {
-      try {
-        ((window as Record<string, unknown>).Sentry as { captureException: (error: Error, context: unknown) => void }).captureException(errorObj, {
-          contexts: {
-            react: {
-              componentStack: info.componentStack,
+    if (typeof window !== 'undefined') {
+      const win = window as unknown as Record<string, unknown>;
+      if (win.Sentry) {
+        try {
+          const sentry = win.Sentry as { 
+            captureException: (error: Error, context: unknown) => void 
+          };
+          sentry.captureException(errorObj, {
+            contexts: {
+              react: {
+                componentStack: info.componentStack,
+              },
             },
-          },
-        });
-      } catch (sentryError) {
-        console.error('Failed to report error to Sentry:', sentryError);
+          });
+        } catch (sentryError) {
+          console.error('Failed to report error to Sentry:', sentryError);
+        }
       }
     }
   }
