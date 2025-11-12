@@ -5,6 +5,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import { ThemeProvider } from './components/theme/ThemeProvider';
 import { ToastProvider } from './components/ui/Toast';
 import Layout from './components/layout/Layout';
+import GradientMesh from './components/ui/GradientMesh';
 import { queryClient } from './lib/queryClient';
 import { initLenis, destroyLenis } from './utils/motion-sync';
 import { initAnalytics } from './utils/analytics';
@@ -69,6 +70,9 @@ const App: React.FC = () => {
         <HelmetProvider>
           <ThemeProvider>
             <ToastProvider>
+              {/* Animated gradient mesh background */}
+              <GradientMesh colors={['#88ABF2', '#6B8FD6', '#5A7EC0', '#0b0b0c']} speed={0.0003} />
+              
               <JSONLD />
               <Suspense fallback={null}>
                 <PersonSchema />

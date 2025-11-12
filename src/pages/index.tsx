@@ -1,15 +1,17 @@
 import React, { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import BrandHero from '../components/hero/BrandHero';
+import { Mail } from 'lucide-react';
+import ParticleHero from '../components/hero/ParticleHero';
 import HeroIntro from '../components/home/HeroIntro';
 import WhoIAm from '../components/home/WhoIAm';
 import CareerHighlights from '../components/home/CareerHighlights';
 import Portfolio from '../components/home/Portfolio';
-import MySkills from '../components/home/MySkills';
+import EnhancedSkills from '../components/home/EnhancedSkills';
 import Testimonials from '../components/home/Testimonials';
 import FinalCTA from '../components/home/FinalCTA';
 import FromTheWork from '../components/sections/FromTheWork';
+import FloatingActionButton from '../components/ui/FloatingActionButton';
 import OrganizationSchema from '../components/seo/OrganizationSchema';
 import ServiceSchema from '../components/seo/ServiceSchema';
 import ReviewSchema from '../components/seo/ReviewSchema';
@@ -103,9 +105,7 @@ const HomePage: React.FC = () => {
       <ServiceSchema />
       <ReviewSchema />
 
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-        <BrandHero />
-      </motion.div>
+      <ParticleHero />
 
       {/* Hero Intro Section */}
       <HeroIntro
@@ -145,7 +145,7 @@ const HomePage: React.FC = () => {
         <FromTheWork />
 
         {/* Skills Section */}
-        <MySkills />
+        <EnhancedSkills />
 
         {/* Testimonials Section */}
         <Testimonials testimonials={testimonialsData} />
@@ -153,6 +153,14 @@ const HomePage: React.FC = () => {
         {/* Contact Section */}
         <FinalCTA />
       </main>
+
+      {/* Floating Contact Button */}
+      <FloatingActionButton
+        icon={<Mail />}
+        label="Get in Touch"
+        href="/contact"
+        position="bottom-right"
+      />
     </>
   );
 };

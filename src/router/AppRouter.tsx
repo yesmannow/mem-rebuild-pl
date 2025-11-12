@@ -11,6 +11,7 @@ const Home = React.lazy(() => import('../pages/index')); // Cinematic homepage
 const About = React.lazy(() => import('../pages/About'));
 const CaseStudies = React.lazy(() => import('../pages/CaseStudies'));
 const CaseStudyDetail = React.lazy(() => import('../pages/CaseStudyDetail'));
+const ComponentShowcase = React.lazy(() => import('../pages/ComponentShowcase'));
 const Toolbox = React.lazy(() => import('../pages/Toolbox'));
 const Projects = React.lazy(() => import('../pages/Projects'));
 const ProjectDetail = React.lazy(() => import('../pages/ProjectDetail'));
@@ -163,6 +164,13 @@ const AppRouter: React.FC = () => {
         description:
           'Create a complete brand identity system in minutes with our interactive brand builder',
         keywords: 'brand builder, brand identity, design system, brand creation',
+      };
+    } else if (path === '/showcase') {
+      return {
+        title: 'Component Showcase | BearCave Marketing',
+        description:
+          'Interactive showcase of modern UI components featuring particle effects, glassmorphism, and smooth animations',
+        keywords: 'component showcase, UI components, interactive demos, particle effects, glassmorphism',
       };
     } else if (path.startsWith('/brand/')) {
       return {
@@ -427,6 +435,14 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <BrandDetail />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/showcase"
+              element={
+                <PageTransition>
+                  <ComponentShowcase />
                 </PageTransition>
               }
             />
