@@ -247,11 +247,56 @@ app.get("/api/portfolio", (req, res) => {
 
 // only start server when executed directly (not when imported for tests)
 const isMain = fileURLToPath(import.meta.url) === path.resolve(process.argv[1] || "");
-if (isMain) {
-	app.listen(PORT, () => {
-		log(`MCP server listening on port ${PORT}`);
+
+// Server instance for programmatic control
+let serverInstance = null;
+
+/**
+ * Start the MCP server programmatically
+ * @param {number} port - Port to listen on
+ * @returns {Promise<object>} Server instance with close method
+ */
+export function createServer(port = PORT) {
+	return new Promise((resolve, reject) => {
+		const server = app.listen(port, (err) => {
+			if (err) {
+				reject(err);
+			} else {
+				log(`MCP server listening on port ${port}`);
+				serverInstance = server;
+				resolve({
+					server,
+					close: () => new Promise((res) => server.close(res)),
+					port,
+				});
+			}
+		});
 	});
 }
 
-export { app };
+/**
+ * Stop the MCP server
+ * @returns {Promise<void>}
+ */
+export function stopServer() {
+	if (!serverInstance) {
+		return Promise.resolve();
+	}
+	return new Promise((resolve) => {
+		serverInstance.close(() => {
+			serverInstance = null;
+			resolve();
+		});
+	});
+}
+
+// Auto-start if executed directly
+if (isMain) {
+	createServer(PORT).catch((err) => {
+		console.error("Failed to start server:", err);
+		process.exit(1);
+	});
+}
+
+export { app, rateLimiter, requireAuth, monitoring };
 

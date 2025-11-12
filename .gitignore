@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+package-lock.json
 
 # Build output
 dist/
@@ -30,6 +31,7 @@ mcp/mcp.log
 *.tmp
 .cache/
 .vercel
+mcp/tmp-*
 
 # Ignore generated type declarations
 types/
