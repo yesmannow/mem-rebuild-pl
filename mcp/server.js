@@ -3,6 +3,8 @@ import fs from "fs";
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
+import aiRoutes from "./routes/ai.js";
+import { getAIStats } from "./utils/ai-proxy.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -132,6 +134,14 @@ function requestLogger(req, res, next) {
 
 // expose monitoring stats endpoint
 app.get("/api/monitoring/stats", (req, res) => {
+	// Get AI stats if available
+	let aiStats = null;
+	try {
+		aiStats = getAIStats();
+	} catch {
+		// AI module might not be loaded or configured
+	}
+	
 	res.json({
 		timestamp: new Date().toISOString(),
 		totalChecks: monitoring.totalChecks,
@@ -144,7 +154,9 @@ app.get("/api/monitoring/stats", (req, res) => {
 		rateLimit: { windowMs: RATE_WINDOW_MS, max: RATE_MAX },
 		// Also include endpoint-level stats
 		requests: Object.fromEntries(requestCounts),
-		errors: Object.fromEntries(errorCounts)
+		errors: Object.fromEntries(errorCounts),
+		// Include AI stats if available
+		...(aiStats && { aiCalls: aiStats })
 	});
 });
 
@@ -244,6 +256,9 @@ app.post("/write", requireAuth, (req, res) => {
 app.get("/api/portfolio", (req, res) => {
 	res.json({ message: "portfolio endpoint placeholder" });
 });
+
+// Mount AI routes (with built-in rate limiting and feature flag checks)
+app.use("/api/ai", aiRoutes);
 
 // only start server when executed directly (not when imported for tests)
 const isMain = fileURLToPath(import.meta.url) === path.resolve(process.argv[1] || "");
