@@ -30,6 +30,23 @@
       "command": "node",
       "args": ["scripts/component-fetcher.js"],
       "tools": ["fetch_component"]
+    },
+    "scrapingAssistant": {
+      "type": "local",
+      "command": "python",
+      "args": ["cli-workflow/scraping-assistant/start_mcp_server.py"],
+      "tools": [
+        "fetch_page_content",
+        "generate_xpaths",
+        "write_camoufox_scraper",
+        "strip_css",
+        "extract_images",
+        "extract_design_components",
+        "extract_css_files"
+      ],
+      "env": {
+        "PYTHONPATH": "cli-workflow/scraping-assistant"
+      }
     }
   }
 }

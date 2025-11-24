@@ -94,6 +94,35 @@ npm install
 npm run dev
 ```
 
+## 🕷️ Web Scraping Assistant
+
+This project includes the [AI-Cursor-Scraping-Assistant](https://github.com/TheWebScrapingClub/AI-Cursor-Scraping-Assistant) for extracting images and design components from websites to improve your marketing portfolio.
+
+### Quick Setup
+
+```bash
+# Install Python dependencies
+npm run scraping:install
+
+# Extract images from a website
+npm run scrape:images https://example.com
+
+# Extract design components (colors, fonts, etc.)
+npm run scrape:design https://example.com
+
+# Extract everything
+npm run scrape:all https://example.com
+```
+
+### Features
+
+- **Image Extraction**: Extract all images from websites including background images
+- **Design Components**: Extract colors, fonts, spacing, and layout patterns
+- **CSS Analysis**: Extract and analyze CSS files
+- **MCP Integration**: Works seamlessly with Cursor AI through MCP
+
+See [docs/SCRAPING_ASSISTANT_SETUP.md](docs/SCRAPING_ASSISTANT_SETUP.md) for detailed documentation.
+
 ## 🧱 Folder Structure
 
 ```
