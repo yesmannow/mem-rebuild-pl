@@ -1,0 +1,194 @@
+/**
+ * DesignSystemDemo Page Styles
+ */
+
+.demo-content {
+  min-height: 100vh;
+}
+
+.demo-section {
+  position: relative;
+  padding: var(--space-6xl) var(--space-xl);
+}
+
+.demo-section--dark {
+  background: var(--color-neutral-900);
+}
+
+.demo-section--theme-controls {
+  background: var(--color-neutral-950);
+  border-bottom: 1px solid var(--color-neutral-800);
+}
+
+.demo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================================================================
+   HEADINGS
+   =================================================================== */
+
+.demo-heading {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.demo-subheading {
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--space-5xl);
+}
+
+/* ===================================================================
+   THEME CONTROLS
+   =================================================================== */
+
+.demo-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.demo-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.demo-control-label {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.demo-buttons {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.demo-info {
+  padding: var(--space-lg);
+  background: var(--color-neutral-800);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-neutral-700);
+}
+
+.demo-info p {
+  margin: 0;
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+}
+
+/* ===================================================================
+   BUTTON SHOWCASE
+   =================================================================== */
+
+.demo-button-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.demo-button-row {
+  display: flex;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ===================================================================
+   TYPOGRAPHY SHOWCASE
+   =================================================================== */
+
+.demo-typography {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.demo-typography h1,
+.demo-typography h2,
+.demo-typography h3,
+.demo-typography h4,
+.demo-typography h5,
+.demo-typography h6 {
+  margin: 0;
+}
+
+.demo-typography p {
+  margin: 0;
+  line-height: var(--leading-relaxed);
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .demo-section {
+    padding: var(--space-4xl) var(--space-lg);
+  }
+
+  .demo-heading {
+    font-size: var(--font-size-3xl);
+  }
+
+  .demo-subheading {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .demo-controls {
+    gap: var(--space-2xl);
+  }
+
+  .demo-button-row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .demo-button-row > * {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .demo-heading {
+    font-size: var(--font-size-2xl);
+  }
+
+  .demo-buttons {
+    flex-direction: column;
+  }
+
+  .demo-buttons > * {
+    width: 100%;
+  }
+}

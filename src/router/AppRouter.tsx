@@ -39,6 +39,7 @@ const TheConductor = React.lazy(() => import('../pages/case-studies/the-conducto
 const GrastonCEU = React.lazy(() => import('../pages/case-studies/graston-ceu-system'));
 const RBELaw = React.lazy(() => import('../pages/case-studies/rbe-law'));
 const UltimateTechROI = React.lazy(() => import('../pages/case-studies/ultimate-tech-roi'));
+const DesignSystemDemo = React.lazy(() => import('../pages/DesignSystemDemo'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
 
 // Loading component with accessible Loader
@@ -171,6 +172,13 @@ const AppRouter: React.FC = () => {
         description:
           'Interactive showcase of modern UI components featuring particle effects, glassmorphism, and smooth animations',
         keywords: 'component showcase, UI components, interactive demos, particle effects, glassmorphism',
+      };
+    } else if (path === '/design-system') {
+      return {
+        title: 'Design System Demo | BearCave Marketing',
+        description:
+          'Interactive demo of the new design system featuring design tokens, typography, and accessible components',
+        keywords: 'design system, design tokens, typography, accessibility, UI components',
       };
     } else if (path.startsWith('/brand/')) {
       return {
@@ -443,6 +451,14 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <ComponentShowcase />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/design-system"
+              element={
+                <PageTransition>
+                  <DesignSystemDemo />
                 </PageTransition>
               }
             />
