@@ -70,10 +70,10 @@ export default defineConfig({
     exclude: ['@tanstack/react-query'], // Exclude if not used on initial load
   },
   build: {
-    outDir: 'dist', // Explicit output directory for Cloudflare Pages
-    assetsDir: 'assets', // Explicit assets directory to match _headers rules
-    manifest: true, // Enable manifest for service worker precaching
-    cssCodeSplit: true, // Extract CSS into separate files (default, but explicit)
+    outDir: 'dist',
+    sourcemap: false,
+    target: 'esnext',
+    chunkSizeWarningLimit: 1500,
     rollupOptions: {
       input: (() => {
         const entries = {
@@ -86,31 +86,21 @@ export default defineConfig({
         return entries;
       })(),
       output: {
-        format: 'es', // Explicitly set ES module format
+        format: 'es',
         entryFileNames: chunk => (chunk.name === 'sw' ? 'sw.js' : 'assets/[name]-[hash].js'),
-        chunkFileNames: 'assets/[name]-[hash].js', // Ensure all chunks have .js extension
+        chunkFileNames: 'assets/[name]-[hash].js',
         assetFileNames: (assetInfo) => {
-          // Ensure CSS files have .css extension
           if (assetInfo.name && assetInfo.name.endsWith('.css')) {
             return 'assets/[name]-[hash][extname]';
           }
           return 'assets/[name]-[hash][extname]';
         },
         manualChunks: {
-          // Vendor chunks for better caching
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'animation-vendor': ['framer-motion', 'gsap'],
-          'utils-vendor': ['lenis'],
+          vendor: ['react', 'react-dom'],
+          motion: ['framer-motion'],
+          router: ['react-router-dom'],
         },
       }
     },
-    // Optimize chunk size warning limit
-    chunkSizeWarningLimit: 1000,
-    // Enable source maps for production debugging (optional)
-    sourcemap: false,
-    // Minify with esbuild (default, faster than terser)
-    minify: 'esbuild',
-    // Copy Cloudflare Pages config files
-    copyPublicDir: true,
   },
 });
