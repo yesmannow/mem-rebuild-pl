@@ -60,7 +60,16 @@ export const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({
       name: 'Twitter',
       icon: Twitter,
       color: '#1da1f2',
-      url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}${hashtags.length > 0 ? `&hashtags=${hashtags.join(',')}` : ''}`,
+      url: (() => {
+        const params = new URLSearchParams({
+          url,
+          text: title,
+        });
+        if (hashtags.length > 0) {
+          params.set('hashtags', hashtags.join(','));
+        }
+        return `https://twitter.com/intent/tweet?${params.toString()}`;
+      })(),
     },
     {
       name: 'Facebook',

@@ -167,7 +167,7 @@ const HeroCommandPanel: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-mono text-sm text-[#006d77] uppercase tracking-wider mb-4 h-6"
+              className="font-mono text-sm text-[#006d77] uppercase tracking-wider mb-4 min-h-[1.5rem]"
             >
               {roleText}
               <span className="inline-block w-0.5 h-4 bg-[#83c5be] ml-1 animate-pulse" />

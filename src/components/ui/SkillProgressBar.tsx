@@ -124,13 +124,9 @@ export const SkillProgressBar: React.FC<SkillProgressBarProps> = ({
       </div>
 
       {/* Tooltip on hover */}
-      <motion.div
-        className="mt-1 text-xs text-[var(--parchment-050)]/50 opacity-0 group-hover:opacity-100 transition-opacity"
-        initial={{ opacity: 0, height: 0 }}
-        whileHover={{ opacity: 1, height: 'auto' }}
-      >
+      <div className="mt-1 text-xs text-[var(--parchment-050)]/50 opacity-0 group-hover:opacity-100 transition-opacity">
         Proficiency: {percentage}% {years && `• ${years} years experience`}
-      </motion.div>
+      </div>
     </div>
   );
 };
