@@ -73,7 +73,7 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: false,
     target: 'esnext',
-    chunkSizeWarningLimit: 1500,
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       input: (() => {
         const entries = {
