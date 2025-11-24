@@ -16,7 +16,7 @@ Everything needed for GitHub Pages deployment is already configured:
 - [x] GitHub Pages workflow (`.github/workflows/github-pages.yml`)
 - [x] Vite configuration with correct base path (`vite.config.js`)
 - [x] Automatic deployment on push to `main` branch
-- [x] Latest deployment successful (Nov 24, 2025 at 13:02 UTC)
+- [x] Latest deployment successful (check Actions tab for current status)
 - [x] Documentation in `docs/GITHUB_PAGES_SETUP.md`
 
 ### 🎯 Current Status
@@ -120,7 +120,7 @@ To update your live site:
 
 2. **Verify Latest Deployment:**
    - Check Actions tab for any failed builds
-   - Latest successful deployment was on Nov 24, 2025
+   - Look for the most recent "Deploy to GitHub Pages" workflow run
 
 3. **Force Rebuild:**
    ```bash
