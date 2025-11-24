@@ -3,12 +3,13 @@ import { Helmet } from 'react-helmet-async';
 import { Mail } from 'lucide-react';
 import HeroCommandPanel from '../components/home/HeroCommandPanel';
 import HeroStats from '../components/home/HeroStats';
+import QuickWins from '../components/home/QuickWins';
+import SocialProof from '../components/home/SocialProof';
 import { ServiceLadder } from '../components/interactive/ServiceLadder';
 import CareerHighlights from '../components/home/CareerHighlights';
 import Portfolio from '../components/home/Portfolio';
 import EnhancedSkills from '../components/home/EnhancedSkills';
 import Testimonials from '../components/home/Testimonials';
-import FromTheWork from '../components/sections/FromTheWork';
 import FloatingActionButton from '../components/ui/FloatingActionButton';
 import OrganizationSchema from '../components/seo/OrganizationSchema';
 import ServiceSchema from '../components/seo/ServiceSchema';
@@ -108,15 +109,18 @@ const HomePage: React.FC = () => {
       {/* Animated Stats Section */}
       <HeroStats />
 
+      {/* Quick Wins - Highlight key achievements */}
+      <QuickWins />
+
+      {/* Social Proof - Client logos and trust indicators */}
+      <SocialProof />
+
       <main id="main-content">
         {/* Experience Section */}
         <CareerHighlights />
 
         {/* Portfolio Section */}
         <Portfolio />
-
-        {/* From the Work Section */}
-        <FromTheWork />
 
         {/* Skills Section - Enhanced with Service Ladder */}
         <ServiceLadder
