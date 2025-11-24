@@ -31,14 +31,14 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (!magnetic) return;
-    
+
     const rect = e.currentTarget.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    
+
     const x = (e.clientX - centerX) / 5;
     const y = (e.clientY - centerY) / 5;
-    
+
     setMousePos({ x, y });
   };
 
@@ -57,16 +57,16 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
       className={`
         group relative inline-flex items-center justify-center
         w-16 h-16 rounded-full
-        bg-gradient-to-br from-[#88ABF2] to-[#6B8FD6]
-        shadow-lg shadow-[#88ABF2]/50
-        hover:shadow-xl hover:shadow-[#88ABF2]/60
+        bg-[var(--signal-500)]
+        shadow-lg shadow-[var(--signal-500)]/50
+        hover:shadow-xl hover:shadow-[var(--signal-500)]/60
         transition-shadow duration-300
         cursor-pointer
         ${className}
       `}
     >
       {/* Icon */}
-      <div className="text-white text-2xl">
+      <div className="text-[var(--ink-900)] text-2xl">
         {icon}
       </div>
 

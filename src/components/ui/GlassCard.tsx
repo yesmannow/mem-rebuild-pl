@@ -36,14 +36,14 @@ const GlassCard: React.FC<GlassCardProps> = ({
     >
       {/* Glass effect overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
-      
+
       {/* Border glow effect on hover */}
       {hover && (
         <div className="absolute inset-0 rounded-2xl opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#88ABF2]/30 to-[#6B8FD6]/30 blur-xl" />
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[var(--signal-500)]/30 to-[var(--telemetry-400)]/30 blur-xl" />
         </div>
       )}
-      
+
       {/* Content */}
       <div className="relative z-10">
         {children}

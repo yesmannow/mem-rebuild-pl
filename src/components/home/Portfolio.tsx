@@ -17,10 +17,10 @@ const featuredCaseStudies = caseStudies
     // Create gradient from color or use default
     const gradient = cs.color
       ? `linear-gradient(135deg, ${cs.color}15 0%, ${cs.color}30 50%, ${cs.color}50 100%)`
-      : 'linear-gradient(135deg, #0D0D0F 0%, #1A1D1F 40%, #3CC6C4 100%)';
+      : 'linear-gradient(135deg, var(--ink-900) 0%, var(--ink-700) 40%, var(--telemetry-400) 100%)';
 
     // Use color for hoverGlow or default
-    const hoverGlow = cs.color || '#3CC6C4';
+    const hoverGlow = cs.color || '#00a8a8'; // telemetry-400
 
     return {
       slug: cs.slug,

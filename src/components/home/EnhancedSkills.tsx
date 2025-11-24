@@ -13,7 +13,7 @@ const skillCategories = [
       { name: 'Zapier', icon: '⚙️', level: 'expert' as const },
       { name: 'Automated Campaigns', icon: '🚀', level: 'expert' as const },
     ],
-    gradient: 'from-purple-500/10 to-purple-600/5',
+    gradient: 'from-[var(--signal-500)]/10 to-[var(--signal-500)]/5',
   },
   {
     category: 'Analytics & Data',
@@ -24,7 +24,7 @@ const skillCategories = [
       { name: 'Data Visualization', icon: '📉', level: 'advanced' as const },
       { name: 'A/B Testing', icon: '🧪', level: 'expert' as const },
     ],
-    gradient: 'from-blue-500/10 to-blue-600/5',
+    gradient: 'from-[var(--telemetry-400)]/10 to-[var(--telemetry-400)]/5',
   },
   {
     category: 'Development',
@@ -69,7 +69,7 @@ const skillCategories = [
       { name: 'Security', icon: '🔒', level: 'advanced' as const },
       { name: 'CDN Optimization', icon: '⚡', level: 'expert' as const },
     ],
-    gradient: 'from-indigo-500/10 to-indigo-600/5',
+    gradient: 'from-[var(--telemetry-400)]/10 to-[var(--signal-500)]/5',
   },
 ];
 
@@ -83,10 +83,10 @@ const EnhancedSkills: React.FC = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-[var(--parchment-050)] mb-4">
           Where Strategy Meets Stack
         </h2>
-        <p className="text-lg text-neutral-300 max-w-3xl mx-auto">
+        <p className="text-lg text-[var(--parchment-050)]/70 max-w-3xl mx-auto font-body">
           From first click to final sale — systems that scale, connect, and convert.
         </p>
       </motion.div>
@@ -105,11 +105,11 @@ const EnhancedSkills: React.FC = () => {
                 <span className="text-3xl" aria-hidden="true">
                   {category.icon}
                 </span>
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="text-xl font-semibold text-[var(--parchment-050)] font-display">
                   {category.category}
                 </h3>
               </div>
-              
+
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, skillIndex) => (
                   <SkillBadge

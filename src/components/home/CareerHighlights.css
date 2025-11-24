@@ -56,10 +56,10 @@
 }
 
 .career-highlights__year-btn.is-active {
-  background: var(--bc-gradient-brand);
+  background: var(--signal-500);
   border-color: transparent;
-  color: white;
-  box-shadow: var(--bc-glow-subtle);
+  color: var(--ink-900);
+  box-shadow: 0 0 20px rgba(255, 107, 61, 0.3);
   transform: translateY(-2px);
 }
 
@@ -81,8 +81,8 @@
   bottom: 0;
   width: 2px;
   transform: translateX(-50%);
-  background: var(--bc-gradient-brand-vertical);
-  opacity: 0.3;
+  background: linear-gradient(to bottom, var(--signal-500), var(--telemetry-400));
+  opacity: 0.4;
 }
 
 .career-highlights__card {
@@ -120,13 +120,13 @@
   width: 32px;
   height: 32px;
   transform: translateX(-50%);
-  background: var(--bc-gradient-brand);
+  background: var(--signal-500);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  box-shadow: var(--bc-glow-subtle);
+  color: var(--ink-900);
+  box-shadow: 0 0 20px rgba(255, 107, 61, 0.4);
   z-index: 2;
   flex-shrink: 0;
 }

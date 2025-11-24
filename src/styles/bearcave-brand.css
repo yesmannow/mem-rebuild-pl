@@ -242,10 +242,7 @@ body {
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 var(--bc-space-lg) 0;
-  background: var(--bc-gradient-brand);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--signal-500);
   letter-spacing: -0.02em;
   text-align: center;
 }

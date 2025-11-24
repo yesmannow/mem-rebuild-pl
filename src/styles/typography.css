@@ -201,10 +201,7 @@ p,
   font-size: clamp(2.5rem, 6vw, 5rem);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
-  background: var(--gradient-brand);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--signal-500);
 }
 
 .hero-subtitle {
@@ -254,10 +251,7 @@ a:hover,
 }
 
 .link-gradient {
-  background: var(--gradient-brand);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--signal-500);
   text-decoration: none;
   transition: opacity var(--duration-fast) ease;
 }
@@ -268,10 +262,7 @@ a:hover,
 
 /* ===== UTILITY CLASSES ===== */
 .text-gradient {
-  background: var(--gradient-brand);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--signal-500);
 }
 
 .text-glow {

@@ -66,13 +66,13 @@ const ScrollProgress: React.FC = () => {
       <div className="relative w-1 h-64 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm">
         {/* Progress Fill */}
         <motion.div
-          className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-blue-500 via-purple-500 to-pink-500 rounded-full origin-bottom"
+          className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--signal-500)] via-[var(--telemetry-400)] to-[var(--signal-500)] rounded-full origin-bottom"
           style={{ scaleY }}
         />
 
         {/* Glow Effect */}
         <motion.div
-          className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-blue-400 via-purple-400 to-pink-400 rounded-full origin-bottom blur-sm opacity-60"
+          className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[var(--signal-500)] via-[var(--telemetry-400)] to-[var(--signal-500)] rounded-full origin-bottom blur-sm opacity-60"
           style={{ scaleY }}
         />
       </div>
