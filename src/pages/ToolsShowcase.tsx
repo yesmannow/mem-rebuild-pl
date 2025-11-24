@@ -12,9 +12,29 @@ interface Tool {
   usage: string;
   outcomes: string[];
   icon: React.ReactNode;
+  iconSrc?: string; // Path to custom generated tech icon
   lastModified?: string;
   author?: string;
 }
+
+/**
+ * Map technology names to their generated icon paths
+ */
+const getTechIconPath = (tech: string): string | undefined => {
+  const iconMap: Record<string, string> = {
+    'React': '/images/tech-icons/react.svg',
+    'Node.js': '/images/tech-icons/nodejs.svg',
+    'TypeScript': '/images/tech-icons/typescript.svg',
+    'Python': '/images/tech-icons/python.svg',
+    'HubSpot': '/images/tech-icons/hubspot.svg',
+    'JavaScript': '/images/tech-icons/javascript.svg',
+    'Express': '/images/tech-icons/express.svg',
+    'Vite': '/images/tech-icons/vite.svg',
+    'Tailwind CSS': '/images/tech-icons/tailwind-css.svg',
+    'GitHub': '/images/tech-icons/github.svg',
+  };
+  return iconMap[tech];
+};
 
 const tools: Tool[] = [
   {
@@ -22,6 +42,7 @@ const tools: Tool[] = [
     category: 'MCP Server',
     description: 'Express-based Model Context Protocol server with health monitoring, rate limiting, and safe filesystem operations for AI-powered development workflows.',
     technologies: ['Node.js', 'Express', 'JavaScript'],
+    iconSrc: getTechIconPath('Node.js'),
     lastModified: '2024-11',
     author: 'Portfolio Team',
     usage: `# Start the MCP server
@@ -47,6 +68,7 @@ npm run mcp:monitor`,
     author: 'Portfolio Team',
     description: 'Automated content pipeline that scrapes design inspiration websites, uses Gemini AI for summarization, optimizes images with Sharp, and generates Markdown files with YAML frontmatter.',
     technologies: ['Node.js', 'Axios', 'Cheerio', 'Sharp', 'Gemini AI'],
+    iconSrc: getTechIconPath('Node.js'),
     usage: `# Run content scraper
 npm run generate:content
 
@@ -70,6 +92,7 @@ npm run build:full`,
     author: 'Portfolio Team',
     description: 'Command-line interface for managing MCP server operations, health checks, smoke tests, and repository audits with support for dry-run mode.',
     technologies: ['Node.js', 'ESM', 'Child Process'],
+    iconSrc: getTechIconPath('Node.js'),
     usage: `# Start MCP server
 node scripts/mcp-cli.js start
 
@@ -93,6 +116,7 @@ node scripts/mcp-cli.js smoke`,
     author: 'Portfolio Team',
     description: 'Python-based MCP integration for extracting images and design components from websites with XPath selectors and CORS handling.',
     technologies: ['Python', 'Asyncio', 'MCP Protocol'],
+    iconSrc: getTechIconPath('Python'),
     usage: `# Scrape images
 npm run scrape:images
 
@@ -116,6 +140,7 @@ npm run scrape:all`,
     author: 'Portfolio Team',
     description: 'Automated React component generation from SVG icons with TypeScript support, dry-run mode, and standardized naming conventions.',
     technologies: ['Node.js', 'React', 'TypeScript'],
+    iconSrc: getTechIconPath('React'),
     usage: `# Preview icon generation
 npm run icon:generate-components
 
@@ -139,6 +164,7 @@ npm run icon:audit`,
     author: 'Portfolio Team',
     description: 'Design system migration tool that consolidates raw color values into CSS custom properties and Tailwind classes across the entire codebase.',
     technologies: ['Node.js', 'AST Parsing', 'CSS'],
+    iconSrc: getTechIconPath('Node.js'),
     usage: `# Preview color refactoring
 npm run design:refactor-colors
 
@@ -162,6 +188,7 @@ npm run design:map-colors`,
     author: 'Portfolio Team',
     description: 'Intelligent moodboard creation system that generates brand inspiration boards, classifies design styles, and syncs metadata for the portfolio gallery.',
     technologies: ['Node.js', 'Image Processing', 'AI Classification'],
+    iconSrc: getTechIconPath('Node.js'),
     usage: `# Generate enhanced moodboards
 npm run generate:enhanced-moodboards
 
@@ -185,6 +212,7 @@ npm run sync:inspiration`,
     author: 'Portfolio Team',
     description: 'Comprehensive image processing pipeline with Sharp integration for optimization, format conversion, manifest generation, and MIME type validation.',
     technologies: ['Node.js', 'Sharp', 'ESM'],
+    iconSrc: getTechIconPath('Node.js'),
     usage: `# Build image manifest
 npm run images:build
 
@@ -208,6 +236,7 @@ npm run images:opt`,
     author: 'Portfolio Team',
     description: 'Rollup plugin visualizer integration for analyzing bundle size, identifying large dependencies, and optimizing production builds with gzip and brotli compression metrics.',
     technologies: ['Vite', 'Rollup', 'Visualizer'],
+    iconSrc: getTechIconPath('Vite'),
     usage: `# Analyze bundle with visualizer
 ANALYZE=true npm run build
 
@@ -231,6 +260,7 @@ GITHUB_PAGES=true npm run build`,
     author: 'Portfolio Team',
     description: 'Batch image optimization tool that compresses images >1MB, converts to modern formats (WebP/AVIF), and reduces file sizes while maintaining quality.',
     technologies: ['Node.js', 'Sharp', 'File System'],
+    iconSrc: getTechIconPath('Node.js'),
     usage: `# Optimize all active images (>1MB)
 npm run optimize-images
 
@@ -254,6 +284,7 @@ npm run audit:images`,
     author: 'Portfolio Team',
     description: 'TypeScript utility that scans source code to identify images not referenced in JSX, TSX, or MDX files, reporting potential space savings.',
     technologies: ['TypeScript', 'Node.js', 'Regex'],
+    iconSrc: getTechIconPath('TypeScript'),
     usage: `# Find unused images
 npm run audit:images
 
@@ -274,6 +305,7 @@ ts-node scripts/listUnusedImages.ts`,
     author: 'Portfolio Team',
     description: 'Multi-platform deployment configuration supporting GitHub Pages, Cloudflare Pages, and Vercel with environment-aware base path logic.',
     technologies: ['Vite', 'GitHub Actions', 'Cloudflare'],
+    iconSrc: getTechIconPath('GitHub'),
     usage: `# Deploy to Cloudflare (custom domain)
 npm run deploy:cloudflare
 
@@ -313,7 +345,7 @@ const ToolsShowcase: React.FC = () => {
   return (
     <main className="tools-showcase bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 min-h-screen relative">
       <OceanBackgroundBeams className="opacity-20" />
-      
+
       {/* Hero Section */}
       <AnimatedSection>
         <section className="container mx-auto px-6 py-16 relative z-10">
@@ -326,13 +358,13 @@ const ToolsShowcase: React.FC = () => {
               <Terminal className="w-4 h-4 text-turquoise" />
               <span className="text-sm font-medium text-turquoise">Developer Tools & Automation</span>
             </div>
-            
+
             <h1 className="text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6">
               CLI Tools & MCP Servers
             </h1>
-            
+
             <p className="text-xl text-slate-600 dark:text-slate-300 mb-8">
-              A comprehensive toolkit of command-line utilities, automation scripts, and MCP servers 
+              A comprehensive toolkit of command-line utilities, automation scripts, and MCP servers
               built to streamline portfolio development, content generation, and design system management.
             </p>
 
@@ -397,7 +429,7 @@ const ToolsShowcase: React.FC = () => {
                 categories.slice(1).map(category => {
                   const categoryTools = filteredTools.filter(t => t.category === category);
                   if (categoryTools.length === 0) return null;
-                  
+
                   return (
                     <div key={category}>
                       <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
@@ -438,7 +470,7 @@ const ToolsShowcase: React.FC = () => {
             <p className="text-center text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
               Essential commands for future developers working with this portfolio codebase
             </p>
-            
+
             <div className="grid md:grid-cols-2 gap-6">
               {/* Build & Deploy Commands */}
               <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">

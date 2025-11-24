@@ -14,6 +14,7 @@ interface Project {
   source_credit?: string;
   date: string;
   slug?: string;
+  externalUrl?: string;
 }
 
 interface ContentSection {
@@ -66,12 +67,6 @@ const InspirationDetail: React.FC = () => {
       }
     }
 
-    // Debug logging
-    console.log('Sections created:', sections.length);
-    sections.forEach((s, i) => {
-      console.log(`Section ${i}: ${s.title} - Content length: ${s.content.length}`);
-    });
-
     return sections;
   }, [project?.fullContent]);
 
@@ -79,7 +74,7 @@ const InspirationDetail: React.FC = () => {
   const anchorItems = useMemo(() => {
     const items = [
       { id: 'overview', label: 'Overview' },
-      ...sections.map((section, index) => ({
+      ...sections.map((section) => ({
         id: section.id,
         label: section.title
       }))
@@ -155,10 +150,20 @@ const InspirationDetail: React.FC = () => {
         <section className="inspiration-detail__content mt-10">
           <div id="overview" className="inspiration-detail__summary">
             <h2 className="text-2xl md:text-3xl font-semibold">Overview</h2>
-            <p className="inspiration-detail__summary-text mt-2 text-[var(--parchment-050)]/80">{project.summary}</p>
+            {project.summary && project.summary.trim() ? (
+              <p className="inspiration-detail__summary-text mt-2 text-[var(--parchment-050)]/80">{project.summary}</p>
+            ) : (
+              <p className="inspiration-detail__summary-text mt-2 text-[var(--parchment-050)]/60 italic">
+                No summary available. {project.url && project.url.startsWith('http') && (
+                  <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-[var(--signal-500)] hover:underline">
+                    View original project
+                  </a>
+                )}
+              </p>
+            )}
           </div>
 
-          {sections.length > 0 && (
+          {sections.length > 0 ? (
             <div className="inspiration-detail__deep-dive mt-10">
               <h2 className="inspiration-detail__deep-dive-title text-2xl md:text-3xl font-semibold">Deep Dive</h2>
               {sections.map((section) => {
@@ -179,14 +184,23 @@ const InspirationDetail: React.FC = () => {
                 );
               })}
             </div>
-          )}
+          ) : project.fullContent && project.fullContent.trim() ? (
+            <div className="inspiration-detail__deep-dive mt-10">
+              <h2 className="inspiration-detail__deep-dive-title text-2xl md:text-3xl font-semibold">Details</h2>
+              <div className="inspiration-detail__section-content mt-2 space-y-3 text-[var(--parchment-050)]/80">
+                {project.fullContent.split('\n\n').filter(p => p.trim()).map((paragraph, index) => (
+                  <p key={index}>{paragraph.trim()}</p>
+                ))}
+              </div>
+            </div>
+          ) : null}
         </section>
 
         {/* External Link */}
-        {project.url && (
+        {(project.externalUrl || (project.url && project.url.startsWith('http'))) && (
           <section className="inspiration-detail__actions mt-10">
             <a
-              href={project.url}
+              href={project.externalUrl || project.url}
               target="_blank"
               rel="noopener noreferrer"
               className="inspiration-detail__external-link inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--signal-500)] text-[var(--ink-900)] font-semibold"

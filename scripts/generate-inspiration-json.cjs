@@ -12,15 +12,35 @@ console.log('📝 Generating inspiration projects JSON...');
 try {
   if (!fs.existsSync(markdownDir)) {
     console.warn(`⚠️  Directory not found: ${markdownDir}`);
-    fs.writeFileSync(outputFile, JSON.stringify([], null, 2));
-    console.log('✅ Created empty JSON file');
+    if (fs.existsSync(outputFile)) {
+      const existing = JSON.parse(fs.readFileSync(outputFile, 'utf8'));
+      console.log(`ℹ️  Preserving existing ${existing.length} projects in inspiration-projects.json`);
+    } else {
+      fs.writeFileSync(outputFile, JSON.stringify([], null, 2));
+      console.log('✅ Created empty JSON file');
+    }
     process.exit(0);
   }
 
   const files = fs.readdirSync(markdownDir).filter(f => f.endsWith('.md'));
   console.log(`📁 Found ${files.length} markdown files`);
 
-  const projects = [];
+  // Load existing projects to merge
+  let existingProjects = [];
+  if (fs.existsSync(outputFile)) {
+    try {
+      const existingContent = fs.readFileSync(outputFile, 'utf8');
+      if (existingContent && existingContent.trim() !== '' && existingContent.trim() !== '[]') {
+        existingProjects = JSON.parse(existingContent);
+        console.log(`📋 Found ${existingProjects.length} existing projects to merge`);
+      }
+    } catch (error) {
+      console.warn(`⚠️  Could not parse existing file: ${error.message}`);
+    }
+  }
+
+  const markdownProjects = [];
+  const existingSlugs = new Set(existingProjects.map(p => p.slug).filter(Boolean));
 
   for (const file of files) {
     const filePath = path.join(markdownDir, file);
@@ -36,13 +56,28 @@ try {
     fullContent = fullContent.replace(/^##\s*Full\s*Content\s*/i, '').trim();
     fullContent = fullContent.replace(/^#+\s*/gm, '').trim(); // Remove any remaining markdown headers
 
-    projects.push({
+    const slug = data.slug || file.replace('.md', '');
+    
+    // If slug already exists in existing projects, update it; otherwise add as new
+    const existingIndex = existingProjects.findIndex(p => p.slug === slug);
+    const projectData = {
       ...data,
       summary: summary,
       fullContent: fullContent,
-      slug: data.slug || file.replace('.md', ''),
-    });
+      slug: slug,
+    };
+
+    if (existingIndex >= 0) {
+      // Merge with existing project (markdown takes precedence)
+      existingProjects[existingIndex] = { ...existingProjects[existingIndex], ...projectData };
+      console.log(`  ↻ Updated existing project: ${projectData.title || slug}`);
+    } else {
+      markdownProjects.push(projectData);
+    }
   }
+
+  // Combine: existing projects (updated or untouched) + new markdown projects
+  const projects = [...existingProjects, ...markdownProjects];
 
   // Sort by date (newest first)
   projects.sort((a, b) => {

@@ -1,10 +1,46 @@
 import { ReactNode } from 'react';
 
+/**
+ * CASE STUDY DATA AUTOMATION TOOLS
+ *
+ * ⚡ Quick Metrics Formatting:
+ *   node scripts/mcp-cli.js format-metrics "<your metrics text>"
+ *
+ * 📊 Complete Case Study Creation:
+ *   node scripts/mcp-cli.js format-casestudy-metrics "<metrics>" --example
+ *
+ * Examples:
+ *   node scripts/mcp-cli.js format-metrics "Reduced CAC by 40%. Increased LTV by 200%. Launched in 3 weeks."
+ *   node scripts/mcp-cli.js format-casestudy-metrics "ROI Improvement: +320%. Cost Per Lead: -55%. Lead Quality: 8.2/10" --example
+ *
+ * Supported Metric Formats:
+ * - "Reduced/Increased X by Y" → { label: "X", value: "-Y%" or "+Y%" }
+ * - "X: Y" → { label: "X", value: "Y" }
+ * - "X from Y to Z" → { label: "X", value: "Y → Z" }
+ * - "Launched in Y" → { label: "Launch Time", value: "Y" }
+ *
+ * ⚠️ IMPORTANT: All case studies below use real, quantifiable metrics.
+ *    Before deployment, verify all numbers are accurate and verifiable.
+ *    Use the automation tools above to format new case studies quickly.
+ */
+
+// New simplified interface for Phase 3 components
+export interface CaseStudySimple {
+  id: string;
+  title: string;
+  client: string;
+  oneLiner: string;
+  stats: { label: string; value: string }[];
+  tags: string[];
+  description: string;
+}
+
 export interface RichSection {
   paragraphs?: string[];
   bullets?: string[];
 }
 
+// Legacy interface (kept for backward compatibility)
 export interface CaseStudy {
   color?: string;
   icon?: ReactNode;
@@ -619,3 +655,29 @@ export const getCaseStudyBySlug = (slug: string): CaseStudy | undefined => {
 export const getFeaturedCaseStudies = (): CaseStudy[] => {
   return caseStudies.filter(study => study.featured);
 };
+
+// Client name mapping helper
+const getClientName = (title: string, slug: string): string => {
+  if (slug.includes('graston')) return 'Graston Technique';
+  if (slug.includes('riley') || slug.includes('rbe')) return 'Riley Bennett Egloff';
+  if (slug.includes('ultimate')) return 'Ultimate Technologies';
+  // Default client name for "The X" projects
+  if (title.startsWith('The ')) return 'Graston Technique';
+  return 'Client';
+};
+
+// Transform legacy CaseStudy to new CaseStudySimple format
+export const transformToSimple = (study: CaseStudy): CaseStudySimple => {
+  return {
+    id: study.slug,
+    title: study.title,
+    client: getClientName(study.title, study.slug),
+    oneLiner: study.tagline,
+    stats: study.metrics.slice(0, 3), // Ensure max 3 stats
+    tags: study.tags,
+    description: study.challenge || study.tagline,
+  };
+};
+
+// Export simplified case studies array
+export const caseStudiesSimple: CaseStudySimple[] = caseStudies.map(transformToSimple);

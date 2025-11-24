@@ -7,7 +7,7 @@ import Loader from '../components/ui/Loader';
 import './AppRouter.css';
 
 // Lazy load pages for code splitting with better chunking
-const Home = React.lazy(() => import('../pages/index')); // Cinematic homepage
+const Home = React.lazy(() => import('../pages/Home')); // Ocean Pearl Hero homepage
 const About = React.lazy(() => import('../pages/About'));
 const CaseStudies = React.lazy(() => import('../pages/CaseStudies'));
 const CaseStudyDetail = React.lazy(() => import('../pages/CaseStudyDetail'));
