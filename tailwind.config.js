@@ -20,10 +20,6 @@ export default {
 			neutral: {
 				muted: '#94a3b8'
 			},
-  			accent: {
-  				400: '#F4A264',
-  				500: '#F08A45'
-  			},
   			cave: {
   				bg: '#0D0D0F',
   				text: '#E6E6E6',
@@ -257,7 +253,9 @@ export default {
   			'slide-up': 'slideUp 0.6s ease-out',
   			'scale-in': 'scaleIn 0.4s ease-out',
   			'spin-slow': 'spin 3s linear infinite',
-  			'bounce-gentle': 'bounceGentle 2s infinite'
+  			'bounce-gentle': 'bounceGentle 2s infinite',
+  			fadeIn: 'fadeIn 1s ease-in-out',
+  			bounceIn: 'bounceIn 1s ease-in-out',
   		},
   		keyframes: {
   			fadeIn: {
@@ -297,6 +295,14 @@ export default {
   				},
   				'60%': {
   					transform: 'translateY(-5px)'
+  				}
+  			},
+  			bounceIn: {
+  				'0%, 100%': {
+  					transform: 'scale(0.95)'
+  				},
+  				'50%': {
+  					transform: 'scale(1.05)'
   				}
   			}
   		},

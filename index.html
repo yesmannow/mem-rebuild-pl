@@ -4,73 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- DEV-ONLY: customElements define guard + safe Error filter
-         TODO: remove after tracing and fixing duplicate customElement registrations. -->
-    <script>
-    (function () {
-      'use strict';
-      try {
-        if (typeof window === 'undefined') return;
-        // Guard should work in all environments, including production
-
-        (function installCEGuard() {
-          try {
-            if (!window.customElements) return;
-            if (window.customElements.__ce_guard_installed__) return;
-            const nativeCE = window.customElements;
-            const origDefine = nativeCE.define.bind(nativeCE);
-            nativeCE.define = function(name, ctor, options) {
-              if (nativeCE.get(name)) {
-                try {
-                  const e = new Error('[CE-GUARD] Skipping duplicate customElements.define: ' + name);
-                  console.warn('[CE-GUARD] duplicate define:', name, { time: new Date().toISOString(), stack: e.stack });
-                } catch (err) {
-                  console.warn('[CE-GUARD] duplicate define (no stack):', name);
-                }
-                return;
-              }
-              return origDefine(name, ctor, options);
-            };
-            Object.defineProperty(nativeCE, '__ce_guard_installed__', { value: true, configurable: true });
-          } catch (err) { console.warn('[CE-GUARD] install failed', err); }
-        })();
-
-        try {
-          const desc = Object.getOwnPropertyDescriptor(window, 'customElements');
-          if (!desc || desc.configurable) {
-            let internalCE = window.customElements;
-            Object.defineProperty(window, 'customElements', {
-              configurable: true,
-              enumerable: true,
-              get: () => internalCE,
-              set: (val) => { internalCE = val; try { if (internalCE && !internalCE.__ce_guard_installed__) { const d = internalCE.define.bind(internalCE); internalCE.define = function(name, ctor, options){ if (internalCE.get(name)){ try{ const e = new Error('[CE-GUARD] Skipping duplicate customElements.define: ' + name); console.warn('[CE-GUARD] duplicate define:', name, { time: new Date().toISOString(), stack: e.stack }); } catch(_) { console.warn('[CE-GUARD] duplicate define (no stack):', name); } return; } return d(name, ctor, options); }; Object.defineProperty(internalCE, '__ce_guard_installed__', { value: true, configurable: true }); } } catch(e) { console.warn('[CE-GUARD] rewrap failed', e); } }
-            });
-          }
-        } catch (e) { /* noop */ }
-
-        (function installErrorFilter() {
-          try {
-            const NativeError = window.Error;
-            function FilteredError(message) {
-              if (typeof message === 'string' && message.indexOf('mce-autosize-textarea') !== -1) {
-                try {
-                  const suppressed = new NativeError('Suppressed mce-autosize-textarea error: ' + message);
-                  suppressed.name = 'SuppressedError';
-                  suppressed.stack = (new NativeError()).stack;
-                  console.warn('[CE-GUARD] suppressed error for mce-autosize-textarea', { message: String(message), time: new Date().toISOString(), stack: suppressed.stack });
-                  return suppressed;
-                } catch (inner) { return new NativeError('SuppressedError'); }
-              }
-              return new NativeError(message);
-            }
-            FilteredError.prototype = NativeError.prototype;
-            try { Object.defineProperty(window, 'Error', { configurable: true, enumerable: false, writable: true, value: FilteredError }); } catch (err) { try { window.Error = FilteredError; } catch (_) { /* ignore */ } }
-          } catch (err) { console.warn('[CE-GUARD] Error filter install failed', err); }
-        })();
-
-      } catch (err) { console.warn('[CE-GUARD] unexpected failure', err); }
-    })();
-    </script>
+    <!-- Removed customElements define guard after ensuring no duplicate registrations -->
 
     <!-- Theme Init - Zero-FOUC theme loading -->
     <script>
@@ -79,8 +13,13 @@
         try {
           const ls = localStorage.getItem('theme'); // 'light' | 'dark' | 'system'
           const brand = localStorage.getItem('brand') || 'cmo'; // default: cmo
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          const theme = ls === 'system' || !ls ? (prefersDark ? 'dark' : 'light') : ls;
+          const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
+          let theme;
+          if (ls === 'system' || !ls) {
+            theme = prefersDark ? 'dark' : 'light';
+          } else {
+            theme = ls;
+          }
           const isDark = theme === 'dark';
 
           document.documentElement.classList.toggle('dark', isDark);
@@ -378,6 +317,24 @@
           `;
         }
       }, 15000);
+    </script>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Jacob Darling's professional marketing portfolio showcasing skills, experience, and projects." />
+    <meta name="keywords" content="marketing, portfolio, Jacob Darling, creative technologist, projects, experience" />
+    <meta property="og:title" content="Jacob Darling - Marketing Portfolio" />
+    <meta property="og:description" content="Explore Jacob Darling's professional marketing portfolio." />
+    <meta property="og:image" content="/path-to-image.jpg" />
+    <meta property="og:url" content="https://jacobdarling.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'GA_TRACKING_ID');
     </script>
   </body>
 </html>
