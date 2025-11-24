@@ -33,11 +33,11 @@
 }
 
 .testimonials__nav:hover {
-  background: var(--bc-gradient-brand);
+  background: var(--signal-500);
   border-color: transparent;
-  color: white;
+  color: var(--ink-900);
   transform: scale(1.1);
-  box-shadow: var(--bc-glow-subtle);
+  box-shadow: 0 0 20px rgba(255, 107, 61, 0.4);
 }
 
 .testimonials__nav:active {
@@ -78,8 +78,8 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: var(--bc-gradient-brand);
-  opacity: 0.6;
+  background: linear-gradient(to right, var(--signal-500), var(--telemetry-400));
+  opacity: 0.8;
 }
 
 .testimonial-card__star-icon {
@@ -159,7 +159,7 @@
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  background: var(--bc-gradient-brand);
+  background: var(--signal-500);
   opacity: 0;
   transition: opacity var(--bc-transition-normal);
 }
@@ -174,10 +174,10 @@
 }
 
 .testimonials__indicator.is-active {
-  background: var(--bc-primary);
+  background: var(--signal-500);
   width: 32px;
   border-radius: 6px;
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 12px rgba(255, 107, 61, 0.4);
 }
 
 .testimonials__indicator.is-active::before {

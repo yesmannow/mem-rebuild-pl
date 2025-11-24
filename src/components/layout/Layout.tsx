@@ -1,8 +1,8 @@
 import React, { lazy, Suspense, ReactNode } from 'react';
 import Loader from '../ui/Loader';
 
-const MainNav = lazy(() => import('../nav/MainNav'));
-const Footer = lazy(() => import('./Footer'));
+const EnhancedNav = lazy(() => import('../nav/EnhancedNav'));
+const EnhancedFooter = lazy(() => import('./EnhancedFooter'));
 const ScrollToTop = lazy(() => import('../utils/ScrollToTop'));
 const BackToTop = lazy(() => import('../utilities/BackToTop'));
 
@@ -31,7 +31,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </nav>
           }
         >
-          <MainNav key="main-nav" />
+          <EnhancedNav key="enhanced-nav" />
         </Suspense>
 
         {/* Scroll utilities */}
@@ -57,7 +57,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </footer>
           }
         >
-          <Footer />
+          <EnhancedFooter />
         </Suspense>
       </div>
     </>

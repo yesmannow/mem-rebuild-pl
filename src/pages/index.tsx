@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { Mail } from 'lucide-react';
 import HeroCommandPanel from '../components/home/HeroCommandPanel';
 import HeroIntro from '../components/home/HeroIntro';
+import { ServiceLadder } from '../components/interactive/ServiceLadder';
 import WhoIAm from '../components/home/WhoIAm';
 import CareerHighlights from '../components/home/CareerHighlights';
 import Portfolio from '../components/home/Portfolio';
@@ -145,7 +146,37 @@ const HomePage: React.FC = () => {
         {/* From the Work Section */}
         <FromTheWork />
 
-        {/* Skills Section */}
+        {/* Skills Section - Enhanced with Service Ladder */}
+        <ServiceLadder
+          services={[
+            {
+              number: '01',
+              title: 'Systems Architecture',
+              description: 'Design and build scalable marketing infrastructure that connects tools, automates workflows, and delivers measurable results.',
+              icon: '🏗️'
+            },
+            {
+              number: '02',
+              title: 'Growth Automation',
+              description: 'Create intelligent automation systems that nurture leads, optimize campaigns, and scale revenue operations.',
+              icon: '⚡'
+            },
+            {
+              number: '03',
+              title: 'Analytics Enablement',
+              description: 'Transform data into actionable insights with custom dashboards, attribution models, and performance tracking.',
+              icon: '📊'
+            },
+            {
+              number: '04',
+              title: 'Operator Coaching',
+              description: 'Train teams on systems, processes, and best practices to ensure long-term success and scalability.',
+              icon: '🎓'
+            }
+          ]}
+        />
+
+        {/* Legacy Skills Section - Keep for detailed breakdown */}
         <EnhancedSkills />
 
         {/* Testimonials Section */}

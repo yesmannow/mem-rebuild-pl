@@ -10,8 +10,8 @@
   inset: 0;
   background: radial-gradient(
     circle at center,
-    rgba(59, 130, 246, 0.2) 0%,
-    rgba(236, 72, 153, 0.15) 50%,
+    rgba(255, 107, 61, 0.15) 0%,
+    rgba(0, 168, 168, 0.1) 50%,
     transparent 70%
   );
   border-radius: var(--bc-radius-2xl);
@@ -29,7 +29,7 @@
 
 .final-cta__icon {
   margin-bottom: var(--bc-space-2xl);
-  filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.4));
+  filter: drop-shadow(0 0 30px rgba(255, 107, 61, 0.4));
 }
 
 .final-cta__heading {
@@ -38,10 +38,7 @@
   font-weight: 700;
   line-height: 1.1;
   margin: 0 0 var(--bc-space-lg) 0;
-  background: var(--bc-gradient-brand);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--signal-500);
   letter-spacing: -0.02em;
 }
 
@@ -94,13 +91,13 @@
 }
 
 .final-cta__button--primary {
-  background: var(--bc-gradient-brand);
-  color: white;
+  background: var(--signal-500);
+  color: var(--ink-900);
 }
 
 .final-cta__button--primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--bc-glow-brand);
+  box-shadow: 0 0 30px rgba(255, 107, 61, 0.5);
 }
 
 .final-cta__button--secondary {
