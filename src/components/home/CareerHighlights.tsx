@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Briefcase } from 'lucide-react';
 import './CareerHighlights.css';
 
-// Show only recent 5 roles on home page - full history on resume
+// Show only most recent roles on home page (2013-present) - full history on resume
 const careerHighlights = [
   {
     id: 'graston',
