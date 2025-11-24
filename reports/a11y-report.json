@@ -1,0 +1,14 @@
+{
+  "url": "http://localhost:4173",
+  "timestamp": "2025-11-24T21:00:36.951Z",
+  "note": "Install pa11y for full accessibility auditing: npm install -g pa11y",
+  "recommendations": [
+    "Ensure all images have alt attributes",
+    "Use semantic HTML elements",
+    "Ensure proper heading hierarchy (h1-h6)",
+    "Add ARIA labels where needed",
+    "Ensure keyboard navigation works",
+    "Check color contrast ratios",
+    "Ensure form labels are properly associated"
+  ]
+}

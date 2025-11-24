@@ -37,12 +37,36 @@ async function checkContentIntegrity() {
       }
 
       // Check for empty strings in key fields
-      const emptyStringMatches = content.match(/:\s*['"]\s*['"]/g);
-      if (emptyStringMatches) {
+      // Check for empty strings (but not in code snippets or template literals)
+      // Exclude matches inside backticks (code snippets) and template literals
+      const lines = content.split('\n');
+      let emptyStringCount = 0;
+      let inCodeSnippet = false;
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        // Track if we're inside a code snippet (between backticks)
+        const backtickCount = (line.match(/`/g) || []).length;
+        if (backtickCount % 2 === 1) {
+          inCodeSnippet = !inCodeSnippet;
+        }
+
+        // Only check for empty strings if we're NOT in a code snippet
+        if (!inCodeSnippet) {
+          // Match empty strings in object properties (field: "" or field: '')
+          // But exclude template literals and code snippets
+          const emptyStringMatch = line.match(/:\s*['"]\s*['"]\s*[,}]/);
+          if (emptyStringMatch && !line.includes('snippet') && !line.includes('template')) {
+            emptyStringCount++;
+          }
+        }
+      }
+
+      if (emptyStringCount > 0) {
         issues.push({
           file,
           type: 'empty-string',
-          message: `Found ${emptyStringMatches.length} empty string values`,
+          message: `Found ${emptyStringCount} empty string values`,
           severity: 'warning',
         });
       }
