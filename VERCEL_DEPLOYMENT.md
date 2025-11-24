@@ -104,3 +104,4 @@ For deployment issues:
 ├── vercel.json          # Vercel configuration
 └── package.json         # Dependencies and scripts
 ```
+
