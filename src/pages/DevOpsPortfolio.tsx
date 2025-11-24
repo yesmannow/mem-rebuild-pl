@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Server, GitBranch, Package, Zap, Shield, CheckCircle, Code, FileCode } from 'lucide-react';
+import { Server, GitBranch, Package, Zap, Shield, CheckCircle, Code, FileCode, ChevronDown as ChevronDownIcon } from 'lucide-react';
 import AnimatedSection from '../components/animations/AnimatedSection';
 import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
 
@@ -139,6 +139,178 @@ const DevOpsPortfolio: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="space-y-8"
               >
+                {/* Deployment Timeline */}
+                <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
+                  <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+                    <GitBranch className="w-8 h-8 text-turquoise" />
+                    Deployment Pipeline
+                  </h2>
+                  
+                  <div className="relative">
+                    {/* Timeline line */}
+                    <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-turquoise via-blue-500 to-purple-500"></div>
+                    
+                    <div className="space-y-8">
+                      {[
+                        {
+                          step: '1',
+                          title: 'Development',
+                          desc: 'Local development with Vite dev server',
+                          details: ['Hot Module Replacement', 'React Fast Refresh', 'Instant updates'],
+                          color: 'turquoise'
+                        },
+                        {
+                          step: '2',
+                          title: 'Pre-build',
+                          desc: 'Type checking, linting, and asset generation',
+                          details: ['npm run typecheck', 'npm run lint', 'Image manifest creation'],
+                          color: 'blue'
+                        },
+                        {
+                          step: '3',
+                          title: 'Build',
+                          desc: 'Production build with environment-specific configuration',
+                          details: ['Vite production build', 'Code splitting', 'Asset optimization'],
+                          color: 'purple'
+                        },
+                        {
+                          step: '4',
+                          title: 'Deploy',
+                          desc: 'Automatic deployment to target platform',
+                          details: ['GitHub Actions trigger', 'Cloudflare Pages webhook', 'DNS propagation'],
+                          color: 'green'
+                        }
+                      ].map((item, i) => (
+                        <div key={i} className="relative pl-20">
+                          <div className={`absolute left-0 w-16 h-16 rounded-full bg-${item.color}-500/20 border-4 border-${item.color}-500 flex items-center justify-center text-2xl font-bold text-${item.color}-300`}>
+                            {item.step}
+                          </div>
+                          <div className="bg-slate-900/50 rounded-lg p-6 border border-slate-700">
+                            <h4 className="text-xl font-bold mb-2">{item.title}</h4>
+                            <p className="text-slate-300 mb-4">{item.desc}</p>
+                            <ul className="space-y-2">
+                              {item.details.map((detail, j) => (
+                                <li key={j} className="flex items-center gap-2 text-sm text-slate-400">
+                                  <CheckCircle className="w-4 h-4 text-green-400" />
+                                  {detail}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* GitHub Pages vs Cloudflare Comparison */}
+                <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
+                  <h2 className="text-3xl font-bold mb-6">Platform Comparison</h2>
+                  
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left">
+                      <thead>
+                        <tr className="border-b border-slate-700">
+                          <th className="py-4 px-4 font-semibold">Feature</th>
+                          <th className="py-4 px-4 font-semibold text-blue-300">GitHub Pages</th>
+                          <th className="py-4 px-4 font-semibold text-purple-300">Cloudflare Pages</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-700/50">
+                        <tr>
+                          <td className="py-4 px-4 font-medium">Base Path</td>
+                          <td className="py-4 px-4">/mem-rebuild-pl/</td>
+                          <td className="py-4 px-4">/</td>
+                        </tr>
+                        <tr>
+                          <td className="py-4 px-4 font-medium">Build Command</td>
+                          <td className="py-4 px-4 text-sm"><code className="bg-slate-900 px-2 py-1 rounded">GITHUB_PAGES=true npm run build</code></td>
+                          <td className="py-4 px-4 text-sm"><code className="bg-slate-900 px-2 py-1 rounded">npm run build</code></td>
+                        </tr>
+                        <tr>
+                          <td className="py-4 px-4 font-medium">Custom Domain</td>
+                          <td className="py-4 px-4">
+                            <span className="inline-flex items-center gap-1 text-yellow-400">
+                              <CheckCircle className="w-4 h-4" />
+                              Supported (CNAME)
+                            </span>
+                          </td>
+                          <td className="py-4 px-4">
+                            <span className="inline-flex items-center gap-1 text-green-400">
+                              <CheckCircle className="w-4 h-4" />
+                              Full DNS integration
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="py-4 px-4 font-medium">Build Time</td>
+                          <td className="py-4 px-4">~2-3 minutes</td>
+                          <td className="py-4 px-4">~1-2 minutes</td>
+                        </tr>
+                        <tr>
+                          <td className="py-4 px-4 font-medium">CDN</td>
+                          <td className="py-4 px-4">GitHub CDN</td>
+                          <td className="py-4 px-4">Cloudflare Global Network</td>
+                        </tr>
+                        <tr>
+                          <td className="py-4 px-4 font-medium">SSL/TLS</td>
+                          <td className="py-4 px-4">
+                            <span className="inline-flex items-center gap-1 text-green-400">
+                              <CheckCircle className="w-4 h-4" />
+                              Automatic
+                            </span>
+                          </td>
+                          <td className="py-4 px-4">
+                            <span className="inline-flex items-center gap-1 text-green-400">
+                              <CheckCircle className="w-4 h-4" />
+                              Automatic + Advanced options
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="py-4 px-4 font-medium">Preview Deploys</td>
+                          <td className="py-4 px-4 text-slate-500">Not available</td>
+                          <td className="py-4 px-4">
+                            <span className="inline-flex items-center gap-1 text-green-400">
+                              <CheckCircle className="w-4 h-4" />
+                              Per branch/PR
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="py-4 px-4 font-medium">Analytics</td>
+                          <td className="py-4 px-4 text-slate-500">Limited</td>
+                          <td className="py-4 px-4">
+                            <span className="inline-flex items-center gap-1 text-green-400">
+                              <CheckCircle className="w-4 h-4" />
+                              Web Analytics included
+                            </span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div className="mt-6 grid md:grid-cols-2 gap-4">
+                    <div className="bg-blue-900/20 border border-blue-700 rounded-lg p-4">
+                      <h4 className="font-bold text-blue-300 mb-2">✓ GitHub Pages Pros</h4>
+                      <ul className="text-sm text-slate-300 space-y-1">
+                        <li>• Free for public repos</li>
+                        <li>• Simple setup with GitHub Actions</li>
+                        <li>• Good for open-source projects</li>
+                      </ul>
+                    </div>
+                    <div className="bg-purple-900/20 border border-purple-700 rounded-lg p-4">
+                      <h4 className="font-bold text-purple-300 mb-2">✓ Cloudflare Pages Pros</h4>
+                      <ul className="text-sm text-slate-300 space-y-1">
+                        <li>• Faster global CDN</li>
+                        <li>• Preview deployments for every PR</li>
+                        <li>• Better analytics and performance</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
                 <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
                   <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                     <GitBranch className="w-8 h-8 text-turquoise" />
@@ -345,6 +517,45 @@ defineCustomElementIfNeeded('mce-autosize-textarea', AutosizeTextarea);
 // ✓ SSR-safe
 // ✓ Race condition protection`}
                         </pre>
+                      </div>
+                    </div>
+
+                    {/* FAQ Section */}
+                    <div>
+                      <h3 className="text-xl font-semibold text-creamsicle mb-4">Frequently Asked Questions</h3>
+                      <div className="space-y-4">
+                        {[
+                          {
+                            q: "Why did we add defineCustomElementIfNeeded?",
+                            a: "During development with Vite's Hot Module Replacement (HMR), the browser attempts to re-register custom elements on every code change. Since custom elements can only be defined once, this causes TypeError exceptions that break the dev experience and clutter the console. This guard function prevents these errors by checking if an element is already registered before attempting to define it."
+                          },
+                          {
+                            q: "Can't we just wrap it in a try-catch?",
+                            a: "While try-catch works, it's less explicit and doesn't communicate intent. The guard pattern (checking before defining) is the recommended approach in the Web Components spec. Our implementation adds extra safety by catching race conditions that can occur even after the initial check passes."
+                          },
+                          {
+                            q: "Does this affect production builds?",
+                            a: "No. In production builds, the guard check adds minimal overhead (a single registry lookup) and only happens once per custom element. The performance impact is negligible, while the dev experience improvement is significant."
+                          },
+                          {
+                            q: "What about SSR compatibility?",
+                            a: "The guard includes an environment check that returns early if customElements is not available (like in Node.js during SSR). This prevents errors when the code runs on the server side."
+                          }
+                        ].map((faq, i) => (
+                          <details
+                            key={i}
+                            className="bg-slate-900/50 rounded-lg border border-slate-700 overflow-hidden group"
+                          >
+                            <summary className="cursor-pointer p-4 font-semibold hover:bg-slate-800/50 transition-colors flex items-center gap-3">
+                              <span className="text-turquoise text-xl">Q:</span>
+                              <span className="flex-1">{faq.q}</span>
+                              <ChevronDownIcon className="w-5 h-5 transition-transform group-open:rotate-180" />
+                            </summary>
+                            <div className="p-4 pt-0 text-slate-300 leading-relaxed">
+                              <span className="text-green-400 font-semibold">A:</span> {faq.a}
+                            </div>
+                          </details>
+                        ))}
                       </div>
                     </div>
                   </div>
