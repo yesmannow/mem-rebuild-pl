@@ -1,6 +1,6 @@
 # JD-Marketing Portfolio — Design System
 
-A living document for building a unique, cohesive, and professional design language for mem-rebuild-pl.  
+A living document for building a unique, cohesive, and professional design language for mem-rebuild-pl.
 **Goal**: Impress marketing teams and hiring managers with clear branding, visual polish, and technical excellence.
 
 ---
@@ -37,7 +37,7 @@ $color-danger:    #EF4444;
 $color-light:     #FFFFFF;
 $color-dark:      #1B263B;
 ```
-**Action:**  
+**Action:**
 - Run `css_colors.json` through a consolidation script to enforce these tokens.
 - Refactor style files and components to use new variables.
 
@@ -99,7 +99,7 @@ function walk(dir, fileList=[]) {
 console.log(walk('C:/Users/hoosi/Desktop/jd-marketing-port/mem-rebuild-pl/public/images'));
 ```
 
-**Action:**  
+**Action:**
 - Run curation script, filter for images relevant to your marketing story.
 - Add project/process visuals and descriptive alt text.
 - Augment with additional assets from Unsplash, SVGRepo, or competitor inspiration.
@@ -115,7 +115,7 @@ console.log(walk('C:/Users/hoosi/Desktop/jd-marketing-port/mem-rebuild-pl/public
 - Add icons for: About, Projects, Skills/Tools, Download, Email, LinkedIn, GitHub, X, PDF, Awards, Success/Warning/Error.
 
 **Asset Sources:**
-- Open-source libraries:  
+- Open-source libraries:
   - [phosphoricons.com](https://phosphoricons.com/) (customize colors easily)
   - [lucide.dev](https://lucide.dev/)
   - [iconoir.com](https://iconoir.com/)
@@ -165,16 +165,232 @@ Use AI-assisted scraping or your CLI tools to extract, adapt, and blend these.
 
 ## 7. Extra Automation & Workflow
 
-**Image audit:**  
-- Automate monthly inventory and alt-text review  
-- MCP script sample:  
+### Image Audit & Optimization
+```bash
+# Audit all images for accessibility
+npm run design:audit-images
+
+# Generate alt text fixes (dry run)
+npm run design:fix-alt-text --dry-run
+
+# Generate compression commands
+npm run design:compress-images --dry-run
+```
+
+**MCP script sample:**
 ```json
 {
   "task": "Audit and tag all images in /public/images for alt+aria-label compliance, flag missing or too-short descriptions"
 }
 ```
-**Icon import script sample:**  
-- Node/CLI: Automate SVG optimization and import
+
+### Icon Import & Management
+```bash
+# Audit existing icons
+npm run icon:audit
+
+# Import new icon (with React component generation)
+npm run icon:add <name> <path>
+
+# Example:
+npm run icon:add email ./downloads/email-icon.svg
+npm run icon:add linkedin ./downloads/linkedin.svg
+```
+
+**Features:**
+- Automatically optimizes SVG (removes metadata, uses currentColor)
+- Generates React component with TypeScript
+- Updates icon registry automatically
+- Validates SVG structure (2px stroke, viewBox, etc.)
+
+---
+
+## 8. Inspiration & Extraction
+
+### Scrape-Ready Prompts for Cursor AI
+
+Use these prompts with the AI-Cursor-Scraping-Assistant to extract high-quality UI components:
+
+#### 1. Testimonial Carousels & Reveal Animations
+**Source:** https://hyperui.dev/components/marketing/testimonials
+
+**Prompt:**
+```
+Extract all testimonial carousel components from https://hyperui.dev/components/marketing/testimonials.
+Focus on:
+- Card layouts with avatar, quote, and author information
+- Reveal-on-scroll animations
+- Navigation controls (prev/next, indicators)
+- Responsive breakpoints
+- Accessibility features (ARIA labels, keyboard navigation)
+
+Save the HTML structure, CSS styles, and JavaScript animation logic.
+Adapt the color scheme to match our design system palette (--color-primary, --color-secondary, etc.).
+```
+
+#### 2. Animated Navigation Bars & Dropdowns
+**Source:** https://tailwindui.com/components/preview
+
+**Prompt:**
+```
+Extract animated navigation bar components from https://tailwindui.com/components/preview.
+Focus on:
+- Sticky header with scroll-triggered animations
+- Dropdown menu animations (fade, slide, scale)
+- Mobile hamburger menu transitions
+- Active state indicators
+- Search bar integrations
+
+Extract the component structure, Tailwind classes, and any JavaScript for interactivity.
+Map colors to our design system tokens (--color-primary, --color-neutral-1, etc.).
+```
+
+#### 3. Interactive Contact Cards & Dark Mode Toggles
+**Source:** https://ui.shadcn.com/
+
+**Prompt:**
+```
+Extract interactive contact form cards and dark mode toggle components from https://ui.shadcn.com/.
+Focus on:
+- Contact card layouts with floating labels
+- Form validation states (success, error, warning)
+- Dark mode toggle with smooth transitions
+- Animated accordions for FAQ sections
+- Checkbox and radio button customizations
+
+Extract React component code, CSS variables, and animation configurations.
+Ensure all components use our design system color tokens and typography.
+```
+
+### Usage Instructions
+
+1. **Start the scraping assistant:**
+   ```bash
+   npm run scraping:server
+   ```
+
+2. **In Cursor AI, use the prompts above** to extract components
+
+3. **Adapt extracted components:**
+   - Replace hardcoded colors with CSS variables
+   - Update typography to match our font stack
+   - Ensure accessibility (ARIA labels, keyboard navigation)
+   - Test responsive breakpoints
+
+4. **Integrate into component library:**
+   - Place in `src/components/interactive/`
+   - Follow existing component patterns
+   - Add TypeScript types
+   - Document props and usage
+
+---
+
+## 9. Interactive Components
+
+### Available Components
+
+#### AnimatedHero
+Framer Motion powered hero header with scroll/hover animations.
+
+**Usage:**
+```tsx
+import { AnimatedHero } from '@/components/interactive/AnimatedHero';
+
+<AnimatedHero
+  title="Welcome to My Portfolio"
+  subtitle="Marketing Strategist & Systems Architect"
+  ctaText="View My Work"
+  ctaHref="/projects"
+  theme="dark"
+/>
+```
+
+**Props:**
+- `title: string` - Main headline
+- `subtitle?: string` - Subheading text
+- `ctaText?: string` - Call-to-action button text
+- `ctaHref?: string` - CTA link destination
+- `backgroundImage?: string` - Optional background image URL
+- `theme?: 'light' | 'dark'` - Color theme
+- `className?: string` - Additional CSS classes
+
+#### StatCounter
+Animated count-up component for KPIs and statistics.
+
+**Usage:**
+```tsx
+import { StatCounter } from '@/components/interactive/StatCounter';
+
+<StatCounter
+  value={212}
+  label="Qualified Leads"
+  prefix="+"
+  suffix="%"
+  theme="primary"
+/>
+```
+
+**Props:**
+- `value: number` - Target number to count to
+- `label: string` - Description label
+- `prefix?: string` - Text before number
+- `suffix?: string` - Text after number
+- `duration?: number` - Animation duration (ms)
+- `decimals?: number` - Decimal places
+- `theme?: 'primary' | 'secondary' | 'accent'` - Color theme
+- `className?: string` - Additional CSS classes
+
+#### TestimonialCarousel
+Reveal-on-scroll testimonial carousel with Framer Motion.
+
+**Usage:**
+```tsx
+import { TestimonialCarousel } from '@/components/interactive/TestimonialCarousel';
+
+const testimonials = [
+  {
+    id: '1',
+    quote: 'Jacob transformed our marketing operations.',
+    author: 'Jane Doe',
+    role: 'CMO',
+    company: 'Acme Corp',
+    avatar: '/images/avatars/jane.jpg'
+  },
+  // ... more testimonials
+];
+
+<TestimonialCarousel
+  testimonials={testimonials}
+  autoPlay={true}
+  autoPlayInterval={5000}
+  theme="dark"
+/>
+```
+
+**Props:**
+- `testimonials: Testimonial[]` - Array of testimonial objects
+- `autoPlay?: boolean` - Enable auto-advance
+- `autoPlayInterval?: number` - Auto-advance interval (ms)
+- `theme?: 'light' | 'dark'` - Color theme
+- `className?: string` - Additional CSS classes
+
+### Best Practices
+
+1. **Accessibility:**
+   - All components support `prefers-reduced-motion`
+   - ARIA labels included where needed
+   - Keyboard navigation supported
+   - Focus states clearly visible
+
+2. **Performance:**
+   - Lazy loading for images
+   - Optimized animations (GPU-accelerated)
+   - Code splitting for large components
+
+3. **Theming:**
+   - All components use CSS variables
+   - Support light/dark themes
+   - Match design system palette
 
 ---
 

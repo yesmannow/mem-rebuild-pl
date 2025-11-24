@@ -1,0 +1,25 @@
+{
+  "required": 17,
+  "found": 0,
+  "missing": [
+    "about",
+    "projects",
+    "skills",
+    "tools",
+    "download",
+    "email",
+    "linkedin",
+    "github",
+    "twitter",
+    "x",
+    "pdf",
+    "awards",
+    "success",
+    "warning",
+    "error",
+    "menu",
+    "close"
+  ],
+  "existing": [],
+  "issues": []
+}

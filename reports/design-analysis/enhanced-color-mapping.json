@@ -1,0 +1,663 @@
+{
+  "summary": {
+    "totalColors": 394,
+    "exactMatches": 5,
+    "closeMatches": 23,
+    "farMatches": 31,
+    "unmapped": 39,
+    "mappedPercentage": 15
+  },
+  "designSystem": {
+    "primary": "#005AE2",
+    "secondary": "#23D2D5",
+    "accent": "#FFD600",
+    "surface": "#F6F8FA",
+    "neutral-1": "#111827",
+    "neutral-2": "#6B7280",
+    "success": "#34D399",
+    "warning": "#F59E42",
+    "danger": "#EF4444",
+    "light": "#FFFFFF",
+    "dark": "#1B263B"
+  },
+  "mappings": {
+    "exact": [
+      {
+        "original": "111827",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1"
+      },
+      {
+        "original": "34d399",
+        "replaceWith": "#34D399",
+        "token": "--color-success"
+      },
+      {
+        "original": "6b7280",
+        "replaceWith": "#6B7280",
+        "token": "--color-neutral-2"
+      },
+      {
+        "original": "ef4444",
+        "replaceWith": "#EF4444",
+        "token": "--color-danger"
+      },
+      {
+        "original": "fff",
+        "replaceWith": "#FFFFFF",
+        "token": "--color-light"
+      }
+    ],
+    "close": [
+      {
+        "original": "0a0b2a",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 15
+      },
+      {
+        "original": "0b1620",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 9
+      },
+      {
+        "original": "0d1217",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 18
+      },
+      {
+        "original": "0e1a2b",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 5
+      },
+      {
+        "original": "0f0f2b",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 10
+      },
+      {
+        "original": "0f172a",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 4
+      },
+      {
+        "original": "0f2232",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 15
+      },
+      {
+        "original": "101a24",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 4
+      },
+      {
+        "original": "121315",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 19
+      },
+      {
+        "original": "1A1D1F",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 13
+      },
+      {
+        "original": "1a1a4a",
+        "replaceWith": "#1B263B",
+        "token": "--color-dark",
+        "distance": 19
+      },
+      {
+        "original": "1b1b1b",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 16
+      },
+      {
+        "original": "1e293b",
+        "replaceWith": "#1B263B",
+        "token": "--color-dark",
+        "distance": 4
+      },
+      {
+        "original": "1e2a32",
+        "replaceWith": "#1B263B",
+        "token": "--color-dark",
+        "distance": 10
+      },
+      {
+        "original": "1f2937",
+        "replaceWith": "#1B263B",
+        "token": "--color-dark",
+        "distance": 6
+      },
+      {
+        "original": "2bd4c5",
+        "replaceWith": "#23D2D5",
+        "token": "--color-secondary",
+        "distance": 18
+      },
+      {
+        "original": "64748b",
+        "replaceWith": "#6B7280",
+        "token": "--color-neutral-2",
+        "distance": 13
+      },
+      {
+        "original": "f3f4f6",
+        "replaceWith": "#F6F8FA",
+        "token": "--color-surface",
+        "distance": 6
+      },
+      {
+        "original": "f9fafb",
+        "replaceWith": "#F6F8FA",
+        "token": "--color-surface",
+        "distance": 4
+      },
+      {
+        "original": "fafaf9",
+        "replaceWith": "#F6F8FA",
+        "token": "--color-surface",
+        "distance": 5
+      },
+      {
+        "original": "fb923c",
+        "replaceWith": "#F59E42",
+        "token": "--color-warning",
+        "distance": 15
+      },
+      {
+        "original": "fff7ed",
+        "replaceWith": "#F6F8FA",
+        "token": "--color-surface",
+        "distance": 16
+      },
+      {
+        "original": "fffbeb",
+        "replaceWith": "#F6F8FA",
+        "token": "--color-surface",
+        "distance": 18
+      }
+    ],
+    "far": [
+      {
+        "original": "000",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 49
+      },
+      {
+        "original": "062b2b",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 22
+      },
+      {
+        "original": "06b6d4",
+        "replaceWith": "#23D2D5",
+        "token": "--color-secondary",
+        "distance": 40
+      },
+      {
+        "original": "0D0D0F",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 27
+      },
+      {
+        "original": "0a0a0a",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 33
+      },
+      {
+        "original": "0a1a3a",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 20
+      },
+      {
+        "original": "0b0b0c",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 31
+      },
+      {
+        "original": "0b1014",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 21
+      },
+      {
+        "original": "0d0d0f",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 27
+      },
+      {
+        "original": "0d3d3a",
+        "replaceWith": "#1B263B",
+        "token": "--color-dark",
+        "distance": 27
+      },
+      {
+        "original": "0e2650",
+        "replaceWith": "#1B263B",
+        "token": "--color-dark",
+        "distance": 25
+      },
+      {
+        "original": "0f2d4a",
+        "replaceWith": "#1B263B",
+        "token": "--color-dark",
+        "distance": 20
+      },
+      {
+        "original": "111111",
+        "replaceWith": "#111827",
+        "token": "--color-neutral-1",
+        "distance": 23
+      },
+      {
+        "original": "151646",
+        "replaceWith": "#1B263B",
+        "token": "--color-dark",
+        "distance": 20
+      },
+      {
+        "original": "22d3ee",
+        "replaceWith": "#23D2D5",
+        "token": "--color-secondary",
+        "distance": 25
+      },
+      {
+        "original": "2563eb",
+        "replaceWith": "#005AE2",
+        "token": "--color-primary",
+        "distance": 39
+      },
+      {
+        "original": "2b2c2f",
+        "replaceWith": "#1B263B",
+        "token": "--color-dark",
+        "distance": 21
+      },
+      {
+        "original": "35e0ff",
+        "replaceWith": "#23D2D5",
+        "token": "--color-secondary",
+        "distance": 48
+      },
+      {
+        "original": "36c2ff",
+        "replaceWith": "#23D2D5",
+        "token": "--color-secondary",
+        "distance": 49
+      },
+      {
+        "original": "374151",
+        "replaceWith": "#1B263B",
+        "token": "--color-dark",
+        "distance": 45
+      },
+      {
+        "original": "3CC6C4",
+        "replaceWith": "#23D2D5",
+        "token": "--color-secondary",
+        "distance": 33
+      },
+      {
+        "original": "4ade80",
+        "replaceWith": "#34D399",
+        "token": "--color-success",
+        "distance": 35
+      },
+      {
+        "original": "FF9E58",
+        "replaceWith": "#F59E42",
+        "token": "--color-warning",
+        "distance": 24
+      },
+      {
+        "original": "e5e7eb",
+        "replaceWith": "#F6F8FA",
+        "token": "--color-surface",
+        "distance": 28
+      },
+      {
+        "original": "f3bd4f",
+        "replaceWith": "#F59E42",
+        "token": "--color-warning",
+        "distance": 34
+      },
+      {
+        "original": "f4efe5",
+        "replaceWith": "#F6F8FA",
+        "token": "--color-surface",
+        "distance": 23
+      },
+      {
+        "original": "facc15",
+        "replaceWith": "#FFD600",
+        "token": "--color-accent",
+        "distance": 24
+      },
+      {
+        "original": "ff6b3d",
+        "replaceWith": "#EF4444",
+        "token": "--color-danger",
+        "distance": 43
+      },
+      {
+        "original": "ff8a65",
+        "replaceWith": "#F59E42",
+        "token": "--color-warning",
+        "distance": 42
+      },
+      {
+        "original": "ffb86b",
+        "replaceWith": "#F59E42",
+        "token": "--color-warning",
+        "distance": 50
+      },
+      {
+        "original": "ffbe0b",
+        "replaceWith": "#FFD600",
+        "token": "--color-accent",
+        "distance": 26
+      }
+    ],
+    "unmapped": [
+      {
+        "original": "00a8a8",
+        "replaceWith": "#34D399",
+        "token": "--color-success",
+        "distance": 69,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "0f3b82",
+        "replaceWith": "#1B263B",
+        "token": "--color-dark",
+        "distance": 75,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "10b981",
+        "replaceWith": "#34D399",
+        "token": "--color-success",
+        "distance": 50,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "1e3a8a",
+        "replaceWith": "#1B263B",
+        "token": "--color-dark",
+        "distance": 82,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "312e81",
+        "replaceWith": "#1B263B",
+        "token": "--color-dark",
+        "distance": 74,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "3b82f6",
+        "replaceWith": "#005AE2",
+        "token": "--color-primary",
+        "distance": 74,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "3d7eff",
+        "replaceWith": "#005AE2",
+        "token": "--color-primary",
+        "distance": 77,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "43bdfd",
+        "replaceWith": "#23D2D5",
+        "token": "--color-secondary",
+        "distance": 55,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "4b5563",
+        "replaceWith": "#6B7280",
+        "token": "--color-neutral-2",
+        "distance": 52,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "581c87",
+        "replaceWith": "#6B7280",
+        "token": "--color-neutral-2",
+        "distance": 88,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "60a5fa",
+        "replaceWith": "#23D2D5",
+        "token": "--color-secondary",
+        "distance": 84,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "6ea8ff",
+        "replaceWith": "#23D2D5",
+        "token": "--color-secondary",
+        "distance": 96,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "79f2c0",
+        "replaceWith": "#34D399",
+        "token": "--color-success",
+        "distance": 85,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "7cf1d6",
+        "replaceWith": "#23D2D5",
+        "token": "--color-secondary",
+        "distance": 94,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "7f5af0",
+        "replaceWith": "#6B7280",
+        "token": "--color-neutral-2",
+        "distance": 116,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "88ABF2",
+        "replaceWith": "#23D2D5",
+        "token": "--color-secondary",
+        "distance": 112,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "9333ea",
+        "replaceWith": "#6B7280",
+        "token": "--color-neutral-2",
+        "distance": 130,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "93c5fd",
+        "replaceWith": "#F6F8FA",
+        "token": "--color-surface",
+        "distance": 111,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "9aa1ab",
+        "replaceWith": "#6B7280",
+        "token": "--color-neutral-2",
+        "distance": 79,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "9affd4",
+        "replaceWith": "#F6F8FA",
+        "token": "--color-surface",
+        "distance": 100,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "9ca3af",
+        "replaceWith": "#6B7280",
+        "token": "--color-neutral-2",
+        "distance": 84,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "a1a1aa",
+        "replaceWith": "#6B7280",
+        "token": "--color-neutral-2",
+        "distance": 83,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "a7ffeb",
+        "replaceWith": "#F6F8FA",
+        "token": "--color-surface",
+        "distance": 81,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "a855f7",
+        "replaceWith": "#6B7280",
+        "token": "--color-neutral-2",
+        "distance": 137,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "c084fc",
+        "replaceWith": "#F6F8FA",
+        "token": "--color-surface",
+        "distance": 128,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "d1d5db",
+        "replaceWith": "#F6F8FA",
+        "token": "--color-surface",
+        "distance": 60,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "d97706",
+        "replaceWith": "#F59E42",
+        "token": "--color-warning",
+        "distance": 77,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "db2777",
+        "replaceWith": "#EF4444",
+        "token": "--color-danger",
+        "distance": 62,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "ea580c",
+        "replaceWith": "#EF4444",
+        "token": "--color-danger",
+        "distance": 60,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "ec4899",
+        "replaceWith": "#EF4444",
+        "token": "--color-danger",
+        "distance": 85,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "f472b6",
+        "replaceWith": "#EF4444",
+        "token": "--color-danger",
+        "distance": 123,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "f59e0b",
+        "replaceWith": "#F59E42",
+        "token": "--color-warning",
+        "distance": 55,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "f87171",
+        "replaceWith": "#EF4444",
+        "token": "--color-danger",
+        "distance": 64,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "f97316",
+        "replaceWith": "#F59E42",
+        "token": "--color-warning",
+        "distance": 62,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "ffd166",
+        "replaceWith": "#F59E42",
+        "token": "--color-warning",
+        "distance": 63,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "orange",
+        "replaceWith": null,
+        "token": "--color-null",
+        "distance": null,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "purple",
+        "replaceWith": null,
+        "token": "--color-null",
+        "distance": null,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "red",
+        "replaceWith": null,
+        "token": "--color-null",
+        "distance": null,
+        "note": "Requires visual review - may need new token"
+      },
+      {
+        "original": "yellow",
+        "replaceWith": null,
+        "token": "--color-null",
+        "distance": null,
+        "note": "Requires visual review - may need new token"
+      }
+    ]
+  },
+  "migrationSteps": [
+    "1. Update src/styles/design-system-colors.css with all tokens",
+    "2. Replace hardcoded colors in CSS files",
+    "3. Replace hardcoded colors in React components",
+    "4. Update Tailwind config to use CSS variables",
+    "5. Test all pages for visual consistency",
+    "6. Verify accessibility (WCAG AA contrast)"
+  ]
+}

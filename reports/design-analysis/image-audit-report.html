@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Audit Report</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; }
+    h1 { color: #005AE2; }
+    .summary { background: #F6F8FA; padding: 20px; border-radius: 8px; margin: 20px 0; }
+    .issue { background: #FEF3C7; padding: 15px; margin: 10px 0; border-radius: 4px; }
+    .compliant { background: #D1FAE5; padding: 15px; margin: 10px 0; border-radius: 4px; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+    th { background: #F6F8FA; }
+  </style>
+</head>
+<body>
+  <h1>🖼️ Image Audit Report</h1>
+  <div class="summary">
+    <h2>Summary</h2>
+    <p><strong>Total Images:</strong> 607</p>
+    <p><strong>Total Size:</strong> 146.78 MB</p>
+    <p><strong>Compliant:</strong> 36</p>
+    <p><strong>Issues Found:</strong> 1103</p>
+  </div>
+
+  <h2>Issues</h2>
+  <div class="issue">
+    <h3>❌ Missing Alt Text (570)</h3>
+    <ul>
+      <li>public\images\auto-generated\awards\gold-key-award.avif</li><li>public\images\auto-generated\awards\gold-key-award.png</li><li>public\images\auto-generated\awards\gold-key-award.webp</li><li>public\images\awards\gold-key-award.avif</li><li>public\images\awards\gold-key-award.png</li><li>public\images\awards\gold-key-award.webp</li><li>public\images\awards\gold-key.svg</li><li>public\images\bio\241311036_10117555583372059_173429180650836298_n.webp</li><li>public\images\bio\adobe-express-2025-10-12-09.58.18.avif</li><li>public\images\bio\adobe-express-2025-10-12-09.58.18.png</li>
+      <li>... and 560 more</li>
+    </ul>
+  </div>
+
+  <div class="issue">
+    <h3>⚠️ Short Alt Text (0)</h3>
+    <ul>
+      
+      
+    </ul>
+  </div>
+
+  <div class="issue">
+    <h3>🔍 Unused Images (533)</h3>
+    <ul>
+      <li>public\images\applications\graston-gt1.svg</li><li>public\images\auto-generated\awards\gold-key-award.avif</li><li>public\images\auto-generated\awards\gold-key-award.png</li><li>public\images\auto-generated\awards\gold-key-award.webp</li><li>public\images\awards\gold-key-award.avif</li><li>public\images\awards\gold-key-award.png</li><li>public\images\awards\gold-key-award.webp</li><li>public\images\awards\gold-key.svg</li><li>public\images\bio\adobe-express-2025-10-12-09.58.18.avif</li><li>public\images\bio\adobe-express-2025-10-12-09.58.18.png</li>
+      <li>... and 523 more</li>
+    </ul>
+  </div>
+
+  <h2>By Category</h2>
+  <table>
+    <tr><th>Category</th><th>Count</th></tr>
+    <tr><td>Other</td><td>388</td></tr><tr><td>Bio/Profile Photos</td><td>10</td></tr><tr><td>Case Study Images</td><td>11</td></tr><tr><td>Logos</td><td>21</td></tr><tr><td>Side Project Images</td><td>177</td></tr>
+  </table>
+</body>
+</html>

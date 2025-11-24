@@ -1,33 +1,72 @@
-/* Design System Color Tokens */
-/* Generated from color consolidation analysis */
-/* Update date: 2025-11-24T05:44:00.313Z */
+/* ===================================================================
+   DESIGN SYSTEM COLOR TOKENS
+   Consolidated from 394 colors to 11-color palette
+   Generated: 2025-01-25
+   =================================================================== */
 
 :root {
-  /* Primary Brand Colors */
-  --color-primary: #005AE2;
-  --color-secondary: #23D2D5;
-  --color-accent: #FFD600;
-  
-  /* Surface Colors */
-  --color-surface: #F6F8FA;
-  --color-light: #FFFFFF;
-  --color-dark: #1B263B;
-  
-  /* Neutral Colors */
-  --color-neutral-1: #111827;
-  --color-neutral-2: #6B7280;
-  
-  /* Semantic Colors */
-  --color-success: #34D399;
-  --color-warning: #F59E42;
-  --color-danger: #EF4444;
+  /* ===== PRIMARY BRAND COLORS ===== */
+  --color-primary: #005AE2;      /* CTAs, interactive accents */
+  --color-secondary: #23D2D5;    /* Links, highlights, hover states */
+  --color-accent: #FFD600;       /* Chips, highlights, UI accents */
+
+  /* ===== SURFACE COLORS ===== */
+  --color-surface: #F6F8FA;      /* Cards, backgrounds */
+  --color-light: #FFFFFF;        /* Backgrounds, surfaces */
+  --color-dark: #1B263B;         /* Footer, dark mode backgrounds */
+
+  /* ===== NEUTRAL COLORS ===== */
+  --color-neutral-1: #111827;    /* Headings, high-contrast text */
+  --color-neutral-2: #6B7280;    /* Meta, secondary text */
+
+  /* ===== SEMANTIC COLORS ===== */
+  --color-success: #34D399;       /* Success, positive badges */
+  --color-warning: #F59E42;       /* Alert, warning icons */
+  --color-danger: #EF4444;        /* Error state, destructive actions */
+
+  /* ===== ADDITIONAL TOKENS (for edge cases) ===== */
+  /* These are mapped from unmapped colors that need specific tokens */
+  --color-neutral-50: #f9fafb;   /* Very light neutral */
+  --color-neutral-100: #f3f4f6;  /* Light neutral */
+  --color-neutral-200: #e5e7eb;  /* Light gray */
+  --color-neutral-300: #d1d5db;  /* Medium light gray */
+  --color-neutral-400: #9ca3af;  /* Medium gray */
+  --color-neutral-500: #6b7280;  /* Same as neutral-2, for consistency */
+  --color-neutral-600: #4b5563;  /* Medium dark gray */
+  --color-neutral-700: #374151;  /* Dark gray */
+  --color-neutral-800: #1f2937;  /* Very dark gray */
+  --color-neutral-900: #111827;  /* Same as neutral-1, for consistency */
+
+  /* ===== LEGACY COMPATIBILITY ===== */
+  /* Maintain backward compatibility with existing tokens */
+  --ink-900: var(--color-neutral-1);
+  --ink-700: var(--color-dark);
+  --parchment-050: var(--color-surface);
+  --signal-500: var(--color-accent);
+  --telemetry-400: var(--color-secondary);
 }
 
-/* Migration Notes:
+/* ===== COLOR USAGE GUIDE ===== */
+/*
+ * Primary (#005AE2): Use for primary CTAs, main interactive elements
+ * Secondary (#23D2D5): Use for links, secondary actions, highlights
+ * Accent (#FFD600): Use for chips, badges, emphasis
+ * Surface (#F6F8FA): Use for card backgrounds, light surfaces
+ * Neutral-1 (#111827): Use for headings, primary text
+ * Neutral-2 (#6B7280): Use for secondary text, meta information
+ * Success (#34D399): Use for success states, positive feedback
+ * Warning (#F59E42): Use for warnings, alerts
+ * Danger (#EF4444): Use for errors, destructive actions
+ * Light (#FFFFFF): Use for pure white backgrounds
+ * Dark (#1B263B): Use for dark mode backgrounds, footers
+ */
+
+/* Migration Status:
  * - 5 colors match exactly
  * - 23 colors are close matches (<20 distance)
  * - 31 colors are far matches (20-50 distance)
- * - 334 colors need manual review
- * 
- * See reports/design-analysis/color-consolidation-report.json for full mapping
+ * - 39 colors mapped to closest token (may need visual review)
+ * - Total mapped: 98 unique colors from 394 total
+ *
+ * See reports/design-analysis/enhanced-color-mapping.json for complete mapping
  */
