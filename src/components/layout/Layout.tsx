@@ -22,7 +22,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         Skip to content
       </a>
 
-      <div className="app min-h-dvh flex flex-col bg-[var(--bc-bg)] text-[var(--bc-text-primary)]">
+      <div className="app min-h-dvh flex flex-col bg-[var(--ink-900)] text-[var(--parchment-050)]">
         {/* Navigation */}
         <Suspense
           fallback={

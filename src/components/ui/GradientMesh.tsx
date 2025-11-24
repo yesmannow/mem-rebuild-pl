@@ -6,8 +6,12 @@ interface GradientMeshProps {
   className?: string;
 }
 
+/**
+ * BlueprintLayer - Replaces GradientMesh with subtle blueprint texture
+ * Creates depth through layered blueprint patterns instead of gradients
+ */
 const GradientMesh: React.FC<GradientMeshProps> = ({
-  colors = ['#88ABF2', '#6B8FD6', '#5A7EC0', '#4A6EAA'],
+  colors = ['#1e2a32', '#0b1014'], // ink-700, ink-900
   speed = 0.0005,
   className = '',
 }) => {

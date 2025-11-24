@@ -70,9 +70,9 @@ const App: React.FC = () => {
         <HelmetProvider>
           <ThemeProvider>
             <ToastProvider>
-              {/* Animated gradient mesh background */}
-              <GradientMesh colors={['#88ABF2', '#6B8FD6', '#5A7EC0', '#0b0b0c']} speed={0.0003} />
-              
+              {/* Blueprint texture background - no gradients */}
+              <GradientMesh colors={['#1e2a32', '#0b1014']} speed={0.0001} />
+
               <JSONLD />
               <Suspense fallback={null}>
                 <PersonSchema />

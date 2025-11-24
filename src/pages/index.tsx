@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Mail } from 'lucide-react';
-import ParticleHero from '../components/hero/ParticleHero';
+import HeroCommandPanel from '../components/home/HeroCommandPanel';
 import HeroIntro from '../components/home/HeroIntro';
 import WhoIAm from '../components/home/WhoIAm';
 import CareerHighlights from '../components/home/CareerHighlights';
@@ -105,9 +105,10 @@ const HomePage: React.FC = () => {
       <ServiceSchema />
       <ReviewSchema />
 
-      <ParticleHero />
+      {/* Hero Command Panel - New Signalcraft Systems Design */}
+      <HeroCommandPanel />
 
-      {/* Hero Intro Section */}
+      {/* Hero Intro Section - Keep for metrics display */}
       <HeroIntro
         metrics={[
           { label: 'Years Experience', value: '16+' },

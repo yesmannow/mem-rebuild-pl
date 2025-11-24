@@ -11,11 +11,24 @@ export default {
   theme: {
   	extend: {
 		colors: {
+			ink: {
+				900: '#0b1014',
+				700: '#1e2a32',
+			},
+			parchment: {
+				50: '#f4efe5',
+			},
+			signal: {
+				500: '#ff6b3d',
+			},
+			telemetry: {
+				400: '#00a8a8',
+			},
 			brand: {
-				bg: '#0f1720',
-				accent: '#16a34a',
-				400: '#6BE1CE',
-				500: '#49C3B2'
+				bg: '#0b1014', // ink-900
+				accent: '#ff6b3d', // signal-500
+				400: '#00a8a8', // telemetry-400
+				500: '#ff6b3d' // signal-500
 			},
 			neutral: {
 				muted: '#94a3b8'
@@ -128,30 +141,35 @@ export default {
   		},
 		fontFamily: {
 			sans: [
-				'Montserrat',
+				'Space Grotesk',
 				'system-ui',
 				'sans-serif'
 			],
 			display: [
+				'Fraunces 144',
 				'Georgia',
-				'Merriweather',
 				'serif'
 			],
 			brand: [
-				'Montserrat',
-				'system-ui',
-				'sans-serif'
+				'Fraunces 144',
+				'Georgia',
+				'serif'
 			],
 			ui: [
-				'Montserrat',
+				'Space Grotesk',
 				'system-ui',
 				'sans-serif'
 			],
 			body: [
-				'Inter',
+				'Space Grotesk',
 				'ui-sans-serif',
 				'system-ui',
 				'sans-serif'
+			],
+			mono: [
+				'IBM Plex Mono',
+				'ui-monospace',
+				'monospace'
 			],
   			'clash': [
   				'var(--font-clash)',

@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from '../branding/Logo';
+import SignalTape from '../home/SignalTape';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -20,13 +21,17 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <>
+      {/* Signal Tape - Metrics marquee */}
+      <SignalTape />
+
+      <footer className="bg-[var(--ink-900)] text-[var(--parchment-050)] py-12 border-t border-[var(--ink-700)]">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="col-span-1 md:col-span-1">
             <Logo variant="lockup" size={32} tone="mono" />
-            <p className="text-gray-400 text-sm mt-4">
+            <p className="text-[var(--parchment-050)]/60 text-sm mt-4 font-body">
               Marketing systems that drive measurable growth.
             </p>
           </div>
@@ -43,14 +48,14 @@ const Footer: React.FC = () => {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-white transition-colors text-sm"
+                        className="text-[var(--parchment-050)]/60 hover:text-[var(--signal-500)] transition-colors text-sm font-body"
                       >
                         {link.name}
                       </a>
                     ) : (
                       <a
                         href={link.href}
-                        className="text-gray-400 hover:text-white transition-colors text-sm"
+                        className="text-[var(--parchment-050)]/60 hover:text-[var(--signal-500)] transition-colors text-sm font-body"
                       >
                         {link.name}
                       </a>
@@ -63,8 +68,8 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
+        <div className="border-t border-[var(--ink-700)] pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-[var(--parchment-050)]/60 text-sm font-mono">
             © {currentYear} Jacob Darling · All systems engineered in Indianapolis
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
@@ -88,6 +93,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
     </footer>
+    </>
   );
 };
 

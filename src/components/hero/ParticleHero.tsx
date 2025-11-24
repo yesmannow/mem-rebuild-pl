@@ -35,7 +35,7 @@ const ParticleHero: React.FC = () => {
     // Create particles
     const particles: Particle[] = [];
     const particleCount = Math.floor((canvas.width * canvas.height) / 15000);
-    
+
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
@@ -43,7 +43,7 @@ const ParticleHero: React.FC = () => {
         vx: (Math.random() - 0.5) * 0.5,
         vy: (Math.random() - 0.5) * 0.5,
         radius: Math.random() * 2 + 1,
-        color: `rgba(136, 171, 242, ${Math.random() * 0.5 + 0.2})`, // Brand blue with varying opacity
+        color: `rgba(255, 107, 61, ${Math.random() * 0.3 + 0.1})`, // Signal orange with varying opacity
       });
     }
 
@@ -61,7 +61,7 @@ const ParticleHero: React.FC = () => {
 
           if (distance < 120) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(136, 171, 242, ${0.15 * (1 - distance / 120)})`;
+            ctx.strokeStyle = `rgba(255, 107, 61, ${0.1 * (1 - distance / 120)})`; // Signal orange
             ctx.lineWidth = 0.5;
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
@@ -76,7 +76,7 @@ const ParticleHero: React.FC = () => {
         const dx = mousePos.x - particle.x;
         const dy = mousePos.y - particle.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        
+
         if (distance < 100) {
           const force = (100 - distance) / 100;
           particle.vx -= (dx / distance) * force * 0.2;
@@ -118,7 +118,7 @@ const ParticleHero: React.FC = () => {
   const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     const rect = canvas.getBoundingClientRect();
     setMousePos({
       x: e.clientX - rect.left,
@@ -135,16 +135,16 @@ const ParticleHero: React.FC = () => {
         className="absolute inset-0 -z-10"
         aria-hidden="true"
       />
-      
+
       {/* Gradient Overlay */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-transparent to-[#0b0b0c]/80" />
-      
+
       {/* Content */}
-      <motion.div 
-        style={{ y, opacity }} 
+      <motion.div
+        style={{ y, opacity }}
         className="mx-auto max-w-5xl px-6 text-center relative z-10"
       >
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -152,8 +152,8 @@ const ParticleHero: React.FC = () => {
         >
           Strategy. Systems. Shipping.
         </motion.h1>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -163,7 +163,7 @@ const ParticleHero: React.FC = () => {
         </motion.p>
 
         {/* CTA Buttons */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -171,15 +171,14 @@ const ParticleHero: React.FC = () => {
         >
           <a
             href="/case-studies"
-            className="group relative inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-gradient-to-r from-[#88ABF2] to-[#6B8FD6] rounded-lg overflow-hidden transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#88ABF2]/50"
+            className="group relative inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-[#ff6b3d] rounded-lg overflow-hidden transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b3d]/30"
           >
             <span className="relative z-10">View Case Studies</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#6B8FD6] to-[#5A7EC0] opacity-0 group-hover:opacity-100 transition-opacity" />
           </a>
-          
+
           <a
             href="/contact"
-            className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white border-2 border-neutral-600 rounded-lg hover:border-[#88ABF2] hover:bg-[#88ABF2]/10 transition-all"
+            className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white border-2 border-[#1e2a32] rounded-lg hover:border-[#ff6b3d] hover:bg-[#ff6b3d]/10 transition-all"
           >
             Get in Touch
           </a>

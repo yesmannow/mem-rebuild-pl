@@ -115,7 +115,7 @@ const HeroIntro: React.FC<HeroIntroProps> = ({
           <img
             src={avatarSrc}
             alt={avatarAlt}
-            className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-brand-accent"
+            className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-[var(--signal-500)]"
           />
         </motion.div>
       )}
@@ -126,7 +126,7 @@ const HeroIntro: React.FC<HeroIntroProps> = ({
         initial="hidden"
         animate="visible"
         transition={{ delay: 0.2 }}
-        className="text-lg md:text-xl text-neutral-muted mb-8 max-w-2xl mx-auto"
+        className="text-lg md:text-xl text-[var(--parchment-050)]/70 mb-8 max-w-2xl mx-auto font-body"
       >
         {subhead}
       </motion.p>
@@ -145,10 +145,10 @@ const HeroIntro: React.FC<HeroIntroProps> = ({
               variants={fadeInUp}
               className="text-center"
             >
-              <div className="text-2xl md:text-3xl font-bold text-brand-accent mb-1">
+              <div className="text-2xl md:text-3xl font-bold text-[var(--signal-500)] mb-1 font-mono">
                 {metric.value}
               </div>
-              <div className="text-sm md:text-base text-neutral-muted">
+              <div className="text-sm md:text-base text-[var(--parchment-050)]/60 font-body">
                 {metric.label}
               </div>
             </motion.div>
@@ -169,7 +169,7 @@ const HeroIntro: React.FC<HeroIntroProps> = ({
             initial="rest"
             whileHover="hover"
             onClick={() => setIsVideoOpen(true)}
-            className="px-8 py-3 bg-brand-accent text-white rounded-lg font-semibold focus-ring"
+            className="px-8 py-3 bg-[var(--signal-500)] text-[var(--ink-900)] rounded-lg font-semibold focus-ring"
             aria-label="Watch introduction video"
           >
             {ctaLabel}
