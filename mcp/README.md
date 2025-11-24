@@ -54,10 +54,10 @@ The configuration file contains placeholder values for sensitive credentials. To
 ⚠️ **IMPORTANT**: Never commit actual credentials to version control!
 
 - The `config.json` file is tracked in git but should only contain placeholder values
-- For local development, you can either:
-  1. Create a `config.local.json` file with your actual credentials (add to .gitignore)
-  2. Use environment variables to override the values at runtime
-  3. Edit the placeholders locally but **never commit** the actual credentials
+- For local development:
+  1. Edit the placeholders in `config.json` with your actual credentials for local use
+  2. **IMPORTANT**: Never commit these changes back to the repository
+  3. Keep your local changes separate from commits you push to the repository
 
 ## Available MCP Servers
 
