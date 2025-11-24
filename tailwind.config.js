@@ -11,7 +11,16 @@ export default {
   theme: {
   	extend: {
 		colors: {
-			// Ocean Pearl Delight Palette
+			// Ocean Pearl Brand Palette (Primary)
+			brand: {
+				teal: '#40E0D0',    // Primary Accent
+				orange: '#FFA500',  // Secondary Accent
+				dark: '#0f172a',    // Rich dark blue-grey background
+				surface: '#1e293b', // Lighter card backgrounds
+				text: '#f8fafc',    // Main text
+				muted: '#94a3b8',   // Secondary text
+			},
+			// Ocean Pearl Delight Palette (Legacy support)
 			'ocean': {
 				'stormy-teal': '#006d77',
 				'pearl-aqua': '#83c5be',
@@ -31,12 +40,6 @@ export default {
 			},
 			telemetry: {
 				400: '#83c5be', // Pearl Aqua
-			},
-			brand: {
-				bg: '#edf6f9', // Alice Blue
-				accent: '#e29578', // Tangerine Dream
-				400: '#83c5be', // Pearl Aqua
-				500: '#006d77' // Stormy Teal
 			},
 			neutral: {
 				muted: '#94a3b8'
@@ -153,13 +156,17 @@ export default {
   			'brand-grad': 'linear-gradient(135deg, rgb(131 197 190 / 0.35), rgb(226 149 120 / 0.35))', // Pearl Aqua to Tangerine Dream
   			'ocean-grad': 'linear-gradient(135deg, #006d77, #83c5be)', // Stormy Teal to Pearl Aqua
   			'pearl-grad': 'linear-gradient(135deg, #edf6f9, #ffddd2)', // Alice Blue to Almond Silk
+  			'hero-gradient': 'linear-gradient(to right bottom, #0f172a, #1e293b)',
+  			'accent-glow': 'conic-gradient(from 90deg at 50% 50%, #0f172a 0%, #1e293b 50%, #40E0D0 100%)',
   		},
 		fontFamily: {
 			sans: [
 				'Montserrat',
-				'Space Grotesk',
-				'system-ui',
 				'sans-serif'
+			],
+			mono: [
+				'Fira Code',
+				'monospace'
 			],
 			display: [
 				'Montserrat',

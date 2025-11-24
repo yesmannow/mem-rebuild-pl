@@ -40,7 +40,7 @@ const InteractiveBackground: React.FC<InteractiveBackgroundProps> = ({
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const particlesRef = useRef<Particle[]>([]);
   const mouseRef = useRef({ x: 0, y: 0 });
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
 
   // Ocean Pearl palette
   const colors = [
