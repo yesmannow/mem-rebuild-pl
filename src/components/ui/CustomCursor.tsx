@@ -120,12 +120,12 @@ const CustomCursor: React.FC = () => {
           damping: 20,
         }}
       >
-        <div className="w-15 h-15 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+        <div className="w-15 h-15 bg-gradient-to-br from-[#83c5be] to-[#e29578] rounded-full flex items-center justify-center shadow-lg">
           <span className="text-white text-xs font-bold">JD</span>
         </div>
       </motion.div>
 
-      {/* Glow Effect */}
+      {/* Glow Effect - Ocean Pearl palette */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9996]"
         animate={{
@@ -140,7 +140,7 @@ const CustomCursor: React.FC = () => {
           damping: 25,
         }}
       >
-        <div className="w-20 h-20 bg-gradient-to-br from-blue-500/30 to-purple-600/30 rounded-full blur-xl" />
+        <div className="w-20 h-20 bg-gradient-to-br from-[#83c5be]/30 to-[#e29578]/30 rounded-full blur-xl" />
       </motion.div>
 
       {/* CSS to hide default cursor */}
