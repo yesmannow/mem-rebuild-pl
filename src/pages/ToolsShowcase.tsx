@@ -200,6 +200,95 @@ npm run images:opt`,
       'MIME type validation'
     ],
     icon: <Package className="w-6 h-6" />
+  },
+  {
+    name: 'Bundle Analyzer',
+    category: 'Build Tool',
+    lastModified: '2024-11',
+    author: 'Portfolio Team',
+    description: 'Rollup plugin visualizer integration for analyzing bundle size, identifying large dependencies, and optimizing production builds with gzip and brotli compression metrics.',
+    technologies: ['Vite', 'Rollup', 'Visualizer'],
+    usage: `# Analyze bundle with visualizer
+ANALYZE=true npm run build
+
+# Standard production build
+npm run build
+
+# Build for GitHub Pages
+GITHUB_PAGES=true npm run build`,
+    outcomes: [
+      'Interactive bundle visualization',
+      'Gzip and Brotli size metrics',
+      'Dependency size breakdown',
+      'Production build optimization insights'
+    ],
+    icon: <Settings className="w-6 h-6" />
+  },
+  {
+    name: 'Image Optimizer',
+    category: 'Automation',
+    lastModified: '2024-11',
+    author: 'Portfolio Team',
+    description: 'Batch image optimization tool that compresses images >1MB, converts to modern formats (WebP/AVIF), and reduces file sizes while maintaining quality.',
+    technologies: ['Node.js', 'Sharp', 'File System'],
+    usage: `# Optimize all active images (>1MB)
+npm run optimize-images
+
+# Optimize specific directory
+node scripts/optimize-images.js public/images
+
+# Audit unused images
+npm run audit:images`,
+    outcomes: [
+      'Automatic compression for large images',
+      'WebP/AVIF format conversion',
+      'Quality-optimized output (85% JPEG, 90% PNG)',
+      'Significant file size reduction'
+    ],
+    icon: <Zap className="w-6 h-6" />
+  },
+  {
+    name: 'Unused Image Auditor',
+    category: 'Automation',
+    lastModified: '2024-11',
+    author: 'Portfolio Team',
+    description: 'TypeScript utility that scans source code to identify images not referenced in JSX, TSX, or MDX files, reporting potential space savings.',
+    technologies: ['TypeScript', 'Node.js', 'Regex'],
+    usage: `# Find unused images
+npm run audit:images
+
+# View detailed report with sizes
+ts-node scripts/listUnusedImages.ts`,
+    outcomes: [
+      'Identifies unreferenced image files',
+      'Reports file sizes and potential savings',
+      'Groups by size (large >1MB vs normal)',
+      'Suggests archival candidates'
+    ],
+    icon: <Database className="w-6 h-6" />
+  },
+  {
+    name: 'Deployment Pipeline',
+    category: 'Deployment',
+    lastModified: '2024-11',
+    author: 'Portfolio Team',
+    description: 'Multi-platform deployment configuration supporting GitHub Pages, Cloudflare Pages, and Vercel with environment-aware base path logic.',
+    technologies: ['Vite', 'GitHub Actions', 'Cloudflare'],
+    usage: `# Deploy to Cloudflare (custom domain)
+npm run deploy:cloudflare
+
+# Build for GitHub Pages
+GITHUB_PAGES=true npm run build
+
+# Preview build locally
+npm run preview`,
+    outcomes: [
+      'Automatic base path switching',
+      'Support for subdirectory deployments',
+      'Root domain and CDN compatibility',
+      'CI/CD ready configuration'
+    ],
+    icon: <GitBranch className="w-6 h-6" />
   }
 ];
 
@@ -336,6 +425,156 @@ const ToolsShowcase: React.FC = () => {
               )}
             </div>
           )}
+        </section>
+      </AnimatedSection>
+
+      {/* CLI Quick Reference */}
+      <AnimatedSection delay={0.3}>
+        <section className="container mx-auto px-6 pb-16 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6 text-center">
+              CLI Quick Reference
+            </h2>
+            <p className="text-center text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
+              Essential commands for future developers working with this portfolio codebase
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Build & Deploy Commands */}
+              <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                  <GitBranch className="w-5 h-5 text-turquoise" />
+                  Build & Deploy
+                </h3>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">Analyze bundle size</p>
+                    <code className="block bg-slate-900 text-slate-100 px-3 py-2 rounded text-sm">
+                      ANALYZE=true npm run build
+                    </code>
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">Build for GitHub Pages</p>
+                    <code className="block bg-slate-900 text-slate-100 px-3 py-2 rounded text-sm">
+                      GITHUB_PAGES=true npm run build
+                    </code>
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">Deploy to Cloudflare</p>
+                    <code className="block bg-slate-900 text-slate-100 px-3 py-2 rounded text-sm">
+                      npm run deploy:cloudflare
+                    </code>
+                  </div>
+                </div>
+              </div>
+
+              {/* Asset Optimization Commands */}
+              <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                  <Zap className="w-5 h-5 text-creamsicle" />
+                  Asset Optimization
+                </h3>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">Optimize all images &gt;1MB</p>
+                    <code className="block bg-slate-900 text-slate-100 px-3 py-2 rounded text-sm">
+                      npm run optimize-images
+                    </code>
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">Audit unused images</p>
+                    <code className="block bg-slate-900 text-slate-100 px-3 py-2 rounded text-sm">
+                      npm run audit:images
+                    </code>
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">Build image manifest</p>
+                    <code className="block bg-slate-900 text-slate-100 px-3 py-2 rounded text-sm">
+                      npm run images:build
+                    </code>
+                  </div>
+                </div>
+              </div>
+
+              {/* MCP & Content Commands */}
+              <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                  <Database className="w-5 h-5 text-turquoise" />
+                  MCP & Content
+                </h3>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">Start MCP server</p>
+                    <code className="block bg-slate-900 text-slate-100 px-3 py-2 rounded text-sm">
+                      npm run mcp:start
+                    </code>
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">Generate content</p>
+                    <code className="block bg-slate-900 text-slate-100 px-3 py-2 rounded text-sm">
+                      npm run generate:content
+                    </code>
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">Monitor MCP health</p>
+                    <code className="block bg-slate-900 text-slate-100 px-3 py-2 rounded text-sm">
+                      npm run mcp:monitor
+                    </code>
+                  </div>
+                </div>
+              </div>
+
+              {/* Development Commands */}
+              <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                  <Code className="w-5 h-5 text-creamsicle" />
+                  Development
+                </h3>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">Type check without emit</p>
+                    <code className="block bg-slate-900 text-slate-100 px-3 py-2 rounded text-sm">
+                      npm run typecheck
+                    </code>
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">Lint and fix code</p>
+                    <code className="block bg-slate-900 text-slate-100 px-3 py-2 rounded text-sm">
+                      npm run lint:fix
+                    </code>
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">Format all files</p>
+                    <code className="block bg-slate-900 text-slate-100 px-3 py-2 rounded text-sm">
+                      npm run format
+                    </code>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Additional Info */}
+            <div className="mt-8 bg-blue-50 dark:bg-slate-800 border border-blue-200 dark:border-slate-700 rounded-xl p-6">
+              <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                <Terminal className="w-5 h-5 text-turquoise" />
+                Tool Metadata
+              </h4>
+              <div className="grid md:grid-cols-2 gap-4 text-sm text-slate-600 dark:text-slate-300">
+                <div>
+                  <strong className="text-slate-900 dark:text-white">sourcePath:</strong> Auto-resolved from scripts/ and cli/ directories
+                </div>
+                <div>
+                  <strong className="text-slate-900 dark:text-white">outputType:</strong> Varies by tool (Markdown, Optimized assets, JSON reports)
+                </div>
+                <div>
+                  <strong className="text-slate-900 dark:text-white">lastUsed:</strong> Tracked via git log and file modification times
+                </div>
+                <div>
+                  <strong className="text-slate-900 dark:text-white">archiveLocation:</strong> Non-production tools moved to archive/
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       </AnimatedSection>
 
