@@ -8,20 +8,35 @@ interface StatProps {
   delay?: number;
 }
 
+// Animation constants
+const ANIMATION_DURATION_MS = 2000;
+const ANIMATION_STEPS = 60;
+
 const AnimatedStat: React.FC<StatProps> = ({ value, suffix = '', label, delay = 0 }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
+  const isMountedRef = useRef(true);
+
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
 
   useEffect(() => {
     if (!isInView) return;
 
-    const duration = 2000; // 2 seconds
-    const steps = 60;
-    const increment = value / steps;
+    const increment = value / ANIMATION_STEPS;
     let current = 0;
 
     const timer = setInterval(() => {
+      if (!isMountedRef.current) {
+        clearInterval(timer);
+        return;
+      }
+      
       current += increment;
       if (current >= value) {
         setCount(value);
@@ -29,7 +44,7 @@ const AnimatedStat: React.FC<StatProps> = ({ value, suffix = '', label, delay = 
       } else {
         setCount(Math.floor(current));
       }
-    }, duration / steps);
+    }, ANIMATION_DURATION_MS / ANIMATION_STEPS);
 
     return () => clearInterval(timer);
   }, [isInView, value]);
