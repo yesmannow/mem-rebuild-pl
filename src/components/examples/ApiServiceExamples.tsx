@@ -14,7 +14,7 @@ import {
   useQRCode,
   useVCardQRCode,
   useImageLoader,
-} from '../services/api/hooks';
+} from '@/services/api/hooks';
 
 /**
  * Example: Client Logo Component

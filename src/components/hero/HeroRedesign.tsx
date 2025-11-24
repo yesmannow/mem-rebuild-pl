@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { useTheme } from '../theme/ThemeProvider';
 import LayeredBackground from '../ui/LayeredBackground';
 import './HeroRedesign.css';
@@ -169,7 +169,7 @@ export const HeroRedesign: React.FC<HeroRedesignProps> = ({
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,

@@ -5,7 +5,7 @@
  */
 
 import React, { useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, type Variants } from 'framer-motion';
 import './AnimatedHero.css';
 
 export interface AnimatedHeroProps {
@@ -42,7 +42,7 @@ export const AnimatedHero: React.FC<AnimatedHeroProps> = ({
   const smoothOpacity = useSpring(opacity, springConfig);
   const smoothScale = useSpring(scale, springConfig);
 
-  const titleVariants = {
+  const titleVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -54,7 +54,7 @@ export const AnimatedHero: React.FC<AnimatedHeroProps> = ({
     },
   };
 
-  const subtitleVariants = {
+  const subtitleVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -67,7 +67,7 @@ export const AnimatedHero: React.FC<AnimatedHeroProps> = ({
     },
   };
 
-  const ctaVariants = {
+  const ctaVariants: Variants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,

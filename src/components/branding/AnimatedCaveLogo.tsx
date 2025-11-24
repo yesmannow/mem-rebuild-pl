@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, type Variants } from 'framer-motion';
 
 interface AnimatedCaveLogoProps {
   variant?: 'icon' | 'full' | 'lockup';
@@ -44,12 +44,12 @@ export const AnimatedCaveLogo: React.FC<AnimatedCaveLogoProps> = ({
     setIsHovered(false);
   };
 
-  const caveVariants = {
+  const caveVariants: Variants = {
     initial: { pathLength: 0, opacity: 0 },
     animate: {
       pathLength: 1,
       opacity: 1,
-      transition: { duration: 1.5, ease: 'easeInOut' },
+      transition: { duration: 1.5, ease: [0.42, 0, 0.58, 1] },
     },
     hover: {
       pathLength: 1,
@@ -58,22 +58,22 @@ export const AnimatedCaveLogo: React.FC<AnimatedCaveLogoProps> = ({
     },
   };
 
-  const mountainVariants = {
+  const mountainVariants: Variants = {
     initial: { pathLength: 0, opacity: 0 },
     animate: {
       pathLength: 1,
       opacity: 1,
-      transition: { duration: 1.2, delay: 0.3, ease: 'easeInOut' },
+      transition: { duration: 1.2, delay: 0.3, ease: [0.42, 0, 0.58, 1] },
     },
   };
 
-  const bearVariants = {
+  const bearVariants: Variants = {
     initial: { opacity: 0, scale: 0.8, y: 10 },
     animate: {
       opacity: 1,
       scale: 1,
       y: 0,
-      transition: { duration: 0.8, delay: 0.8, ease: 'easeOut' },
+      transition: { duration: 0.8, delay: 0.8, ease: [0, 0, 0.58, 1] },
     },
     hover: {
       scale: 1.05,
@@ -81,7 +81,7 @@ export const AnimatedCaveLogo: React.FC<AnimatedCaveLogoProps> = ({
     },
   };
 
-  const glowVariants = {
+  const glowVariants: Variants = {
     initial: { opacity: 0 },
     animate: {
       opacity: [0, 0.3, 0.2],
@@ -283,7 +283,7 @@ export const AnimatedCaveLogo: React.FC<AnimatedCaveLogoProps> = ({
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
       {IconMark}
-      {variant !== 'icon' && Wordmark}
+      {Wordmark}
     </motion.div>
   );
 };
