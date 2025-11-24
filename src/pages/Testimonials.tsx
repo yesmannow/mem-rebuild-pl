@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import AnimatedSection from '../components/animations/AnimatedSection';
 import TextReveal from '../components/animations/TextReveal';
 import StaggerGrid from '../components/animations/StaggerGrid';
+import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
 import { testimonials, getFeaturedTestimonials } from '../data/testimonials';
 import { fadeInUp } from '../utils/animations';
 import './Testimonials.css';

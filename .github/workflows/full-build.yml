@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CI: true
+      PUPPETEER_SKIP_DOWNLOAD: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -41,6 +42,7 @@ jobs:
     needs: build
     env:
       CI: true
+      PUPPETEER_SKIP_DOWNLOAD: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -81,6 +83,7 @@ jobs:
     needs: build
     env:
       CI: true
+      PUPPETEER_SKIP_DOWNLOAD: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4

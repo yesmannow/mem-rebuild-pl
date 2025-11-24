@@ -30,7 +30,7 @@ function OceanTextGenerateEffect({
   React.useEffect(() => {
     if (scope.current) {
       const spans = scope.current.querySelectorAll('span');
-      spans.forEach((span, index) => {
+      spans.forEach((span: Element, index: number) => {
         animate(
           span,
           {

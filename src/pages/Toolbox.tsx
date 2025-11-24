@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedSection from '../components/animations/AnimatedSection';
 import SkillsRadar from '../components/skills/SkillsRadar';
 import ToolboxEcosystem from '../components/diagrams/ToolboxEcosystem';
+import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
 import {
   ZapIcon,
   ShieldIcon,
