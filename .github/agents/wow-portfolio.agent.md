@@ -14,7 +14,7 @@ Your primary mission is to transform the mem-rebuild-pl repository into a market
 ### 1. Repository Audit
 
 - **Build Pipeline Analysis**: Examine the full build pipeline for issues, bottlenecks, or misconfigurations
-  - Review `vite.config.ts` (or `vite.config.js`) for proper configuration
+  - Review `vite.config.js` for proper configuration
   - Check `package.json` scripts for build/deploy workflows
   - Validate TypeScript configuration and compilation settings
   - Test build process end-to-end
@@ -62,8 +62,8 @@ Develop three new showcase pages that highlight professional capabilities:
     - CI/CD pipelines visualization
     - Infrastructure management approach
   - **Technical architecture explanation**:
-    - `vite.config.ts` base path logic (GitHub Pages `/mem-rebuild-pl/` vs Cloudflare Pages `/`)
-    - Custom Element guard architecture (usage of `defineCustomElementIfNeeded`)
+    - `vite.config.js` base path logic (GitHub Pages `/mem-rebuild-pl/` vs Cloudflare Pages `/`)
+    - Custom Element guard architecture (usage of `defineCustomElementIfNeeded`, if exists)
     - Routing configuration for multiple deployment targets
   - **Build/Test/Deploy pipeline visuals**:
     - Include logs or screenshots from build processes
@@ -74,7 +74,7 @@ Develop three new showcase pages that highlight professional capabilities:
     - Diagrams showing deployment flow
     - Troubleshooting guides
 
-- **Case Study Viewer** (dynamic) (`/case-study/[slug]` → `src/pages/case-study/[slug].tsx`)
+- **Case Study Viewer** (dynamic) (`/case-studies/[slug]` → `src/pages/case-studies/[slug].tsx`)
   - Support both `.md` and `.mdx` case study formats
   - Implement dynamic loading from data sources
   - Add interactive elements (timelines, before/after comparisons)
@@ -93,10 +93,11 @@ Apply a cohesive brand identity throughout the site:
   - Ensure WCAG AA contrast compliance
 
 - **Typography**:
-  - **Font Family**: Montserrat for headings and body text
+  - **Font Family**: Montserrat for headings and body text (this is a brand refresh update)
   - Import from Google Fonts or bundle locally
   - Configure font weights and styles appropriately
   - Ensure responsive typography scales
+  - Update brand documentation to reflect the new font choice
 
 - **Homepage & Portfolio Gallery**:
   - Refresh hero section with brand colors and modern design
@@ -141,15 +142,16 @@ Archive non-production folders and optimize the repository:
 
 - **Archive Non-Production Folders**:
   - Create `archive/` directory at repository root
-  - Move the following folders to `archive/`:
+  - Move the following folders to `archive/` (with exceptions noted):
     - `docs/` - documentation that's been superseded or integrated into README
     - `reports/` - historical reports not needed for production
-    - `cli-workflow/` - ONLY after extracting tool information for showcase page
+    - `cli-workflow/` - **CAUTION**: Check package.json first. If `scrapeAndGenerate.js` or `copyAssets.js` are actively used in build scripts, keep them or migrate to `scripts/` folder instead of archiving
     - `prompts/` - scratch/development prompts not needed in production
   - **IMPORTANT**: Extract all relevant information BEFORE archiving
     - Scan folders for CLI tools, scripts, and automation
     - Document findings in the Tools Showcase page
     - Preserve any critical documentation in README or dedicated docs
+    - Verify scripts are not referenced in package.json or active workflows
   - Update `.gitignore` if needed to exclude `archive/` from production builds
   - Document archival decisions in commit messages
 
@@ -166,7 +168,7 @@ Archive non-production folders and optimize the repository:
 Ensure seamless deployment across different hosting environments:
 
 - **GitHub Pages Support** (`/mem-rebuild-pl/`):
-  - Configure `base` in `vite.config.ts` to support subdirectory deployment
+  - Configure `base` in `vite.config.js` to support subdirectory deployment
   - Update routing to handle base path correctly
   - Ensure asset paths are relative or absolute with base
   - Test with `--base=/mem-rebuild-pl/` build flag
@@ -179,8 +181,8 @@ Ensure seamless deployment across different hosting environments:
 
 - **Implementation in Key Files**:
   - `package.json`: Add build scripts for different environments
-  - `vite.config.ts`: Implement conditional base path logic
-  - `defineCustomElementGuard.ts`: Add explanatory comments if modified
+  - `vite.config.js`: Implement conditional base path logic
+  - `defineCustomElementGuard.ts`: Add explanatory comments if modified (if file exists)
 
 ### 7. Documentation Updates
 
@@ -193,7 +195,7 @@ Comprehensive README and documentation:
     - `/portfolio` - Portfolio gallery
     - `/tools` - CLI/MCP tools showcase
     - `/devops` - DevOps & deployment portfolio
-    - `/case-study/[slug]` - Dynamic case study pages
+    - `/case-studies/[slug]` - Dynamic case study pages (note: plural "case-studies")
     - `/resume` - Resume/CV page
   - How to add new case studies (step-by-step guide)
   - **Tool usage documentation**:
@@ -219,7 +221,7 @@ Before considering the work complete, validate all changes:
   - ✅ Portfolio page (`/portfolio`) displays correctly
   - ✅ Tools showcase (`/tools`) renders all discovered CLI/MCP tools
   - ✅ DevOps portfolio (`/devops`) shows deployment information
-  - ✅ Case study pages (`/case-study/[slug]`) load dynamically
+  - ✅ Case study pages (`/case-studies/[slug]`) load dynamically
   - ✅ Resume page (`/resume`) is accessible
   - ✅ No console errors or warnings (especially no "duplicate element" errors)
   - ✅ All routes work correctly with direct access
@@ -273,7 +275,7 @@ Follow proper version control practices:
     - DevOps Portfolio page (`/devops`)
     - Any other significant visual changes
   - **Validation checklist in PR**:
-    - All routes work: `/`, `/portfolio`, `/tools`, `/case-study/foo`, `/resume`
+    - All routes work: `/`, `/portfolio`, `/tools`, `/case-studies/foo`, `/resume`
     - No duplicate element errors
     - Clean console (no errors/warnings)
     - README updated with tool usage and how to add new CLI/MCP projects
@@ -307,14 +309,15 @@ Organize pages and content according to this structure:
 
 - **`src/pages/DevOpsPortfolio.tsx`** → Deployment, automation, architecture showcase
   - Document deployment workflows and configurations
-  - Explain `vite.config.ts` and custom element guard logic
+  - Explain `vite.config.js` and custom element guard logic (if exists)
 
-- **`src/pages/case-study/[slug].tsx`** → Dynamic MD/MDX case studies
+- **`src/pages/case-studies/[slug].tsx`** → Dynamic MD/MDX case studies (note: plural)
   - Support markdown and MDX formats
   - Dynamic routing for individual case studies
 
 - **`archive/`** → Non-production folders (not included in build)
-  - Move `docs/`, `reports/`, `cli-workflow/`, `prompts/` here AFTER extraction
+  - Move `docs/`, `reports/`, `prompts/` here AFTER extraction
+  - For `cli-workflow/`: only archive if scripts are not used in package.json
   - Keep for historical reference but exclude from production
 
 ## Getting Started
