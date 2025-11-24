@@ -38,15 +38,33 @@ const featuredCaseStudies = caseStudies
 
 const Portfolio: React.FC = () => {
   return (
-    <section id="portfolio" className="portfolio container-px mx-auto max-w-6xl py-16 md:py-24">
+    <section id="portfolio" className="portfolio container-px mx-auto max-w-6xl py-16 md:py-24 relative">
+      {/* Background gradient orb */}
       <motion.div
-        className="portfolio__header"
+        className="absolute top-20 left-10 w-96 h-96 bg-[var(--signal-500)]/5 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.15, 1],
+          opacity: [0.2, 0.4, 0.2],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        aria-hidden="true"
+      />
+
+      <motion.div
+        className="portfolio__header relative z-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
         <h2 className="section-heading">Featured Case Studies</h2>
+        <p className="text-lg text-[var(--parchment-050)]/60 mt-4 max-w-2xl mx-auto text-center font-body">
+          Real-world systems delivering measurable results
+        </p>
       </motion.div>
 
       <div className="portfolio__grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
