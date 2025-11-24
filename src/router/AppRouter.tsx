@@ -39,6 +39,7 @@ const GrastonCEU = React.lazy(() => import('../pages/case-studies/graston-ceu-sy
 const RBELaw = React.lazy(() => import('../pages/case-studies/rbe-law'));
 const UltimateTechROI = React.lazy(() => import('../pages/case-studies/ultimate-tech-roi'));
 const DesignSystemDemo = React.lazy(() => import('../pages/DesignSystemDemo'));
+const DeploymentStatus = React.lazy(() => import('../pages/DeploymentStatus'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
 
 // Loading component with accessible Loader
@@ -443,6 +444,14 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <DesignSystemDemo />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/deployment-status"
+              element={
+                <PageTransition>
+                  <DeploymentStatus />
                 </PageTransition>
               }
             />
