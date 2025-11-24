@@ -10,6 +10,7 @@ import TheGapDiagram from '../components/diagrams/TheGapDiagram';
 import VennDiagram from '../components/diagrams/VennDiagram';
 import AnchorNav from '../components/navigation/AnchorNav';
 import { OceanWavyBackground } from '../components/ui/OceanWavyBackground';
+import { GitHubStats } from '../components/github/GitHubStats';
 import { fadeInUp } from '../utils/animations';
 import './About.css';
 
@@ -278,6 +279,16 @@ const About: React.FC = () => {
                 These are documented results from production systems serving 30,000+ practitioners
                 worldwide.
               </p>
+
+              {/* GitHub Activity Stats */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mt-8"
+              >
+                <GitHubStats username="yesmannow" theme="dark" />
+              </motion.div>
             </div>
           </motion.div>
         </section>

@@ -4,6 +4,7 @@ import AnimatedSection from '../components/animations/AnimatedSection';
 import SkillsRadar from '../components/skills/SkillsRadar';
 import ToolboxEcosystem from '../components/diagrams/ToolboxEcosystem';
 import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
+import { SkillProgressBar } from '../components/ui/SkillProgressBar';
 import {
   ZapIcon,
   ShieldIcon,
@@ -84,6 +85,120 @@ const Toolbox: React.FC = () => {
       </AnimatedSection>
 
       <SkillsRadar />
+
+      {/* Top Skills Section with Progress Bars */}
+      <AnimatedSection delay={0.15}>
+        <section className="top-skills container mx-auto px-6 py-12">
+          <div className="section-intro mb-8">
+            <h2 className="text-2xl md:text-3xl font-semibold">Core Competencies</h2>
+            <p className="text-[var(--parchment-050)]/70">
+              Years of hands-on experience with quantified proficiency levels
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {/* Marketing Automation */}
+            <div className="space-y-4">
+              <SkillProgressBar
+                skill="Marketing Automation"
+                percentage={95}
+                years={8}
+                category="Expert"
+                color="primary"
+              />
+              <SkillProgressBar
+                skill="CRM Strategy & Implementation"
+                percentage={90}
+                years={7}
+                category="Expert"
+                color="primary"
+              />
+              <SkillProgressBar
+                skill="Email Marketing"
+                percentage={92}
+                years={10}
+                category="Expert"
+                color="primary"
+              />
+            </div>
+
+            {/* Analytics & Development */}
+            <div className="space-y-4">
+              <SkillProgressBar
+                skill="Google Analytics & Tag Manager"
+                percentage={90}
+                years={8}
+                category="Expert"
+                color="secondary"
+              />
+              <SkillProgressBar
+                skill="React & TypeScript"
+                percentage={85}
+                years={4}
+                category="Advanced"
+                color="secondary"
+              />
+              <SkillProgressBar
+                skill="WordPress Development"
+                percentage={95}
+                years={12}
+                category="Expert"
+                color="secondary"
+              />
+            </div>
+
+            {/* Paid Media & SEO */}
+            <div className="space-y-4">
+              <SkillProgressBar
+                skill="Google Ads Management"
+                percentage={88}
+                years={6}
+                category="Expert"
+                color="accent"
+              />
+              <SkillProgressBar
+                skill="Meta Ads (Facebook/Instagram)"
+                percentage={85}
+                years={5}
+                category="Advanced"
+                color="accent"
+              />
+              <SkillProgressBar
+                skill="Technical SEO"
+                percentage={90}
+                years={8}
+                category="Expert"
+                color="accent"
+              />
+            </div>
+
+            {/* Content & Strategy */}
+            <div className="space-y-4">
+              <SkillProgressBar
+                skill="Content Strategy"
+                percentage={92}
+                years={12}
+                category="Expert"
+                color="primary"
+              />
+              <SkillProgressBar
+                skill="Copywriting"
+                percentage={88}
+                years={10}
+                category="Expert"
+                color="primary"
+              />
+              <SkillProgressBar
+                skill="Brand Development"
+                percentage={85}
+                years={8}
+                category="Advanced"
+                color="primary"
+              />
+            </div>
+          </div>
+        </section>
+      </AnimatedSection>
 
       <ToolboxEcosystem />
 
