@@ -260,6 +260,7 @@
   "cleanUrls": true,
   "regions": ["iad1"],
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "PUPPETEER_SKIP_DOWNLOAD": "true"
   }
 }
