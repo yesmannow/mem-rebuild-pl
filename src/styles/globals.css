@@ -8,65 +8,65 @@
 
 @layer base {
   :root {
-    --background: 11 15% 8%; /* ink-900 */
-    --foreground: 244 22% 95%; /* parchment-050 */
-    --card: 30 20% 20%; /* ink-700 */
-    --card-foreground: 244 22% 95%;
-    --popover: 30 20% 20%;
-    --popover-foreground: 244 22% 95%;
-    --primary: 15 100% 62%; /* signal-500 */
-    --primary-foreground: 11 15% 8%;
-    --secondary: 180 100% 33%; /* telemetry-400 */
-    --secondary-foreground: 244 22% 95%;
-    --muted: 30 20% 20%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 15 100% 62%; /* signal-500 */
-    --accent-foreground: 11 15% 8%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 244 22% 95%;
-    --border: 30 20% 20%;
-    --input: 30 20% 20%;
-    --ring: 15 100% 62%; /* signal-500 */
-    --chart-1: 15 100% 62%;
-    --chart-2: 180 100% 33%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --background: 0 0% 100%; /* White */
+    --foreground: 188 100% 23%; /* Stormy Teal */
+    --card: 188 50% 95%; /* Alice Blue */
+    --card-foreground: 188 100% 23%; /* Stormy Teal */
+    --popover: 188 50% 95%; /* Alice Blue */
+    --popover-foreground: 188 100% 23%; /* Stormy Teal */
+    --primary: 188 100% 23%; /* Stormy Teal */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 175 40% 65%; /* Pearl Aqua */
+    --secondary-foreground: 188 100% 23%; /* Stormy Teal */
+    --muted: 188 20% 50%; /* Muted teal-gray */
+    --muted-foreground: 188 20% 40%;
+    --accent: 17 60% 68%; /* Tangerine Dream */
+    --accent-foreground: 0 0% 100%; /* White */
+    --destructive: 15 55% 60%; /* Darker tangerine */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --border: 188 30% 85%; /* Light teal border */
+    --input: 188 30% 85%; /* Light teal input */
+    --ring: 175 40% 65%; /* Pearl Aqua */
+    --chart-1: 188 100% 23%; /* Stormy Teal */
+    --chart-2: 175 40% 65%; /* Pearl Aqua */
+    --chart-3: 17 60% 68%; /* Tangerine Dream */
+    --chart-4: 188 50% 95%; /* Alice Blue */
+    --chart-5: 10 100% 90%; /* Almond Silk */
     --radius: 0.75rem; /* 12px */
 
-    /* Signalcraft Systems tokens */
-    --brand-bg: var(--color-neutral-1); /* ink-900 */
-    --brand-accent: var(--color-danger); /* signal-500 */
+    /* Ocean Pearl Delight tokens */
+    --brand-bg: var(--color-surface); /* Alice Blue */
+    --brand-accent: var(--color-accent); /* Tangerine Dream */
     --neutral-muted: var(--color-neutral-2);
-    --card-base: var(--color-dark); /* ink-700 */
-    --highlight: var(--color-success); /* telemetry-400 */
+    --card-base: var(--color-surface); /* Alice Blue */
+    --highlight: var(--color-secondary); /* Pearl Aqua */
   }
 
   .dark {
-    --background: 11 15% 8%; /* ink-900 */
-    --foreground: 244 22% 95%; /* parchment-050 */
-    --card: 30 20% 20%; /* ink-700 */
-    --card-foreground: 244 22% 95%;
-    --popover: 30 20% 20%;
-    --popover-foreground: 244 22% 95%;
-    --primary: 15 100% 62%; /* signal-500 */
-    --primary-foreground: 11 15% 8%;
-    --secondary: 180 100% 33%; /* telemetry-400 */
-    --secondary-foreground: 244 22% 95%;
-    --muted: 30 20% 20%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 15 100% 62%; /* signal-500 */
-    --accent-foreground: 11 15% 8%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 244 22% 95%;
-    --border: 30 20% 20%;
-    --input: 30 20% 20%;
-    --ring: 15 100% 62%; /* signal-500 */
-    --chart-1: 15 100% 62%;
-    --chart-2: 180 100% 33%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --background: 188 100% 23%; /* Stormy Teal */
+    --foreground: 188 50% 95%; /* Alice Blue */
+    --card: 188 100% 18%; /* Darker Stormy Teal */
+    --card-foreground: 188 50% 95%; /* Alice Blue */
+    --popover: 188 100% 18%; /* Darker Stormy Teal */
+    --popover-foreground: 188 50% 95%; /* Alice Blue */
+    --primary: 175 40% 65%; /* Pearl Aqua */
+    --primary-foreground: 188 100% 23%; /* Stormy Teal */
+    --secondary: 175 40% 65%; /* Pearl Aqua */
+    --secondary-foreground: 188 100% 23%; /* Stormy Teal */
+    --muted: 175 30% 50%; /* Muted aqua */
+    --muted-foreground: 175 40% 65%; /* Pearl Aqua */
+    --accent: 17 60% 68%; /* Tangerine Dream */
+    --accent-foreground: 188 100% 23%; /* Stormy Teal */
+    --destructive: 15 55% 60%; /* Darker tangerine */
+    --destructive-foreground: 188 50% 95%; /* Alice Blue */
+    --border: 188 100% 18%; /* Darker Stormy Teal */
+    --input: 188 100% 18%; /* Darker Stormy Teal */
+    --ring: 175 40% 65%; /* Pearl Aqua */
+    --chart-1: 175 40% 65%; /* Pearl Aqua */
+    --chart-2: 17 60% 68%; /* Tangerine Dream */
+    --chart-3: 188 50% 95%; /* Alice Blue */
+    --chart-4: 10 100% 90%; /* Almond Silk */
+    --chart-5: 188 100% 23%; /* Stormy Teal */
   }
 }
 
@@ -79,13 +79,13 @@
   }
 }
 
-/* Signalcraft Systems brand customizations */
+/* Ocean Pearl Delight brand customizations */
 :root {
-  --bc-bg: var(--ink-900);
-  --bc-text-primary: var(--parchment-050);
-  --bc-ember: var(--signal-500);
-  --bc-mist: var(--telemetry-400);
-  --bc-border: var(--ink-700);
+  --bc-bg: var(--color-surface); /* Alice Blue */
+  --bc-text-primary: var(--color-neutral-1); /* Stormy Teal */
+  --bc-ember: var(--color-accent); /* Tangerine Dream */
+  --bc-mist: var(--color-secondary); /* Pearl Aqua */
+  --bc-border: #c4e1e8; /* Light teal border */
 }
 
 /* Helper classes */
@@ -95,7 +95,7 @@
 }
 
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--signal-500)];
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-secondary)];
 }
 
 .blueprint-grid {

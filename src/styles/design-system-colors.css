@@ -1,41 +1,53 @@
 /* ===================================================================
    DESIGN SYSTEM COLOR TOKENS
-   Consolidated from 394 colors to 11-color palette
-   Generated: 2025-01-25
+   Ocean Pearl Delight Color Palette
+   Updated: 2025-01-25
    =================================================================== */
 
 :root {
+  /* ===== OCEAN PEARL DELIGHT PALETTE ===== */
+  /* Stormy Teal: Dark, moody teal - Primary brand color */
+  --color-stormy-teal: #006d77;
+  /* Pearl Aqua: Gentle seafoam - Secondary accent */
+  --color-pearl-aqua: #83c5be;
+  /* Alice Blue: Light morning mist - Light surfaces */
+  --color-alice-blue: #edf6f9;
+  /* Almond Silk: Gentle beige-pink - Warm accent */
+  --color-almond-silk: #ffddd2;
+  /* Tangerine Dream: Juicy citrus - Playful accent */
+  --color-tangerine-dream: #e29578;
+
   /* ===== PRIMARY BRAND COLORS ===== */
-  --color-primary: var(--color-primary);      /* CTAs, interactive accents */
-  --color-secondary: var(--color-secondary);    /* Links, highlights, hover states */
-  --color-accent: var(--color-accent);       /* Chips, highlights, UI accents */
+  --color-primary: #006d77;      /* Stormy Teal - CTAs, interactive accents */
+  --color-secondary: #83c5be;    /* Pearl Aqua - Links, highlights, hover states */
+  --color-accent: #e29578;       /* Tangerine Dream - Chips, highlights, UI accents */
 
   /* ===== SURFACE COLORS ===== */
-  --color-surface: var(--color-surface);      /* Cards, backgrounds */
-  --color-light: var(--color-light);        /* Backgrounds, surfaces */
-  --color-dark: var(--color-dark);         /* Footer, dark mode backgrounds */
+  --color-surface: #edf6f9;      /* Alice Blue - Cards, backgrounds */
+  --color-light: #ffffff;       /* Pure white - Backgrounds, surfaces */
+  --color-dark: #006d77;        /* Stormy Teal - Footer, dark mode backgrounds */
 
   /* ===== NEUTRAL COLORS ===== */
-  --color-neutral-1: var(--color-neutral-1);    /* Headings, high-contrast text */
-  --color-neutral-2: var(--color-neutral-2);    /* Meta, secondary text */
+  --color-neutral-1: #006d77;    /* Stormy Teal - Headings, high-contrast text */
+  --color-neutral-2: #5a7a7d;    /* Muted teal-gray - Meta, secondary text */
 
   /* ===== SEMANTIC COLORS ===== */
-  --color-success: var(--color-success);       /* Success, positive badges */
-  --color-warning: var(--color-warning);       /* Alert, warning icons */
-  --color-danger: var(--color-danger);        /* Error state, destructive actions */
+  --color-success: #83c5be;      /* Pearl Aqua - Success, positive badges */
+  --color-warning: #e29578;      /* Tangerine Dream - Alert, warning icons */
+  --color-danger: #d97757;       /* Darker tangerine - Error state, destructive actions */
 
   /* ===== ADDITIONAL TOKENS (for edge cases) ===== */
   /* These are mapped from unmapped colors that need specific tokens */
-  --color-neutral-50: var(--color-surface);   /* Very light neutral */
-  --color-neutral-100: var(--color-surface);  /* Light neutral */
-  --color-neutral-200: var(--color-surface);  /* Light gray */
-  --color-neutral-300: var(--color-surface);  /* Medium light gray */
-  --color-neutral-400: var(--color-neutral-2);  /* Medium gray */
-  --color-neutral-500: var(--color-neutral-2);  /* Same as neutral-2, for consistency */
-  --color-neutral-600: var(--color-neutral-2);  /* Medium dark gray */
-  --color-neutral-700: var(--color-dark);  /* Dark gray */
-  --color-neutral-800: var(--color-dark);  /* Very dark gray */
-  --color-neutral-900: var(--color-neutral-1);  /* Same as neutral-1, for consistency */
+  --color-neutral-50: #edf6f9;   /* Alice Blue - Very light neutral */
+  --color-neutral-100: #d4e8ed;  /* Lighter Alice Blue - Light neutral */
+  --color-neutral-200: #b8d9e1;  /* Light teal - Light gray */
+  --color-neutral-300: #9ccad5;  /* Medium light teal - Medium light gray */
+  --color-neutral-400: #5a7a7d;  /* Muted teal-gray - Medium gray */
+  --color-neutral-500: #5a7a7d;  /* Muted teal-gray - Same as neutral-2, for consistency */
+  --color-neutral-600: #4a6a6d;  /* Darker muted - Medium dark gray */
+  --color-neutral-700: #006d77;  /* Stormy Teal - Dark gray */
+  --color-neutral-800: #005a63;  /* Darker Stormy Teal - Very dark gray */
+  --color-neutral-900: #006d77;  /* Stormy Teal - Same as neutral-1, for consistency */
 
   /* ===== LEGACY COMPATIBILITY ===== */
   /* Maintain backward compatibility with existing tokens */

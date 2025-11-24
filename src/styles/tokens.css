@@ -4,19 +4,19 @@
    =================================================================== */
 
 :root {
-  /* ===== SIGNALCRAFT COLOR SYSTEM ===== */
-  --ink-900: var(--color-neutral-1); /* Obsidian - Base background */
-  --ink-700: var(--color-dark); /* Graphite - Secondary surfaces */
-  --parchment-050: var(--color-surface); /* Parchment - Light surface */
-  --signal-500: var(--color-danger); /* Signal Orange - Primary accent */
-  --telemetry-400: var(--color-success); /* Telemetry Teal - Secondary accent */
+  /* ===== OCEAN PEARL DELIGHT COLOR SYSTEM ===== */
+  --ink-900: var(--color-neutral-1); /* Stormy Teal - Base background */
+  --ink-700: #005a63; /* Darker Stormy Teal - Secondary surfaces */
+  --parchment-050: var(--color-surface); /* Alice Blue - Light surface */
+  --signal-500: var(--color-accent); /* Tangerine Dream - Primary accent */
+  --telemetry-400: var(--color-secondary); /* Pearl Aqua - Secondary accent */
 
   /* Shadow system */
   --shadow-signal: 0 20px 40px rgba(15, 20, 24, 0.35);
 
   /* Legacy aliases for compatibility */
-  --color-primary: var(--signal-500);
-  --color-accent: var(--signal-500);
+  --color-primary: #006d77; /* Stormy Teal */
+  --color-accent: #e29578; /* Tangerine Dream */
   --color-bg: var(--ink-900);
   --color-text: var(--parchment-050);
   --color-text-muted: var(--color-neutral-2);
@@ -52,7 +52,7 @@
   --glow-blue: none; /* Removed */
   --glow-pink: none; /* Removed */
   --glow-brand: none; /* Removed */
-  --glow-subtle: 0 0 8px rgba(255, 107, 61, 0.2); /* Signal orange subtle glow */
+  --glow-subtle: 0 0 8px rgba(226, 149, 120, 0.2); /* Tangerine Dream subtle glow */
 
   /* ===== SHADOWS ===== */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -60,7 +60,7 @@
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  --shadow-brand: 0 10px 30px rgba(59, 130, 246, 0.2), 0 5px 15px rgba(236, 72, 153, 0.1);
+  --shadow-brand: 0 10px 30px rgba(0, 109, 119, 0.2), 0 5px 15px rgba(131, 197, 190, 0.1);
 
   /* ===== GLASSMORPHISM ===== */
   --glass-bg: rgba(255, 255, 255, 0.1);
@@ -212,12 +212,12 @@
 :root {
   /* Theme-aware tokens for dynamic theming */
   --bg: var(--color-light);
-  --card: var(--color-light);
-  --border: var(--color-surface);
-  --text: var(--color-neutral-1);
+  --card: var(--color-surface); /* Alice Blue */
+  --border: #c4e1e8; /* Lighter teal border */
+  --text: var(--color-neutral-1); /* Stormy Teal */
   --muted: var(--color-neutral-2);
-  --accent: var(--color-primary); /* blue */
-  --ring: var(--color-surface);
+  --accent: var(--color-primary); /* Stormy Teal */
+  --ring: var(--color-secondary); /* Pearl Aqua */
 
   --font-brand: 'Inter', system-ui, sans-serif;
   --font-ui: 'Inter', system-ui, sans-serif;
@@ -229,12 +229,12 @@
 
 /* Dark Mode */
 html.dark {
-  --bg: var(--color-neutral-1);
-  --card: var(--color-neutral-1);
-  --border: var(--color-dark);
-  --text: var(--color-surface);
-  --muted: var(--color-neutral-2);
-  --accent: var(--color-secondary); /* lighter blue */
+  --bg: var(--color-neutral-1); /* Stormy Teal */
+  --card: #005a63; /* Darker Stormy Teal */
+  --border: #004d55; /* Even darker teal */
+  --text: var(--color-surface); /* Alice Blue */
+  --muted: var(--color-secondary); /* Pearl Aqua */
+  --accent: var(--color-secondary); /* Pearl Aqua */
   --ring: var(--color-secondary);
 
   /* CSS color-scheme for Firefox/Opera support */

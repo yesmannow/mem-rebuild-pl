@@ -1,38 +1,45 @@
 /**
  * Design Tokens - TypeScript Type-Safe Access
- * 
+ *
  * This file provides programmatic access to design tokens defined in tokens.css
  * Use for animations, dynamic styles, and component logic
  */
 
 export const colors = {
+  // Ocean Pearl Delight Palette
+  stormyTeal: '#006d77', // Primary - Dark, moody teal
+  pearlAqua: '#83c5be', // Secondary - Gentle seafoam
+  aliceBlue: '#edf6f9', // Light surface - Morning mist
+  almondSilk: '#ffddd2', // Warm accent - Beige-pink
+  tangerineDream: '#e29578', // Playful accent - Citrus burst
+
   // Primary Brand Colors
-  brandPrimary: '#3b82f6', // Electric Blue
-  brandAccent: '#ec4899', // Magenta Glow
-  brandBackground: '#0a0a0a', // Deep Black
-  brandText: '#ffffff', // Pure White
-  brandTextMuted: '#a1a1aa', // Zinc 400
-  
-  // Extended Palette
+  brandPrimary: '#006d77', // Stormy Teal
+  brandAccent: '#e29578', // Tangerine Dream
+  brandBackground: '#edf6f9', // Alice Blue
+  brandText: '#006d77', // Stormy Teal
+  brandTextMuted: '#5a7a7d', // Muted teal-gray
+
+  // Extended Palette (based on Ocean Pearl Delight)
   neutral: {
-    50: '#f9fafb',
-    100: '#f3f4f6',
-    200: '#e5e7eb',
-    300: '#d1d5db',
-    400: '#9ca3af',
-    500: '#6b7280',
-    600: '#4b5563',
-    700: '#374151',
-    800: '#1f2937',
-    900: '#111827',
-    950: '#0a0a0a',
+    50: '#edf6f9', // Alice Blue
+    100: '#d4e8ed', // Lighter Alice Blue
+    200: '#b8d9e1', // Light teal
+    300: '#9ccad5', // Medium light teal
+    400: '#7ab5c2', // Medium teal
+    500: '#5a7a7d', // Muted teal-gray
+    600: '#4a6a6d', // Darker muted
+    700: '#3a5a5d', // Dark teal
+    800: '#2a4a4d', // Very dark teal
+    900: '#006d77', // Stormy Teal
+    950: '#005a63', // Darker Stormy Teal
   },
-  
+
   // Semantic Colors
-  success: '#10b981',
-  warning: '#f59e0b',
-  error: '#ef4444',
-  info: '#3b82f6',
+  success: '#83c5be', // Pearl Aqua
+  warning: '#e29578', // Tangerine Dream
+  error: '#d97757', // Darker tangerine
+  info: '#006d77', // Stormy Teal
 } as const;
 
 export const typography = {
@@ -42,7 +49,7 @@ export const typography = {
     body: '"Karla", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     mono: 'ui-monospace, "SFMono-Regular", "Menlo", "Monaco", "Consolas", monospace',
   },
-  
+
   // Type Scale (in rem)
   scale: {
     xs: '0.75rem',    // 12px
@@ -59,7 +66,7 @@ export const typography = {
     '8xl': '6rem',     // 96px
     '9xl': '8rem',     // 128px
   },
-  
+
   // Line Heights
   leading: {
     tight: '1.25',
@@ -68,7 +75,7 @@ export const typography = {
     relaxed: '1.625',
     loose: '2',
   },
-  
+
   // Font Weights
   weight: {
     light: '300',
@@ -103,7 +110,7 @@ export const motion = {
     slow: 500,
     slower: 800,
   },
-  
+
   // Easing Functions
   easing: {
     linear: 'linear',
@@ -114,7 +121,7 @@ export const motion = {
     dramatic: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
     smooth: 'cubic-bezier(0.45, 0, 0.15, 1)',
   },
-  
+
   // Stagger delays for orchestrated animations (in ms)
   stagger: {
     short: 100,
@@ -138,8 +145,8 @@ export const shadows = {
   lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
   xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
   '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-  brand: '0 10px 30px rgba(59, 130, 246, 0.2), 0 5px 15px rgba(236, 72, 153, 0.1)',
-  glow: '0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(236, 72, 153, 0.2)',
+  brand: '0 10px 30px rgba(0, 109, 119, 0.2), 0 5px 15px rgba(131, 197, 190, 0.1)',
+  glow: '0 0 20px rgba(0, 109, 119, 0.3), 0 0 40px rgba(131, 197, 190, 0.2)',
 } as const;
 
 export const zIndex = {
@@ -183,17 +190,17 @@ export type BrandTheme = 'default' | 'cmo' | 'dev';
 
 export const brandThemes: Record<BrandTheme, { accent: string; font: string; radius: string }> = {
   default: {
-    accent: colors.brandAccent,
+    accent: colors.tangerineDream, // Tangerine Dream
     font: typography.fonts.body,
     radius: radius.xl,
   },
   cmo: {
-    accent: '#0f3b82', // Navy
+    accent: colors.stormyTeal, // Stormy Teal
     font: typography.fonts.heading,
     radius: radius.lg,
   },
   dev: {
-    accent: '#22d3ee', // Cyan
+    accent: colors.pearlAqua, // Pearl Aqua
     font: typography.fonts.mono,
     radius: radius['2xl'],
   },

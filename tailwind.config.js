@@ -11,24 +11,32 @@ export default {
   theme: {
   	extend: {
 		colors: {
+			// Ocean Pearl Delight Palette
+			'ocean': {
+				'stormy-teal': '#006d77',
+				'pearl-aqua': '#83c5be',
+				'alice-blue': '#edf6f9',
+				'almond-silk': '#ffddd2',
+				'tangerine-dream': '#e29578',
+			},
 			ink: {
-				900: '#0b1014',
-				700: '#1e2a32',
+				900: '#006d77', // Stormy Teal
+				700: '#005a63', // Darker Stormy Teal
 			},
 			parchment: {
-				50: '#f4efe5',
+				50: '#edf6f9', // Alice Blue
 			},
 			signal: {
-				500: '#ff6b3d',
+				500: '#e29578', // Tangerine Dream
 			},
 			telemetry: {
-				400: '#00a8a8',
+				400: '#83c5be', // Pearl Aqua
 			},
 			brand: {
-				bg: '#0b1014', // ink-900
-				accent: '#ff6b3d', // signal-500
-				400: '#00a8a8', // telemetry-400
-				500: '#ff6b3d' // signal-500
+				bg: '#edf6f9', // Alice Blue
+				accent: '#e29578', // Tangerine Dream
+				400: '#83c5be', // Pearl Aqua
+				500: '#006d77' // Stormy Teal
 			},
 			neutral: {
 				muted: '#94a3b8'
@@ -68,36 +76,38 @@ export default {
   			text: 'var(--text)',
   			mute: 'var(--muted)',
   			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
+  				DEFAULT: '#e29578', // Tangerine Dream
+  				foreground: '#ffffff', // White text on accent
+  				warm: '#ffddd2', // Almond Silk
+  				citrus: '#e29578', // Tangerine Dream
   			},
   			ring: 'hsl(var(--ring))',
   			border: 'hsl(var(--border))',
   			primary: {
-  				'50': '#eff6ff',
-  				'100': '#dbeafe',
-  				'200': '#bfdbfe',
-  				'300': '#93c5fd',
-  				'400': '#60a5fa',
-  				'500': '#3b82f6',
-  				'600': '#2563eb',
-  				'700': '#1d4ed8',
-  				'800': '#1e40af',
-  				'900': '#1e3a8a',
+  				'50': '#edf6f9', // Alice Blue
+  				'100': '#d4e8ed', // Lighter Alice Blue
+  				'200': '#b8d9e1', // Light teal
+  				'300': '#7ab5c2', // Medium teal
+  				'400': '#5a7a7d', // Muted teal-gray
+  				'500': '#006d77', // Stormy Teal
+  				'600': '#005a63', // Darker Stormy Teal
+  				'700': '#004d55', // Very dark teal
+  				'800': '#003d44', // Darker
+  				'900': '#002d33', // Darkest
   				DEFAULT: 'hsl(var(--primary))',
   				foreground: 'hsl(var(--primary-foreground))'
   			},
   			secondary: {
-  				'50': '#fdf2f8',
-  				'100': '#fce7f3',
-  				'200': '#fbcfe8',
-  				'300': '#f9a8d4',
-  				'400': '#f472b6',
-  				'500': '#ec4899',
-  				'600': '#db2777',
-  				'700': '#be185d',
-  				'800': '#9d174d',
-  				'900': '#831843',
+  				'50': '#f0f9f8', // Very light aqua
+  				'100': '#d4e8ed', // Light aqua
+  				'200': '#b8d9e1', // Light teal
+  				'300': '#9ccad5', // Medium light teal
+  				'400': '#7ab5c2', // Medium teal
+  				'500': '#83c5be', // Pearl Aqua
+  				'600': '#6ba8a1', // Darker Pearl Aqua
+  				'700': '#538b84', // Dark aqua
+  				'800': '#3b6e67', // Very dark aqua
+  				'900': '#23514a', // Darkest aqua
   				DEFAULT: 'hsl(var(--secondary))',
   				foreground: 'hsl(var(--secondary-foreground))'
   			},
@@ -131,13 +141,15 @@ export default {
   			card: '0 8px 30px rgba(0,0,0,0.35)',
   			soft: '0 10px 30px rgba(0,0,0,.06)',
   			'soft-dark': '0 10px 30px rgba(0,0,0,.3)',
-  			accent: '0 4px 20px rgba(60, 198, 196, 0.3)',
-  			cta: '0 8px 25px rgba(255, 158, 88, 0.4)',
+  			accent: '0 4px 20px rgba(131, 197, 190, 0.3)', // Pearl Aqua glow
+  			cta: '0 8px 25px rgba(226, 149, 120, 0.4)', // Tangerine Dream glow
   			'case-study-glow': '0px 0px 40px var(--case-study-glow)',
   		},
   		backgroundImage: {
   			'case-study-gradient': 'var(--case-study-gradient)',
-  			'brand-grad': 'linear-gradient(135deg, rgb(105 223 206 / 0.35), rgb(242 163 96 / 0.35))'
+  			'brand-grad': 'linear-gradient(135deg, rgb(131 197 190 / 0.35), rgb(226 149 120 / 0.35))', // Pearl Aqua to Tangerine Dream
+  			'ocean-grad': 'linear-gradient(135deg, #006d77, #83c5be)', // Stormy Teal to Pearl Aqua
+  			'pearl-grad': 'linear-gradient(135deg, #edf6f9, #ffddd2)', // Alice Blue to Almond Silk
   		},
 		fontFamily: {
 			sans: [
