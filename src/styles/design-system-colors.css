@@ -1,0 +1,33 @@
+/* Design System Color Tokens */
+/* Generated from color consolidation analysis */
+/* Update date: 2025-11-24T05:44:00.313Z */
+
+:root {
+  /* Primary Brand Colors */
+  --color-primary: #005AE2;
+  --color-secondary: #23D2D5;
+  --color-accent: #FFD600;
+  
+  /* Surface Colors */
+  --color-surface: #F6F8FA;
+  --color-light: #FFFFFF;
+  --color-dark: #1B263B;
+  
+  /* Neutral Colors */
+  --color-neutral-1: #111827;
+  --color-neutral-2: #6B7280;
+  
+  /* Semantic Colors */
+  --color-success: #34D399;
+  --color-warning: #F59E42;
+  --color-danger: #EF4444;
+}
+
+/* Migration Notes:
+ * - 5 colors match exactly
+ * - 23 colors are close matches (<20 distance)
+ * - 31 colors are far matches (20-50 distance)
+ * - 334 colors need manual review
+ * 
+ * See reports/design-analysis/color-consolidation-report.json for full mapping
+ */

@@ -1,0 +1,44 @@
+{
+  "url": "https://mem-rebuild-pl.vercel.app/",
+  "colors": [
+    ""
+  ],
+  "fonts": [],
+  "components": {
+    "buttons": 8,
+    "cards": 15,
+    "modals": 0,
+    "navigation": 0,
+    "forms": 0,
+    "icons": 1
+  },
+  "meta": {
+    "viewport": "width=device-width, initial-scale=1.0",
+    "title": "Jacob Darling | Fractional CMO & Marketing Technologist",
+    "description": "Jacob Darling's professional marketing portfolio showcasing skills, experience, and projects.",
+    "keywords": "marketing, portfolio, Jacob Darling, creative technologist, projects, experience",
+    "author": "Jacob Darling",
+    "robots": "index, follow",
+    "language": "English",
+    "revisit-after": "7 days",
+    "theme-color": "#0D0D0F",
+    "msapplication-TileColor": "#0b0b0c",
+    "og:type": "website",
+    "og:url": "https://jacobdarling.com",
+    "og:title": "Jacob Darling - Marketing Portfolio",
+    "og:description": "Explore Jacob Darling's professional marketing portfolio.",
+    "og:image": "/path-to-image.jpg",
+    "og:site_name": "BearCave Marketing",
+    "og:locale": "en_US",
+    "twitter:card": "summary_large_image",
+    "twitter:url": "https://www.bearcavemarketing.com",
+    "twitter:title": "Jacob Darling | Strategic Marketing Technologist & Growth Architect",
+    "twitter:description": "16+ years of experience blending creative strategy, marketing automation, and systems thinking to drive scalable growth.",
+    "twitter:image": "https://mem-rebuild-pl.pages.dev/og-image.jpg",
+    "twitter:site": "@bearcavemarketing",
+    "twitter:creator": "@jacobdarling",
+    "googlebot": "index, follow"
+  },
+  "total_colors": 1,
+  "total_fonts": 0
+}

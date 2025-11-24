@@ -1,0 +1,38 @@
+{
+  "url": "https://mem-rebuild-pl.vercel.app/",
+  "linked_css": [
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100;9..144,200;9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap",
+      "media": "all",
+      "integrity": "",
+      "crossorigin": ""
+    },
+    {
+      "url": "https://mem-rebuild-pl.vercel.app/assets/index-a71552b4.css",
+      "media": "all",
+      "integrity": "",
+      "crossorigin": ""
+    },
+    {
+      "url": "https://mem-rebuild-pl.vercel.app/assets/BackToTop-84a23aea.css",
+      "media": "all",
+      "integrity": "",
+      "crossorigin": ""
+    },
+    {
+      "url": "https://mem-rebuild-pl.vercel.app/assets/AppRouter-98301a75.css",
+      "media": "all",
+      "integrity": "",
+      "crossorigin": ""
+    },
+    {
+      "url": "https://mem-rebuild-pl.vercel.app/assets/index-6728ed1a.css",
+      "media": "all",
+      "integrity": "",
+      "crossorigin": ""
+    }
+  ],
+  "inline_styles": [],
+  "total_linked": 5,
+  "total_inline": 0
+}
