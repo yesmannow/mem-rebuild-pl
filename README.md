@@ -138,7 +138,11 @@ Uses `vercel.json` for Vercel deployment. GitHub Pages optional via `/docs`.
 
 ## 🌐 Live Site
 
-[View Live Portfolio](https://yesmannow.github.io/mem-rebuild-pl/)
+**Production Deployment**: [https://mem-rebuild-55q0c32al-gpttttys-projects.vercel.app/](https://mem-rebuild-55q0c32al-gpttttys-projects.vercel.app/)
+
+Alternative: [GitHub Pages](https://yesmannow.github.io/mem-rebuild-pl/)
+
+> 📝 See [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md) for deployment configuration and troubleshooting.
 
 ## 🧠 Roadmap
 
