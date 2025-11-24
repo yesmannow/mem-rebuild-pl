@@ -10,7 +10,7 @@ const DevOpsPortfolio: React.FC = () => {
   return (
     <main className="devops-portfolio bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white min-h-screen relative">
       <OceanBackgroundBeams className="opacity-30" />
-      
+
       {/* Hero Section */}
       <AnimatedSection>
         <section className="container mx-auto px-6 py-16 relative z-10">
@@ -23,13 +23,13 @@ const DevOpsPortfolio: React.FC = () => {
               <Server className="w-4 h-4 text-turquoise" />
               <span className="text-sm font-medium text-turquoise">DevOps & Infrastructure</span>
             </div>
-            
+
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Deployment Architecture
             </h1>
-            
+
             <p className="text-xl text-blue-100 mb-8">
-              A deep dive into the technical architecture, deployment strategies, and build optimizations 
+              A deep dive into the technical architecture, deployment strategies, and build optimizations
               powering this portfolio—from dual base path logic to custom element guards.
             </p>
           </motion.div>
@@ -67,7 +67,7 @@ const DevOpsPortfolio: React.FC = () => {
       <AnimatedSection delay={0.2}>
         <section className="container mx-auto px-6 pb-16 relative z-10">
           <div className="max-w-6xl mx-auto">
-            
+
             {/* Architecture Tab */}
             {activeTab === 'architecture' && (
               <motion.div
@@ -80,12 +80,12 @@ const DevOpsPortfolio: React.FC = () => {
                     <Code className="w-8 h-8 text-turquoise" />
                     Technical Architecture
                   </h2>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-xl font-semibold text-turquoise mb-3">Build Tool: Vite</h3>
                       <p className="text-slate-300 mb-4">
-                        Lightning-fast development server with Hot Module Replacement (HMR), optimized builds, 
+                        Lightning-fast development server with Hot Module Replacement (HMR), optimized builds,
                         and intelligent code splitting. Vite leverages native ES modules for instant cold starts.
                       </p>
                       <ul className="space-y-2 text-slate-300">
@@ -145,11 +145,11 @@ const DevOpsPortfolio: React.FC = () => {
                     <GitBranch className="w-8 h-8 text-turquoise" />
                     Deployment Pipeline
                   </h2>
-                  
+
                   <div className="relative">
                     {/* Timeline line */}
-                    <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-turquoise via-blue-500 to-purple-500"></div>
-                    
+                    <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-turquoise via-brand-teal to-brand-teal"></div>
+
                     <div className="space-y-8">
                       {[
                         {
@@ -171,7 +171,7 @@ const DevOpsPortfolio: React.FC = () => {
                           title: 'Build',
                           desc: 'Production build with environment-specific configuration',
                           details: ['Vite production build', 'Code splitting', 'Asset optimization'],
-                          color: 'purple'
+                          color: 'teal'
                         },
                         {
                           step: '4',
@@ -206,14 +206,14 @@ const DevOpsPortfolio: React.FC = () => {
                 {/* GitHub Pages vs Cloudflare Comparison */}
                 <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
                   <h2 className="text-3xl font-bold mb-6">Platform Comparison</h2>
-                  
+
                   <div className="overflow-x-auto">
                     <table className="w-full text-left">
                       <thead>
                         <tr className="border-b border-slate-700">
                           <th className="py-4 px-4 font-semibold">Feature</th>
                           <th className="py-4 px-4 font-semibold text-blue-300">GitHub Pages</th>
-                          <th className="py-4 px-4 font-semibold text-purple-300">Cloudflare Pages</th>
+                          <th className="py-4 px-4 font-semibold text-brand-teal">Cloudflare Pages</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-slate-700/50">
@@ -300,8 +300,8 @@ const DevOpsPortfolio: React.FC = () => {
                         <li>• Good for open-source projects</li>
                       </ul>
                     </div>
-                    <div className="bg-purple-900/20 border border-purple-700 rounded-lg p-4">
-                      <h4 className="font-bold text-purple-300 mb-2">✓ Cloudflare Pages Pros</h4>
+                    <div className="bg-brand-teal/20 border border-brand-teal/50 rounded-lg p-4">
+                      <h4 className="font-bold text-brand-teal mb-2">✓ Cloudflare Pages Pros</h4>
                       <ul className="text-sm text-slate-300 space-y-1">
                         <li>• Faster global CDN</li>
                         <li>• Preview deployments for every PR</li>
@@ -310,21 +310,21 @@ const DevOpsPortfolio: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
                   <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                     <GitBranch className="w-8 h-8 text-turquoise" />
                     Dual Deployment Strategy
                   </h2>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-xl font-semibold text-creamsicle mb-3">Base Path Configuration</h3>
                       <p className="text-slate-300 mb-4">
-                        The portfolio supports deployment to both GitHub Pages (with subdirectory routing) 
+                        The portfolio supports deployment to both GitHub Pages (with subdirectory routing)
                         and custom domains (with root-level routing) using environment-based base path logic.
                       </p>
-                      
+
                       <div className="bg-slate-900 rounded-lg p-6 mb-4">
                         <div className="text-xs text-slate-400 mb-2">vite.config.js</div>
                         <pre className="text-sm text-slate-100 overflow-x-auto">
@@ -332,7 +332,7 @@ const DevOpsPortfolio: React.FC = () => {
   // Set base path for GitHub Pages deployment
   // Use '/' for root domain deployments (Vercel, Netlify, etc.)
   // Use repository name for GitHub Pages (e.g., '/mem-rebuild-pl/')
-  base: process.env.GITHUB_PAGES === 'true' 
+  base: process.env.GITHUB_PAGES === 'true'
     ? \`/\${process.env.GITHUB_REPOSITORY?.split('/')[1] || 'mem-rebuild-pl'}/\`
     : '/',
   // ... rest of config
@@ -352,9 +352,9 @@ const DevOpsPortfolio: React.FC = () => {
                             <div><strong>Build:</strong> GITHUB_PAGES=true npm run build</div>
                           </div>
                         </div>
-                        
-                        <div className="bg-gradient-to-br from-purple-900/50 to-slate-900/50 p-6 rounded-lg border border-purple-700">
-                          <h4 className="font-semibold text-purple-300 mb-3">Cloudflare Pages / Vercel</h4>
+
+                        <div className="bg-gradient-to-br from-brand-teal/20 to-slate-900/50 p-6 rounded-lg border border-brand-teal/50">
+                          <h4 className="font-semibold text-brand-teal mb-3">Cloudflare Pages / Vercel</h4>
                           <p className="text-sm text-slate-300 mb-3">
                             Deployed to root domain with clean URLs
                           </p>
@@ -379,7 +379,7 @@ const DevOpsPortfolio: React.FC = () => {
                             Type checking, linting, and image manifest generation
                           </p>
                         </div>
-                        
+
                         <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700">
                           <div className="flex items-center gap-3 mb-2">
                             <div className="w-8 h-8 bg-turquoise/20 rounded-full flex items-center justify-center text-turquoise font-bold">2</div>
@@ -389,7 +389,7 @@ const DevOpsPortfolio: React.FC = () => {
                             Vite production build with code splitting and optimization
                           </p>
                         </div>
-                        
+
                         <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700">
                           <div className="flex items-center gap-3 mb-2">
                             <div className="w-8 h-8 bg-turquoise/20 rounded-full flex items-center justify-center text-turquoise font-bold">3</div>
@@ -418,13 +418,13 @@ const DevOpsPortfolio: React.FC = () => {
                     <Shield className="w-8 h-8 text-turquoise" />
                     Custom Element Guards
                   </h2>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-xl font-semibold text-turquoise mb-3">The Problem</h3>
                       <p className="text-slate-300 mb-4">
-                        Custom elements (like TinyMCE's autosize textarea) can only be registered once. 
-                        In development with Vite's HMR, hot module reloads attempt to re-register elements, 
+                        Custom elements (like TinyMCE's autosize textarea) can only be registered once.
+                        In development with Vite's HMR, hot module reloads attempt to re-register elements,
                         causing <code className="px-2 py-1 bg-red-900/30 text-red-300 rounded">TypeError: Failed to execute 'define' on 'CustomElementRegistry'</code> errors.
                       </p>
                     </div>
@@ -434,7 +434,7 @@ const DevOpsPortfolio: React.FC = () => {
                       <p className="text-slate-300 mb-4">
                         A guard function that checks if an element is already registered before attempting to define it.
                       </p>
-                      
+
                       <div className="bg-slate-900 rounded-lg p-6 mb-4">
                         <div className="text-xs text-slate-400 mb-2">src/utils/defineCustomElementGuard.ts</div>
                         <pre className="text-sm text-slate-100 overflow-x-auto">
@@ -476,7 +476,7 @@ const DevOpsPortfolio: React.FC = () => {
                             Prevents SSR errors by checking for browser globals
                           </p>
                         </div>
-                        
+
                         <div className="bg-green-900/30 p-4 rounded-lg border border-green-700">
                           <h4 className="font-semibold text-green-300 mb-2 flex items-center gap-2">
                             <span className="text-2xl">2️⃣</span>
@@ -486,9 +486,9 @@ const DevOpsPortfolio: React.FC = () => {
                             Uses customElements.get() to check existing registrations
                           </p>
                         </div>
-                        
-                        <div className="bg-purple-900/30 p-4 rounded-lg border border-purple-700">
-                          <h4 className="font-semibold text-purple-300 mb-2 flex items-center gap-2">
+
+                        <div className="bg-brand-teal/20 p-4 rounded-lg border border-brand-teal/50">
+                          <h4 className="font-semibold text-brand-teal mb-2 flex items-center gap-2">
                             <span className="text-2xl">3️⃣</span>
                             Race Protection
                           </h4>
@@ -575,15 +575,15 @@ defineCustomElementIfNeeded('mce-autosize-textarea', AutosizeTextarea);
                     <Package className="w-8 h-8 text-turquoise" />
                     Bundle Optimization Metrics
                   </h2>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-xl font-semibold text-turquoise mb-3">Code Splitting Strategy</h3>
                       <p className="text-slate-300 mb-4">
-                        Intelligent code splitting reduces initial load time by splitting vendor libraries 
+                        Intelligent code splitting reduces initial load time by splitting vendor libraries
                         and lazy-loading page components.
                       </p>
-                      
+
                       <div className="bg-slate-900 rounded-lg p-6 mb-4">
                         <div className="text-xs text-slate-400 mb-2">vite.config.js - manualChunks</div>
                         <pre className="text-sm text-slate-100 overflow-x-auto">
@@ -601,13 +601,13 @@ defineCustomElementIfNeeded('mce-autosize-textarea', AutosizeTextarea);
                           <div className="text-sm text-slate-300">Vendor chunk (gzipped)</div>
                           <div className="text-xs text-slate-400 mt-2">React + React DOM</div>
                         </div>
-                        
-                        <div className="bg-gradient-to-br from-purple-900/50 to-slate-900/50 p-6 rounded-lg border border-purple-700">
-                          <div className="text-3xl font-bold text-purple-300 mb-2">~80KB</div>
+
+                        <div className="bg-gradient-to-br from-brand-teal/20 to-slate-900/50 p-6 rounded-lg border border-brand-teal/50">
+                          <div className="text-3xl font-bold text-brand-teal mb-2">~80KB</div>
                           <div className="text-sm text-slate-300">Motion chunk (gzipped)</div>
                           <div className="text-xs text-slate-400 mt-2">Framer Motion</div>
                         </div>
-                        
+
                         <div className="bg-gradient-to-br from-green-900/50 to-slate-900/50 p-6 rounded-lg border border-green-700">
                           <div className="text-3xl font-bold text-green-300 mb-2">~40KB</div>
                           <div className="text-sm text-slate-300">Router chunk (gzipped)</div>
@@ -621,7 +621,7 @@ defineCustomElementIfNeeded('mce-autosize-textarea', AutosizeTextarea);
                       <p className="text-slate-300 mb-4">
                         Each page is loaded on-demand, reducing the initial bundle size by ~70%.
                       </p>
-                      
+
                       <div className="bg-slate-900 rounded-lg p-6">
                         <div className="text-xs text-slate-400 mb-2">src/router/AppRouter.tsx</div>
                         <pre className="text-sm text-slate-100 overflow-x-auto">
@@ -641,7 +641,7 @@ const ToolsShowcase = React.lazy(() => import('../pages/ToolsShowcase'));
                       <p className="text-slate-300 mb-4">
                         Run bundle analysis with the Rollup visualizer plugin:
                       </p>
-                      
+
                       <div className="bg-slate-900 rounded-lg p-4">
                         <pre className="text-sm text-slate-100">
 {`ANALYZE=true npm run build`}
@@ -692,7 +692,7 @@ const ToolsShowcase = React.lazy(() => import('../pages/ToolsShowcase'));
       {/* Technology Summary */}
       <AnimatedSection delay={0.3}>
         <section className="container mx-auto px-6 pb-16 relative z-10">
-          <div className="max-w-5xl mx-auto bg-gradient-to-r from-turquoise via-blue-500 to-purple-500 rounded-2xl shadow-2xl p-8 md:p-12">
+          <div className="max-w-5xl mx-auto bg-gradient-to-r from-turquoise via-brand-teal to-brand-teal rounded-2xl shadow-2xl p-8 md:p-12">
             <h2 className="text-3xl font-bold mb-8 text-center text-white">Deployment Stack Summary</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center text-white">

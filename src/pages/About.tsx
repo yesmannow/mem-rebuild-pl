@@ -162,9 +162,10 @@ const About: React.FC = () => {
   ];
 
   return (
+    <div className="min-h-screen bg-brand-dark pt-24 pb-20">
     <OceanWavyBackground
       className="about-page"
-      containerClassName="min-h-screen"
+      containerClassName="min-h-full"
       speed="slow"
       waveOpacity={0.3}
       colors={['#006d77', '#83c5be', '#7ab5c2', '#ffddd2']}
@@ -392,6 +393,7 @@ const About: React.FC = () => {
       </AnimatedSection>
       </main>
     </OceanWavyBackground>
+    </div>
   );
 };
 

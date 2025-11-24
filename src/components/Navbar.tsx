@@ -8,10 +8,19 @@ const Navbar = () => {
   const location = useLocation();
 
   const navLinks = [
-    { name: 'Case Studies', path: '/case-studies' },
-    { name: 'Expertise', path: '/expertise' },
-    { name: 'Tools & CLI', path: '/tools' },
+    { name: 'Home', path: '/' },
+    { name: 'Work', path: '/case-studies' },
+    { name: 'About', path: '/about' },
+    { name: 'Stack', path: '/tools' },
+    { name: 'Inspiration', path: '/inspiration' },
   ];
+
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <nav className="fixed w-full z-50 bg-brand-dark/90 backdrop-blur-sm border-b border-brand-surface">
@@ -30,7 +39,7 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 className={`${
-                  location.pathname === link.path ? 'text-brand-teal' : 'text-brand-muted'
+                  isActive(link.path) ? 'text-brand-teal' : 'text-brand-muted'
                 } hover:text-brand-teal transition-colors font-medium text-sm uppercase tracking-wide`}
               >
                 {link.name}
@@ -41,7 +50,7 @@ const Navbar = () => {
               href="mailto:jacob@jacobdarling.com"
               className="bg-brand-teal text-brand-dark px-5 py-2.5 rounded-md font-bold hover:bg-white transition-all shadow-[0_0_15px_rgba(64,224,208,0.3)] hover:shadow-[0_0_25px_rgba(64,224,208,0.5)]"
             >
-              Let&apos;s Talk
+              Contact
             </a>
           </div>
 
@@ -63,11 +72,22 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-4 text-base font-medium text-brand-text hover:text-brand-teal hover:bg-brand-dark rounded-md"
+                className={`block px-3 py-4 text-base font-medium rounded-md ${
+                  isActive(link.path)
+                    ? 'text-brand-teal bg-brand-dark'
+                    : 'text-brand-text hover:text-brand-teal hover:bg-brand-dark'
+                }`}
               >
                 {link.name}
               </Link>
             ))}
+            <a
+              href="mailto:jacob@jacobdarling.com"
+              onClick={() => setIsOpen(false)}
+              className="block px-3 py-4 text-base font-medium bg-brand-teal text-brand-dark rounded-md hover:bg-white transition-all"
+            >
+              Contact
+            </a>
           </div>
         </div>
       )}

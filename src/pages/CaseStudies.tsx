@@ -81,6 +81,7 @@ const CaseStudies: React.FC = () => {
   const featuredCount = caseStudies.filter(s => s.featured).length;
 
   return (
+    <div className="min-h-screen bg-brand-dark pt-24 pb-20">
     <main className="case-studies-modern">
       {/* Hero Section with Ocean Gradient Animation */}
       <OceanGradientAnimation
@@ -353,6 +354,7 @@ const CaseStudies: React.FC = () => {
         )}
       </section>
     </main>
+    </div>
   );
 };
 

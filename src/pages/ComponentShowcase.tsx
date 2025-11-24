@@ -43,7 +43,7 @@ const ComponentShowcase: React.FC = () => {
                 </p>
               </GlassCard>
 
-              <GlassCard className="p-6" blur="lg" gradient="from-blue-500/10 to-purple-500/5">
+              <GlassCard className="p-6" blur="lg" gradient="from-brand-teal/10 to-brand-teal/5">
                 <div className="text-3xl mb-3">⚡</div>
                 <h3 className="text-xl font-semibold text-white mb-2">Performance</h3>
                 <p className="text-neutral-300">
@@ -94,7 +94,7 @@ const ComponentShowcase: React.FC = () => {
               </ParallaxSection>
 
               <ParallaxSection speed={0.6}>
-                <GlassCard className="p-8" gradient="from-purple-500/10 to-pink-500/5">
+                <GlassCard className="p-8" gradient="from-brand-teal/10 to-brand-teal/5">
                   <div className="text-4xl mb-4">🚀</div>
                   <h3 className="text-2xl font-semibold text-white mb-3">Fast Parallax</h3>
                   <p className="text-neutral-300">
