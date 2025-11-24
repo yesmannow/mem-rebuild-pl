@@ -17,6 +17,10 @@ import OrganizationSchema from '../components/seo/OrganizationSchema';
 import ServiceSchema from '../components/seo/ServiceSchema';
 import ReviewSchema from '../components/seo/ReviewSchema';
 import CaseStudyCard from '../components/cards/CaseStudyCard';
+// New interactive components - ready to use
+// import { AnimatedHero } from '../components/interactive/AnimatedHero';
+// import { StatCounter } from '../components/interactive/StatCounter';
+// import { TestimonialCarousel } from '../components/interactive/TestimonialCarousel';
 
 // Lazy load heavy components
 const PersonSchema = lazy(() => import('../components/seo/PersonSchema'));
@@ -110,6 +114,7 @@ const HomePage: React.FC = () => {
       <HeroCommandPanel />
 
       {/* Hero Intro Section - Keep for metrics display */}
+      {/* TODO: Consider replacing with AnimatedHero component for enhanced animations */}
       <HeroIntro
         metrics={[
           { label: 'Years Experience', value: '16+' },
@@ -118,6 +123,20 @@ const HomePage: React.FC = () => {
           { label: 'Systems Built', value: '100+' },
         ]}
       />
+
+      {/* Enhanced Stats Section - Using StatCounter component */}
+      {/* Uncomment to use animated stat counters:
+      <section className="py-16 bg-[var(--color-dark)]">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <StatCounter value={16} label="Years Experience" suffix="+" theme="primary" />
+            <StatCounter value={200} label="Projects Delivered" suffix="+" theme="secondary" />
+            <StatCounter value={50} label="Clients Served" suffix="+" theme="accent" />
+            <StatCounter value={100} label="Systems Built" suffix="+" theme="primary" />
+          </div>
+        </div>
+      </section>
+      */}
 
       {/* Featured Project Placeholder */}
       <section className="max-w-6xl mx-auto px-6 py-12">

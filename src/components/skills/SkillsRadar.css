@@ -22,7 +22,7 @@
 
 .section-intro p {
   font-size: 1.1rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
 }
 
 .skills-visualization {
@@ -95,7 +95,7 @@
 
 .radar-polygon {
   fill: rgba(136, 171, 242, 0.1);
-  stroke: #88abf2;
+  stroke: var(--color-secondary);
   stroke-width: 2;
   stroke-linejoin: round;
 }
@@ -139,7 +139,7 @@
 .label-text {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #d1d5db;
+  color: var(--color-surface);
   background: #0d0d0d;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
@@ -154,7 +154,7 @@
 .skills-list h4 {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 1rem;
@@ -240,7 +240,7 @@
 .skill-level {
   font-size: 0.75rem;
   font-weight: 700;
-  color: #88abf2;
+  color: var(--color-secondary);
 }
 
 .skill-progress {
@@ -260,7 +260,7 @@
 
 .skill-description {
   font-size: 0.75rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   line-height: 1.4;
   margin: 0;
 }

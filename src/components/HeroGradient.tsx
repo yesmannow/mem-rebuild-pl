@@ -17,7 +17,7 @@ export default function HeroGradient({ children }: Readonly<{ children: React.Re
         <defs>
           <linearGradient id="archGradient" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#334155" />
-            <stop offset="100%" stopColor="#0f172a" />
+            <stop offset="100%" stopColor="var(--color-neutral-1)" />
           </linearGradient>
         </defs>
       </svg>

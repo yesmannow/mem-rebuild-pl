@@ -14,31 +14,31 @@ const skills = [
     icon: BarChart3,
     title: 'Analytics & Optimization',
     items: ['GA4', 'Tag Manager', 'Data Visualization', 'A/B Testing'],
-    color: '#3b82f6', // blue
+    color: 'var(--color-primary)', // blue
   },
   {
     icon: Code2,
     title: 'Development & Systems',
     items: ['WordPress', 'React', 'JS', 'PHP', 'REST APIs'],
-    color: '#10b981', // green
+    color: 'var(--color-success)', // green
   },
   {
     icon: Search,
     title: 'SEO & Paid Media',
     items: ['Google Ads', 'Meta Ads', 'LinkedIn Ads', 'Technical SEO'],
-    color: '#f59e0b', // amber
+    color: 'var(--color-warning)', // amber
   },
   {
     icon: Palette,
     title: 'Design & Content',
     items: ['Brand Systems', 'UI/UX', 'Copywriting', 'Content Strategy'],
-    color: '#ec4899', // pink
+    color: 'var(--color-danger)', // pink
   },
   {
     icon: Users,
     title: 'Leadership & Strategy',
     items: ['Cross-Functional Teams', 'Project Management', 'ROI Focus'],
-    color: '#06b6d4', // cyan
+    color: 'var(--color-secondary)', // cyan
   },
   {
     icon: Server,

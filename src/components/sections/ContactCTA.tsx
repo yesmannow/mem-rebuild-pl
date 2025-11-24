@@ -60,7 +60,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
   primaryHref = "/contact",
   secondaryText,
   secondaryHref,
-  gradientColors = ['#3b82f6', '#ec4899'],
+  gradientColors = ['var(--color-primary)', 'var(--color-danger)'],
   className = '',
 }) => {
   return (

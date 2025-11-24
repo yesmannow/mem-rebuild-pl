@@ -158,7 +158,7 @@ html.reduce-motion .contact-cta__button:hover {
 /* Ensure text on gradient background meets contrast */
 .contact-cta__title,
 .contact-cta__subtitle {
-  color: #ffffff; /* White text on colored gradient - ensure gradient is dark enough */
+  color: var(--color-light); /* White text on colored gradient - ensure gradient is dark enough */
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Enhance readability */
 }
 

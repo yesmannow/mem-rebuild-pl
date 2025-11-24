@@ -91,11 +91,11 @@ const SplashIntro: React.FC<SplashIntroProps> = ({
 
   const backgroundVariants = {
     initial: {
-      background: 'radial-gradient(circle at center, #0a0a0a 0%, #000000 100%)',
+      background: 'radial-gradient(circle at center, var(--color-neutral-1) 0%, #000000 100%)',
     },
     animate: {
       background: [
-        'radial-gradient(circle at center, #0a0a0a 0%, #000000 100%)',
+        'radial-gradient(circle at center, var(--color-neutral-1) 0%, #000000 100%)',
         'radial-gradient(circle at center, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)',
         'radial-gradient(circle at center, #88ABF210 0%, #667eea05 50%, #000000 100%)',
       ],

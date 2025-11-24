@@ -89,7 +89,7 @@ const TheGapDiagram: React.FC = () => {
           <svg className="connection-lines" viewBox="0 0 300 200" preserveAspectRatio="none">
             <motion.path
               d="M 0 100 Q 75 50 150 100"
-              stroke="#88ABF2"
+              stroke="var(--color-secondary)"
               strokeWidth="3"
               fill="none"
               initial={{ pathLength: 0, opacity: 0 }}
@@ -99,7 +99,7 @@ const TheGapDiagram: React.FC = () => {
             />
             <motion.path
               d="M 150 100 Q 225 150 300 100"
-              stroke="#88ABF2"
+              stroke="var(--color-secondary)"
               strokeWidth="3"
               fill="none"
               initial={{ pathLength: 0, opacity: 0 }}

@@ -134,8 +134,8 @@ const mountTimeout = setTimeout(() => {
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background: #0A0A0A;
-            color: #FFFFFF;
+            background: var(--color-neutral-1);
+            color: var(--color-light);
             padding: 2rem;
           }
           .error-boundary-content {
@@ -145,7 +145,7 @@ const mountTimeout = setTimeout(() => {
           .error-boundary-title {
             font-size: 2rem;
             margin-bottom: 1rem;
-            color: #3B82F6;
+            color: var(--color-primary);
           }
           .error-boundary-message {
             font-size: 1.1rem;
@@ -160,7 +160,7 @@ const mountTimeout = setTimeout(() => {
           .error-boundary-button {
             margin-top: 2rem;
             padding: 0.75rem 2rem;
-            background: #3B82F6;
+            background: var(--color-primary);
             color: white;
             border: none;
             border-radius: 8px;
@@ -168,7 +168,7 @@ const mountTimeout = setTimeout(() => {
             cursor: pointer;
           }
           .error-boundary-button:hover {
-            background: #2563EB;
+            background: var(--color-primary);
           }
         </style>
       `;
@@ -310,8 +310,8 @@ if (!React || !ReactDOM) {
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background: #0A0A0A;
-            color: #FFFFFF;
+            background: var(--color-neutral-1);
+            color: var(--color-light);
             padding: 2rem;
           }
           .error-boundary-content {
@@ -321,7 +321,7 @@ if (!React || !ReactDOM) {
           .error-boundary-title {
             font-size: 2rem;
             margin-bottom: 1rem;
-            color: #EF4444;
+            color: var(--color-danger);
           }
           .error-boundary-message {
             font-size: 1.1rem;
@@ -341,7 +341,7 @@ if (!React || !ReactDOM) {
           .error-boundary-button {
             margin-top: 2rem;
             padding: 0.75rem 2rem;
-            background: #3B82F6;
+            background: var(--color-primary);
             color: white;
             border: none;
             border-radius: 8px;
@@ -349,7 +349,7 @@ if (!React || !ReactDOM) {
             cursor: pointer;
           }
           .error-boundary-button:hover {
-            background: #2563EB;
+            background: var(--color-primary);
           }
         </style>
       `;

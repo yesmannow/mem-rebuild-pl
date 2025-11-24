@@ -34,7 +34,7 @@
 .back-link {
   display: inline-flex;
   align-items: center;
-  color: #88abf2;
+  color: var(--color-secondary);
   font-weight: 500;
   transition: all 0.3s ease;
   font-size: 1rem;
@@ -58,7 +58,7 @@
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1.5rem;
   line-height: 1.2;
-  background: linear-gradient(135deg, #88abf2 0%, #a8c5ff 100%);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #a8c5ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -76,7 +76,7 @@
   background: rgba(136, 171, 242, 0.15);
   border: 1px solid rgba(136, 171, 242, 0.3);
   border-radius: 8px;
-  color: #88abf2;
+  color: var(--color-secondary);
   font-weight: 600;
   font-size: 0.95rem;
 }
@@ -87,7 +87,7 @@
 
 .project-description .lead {
   font-size: 1.4rem;
-  color: #d1d5db;
+  color: var(--color-surface);
   line-height: 1.7;
   margin-bottom: 1.5rem;
   font-weight: 500;
@@ -95,7 +95,7 @@
 
 .project-description p {
   font-size: 1.1rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   line-height: 1.8;
   margin: 0;
 }
@@ -106,7 +106,7 @@
 
 .project-gallery h2 {
   font-size: 2rem;
-  color: #88abf2;
+  color: var(--color-secondary);
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -168,7 +168,7 @@
 }
 
 .btn-primary {
-  background: #88abf2;
+  background: var(--color-secondary);
   color: #0d0d0d;
   box-shadow: 0 4px 14px rgba(136, 171, 242, 0.3);
 }
@@ -181,8 +181,8 @@
 
 .btn-secondary {
   background: transparent;
-  color: #88abf2;
-  border: 2px solid #88abf2;
+  color: var(--color-secondary);
+  border: 2px solid var(--color-secondary);
 }
 
 .btn-secondary:hover {

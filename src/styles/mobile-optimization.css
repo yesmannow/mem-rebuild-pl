@@ -358,7 +358,7 @@ body {
 /* Dark Mode Mobile */
 @media (prefers-color-scheme: dark) {
   .mobile-dark {
-    background-color: #0f172a !important;
+    background-color: var(--color-neutral-1) !important;
     color: #f1f5f9 !important;
   }
 

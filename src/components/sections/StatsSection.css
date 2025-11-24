@@ -1,6 +1,6 @@
 .stats-section {
   padding: 6rem 2rem;
-  background: var(--bc-bg, #fff);
+  background: var(--bc-bg, var(--color-light));
 }
 
 .stats-section__container {
@@ -18,7 +18,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--bc-accent, #3b82f6);
+  color: var(--bc-accent, var(--color-primary));
   margin-bottom: 0.75rem;
 }
 
@@ -45,10 +45,10 @@
   font-weight: 700;
   line-height: 1;
   margin-bottom: 0.75rem;
-  color: var(--bc-accent, #3b82f6);
+  color: var(--bc-accent, var(--color-primary));
   background: linear-gradient(
     135deg,
-    var(--bc-accent, #3b82f6) 0%,
+    var(--bc-accent, var(--color-primary)) 0%,
     var(--bc-secondary, #8b5cf6) 100%
   );
   -webkit-background-clip: text;
@@ -59,7 +59,7 @@
 .stats-section__label {
   font-size: 1rem;
   font-weight: 500;
-  color: var(--bc-text-secondary, #6b7280);
+  color: var(--bc-text-secondary, var(--color-neutral-2));
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -75,7 +75,7 @@
 .stats-section--gradient {
   background: linear-gradient(
     135deg,
-    var(--bc-primary, #3b82f6) 0%,
+    var(--bc-primary, var(--color-primary)) 0%,
     var(--bc-secondary, #8b5cf6) 100%
   );
 }
@@ -83,11 +83,11 @@
 .stats-section--gradient .stats-section__title,
 .stats-section--gradient .stats-section__subtitle,
 .stats-section--gradient .stats-section__label {
-  color: #fff;
+  color: var(--color-light);
 }
 
 .stats-section--gradient .stats-section__value {
-  background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
+  background: linear-gradient(135deg, var(--color-light) 0%, rgba(255, 255, 255, 0.9) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

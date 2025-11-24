@@ -110,7 +110,7 @@ const ComponentShowcase: React.FC = () => {
             <h2 className="text-3xl font-bold text-white mb-8">Interactive Features</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard className="p-6">
-                <Sparkles className="w-8 h-8 text-[#88ABF2] mb-3" />
+                <Sparkles className="w-8 h-8 text-[var(--color-secondary)] mb-3" />
                 <h3 className="text-xl font-semibold text-white mb-2">Particle Hero</h3>
                 <p className="text-neutral-300 mb-4">
                   Interactive canvas-based particle system with mouse repulsion and connection lines.
@@ -123,7 +123,7 @@ const ComponentShowcase: React.FC = () => {
               </GlassCard>
 
               <GlassCard className="p-6">
-                <Zap className="w-8 h-8 text-[#88ABF2] mb-3" />
+                <Zap className="w-8 h-8 text-[var(--color-secondary)] mb-3" />
                 <h3 className="text-xl font-semibold text-white mb-2">Gradient Mesh</h3>
                 <p className="text-neutral-300 mb-4">
                   Animated gradient background using radial gradients and smooth transitions.
@@ -136,7 +136,7 @@ const ComponentShowcase: React.FC = () => {
               </GlassCard>
 
               <GlassCard className="p-6">
-                <Rocket className="w-8 h-8 text-[#88ABF2] mb-3" />
+                <Rocket className="w-8 h-8 text-[var(--color-secondary)] mb-3" />
                 <h3 className="text-xl font-semibold text-white mb-2">Floating Action Button</h3>
                 <p className="text-neutral-300 mb-4">
                   Magnetic FAB with smooth animations and hover tooltips for quick actions.

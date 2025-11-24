@@ -236,7 +236,7 @@ const ProcessDiagram: React.FC = () => {
                 <svg width="60" height="20" viewBox="0 0 60 20" fill="none">
                   <path
                     d="M0 10H55M55 10L48 3M55 10L48 17"
-                    stroke="#88ABF2"
+                    stroke="var(--color-secondary)"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"

@@ -40,7 +40,7 @@
 
 .hero-section__content {
   text-align: center;
-  color: var(--bc-text-primary, #fff);
+  color: var(--bc-text-primary, var(--color-light));
 }
 
 .hero-section__subtitle {
@@ -50,7 +50,7 @@
   letter-spacing: 0.1em;
   margin-bottom: 1rem;
   opacity: 0.9;
-  color: var(--bc-accent, #3b82f6);
+  color: var(--bc-accent, var(--color-primary));
 }
 
 .hero-section__title {
@@ -60,7 +60,7 @@
   margin-bottom: 1.5rem;
   background: linear-gradient(
     135deg,
-    var(--bc-text-primary, #fff) 0%,
+    var(--bc-text-primary, var(--color-light)) 0%,
     var(--bc-text-secondary, rgba(255, 255, 255, 0.8)) 100%
   );
   -webkit-background-clip: text;
@@ -104,7 +104,7 @@
 .hero-section--gradient {
   background: linear-gradient(
     135deg,
-    var(--bc-primary, #3b82f6) 0%,
+    var(--bc-primary, var(--color-primary)) 0%,
     var(--bc-secondary, #8b5cf6) 100%
   );
 }

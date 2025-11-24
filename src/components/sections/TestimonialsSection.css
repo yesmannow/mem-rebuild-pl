@@ -1,6 +1,6 @@
 .testimonials-section {
   padding: 6rem 2rem;
-  background: var(--bc-bg-secondary, #f9fafb);
+  background: var(--bc-bg-secondary, var(--color-surface));
 }
 
 .testimonials-section__container {
@@ -18,7 +18,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--bc-accent, #3b82f6);
+  color: var(--bc-accent, var(--color-primary));
   margin-bottom: 0.75rem;
 }
 
@@ -37,14 +37,14 @@
 
 .testimonials-section__item {
   padding: 2.5rem;
-  background: var(--bc-surface, #fff);
+  background: var(--bc-surface, var(--color-light));
   border-radius: 1rem;
-  border: 1px solid var(--bc-border, #e5e7eb);
+  border: 1px solid var(--bc-border, var(--color-surface));
   transition: all 0.3s ease;
 }
 
 .testimonials-section__item:hover {
-  border-color: var(--bc-accent, #3b82f6);
+  border-color: var(--bc-accent, var(--color-primary));
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -56,7 +56,7 @@
 
 .testimonials-section__star {
   font-size: 1.25rem;
-  color: var(--bc-border, #e5e7eb);
+  color: var(--bc-border, var(--color-surface));
 }
 
 .testimonials-section__star--filled {
@@ -96,7 +96,7 @@
 
 .testimonials-section__author-role {
   font-size: 0.875rem;
-  color: var(--bc-text-secondary, #6b7280);
+  color: var(--bc-text-secondary, var(--color-neutral-2));
 }
 
 /* Variants */

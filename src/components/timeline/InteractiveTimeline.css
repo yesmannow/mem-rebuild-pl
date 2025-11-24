@@ -1,7 +1,7 @@
 .interactive-timeline {
   padding: 5rem 0;
-  background: linear-gradient(to bottom, #0a0a0a, #000000);
-  color: #ffffff;
+  background: linear-gradient(to bottom, var(--color-neutral-1), #000000);
+  color: var(--color-light);
   position: relative;
   overflow: hidden;
 }
@@ -116,7 +116,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #ffffff;
+  color: var(--color-light);
 }
 
 .card-header h4 {

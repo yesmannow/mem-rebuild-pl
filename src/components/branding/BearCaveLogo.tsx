@@ -289,21 +289,21 @@ const BearCaveLogo: React.FC<BearCaveLogoProps> = ({
       <defs>
         {/* Main brand gradient */}
         <linearGradient id="bearcaveGradientMain" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#3b82f6" stopOpacity="1" />
+          <stop offset="0%" stopColor="var(--color-primary)" stopOpacity="1" />
           <stop offset="50%" stopColor="#8b5cf6" stopOpacity="1" />
-          <stop offset="100%" stopColor="#ec4899" stopOpacity="1" />
+          <stop offset="100%" stopColor="var(--color-danger)" stopOpacity="1" />
         </linearGradient>
 
         {/* Accent gradient for highlights */}
         <linearGradient id="bearcaveGradientAccent" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#60a5fa" stopOpacity="1" />
-          <stop offset="100%" stopColor="#f472b6" stopOpacity="1" />
+          <stop offset="0%" stopColor="var(--color-secondary)" stopOpacity="1" />
+          <stop offset="100%" stopColor="var(--color-danger)" stopOpacity="1" />
         </linearGradient>
 
         {/* Fill gradient for arch background */}
         <linearGradient id="bearcaveGradientFill" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.15" />
-          <stop offset="100%" stopColor="#ec4899" stopOpacity="0.05" />
+          <stop offset="0%" stopColor="var(--color-primary)" stopOpacity="0.15" />
+          <stop offset="100%" stopColor="var(--color-danger)" stopOpacity="0.05" />
         </linearGradient>
 
         {/* Enhanced glow filter */}
@@ -317,7 +317,7 @@ const BearCaveLogo: React.FC<BearCaveLogoProps> = ({
 
         {/* Shadow filter for depth */}
         <filter id="bearcaveShadow" x="-50%" y="-50%" width="200%" height="200%">
-          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#3b82f6" floodOpacity="0.3" />
+          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="var(--color-primary)" floodOpacity="0.3" />
         </filter>
       </defs>
 

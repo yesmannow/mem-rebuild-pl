@@ -35,11 +35,11 @@
     --radius: 0.75rem; /* 12px */
 
     /* Signalcraft Systems tokens */
-    --brand-bg: #0b1014; /* ink-900 */
-    --brand-accent: #ff6b3d; /* signal-500 */
-    --neutral-muted: #9aa1ab;
-    --card-base: #1e2a32; /* ink-700 */
-    --highlight: #00a8a8; /* telemetry-400 */
+    --brand-bg: var(--color-neutral-1); /* ink-900 */
+    --brand-accent: var(--color-danger); /* signal-500 */
+    --neutral-muted: var(--color-neutral-2);
+    --card-base: var(--color-dark); /* ink-700 */
+    --highlight: var(--color-success); /* telemetry-400 */
   }
 
   .dark {

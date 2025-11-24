@@ -55,7 +55,7 @@ export default function PaletteEditor({ baseColors }: PaletteEditorProps) {
           className="max-w-4xl mx-auto grid grid-cols-5 gap-4"
         >
           {steps.map((c, i) => {
-            const contrast = getContrast(c, '#ffffff');
+            const contrast = getContrast(c, 'var(--color-light)');
             const badge =
               contrast >= 7 ? 'AAA' : contrast >= 4.5 ? 'AA' : contrast >= 3 ? 'AA Large' : 'Fail';
 

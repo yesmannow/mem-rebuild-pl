@@ -91,7 +91,7 @@ const ToolboxEcosystem: React.FC = () => {
         <svg className="ecosystem-svg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet">
           <defs>
             <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#88ABF2" stopOpacity="0.6" />
+              <stop offset="0%" stopColor="var(--color-secondary)" stopOpacity="0.6" />
               <stop offset="100%" stopColor="#B8D0D9" stopOpacity="0.6" />
             </linearGradient>
             <filter id="connectionGlow">
@@ -146,7 +146,7 @@ const ToolboxEcosystem: React.FC = () => {
                   <motion.circle
                     key={`particle-${tool.id}-${connId}-${idx}`}
                     r="4"
-                    fill="#88ABF2"
+                    fill="var(--color-secondary)"
                     filter="url(#connectionGlow)"
                     initial={{ x: fromPos.x, y: fromPos.y, opacity: 0 }}
                     animate={{

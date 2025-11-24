@@ -61,11 +61,11 @@
 }
 
 .form-input-error {
-  border-color: #ef4444;
+  border-color: var(--color-danger);
 }
 
 .form-input-error:focus {
-  border-color: #ef4444;
+  border-color: var(--color-danger);
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
 
@@ -76,7 +76,7 @@
 
 .form-error {
   font-size: 0.875rem;
-  color: #ef4444;
+  color: var(--color-danger);
   margin-top: var(--bc-space-xs);
 }
 

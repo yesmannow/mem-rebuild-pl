@@ -1,7 +1,7 @@
 .ai-automation-showcase {
   padding: 5rem 0;
-  background: linear-gradient(to bottom, #000000, #0a0a0a);
-  color: #ffffff;
+  background: linear-gradient(to bottom, #000000, var(--color-neutral-1));
+  color: var(--color-light);
 }
 
 .showcase-container {
@@ -20,7 +20,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  background: linear-gradient(135deg, #8b5cf6, var(--color-danger));
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
@@ -32,7 +32,7 @@
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  background: linear-gradient(135deg, #8b5cf6, var(--color-danger));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -71,7 +71,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, transparent, var(--card-color, #88abf2), transparent);
+  background: linear-gradient(90deg, transparent, var(--card-color, var(--color-secondary)), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -105,16 +105,16 @@
 }
 
 .card-icon[data-color] {
-  background: linear-gradient(135deg, var(--card-color, #88abf2), var(--card-color-80, #88abf2));
+  background: linear-gradient(135deg, var(--card-color, var(--color-secondary)), var(--card-color-80, var(--color-secondary)));
 }
 
-.card-icon[data-color='#10b981'] {
-  --card-color: #10b981;
+.card-icon[data-color='var(--color-success)'] {
+  --card-color: var(--color-success);
   --card-color-80: rgba(16, 185, 129, 0.8);
 }
 
-.card-icon[data-color='#f59e0b'] {
-  --card-color: #f59e0b;
+.card-icon[data-color='var(--color-warning)'] {
+  --card-color: var(--color-warning);
   --card-color-80: rgba(245, 158, 11, 0.8);
 }
 
@@ -132,7 +132,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #ffffff;
+  color: var(--color-light);
 }
 
 .card-description {
@@ -174,7 +174,7 @@
   background: rgba(136, 171, 242, 0.2);
   border: 1px solid rgba(136, 171, 242, 0.3);
   border-radius: 12px;
-  color: #88abf2;
+  color: var(--color-secondary);
 }
 
 .card-expand-indicator {
@@ -187,7 +187,7 @@
 
 .automation-card:hover .card-expand-indicator {
   transform: translateX(5px);
-  color: #88abf2;
+  color: var(--color-secondary);
 }
 
 /* Chatbot Demo */
@@ -208,7 +208,7 @@
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #ffffff;
+  color: var(--color-light);
 }
 
 .demo-header p {
@@ -226,7 +226,7 @@
 .chatbot-toggle {
   width: 100%;
   padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  background: linear-gradient(135deg, #8b5cf6, var(--color-danger));
   border: none;
   color: white;
   font-size: 1rem;
@@ -239,7 +239,7 @@
 }
 
 .chatbot-toggle:hover {
-  background: linear-gradient(135deg, #7c3aed, #db2777);
+  background: linear-gradient(135deg, #7c3aed, var(--color-danger));
 }
 
 .chatbot-messages {
@@ -265,7 +265,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  background: linear-gradient(135deg, #8b5cf6, var(--color-danger));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -276,14 +276,14 @@
 }
 
 .chat-message.user .message-avatar {
-  background: linear-gradient(135deg, #0ea5e9, #88abf2);
+  background: linear-gradient(135deg, #0ea5e9, var(--color-secondary));
 }
 
 .message-text {
   background: rgba(255, 255, 255, 0.1);
   padding: 0.75rem 1rem;
   border-radius: 12px;
-  color: #fff;
+  color: var(--color-light);
   max-width: 70%;
   line-height: 1.5;
 }
@@ -305,7 +305,7 @@
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  color: #fff;
+  color: var(--color-light);
   font-size: 0.9rem;
 }
 
@@ -315,7 +315,7 @@
 
 .chatbot-input-area button {
   padding: 0.75rem;
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  background: linear-gradient(135deg, #8b5cf6, var(--color-danger));
   border: none;
   border-radius: 8px;
   color: white;

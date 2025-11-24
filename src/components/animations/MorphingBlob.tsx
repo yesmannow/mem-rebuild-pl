@@ -6,7 +6,7 @@ interface MorphingBlobProps {
   className?: string;
 }
 
-const MorphingBlob: React.FC<MorphingBlobProps> = ({ color = '#88ABF2', className = '' }) => {
+const MorphingBlob: React.FC<MorphingBlobProps> = ({ color = 'var(--color-secondary)', className = '' }) => {
   const pathVariants = {
     initial: {
       d: 'M45,-76.5C57.6,-68.9,66.7,-54.1,73.3,-38.2C79.9,-22.3,83.9,-5.3,82.2,11.3C80.5,27.9,73.1,44.1,61.3,55.8C49.5,67.5,33.3,74.7,16.2,78.1C-0.9,81.5,-18.9,81.1,-35.4,75.4C-51.9,69.7,-67,58.7,-76.1,43.8C-85.2,28.9,-88.3,10.1,-86.8,-8.2C-85.3,-26.5,-79.2,-44.3,-67.8,-56.8C-56.4,-69.3,-39.7,-76.5,-23.1,-78.9C-6.5,-81.3,10,-78.9,24.9,-73.8C39.8,-68.7,53,-61,45,-76.5Z',

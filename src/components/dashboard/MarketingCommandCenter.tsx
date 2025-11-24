@@ -211,8 +211,8 @@ const MarketingCommandCenter: React.FC = () => {
                 <Area
                   type="monotone"
                   dataKey="BounceRate"
-                  stroke="#ef4444"
-                  fill="#ef4444"
+                  stroke="var(--color-danger)"
+                  fill="var(--color-danger)"
                   fillOpacity={0.3}
                   animationDuration={1000}
                 />
@@ -274,7 +274,7 @@ const MarketingCommandCenter: React.FC = () => {
                 <Line
                   type="monotone"
                   dataKey="EmailOpenRate"
-                  stroke="#10b981"
+                  stroke="var(--color-success)"
                   strokeWidth={2}
                   name="Open Rate"
                   animationDuration={1000}
@@ -282,7 +282,7 @@ const MarketingCommandCenter: React.FC = () => {
                 <Line
                   type="monotone"
                   dataKey="EmailClickRate"
-                  stroke="#f59e0b"
+                  stroke="var(--color-warning)"
                   strokeWidth={2}
                   name="Click Rate"
                   animationDuration={1000}

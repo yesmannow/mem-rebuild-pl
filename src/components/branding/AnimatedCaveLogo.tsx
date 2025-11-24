@@ -111,13 +111,13 @@ export const AnimatedCaveLogo: React.FC<AnimatedCaveLogoProps> = ({
       <defs>
         {/* Signal Orange gradient */}
         <linearGradient id="signalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#ff6b3d" stopOpacity="0.9" />
+          <stop offset="0%" stopColor="var(--color-danger)" stopOpacity="0.9" />
           <stop offset="100%" stopColor="#ff8c5a" stopOpacity="0.7" />
         </linearGradient>
 
         {/* Telemetry Teal gradient */}
         <linearGradient id="telemetryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00a8a8" stopOpacity="0.8" />
+          <stop offset="0%" stopColor="var(--color-success)" stopOpacity="0.8" />
           <stop offset="100%" stopColor="#00d4d4" stopOpacity="0.6" />
         </linearGradient>
 
@@ -132,7 +132,7 @@ export const AnimatedCaveLogo: React.FC<AnimatedCaveLogoProps> = ({
 
         {/* Parchment texture */}
         <pattern id="parchmentTexture" patternUnits="userSpaceOnUse" width="4" height="4">
-          <rect width="4" height="4" fill="#f4efe5" />
+          <rect width="4" height="4" fill="var(--color-surface)" />
           <circle cx="1" cy="1" r="0.3" fill="#e8e0d0" opacity="0.3" />
           <circle cx="3" cy="3" r="0.2" fill="#e8e0d0" opacity="0.2" />
         </pattern>

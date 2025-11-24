@@ -83,7 +83,7 @@
 }
 
 .testimonial-card__star-icon {
-  color: #f59e0b;
+  color: var(--color-warning);
   margin: 0 auto var(--bc-space-lg);
   opacity: 0.9;
   filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.4));

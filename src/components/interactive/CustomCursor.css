@@ -13,7 +13,7 @@
   position: fixed;
   width: 8px;
   height: 8px;
-  background: #88abf2;
+  background: var(--color-secondary);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;

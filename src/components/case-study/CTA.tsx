@@ -46,8 +46,8 @@ const CaseStudyCTA: React.FC<CaseStudyCTAProps> = ({
             to={primaryAction.href}
             className="px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105"
             style={{
-              backgroundColor: visualIdentity?.accentColor || '#FF9E58',
-              color: '#fff',
+              backgroundColor: visualIdentity?.accentColor || 'var(--color-warning)',
+              color: 'var(--color-light)',
             }}
           >
             {primaryAction.label}

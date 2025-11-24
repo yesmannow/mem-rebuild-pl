@@ -26,7 +26,7 @@ const skillsData: SkillCategory[] = [
     level: 95,
     description: 'Site speed optimization & Core Web Vitals',
     icon: '⚡',
-    color: '#3b82f6',
+    color: 'var(--color-primary)',
   },
   {
     name: 'Security & Infrastructure',
@@ -34,7 +34,7 @@ const skillsData: SkillCategory[] = [
     level: 90,
     description: 'Infrastructure security & WAF implementation',
     icon: '🛡️',
-    color: '#10b981',
+    color: 'var(--color-success)',
   },
   {
     name: 'Analytics & Tracking',
@@ -42,7 +42,7 @@ const skillsData: SkillCategory[] = [
     level: 88,
     description: 'GA4, GTM & conversion tracking',
     icon: '📊',
-    color: '#f59e0b',
+    color: 'var(--color-warning)',
   },
   {
     name: 'Server Administration',
@@ -50,7 +50,7 @@ const skillsData: SkillCategory[] = [
     level: 85,
     description: 'Linux, Apache, PHP & MySQL management',
     icon: '🖥️',
-    color: '#ef4444',
+    color: 'var(--color-danger)',
   },
   {
     name: 'Development',
@@ -66,7 +66,7 @@ const skillsData: SkillCategory[] = [
     level: 80,
     description: 'SQL optimization & database design',
     icon: '💾',
-    color: '#06b6d4',
+    color: 'var(--color-secondary)',
   },
   {
     name: 'Marketing Technology',
@@ -74,7 +74,7 @@ const skillsData: SkillCategory[] = [
     level: 92,
     description: 'CRM automation & ad platform integration',
     icon: '🔄',
-    color: '#ec4899',
+    color: 'var(--color-danger)',
   },
 ];
 

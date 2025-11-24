@@ -89,7 +89,7 @@ export function TestimonialCard({
   const avatarUrl = useTestimonialAvatar(name, customColor);
 
   return (
-    <div className="testimonial-card" style={{ padding: '24px', backgroundColor: '#fff', borderRadius: '12px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
+    <div className="testimonial-card" style={{ padding: '24px', backgroundColor: 'var(--color-light)', borderRadius: '12px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
         <img 
           src={avatarUrl || undefined}
@@ -182,7 +182,7 @@ export function ContactQRCode({
         style={{
           display: 'block',
           margin: '0 auto',
-          border: '4px solid #fff',
+          border: '4px solid var(--color-light)',
           borderRadius: '8px',
           boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
         }}

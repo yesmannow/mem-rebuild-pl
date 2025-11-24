@@ -32,7 +32,7 @@ const ResultChart: React.FC<ResultChartProps> = ({
   data,
   type = 'line',
   dataKey = 'value',
-  color = '#3B82F6',
+  color = 'var(--color-primary)',
   title,
   height = 300,
 }) => {

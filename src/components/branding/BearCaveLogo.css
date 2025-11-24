@@ -77,7 +77,7 @@
 
 /* Ensure logo is readable on dark backgrounds */
 .bearcave-logo {
-  color: var(--bc-text-primary, #ffffff);
+  color: var(--bc-text-primary, var(--color-light));
 }
 
 /* Enhanced depth lines on hover */

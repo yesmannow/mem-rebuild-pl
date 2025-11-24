@@ -53,11 +53,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const updateThemeColor = React.useCallback((isDark: boolean) => {
     const themeColorMeta = document.querySelector('meta[name="theme-color"]');
     if (themeColorMeta) {
-      themeColorMeta.setAttribute('content', isDark ? '#0b0b0c' : '#ffffff');
+      themeColorMeta.setAttribute('content', isDark ? 'var(--color-neutral-1)' : 'var(--color-light)');
     } else {
       const meta = document.createElement('meta');
       meta.name = 'theme-color';
-      meta.content = isDark ? '#0b0b0c' : '#ffffff';
+      meta.content = isDark ? 'var(--color-neutral-1)' : 'var(--color-light)';
       document.head.appendChild(meta);
     }
     document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';

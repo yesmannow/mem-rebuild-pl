@@ -1,0 +1,3378 @@
+{
+  "totalFiles": 379,
+  "processed": 110,
+  "modified": 110,
+  "totalReplacements": 884,
+  "files": [
+    {
+      "file": "src/App.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#1e2a32",
+          "replacement": "var(--color-dark)",
+          "token": "--color-dark"
+        },
+        {
+          "original": "#0b1014",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        }
+      ]
+    },
+    {
+      "file": "src/main.tsx",
+      "replacements": 10,
+      "changes": [
+        {
+          "original": "#0A0A0A",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#FFFFFF",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3B82F6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#3B82F6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#2563EB",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#0A0A0A",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#FFFFFF",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#EF4444",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#3B82F6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#2563EB",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        }
+      ]
+    },
+    {
+      "file": "src/app/layout.tsx",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#0D0D0F",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        }
+      ]
+    },
+    {
+      "file": "src/components/ContactForm.css",
+      "replacements": 3,
+      "changes": [
+        {
+          "original": "#ef4444",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#ef4444",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#ef4444",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        }
+      ]
+    },
+    {
+      "file": "src/components/HeroGradient.tsx",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#0f172a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        }
+      ]
+    },
+    {
+      "file": "src/components/PaletteEditor.tsx",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/About.css",
+      "replacements": 10,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/About.tsx",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#EC4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/ApplicationDetail.css",
+      "replacements": 41,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#60a5fa",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/Applications.css",
+      "replacements": 41,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/BrandBuilder.css",
+      "replacements": 11,
+      "changes": [
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#10b981",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#10b981",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/BrandBuilder.tsx",
+      "replacements": 4,
+      "changes": [
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#10b981",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#f59e0b",
+          "replacement": "var(--color-warning)",
+          "token": "--color-warning"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/CaseStudies.css",
+      "replacements": 11,
+      "changes": [
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/CaseStudiesEnhanced.css",
+      "replacements": 5,
+      "changes": [
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/CaseStudyDetail.css",
+      "replacements": 38,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/CaseStudyDetail.tsx",
+      "replacements": 5,
+      "changes": [
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/ComponentShowcase.tsx",
+      "replacements": 3,
+      "changes": [
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/Contact.css",
+      "replacements": 50,
+      "changes": [
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#1f2937",
+          "replacement": "var(--color-dark)",
+          "token": "--color-dark"
+        },
+        {
+          "original": "#10b981",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#4b5563",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#e5e7eb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#111827",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#6b7280",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#f9fafb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/Contact.tsx",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#10b981",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/Design.css",
+      "replacements": 8,
+      "changes": [
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/DesignSystemDemo.tsx",
+      "replacements": 3,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/Gallery.css",
+      "replacements": 7,
+      "changes": [
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/InspirationDetail.css",
+      "replacements": 18,
+      "changes": [
+        {
+          "original": "#f9fafb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#6b7280",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#2563eb",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#f3f4f6",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#111827",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#6b7280",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#6b7280",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#111827",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#e5e7eb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/Photography.css",
+      "replacements": 10,
+      "changes": [
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/ProjectDetail.css",
+      "replacements": 9,
+      "changes": [
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/SideProjects.css",
+      "replacements": 19,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/Testimonials.css",
+      "replacements": 14,
+      "changes": [
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/Toolbox.css",
+      "replacements": 17,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/pdf/ResumePDF.tsx",
+      "replacements": 33,
+      "changes": [
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#1f2937",
+          "replacement": "var(--color-dark)",
+          "token": "--color-dark"
+        },
+        {
+          "original": "#3B82F6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#111827",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#3B82F6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#6b7280",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#3B82F6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#e5e7eb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#e5e7eb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#e5e7eb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        }
+      ]
+    },
+    {
+      "file": "src/router/AppRouter.css",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/styles/bearcave-brand.css",
+      "replacements": 9,
+      "changes": [
+        {
+          "original": "#0d0d0f",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#ff8a65",
+          "replacement": "var(--color-warning)",
+          "token": "--color-warning"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        }
+      ]
+    },
+    {
+      "file": "src/styles/case-study-tokens.css",
+      "replacements": 46,
+      "changes": [
+        {
+          "original": "#3CC6C4",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#0D0D0F",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#FF9E58",
+          "replacement": "var(--color-warning)",
+          "token": "--color-warning"
+        },
+        {
+          "original": "#0D0D0F",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#1A1D1F",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#3CC6C4",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#43bdfd",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#0e1a2b",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#7cf1d6",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#0e1a2b",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        }
+      ]
+    },
+    {
+      "file": "src/styles/critical.css",
+      "replacements": 6,
+      "changes": [
+        {
+          "original": "#0D0D0F",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#FFFFFF",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3B82F6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#EC4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#3B82F6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#EC4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        }
+      ]
+    },
+    {
+      "file": "src/styles/design-system-colors.css",
+      "replacements": 32,
+      "changes": [
+        {
+          "original": "#005AE2",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#23D2D5",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#FFD600",
+          "replacement": "var(--color-accent)",
+          "token": "--color-accent"
+        },
+        {
+          "original": "#F6F8FA",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#FFFFFF",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#1B263B",
+          "replacement": "var(--color-dark)",
+          "token": "--color-dark"
+        },
+        {
+          "original": "#111827",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#6B7280",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#34D399",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#F59E42",
+          "replacement": "var(--color-warning)",
+          "token": "--color-warning"
+        }
+      ]
+    },
+    {
+      "file": "src/styles/enhanced-animations.css",
+      "replacements": 7,
+      "changes": [
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#2563eb",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#db2777",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/styles/globals.css",
+      "replacements": 5,
+      "changes": [
+        {
+          "original": "#0b1014",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ff6b3d",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#9aa1ab",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#1e2a32",
+          "replacement": "var(--color-dark)",
+          "token": "--color-dark"
+        },
+        {
+          "original": "#00a8a8",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        }
+      ]
+    },
+    {
+      "file": "src/styles/mobile-optimization.css",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#0f172a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        }
+      ]
+    },
+    {
+      "file": "src/styles/tokens.css",
+      "replacements": 38,
+      "changes": [
+        {
+          "original": "#0b1014",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#1e2a32",
+          "replacement": "var(--color-dark)",
+          "token": "--color-dark"
+        },
+        {
+          "original": "#f4efe5",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#ff6b3d",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#00a8a8",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#9aa1ab",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#f9fafb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#f3f4f6",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#e5e7eb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        }
+      ]
+    },
+    {
+      "file": "src/components/animations/LogoIntro.css",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/animations/MagneticButton.css",
+      "replacements": 6,
+      "changes": [
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#e5e7eb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#2563eb",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/animations/MorphingBlob.tsx",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/animations/ScrollProgress.css",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/automation/AIAutomationShowcase.css",
+      "replacements": 22,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#10b981",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#10b981",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#f59e0b",
+          "replacement": "var(--color-warning)",
+          "token": "--color-warning"
+        }
+      ]
+    },
+    {
+      "file": "src/components/automation/AIAutomationShowcase.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#10b981",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#f59e0b",
+          "replacement": "var(--color-warning)",
+          "token": "--color-warning"
+        }
+      ]
+    },
+    {
+      "file": "src/components/branding/AnimatedCaveLogo.tsx",
+      "replacements": 3,
+      "changes": [
+        {
+          "original": "#ff6b3d",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#00a8a8",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#f4efe5",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        }
+      ]
+    },
+    {
+      "file": "src/components/branding/AnimatedLogo.css",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/branding/AnimatedLogo.tsx",
+      "replacements": 6,
+      "changes": [
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/branding/BearCaveLogo.css",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/components/branding/BearCaveLogo.tsx",
+      "replacements": 7,
+      "changes": [
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#60a5fa",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#f472b6",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/branding/Logo.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#0b0b0c",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#0b0b0c",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        }
+      ]
+    },
+    {
+      "file": "src/components/branding/SplashIntro.css",
+      "replacements": 7,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/components/branding/SplashIntro.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        }
+      ]
+    },
+    {
+      "file": "src/components/case-study/CTA.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#FF9E58",
+          "replacement": "var(--color-warning)",
+          "token": "--color-warning"
+        },
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/components/case-study/MetricsVisualization.css",
+      "replacements": 3,
+      "changes": [
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#ef4444",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#ef4444",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        }
+      ]
+    },
+    {
+      "file": "src/components/case-study/MetricsVisualization.tsx",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#3B82F6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/case-study/Overview.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#3B82F6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#EC4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        }
+      ]
+    },
+    {
+      "file": "src/components/Charts/ResultChart.tsx",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#3B82F6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/clients/ClientLogos.css",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/common/OptimizedImage.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#3B82F6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#EF4444",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        }
+      ]
+    },
+    {
+      "file": "src/components/dashboard/MarketingCommandCenter.css",
+      "replacements": 8,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#10b981",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#ef4444",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/components/dashboard/MarketingCommandCenter.tsx",
+      "replacements": 4,
+      "changes": [
+        {
+          "original": "#ef4444",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#ef4444",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#10b981",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#f59e0b",
+          "replacement": "var(--color-warning)",
+          "token": "--color-warning"
+        }
+      ]
+    },
+    {
+      "file": "src/components/examples/ApiServiceExamples.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/components/examples/ExamplePage.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#e5e7eb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        }
+      ]
+    },
+    {
+      "file": "src/components/diagrams/ProcessDiagram.css",
+      "replacements": 5,
+      "changes": [
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        }
+      ]
+    },
+    {
+      "file": "src/components/diagrams/ProcessDiagram.tsx",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/diagrams/TheGapDiagram.css",
+      "replacements": 6,
+      "changes": [
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        }
+      ]
+    },
+    {
+      "file": "src/components/diagrams/TheGapDiagram.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/diagrams/ToolboxEcosystem.css",
+      "replacements": 7,
+      "changes": [
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        }
+      ]
+    },
+    {
+      "file": "src/components/diagrams/ToolboxEcosystem.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/diagrams/VennDiagram.css",
+      "replacements": 3,
+      "changes": [
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        }
+      ]
+    },
+    {
+      "file": "src/components/diagrams/VennDiagram.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/gallery/Lightbox.css",
+      "replacements": 4,
+      "changes": [
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/gallery/TagFilter.css",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/hero/Hero.css",
+      "replacements": 26,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/hero/Hero.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#EC4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#A1A1AA",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        }
+      ]
+    },
+    {
+      "file": "src/components/hero/HeroRedesign.tsx",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        }
+      ]
+    },
+    {
+      "file": "src/components/hero/ParticleHero.tsx",
+      "replacements": 6,
+      "changes": [
+        {
+          "original": "#0b0b0c",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ff6b3d",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#ff6b3d",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#1e2a32",
+          "replacement": "var(--color-dark)",
+          "token": "--color-dark"
+        },
+        {
+          "original": "#ff6b3d",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#ff6b3d",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        }
+      ]
+    },
+    {
+      "file": "src/components/hero/ProactiveSupportHero.css",
+      "replacements": 25,
+      "changes": [
+        {
+          "original": "#0f172a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#1e293b",
+          "replacement": "var(--color-dark)",
+          "token": "--color-dark"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#1e293b",
+          "replacement": "var(--color-dark)",
+          "token": "--color-dark"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#10b981",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/hero/ProactiveSupportHero.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#10B981",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#3B82F6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/home/MySkills.tsx",
+      "replacements": 5,
+      "changes": [
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#10b981",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#f59e0b",
+          "replacement": "var(--color-warning)",
+          "token": "--color-warning"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#06b6d4",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/home/Portfolio.tsx",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#00a8a8",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        }
+      ]
+    },
+    {
+      "file": "src/components/home/Testimonials.css",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#f59e0b",
+          "replacement": "var(--color-warning)",
+          "token": "--color-warning"
+        }
+      ]
+    },
+    {
+      "file": "src/components/inspiration/ModernInspiration.css",
+      "replacements": 9,
+      "changes": [
+        {
+          "original": "#a855f7",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#a855f7",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#a855f7",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#a855f7",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        }
+      ]
+    },
+    {
+      "file": "src/components/interactive/CustomCursor.css",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/layout/Footer.css",
+      "replacements": 7,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#6b7280",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/modals/AppDemoModal.css",
+      "replacements": 5,
+      "changes": [
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ef4444",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/navigation/AnchorNav.css",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/components/playground/PlaygroundPreview.css",
+      "replacements": 8,
+      "changes": [
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        }
+      ]
+    },
+    {
+      "file": "src/components/playground/PlaygroundPreview.tsx",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#88ABF2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/sections/ContactCTA.css",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/components/sections/ContactCTA.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        }
+      ]
+    },
+    {
+      "file": "src/components/sections/CTASection.css",
+      "replacements": 14,
+      "changes": [
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#6b7280",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#2563eb",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#e5e7eb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/components/sections/FeaturesSection.css",
+      "replacements": 10,
+      "changes": [
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#f9fafb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#e5e7eb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#6b7280",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#2563eb",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/components/sections/HeroSection.css",
+      "replacements": 4,
+      "changes": [
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        }
+      ]
+    },
+    {
+      "file": "src/components/sections/StatsSection.css",
+      "replacements": 8,
+      "changes": [
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#6b7280",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/components/sections/TestimonialsSection.css",
+      "replacements": 7,
+      "changes": [
+        {
+          "original": "#f9fafb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#fff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#e5e7eb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#e5e7eb",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#6b7280",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        }
+      ]
+    },
+    {
+      "file": "src/components/seo/SEOHead.tsx",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#0D0D0F",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        }
+      ]
+    },
+    {
+      "file": "src/components/skills/SkillsRadar.css",
+      "replacements": 6,
+      "changes": [
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        }
+      ]
+    },
+    {
+      "file": "src/components/skills/SkillsRadar.tsx",
+      "replacements": 6,
+      "changes": [
+        {
+          "original": "#3b82f6",
+          "replacement": "var(--color-primary)",
+          "token": "--color-primary"
+        },
+        {
+          "original": "#10b981",
+          "replacement": "var(--color-success)",
+          "token": "--color-success"
+        },
+        {
+          "original": "#f59e0b",
+          "replacement": "var(--color-warning)",
+          "token": "--color-warning"
+        },
+        {
+          "original": "#ef4444",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#06b6d4",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        }
+      ]
+    },
+    {
+      "file": "src/components/stats/Stats.css",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        }
+      ]
+    },
+    {
+      "file": "src/components/theme/ThemeProvider.tsx",
+      "replacements": 4,
+      "changes": [
+        {
+          "original": "#0b0b0c",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#0b0b0c",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/components/timeline/InteractiveTimeline.css",
+      "replacements": 3,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/components/tooltips/TechTooltip.css",
+      "replacements": 12,
+      "changes": [
+        {
+          "original": "#111827",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#374151",
+          "replacement": "var(--color-dark)",
+          "token": "--color-dark"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#374151",
+          "replacement": "var(--color-dark)",
+          "token": "--color-dark"
+        },
+        {
+          "original": "#60a5fa",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#9ca3af",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#d1d5db",
+          "replacement": "var(--color-surface)",
+          "token": "--color-surface"
+        },
+        {
+          "original": "#111827",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#111827",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        }
+      ]
+    },
+    {
+      "file": "src/components/ui/GradientMesh.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#1e2a32",
+          "replacement": "var(--color-dark)",
+          "token": "--color-dark"
+        },
+        {
+          "original": "#0b1014",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        }
+      ]
+    },
+    {
+      "file": "src/components/utils/FloatingActionButtons.tsx",
+      "replacements": 2,
+      "changes": [
+        {
+          "original": "#a855f7",
+          "replacement": "var(--color-neutral-2)",
+          "token": "--color-neutral-2"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/brand/BrandDetail.css",
+      "replacements": 8,
+      "changes": [
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/brand/BrandDetail.tsx",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#312e81",
+          "replacement": "var(--color-dark)",
+          "token": "--color-dark"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/brand/[slug].css",
+      "replacements": 8,
+      "changes": [
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/brand/[slug].tsx",
+      "replacements": 1,
+      "changes": [
+        {
+          "original": "#312e81",
+          "replacement": "var(--color-dark)",
+          "token": "--color-dark"
+        }
+      ]
+    },
+    {
+      "file": "src/pages/side-projects/SideProjectDetail.css",
+      "replacements": 34,
+      "changes": [
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#0a0a0a",
+          "replacement": "var(--color-neutral-1)",
+          "token": "--color-neutral-1"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        },
+        {
+          "original": "#ec4899",
+          "replacement": "var(--color-danger)",
+          "token": "--color-danger"
+        },
+        {
+          "original": "#ffffff",
+          "replacement": "var(--color-light)",
+          "token": "--color-light"
+        },
+        {
+          "original": "#88abf2",
+          "replacement": "var(--color-secondary)",
+          "token": "--color-secondary"
+        }
+      ]
+    }
+  ]
+}

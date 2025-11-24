@@ -41,7 +41,7 @@
 }
 
 .anchor-nav__item--active {
-  color: var(--color-text, #ffffff);
+  color: var(--color-text, var(--color-light));
   background: rgba(99, 102, 241, 0.2);
   font-weight: 600;
 }

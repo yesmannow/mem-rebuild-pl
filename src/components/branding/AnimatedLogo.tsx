@@ -53,10 +53,10 @@ const AnimatedLogo: React.FC<AnimatedLogoProps> = ({
 
     if (isHovered) {
       logoRef.current.style.filter =
-        'drop-shadow(0 0 12px #88ABF2) drop-shadow(0 0 24px #a8c5ff80)';
+        'drop-shadow(0 0 12px var(--color-secondary)) drop-shadow(0 0 24px #a8c5ff80)';
       logoRef.current.style.transform = 'scale(1.05)';
     } else {
-      logoRef.current.style.filter = 'drop-shadow(0 0 0px #88ABF2)';
+      logoRef.current.style.filter = 'drop-shadow(0 0 0px var(--color-secondary))';
       logoRef.current.style.transform = 'scale(1)';
     }
   }, [isHovered]);
@@ -127,23 +127,23 @@ const AnimatedLogo: React.FC<AnimatedLogoProps> = ({
         cx="50"
         cy="82"
         r="2.5"
-        fill="#88ABF2"
+        fill="var(--color-secondary)"
         style={{ opacity: 0, transform: 'scale(0)' }}
       />
 
       {/* Enhanced gradients with cinematic colors */}
       <defs>
         <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#88ABF2" />
+          <stop offset="0%" stopColor="var(--color-secondary)" />
           <stop offset="50%" stopColor="#a8c5ff" />
           <stop offset="100%" stopColor="#667eea" />
         </linearGradient>
         <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#88ABF2" />
+          <stop offset="0%" stopColor="var(--color-secondary)" />
           <stop offset="25%" stopColor="#a8c5ff" />
           <stop offset="50%" stopColor="#667eea" />
           <stop offset="75%" stopColor="#a8c5ff" />
-          <stop offset="100%" stopColor="#88ABF2" />
+          <stop offset="100%" stopColor="var(--color-secondary)" />
         </linearGradient>
 
         {/* Glow filter for cinematic effect */}

@@ -1,5 +1,5 @@
 .main-footer {
-  background: #0a0a0a;
+  background: var(--color-neutral-1);
   border-top: 1px solid rgba(136, 171, 242, 0.1);
   margin-top: 4rem;
   padding: 3rem 2rem 1.5rem;
@@ -15,13 +15,13 @@
 }
 
 .footer-brand h3 {
-  color: #88abf2;
+  color: var(--color-secondary);
   margin: 0 0 0.5rem 0;
   font-size: 1.5rem;
 }
 
 .footer-brand p {
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   margin: 0;
 }
 
@@ -48,12 +48,12 @@
 }
 
 .footer-section a {
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   transition: color 0.3s ease;
 }
 
 .footer-section a:hover {
-  color: #88abf2;
+  color: var(--color-secondary);
 }
 
 .footer-link-with-icon {
@@ -116,13 +116,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #6b7280;
+  color: var(--color-neutral-2);
   font-size: 0.9rem;
 }
 
 .footer-quote {
   font-style: italic;
-  color: #88abf2;
+  color: var(--color-secondary);
 }
 
 @media (max-width: 768px) {

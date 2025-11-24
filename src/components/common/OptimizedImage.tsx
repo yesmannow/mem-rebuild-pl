@@ -131,7 +131,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
               width: '40px',
               height: '40px',
               border: '3px solid rgba(59, 130, 246, 0.3)',
-              borderTop: '3px solid #3B82F6',
+              borderTop: '3px solid var(--color-primary)',
               borderRadius: '50%',
             }}
             animate={{ rotate: 360 }}
@@ -184,7 +184,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#EF4444',
+            color: 'var(--color-danger)',
             fontSize: '0.875rem',
             textAlign: 'center',
             padding: '1rem',

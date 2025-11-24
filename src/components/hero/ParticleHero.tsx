@@ -137,7 +137,7 @@ const ParticleHero: React.FC = () => {
       />
 
       {/* Gradient Overlay */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-transparent to-[#0b0b0c]/80" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-transparent to-[var(--color-neutral-1)]/80" />
 
       {/* Content */}
       <motion.div
@@ -171,14 +171,14 @@ const ParticleHero: React.FC = () => {
         >
           <a
             href="/case-studies"
-            className="group relative inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-[#ff6b3d] rounded-lg overflow-hidden transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#ff6b3d]/30"
+            className="group relative inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-[var(--color-danger)] rounded-lg overflow-hidden transition-all hover:scale-105 hover:shadow-lg hover:shadow-[var(--color-danger)]/30"
           >
             <span className="relative z-10">View Case Studies</span>
           </a>
 
           <a
             href="/contact"
-            className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white border-2 border-[#1e2a32] rounded-lg hover:border-[#ff6b3d] hover:bg-[#ff6b3d]/10 transition-all"
+            className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white border-2 border-[var(--color-dark)] rounded-lg hover:border-[var(--color-danger)] hover:bg-[var(--color-danger)]/10 transition-all"
           >
             Get in Touch
           </a>

@@ -37,7 +37,7 @@ const BrandDetail: React.FC = () => {
           600: '#4f46e5',
           700: '#4338ca',
           800: '#3730a3',
-          900: '#312e81',
+          900: 'var(--color-dark)',
         },
         fonts: {
           heading: 'Inter',

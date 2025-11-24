@@ -3,8 +3,8 @@
   padding-top: 2rem;
   position: relative;
   overflow-x: hidden;
-  background: linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 30%, #0a0a0a 70%, #0d0d0d 100%);
-  color: #ffffff;
+  background: linear-gradient(180deg, var(--color-neutral-1) 0%, #0d0d0d 30%, var(--color-neutral-1) 70%, #0d0d0d 100%);
+  color: var(--color-light);
 }
 
 /* Gear wheel for tools/systems */
@@ -74,7 +74,7 @@
 .toolbox-header .lead {
   font-size: 1.2rem;
   line-height: 1.8;
-  color: #d1d5db;
+  color: var(--color-surface);
   max-width: 900px;
   margin: 0 auto;
 }
@@ -89,7 +89,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #88abf2 0%, #a8c5ff 100%);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #a8c5ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -97,7 +97,7 @@
 
 .section-intro p {
   font-size: 1.1rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
 }
 
 /* Technical Categories Section */
@@ -165,7 +165,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #88abf2;
+  color: var(--color-secondary);
 }
 
 .icon-wrapper svg {
@@ -182,12 +182,12 @@
 
 .text-content .description {
   font-size: 0.9rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   margin: 0;
 }
 
 .category-header .chevron {
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   transition:
     transform 0.3s ease,
     color 0.3s ease;
@@ -199,12 +199,12 @@
 
 .category-header .chevron.rotated {
   transform: rotate(180deg);
-  color: #88abf2;
+  color: var(--color-secondary);
 }
 
 .category-card.expanded .chevron {
   transform: rotate(180deg);
-  color: #88abf2;
+  color: var(--color-secondary);
 }
 
 .category-skills {
@@ -236,14 +236,14 @@
 .skill-dot {
   width: 8px;
   height: 8px;
-  background: #88abf2;
+  background: var(--color-secondary);
   border-radius: 50%;
   flex-shrink: 0;
 }
 
 .skill-item span {
   font-size: 0.9rem;
-  color: #d1d5db;
+  color: var(--color-surface);
   line-height: 1.4;
 }
 
@@ -307,7 +307,7 @@
   align-items: center;
   gap: 0.75rem;
   font-size: 0.9rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   padding: 0.5rem 0;
   border-bottom: 1px solid rgba(136, 171, 242, 0.05);
   transition: color 0.2s ease;
@@ -332,7 +332,7 @@
 }
 
 .tech-item:hover {
-  color: #88abf2;
+  color: var(--color-secondary);
 }
 
 /* CTA Section */
@@ -353,14 +353,14 @@
 .toolbox-cta p {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   margin-bottom: 2.5rem;
 }
 
 .cta-button {
   display: inline-block;
   padding: 1rem 2rem;
-  background: #88abf2;
+  background: var(--color-secondary);
   color: #0d0d0d;
   font-weight: 600;
   font-size: 1rem;

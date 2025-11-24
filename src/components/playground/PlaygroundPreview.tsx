@@ -41,7 +41,7 @@ const PlaygroundPreview: React.FC = () => {
     return (
       iconMap[appId] || {
         icon: '🎓',
-        gradient: 'linear-gradient(135deg, #88ABF2 0%, #B8D0D9 100%)',
+        gradient: 'linear-gradient(135deg, var(--color-secondary) 0%, #B8D0D9 100%)',
       }
     );
   };

@@ -296,7 +296,7 @@ const PaletteStep: React.FC<{
   tokens: BrandTokens;
   setTokens: React.Dispatch<React.SetStateAction<BrandTokens>>;
 }> = ({ tokens, setTokens }) => {
-  const colors = ['#6366f1', '#ec4899', '#10b981', '#f59e0b', '#3b82f6'];
+  const colors = ['#6366f1', 'var(--color-danger)', 'var(--color-success)', 'var(--color-warning)', 'var(--color-primary)'];
 
   return (
     <div className="step-panel">

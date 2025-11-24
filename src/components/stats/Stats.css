@@ -30,7 +30,7 @@
   display: block;
   font-size: 3.5rem;
   font-weight: 800;
-  color: #88abf2;
+  color: var(--color-secondary);
   line-height: 1;
   margin-bottom: 0.5rem;
 }
@@ -38,7 +38,7 @@
 .stat-label {
   display: block;
   font-size: 1.1rem;
-  color: #d1d5db;
+  color: var(--color-surface);
   font-weight: 500;
 }
 

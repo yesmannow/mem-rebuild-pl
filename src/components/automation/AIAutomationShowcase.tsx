@@ -21,7 +21,7 @@ const automations: AutomationCard[] = [
       'AI-powered email personalization engine that dynamically generates personalized email content based on customer behavior, purchase history, and engagement patterns. Integrates FluentCRM workflows with OpenAI GPT to create hyper-relevant messaging at scale.',
     technologies: ['FluentCRM', 'OpenAI GPT', 'Python', 'REST APIs', 'WordPress'],
     icon: <Mail className="w-8 h-8" />,
-    color: '#10b981',
+    color: 'var(--color-success)',
     example:
       'Analyzes customer purchase history and generates personalized product recommendations in email campaigns, increasing open rates by 35%.',
   },
@@ -32,7 +32,7 @@ const automations: AutomationCard[] = [
       'Intelligent lead scoring and routing system that automatically segments leads based on behavior, demographics, and engagement scores. Routes qualified leads to appropriate sales reps while nurturing cold leads through automated sequences.',
     technologies: ['WP Fusion', 'FluentCRM', 'Gravity Forms', 'Custom PHP', 'JavaScript'],
     icon: <Zap className="w-8 h-8" />,
-    color: '#f59e0b',
+    color: 'var(--color-warning)',
     example:
       'Automatically routes high-intent leads to sales within 5 minutes, while nurturing lower-intent leads through 30-day email sequences.',
   },

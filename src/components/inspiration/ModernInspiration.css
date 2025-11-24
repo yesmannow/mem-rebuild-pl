@@ -86,13 +86,13 @@
 
 .search-input:focus {
   background: rgba(255, 255, 255, 0.1);
-  border-color: #a855f7;
+  border-color: var(--color-neutral-2);
   box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
   transform: translateY(-2px);
 }
 
 .search-input::placeholder {
-  color: #9ca3af;
+  color: var(--color-neutral-2);
 }
 
 /* Filter Pills */
@@ -112,7 +112,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #a855f7, #3b82f6);
+  background: linear-gradient(135deg, var(--color-neutral-2), var(--color-primary));
   opacity: 0;
   transition: opacity 0.3s ease;
   border-radius: inherit;
@@ -130,7 +130,7 @@
 
 .filter-pill:not(.active) {
   background: rgba(255, 255, 255, 0.05);
-  color: #d1d5db;
+  color: var(--color-surface);
   border-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -155,14 +155,14 @@
   border-radius: 0.5rem;
   background: transparent;
   border: none;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
 
 .view-btn.active {
-  background: linear-gradient(135deg, #a855f7, #3b82f6);
+  background: linear-gradient(135deg, var(--color-neutral-2), var(--color-primary));
   color: white;
   box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
 }
@@ -388,7 +388,7 @@
   width: 2rem;
   height: 2rem;
   border: 2px solid rgba(168, 85, 247, 0.3);
-  border-top: 2px solid #a855f7;
+  border-top: 2px solid var(--color-neutral-2);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

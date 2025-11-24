@@ -34,7 +34,7 @@
 .page-title {
   font-size: clamp(3rem, 8vw, 5.5rem);
   font-weight: 900;
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, var(--color-danger) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -102,7 +102,7 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  color: #ffffff;
+  color: var(--color-light);
   font-size: 1rem;
   transition: all 0.3s ease;
 }
@@ -222,7 +222,7 @@
 }
 
 .overlay-content h3 {
-  color: #ffffff;
+  color: var(--color-light);
   font-size: 1.25rem;
   font-weight: 700;
   margin: 0 0 0.5rem 0;
@@ -239,7 +239,7 @@
 }
 
 .card-info h3 {
-  color: #ffffff;
+  color: var(--color-light);
   font-size: 1.125rem;
   font-weight: 600;
   margin: 0 0 0.5rem 0;
@@ -265,7 +265,7 @@
 }
 
 .empty-state h3 {
-  color: #ffffff;
+  color: var(--color-light);
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0 0 0.5rem 0;
@@ -314,7 +314,7 @@
 }
 
 .gallery-cta h2 {
-  color: #ffffff;
+  color: var(--color-light);
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 700;
   margin: 0 0 1rem 0;
@@ -332,7 +332,7 @@
   gap: 0.5rem;
   padding: 1rem 2rem;
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  color: #ffffff;
+  color: var(--color-light);
   border-radius: 12px;
   text-decoration: none;
   font-weight: 600;

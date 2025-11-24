@@ -550,7 +550,7 @@ const Contact: React.FC = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <CalendarDays size={32} className="text-[#10b981]" />
+                  <CalendarDays size={32} className="text-[var(--color-success)]" />
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">Book a Strategy Call</h4>
                     <p className="text-sm text-gray-600">

@@ -20,7 +20,7 @@ const Overview: React.FC<OverviewProps> = ({ role, tools, duration, summary }) =
         gridTemplateColumns: '1fr 1fr',
         gap: '2rem',
         alignItems: 'center',
-        background: 'linear-gradient(135deg, #3B82F6, #EC4899)',
+        background: 'linear-gradient(135deg, var(--color-primary), var(--color-danger))',
         color: 'white',
       }}
       {...castMotionProps(motionTokens.slideInLeft)}

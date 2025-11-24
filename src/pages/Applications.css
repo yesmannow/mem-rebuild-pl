@@ -3,8 +3,8 @@
   padding: 3rem 2rem 6rem;
   position: relative;
   overflow-x: hidden;
-  background: linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 30%, #0a0a0a 70%, #0d0d0d 100%);
-  color: #ffffff;
+  background: linear-gradient(180deg, var(--color-neutral-1) 0%, #0d0d0d 30%, var(--color-neutral-1) 70%, #0d0d0d 100%);
+  color: var(--color-light);
 }
 
 /* Unique animated background pattern */
@@ -150,7 +150,7 @@
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 900;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #ffffff 0%, #3b82f6 50%, #ec4899 100%);
+  background: linear-gradient(135deg, var(--color-light) 0%, var(--color-primary) 50%, var(--color-danger) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -191,7 +191,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #3b82f6, #ec4899, transparent);
+  background: linear-gradient(90deg, transparent, var(--color-primary), var(--color-danger), transparent);
   animation: shimmer 3s ease-in-out infinite;
 }
 
@@ -223,7 +223,7 @@
   transform: translateX(-50%);
   width: 40px;
   height: 3px;
-  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
   border-radius: 2px;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -238,7 +238,7 @@
   font-family: var(--font-primary);
   font-size: 3rem;
   font-weight: 900;
-  background: linear-gradient(135deg, #3b82f6 0%, #ec4899 50%, #3b82f6 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-danger) 50%, var(--color-primary) 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -297,7 +297,7 @@
   background: rgba(13, 13, 13, 0.6);
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 50px;
-  color: #ffffff;
+  color: var(--color-light);
   font-size: 1rem;
   font-family: var(--font-secondary);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -306,7 +306,7 @@
 
 .search-input:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: var(--color-primary);
   box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
   background: rgba(13, 13, 13, 0.8);
 }
@@ -336,7 +336,7 @@
 
 .search-clear:hover {
   background: rgba(59, 130, 246, 0.2);
-  color: #3b82f6;
+  color: var(--color-primary);
 }
 
 /* Controls Group */
@@ -372,14 +372,14 @@
 .filter-btn:hover {
   background: rgba(59, 130, 246, 0.1);
   border-color: rgba(59, 130, 246, 0.3);
-  color: #3b82f6;
+  color: var(--color-primary);
   transform: translateY(-2px);
 }
 
 .filter-btn.active {
-  background: linear-gradient(135deg, #3b82f6 0%, #ec4899 100%);
-  border-color: #3b82f6;
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-danger) 100%);
+  border-color: var(--color-primary);
+  color: var(--color-light);
   box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
 }
 
@@ -394,7 +394,7 @@
   border-radius: 10px;
   font-size: 0.75rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-light);
 }
 
 /* View Controls */
@@ -425,7 +425,7 @@
 
 .sort-select:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
@@ -454,13 +454,13 @@
 }
 
 .view-btn:hover {
-  color: #3b82f6;
+  color: var(--color-primary);
   background: rgba(59, 130, 246, 0.1);
 }
 
 .view-btn.active {
-  color: #ffffff;
-  background: linear-gradient(135deg, #3b82f6 0%, #ec4899 100%);
+  color: var(--color-light);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-danger) 100%);
 }
 
 /* Results Info */
@@ -533,7 +533,7 @@
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: linear-gradient(135deg, #3b82f6, #ec4899, #3b82f6);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-danger), var(--color-primary));
   background-size: 200% 100%;
   border-radius: 24px;
   opacity: 0;
@@ -642,7 +642,7 @@
 .preview-label {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-light);
   background: rgba(136, 171, 242, 0.2);
   padding: 0.75rem 1.5rem;
   border-radius: 30px;
@@ -751,7 +751,7 @@
   gap: 0.5rem;
   font-size: 0.8rem;
   background: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
+  color: var(--color-primary);
   padding: 0.4rem 0.85rem;
   border-radius: 20px;
   font-weight: 600;
@@ -829,7 +829,7 @@
   font-family: var(--font-primary);
   font-size: 1.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #3b82f6 0%, #ec4899 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-danger) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -870,8 +870,8 @@
 }
 
 .app-btn.primary {
-  background: linear-gradient(135deg, #3b82f6 0%, #ec4899 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-danger) 100%);
+  color: var(--color-light);
   box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
 }
 
@@ -890,7 +890,7 @@
 
 .app-btn.secondary {
   background: transparent;
-  color: #3b82f6;
+  color: var(--color-primary);
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -919,7 +919,7 @@
   font-family: var(--font-primary);
   font-size: 1.8rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-light);
   margin: 0;
 }
 
@@ -932,8 +932,8 @@
 
 .reset-filters-btn {
   padding: 0.85rem 2rem;
-  background: linear-gradient(135deg, #3b82f6 0%, #ec4899 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-danger) 100%);
+  color: var(--color-light);
   border: none;
   border-radius: 50px;
   font-family: var(--font-primary);

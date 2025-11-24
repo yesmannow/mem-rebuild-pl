@@ -13,7 +13,7 @@
 .page-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #88abf2 0%, #a8c5ff 100%);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #a8c5ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -21,7 +21,7 @@
 
 .page-subtitle {
   font-size: 1.3rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   line-height: 1.7;
 }
 
@@ -43,7 +43,7 @@
   font-size: 3rem;
   font-weight: 800;
   font-family: var(--font-primary);
-  background: linear-gradient(135deg, #88abf2, #a8c5ff);
+  background: linear-gradient(135deg, var(--color-secondary), #a8c5ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -53,7 +53,7 @@
 .stat-label {
   display: block;
   font-size: 0.95rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   margin-top: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -99,13 +99,13 @@
 
 .quote-author strong {
   font-size: 1.1rem;
-  color: #88abf2;
+  color: var(--color-secondary);
   font-weight: 700;
 }
 
 .quote-author span {
   font-size: 0.9rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
 }
 
 /* Testimonials Grid */
@@ -148,7 +148,7 @@
 .testimonial-quote {
   font-size: 1rem;
   line-height: 1.7;
-  color: #d1d5db;
+  color: var(--color-surface);
   font-style: italic;
   margin: 0;
   flex-grow: 1;
@@ -167,7 +167,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #88abf2, #a8c5ff);
+  background: linear-gradient(135deg, var(--color-secondary), #a8c5ff);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,14 +190,14 @@
 
 .author-role {
   font-size: 0.9rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   margin: 0;
   line-height: 1.4;
 }
 
 .author-company {
   font-size: 0.85rem;
-  color: #88abf2;
+  color: var(--color-secondary);
   margin: 0.25rem 0 0 0;
   font-weight: 600;
 }
@@ -217,13 +217,13 @@
   background: rgba(136, 171, 242, 0.1);
   border: 1px solid rgba(136, 171, 242, 0.2);
   border-radius: 12px;
-  color: #88abf2;
+  color: var(--color-secondary);
   font-weight: 500;
 }
 
 .meta-date {
   font-size: 0.8rem;
-  color: #6b7280;
+  color: var(--color-neutral-2);
 }
 
 /* LinkedIn Badge */
@@ -232,7 +232,7 @@
   align-items: center;
   gap: 0.4rem;
   font-size: 0.75rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   margin-top: auto;
 }
 
@@ -273,7 +273,7 @@
 
 .testimonials-cta p {
   font-size: 1.1rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   margin-bottom: 2rem;
   line-height: 1.6;
 }

@@ -40,7 +40,7 @@ const VennDiagram: React.FC = () => {
             cy="200"
             r="130"
             fill="rgba(136, 171, 242, 0.2)"
-            stroke="#88ABF2"
+            stroke="var(--color-secondary)"
             strokeWidth="3"
             filter="url(#glow)"
             initial={{ scale: 0, opacity: 0 }}
@@ -97,7 +97,7 @@ const VennDiagram: React.FC = () => {
           />
 
           {/* Text Labels */}
-          <text x="150" y="130" fill="#88ABF2" fontSize="20" fontWeight="700" textAnchor="middle">
+          <text x="150" y="130" fill="var(--color-secondary)" fontSize="20" fontWeight="700" textAnchor="middle">
             Strategy
           </text>
 

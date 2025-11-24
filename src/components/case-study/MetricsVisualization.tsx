@@ -23,7 +23,7 @@ interface MetricsVisualizationProps {
  */
 const MetricsVisualization: React.FC<MetricsVisualizationProps> = ({
   metrics,
-  accentColor = '#3B82F6',
+  accentColor = 'var(--color-primary)',
   caseStudySlug,
   variant = 'cards',
 }) => {

@@ -56,8 +56,8 @@ const ProactiveSupportHero: React.FC = () => {
   ];
 
   const metrics = [
-    { label: 'Ticket Reduction', value: '70%', color: '#10B981' },
-    { label: 'Response Time', value: 'Instant', color: '#3B82F6' },
+    { label: 'Ticket Reduction', value: '70%', color: 'var(--color-success)' },
+    { label: 'Response Time', value: 'Instant', color: 'var(--color-primary)' },
     { label: 'Customer Satisfaction', value: '+45%', color: '#8B5CF6' },
   ];
 

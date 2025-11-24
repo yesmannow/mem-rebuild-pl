@@ -20,7 +20,7 @@ const featuredCaseStudies = caseStudies
       : 'linear-gradient(135deg, var(--ink-900) 0%, var(--ink-700) 40%, var(--telemetry-400) 100%)';
 
     // Use color for hoverGlow or default
-    const hoverGlow = cs.color || '#00a8a8'; // telemetry-400
+    const hoverGlow = cs.color || 'var(--color-success)'; // telemetry-400
 
     return {
       slug: cs.slug,

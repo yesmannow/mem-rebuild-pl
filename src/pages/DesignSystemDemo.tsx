@@ -59,7 +59,7 @@ const DesignSystemDemo: React.FC = () => {
         primaryCTAHref="/case-studies"
         secondaryCTA="Get in Touch"
         secondaryCTAHref="/contact"
-        gradientColors={['#0a0a0a', '#1a1a2e', '#16213e']}
+        gradientColors={['var(--color-neutral-1)', '#1a1a2e', '#16213e']}
       />
 
       {/* Main Content */}
@@ -266,7 +266,7 @@ const DesignSystemDemo: React.FC = () => {
           primaryHref="/contact"
           secondaryText="View Case Studies"
           secondaryHref="/case-studies"
-          gradientColors={['#3b82f6', '#8b5cf6', '#ec4899']}
+          gradientColors={['var(--color-primary)', '#8b5cf6', 'var(--color-danger)']}
         />
       </main>
     </>

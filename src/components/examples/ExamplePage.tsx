@@ -145,9 +145,9 @@ const ExamplePage: React.FC = () => {
             <div
               style={{
                 padding: '2rem',
-                background: 'var(--bc-surface, #fff)',
+                background: 'var(--bc-surface, var(--color-light))',
                 borderRadius: '1rem',
-                border: '1px solid var(--bc-border, #e5e7eb)',
+                border: '1px solid var(--bc-border, var(--color-surface))',
               }}
             >
               <h3>Card Title</h3>

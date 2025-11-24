@@ -25,7 +25,7 @@
 
 .gap-header p {
   font-size: 1.2rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.6;
@@ -112,7 +112,7 @@
   background: rgba(136, 171, 242, 0.05);
   border-radius: 8px;
   font-size: 0.95rem;
-  color: #d1d5db;
+  color: var(--color-surface);
   transition: all 0.3s ease;
 }
 
@@ -202,7 +202,7 @@
 
 .bridge-label p {
   font-size: 1rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   margin: 0;
   font-weight: 600;
 }
@@ -222,7 +222,7 @@
 
 .bridge-skills span {
   font-size: 0.85rem;
-  color: #d1d5db;
+  color: var(--color-surface);
   background: rgba(136, 171, 242, 0.1);
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -259,7 +259,7 @@
 .problem-content p {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #d1d5db;
+  color: var(--color-surface);
   margin: 0;
 }
 
@@ -312,7 +312,7 @@
 
 .value-item p {
   font-size: 0.95rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   margin: 0;
   line-height: 1.5;
 }

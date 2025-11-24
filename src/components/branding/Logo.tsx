@@ -61,10 +61,10 @@ const IconSvg: React.FC<{ size: number; tone: Tone }> = ({ size, tone }) => (
       <ellipse cx="0" cy="5" rx="8" ry="10" fill="url(#brandGradient)" />
 
       {/* Eye */}
-      <circle cx="-5" cy="-8" r="2" fill="#0b0b0c" />
+      <circle cx="-5" cy="-8" r="2" fill="var(--color-neutral-1)" />
 
       {/* Nose */}
-      <ellipse cx="0" cy="8" rx="3" ry="4" fill="#0b0b0c" />
+      <ellipse cx="0" cy="8" rx="3" ry="4" fill="var(--color-neutral-1)" />
     </g>
   </svg>
 );

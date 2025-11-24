@@ -115,7 +115,7 @@ const CaseStudyDetail: React.FC = () => {
       {/* Hero Section */}
       <motion.section
         className="detail-hero"
-        data-hero-bg-color={caseStudy.color || '#88ABF2'}
+        data-hero-bg-color={caseStudy.color || 'var(--color-secondary)'}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -138,12 +138,12 @@ const CaseStudyDetail: React.FC = () => {
           {caseStudy.icon && (
             <motion.div
               className="hero-icon-large"
-              data-icon-bg-color={caseStudy.color || '#88ABF2'}
+              data-icon-bg-color={caseStudy.color || 'var(--color-secondary)'}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              <span className="icon-large" data-icon-shadow-color={caseStudy.color || '#88ABF2'}>
+              <span className="icon-large" data-icon-shadow-color={caseStudy.color || 'var(--color-secondary)'}>
                 {caseStudy.icon}
               </span>
             </motion.div>
@@ -169,7 +169,7 @@ const CaseStudyDetail: React.FC = () => {
                 <span
                   key={cat}
                   className="meta-category"
-                  data-category-color={caseStudy.color || '#88ABF2'}
+                  data-category-color={caseStudy.color || 'var(--color-secondary)'}
                 >
                   {cat}
                 </span>
@@ -196,7 +196,7 @@ const CaseStudyDetail: React.FC = () => {
         <section className="metrics-modern">
           <MetricsVisualization
             metrics={caseStudy.metrics}
-            accentColor={caseStudy.color || '#88ABF2'}
+            accentColor={caseStudy.color || 'var(--color-secondary)'}
             caseStudySlug={slug}
             variant="cards"
           />

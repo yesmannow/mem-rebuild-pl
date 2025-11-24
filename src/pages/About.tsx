@@ -236,7 +236,7 @@ const About: React.FC = () => {
                         borderRadius: '50%',
                         border: 'none',
                         background:
-                          index === currentImageIndex ? '#EC4899' : 'rgba(255,255,255,0.5)',
+                          index === currentImageIndex ? 'var(--color-danger)' : 'rgba(255,255,255,0.5)',
                         cursor: 'pointer',
                       }}
                       whileHover={{ scale: 1.2 }}

@@ -5,8 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #0a0a0a;
-  color: #ffffff;
+  background-color: var(--color-neutral-1);
+  color: var(--color-light);
 }
 
 /* Legacy support */

@@ -23,7 +23,7 @@ export default function Layout({ children }: LayoutProps) {
 
           See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color
         */}
-        <meta name="theme-color" content="#0D0D0F" />
+        <meta name="theme-color" content="var(--color-neutral-1)" />
 
         {/* Additional meta tags can be added here */}
       </Helmet>

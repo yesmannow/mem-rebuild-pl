@@ -63,14 +63,14 @@
   position: absolute;
   bottom: 20%;
   text-align: center;
-  color: #ffffff;
+  color: var(--color-light);
 }
 
 .logo-intro-text h2 {
   font-size: 2rem;
   font-weight: 600;
   margin: 0 0 0.5rem 0;
-  color: #88abf2;
+  color: var(--color-secondary);
   letter-spacing: 1px;
 }
 

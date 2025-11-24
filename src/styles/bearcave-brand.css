@@ -6,23 +6,23 @@
 /* ===== BEARCAVE DESIGN TOKENS ===== */
 :root {
   /* ===== COLORS ===== */
-  --bc-bg: #0d0d0f; /* Primary background */
+  --bc-bg: var(--color-neutral-1); /* Primary background */
   --bc-surface: rgba(255, 255, 255, 0.05); /* Glassmorphism surface */
   --bc-surface-hover: rgba(255, 255, 255, 0.08);
   --bc-border: rgba(255, 255, 255, 0.1);
   --bc-border-hover: rgba(59, 130, 246, 0.4);
 
-  --bc-text-primary: #ffffff;
+  --bc-text-primary: var(--color-light);
   --bc-text-secondary: rgba(255, 255, 255, 0.7);
   --bc-text-muted: rgba(255, 255, 255, 0.5);
 
-  --bc-primary: #3b82f6; /* Electric Blue */
-  --bc-accent: #ec4899; /* Magenta Glow */
-  --bc-ember: #ff8a65; /* Warm accent */
+  --bc-primary: var(--color-primary); /* Electric Blue */
+  --bc-accent: var(--color-danger); /* Magenta Glow */
+  --bc-ember: var(--color-warning); /* Warm accent */
 
   /* ===== GRADIENTS ===== */
-  --bc-gradient-brand: linear-gradient(135deg, #3b82f6 0%, #ec4899 100%);
-  --bc-gradient-brand-vertical: linear-gradient(180deg, #3b82f6 0%, #ec4899 100%);
+  --bc-gradient-brand: linear-gradient(135deg, var(--color-primary) 0%, var(--color-danger) 100%);
+  --bc-gradient-brand-vertical: linear-gradient(180deg, var(--color-primary) 0%, var(--color-danger) 100%);
   --bc-gradient-surface: linear-gradient(
     135deg,
     rgba(59, 130, 246, 0.1) 0%,

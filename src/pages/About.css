@@ -3,8 +3,8 @@
   padding-top: 2rem;
   position: relative;
   overflow-x: hidden;
-  background: linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 30%, #0a0a0a 70%, #0d0d0d 100%);
-  color: #ffffff;
+  background: linear-gradient(180deg, var(--color-neutral-1) 0%, #0d0d0d 30%, var(--color-neutral-1) 70%, #0d0d0d 100%);
+  color: var(--color-light);
 }
 
 /* Background Pattern */
@@ -117,7 +117,7 @@
 .intro-text p {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #d1d5db;
+  color: var(--color-surface);
   margin-bottom: 1.5rem;
 }
 
@@ -263,7 +263,7 @@
 .philosophy-card p {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
 }
 
 /* Volunteering Section */
@@ -286,7 +286,7 @@
   margin: 0 auto 4rem;
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
 }
 
 .volunteering-grid {
@@ -358,7 +358,7 @@
 
 .volunteer-period {
   font-size: 0.9rem;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   font-weight: 600;
   margin: 0 0 1rem 0;
 }
@@ -366,7 +366,7 @@
 .volunteer-description {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #d1d5db;
+  color: var(--color-surface);
   margin: 0;
 }
 
@@ -436,7 +436,7 @@
 .timeline-card__header h3 {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-light);
   margin: 0.35rem 0 0;
 }
 
@@ -527,7 +527,7 @@
 .cta-section p {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #9ca3af;
+  color: var(--color-neutral-2);
   margin-bottom: 2.5rem;
 }
 

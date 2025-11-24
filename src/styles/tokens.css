@@ -5,11 +5,11 @@
 
 :root {
   /* ===== SIGNALCRAFT COLOR SYSTEM ===== */
-  --ink-900: #0b1014; /* Obsidian - Base background */
-  --ink-700: #1e2a32; /* Graphite - Secondary surfaces */
-  --parchment-050: #f4efe5; /* Parchment - Light surface */
-  --signal-500: #ff6b3d; /* Signal Orange - Primary accent */
-  --telemetry-400: #00a8a8; /* Telemetry Teal - Secondary accent */
+  --ink-900: var(--color-neutral-1); /* Obsidian - Base background */
+  --ink-700: var(--color-dark); /* Graphite - Secondary surfaces */
+  --parchment-050: var(--color-surface); /* Parchment - Light surface */
+  --signal-500: var(--color-danger); /* Signal Orange - Primary accent */
+  --telemetry-400: var(--color-success); /* Telemetry Teal - Secondary accent */
 
   /* Shadow system */
   --shadow-signal: 0 20px 40px rgba(15, 20, 24, 0.35);
@@ -19,25 +19,25 @@
   --color-accent: var(--signal-500);
   --color-bg: var(--ink-900);
   --color-text: var(--parchment-050);
-  --color-text-muted: #9aa1ab;
+  --color-text-muted: var(--color-neutral-2);
 
   /* ===== NEUTRAL PALETTE ===== */
-  --color-neutral-50: #f9fafb;
-  --color-neutral-100: #f3f4f6;
-  --color-neutral-200: #e5e7eb;
-  --color-neutral-300: #d1d5db;
-  --color-neutral-400: #9ca3af;
-  --color-neutral-500: #6b7280;
-  --color-neutral-600: #4b5563;
-  --color-neutral-700: #374151;
-  --color-neutral-800: #1f2937;
-  --color-neutral-900: #111827;
+  --color-neutral-50: var(--color-surface);
+  --color-neutral-100: var(--color-surface);
+  --color-neutral-200: var(--color-surface);
+  --color-neutral-300: var(--color-surface);
+  --color-neutral-400: var(--color-neutral-2);
+  --color-neutral-500: var(--color-neutral-2);
+  --color-neutral-600: var(--color-neutral-2);
+  --color-neutral-700: var(--color-dark);
+  --color-neutral-800: var(--color-dark);
+  --color-neutral-900: var(--color-neutral-1);
   --color-neutral-950: var(--ink-900);
 
   /* ===== SEMANTIC COLORS ===== */
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-danger);
   --color-info: var(--telemetry-400);
 
   /* ===== NO GRADIENTS - Texture-based backgrounds instead ===== */
@@ -158,9 +158,9 @@
 /* ===== DARK MODE OVERRIDES ===== */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #0a0a0a;
-    --color-text: #ffffff;
-    --color-text-muted: #a1a1aa;
+    --color-bg: var(--color-neutral-1);
+    --color-text: var(--color-light);
+    --color-text-muted: var(--color-neutral-2);
   }
 }
 
@@ -211,13 +211,13 @@
 /* Base (Light/System Default) */
 :root {
   /* Theme-aware tokens for dynamic theming */
-  --bg: #ffffff;
-  --card: #ffffff;
-  --border: #e5e7eb;
-  --text: #0f172a;
-  --muted: #64748b;
-  --accent: #2563eb; /* blue */
-  --ring: #93c5fd;
+  --bg: var(--color-light);
+  --card: var(--color-light);
+  --border: var(--color-surface);
+  --text: var(--color-neutral-1);
+  --muted: var(--color-neutral-2);
+  --accent: var(--color-primary); /* blue */
+  --ring: var(--color-surface);
 
   --font-brand: 'Inter', system-ui, sans-serif;
   --font-ui: 'Inter', system-ui, sans-serif;
@@ -229,13 +229,13 @@
 
 /* Dark Mode */
 html.dark {
-  --bg: #0b0b0c;
-  --card: #121315;
-  --border: #2b2c2f;
-  --text: #f3f4f6;
-  --muted: #9aa1ab;
-  --accent: #60a5fa; /* lighter blue */
-  --ring: #60a5fa;
+  --bg: var(--color-neutral-1);
+  --card: var(--color-neutral-1);
+  --border: var(--color-dark);
+  --text: var(--color-surface);
+  --muted: var(--color-neutral-2);
+  --accent: var(--color-secondary); /* lighter blue */
+  --ring: var(--color-secondary);
 
   /* CSS color-scheme for Firefox/Opera support */
   color-scheme: dark;
@@ -245,14 +245,14 @@ html.dark {
 
 /* CMO Mode: confident serif headings, navy accent, slightly squarer radius */
 html[data-brand='cmo'] {
-  --accent: #0f3b82; /* navy */
+  --accent: var(--color-dark); /* navy */
   --font-brand: 'Newsreader', ui-serif, Georgia, serif;
   --radius: 1rem;
 }
 
 /* Dev Mode: neon-ish accent, mono UI font, extra rounded cards */
 html[data-brand='dev'] {
-  --accent: #22d3ee; /* cyan */
+  --accent: var(--color-secondary); /* cyan */
   --font-ui:
     ui-monospace, 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New',
     monospace;

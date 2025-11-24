@@ -117,7 +117,7 @@ const FloatingActionButtons: React.FC = () => {
               tabIndex={0}
               className="btn-primary group flex items-center gap-3 px-5 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-all"
               style={{
-                background: 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)',
+                background: 'linear-gradient(135deg, var(--color-neutral-2) 0%, var(--color-danger) 100%)',
               }}
               aria-label="Contact Me"
             >

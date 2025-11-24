@@ -71,7 +71,7 @@ const App: React.FC = () => {
           <ThemeProvider>
             <ToastProvider>
               {/* Blueprint texture background - no gradients */}
-              <GradientMesh colors={['#1e2a32', '#0b1014']} speed={0.0001} />
+              <GradientMesh colors={['var(--color-dark)', 'var(--color-neutral-1)']} speed={0.0001} />
 
               <JSONLD />
               <Suspense fallback={null}>

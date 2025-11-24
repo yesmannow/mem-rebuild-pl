@@ -65,7 +65,7 @@ export const HeroRedesign: React.FC<HeroRedesignProps> = ({
   secondaryCTA,
   secondaryCTAHref,
   useFramerMotion = false,
-  gradientColors = ['#0a0a0a', '#1a1a2e', '#16213e'],
+  gradientColors = ['var(--color-neutral-1)', '#1a1a2e', '#16213e'],
 }) => {
   const { prefersReducedMotion: themeReducedMotion } = useTheme();
   const shouldReduceMotion = useReducedMotion();

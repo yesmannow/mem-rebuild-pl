@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  background: linear-gradient(135deg, var(--color-neutral-1) 0%, var(--color-dark) 50%, #334155 100%);
   padding: 2rem;
   margin-top: 0;
   z-index: 1;
@@ -33,12 +33,12 @@
   line-height: 1.1;
   margin: 0 0 1.5rem 0;
   letter-spacing: -0.03em;
-  color: #ffffff;
+  color: var(--color-light);
 }
 
 .hero-title .gradient-text {
   display: block;
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #8b5cf6 50%, var(--color-danger) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -101,7 +101,7 @@
   position: absolute;
   inset: -2px;
   border-radius: 50%;
-  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(45deg, var(--color-primary), #8b5cf6);
   animation: pulse 2s ease-in-out infinite;
 }
 
@@ -109,7 +109,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background: #1e293b;
+  background: var(--color-dark);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -119,7 +119,7 @@
 }
 
 .chatbot-info h3 {
-  color: #ffffff;
+  color: var(--color-light);
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0;
@@ -127,7 +127,7 @@
 
 .status {
   font-size: 0.85rem;
-  color: #10b981;
+  color: var(--color-success);
   font-weight: 500;
 }
 
@@ -169,8 +169,8 @@
 }
 
 .message.user .message-content {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-primary), #1d4ed8);
+  color: var(--color-light);
   border-bottom-right-radius: 4px;
 }
 
@@ -237,7 +237,7 @@
 }
 
 .impact-header h4 {
-  color: #ffffff;
+  color: var(--color-light);
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0;
@@ -248,13 +248,13 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.85rem;
-  color: #10b981;
+  color: var(--color-success);
 }
 
 .impact-dot {
   width: 8px;
   height: 8px;
-  background: #10b981;
+  background: var(--color-success);
   border-radius: 50%;
   animation: pulse 1.5s ease-in-out infinite;
 }
@@ -339,12 +339,12 @@
   color: var(--metric-color);
 }
 
-.metric-value[data-color='#10B981'] {
-  color: #10b981;
+.metric-value[data-color='var(--color-success)'] {
+  color: var(--color-success);
 }
 
-.metric-value[data-color='#3B82F6'] {
-  color: #3b82f6;
+.metric-value[data-color='var(--color-primary)'] {
+  color: var(--color-primary);
 }
 
 .metric-value[data-color='#8B5CF6'] {
@@ -394,8 +394,8 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-primary), #8b5cf6);
+  color: var(--color-light);
   border: none;
   box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
 }
@@ -418,7 +418,7 @@
 .btn-primary:hover {
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 12px 40px rgba(59, 130, 246, 0.5);
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  background: linear-gradient(135deg, var(--color-primary), #7c3aed);
 }
 
 .btn-primary:active {
@@ -427,8 +427,8 @@
 
 .btn-secondary {
   background: rgba(59, 130, 246, 0.05);
-  color: #3b82f6;
-  border: 2px solid #3b82f6;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
   backdrop-filter: blur(10px);
 }
 
@@ -452,8 +452,8 @@
   background: rgba(59, 130, 246, 0.15);
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
-  border-color: #60a5fa;
-  color: #60a5fa;
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
 }
 
 .btn-secondary:active {

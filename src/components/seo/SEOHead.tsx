@@ -67,7 +67,7 @@ export default function SEOHead({
       {/* Additional Meta Tags */}
       <meta name="robots" content="index, follow" />
       <meta name="googlebot" content="index, follow" />
-      <meta name="theme-color" content="#0D0D0F" />
+      <meta name="theme-color" content="var(--color-neutral-1)" />
     </Helmet>
   );
 }

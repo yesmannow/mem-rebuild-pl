@@ -1,6 +1,6 @@
 .inspiration-detail {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #f9fafb, #ffffff);
+  background: linear-gradient(to bottom, var(--color-surface), var(--color-light));
   padding: 2rem 0;
 }
 
@@ -15,7 +15,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #6b7280;
+  color: var(--color-neutral-2);
   text-decoration: none;
   font-size: 0.95rem;
   margin-bottom: 2rem;
@@ -23,7 +23,7 @@
 }
 
 .inspiration-detail__back:hover {
-  color: #2563eb;
+  color: var(--color-primary);
 }
 
 /* Hero Section */
@@ -37,7 +37,7 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  background: #f3f4f6;
+  background: var(--color-surface);
 }
 
 .inspiration-detail__image {
@@ -54,7 +54,7 @@
 .inspiration-detail__title {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #111827;
+  color: var(--color-neutral-1);
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
@@ -66,7 +66,7 @@
   align-items: center;
   gap: 1.5rem;
   margin-bottom: 1rem;
-  color: #6b7280;
+  color: var(--color-neutral-2);
   font-size: 0.95rem;
 }
 
@@ -93,7 +93,7 @@
 }
 
 .inspiration-detail__credit {
-  color: #6b7280;
+  color: var(--color-neutral-2);
   font-size: 0.9rem;
   font-style: italic;
   margin-top: 0.5rem;
@@ -112,16 +112,16 @@
 .inspiration-detail__summary h2 {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #111827;
+  color: var(--color-neutral-1);
   margin-bottom: 1.25rem;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid #e5e7eb;
+  border-bottom: 2px solid var(--color-surface);
 }
 
 .inspiration-detail__summary-text {
   font-size: 1.125rem;
   line-height: 1.75;
-  color: #374151;
+  color: var(--color-dark);
   font-weight: 500;
 }
 
@@ -133,10 +133,10 @@
 .inspiration-detail__deep-dive-title {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #111827;
+  color: var(--color-neutral-1);
   margin-bottom: 2rem;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid #e5e7eb;
+  border-bottom: 2px solid var(--color-surface);
 }
 
 .inspiration-detail__section {
@@ -151,16 +151,16 @@
 .inspiration-detail__section-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #111827;
+  color: var(--color-neutral-1);
   margin-bottom: 1.25rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--color-surface);
 }
 
 .inspiration-detail__section-content {
   font-size: 1.0625rem;
   line-height: 1.8;
-  color: #4b5563;
+  color: var(--color-neutral-2);
 }
 
 .inspiration-detail__section-content p {
@@ -176,14 +176,14 @@
   display: flex;
   justify-content: center;
   padding-top: 2rem;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid var(--color-surface);
 }
 
 .inspiration-detail__external-link {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background: #2563eb;
+  background: var(--color-primary);
   color: white;
   padding: 0.875rem 1.75rem;
   border-radius: 8px;

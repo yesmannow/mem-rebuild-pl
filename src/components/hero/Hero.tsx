@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
                 animate={{
                   opacity: index === activeWord ? 1 : 0.3,
                   scale: index === activeWord ? 1.1 : 1,
-                  color: index === activeWord ? '#EC4899' : '#A1A1AA',
+                  color: index === activeWord ? 'var(--color-danger)' : 'var(--color-neutral-2)',
                 }}
                 transition={{ duration: 0.5, ease: 'easeOut' as Easing }}
               >

@@ -118,7 +118,7 @@
 
 /* Focus states for accessibility */
 .tag-filter-pill:focus {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 

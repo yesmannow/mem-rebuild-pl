@@ -1,6 +1,6 @@
 .cta-section {
   padding: 6rem 2rem;
-  background: var(--bc-bg, #fff);
+  background: var(--bc-bg, var(--color-light));
 }
 
 .cta-section__container {
@@ -23,7 +23,7 @@
 .cta-section__description {
   font-size: 1.25rem;
   line-height: 1.6;
-  color: var(--bc-text-secondary, #6b7280);
+  color: var(--bc-text-secondary, var(--color-neutral-2));
   margin-bottom: 2.5rem;
 }
 
@@ -47,12 +47,12 @@
 }
 
 .cta-section__button--primary {
-  background: var(--bc-accent, #3b82f6);
-  color: #fff;
+  background: var(--bc-accent, var(--color-primary));
+  color: var(--color-light);
 }
 
 .cta-section__button--primary:hover {
-  background: var(--bc-accent-hover, #2563eb);
+  background: var(--bc-accent-hover, var(--color-primary));
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
 }
@@ -60,12 +60,12 @@
 .cta-section__button--secondary {
   background: transparent;
   color: var(--bc-text-primary, #1a1a1a);
-  border: 2px solid var(--bc-border, #e5e7eb);
+  border: 2px solid var(--bc-border, var(--color-surface));
 }
 
 .cta-section__button--secondary:hover {
-  border-color: var(--bc-accent, #3b82f6);
-  color: var(--bc-accent, #3b82f6);
+  border-color: var(--bc-accent, var(--color-primary));
+  color: var(--bc-accent, var(--color-primary));
   transform: translateY(-2px);
 }
 
@@ -73,19 +73,19 @@
 .cta-section--gradient {
   background: linear-gradient(
     135deg,
-    var(--bc-primary, #3b82f6) 0%,
+    var(--bc-primary, var(--color-primary)) 0%,
     var(--bc-secondary, #8b5cf6) 100%
   );
 }
 
 .cta-section--gradient .cta-section__title,
 .cta-section--gradient .cta-section__description {
-  color: #fff;
+  color: var(--color-light);
 }
 
 .cta-section--gradient .cta-section__button--primary {
-  background: #fff;
-  color: var(--bc-accent, #3b82f6);
+  background: var(--color-light);
+  color: var(--bc-accent, var(--color-primary));
 }
 
 .cta-section--gradient .cta-section__button--primary:hover {
@@ -94,11 +94,11 @@
 
 .cta-section--gradient .cta-section__button--secondary {
   border-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
+  color: var(--color-light);
 }
 
 .cta-section--gradient .cta-section__button--secondary:hover {
-  border-color: #fff;
+  border-color: var(--color-light);
   background: rgba(255, 255, 255, 0.1);
 }
 
