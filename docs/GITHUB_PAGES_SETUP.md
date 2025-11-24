@@ -37,8 +37,10 @@ You can trigger a deployment in several ways:
 ### Base Path Configuration
 
 The project uses a dynamic base path in `vite.config.js`:
-- When `GITHUB_PAGES=true`: Uses `/mem-rebuild-pl/` as the base path
+- When `GITHUB_PAGES=true`: Automatically detects the repository name from `GITHUB_REPOSITORY` and uses it as the base path (e.g., `/mem-rebuild-pl/`)
 - Otherwise: Uses `/` for root domain deployments (Vercel, Netlify)
+
+This makes the configuration portable and reusable across different repositories.
 
 ### Environment Variables
 
@@ -47,6 +49,7 @@ The workflow sets these environment variables for optimal builds:
 - `SKIP_IMAGE_BUILD=true` - Skips time-consuming image processing
 - `CI=true` - Enables CI mode
 - `GITHUB_PAGES=true` - Configures the correct base path
+- `GITHUB_REPOSITORY` - Automatically set by GitHub Actions, used to determine the base path
 
 ## 📋 GitHub Repository Settings
 
