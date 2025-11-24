@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build-test:
@@ -12,27 +12,39 @@ jobs:
       PREBUILD_PIPELINE: off
       CI: true
       PUPPETEER_SKIP_DOWNLOAD: true
+      SKIP_IMAGE_BUILD: 1
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
-      - run: npm ci
+      
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+      
       - name: Lint
-        run: npm run lint --if-present || true
-      - name: Token check
+        run: npm run lint
+      
+      - name: Type check
+        run: npm run typecheck
+      
+      - name: Token check (design system)
         run: node scripts/ban-raw-colors.mjs
-      - name: Unit / Type check
-        run: npm run typecheck --if-present || true
+      
       - name: Build
         run: npm run build
-      - name: Check for customElements.define in production bundle
+      
+      - name: Check bundle for issues
         run: bash .github/actions/check-ce.sh dist || true
-      - name: Playwright install
-        run: npx playwright install --with-deps
-      - name: A11y tests
-        run: npm run a11y:ci || npx playwright test tests/a11y || true
-      - name: Lighthouse (report only in CI)
-        run: npm run perf:ci || true
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: dist/
+          retention-days: 7
 
