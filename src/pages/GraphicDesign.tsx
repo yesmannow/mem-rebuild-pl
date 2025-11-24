@@ -164,7 +164,7 @@ const GraphicDesign: React.FC = () => {
                 Interested in Working Together?
               </h2>
               <p className="text-[var(--parchment-050)]/80 mb-6 max-w-2xl mx-auto">
-                Let's create something exceptional. Reach out to discuss your next project.
+                Let&apos;s create something exceptional. Reach out to discuss your next project.
               </p>
               <motion.a
                 href="/contact"
