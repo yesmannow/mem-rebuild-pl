@@ -85,65 +85,326 @@ npm run preview
 
 # mem-rebuild-pl
 
-A working portfolio build powered by Vite, React, TailwindCSS, and assistant-ready CLI tools.
+A modern, professional portfolio powered by Vite, React, TypeScript, TailwindCSS, and a comprehensive suite of CLI tools and MCP servers for automated content generation, asset optimization, and deployment.
 
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ```bash
-npm install
+# Install dependencies
+npm install --legacy-peer-deps
+
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-## 🕷️ Web Scraping Assistant
+## 📂 Site Structure
 
-This project includes the [AI-Cursor-Scraping-Assistant](https://github.com/TheWebScrapingClub/AI-Cursor-Scraping-Assistant) for extracting images and design components from websites to improve your marketing portfolio.
+### Main Pages
 
-### Quick Setup
+- **/** - Homepage with hero, featured work, and testimonials
+- **/portfolio** - Interactive portfolio gallery with filtering
+- **/tools** - CLI tools & MCP servers showcase
+- **/devops** - DevOps & deployment portfolio with architecture documentation
+- **/case-study/[slug]** - Dynamic case study detail pages
+- **/resume** - Interactive resume with PDF download
+- **/about** - About page with bio, timeline, and community work
+- **/contact** - Contact form with scheduling integration
+
+## 🛠️ CLI Tools & Automation
+
+### Build & Deploy Commands
 
 ```bash
-# Install Python dependencies
-npm run scraping:install
+# Analyze bundle size with visualizer
+ANALYZE=true npm run build
 
-# Extract images from a website
-npm run scrape:images https://example.com
+# Build for GitHub Pages (subdirectory deployment)
+GITHUB_PAGES=true npm run build
 
-# Extract design components (colors, fonts, etc.)
-npm run scrape:design https://example.com
+# Build for Cloudflare Pages / custom domain (root deployment)
+npm run build
 
-# Extract everything
-npm run scrape:all https://example.com
+# Preview build locally
+npm run preview
 ```
 
-### Features
+### Asset Optimization
 
-- **Image Extraction**: Extract all images from websites including background images
-- **Design Components**: Extract colors, fonts, spacing, and layout patterns
-- **CSS Analysis**: Extract and analyze CSS files
-- **MCP Integration**: Works seamlessly with Cursor AI through MCP
+```bash
+# Optimize all images >1MB (compress, convert to WebP/AVIF)
+npm run optimize-images
 
-See [docs/SCRAPING_ASSISTANT_SETUP.md](docs/SCRAPING_ASSISTANT_SETUP.md) for detailed documentation.
+# Audit unused images in project
+npm run audit:images
 
-## 🧱 Folder Structure
+# Build image manifest for lazy loading
+npm run images:build
 
-```
-src/
-  assets/
-  components/
-  utils/
-  routes/
-cli/
-  generate-logo.ts
-  preview-layout.ts
-  svg-export.ts
-  cli.config.json
-public/
-  preview.html
-  favicon.svg
-prompts/
-  branding.json
+# Normalize image filenames
+npm run images:normalize
+
+# Validate MIME types
+npm run audit:mime
 ```
 
-## 🛠️ CLI Tools
+### MCP Server & Content Generation
+
+```bash
+# Start MCP server
+npm run mcp:start
+
+# Test MCP health
+npm run mcp:test
+
+# Monitor MCP metrics
+npm run mcp:monitor
+
+# Run smoke tests
+npm run mcp:smoke
+
+# Generate content from design websites
+npm run generate:content
+
+# Copy optimized assets to public/
+npm run copy:assets
+
+# Full build with content generation
+npm run build:full
+```
+
+### Development & Testing
+
+```bash
+# Type check without emitting files
+npm run typecheck
+
+# Lint code
+npm run lint
+
+# Lint and auto-fix
+npm run lint:fix
+
+# Format code with Prettier
+npm run format
+
+# Run tests
+npm test
+
+# Accessibility smoke test
+npm run a11y:smoke
+```
+
+### Deployment Workflows
+
+```bash
+# Pre-deploy validation (typecheck, lint, build, SEO)
+npm run predeploy
+
+# Deploy to Cloudflare Pages
+npm run deploy:cloudflare
+
+# Full pre-deploy check with all validations
+npm run predeploy:full
+
+# Validate all routes, SEO, content
+npm run validate:all
+```
+
+## 📦 Folder Structure
+
+```
+mem-rebuild-pl/
+├── src/
+│   ├── pages/              # React page components
+│   │   ├── ToolsShowcase.tsx
+│   │   ├── DevOpsPortfolio.tsx
+│   │   ├── Resume.tsx
+│   │   └── ...
+│   ├── components/         # Reusable React components
+│   ├── data/               # TypeScript data models
+│   ├── router/             # React Router configuration
+│   └── styles/             # CSS and style files
+├── public/
+│   ├── images/             # Static images (649 files, optimize >1MB)
+│   ├── resume/             # PDF resumes
+│   └── ...
+├── scripts/                # Build and automation scripts
+│   ├── optimize-images.js
+│   ├── listUnusedImages.ts
+│   ├── mcp-cli.js
+│   └── ...
+├── mcp/                    # MCP server implementation
+│   └── server.js
+├── archive/                # Archived non-production files
+│   ├── cli-workflow/       # Historical CLI tools (archived)
+│   ├── docs/               # Old documentation (archived)
+│   ├── reports/            # Historical reports (archived)
+│   └── prompts/            # Development prompts (archived)
+├── vite.config.js          # Vite configuration with base path logic
+├── package.json            # Dependencies and scripts
+└── README.md               # This file
+```
+
+## 🎨 Design System
+
+### Color Palette (Ocean Pearl Theme)
+
+- **Turquoise**: `#40E0D0` - Primary accent, CTAs, highlights
+- **Creamsicle**: `#FFA500` / `#FFB347` - Secondary accent, warm touches
+- **Light Blue-Gray**: `#B0C4DE` - Backgrounds, subtle elements
+- **Slate**: Neutral grays for text and UI components
+
+### Typography
+
+- **Font Family**: Montserrat (headings and body)
+- **Weights**: 400 (normal), 500 (medium), 600 (semibold), 700 (bold)
+
+## 🚢 Deployment
+
+### GitHub Pages
+
+Deploy to `https://username.github.io/mem-rebuild-pl/`
+
+```bash
+# Build with GitHub Pages base path
+GITHUB_PAGES=true npm run build
+
+# Output in dist/ is ready for deployment
+# GitHub Actions can auto-deploy on push to main
+```
+
+### Cloudflare Pages / Custom Domain
+
+Deploy to root domain like `https://yourdomain.com/`
+
+```bash
+# Build with root base path (default)
+npm run build
+
+# Output in dist/ is ready for Cloudflare Pages
+# Connect your repo in Cloudflare dashboard
+```
+
+### Base Path Logic
+
+The `vite.config.js` automatically handles base path:
+
+- **GitHub Pages**: Sets `base: '/mem-rebuild-pl/'` when `GITHUB_PAGES=true`
+- **Custom Domain**: Uses `base: '/'` by default
+
+This ensures all asset paths and routing work correctly on both deployment targets.
+
+## 📝 Content Management
+
+### Adding a Case Study
+
+1. Edit `src/data/caseStudies.ts` and add a new object:
+   ```typescript
+   {
+     slug: 'my-project',
+     title: 'My Project',
+     tagline: 'Brief description',
+     color: '#40E0D0',
+     icon: '🚀',
+     metrics: [
+       { label: 'Metric 1', value: '+100%' },
+     ],
+     fullContent: {
+       challenge: { paragraphs: ['...'], bullets: ['...'] },
+       strategy: { paragraphs: ['...'], bullets: ['...'] },
+       impact: { paragraphs: ['...'], bullets: ['...'] }
+     }
+   }
+   ```
+
+2. Add image to `public/images/case-studies/my-project.jpg`
+
+3. Case study will be accessible at `/case-study/my-project`
+
+### Adding a CLI Tool to /tools Page
+
+1. Edit `src/pages/ToolsShowcase.tsx`
+2. Add a new tool object to the `tools` array:
+   ```typescript
+   {
+     name: 'My Tool',
+     category: 'CLI',
+     description: 'What it does',
+     technologies: ['Node.js', 'TypeScript'],
+     usage: `# Command examples
+   npm run my-tool`,
+     outcomes: ['Outcome 1', 'Outcome 2'],
+     icon: <Terminal className="w-6 h-6" />,
+     lastModified: '2024-11',
+     author: 'Your Name'
+   }
+   ```
+
+## 🔍 Tool Metadata
+
+All CLI tools include comprehensive metadata:
+
+- **sourcePath**: Automatically resolved from `scripts/` and `cli/` directories
+- **outputType**: Varies by tool (Markdown reports, Optimized assets, JSON data)
+- **lastUsed**: Tracked via git log and file modification timestamps
+- **archiveLocation**: Non-production tools stored in `archive/`
+
+View the full tool catalog at `/tools` or in `src/pages/ToolsShowcase.tsx`
+
+## 🧰 MCP Integration
+
+This portfolio includes Model Context Protocol (MCP) integration for AI-powered development workflows:
+
+- **MCP Server**: Express-based server with health monitoring and rate limiting
+- **CLI Wrapper**: Unified command-line interface for all MCP operations
+- **Content Generation**: Automated design inspiration scraping and content creation
+- **Asset Pipeline**: Image optimization and metadata generation
+
+All MCP tools are documented at `/tools` with usage examples and outcomes.
+
+## 📊 Available Scripts Reference
+
+See `package.json` for the complete list of 100+ scripts. Key categories:
+
+- **Development**: `dev`, `build`, `preview`, `typecheck`, `lint`, `format`
+- **MCP**: `mcp:start`, `mcp:test`, `mcp:monitor`, `mcp:smoke`
+- **Content**: `generate:content`, `copy:assets`, `build:full`
+- **Images**: `optimize-images`, `audit:images`, `images:build`, `images:normalize`
+- **Design**: `design:analyze`, `design:refactor-colors`, `icon:generate-components`
+- **Audit**: `audit:lighthouse`, `audit:accessibility`, `audit:duplicates`, `audit:unused`
+- **Deploy**: `predeploy`, `deploy:cloudflare`, `validate:all`
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feat/my-feature`
+3. Make changes and test thoroughly
+4. Run pre-deploy checks: `npm run predeploy`
+5. Commit: `git commit -m "feat: add my feature"`
+6. Push and open a Pull Request
+
+## 📄 License
+
+This portfolio is private and proprietary. All rights reserved.
+
+## 🎯 Project Status
+
+**Version**: 2.0 (Wow Factor Portfolio)
+**Status**: Production Ready
+**Last Updated**: November 2024
+
+---
+
+## 🛠️ CLI Tools (Legacy)
+
+> **Note**: The following tools have been archived to `archive/` for reference.
+> Active tools are documented at `/tools` and in the sections above.
 
 Run from terminal:
 
