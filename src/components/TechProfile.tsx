@@ -17,13 +17,25 @@ const TechProfile: React.FC<TechProfileProps> = ({
 
   // Load blur data on mount
   useEffect(() => {
-    fetch('/images/profile-main-blur.json')
-      .then(res => res.json())
-      .then(data => setBlurDataUri(data.blurDataUri))
-      .catch(() => {
-        // Fallback if blur data doesn't exist
-        setBlurDataUri(null);
-      });
+    // Use try-catch and check if fetch is available
+    if (typeof fetch !== 'undefined') {
+      fetch('/images/profile-main-blur.json')
+        .then(res => {
+          if (res.ok) {
+            return res.json();
+          }
+          throw new Error('Blur data not found');
+        })
+        .then(data => {
+          if (data && data.blurDataUri) {
+            setBlurDataUri(data.blurDataUri);
+          }
+        })
+        .catch(() => {
+          // Fallback if blur data doesn't exist - component will work without it
+          setBlurDataUri(null);
+        });
+    }
   }, []);
 
   // Handle mouse movement for 3D parallax effect
