@@ -13,6 +13,8 @@ const CaseStudies = React.lazy(() => import('../pages/CaseStudies'));
 const CaseStudyDetail = React.lazy(() => import('../pages/CaseStudyDetail'));
 const ComponentShowcase = React.lazy(() => import('../pages/ComponentShowcase'));
 const Toolbox = React.lazy(() => import('../pages/Toolbox'));
+const ToolsShowcase = React.lazy(() => import('../pages/ToolsShowcase'));
+const DevOpsPortfolio = React.lazy(() => import('../pages/DevOpsPortfolio'));
 const Projects = React.lazy(() => import('../pages/Projects'));
 const ProjectDetail = React.lazy(() => import('../pages/ProjectDetail'));
 const Applications = React.lazy(() => import('../pages/Applications'));
@@ -99,6 +101,20 @@ const AppRouter: React.FC = () => {
         description:
           'Marketing and product systems toolkit built by Jacob Darling—frameworks, automations, and go-to templates.',
         keywords: 'marketing toolbox, automation toolkit, systems architecture',
+      };
+    } else if (path === '/tools') {
+      return {
+        title: 'CLI Tools & MCP Servers | BearCave Marketing',
+        description:
+          'Command-line utilities, automation scripts, and MCP servers for portfolio development, content generation, and design system management.',
+        keywords: 'CLI tools, MCP servers, automation, build tools, content generation, developer tools',
+      };
+    } else if (path === '/devops') {
+      return {
+        title: 'DevOps & Deployment | BearCave Marketing',
+        description:
+          'Deep dive into deployment architecture, dual base path configuration, custom element guards, and bundle optimization strategies.',
+        keywords: 'devops, deployment, vite, github pages, cloudflare pages, build optimization, CI/CD',
       };
     } else if (path === '/resume') {
       return {
@@ -326,6 +342,22 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <Toolbox />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/tools"
+              element={
+                <PageTransition>
+                  <ToolsShowcase />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/devops"
+              element={
+                <PageTransition>
+                  <DevOpsPortfolio />
                 </PageTransition>
               }
             />

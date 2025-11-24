@@ -49,10 +49,13 @@ export default {
   				mist: '#4EC5B8',
   				border: '#1E1E22'
   			},
-  			turquoise: '#3CC6C4',
-  			creamsicle: '#FF9E58',
+  			turquoise: '#00B8D9',
+  			creamsicle: '#FFB380',
   			'creamsicle-dark': '#E68A48',
-  			'light-blue-gray': '#F3F6F7',
+  			'light-blue-gray': '#B3CDE0',
+  			'montserrat-blue': '#00B8D9',
+  			'montserrat-orange': '#FFB380',
+  			'montserrat-gray': '#B3CDE0',
   			'case-study': {
   				primary: 'var(--case-study-primary)',
   				secondary: 'var(--case-study-secondary)',
@@ -153,19 +156,27 @@ export default {
   		},
 		fontFamily: {
 			sans: [
+				'Montserrat',
 				'Space Grotesk',
 				'system-ui',
 				'sans-serif'
 			],
 			display: [
+				'Montserrat',
 				'Fraunces 144',
 				'Georgia',
 				'serif'
 			],
 			brand: [
+				'Montserrat',
 				'Fraunces 144',
 				'Georgia',
 				'serif'
+			],
+			montserrat: [
+				'Montserrat',
+				'system-ui',
+				'sans-serif'
 			],
 			ui: [
 				'Space Grotesk',
