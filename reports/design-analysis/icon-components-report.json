@@ -1,0 +1,92 @@
+{
+  "totalIcons": 17,
+  "generated": 17,
+  "skipped": 0,
+  "components": [
+    {
+      "icon": "about",
+      "component": "aboutIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/aboutIcon.tsx"
+    },
+    {
+      "icon": "awards",
+      "component": "awardsIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/awardsIcon.tsx"
+    },
+    {
+      "icon": "close",
+      "component": "closeIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/closeIcon.tsx"
+    },
+    {
+      "icon": "download",
+      "component": "downloadIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/downloadIcon.tsx"
+    },
+    {
+      "icon": "email",
+      "component": "emailIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/emailIcon.tsx"
+    },
+    {
+      "icon": "error",
+      "component": "errorIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/errorIcon.tsx"
+    },
+    {
+      "icon": "github",
+      "component": "githubIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/githubIcon.tsx"
+    },
+    {
+      "icon": "linkedin",
+      "component": "linkedinIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/linkedinIcon.tsx"
+    },
+    {
+      "icon": "menu",
+      "component": "menuIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/menuIcon.tsx"
+    },
+    {
+      "icon": "pdf",
+      "component": "pdfIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/pdfIcon.tsx"
+    },
+    {
+      "icon": "projects",
+      "component": "projectsIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/projectsIcon.tsx"
+    },
+    {
+      "icon": "skills",
+      "component": "skillsIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/skillsIcon.tsx"
+    },
+    {
+      "icon": "success",
+      "component": "successIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/successIcon.tsx"
+    },
+    {
+      "icon": "tools",
+      "component": "toolsIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/toolsIcon.tsx"
+    },
+    {
+      "icon": "twitter",
+      "component": "twitterIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/twitterIcon.tsx"
+    },
+    {
+      "icon": "warning",
+      "component": "warningIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/warningIcon.tsx"
+    },
+    {
+      "icon": "x",
+      "component": "xIcon",
+      "path": "/home/runner/work/mem-rebuild-pl/mem-rebuild-pl/src/components/icons/xIcon.tsx"
+    }
+  ]
+}

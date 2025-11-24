@@ -1,46 +1,59 @@
+/**
+ * Icon Registry
+ * Auto-generated registry of all icon components
+ * Updated: 2025-11-24T07:09:23.979Z
+ */
+
 import React from 'react';
-import { icons, IconData } from '../../data/icons';
 
-export interface IconProps {
-  slug: string;
-  size?: number;
-  color?: string;
-  className?: string;
-  title?: string;
-}
+import { AboutIcon } from './aboutIcon';
+import { AwardsIcon } from './awardsIcon';
+import { CloseIcon } from './closeIcon';
+import { DownloadIcon } from './downloadIcon';
+import { EmailIcon } from './emailIcon';
+import { ErrorIcon } from './errorIcon';
+import { GithubIcon } from './githubIcon';
+import { LinkedinIcon } from './linkedinIcon';
+import { MenuIcon } from './menuIcon';
+import { PdfIcon } from './pdfIcon';
+import { ProjectsIcon } from './projectsIcon';
+import { SkillsIcon } from './skillsIcon';
+import { SuccessIcon } from './successIcon';
+import { ToolsIcon } from './toolsIcon';
+import { TwitterIcon } from './twitterIcon';
+import { WarningIcon } from './warningIcon';
+import { XIcon } from './xIcon';
 
-const Icon: React.FC<IconProps> = ({
-  slug,
-  size = 24,
-  color = 'currentColor',
-  className = '',
-  title,
-}) => {
-  const iconData: IconData | undefined = icons[slug];
-
-  if (!iconData) {
-    console.warn(`Icon with slug "${slug}" not found in icons registry`);
-    return null;
-  }
-
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      stroke={color}
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-labelledby={title ? `${slug}-title` : undefined}
-      aria-label={title || iconData.title}
-    >
-      {title && <title id={`${slug}-title`}>{title}</title>}
-      <path d={iconData.path} />
-    </svg>
-  );
+export const IconRegistry: Record<string, React.ComponentType<any>> = {
+  'about': AboutIcon,
+  'awards': AwardsIcon,
+  'close': CloseIcon,
+  'download': DownloadIcon,
+  'email': EmailIcon,
+  'error': ErrorIcon,
+  'github': GithubIcon,
+  'linkedin': LinkedinIcon,
+  'menu': MenuIcon,
+  'pdf': PdfIcon,
+  'projects': ProjectsIcon,
+  'skills': SkillsIcon,
+  'success': SuccessIcon,
+  'tools': ToolsIcon,
+  'twitter': TwitterIcon,
+  'warning': WarningIcon,
+  'x': XIcon,
 };
 
-export default Icon;
+/**
+ * Get icon component by name
+ */
+export function getIcon(name: string): React.ComponentType<any> | null {
+  return IconRegistry[name] || null;
+}
+
+/**
+ * List all available icons
+ */
+export function listIcons(): string[] {
+  return Object.keys(IconRegistry);
+}
