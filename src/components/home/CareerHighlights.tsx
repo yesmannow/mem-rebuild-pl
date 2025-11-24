@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Briefcase } from 'lucide-react';
 import './CareerHighlights.css';
 
+// Show only recent 5 roles on home page - full history on resume
 const careerHighlights = [
   {
     id: 'graston',
@@ -87,37 +88,6 @@ const careerHighlights = [
       'Assisted Chief Compliance Officer in reviewing communications to meet FINRA and SEC standards',
     ],
     tags: ['Campaigns', 'Events', 'Compliance', 'Content'],
-  },
-  {
-    id: 'pike',
-    title: 'Marketing Coordinator',
-    company: 'Pike Medical Consultants',
-    location: 'Greater Indianapolis',
-    period: 'Sep 2009 - Jun 2013',
-    year: 2009,
-    summary: 'Directed marketing activities including planning, budgeting, communication projects, advertising, brand awareness, website design, public relations, and event management.',
-    achievements: [
-      'Delivered an average of 45% growth in patient visits over three years',
-      'Maintained consistent positive ROI on marketing initiatives',
-      'Led development and implementation of marketing and advertising campaigns',
-      'Implemented, monitored, and evaluated marketing communications strategy',
-    ],
-    tags: ['Campaigns', 'Events', 'PR', 'Growth'],
-  },
-  {
-    id: 'orthoindy',
-    title: 'Marketing Intern',
-    company: 'OrthoIndy',
-    location: 'Indianapolis, IN',
-    period: '2006 - 2007',
-    year: 2006,
-    summary: 'Marketing intern role focused on medical device marketing and content creation.',
-    achievements: [
-      'Supported marketing initiatives for medical device products',
-      'Created marketing content and materials',
-      'Assisted with marketing campaigns and communications',
-    ],
-    tags: ['Medical Devices', 'Content Marketing'],
   },
 ];
 
@@ -291,6 +261,26 @@ const CareerHighlights: React.FC = () => {
           </motion.div>
         ))}
       </div>
+
+      {/* View Full Resume CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="text-center mt-16"
+      >
+        <p className="text-[var(--parchment-050)]/60 font-body mb-6">
+          Want to see my complete career history and detailed achievements?
+        </p>
+        <a
+          href="/resume"
+          className="inline-flex items-center gap-2 px-8 py-3 border-2 border-[var(--signal-500)] text-[var(--signal-500)] font-semibold rounded-lg transition-all hover:bg-[var(--signal-500)] hover:text-[var(--ink-900)]"
+        >
+          View Full Resume
+          <Briefcase className="w-5 h-5" />
+        </a>
+      </motion.div>
     </section>
   );
 };

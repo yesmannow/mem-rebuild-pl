@@ -148,15 +148,24 @@ const HeroCommandPanel: React.FC = () => {
             </motion.h1>
           </div>
 
-          {/* Subhead */}
-          <motion.p
+          {/* Value Proposition */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg md:text-xl text-[var(--parchment-050)]/70 max-w-xl font-body leading-relaxed"
+            className="space-y-4"
           >
-            I design and deploy marketing infrastructure that connects insight to action—from automation and CRM architecture to analytics and campaign strategy. 16+ years transforming complex problems into scalable solutions.
-          </motion.p>
+            <p className="text-lg md:text-xl text-[var(--parchment-050)]/70 max-w-xl font-body leading-relaxed">
+              I design and deploy marketing infrastructure that connects insight to action—from automation and CRM architecture to analytics and campaign strategy.
+            </p>
+            
+            {/* Who I serve */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--signal-500)]/10 border border-[var(--signal-500)]/20">
+              <span className="text-sm font-mono text-[var(--signal-500)] uppercase tracking-wider">
+                Serving: SaaS • Healthcare • Legal • Financial Services
+              </span>
+            </div>
+          </motion.div>
 
           {/* Telemetry ticker */}
           <motion.div

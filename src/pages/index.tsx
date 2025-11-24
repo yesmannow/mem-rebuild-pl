@@ -5,6 +5,7 @@ import HeroCommandPanel from '../components/home/HeroCommandPanel';
 import HeroStats from '../components/home/HeroStats';
 import QuickWins from '../components/home/QuickWins';
 import SocialProof from '../components/home/SocialProof';
+import ProcessMethodology from '../components/home/ProcessMethodology';
 import { ServiceLadder } from '../components/interactive/ServiceLadder';
 import CareerHighlights from '../components/home/CareerHighlights';
 import Portfolio from '../components/home/Portfolio';
@@ -121,6 +122,9 @@ const HomePage: React.FC = () => {
 
         {/* Portfolio Section */}
         <Portfolio />
+
+        {/* Process/Methodology Section */}
+        <ProcessMethodology />
 
         {/* Skills Section - Enhanced with Service Ladder */}
         <ServiceLadder
