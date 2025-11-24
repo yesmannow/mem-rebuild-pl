@@ -36,22 +36,27 @@ const EmbedWrapper: React.FC<EmbedWrapperProps> = ({
         rounded-xl
         shadow-lg
         border
-        border-gray-200
-        dark:border-gray-700
+        border-[var(--ink-700)]/40
+        dark:border-[var(--telemetry-400)]/20
+        bg-[var(--ink-800)]/30
+        backdrop-blur-sm
         transition-all
         duration-300
-        hover:shadow-xl
+        hover:shadow-2xl
+        hover:shadow-[var(--telemetry-400)]/10
         hover:-translate-y-1
+        hover:border-[var(--telemetry-400)]/40
         focus-within:ring-2
-        focus-within:ring-primary-500
+        focus-within:ring-[var(--signal-500)]
         focus-within:ring-offset-2
+        focus-within:ring-offset-[var(--ink-900)]
         ${className}
       `}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
       whileHover={{ 
-        scale: 1.01,
+        scale: 1.005,
         transition: { duration: 0.3 }
       }}
       style={{
