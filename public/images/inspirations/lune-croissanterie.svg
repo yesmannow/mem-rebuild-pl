@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="balanced-lune-croissanterie" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:0.2" />
+      <stop offset="50%" style="stop-color:#40E0D0;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0.2" />
+    </linearGradient>
+    <linearGradient id="accent-balanced-lune-croissanterie" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#40E0D0;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:0.7" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="256" height="256" rx="32" fill="url(#balanced-lune-croissanterie)"/>
+  
+  <!-- Main logo container -->
+  <rect x="48" y="48" width="160" height="160" rx="24" fill="#000000" opacity="0.95"/>
+  
+  <!-- Accent border -->
+  <rect x="48" y="48" width="160" height="160" rx="24" fill="none" stroke="url(#accent-balanced-lune-croissanterie)" stroke-width="3"/>
+  
+  <!-- Initials -->
+  <text x="128" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="50" font-weight="700" fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">LC</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="128" cy="80" r="6" fill="#40E0D0" opacity="0.8"/>
+  <circle cx="128" cy="220" r="6" fill="#FFA500" opacity="0.8"/>
+</svg>

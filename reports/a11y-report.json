@@ -1,6 +1,6 @@
 {
   "url": "http://localhost:4173",
-  "timestamp": "2025-11-24T21:00:36.951Z",
+  "timestamp": "2025-11-24T21:25:45.540Z",
   "note": "Install pa11y for full accessibility auditing: npm install -g pa11y",
   "recommendations": [
     "Ensure all images have alt attributes",
