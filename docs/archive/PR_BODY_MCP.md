@@ -1,3 +1,5 @@
+> **⚠️ ARCHIVED DOCUMENTATION**: This document is historical and may contain outdated information. Kept for reference only.
+
 This PR hardens the MCP server and adds automation:
 
 - ESM fix for __dirname via fileURLToPath(import.meta.url)

@@ -1,3 +1,5 @@
+> **⚠️ ARCHIVED DOCUMENTATION**: This document is historical and may contain outdated information. Kept for reference only.
+
 ## Summary
 
 Adds Storybook configuration and ensures story scaffolds are valid. Sets up minimal Storybook setup with Vite integration for component development and visual testing.

@@ -1,3 +1,5 @@
+> **⚠️ ARCHIVED DOCUMENTATION**: This document is historical and may contain outdated information. Kept for reference only.
+
 # Phase 2 Implementation Summary - Images, Theming & Polish
 
 ## ✅ Completed Tasks

@@ -1,3 +1,5 @@
+> **⚠️ ARCHIVED DOCUMENTATION**: This document is historical and may contain outdated information. Kept for reference only.
+
 # PR #68 Summary: Fix Broken Pull Requests and Vercel Integration
 
 **Created**: 2025-11-24  

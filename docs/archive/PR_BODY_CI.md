@@ -1,3 +1,5 @@
+> **⚠️ ARCHIVED DOCUMENTATION**: This document is historical and may contain outdated information. Kept for reference only.
+
 ## Executive Summary
 
 - Add CI workflow to run typecheck/build, Storybook build (if configured), pa11y accessibility checks, and Lighthouse CI (LHCI).
