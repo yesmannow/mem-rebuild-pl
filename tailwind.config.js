@@ -269,6 +269,13 @@ export default {
   			'88': '22rem',
   			'128': '32rem'
   		},
+		transitionDuration: {
+			'200': '200ms',
+			'250': '250ms',
+		},
+		transitionTimingFunction: {
+			'ease-in-out-quad': 'cubic-bezier(0.455, 0.030, 0.515, 0.955)',
+		},
   		borderRadius: {
   			theme: 'var(--radius)',
   			xl: '0.75rem',

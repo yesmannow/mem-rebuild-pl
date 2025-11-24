@@ -20,6 +20,7 @@ const ApplicationDetail = React.lazy(() => import('../pages/ApplicationDetail'))
 const Photography = React.lazy(() => import('../pages/Photography'));
 const Design = React.lazy(() => import('../pages/Design'));
 const GraphicDesign = React.lazy(() => import('../pages/GraphicDesign'));
+const Creative = React.lazy(() => import('../pages/Creative'));
 const SideProjects = React.lazy(() => import('../pages/SideProjects'));
 const SideProjectDetail = React.lazy(() => import('../pages/side-projects/SideProjectDetail'));
 const Testimonials = React.lazy(() => import('../pages/Testimonials'));
@@ -148,6 +149,14 @@ const AppRouter: React.FC = () => {
           'Explore a curated collection of photography work capturing moments that inspire and connect',
         keywords:
           'photography, visual storytelling, photo gallery, Adobe Lightroom, photographic portfolio',
+      };
+    } else if (path === '/creative') {
+      return {
+        title: 'Creative Work | BearCave Marketing',
+        description:
+          'Explore creative work across photography, graphic design, branding systems, web builds, and motion design',
+        keywords:
+          'creative portfolio, photography, graphic design, branding, web design, motion design, visual design',
       };
     } else if (path === '/inspiration') {
       return {
@@ -373,6 +382,14 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <GraphicDesign />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/creative"
+              element={
+                <PageTransition>
+                  <Creative />
                 </PageTransition>
               }
             />
