@@ -19,6 +19,7 @@ const Applications = React.lazy(() => import('../pages/Applications'));
 const ApplicationDetail = React.lazy(() => import('../pages/ApplicationDetail'));
 const Photography = React.lazy(() => import('../pages/Photography'));
 const Design = React.lazy(() => import('../pages/Design'));
+const GraphicDesign = React.lazy(() => import('../pages/GraphicDesign'));
 const SideProjects = React.lazy(() => import('../pages/SideProjects'));
 const SideProjectDetail = React.lazy(() => import('../pages/side-projects/SideProjectDetail'));
 const Testimonials = React.lazy(() => import('../pages/Testimonials'));
@@ -131,6 +132,22 @@ const AppRouter: React.FC = () => {
           'Explore a curated collection of design work including branding, digital design, print campaigns, and creative concepts',
         keywords:
           'design portfolio, graphic design, branding, digital design, print design, creative design',
+      };
+    } else if (path === '/graphic-design') {
+      return {
+        title: 'Graphic Design Portfolio | BearCave Marketing',
+        description:
+          'Explore a curated collection of graphic design work including branding, digital layouts, album artwork, and creative direction',
+        keywords:
+          'graphic design, branding, digital design, album artwork, creative direction, visual identity',
+      };
+    } else if (path === '/photography') {
+      return {
+        title: 'Photography Portfolio | BearCave Marketing',
+        description:
+          'Explore a curated collection of photography work capturing moments that inspire and connect',
+        keywords:
+          'photography, visual storytelling, photo gallery, Adobe Lightroom, photographic portfolio',
       };
     } else if (path === '/inspiration') {
       return {
@@ -348,6 +365,14 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <Design />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/graphic-design"
+              element={
+                <PageTransition>
+                  <GraphicDesign />
                 </PageTransition>
               }
             />

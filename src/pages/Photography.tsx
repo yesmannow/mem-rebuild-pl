@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import AnimatedSection from '../components/animations/AnimatedSection';
@@ -12,6 +13,7 @@ import {
   type PhotoItem,
 } from '../utils/loadPhotography';
 import { OceanWavyBackground } from '../components/ui/OceanWavyBackground';
+import EmbedWrapper from '../components/media/EmbedWrapper';
 import photographyManifest from '../../public/images/photography/manifest.json';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -157,72 +159,181 @@ const Photography: React.FC = () => {
   }, [filteredPhotos]);
 
   return (
-    <OceanWavyBackground
-      className="photography-page-modern"
-      containerClassName="min-h-screen bg-[var(--ink-900)] text-[var(--parchment-050)]"
-      speed="slow"
-      waveOpacity={0.25}
-      colors={['#006d77', '#83c5be', '#7ab5c2', '#ffddd2']}
-    >
-      <main className="relative z-10">
-        {/* Hero Section with Parallax */}
-        <motion.section
-          className="photo-hero py-16 md:py-20"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-        <div className="hero-content-photo container mx-auto px-6">
-          <motion.h1
-            className="photo-page-title font-display text-4xl md:text-5xl font-bold tracking-tight"
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-          >
-            Visual Stories
-          </motion.h1>
-          <motion.p
-            className="photo-page-subtitle mt-3 text-lg md:text-xl text-[var(--parchment-050)]/70 max-w-3xl"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-          >
-            Capturing moments that inspire and connect
-          </motion.p>
-        </div>
+    <>
+      <Helmet>
+        <title>Photography Portfolio | BearCave Marketing</title>
+        <meta
+          name="description"
+          content="Explore a curated collection of photography work capturing moments that inspire and connect. View the full collection in Adobe Lightroom."
+        />
+        <meta
+          name="keywords"
+          content="photography, visual storytelling, photo gallery, Adobe Lightroom, photographic portfolio"
+        />
+        <meta property="og:title" content="Photography Portfolio | BearCave Marketing" />
+        <meta
+          property="og:description"
+          content="Explore a curated collection of photography work capturing moments that inspire and connect."
+        />
+      </Helmet>
 
-        {/* Floating Category Pills */}
-        <motion.div
-          className="floating-categories container mx-auto px-6 mt-6 flex flex-wrap gap-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-        >
-          {categories.map((category, idx) => (
-            <motion.button
-              key={category}
-            className={`category-pill ${activeCategory === category ? 'active' : ''} px-4 py-2 rounded-full text-sm font-medium border border-[var(--ink-700)]/60 text-[var(--parchment-050)]/80`}
-              onClick={() => setActiveCategory(category)}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.7 + idx * 0.05 }}
-              whileHover={{ scale: 1.1, y: -3 }}
-              whileTap={{ scale: 0.95 }}
-              style={{
-                background:
-                  activeCategory === category
-                    ? `linear-gradient(135deg, ${categoryColors[category] || '#667eea'}, ${categoryColors[category] || '#764ba2'})`
-                    : 'rgba(136, 171, 242, 0.1)',
-              }}
+      <OceanWavyBackground
+        className="photography-page-modern"
+        containerClassName="min-h-screen bg-[var(--ink-900)] text-[var(--parchment-050)]"
+        speed="slow"
+        waveOpacity={0.25}
+        colors={['#006d77', '#83c5be', '#7ab5c2', '#ffddd2']}
+      >
+        <main className="relative z-10">
+          {/* Hero Section with Parallax */}
+          <motion.section
+            className="photo-hero py-16 md:py-20"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="hero-content-photo container mx-auto px-6 max-w-5xl">
+              <motion.h1
+                className="photo-page-title font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4"
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+              >
+                Photography Portfolio
+              </motion.h1>
+              <motion.p
+                className="photo-page-subtitle text-xl md:text-2xl text-[var(--parchment-050)]/80 mb-6"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+              >
+                Capturing moments that inspire and connect
+              </motion.p>
+              <motion.p
+                className="text-base md:text-lg text-[var(--parchment-050)]/70 max-w-3xl"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+              >
+                A visual journey through landscapes, portraits, and candid moments. Each photograph 
+                tells a story and captures the essence of a fleeting moment in time.
+              </motion.p>
+            </div>
+
+            {/* Info Section */}
+            <motion.div
+              className="info-grid container mx-auto px-6 max-w-5xl grid md:grid-cols-3 gap-6 mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
             >
-              {category}
-            </motion.button>
-          ))}
-        </motion.div>
-      </motion.section>
+              <div className="info-card bg-[var(--ink-700)]/30 backdrop-blur-sm rounded-lg p-6 border border-[var(--ink-700)]/60">
+                <h3 className="text-sm font-semibold text-[var(--signal-500)] uppercase tracking-wide mb-2">
+                  Role
+                </h3>
+                <p className="text-[var(--parchment-050)]/90">
+                  Photographer, Visual Storyteller
+                </p>
+              </div>
 
-      {/* Bento Grid Gallery */}
-      <section className="bento-gallery container mx-auto px-6 py-10">
+              <div className="info-card bg-[var(--ink-700)]/30 backdrop-blur-sm rounded-lg p-6 border border-[var(--ink-700)]/60">
+                <h3 className="text-sm font-semibold text-[var(--signal-500)] uppercase tracking-wide mb-2">
+                  Equipment
+                </h3>
+                <p className="text-[var(--parchment-050)]/90">
+                  Canon, Sony, Various Lenses
+                </p>
+              </div>
+
+              <div className="info-card bg-[var(--ink-700)]/30 backdrop-blur-sm rounded-lg p-6 border border-[var(--ink-700)]/60">
+                <h3 className="text-sm font-semibold text-[var(--signal-500)] uppercase tracking-wide mb-2">
+                  Style
+                </h3>
+                <p className="text-[var(--parchment-050)]/90">
+                  Natural Light, Environmental Portraits
+                </p>
+              </div>
+            </motion.div>
+          </motion.section>
+
+          {/* Lightroom Embed Section */}
+          <section className="embed-section relative z-10 py-12 md:py-16">
+            <div className="container mx-auto px-6 max-w-5xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1 }}
+              >
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+                  Featured Collection
+                </h2>
+                <EmbedWrapper
+                  src="https://lightroom.adobe.com/embed/shares/b1f8050aa3ac452baae9e3590e1c92c8/slideshow?background_color=%232D2D2D&color=%23999999"
+                  ratio={2 / 1}
+                  title="Photography Slideshow"
+                />
+              </motion.div>
+            </div>
+          </section>
+
+          {/* Divider */}
+          <div className="container mx-auto px-6 max-w-5xl py-8">
+            <div className="border-t border-[var(--ink-700)]/60"></div>
+          </div>
+
+          {/* Gallery Section Header */}
+          <section className="gallery-header-section relative z-10 py-8">
+            <div className="hero-content-photo container mx-auto px-6 max-w-5xl">
+              <motion.h2
+                className="font-display text-3xl md:text-4xl font-bold mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2, duration: 0.8 }}
+              >
+                Browse by Category
+              </motion.h2>
+              <motion.p
+                className="text-[var(--parchment-050)]/70 mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.4, duration: 0.8 }}
+              >
+                Explore different collections and styles from my photography portfolio.
+              </motion.p>
+            </div>
+
+            {/* Floating Category Pills */}
+            <motion.div
+              className="floating-categories container mx-auto px-6 max-w-5xl mt-6 flex flex-wrap gap-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.6, duration: 0.6 }}
+            >
+              {categories.map((category, idx) => (
+                <motion.button
+                  key={category}
+                  className={`category-pill ${activeCategory === category ? 'active' : ''} px-4 py-2 rounded-full text-sm font-medium border border-[var(--ink-700)]/60 text-[var(--parchment-050)]/80`}
+                  onClick={() => setActiveCategory(category)}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1.7 + idx * 0.05 }}
+                  whileHover={{ scale: 1.1, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  style={{
+                    background:
+                      activeCategory === category
+                        ? `linear-gradient(135deg, ${categoryColors[category] || '#667eea'}, ${categoryColors[category] || '#764ba2'})`
+                        : 'rgba(136, 171, 242, 0.1)',
+                  }}
+                >
+                  {category}
+                </motion.button>
+              ))}
+            </motion.div>
+          </section>
+
+          {/* Bento Grid Gallery */}
+          <section className="bento-gallery container mx-auto px-6 max-w-5xl py-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
@@ -264,55 +375,55 @@ const Photography: React.FC = () => {
         </AnimatePresence>
       </section>
 
-      {/* View More CTA */}
-      <motion.section
-        className="view-more-cta container mx-auto px-6 py-12"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <motion.a
-          href="https://lightroom.adobe.com/shares/1bd278c4190442cbbdc4eccfcef0d91b"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="lightroom-cta inline-flex items-center gap-4 rounded-xl px-6 py-4 bg-[var(--signal-500)] text-[var(--ink-900)] font-semibold"
-          whileHover={{ scale: 1.05, y: -5 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <div className="cta-icon">
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <path d="M21 15l-5-5L5 21" />
-            </svg>
-          </div>
-          <div className="cta-text">
-            <h3>Explore Full Collection</h3>
-            <p>View 100+ photos in Adobe Lightroom</p>
-          </div>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
+          {/* View More CTA */}
+          <motion.section
+            className="view-more-cta container mx-auto px-6 max-w-5xl py-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </motion.a>
-      </motion.section>
+            <motion.a
+              href="https://lightroom.adobe.com/shares/1bd278c4190442cbbdc4eccfcef0d91b"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lightroom-cta inline-flex items-center gap-4 rounded-xl px-6 py-4 bg-[var(--signal-500)] text-[var(--ink-900)] font-semibold"
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="cta-icon">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <path d="M21 15l-5-5L5 21" />
+                </svg>
+              </div>
+              <div className="cta-text">
+                <h3>Explore Full Collection</h3>
+                <p>View 100+ photos in Adobe Lightroom</p>
+              </div>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </motion.a>
+          </motion.section>
 
-      {/* Enhanced Lightbox */}
-      <AnimatePresence>
+          {/* Enhanced Lightbox */}
+          <AnimatePresence>
         {selectedPhoto && (
           <motion.div
             className="modern-lightbox"
@@ -437,9 +548,10 @@ const Photography: React.FC = () => {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
-      </main>
-    </OceanWavyBackground>
+          </AnimatePresence>
+        </main>
+      </OceanWavyBackground>
+    </>
   );
 };
 
