@@ -14,8 +14,39 @@ interface ServiceLadderProps {
 
 export const ServiceLadder: React.FC<ServiceLadderProps> = ({ services }) => {
   return (
-    <section className="py-24 bg-[var(--ink-900)]">
-      <div className="container mx-auto px-6">
+    <section className="py-24 bg-[var(--ink-900)] relative overflow-hidden">
+      {/* Background gradient orbs */}
+      <motion.div
+        className="absolute bottom-20 left-20 w-96 h-96 bg-[var(--telemetry-400)]/5 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.2, 0.4, 0.2],
+        }}
+        transition={{
+          duration: 11,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        aria-hidden="true"
+      />
+      
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-[var(--parchment-050)] mb-4">
+            What I Deliver
+          </h2>
+          <p className="text-lg text-[var(--parchment-050)]/60 max-w-2xl mx-auto font-body">
+            End-to-end marketing systems built for scale
+          </p>
+        </motion.div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <motion.div

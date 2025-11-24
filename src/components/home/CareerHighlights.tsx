@@ -211,15 +211,33 @@ const CareerHighlights: React.FC = () => {
   };
 
   return (
-    <section ref={sectionRef} id="experience" className="career-highlights container-px mx-auto max-w-6xl py-16 md:py-24">
+    <section ref={sectionRef} id="experience" className="career-highlights container-px mx-auto max-w-6xl py-16 md:py-24 relative">
+      {/* Background decorative elements */}
       <motion.div
-        className="career-highlights__header"
+        className="absolute top-40 right-10 w-72 h-72 bg-[var(--telemetry-400)]/5 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        aria-hidden="true"
+      />
+
+      <motion.div
+        className="career-highlights__header relative z-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
         <h2 className="section-heading">Career Journey</h2>
+        <p className="text-lg text-[var(--parchment-050)]/60 mt-4 max-w-2xl mx-auto text-center font-body">
+          16+ years building marketing systems across healthcare, legal, and SaaS industries
+        </p>
       </motion.div>
 
       {/* Year Navigation - Sticky when scrolling */}

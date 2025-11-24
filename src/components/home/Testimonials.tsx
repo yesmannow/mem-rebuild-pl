@@ -62,15 +62,33 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
   const current = testimonials[currentIndex];
 
   return (
-    <section id="testimonials" className="testimonials container-px mx-auto max-w-6xl py-16 md:py-24">
+    <section id="testimonials" className="testimonials container-px mx-auto max-w-6xl py-16 md:py-24 relative">
+      {/* Background decorative gradient */}
       <motion.div
-        className="testimonials__header"
+        className="absolute -top-10 right-0 w-80 h-80 bg-[var(--signal-500)]/5 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 9,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        aria-hidden="true"
+      />
+
+      <motion.div
+        className="testimonials__header relative z-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
         <h2 className="section-heading">What People Say</h2>
+        <p className="text-lg text-[var(--parchment-050)]/60 mt-4 max-w-2xl mx-auto text-center font-body">
+          Trusted by leaders across industries
+        </p>
       </motion.div>
 
       <div
