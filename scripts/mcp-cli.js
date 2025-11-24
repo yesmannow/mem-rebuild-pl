@@ -205,6 +205,9 @@ function printUsage() {
       "  generate-tech-icons Generate custom SVG icons for top technologies",
       "  generate-inspiration Generate and validate inspiration projects data",
       "  audit-score    Calculate unified Portfolio Health Score from all audits",
+      "  generate-cybernetic-logo Generate cybernetic monogram logo with tech brackets",
+      "  generate-social-images Generate Open Graph social images for sharing",
+      "  process-bio-assets Process and standardize bio photos for TechProfile component",
       "",
       "Options:",
       "  --dry-run    Print what would run, but don't execute",
@@ -596,7 +599,7 @@ ${formattedMetrics}
         console.log("\n" + "=".repeat(70));
         console.log("🎨 Inspiration Projects Generator");
         console.log("=".repeat(70) + "\n");
-        
+
         if (dryRun) {
           console.log("[dry-run] Would:");
           console.log("  1. Run generate-inspiration-json.cjs to process markdown files");
@@ -605,11 +608,11 @@ ${formattedMetrics}
           console.log("  4. Ensure InspirationDetail routes work correctly");
           break;
         }
-        
+
         // Step 1: Generate JSON from markdown files (only if directory exists)
         const markdownDir = path.join(repoRoot, "cli-workflow", "content", "inspiration");
         const inspirationScript = path.join(__dirname, "generate-inspiration-json.cjs");
-        
+
         if (fs.existsSync(markdownDir) && fs.existsSync(inspirationScript)) {
           console.log("📝 Step 1/2: Generating inspiration projects from markdown...");
           try {
@@ -620,19 +623,19 @@ ${formattedMetrics}
         } else {
           console.log("ℹ️  No markdown source found, validating existing JSON...");
         }
-        
+
         // Step 2: Validate and fix data
         console.log("\n✅ Step 2/2: Validating and fixing inspiration data...");
         const { validateInspirationData } = await import("./validate-inspiration.mjs");
         const validationResult = await validateInspirationData();
-        
+
         console.log("\n" + "=".repeat(70));
         console.log("📊 Validation Results");
         console.log("=".repeat(70));
         console.log(`   Total Projects: ${validationResult.total}`);
         console.log(`   Fixed: ${validationResult.fixed}`);
         console.log(`   Issues Found: ${validationResult.issues.length}`);
-        
+
         if (validationResult.issues.length > 0) {
           console.log("\n🔍 Issues:");
           validationResult.issues.slice(0, 10).forEach((issue, idx) => {
@@ -643,24 +646,24 @@ ${formattedMetrics}
             console.log(`   ... and ${validationResult.issues.length - 10} more issues`);
           }
         }
-        
+
         // Check for projects without slugs
         const projectsWithoutSlugs = validationResult.projects.filter(p => !p.slug);
         if (projectsWithoutSlugs.length > 0) {
           console.log(`\n⚠️  ${projectsWithoutSlugs.length} projects missing slugs - these will cause routing errors`);
         }
-        
+
         // Verify routes
-        const allHaveRoutes = validationResult.projects.every(p => 
+        const allHaveRoutes = validationResult.projects.every(p =>
           p.slug && p.url && p.url.startsWith('/inspiration/')
         );
-        
+
         if (allHaveRoutes) {
           console.log("\n✅ All projects have valid internal routes");
         } else {
           console.log("\n⚠️  Some projects may have invalid routes - check URLs");
         }
-        
+
         console.log("\n" + "=".repeat(70));
         console.log("💡 Next Steps:");
         console.log("=".repeat(70));
@@ -669,7 +672,7 @@ ${formattedMetrics}
         console.log("3. Test routes: /inspiration/[slug]");
         console.log("4. Run 'audit-score' to check for broken image paths");
         console.log("=".repeat(70) + "\n");
-        
+
         break;
       }
       case "audit-score": {
@@ -818,6 +821,196 @@ ${formattedMetrics}
         }
         console.log("=".repeat(70) + "\n");
 
+        break;
+      }
+      case "generate-cybernetic-logo": {
+        console.log("\n" + "=".repeat(70));
+        console.log("🤖 Cybernetic Monogram Logo Generator");
+        console.log("=".repeat(70) + "\n");
+
+        if (dryRun) {
+          console.log("[DRY RUN] Would generate cybernetic logo:");
+          console.log("  - Design: JD monogram with tech brackets < JD />");
+          console.log("  - Colors: Teal (#40E0D0) to Orange (#FFA500) gradient");
+          console.log("  - Features: Status dot with breathing animation");
+          console.log("  - Output: public/logo-tech.svg");
+          break;
+        }
+
+        const logoScript = path.join(__dirname, "generate-cybernetic-logo.mjs");
+        if (!fs.existsSync(logoScript)) {
+          console.error(`Error: generate-cybernetic-logo.mjs not found at ${logoScript}`);
+          process.exit(1);
+        }
+
+        await runOrEcho("node", [logoScript, ...passthroughArgs]);
+
+        console.log("\n" + "=".repeat(70));
+        console.log("📝 Next Steps:");
+        console.log("=".repeat(70));
+        console.log("1. Logo generated: public/logo-tech.svg");
+        console.log("2. InteractiveLogo component uses inline SVG (no file needed)");
+        console.log("3. Navbar already integrated with InteractiveLogo");
+        console.log("=".repeat(70) + "\n");
+        break;
+      }
+      case "generate-social-images": {
+        console.log("\n" + "=".repeat(70));
+        console.log("📱 Open Graph Social Images Generator");
+        console.log("=".repeat(70) + "\n");
+
+        if (dryRun) {
+          console.log("[DRY RUN] Would generate Open Graph images for:");
+          console.log("  - Home page: /og/home.svg");
+          console.log("  - Case Studies: /og/case-studies.svg");
+          console.log("  - Tools: /og/tools.svg");
+          console.log("\nTheme: Ocean Pearl (Dark #0f172a, Teal #40E0D0)");
+          console.log("Size: 1200x630px (Standard Open Graph)");
+          break;
+        }
+
+        const socialImagesScript = path.join(__dirname, "generate-social-images.mjs");
+        if (!fs.existsSync(socialImagesScript)) {
+          console.error(`Error: generate-social-images.mjs not found at ${socialImagesScript}`);
+          process.exit(1);
+        }
+
+        await runOrEcho("node", [socialImagesScript, ...passthroughArgs]);
+
+        console.log("\n" + "=".repeat(70));
+        console.log("📝 Next Steps:");
+        console.log("=".repeat(70));
+        console.log("1. OG images generated in public/og/");
+        console.log("2. Update index.html to reference /og/home.svg");
+        console.log("3. Add page-specific OG tags to route components");
+        console.log("=".repeat(70) + "\n");
+        break;
+      }
+      case "process-bio-assets": {
+        console.log("\n" + "=".repeat(70));
+        console.log("🖼️  Bio Assets Processor");
+        console.log("=".repeat(70) + "\n");
+
+        if (dryRun) {
+          console.log("[DRY RUN] Would:");
+          console.log("  1. Scan public/images/bio/ for WebP/AVIF images");
+          console.log("  2. Select best quality image (prioritize 1732967007485.webp or bio-photo.webp)");
+          console.log("  3. Copy to public/images/profile-main.webp");
+          console.log("  4. Generate blurred base64 placeholder");
+          break;
+        }
+
+        const bioDir = path.join(repoRoot, "public", "images", "bio");
+        const outputPath = path.join(repoRoot, "public", "images", "profile-main.webp");
+        const outputDir = path.join(repoRoot, "public", "images");
+
+        // Ensure output directory exists
+        if (!fs.existsSync(outputDir)) {
+          await fsPromises.mkdir(outputDir, { recursive: true });
+        }
+
+        if (!fs.existsSync(bioDir)) {
+          console.error(`Error: Bio directory not found at ${bioDir}`);
+          process.exit(1);
+        }
+
+        // Read all files in bio directory
+        const files = await fsPromises.readdir(bioDir);
+
+        // Filter for image files (WebP, AVIF, JPG, PNG)
+        const imageFiles = files.filter(file => {
+          const ext = path.extname(file).toLowerCase();
+          return ['.webp', '.avif', '.jpg', '.jpeg', '.png'].includes(ext);
+        });
+
+        if (imageFiles.length === 0) {
+          console.error("Error: No image files found in bio directory");
+          process.exit(1);
+        }
+
+        // Priority order: 1732967007485.webp > bio-photo.webp > other WebP > AVIF > others
+        const priorityOrder = [
+          '1732967007485.webp',
+          'bio-photo.webp',
+          (f) => f.endsWith('.webp'),
+          (f) => f.endsWith('.avif'),
+          (f) => true, // fallback to any image
+        ];
+
+        let selectedFile = null;
+        for (const priority of priorityOrder) {
+          if (typeof priority === 'string') {
+            selectedFile = imageFiles.find(f => f === priority);
+            if (selectedFile) break;
+          } else if (typeof priority === 'function') {
+            selectedFile = imageFiles.find(priority);
+            if (selectedFile) break;
+          }
+        }
+
+        if (!selectedFile) {
+          selectedFile = imageFiles[0]; // Fallback to first image
+        }
+
+        const sourcePath = path.join(bioDir, selectedFile);
+        console.log(`✅ Selected: ${selectedFile} as Prime Identity`);
+
+        // Copy/Convert file to profile-main.webp
+        if (selectedFile.endsWith('.webp')) {
+          await fsPromises.copyFile(sourcePath, outputPath);
+          console.log(`✅ Copied to: public/images/profile-main.webp`);
+        } else {
+          // Convert non-WebP images to WebP using sharp
+          try {
+            const { default: sharp } = await import('sharp');
+            const imageBuffer = await fsPromises.readFile(sourcePath);
+            await sharp(imageBuffer)
+              .webp({ quality: 85 })
+              .toFile(outputPath);
+            console.log(`✅ Converted and saved to: public/images/profile-main.webp`);
+          } catch (error) {
+            console.log(`⚠️  Could not convert to WebP (sharp error): ${error.message}`);
+            console.log(`💡 Falling back to copying original file...`);
+            const ext = path.extname(selectedFile);
+            const fallbackPath = outputPath.replace('.webp', ext);
+            await fsPromises.copyFile(sourcePath, fallbackPath);
+            console.log(`✅ Copied to: ${path.relative(repoRoot, fallbackPath)}`);
+            console.log(`💡 Tip: Install sharp or run image optimization to convert to WebP format`);
+          }
+        }
+
+        // Generate blurred base64 placeholder (simplified - would use sharp in production)
+        try {
+          const { default: sharp } = await import('sharp');
+          const imageBuffer = await fsPromises.readFile(sourcePath);
+          const blurred = await sharp(imageBuffer)
+            .resize(20, 20, { fit: 'cover' })
+            .blur(10)
+            .webp({ quality: 20 })
+            .toBuffer();
+
+          const base64 = blurred.toString('base64');
+          const dataUri = `data:image/webp;base64,${base64}`;
+
+          // Save blur data to a JSON file for the component to use
+          const blurDataPath = path.join(repoRoot, "public", "images", "profile-main-blur.json");
+          await fsPromises.writeFile(
+            blurDataPath,
+            JSON.stringify({ blurDataUri: dataUri }, null, 2)
+          );
+          console.log(`✅ Generated blur placeholder: public/images/profile-main-blur.json`);
+        } catch (error) {
+          console.log(`⚠️  Could not generate blur placeholder (sharp not available or error): ${error.message}`);
+          console.log(`💡 Component will work without blur-up effect`);
+        }
+
+        console.log("\n" + "=".repeat(70));
+        console.log("📝 Next Steps:");
+        console.log("=".repeat(70));
+        console.log("1. Profile asset standardized: public/images/profile-main.webp");
+        console.log("2. Blur placeholder generated for loading effect");
+        console.log("3. TechProfile component can now use /images/profile-main.webp");
+        console.log("=".repeat(70) + "\n");
         break;
       }
       default:

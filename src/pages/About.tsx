@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import AnimatedSection from '../components/animations/AnimatedSection';
 import TextReveal from '../components/animations/TextReveal';
 import ParallaxSection from '../components/animations/ParallaxSection';
@@ -11,6 +11,7 @@ import VennDiagram from '../components/diagrams/VennDiagram';
 import AnchorNav from '../components/navigation/AnchorNav';
 import { OceanWavyBackground } from '../components/ui/OceanWavyBackground';
 import { GitHubStats } from '../components/github/GitHubStats';
+import TechProfile from '../components/TechProfile';
 import { fadeInUp } from '../utils/animations';
 import './About.css';
 
@@ -150,42 +151,8 @@ const communityRoles = [
   },
 ];
 
-// Bio images for rotating gallery
-const bioImages = [
-  {
-    src: '/images/bio/bio-photo.jpg',
-    alt: 'Jacob Darling - Professional portrait in cinematic lighting',
-    variant: 'hero',
-  },
-  {
-    src: '/images/bio/241311036_10117555583372059_173429180650836298_n.webp',
-    alt: 'Jacob Darling - Casual outdoor portrait',
-    variant: 'casual',
-  },
-  {
-    src: '/images/bio/Untitled-1 (Custom).png',
-    alt: 'Jacob Darling - Black and white portrait',
-    variant: 'monochrome',
-  },
-  {
-    src: '/images/bio/1732967007485.jpg',
-    alt: 'Jacob Darling - Candid moment portrait',
-    variant: 'candid',
-  },
-];
-
 const About: React.FC = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [activeTimeline, setActiveTimeline] = useState<string>(timelineNodes[0].id);
-
-  // Rotating bio gallery effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex(prevIndex => (prevIndex + 1) % bioImages.length);
-    }, 6000); // Change image every 6 seconds
-
-    return () => clearInterval(interval);
-  }, []);
 
   const anchorItems = [
     { id: 'story', label: 'Story' },
@@ -210,50 +177,8 @@ const About: React.FC = () => {
 
           <motion.div className="intro-content" variants={fadeInUp}>
             <div className="bio-photo-wrapper">
-              {/* Cinematic Rotating Bio Gallery */}
-              <div className="bio-gallery bio-gallery-container">
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={currentImageIndex}
-                    src={bioImages[currentImageIndex].src}
-                    alt={bioImages[currentImageIndex].alt}
-                    className="bio-photo"
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      filter: 'contrast(1.05) saturate(1.1) brightness(0.95)',
-                    }}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.05 }}
-                    transition={{ duration: 1.2, ease: 'easeInOut' }}
-                  />
-                </AnimatePresence>
-
-                {/* Image indicator dots */}
-                <div className="bio-gallery-indicators">
-                  {bioImages.map((_, index) => (
-                    <motion.button
-                      key={index}
-                      onClick={() => setCurrentImageIndex(index)}
-                      style={{
-                        width: '8px',
-                        height: '8px',
-                        borderRadius: '50%',
-                        border: 'none',
-                        background:
-                          index === currentImageIndex ? 'var(--color-danger)' : 'rgba(255,255,255,0.5)',
-                        cursor: 'pointer',
-                      }}
-                      whileHover={{ scale: 1.2 }}
-                      whileTap={{ scale: 0.9 }}
-                    />
-                  ))}
-                </div>
-              </div>
+              {/* Holographic Tech Identity Card */}
+              <TechProfile size="md" className="mx-auto" />
             </div>
             <div className="intro-text">
               <p className="lead">

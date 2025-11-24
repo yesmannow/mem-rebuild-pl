@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import InteractiveLogo from './InteractiveLogo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,14 +18,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
 
-          {/* BRANDING: Personal Identity */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-brand-teal/10 rounded-lg flex items-center justify-center border border-brand-teal/20 group-hover:border-brand-teal transition-colors">
-              <span className="text-brand-teal font-bold text-xl">JD</span>
-            </div>
-            <span className="text-brand-text font-bold text-lg tracking-tight group-hover:text-brand-teal transition-colors">
-              Jacob Darling
-            </span>
+          {/* BRANDING: Personal Identity - Living Logo */}
+          <Link to="/" className="flex items-center">
+            <InteractiveLogo size={40} showText={true} />
           </Link>
 
           {/* DESKTOP NAV */}
@@ -45,7 +41,7 @@ const Navbar = () => {
               href="mailto:jacob@jacobdarling.com"
               className="bg-brand-teal text-brand-dark px-5 py-2.5 rounded-md font-bold hover:bg-white transition-all shadow-[0_0_15px_rgba(64,224,208,0.3)] hover:shadow-[0_0_25px_rgba(64,224,208,0.5)]"
             >
-              Let's Talk
+              Let&apos;s Talk
             </a>
           </div>
 
