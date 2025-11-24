@@ -187,19 +187,30 @@ See `prompts/branding.json` for reusable instructions for staff and AI assistant
 
 ## 🌐 Deployment
 
-Uses `vercel.json` for Vercel deployment. GitHub Pages optional via `/docs`.
+### GitHub Pages
+The project is configured for automatic deployment to GitHub Pages. See [docs/GITHUB_PAGES_SETUP.md](./docs/GITHUB_PAGES_SETUP.md) for detailed setup instructions.
+
+**Quick Deploy:**
+```bash
+# Push to main or test branch to trigger automatic deployment
+git push origin main
+```
+
+### Vercel
+Uses `vercel.json` for Vercel deployment configuration.
 
 ## 📊 Build Status
 
+[![Deploy to GitHub Pages](https://github.com/yesmannow/mem-rebuild-pl/actions/workflows/github-pages.yml/badge.svg)](https://github.com/yesmannow/mem-rebuild-pl/actions/workflows/github-pages.yml)
 [![Inspiration Showcase Build & Deploy](https://github.com/yesmannow/mem-rebuild-pl/actions/workflows/showcase.yml/badge.svg)](https://github.com/yesmannow/mem-rebuild-pl/actions/workflows/showcase.yml)
 
 ## 🌐 Live Site
 
-**Production Deployment**: [https://mem-rebuild-55q0c32al-gpttttys-projects.vercel.app/](https://mem-rebuild-55q0c32al-gpttttys-projects.vercel.app/)
+**GitHub Pages**: [https://yesmannow.github.io/mem-rebuild-pl/](https://yesmannow.github.io/mem-rebuild-pl/)
 
-Alternative: [GitHub Pages](https://yesmannow.github.io/mem-rebuild-pl/)
+**Vercel (Alternative)**: [https://mem-rebuild-55q0c32al-gpttttys-projects.vercel.app/](https://mem-rebuild-55q0c32al-gpttttys-projects.vercel.app/)
 
-> 📝 See [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md) for deployment configuration and troubleshooting.
+> 📝 See [docs/GITHUB_PAGES_SETUP.md](./docs/GITHUB_PAGES_SETUP.md) for GitHub Pages setup and [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md) for Vercel configuration.
 
 ## 🧠 Roadmap
 
