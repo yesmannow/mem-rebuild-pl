@@ -288,8 +288,8 @@ Maintain high standards throughout:
 
 - **Comments & Documentation**:
   - Add comments in key files explaining complex logic
-  - `vite.config.ts`: Document base path configuration
-  - `defineCustomElementGuard.ts`: Explain custom element handling
+  - `vite.config.js`: Document base path configuration
+  - `defineCustomElementGuard.ts`: Explain custom element handling (if file exists)
   - React components: Document props and behavior for complex components
   - Keep comments clear, concise, and helpful
 
