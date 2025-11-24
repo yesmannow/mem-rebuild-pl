@@ -6,25 +6,25 @@
       <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
     </linearGradient>
   </defs>
-  
+
   <!-- Background circle with gradient -->
   <circle cx="32" cy="32" r="30" fill="url(#gradient-github)" opacity="0.2"/>
-  
+
   <!-- Inner geometric shape -->
   <rect x="16" y="16" width="32" height="32" rx="6" fill="url(#gradient-github)" opacity="0.9"/>
-  
+
   <!-- Text/Initials -->
-  <text 
-    x="32" 
-    y="38" 
-    font-family="system-ui, -apple-system, sans-serif" 
-    font-size="18" 
-    font-weight="700" 
-    fill="#40E0D0" 
+  <text
+    x="32"
+    y="38"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="18"
+    font-weight="700"
+    fill="#40E0D0"
     text-anchor="middle"
     dominant-baseline="middle"
   >G</text>
-  
+
   <!-- Accent border -->
   <rect x="16" y="16" width="32" height="32" rx="6" fill="none" stroke="#FFA500" stroke-width="2" opacity="0.6"/>
 </svg>
