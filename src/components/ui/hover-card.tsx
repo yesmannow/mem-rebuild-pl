@@ -55,7 +55,7 @@ export function HoverCard({
             exit={{ opacity: 0, scale: 0.8, y: side === 'top' ? 5 : -5 }}
             transition={{ duration: 0.2 }}
             className={cn(
-              'absolute z-50 w-80 bg-cave-bg/95 backdrop-blur-md border border-cave-border rounded-lg shadow-xl p-4 pointer-events-auto',
+              'absolute z-50 w-80 bg-[var(--ink-900)]/95 backdrop-blur-md border border-[var(--ink-700)] rounded-lg shadow-xl p-4 pointer-events-auto',
               sideClasses[side],
               className
             )}
@@ -64,7 +64,7 @@ export function HoverCard({
             {/* Arrow */}
             <div
               className={cn(
-                'absolute w-3 h-3 bg-cave-bg/95 backdrop-blur-md border border-cave-border transform rotate-45',
+                'absolute w-3 h-3 bg-[var(--ink-900)]/95 backdrop-blur-md border border-[var(--ink-700)] transform rotate-45',
                 side === 'top' && 'top-full left-1/2 -translate-x-1/2 -mt-1.5 border-t border-r',
                 side === 'bottom' && 'bottom-full left-1/2 -translate-x-1/2 -mb-1.5 border-b border-l',
                 side === 'left' && 'left-full top-1/2 -translate-y-1/2 -ml-1.5 border-l border-b',

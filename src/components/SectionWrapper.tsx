@@ -40,14 +40,14 @@ const getBackgroundClass = (bgVariant?: BackgroundVariant, bg?: string): string 
       case 'transparent':
         return 'bg-transparent';
       case 'dark':
-        return 'bg-[color:theme("colors.cave.bg")]';
+        return 'bg-[var(--ink-900)]';
       default:
-        return 'bg-[color:theme("colors.cave.bg")]';
+        return 'bg-[var(--ink-900)]';
     }
   }
 
   // Fallback to traditional bg prop or default
-  return bg || 'bg-[color:theme("colors.cave.bg")]';
+  return bg || 'bg-[var(--ink-900)]';
 };
 
 // Animation presets

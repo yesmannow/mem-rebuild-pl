@@ -152,26 +152,26 @@ const CommandItem: React.FC<CommandItemProps> = ({ item, isSelected, onSelect })
       animate={{ opacity: 1, x: 0 }}
       className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-all duration-200 ${
         isSelected
-          ? 'bg-turquoise/10 border border-turquoise/20 text-turquoise'
-          : 'hover:bg-turquoise/5 text-cave-text hover:text-turquoise'
+          ? 'bg-[var(--signal-500)]/10 border border-[var(--signal-500)]/20 text-[var(--signal-500)]'
+          : 'hover:bg-[var(--signal-500)]/5 text-[var(--parchment-050)] hover:text-[var(--signal-500)]'
       }`}
       onClick={onSelect}
     >
       <div className={`p-1.5 rounded-md ${
-        isSelected ? 'bg-turquoise/20' : 'bg-cave-border'
+        isSelected ? 'bg-[var(--signal-500)]/20' : 'bg-[var(--ink-700)]'
       }`}>
         <Icon size={16} />
       </div>
       <div className="flex-1 min-w-0">
         <div className="font-medium truncate">{item.title}</div>
         <div className={`text-sm truncate ${
-          isSelected ? 'text-turquoise/80' : 'text-cave-text/60'
+          isSelected ? 'text-[var(--signal-500)]/80' : 'text-[var(--parchment-050)]/60'
         }`}>
           {item.description}
         </div>
       </div>
       <ArrowRight size={14} className={`transition-transform ${
-        isSelected ? 'rotate-90 text-turquoise' : 'text-cave-text/40'
+        isSelected ? 'rotate-90 text-[var(--signal-500)]' : 'text-[var(--parchment-050)]/40'
       }`} />
     </motion.div>
   );
@@ -193,7 +193,7 @@ const CommandGroup: React.FC<CommandGroupProps> = ({
   onSelectItem
 }) => (
   <div className="mb-6">
-    <h3 className="text-xs font-semibold text-cave-text/60 uppercase tracking-wider mb-3 px-3">
+    <h3 className="text-xs font-semibold text-[var(--parchment-050)]/60 uppercase tracking-wider mb-3 px-3">
       {title}
     </h3>
     <div className="space-y-1">
@@ -324,21 +324,21 @@ export default function CommandMenu({ open, onClose }: CommandMenuProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ type: "spring", duration: 0.3 }}
-            className="w-full max-w-2xl mx-4 bg-cave-bg border border-cave-border rounded-2xl shadow-2xl overflow-hidden"
+            className="w-full max-w-2xl mx-4 bg-[var(--ink-900)] border border-[var(--ink-700)] rounded-2xl shadow-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="flex items-center gap-3 p-4 border-b border-cave-border">
-              <Search className="text-turquoise" size={20} />
+            <div className="flex items-center gap-3 p-4 border-b border-[var(--ink-700)]">
+              <Search className="text-[var(--signal-500)]" size={20} />
               <input
                 type="text"
                 placeholder="Search pages, projects, and more..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="flex-1 bg-transparent text-cave-text placeholder-cave-text/50 outline-none text-lg"
+                className="flex-1 bg-transparent text-[var(--parchment-050)] placeholder-[var(--parchment-050)]/50 outline-none text-lg"
                 data-command-input
               />
-              <kbd className="flex items-center gap-1 px-2 py-1 text-xs font-mono bg-cave-border rounded text-cave-text/70">
+              <kbd className="flex items-center gap-1 px-2 py-1 text-xs font-mono bg-[var(--ink-700)] rounded text-[var(--parchment-050)]/70">
                 <Command size={12} />
                 K
               </kbd>
@@ -348,9 +348,9 @@ export default function CommandMenu({ open, onClose }: CommandMenuProps) {
             <div className="max-h-96 overflow-y-auto">
               {query.trim() && filteredItems.length === 0 ? (
                 <div className="p-8 text-center">
-                  <Search className="mx-auto text-cave-text/40 mb-3" size={24} />
-                  <p className="text-cave-text/60">No results found for &quot;{query}&quot;</p>
-                  <p className="text-cave-text/40 text-sm mt-1">Try a different search term</p>
+                  <Search className="mx-auto text-[var(--parchment-050)]/40 mb-3" size={24} />
+                  <p className="text-[var(--parchment-050)]/60">No results found for &quot;{query}&quot;</p>
+                  <p className="text-[var(--parchment-050)]/40 text-sm mt-1">Try a different search term</p>
                 </div>
               ) : (
                 <div className="p-4">
@@ -381,13 +381,13 @@ export default function CommandMenu({ open, onClose }: CommandMenuProps) {
 
             {/* Footer */}
             {filteredItems.length > 0 && (
-              <div className="flex items-center justify-between p-3 border-t border-cave-border bg-cave-bg/50">
-                <div className="flex items-center gap-4 text-xs text-cave-text/60">
+              <div className="flex items-center justify-between p-3 border-t border-[var(--ink-700)] bg-[var(--ink-900)]/50">
+                <div className="flex items-center gap-4 text-xs text-[var(--parchment-050)]/60">
                   <span>↑↓ Navigate</span>
                   <span>↵ Select</span>
                   <span>esc Close</span>
                 </div>
-                <div className="text-xs text-cave-text/40">
+                <div className="text-xs text-[var(--parchment-050)]/40">
                   {filteredItems.length} result{filteredItems.length !== 1 ? 's' : ''}
                 </div>
               </div>

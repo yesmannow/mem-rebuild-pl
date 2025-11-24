@@ -51,13 +51,13 @@ export function ScrollArea({
         // Custom scrollbar styles
         '[&::-webkit-scrollbar]:w-2',
         '[&::-webkit-scrollbar-track]:bg-transparent',
-        '[&::-webkit-scrollbar-track:hover]:bg-cave-bg/50',
-        '[&::-webkit-scrollbar-thumb]:bg-cave-border/60',
-        '[&::-webkit-scrollbar-thumb:hover]:bg-turquoise/60',
+        '[&::-webkit-scrollbar-track:hover]:bg-[var(--ink-900)]/50',
+        '[&::-webkit-scrollbar-thumb]:bg-[var(--ink-700)]/60',
+        '[&::-webkit-scrollbar-thumb:hover]:bg-[var(--signal-500)]/60',
         '[&::-webkit-scrollbar-thumb]:rounded-full',
         '[&::-webkit-scrollbar-corner]:bg-transparent',
         // Firefox scrollbar
-        'scrollbar-thin scrollbar-track-transparent scrollbar-thumb-cave-border/60 hover:scrollbar-thumb-turquoise/60',
+        'scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[var(--ink-700)]/60 hover:scrollbar-thumb-[var(--signal-500)]/60',
         className
       )}
       {...props}

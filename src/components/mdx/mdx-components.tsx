@@ -20,7 +20,7 @@ const components = {
   ),
   li: (props: any) => <li className="ml-4" {...props} />,
   a: (props: any) => (
-    <a className="text-[color:theme('colors.cave.ember')] hover:underline" {...props} />
+    <a className="text-[var(--signal-500)] hover:underline" {...props} />
   ),
   img: (props: any) => <img className="rounded-xl my-6 w-full" loading="lazy" {...props} />,
 };

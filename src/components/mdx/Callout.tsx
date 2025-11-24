@@ -7,8 +7,8 @@ interface CalloutProps {
 
 export default function Callout({ type = 'info', children }: CalloutProps) {
   const styles = {
-    info: "border-[color:theme('colors.cave.mist')] bg-[color:theme('colors.cave.mist')]/10",
-    warning: "border-[color:theme('colors.cave.ember')] bg-[color:theme('colors.cave.ember')]/10",
+    info: "border-[var(--telemetry-400)] bg-[var(--telemetry-400)]/10",
+    warning: "border-[var(--signal-500)] bg-[var(--signal-500)]/10",
     success: 'border-green-500 bg-green-500/10',
   };
 

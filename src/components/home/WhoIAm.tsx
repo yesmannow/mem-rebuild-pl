@@ -5,7 +5,7 @@ import './WhoIAm.css';
 
 const WhoIAm: React.FC = () => {
   return (
-    <SectionWrapper bg="bg-[color:theme('colors.cave.bg')]" id="about">
+    <SectionWrapper bg="bg-[var(--ink-900)]" id="about">
       <div className="who-i-am__grid">
         {/* Bio Photo */}
         <motion.div

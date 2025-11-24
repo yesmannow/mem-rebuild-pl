@@ -137,10 +137,10 @@ const NavItem: React.FC<NavItemProps> = ({ item, isActive, hoveredSection, onHov
     >
       {hasSubItems ? (
         <button
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-turquoise/50 ${
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--signal-500)]/50 ${
             isActive
-              ? 'text-turquoise bg-turquoise/10'
-              : 'text-cave-text hover:text-turquoise hover:bg-turquoise/5'
+              ? 'text-[var(--signal-500)] bg-[var(--signal-500)]/10'
+              : 'text-[var(--parchment-050)] hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/5'
           }`}
           onClick={onClick}
         >
@@ -154,10 +154,10 @@ const NavItem: React.FC<NavItemProps> = ({ item, isActive, hoveredSection, onHov
       ) : (
         <Link
           to={item.to!}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-turquoise/50 ${
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--signal-500)]/50 ${
             isActive
-              ? 'text-turquoise bg-turquoise/10'
-              : 'text-cave-text hover:text-turquoise hover:bg-turquoise/5'
+              ? 'text-[var(--signal-500)] bg-[var(--signal-500)]/10'
+              : 'text-[var(--parchment-050)] hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/5'
           }`}
           onClick={onClick}
         >
@@ -174,11 +174,11 @@ const NavItem: React.FC<NavItemProps> = ({ item, isActive, hoveredSection, onHov
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 mt-2 w-80 bg-cave-bg/95 backdrop-blur-md border border-cave-border rounded-xl shadow-xl p-4 z-50"
+            className="absolute top-full left-0 mt-2 w-80 bg-[var(--ink-900)]/95 backdrop-blur-md border border-[var(--ink-700)] rounded-xl shadow-xl p-4 z-50"
           >
             <div className="mb-3">
-              <h3 className="text-lg font-semibold text-turquoise mb-1">{item.label}</h3>
-              <p className="text-sm text-cave-text/70">{item.description}</p>
+              <h3 className="text-lg font-semibold text-[var(--signal-500)] mb-1">{item.label}</h3>
+              <p className="text-sm text-[var(--parchment-050)]/70">{item.description}</p>
             </div>
             <div className="space-y-2">
               {item.subItems!.map((subItem) => {
@@ -187,20 +187,20 @@ const NavItem: React.FC<NavItemProps> = ({ item, isActive, hoveredSection, onHov
                   <Link
                     key={subItem.to}
                     to={subItem.to}
-                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-turquoise/5 transition-colors duration-200 group"
+                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-[var(--signal-500)]/5 transition-colors duration-200 group"
                   >
                     <div className="mt-0.5">
-                      <SubIcon size={16} className="text-turquoise" />
+                      <SubIcon size={16} className="text-[var(--signal-500)]" />
                     </div>
                     <div className="flex-1">
-                      <div className="font-medium text-cave-text group-hover:text-turquoise transition-colors">
+                      <div className="font-medium text-[var(--parchment-050)] group-hover:text-[var(--signal-500)] transition-colors">
                         {subItem.label}
                       </div>
-                      <div className="text-sm text-cave-text/60 mt-0.5">
+                      <div className="text-sm text-[var(--parchment-050)]/60 mt-0.5">
                         {subItem.description}
                       </div>
                     </div>
-                    <ExternalLink size={14} className="text-cave-text/40 group-hover:text-turquoise/60 transition-colors" />
+                    <ExternalLink size={14} className="text-[var(--parchment-050)]/40 group-hover:text-[var(--signal-500)]/60 transition-colors" />
                   </Link>
                 );
               })}
@@ -254,7 +254,7 @@ export default function MainNav() {
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-cave-bg/90 backdrop-blur-md border-b border-cave-border shadow-lg'
+            ? 'bg-[var(--ink-900)]/90 backdrop-blur-md border-b border-[var(--ink-700)] shadow-lg'
             : 'bg-transparent'
         } py-4`}
       >
@@ -280,15 +280,15 @@ export default function MainNav() {
             </ul>
 
             {/* Quick Actions */}
-            <div className="flex items-center gap-3 ml-6 pl-6 border-l border-cave-border">
+            <div className="flex items-center gap-3 ml-6 pl-6 border-l border-[var(--ink-700)]">
               {QUICK_ACTIONS.map((action) => (
                 <Link
                   key={action.to}
                   to={action.to}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-turquoise/50 ${
+                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--signal-500)]/50 ${
                     action.cta
-                      ? 'bg-turquoise text-cave-bg hover:bg-turquoise/90 shadow-lg hover:shadow-turquoise/25'
-                      : 'text-cave-text hover:text-turquoise hover:bg-turquoise/5'
+                      ? 'bg-[var(--signal-500)] text-[var(--ink-900)] hover:bg-[var(--signal-500)]/90 shadow-lg hover:shadow-[var(--signal-500)]/25'
+                      : 'text-[var(--parchment-050)] hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/5'
                   }`}
                 >
                   {action.label}
@@ -297,11 +297,11 @@ export default function MainNav() {
 
               {/* Command Palette Trigger */}
               <button
-                className="flex items-center gap-2 px-3 py-2 rounded-lg text-cave-text/70 hover:text-turquoise hover:bg-turquoise/5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-turquoise/50"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg text-[var(--parchment-050)]/70 hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--signal-500)]/50"
                 aria-label="Open command palette"
               >
                 <Search size={16} />
-                <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-1 text-xs font-mono bg-cave-border rounded">
+                <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-1 text-xs font-mono bg-[var(--ink-700)] rounded">
                   <Command size={12} />
                   K
                 </kbd>
@@ -312,7 +312,7 @@ export default function MainNav() {
           {/* Mobile Controls */}
           <div className="lg:hidden flex items-center gap-3">
             <button
-              className="p-2 text-cave-text/70 hover:text-turquoise transition-colors"
+              className="p-2 text-[var(--parchment-050)]/70 hover:text-[var(--signal-500)] transition-colors"
               aria-label="Open command palette"
             >
               <Search size={20} />
@@ -320,7 +320,7 @@ export default function MainNav() {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-cave-text hover:text-turquoise transition-colors"
+              className="p-2 text-[var(--parchment-050)] hover:text-[var(--signal-500)] transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -337,7 +337,7 @@ export default function MainNav() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-20 left-0 right-0 z-40 bg-cave-bg/95 backdrop-blur-md border-b border-cave-border lg:hidden"
+            className="fixed top-20 left-0 right-0 z-40 bg-[var(--ink-900)]/95 backdrop-blur-md border-b border-[var(--ink-700)] lg:hidden"
           >
             <div className="container mx-auto px-6 py-6">
               <div className="space-y-6">
@@ -345,7 +345,7 @@ export default function MainNav() {
                   const Icon = item.icon;
                   return (
                     <div key={item.label} className="space-y-3">
-                      <div className="flex items-center gap-3 text-turquoise">
+                      <div className="flex items-center gap-3 text-[var(--signal-500)]">
                         <Icon size={20} />
                         <h3 className="text-lg font-semibold">{item.label}</h3>
                       </div>
@@ -359,12 +359,12 @@ export default function MainNav() {
                                 key={subItem.to}
                                 to={subItem.to}
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="flex items-center gap-3 p-3 rounded-lg text-cave-text/80 hover:text-turquoise hover:bg-turquoise/5 transition-all"
+                                className="flex items-center gap-3 p-3 rounded-lg text-[var(--parchment-050)]/80 hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/5 transition-all"
                               >
                                 <SubIcon size={18} />
                                 <div>
                                   <div className="font-medium">{subItem.label}</div>
-                                  <div className="text-sm text-cave-text/60">{subItem.description}</div>
+                                  <div className="text-sm text-[var(--parchment-050)]/60">{subItem.description}</div>
                                 </div>
                               </Link>
                             );
@@ -374,7 +374,7 @@ export default function MainNav() {
                         <Link
                           to={item.to!}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="block pl-8 py-2 text-cave-text/80 hover:text-turquoise transition-colors"
+                          className="block pl-8 py-2 text-[var(--parchment-050)]/80 hover:text-[var(--signal-500)] transition-colors"
                         >
                           {item.description}
                         </Link>
@@ -384,7 +384,7 @@ export default function MainNav() {
                 })}
 
                 {/* Mobile Quick Actions */}
-                <div className="pt-4 border-t border-cave-border space-y-3">
+                <div className="pt-4 border-t border-[var(--ink-700)] space-y-3">
                   {QUICK_ACTIONS.map((action) => (
                     <Link
                       key={action.to}
@@ -392,8 +392,8 @@ export default function MainNav() {
                       onClick={() => setMobileMenuOpen(false)}
                       className={`block px-4 py-3 rounded-lg font-medium transition-all ${
                         action.cta
-                          ? 'bg-turquoise text-cave-bg text-center'
-                          : 'text-cave-text hover:text-turquoise hover:bg-turquoise/5'
+                          ? 'bg-[var(--signal-500)] text-[var(--ink-900)] text-center'
+                          : 'text-[var(--parchment-050)] hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/5'
                       }`}
                     >
                       {action.label}

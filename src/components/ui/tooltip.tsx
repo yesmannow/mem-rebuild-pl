@@ -20,9 +20,9 @@ export function Tooltip({
   const [visible, setVisible] = useState(false);
 
   const variants = {
-    default: 'bg-cave-bg text-cave-text border-cave-border',
-    turquoise: 'bg-turquoise text-cave-bg border-turquoise/20',
-    creamsicle: 'bg-creamsicle text-cave-bg border-creamsicle/20',
+    default: 'bg-[var(--ink-900)] text-[var(--parchment-050)] border-[var(--ink-700)]',
+    turquoise: 'bg-[var(--signal-500)] text-[var(--ink-900)] border-[var(--signal-500)]/20',
+    creamsicle: 'bg-[var(--telemetry-400)] text-[var(--ink-900)] border-[var(--telemetry-400)]/20',
   };
 
   const sideClasses = {
