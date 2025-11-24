@@ -10,20 +10,23 @@ This repository is connected to the following Vercel project:
 
 The project uses the configuration defined in `vercel.json` which includes:
 
+- Framework: `null` (explicitly disables auto-detection to prevent Next.js misidentification)
 - Build Command: `npm run build`
 - Output Directory: `dist`
 - Dev Command: `npm run dev`
 - Install Command: `npm install`
+
+**Important**: This is a Vite-based React application, not Next.js. The `framework: null` setting prevents Vercel from incorrectly detecting it as a Next.js project.
 
 ## Environment Variables
 
 For successful deployment, ensure the following environment variables are set in Vercel:
 
 ### Required Variables
-- `NODE_ENV`: Set to `production` for production deployments
+- `NODE_ENV`: Set to `production` for production deployments (configured in vercel.json)
+- `PUPPETEER_SKIP_DOWNLOAD`: Set to `true` to skip Puppeteer browser download during build (configured in vercel.json)
 
 ### Optional Variables
-- `PUPPETEER_SKIP_DOWNLOAD`: Set to `true` to skip Puppeteer browser download during build
 - `AI_FEATURES_ENABLED`: Set to `false` unless AI features are needed (default: false)
 - `AI_DRY_RUN`: Set to `true` for testing AI endpoints without making API calls
 
@@ -60,8 +63,11 @@ The build process includes:
 
 ## Troubleshooting
 
+### Build Fails with "routes-manifest.json" Not Found Error
+**Solution**: This error occurs when Vercel incorrectly detects the project as Next.js. The `vercel.json` file has been updated with `"framework": null` to prevent this. Ensure you're using the latest vercel.json configuration.
+
 ### Build Fails with Puppeteer Errors
-Add environment variable: `PUPPETEER_SKIP_DOWNLOAD=true`
+**Solution**: The environment variable `PUPPETEER_SKIP_DOWNLOAD=true` is now set in vercel.json by default.
 
 ### Build Timeout
 - Increase Vercel build timeout in project settings
