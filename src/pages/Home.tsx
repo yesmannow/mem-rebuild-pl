@@ -1,96 +1,227 @@
 import React from 'react';
-import { ArrowRight, Terminal } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { ArrowRight, TrendingUp } from 'lucide-react';
+import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
+import { BentoGrid, BentoCard } from '../components/ui/BentoGrid';
+import TechProfile from '../components/TechProfile';
+import { OceanMarquee, OceanMarqueeItem } from '../components/ui/OceanMarquee';
+import TestimonialTerminal from '../components/TestimonialTerminal';
 
-const Hero = () => {
+// Brand logos for trust section
+const brandLogos = [
+  { name: 'Eat My Shorts', src: '/images/inspirations/eat-my-shorts.svg' },
+  { name: 'Folklorious', src: '/images/inspirations/folklorious.svg' },
+  { name: 'Bombay Electric', src: '/images/inspirations/bombay-electric.svg' },
+  { name: 'British Rail', src: '/images/inspirations/british-rail.svg' },
+  { name: 'Eames Kit', src: '/images/inspirations/eames-kit.svg' },
+  { name: 'Felony Case', src: '/images/inspirations/felony-case.svg' },
+  { name: 'Glorioso', src: '/images/inspirations/glorioso.svg' },
+  { name: 'IBM Design', src: '/images/inspirations/ibm-design.svg' },
+  { name: 'Lune Croissanterie', src: '/images/inspirations/lune-croissanterie.svg' },
+  { name: 'NASA Manual', src: '/images/inspirations/nasa-manual.svg' },
+  { name: 'Qoni', src: '/images/inspirations/qoni.svg' },
+  { name: 'Sutherland Press', src: '/images/inspirations/sutherland-press.svg' },
+  { name: 'Tenth Muse', src: '/images/inspirations/tenth-muse.svg' },
+  { name: 'Yellow Owl', src: '/images/inspirations/yellow-owl.svg' },
+  { name: 'Zonzo Estate', src: '/images/inspirations/zonzo-estate.svg' },
+];
+
+// Tech stack icons for "My Stack" card
+const techStack = [
+  'React',
+  'TypeScript',
+  'Tailwind CSS',
+  'Framer Motion',
+  'Node.js',
+  'Vite',
+  'GitHub',
+];
+
+const Home: React.FC = () => {
   return (
-    <div className="min-h-screen bg-brand-dark pt-24 pb-20">
-    <section className="relative flex items-center justify-center overflow-hidden">
-
-      {/* Ambient Background Glow */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-teal/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-orange/10 rounded-full blur-3xl" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-
-        {/* TEXT CONTENT */}
-        <div className="space-y-8">
-          <div className="inline-flex items-center space-x-2 bg-brand-surface border border-brand-teal/20 rounded-full px-4 py-1.5">
-            <span className="w-2 h-2 rounded-full bg-brand-teal animate-pulse"></span>
-            <span className="text-brand-teal text-xs font-mono font-medium tracking-wide">
-              AVAILABLE FOR FRACTIONAL LEADERSHIP
-            </span>
-          </div>
-
-          <h1 className="text-5xl md:text-6xl font-bold text-brand-text leading-tight">
-            I Build Marketing Engines That <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-brand-orange">Scale Revenue.</span>
-          </h1>
-
-          <p className="text-xl text-brand-muted max-w-lg leading-relaxed">
-            I bridge the gap between <strong>CMO Strategy</strong> and <strong>CTO Execution</strong>. I don't just plan campaigns; I build the automated systems that run them.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              to="/case-studies"
-              className="flex items-center justify-center space-x-2 bg-brand-teal text-brand-dark px-8 py-4 rounded-md font-bold hover:bg-white transition-all text-lg"
+    <OceanAuroraBackground
+      className="bg-brand-dark"
+      style={{ minHeight: '100vh', height: 'auto' }}
+    >
+      <div className="relative z-10 w-full min-h-screen flex flex-col">
+        {/* Hero Section */}
+        <section className="relative min-h-screen flex items-center justify-center pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto w-full text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-5xl md:text-7xl font-bold text-brand-text leading-tight mb-6"
             >
-              <span>View Case Studies</span>
-              <ArrowRight size={20} />
-            </Link>
-            <Link
-              to="/tools"
-              className="flex items-center justify-center space-x-2 border border-brand-muted/30 text-brand-text px-8 py-4 rounded-md font-medium hover:border-brand-teal hover:text-brand-teal transition-all text-lg"
+              Building Marketing Engines That{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-brand-orange">
+                Scale Revenue.
+              </span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-xl md:text-2xl text-brand-muted max-w-3xl mx-auto mb-12"
             >
-              <Terminal size={20} />
-              <span>Explore My Code</span>
-            </Link>
+              I bridge the gap between <strong className="text-brand-text">CMO Strategy</strong> and{' '}
+              <strong className="text-brand-text">CTO Execution</strong>. I don't just plan campaigns; I build the automated systems that run them.
+            </motion.p>
           </div>
-        </div>
+        </section>
 
-        {/* VISUAL: The "DevOps" Flex */}
-        <div className="relative hidden lg:block">
-          <div className="bg-[#1a1b26] rounded-xl border border-brand-muted/20 shadow-2xl p-4 font-mono text-sm overflow-hidden transform rotate-2 hover:rotate-0 transition-transform duration-500">
-            <div className="flex items-center space-x-2 mb-4 border-b border-white/10 pb-4">
-              <div className="w-3 h-3 rounded-full bg-red-500" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500" />
-              <div className="w-3 h-3 rounded-full bg-green-500" />
-              <span className="ml-2 text-xs text-brand-muted">jacob@workstation:~/marketing-automation</span>
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex">
-                <span className="text-brand-teal mr-2">❯</span>
-                <span className="text-white">deploy marketing-stack --production</span>
-              </div>
-              <div className="text-brand-muted">Initializing CRM integration... <span className="text-green-400">Done</span></div>
-              <div className="text-brand-muted">Connecting HubSpot API... <span className="text-green-400">Connected (24ms)</span></div>
-              <div className="text-brand-muted">Optimizing Conversion Paths... <span className="text-brand-orange">WARN: High Traffic Detected</span></div>
-              <div className="text-brand-muted">Running Revenue Analysis...</div>
-
-              <div className="mt-4 p-3 bg-brand-dark/50 rounded border border-brand-teal/20">
-                <div className="text-brand-teal font-bold mb-1">Impact Report:</div>
-                <div className="grid grid-cols-2 gap-4 text-xs">
-                  <div>Customer Acquisition Cost</div>
-                  <div className="text-right text-green-400">-42%</div>
-                  <div>Lead Velocity</div>
-                  <div className="text-right text-green-400">+125%</div>
+        {/* Bento Grid Section */}
+        <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+          <BentoGrid className="mb-12">
+            {/* Card 1: Latest Win (Large) */}
+            <BentoCard span="2" className="group cursor-pointer">
+              <Link
+                to="/case-studies/the-launchpad"
+                className="block h-full flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <TrendingUp className="w-5 h-5 text-brand-teal" />
+                    <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
+                      Latest Win
+                    </span>
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-3">
+                    The Launchpad
+                  </h2>
+                  <p className="text-brand-muted text-lg mb-6">
+                    Transforming a static directory into a revenue engine for practitioners
+                  </p>
                 </div>
-              </div>
+                <div className="flex items-end justify-between">
+                  <div>
+                    <div className="text-6xl md:text-7xl font-bold text-brand-teal mb-2">
+                      +212%
+                    </div>
+                    <p className="text-brand-muted">Qualified Leads</p>
+                  </div>
+                  <ArrowRight className="w-6 h-6 text-brand-muted group-hover:text-brand-teal group-hover:translate-x-1 transition-all" />
+                </div>
+              </Link>
+            </BentoCard>
 
-              <div className="flex mt-2">
-                <span className="text-brand-teal mr-2">❯</span>
-                <span className="animate-pulse w-2 h-5 bg-brand-teal block"></span>
+            {/* Card 2: Tech Profile (Tall) */}
+            <BentoCard span="1" rowSpan="2" className="flex flex-col items-center justify-center">
+              <div className="mb-4">
+                <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
+                  Tech Profile
+                </span>
               </div>
-            </div>
+              <TechProfile size="md" className="mx-auto" />
+            </BentoCard>
+
+            {/* Card 3: My Stack (Small) */}
+            <BentoCard span="1" className="flex flex-col">
+              <div className="mb-4">
+                <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
+                  My Stack
+                </span>
+              </div>
+              <div className="flex-1 flex flex-wrap gap-3 items-center justify-center">
+                {techStack.map((tech, index) => (
+                  <motion.div
+                    key={tech}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      delay: index * 0.1,
+                      duration: 0.3,
+                    }}
+                    whileHover={{ scale: 1.1, y: -5 }}
+                    className="px-3 py-2 bg-brand-surface/50 border border-brand-muted/20 rounded-lg text-sm font-medium text-brand-text hover:border-brand-teal/40 transition-all"
+                  >
+                    {tech}
+                  </motion.div>
+                ))}
+              </div>
+            </BentoCard>
+
+            {/* Card 4: Philosophy (Wide) */}
+            <BentoCard span="2" className="flex flex-col justify-center">
+              <div className="mb-4">
+                <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
+                  Philosophy
+                </span>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-4xl md:text-5xl font-bold text-brand-text">
+                  Strategy. Systems. Shipping.
+                </h3>
+                <p className="text-brand-muted text-lg max-w-2xl">
+                  Every marketing engine starts with strategy, gets built with systems, and delivers through consistent shipping. No hand-waving, no vanity metrics—just revenue that scales.
+                </p>
+              </div>
+            </BentoCard>
+          </BentoGrid>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-bold text-brand-text text-center mb-12"
+            >
+              System Logs
+            </motion.h2>
+            <TestimonialTerminal
+              testimonials={[
+                {
+                  id: 'jesse-wey',
+                  quote: "Jacob brings energy, creativity, and execution. Rare mix of strategy and hands-on delivery.",
+                  author: 'Jesse Wey',
+                  role: 'Web Development | IT | Marketing',
+                  timestamp: '2025-10-15',
+                },
+              ]}
+              autoPlay={true}
+              interval={8000}
+            />
           </div>
-        </div>
+        </section>
 
+        {/* Trust Section */}
+        <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-bold text-brand-text text-center mb-12"
+            >
+              Trusted by Leading Brands
+            </motion.h2>
+            <OceanMarquee speed={30} pauseOnHover={true} className="py-8">
+              {brandLogos.map((brand, index) => (
+                <OceanMarqueeItem key={`${brand.name}-${index}`}>
+                  <motion.div
+                    className="flex items-center justify-center h-24 w-32 mx-4 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
+                    whileHover={{ scale: 1.1, y: -5 }}
+                  >
+                    <img
+                      src={brand.src}
+                      alt={brand.name}
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </motion.div>
+                </OceanMarqueeItem>
+              ))}
+            </OceanMarquee>
+          </div>
+        </section>
       </div>
-    </section>
-    </div>
+    </OceanAuroraBackground>
   );
 };
 
-export default Hero;
-
+export default Home;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import AnimatedSection from '../components/animations/AnimatedSection';
@@ -12,6 +12,7 @@ import AnchorNav from '../components/navigation/AnchorNav';
 import { OceanWavyBackground } from '../components/ui/OceanWavyBackground';
 import { GitHubStats } from '../components/github/GitHubStats';
 import TechProfile from '../components/TechProfile';
+import VerticalTimeline from '../components/timeline/VerticalTimeline';
 import { fadeInUp } from '../utils/animations';
 import './About.css';
 
@@ -152,7 +153,6 @@ const communityRoles = [
 ];
 
 const About: React.FC = () => {
-  const [activeTimeline, setActiveTimeline] = useState<string>(timelineNodes[0].id);
 
   const anchorItems = [
     { id: 'story', label: 'Story' },
@@ -273,69 +273,15 @@ const About: React.FC = () => {
 
       <AnimatedSection delay={0.3}>
         <section id="timeline" className="career-timeline-section">
-          <div className="timeline-intro">
+          <div className="timeline-intro mb-12">
             <h2>Career timeline</h2>
             <p>
               From early creative hustle to enterprise systems, every chapter sharpened how I
-              architect marketing programs. Tap a milestone to see the problem I inherited, the
+              architect marketing programs. Scroll to see the problem I inherited, the
               strategy I executed, and the results that followed.
             </p>
           </div>
-          <div className="timeline-cards">
-            {timelineNodes.map(node => {
-              const isOpen = activeTimeline === node.id;
-              return (
-                <motion.article
-                  key={node.id}
-                  className={`timeline-card ${isOpen ? 'is-open' : ''}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <button
-                    className="timeline-card__header"
-                    onClick={() => setActiveTimeline(isOpen ? '' : node.id)}
-                    aria-expanded={isOpen ? "true" : "false"}
-                    aria-controls={`${node.id}-panel`}
-                  >
-                    <div>
-                      <span className="timeline-card__period">{node.period}</span>
-                      <h3>{node.title}</h3>
-                    </div>
-                    <span className="timeline-card__toggle" aria-hidden="true">
-                      {isOpen ? '−' : '+'}
-                    </span>
-                  </button>
-                  <p className="timeline-card__headline">{node.headline}</p>
-                  {isOpen && (
-                    <div className="timeline-card__panel" id={`${node.id}-panel`}>
-                      <div className="timeline-card__section">
-                        <h4>The Challenge</h4>
-                        <p>{node.problem}</p>
-                      </div>
-                      <div className="timeline-card__section">
-                        <h4>The Strategy</h4>
-                        <ul>
-                          {node.strategy.map(item => (
-                            <li key={item}>{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="timeline-card__section">
-                        <h4>The Result</h4>
-                        <ul>
-                          {node.result.map(item => (
-                            <li key={item}>{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  )}
-                </motion.article>
-              );
-            })}
-          </div>
+          <VerticalTimeline items={timelineNodes} />
         </section>
       </AnimatedSection>
 

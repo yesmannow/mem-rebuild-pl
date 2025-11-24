@@ -7,6 +7,7 @@ import AnimatedSection from '../components/animations/AnimatedSection';
 import { getCaseStudyDiagrams } from '../components/diagrams/caseStudyDiagrams';
 import { trackPortfolioEngagement, createTimeTracker } from '../utils/analytics';
 import MetricsVisualization from '../components/case-study/MetricsVisualization';
+import InteractiveROIChart from '../components/case-study/InteractiveROIChart';
 import Breadcrumbs from '../components/layout/Breadcrumbs';
 import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
 import caseStudyInspirationMap from '../data/caseStudyInspirationMap.json';
@@ -196,12 +197,20 @@ const CaseStudyDetail: React.FC = () => {
       {/* Metrics Showcase */}
       <AnimatedSection delay={0.2}>
         <section className="metrics-modern">
-          <MetricsVisualization
-            metrics={caseStudy.metrics}
-            accentColor={caseStudy.color || 'var(--color-secondary)'}
-            caseStudySlug={slug}
-            variant="cards"
-          />
+          <div className="mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-brand-text mb-6">
+              Impact Metrics
+            </h2>
+            <InteractiveROIChart metrics={caseStudy.metrics} />
+          </div>
+          <div className="mt-12">
+            <MetricsVisualization
+              metrics={caseStudy.metrics}
+              accentColor={caseStudy.color || 'var(--color-secondary)'}
+              caseStudySlug={slug}
+              variant="cards"
+            />
+          </div>
         </section>
       </AnimatedSection>
 
