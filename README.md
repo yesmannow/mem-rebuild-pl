@@ -124,6 +124,34 @@ ts-node cli/preview-layout.ts
 ts-node cli/svg-export.ts public/assets
 ```
 
+## 🌐 API Services
+
+New! Free API integrations for enhanced UX and content generation. See [API Services Documentation](scripts/api-services/README.md) for details.
+
+```bash
+# Fetch website favicons/logos
+npm run api:favicon -- google.com github.com
+
+# Search high-quality images
+npm run api:image -- search "technology" --count=5
+
+# Extract website metadata
+npm run api:metadata -- https://example.com --output=metadata.json
+
+# Generate avatars, QR codes, demo data
+npm run api:utility -- avatar "John Doe"
+npm run api:utility -- qr "https://example.com" --output=qr.png
+npm run api:utility -- users 5
+```
+
+**Available Services:**
+- 🎨 **Favicon Fetcher**: Extract logos from any website
+- 📸 **Image Provider**: Unsplash stock photos & placeholders
+- 🔍 **Metadata Extractor**: Rich website metadata & Open Graph data
+- 🛠️ **Utility Services**: Avatars, QR codes, demo users, jokes, advice
+
+See [docs/API_RECOMMENDATIONS.md](docs/API_RECOMMENDATIONS.md) for comprehensive API research and recommendations.
+
 ## 🤖 Assistant Prompts
 
 See `prompts/branding.json` for reusable instructions for staff and AI assistants.
