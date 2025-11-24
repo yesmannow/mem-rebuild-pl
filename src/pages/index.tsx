@@ -1,26 +1,18 @@
 import React, { lazy, Suspense } from 'react';
-import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Mail } from 'lucide-react';
 import HeroCommandPanel from '../components/home/HeroCommandPanel';
-import HeroIntro from '../components/home/HeroIntro';
+import HeroStats from '../components/home/HeroStats';
 import { ServiceLadder } from '../components/interactive/ServiceLadder';
-import WhoIAm from '../components/home/WhoIAm';
 import CareerHighlights from '../components/home/CareerHighlights';
 import Portfolio from '../components/home/Portfolio';
 import EnhancedSkills from '../components/home/EnhancedSkills';
 import Testimonials from '../components/home/Testimonials';
-import FinalCTA from '../components/home/FinalCTA';
 import FromTheWork from '../components/sections/FromTheWork';
 import FloatingActionButton from '../components/ui/FloatingActionButton';
 import OrganizationSchema from '../components/seo/OrganizationSchema';
 import ServiceSchema from '../components/seo/ServiceSchema';
 import ReviewSchema from '../components/seo/ReviewSchema';
-import CaseStudyCard from '../components/cards/CaseStudyCard';
-// New interactive components - ready to use
-// import { AnimatedHero } from '../components/interactive/AnimatedHero';
-// import { StatCounter } from '../components/interactive/StatCounter';
-// import { TestimonialCarousel } from '../components/interactive/TestimonialCarousel';
 
 // Lazy load heavy components
 const PersonSchema = lazy(() => import('../components/seo/PersonSchema'));
@@ -110,52 +102,13 @@ const HomePage: React.FC = () => {
       <ServiceSchema />
       <ReviewSchema />
 
-      {/* Hero Command Panel - New Signalcraft Systems Design */}
+      {/* Hero Command Panel - Enhanced with bio photos and improved design */}
       <HeroCommandPanel />
 
-      {/* Hero Intro Section - Keep for metrics display */}
-      {/* TODO: Consider replacing with AnimatedHero component for enhanced animations */}
-      <HeroIntro
-        metrics={[
-          { label: 'Years Experience', value: '16+' },
-          { label: 'Projects Delivered', value: '200+' },
-          { label: 'Clients Served', value: '50+' },
-          { label: 'Systems Built', value: '100+' },
-        ]}
-      />
-
-      {/* Enhanced Stats Section - Using StatCounter component */}
-      {/* Uncomment to use animated stat counters:
-      <section className="py-16 bg-[var(--color-dark)]">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <StatCounter value={16} label="Years Experience" suffix="+" theme="primary" />
-            <StatCounter value={200} label="Projects Delivered" suffix="+" theme="secondary" />
-            <StatCounter value={50} label="Clients Served" suffix="+" theme="accent" />
-            <StatCounter value={100} label="Systems Built" suffix="+" theme="primary" />
-          </div>
-        </div>
-      </section>
-      */}
-
-      {/* Featured Project Placeholder */}
-      <section className="max-w-6xl mx-auto px-6 py-12">
-        <CaseStudyCard
-          title="Featured Project"
-          microtagline="A showcase of recent work"
-          emoji="🚀"
-          statLine="2024"
-          badges={['Design', 'Development', 'Strategy']}
-          gradient="linear-gradient(135deg, #0f1720 0%, #16a34a 100%)"
-          hoverGlow="#16a34a"
-          slug="/case-studies"
-        />
-      </section>
+      {/* Animated Stats Section */}
+      <HeroStats />
 
       <main id="main-content">
-        {/* About Section */}
-        <WhoIAm />
-
         {/* Experience Section */}
         <CareerHighlights />
 
@@ -200,9 +153,6 @@ const HomePage: React.FC = () => {
 
         {/* Testimonials Section */}
         <Testimonials testimonials={testimonialsData} />
-
-        {/* Contact Section */}
-        <FinalCTA />
       </main>
 
       {/* Floating Contact Button */}

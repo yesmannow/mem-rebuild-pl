@@ -35,6 +35,34 @@ const HeroCommandPanel: React.FC = () => {
         aria-hidden="true"
       />
 
+      {/* Animated gradient orbs */}
+      <motion.div
+        className="absolute top-20 right-20 w-96 h-96 bg-[var(--signal-500)]/10 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        aria-hidden="true"
+      />
+      <motion.div
+        className="absolute bottom-20 left-20 w-96 h-96 bg-[var(--telemetry-400)]/10 rounded-full blur-3xl"
+        animate={{
+          scale: [1.2, 1, 1.2],
+          opacity: [0.5, 0.3, 0.5],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        aria-hidden="true"
+      />
+
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
         {/* Left: Portrait with telemetry captions */}
         <motion.div
@@ -44,15 +72,36 @@ const HeroCommandPanel: React.FC = () => {
           className="relative"
         >
           <div className="relative">
-            {/* Portrait placeholder - replace with actual image */}
-            <div className="aspect-[3/4] max-w-md mx-auto bg-[var(--ink-700)] rounded-lg overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[var(--ink-700)] to-[var(--ink-900)]" />
-              <div className="absolute inset-0 flex items-center justify-center text-[var(--parchment-050)]/20 font-mono text-sm">
-                Portrait Image
-              </div>
+            {/* Animated border ring */}
+            <motion.div
+              className="absolute -inset-2 rounded-lg bg-gradient-to-r from-[var(--signal-500)] via-[var(--telemetry-400)] to-[var(--signal-500)] opacity-75"
+              animate={{
+                rotate: [0, 360],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              style={{ filter: 'blur(8px)' }}
+              aria-hidden="true"
+            />
+            
+            {/* Bio Portrait with modern fallback */}
+            <div className="aspect-[3/4] max-w-md mx-auto rounded-lg overflow-hidden relative shadow-2xl">
+              <picture>
+                <source srcSet="/images/bio/bio-photo.avif" type="image/avif" />
+                <source srcSet="/images/bio/bio-photo.webp" type="image/webp" />
+                <img
+                  src="/images/bio/bio-photo.jpg"
+                  alt="Jacob Darling - Marketing Technologist and Systems Architect"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+              </picture>
 
               {/* Telemetry captions overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 space-y-2">
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[var(--ink-900)]/90 to-transparent space-y-2">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentTelemetry}
@@ -79,15 +128,23 @@ const HeroCommandPanel: React.FC = () => {
         >
           {/* Main headline */}
           <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="font-mono text-sm text-[var(--signal-500)] uppercase tracking-wider mb-4"
+            >
+              Marketing Technologist
+            </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-[var(--parchment-050)] leading-[1.1]"
             >
-              From hypothesis
+              Building Systems
               <br />
-              <span className="text-[var(--signal-500)]">to pipeline</span>
+              That <span className="text-[var(--signal-500)]">Scale Growth</span>
             </motion.h1>
           </div>
 
@@ -98,8 +155,7 @@ const HeroCommandPanel: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg md:text-xl text-[var(--parchment-050)]/70 max-w-xl font-body leading-relaxed"
           >
-            I architect systems that translate insight into measurable growth.
-            Operations room precision meets human-centered design.
+            I design and deploy marketing infrastructure that connects insight to action—from automation and CRM architecture to analytics and campaign strategy. 16+ years transforming complex problems into scalable solutions.
           </motion.p>
 
           {/* Telemetry ticker */}
