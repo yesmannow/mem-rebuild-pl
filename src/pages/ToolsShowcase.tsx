@@ -6,12 +6,14 @@ import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
 
 interface Tool {
   name: string;
-  category: 'CLI' | 'MCP Server' | 'Build Tool' | 'Content Generation' | 'Automation';
+  category: 'CLI' | 'MCP Server' | 'Build Tool' | 'Content Generation' | 'Automation' | 'Deployment';
   description: string;
   technologies: string[];
   usage: string;
   outcomes: string[];
   icon: React.ReactNode;
+  lastModified?: string;
+  author?: string;
 }
 
 const tools: Tool[] = [
@@ -20,6 +22,8 @@ const tools: Tool[] = [
     category: 'MCP Server',
     description: 'Express-based Model Context Protocol server with health monitoring, rate limiting, and safe filesystem operations for AI-powered development workflows.',
     technologies: ['Node.js', 'Express', 'JavaScript'],
+    lastModified: '2024-11',
+    author: 'Portfolio Team',
     usage: `# Start the MCP server
 npm run mcp:start
 
@@ -39,6 +43,8 @@ npm run mcp:monitor`,
   {
     name: 'Scrape & Generate CLI',
     category: 'Content Generation',
+    lastModified: '2024-11',
+    author: 'Portfolio Team',
     description: 'Automated content pipeline that scrapes design inspiration websites, uses Gemini AI for summarization, optimizes images with Sharp, and generates Markdown files with YAML frontmatter.',
     technologies: ['Node.js', 'Axios', 'Cheerio', 'Sharp', 'Gemini AI'],
     usage: `# Run content scraper
@@ -60,6 +66,8 @@ npm run build:full`,
   {
     name: 'MCP CLI Wrapper',
     category: 'CLI',
+    lastModified: '2024-11',
+    author: 'Portfolio Team',
     description: 'Command-line interface for managing MCP server operations, health checks, smoke tests, and repository audits with support for dry-run mode.',
     technologies: ['Node.js', 'ESM', 'Child Process'],
     usage: `# Start MCP server
@@ -81,6 +89,8 @@ node scripts/mcp-cli.js smoke`,
   {
     name: 'Design Asset Scraper',
     category: 'Automation',
+    lastModified: '2024-11',
+    author: 'Portfolio Team',
     description: 'Python-based MCP integration for extracting images and design components from websites with XPath selectors and CORS handling.',
     technologies: ['Python', 'Asyncio', 'MCP Protocol'],
     usage: `# Scrape images
@@ -102,6 +112,8 @@ npm run scrape:all`,
   {
     name: 'Icon Component Generator',
     category: 'Build Tool',
+    lastModified: '2024-11',
+    author: 'Portfolio Team',
     description: 'Automated React component generation from SVG icons with TypeScript support, dry-run mode, and standardized naming conventions.',
     technologies: ['Node.js', 'React', 'TypeScript'],
     usage: `# Preview icon generation
@@ -123,6 +135,8 @@ npm run icon:audit`,
   {
     name: 'Color Refactoring Tool',
     category: 'Build Tool',
+    lastModified: '2024-11',
+    author: 'Portfolio Team',
     description: 'Design system migration tool that consolidates raw color values into CSS custom properties and Tailwind classes across the entire codebase.',
     technologies: ['Node.js', 'AST Parsing', 'CSS'],
     usage: `# Preview color refactoring
@@ -144,6 +158,8 @@ npm run design:map-colors`,
   {
     name: 'Enhanced Moodboard Generator',
     category: 'Content Generation',
+    lastModified: '2024-11',
+    author: 'Portfolio Team',
     description: 'Intelligent moodboard creation system that generates brand inspiration boards, classifies design styles, and syncs metadata for the portfolio gallery.',
     technologies: ['Node.js', 'Image Processing', 'AI Classification'],
     usage: `# Generate enhanced moodboards
@@ -165,6 +181,8 @@ npm run sync:inspiration`,
   {
     name: 'Image Build Pipeline',
     category: 'Build Tool',
+    lastModified: '2024-11',
+    author: 'Portfolio Team',
     description: 'Comprehensive image processing pipeline with Sharp integration for optimization, format conversion, manifest generation, and MIME type validation.',
     technologies: ['Node.js', 'Sharp', 'ESM'],
     usage: `# Build image manifest
@@ -189,7 +207,7 @@ const ToolsShowcase: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
-  const categories = ['All', 'CLI', 'MCP Server', 'Build Tool', 'Content Generation', 'Automation'];
+  const categories = ['All', 'CLI', 'MCP Server', 'Build Tool', 'Content Generation', 'Automation', 'Deployment'];
 
   const filteredTools = tools.filter(tool => {
     const matchesSearch = tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -261,95 +279,61 @@ const ToolsShowcase: React.FC = () => {
         </section>
       </AnimatedSection>
 
-      {/* Tools Grid */}
+      {/* Tools Grid - Grouped by Category */}
       <AnimatedSection delay={0.2}>
         <section className="container mx-auto px-6 pb-16 relative z-10">
-          <div className="grid md:grid-cols-2 gap-6 max-w-7xl mx-auto">
-            {filteredTools.map((tool, index) => (
-              <motion.div
-                key={tool.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all border border-slate-200 dark:border-slate-700 overflow-hidden group"
-              >
-                {/* Tool Header */}
-                <div className="p-6 border-b border-slate-200 dark:border-slate-700">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-turquoise/10 rounded-lg text-turquoise group-hover:scale-110 transition-transform">
-                      {tool.icon}
+          {filteredTools.length === 0 ? (
+            <div className="text-center py-16 max-w-2xl mx-auto">
+              <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-12 border border-slate-200 dark:border-slate-700">
+                <Terminal className="w-16 h-16 mx-auto mb-4 text-slate-400" />
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">No Tools Found</h3>
+                <p className="text-slate-600 dark:text-slate-400 mb-6">
+                  No tools match your search criteria. Try adjusting your filters or search query.
+                </p>
+                <button
+                  onClick={() => {
+                    setSearchQuery('');
+                    setSelectedCategory('All');
+                  }}
+                  className="px-6 py-3 bg-turquoise hover:bg-turquoise/90 text-white rounded-lg font-medium transition-colors"
+                >
+                  Reset Filters
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="space-y-12 max-w-7xl mx-auto">
+              {selectedCategory === 'All' ? (
+                // Group by category when showing all
+                categories.slice(1).map(category => {
+                  const categoryTools = filteredTools.filter(t => t.category === category);
+                  if (categoryTools.length === 0) return null;
+                  
+                  return (
+                    <div key={category}>
+                      <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
+                        <span className="w-2 h-8 bg-turquoise rounded-full"></span>
+                        {category}
+                        <span className="text-sm font-normal text-slate-500 dark:text-slate-400">
+                          ({categoryTools.length})
+                        </span>
+                      </h2>
+                      <div className="grid md:grid-cols-2 gap-6">
+                        {categoryTools.map((tool, index) => (
+                          <ToolCard key={tool.name} tool={tool} index={index} copyToClipboard={copyToClipboard} />
+                        ))}
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">
-                        {tool.name}
-                      </h3>
-                      <span className="inline-block px-2 py-1 bg-creamsicle/10 text-creamsicle text-xs font-semibold rounded">
-                        {tool.category}
-                      </span>
-                    </div>
-                  </div>
-                  <p className="text-slate-600 dark:text-slate-300 mt-4 leading-relaxed">
-                    {tool.description}
-                  </p>
+                  );
+                })
+              ) : (
+                // Show selected category only
+                <div className="grid md:grid-cols-2 gap-6">
+                  {filteredTools.map((tool, index) => (
+                    <ToolCard key={tool.name} tool={tool} index={index} copyToClipboard={copyToClipboard} />
+                  ))}
                 </div>
-
-                {/* Technologies */}
-                <div className="px-6 py-4 bg-slate-50 dark:bg-slate-900/50">
-                  <div className="flex flex-wrap gap-2">
-                    {tool.technologies.map(tech => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm rounded-full border border-slate-200 dark:border-slate-700"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Usage */}
-                <div className="p-6">
-                  <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
-                    <Terminal className="w-4 h-4 text-turquoise" />
-                    Usage
-                  </h4>
-                  <div className="relative group/code">
-                    <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg text-sm overflow-x-auto">
-                      <code>{tool.usage}</code>
-                    </pre>
-                    <button
-                      onClick={() => copyToClipboard(tool.usage)}
-                      className="absolute top-2 right-2 px-3 py-1 bg-slate-700 hover:bg-slate-600 text-white text-xs rounded opacity-0 group-hover/code:opacity-100 transition-opacity"
-                    >
-                      Copy
-                    </button>
-                  </div>
-                </div>
-
-                {/* Outcomes */}
-                <div className="px-6 pb-6">
-                  <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
-                    <Zap className="w-4 h-4 text-creamsicle" />
-                    Outcomes
-                  </h4>
-                  <ul className="space-y-2">
-                    {tool.outcomes.map((outcome, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
-                        <span className="text-turquoise mt-1">✓</span>
-                        <span>{outcome}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {filteredTools.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-slate-600 dark:text-slate-400 text-lg">
-                No tools found matching your search criteria.
-              </p>
+              )}
             </div>
           )}
         </section>
@@ -388,6 +372,103 @@ const ToolsShowcase: React.FC = () => {
         </section>
       </AnimatedSection>
     </main>
+  );
+};
+
+// Extracted ToolCard component for cleaner code
+const ToolCard: React.FC<{
+  tool: Tool;
+  index: number;
+  copyToClipboard: (text: string) => void;
+}> = ({ tool, index, copyToClipboard }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1 }}
+      className="bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all border border-slate-200 dark:border-slate-700 overflow-hidden group"
+    >
+      {/* Tool Header */}
+      <div className="p-6 border-b border-slate-200 dark:border-slate-700">
+        <div className="flex items-start gap-4">
+          <div className="p-3 bg-turquoise/10 rounded-lg text-turquoise group-hover:scale-110 transition-transform">
+            {tool.icon}
+          </div>
+          <div className="flex-1">
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">
+              {tool.name}
+            </h3>
+            <div className="flex flex-wrap gap-2 items-center">
+              <span className="inline-block px-2 py-1 bg-creamsicle/10 text-creamsicle text-xs font-semibold rounded">
+                {tool.category}
+              </span>
+              {tool.lastModified && (
+                <span className="text-xs text-slate-500 dark:text-slate-400">
+                  Updated {tool.lastModified}
+                </span>
+              )}
+              {tool.author && (
+                <span className="text-xs text-slate-500 dark:text-slate-400">
+                  • by {tool.author}
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+        <p className="text-slate-600 dark:text-slate-300 mt-4 leading-relaxed">
+          {tool.description}
+        </p>
+      </div>
+
+      {/* Technologies */}
+      <div className="px-6 py-4 bg-slate-50 dark:bg-slate-900/50">
+        <div className="flex flex-wrap gap-2">
+          {tool.technologies.map(tech => (
+            <span
+              key={tech}
+              className="px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm rounded-full border border-slate-200 dark:border-slate-700"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Usage */}
+      <div className="p-6">
+        <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+          <Terminal className="w-4 h-4 text-turquoise" />
+          Usage
+        </h4>
+        <div className="relative group/code">
+          <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg text-sm overflow-x-auto">
+            <code>{tool.usage}</code>
+          </pre>
+          <button
+            onClick={() => copyToClipboard(tool.usage)}
+            className="absolute top-2 right-2 px-3 py-1 bg-slate-700 hover:bg-slate-600 text-white text-xs rounded opacity-0 group-hover/code:opacity-100 transition-opacity"
+          >
+            Copy
+          </button>
+        </div>
+      </div>
+
+      {/* Outcomes */}
+      <div className="px-6 pb-6">
+        <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+          <Zap className="w-4 h-4 text-creamsicle" />
+          Outcomes
+        </h4>
+        <ul className="space-y-2">
+          {tool.outcomes.map((outcome, i) => (
+            <li key={i} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
+              <span className="text-turquoise mt-1">✓</span>
+              <span>{outcome}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </motion.div>
   );
 };
 
