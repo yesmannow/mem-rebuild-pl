@@ -4,6 +4,9 @@ import { ChevronRight } from 'lucide-react';
 import { OceanAuroraBackground } from '../ui/OceanAuroraBackground';
 import { OceanTextGenerateEffect } from '../ui/OceanTextGenerateEffect';
 import { OceanGradientText } from '../ui/OceanGradientText';
+import { AvailabilityBadge } from '../ui/AvailabilityBadge';
+import { MagneticButton } from '../ui/MagneticButton';
+import { useTypingEffect } from '../../hooks/useTypingEffect';
 
 /**
  * HeroCommandPanel - Split-screen hero with portrait and telemetry ticker
@@ -22,6 +25,16 @@ const telemetrySequence: TelemetryItem[] = [
 
 const HeroCommandPanel: React.FC = () => {
   const [currentTelemetry, setCurrentTelemetry] = useState(0);
+
+  // Typing effect for role titles
+  const { text: roleText } = useTypingEffect({
+    strings: ['Marketing Strategist', 'Systems Architect', 'Growth Engineer', 'Automation Expert'],
+    typeSpeed: 100,
+    deleteSpeed: 50,
+    delayBetweenStrings: 2000,
+    loop: true,
+    startDelay: 1000,
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -135,13 +148,29 @@ const HeroCommandPanel: React.FC = () => {
         >
           {/* Main headline */}
           <div>
+            {/* Availability Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mb-4"
+            >
+              <AvailabilityBadge 
+                available={true}
+                size="md"
+                showPulse={true}
+              />
+            </motion.div>
+
+            {/* Dynamic typing role */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-mono text-sm text-[#006d77] uppercase tracking-wider mb-4"
+              className="font-mono text-sm text-[#006d77] uppercase tracking-wider mb-4 h-6"
             >
-              Marketing Technologist
+              {roleText}
+              <span className="inline-block w-0.5 h-4 bg-[#83c5be] ml-1 animate-pulse" />
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -213,21 +242,33 @@ const HeroCommandPanel: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex gap-4"
+            className="flex flex-wrap gap-4"
           >
-            <a
+            <MagneticButton
               href="/case-studies"
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-[#006d77] text-[#edf6f9] font-semibold rounded-lg transition-all hover:scale-105 hover:bg-[#005a63] hover:shadow-[0_20px_40px_rgba(0,109,119,0.3)]"
+              variant="primary"
+              size="lg"
+              magneticStrength={0.4}
             >
               Explore Systems
-              <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a
+              <ChevronRight className="w-5 h-5" />
+            </MagneticButton>
+            <MagneticButton
               href="/contact"
-              className="inline-flex items-center px-8 py-4 border-2 border-[#5a7a7d] text-[#edf6f9] font-semibold rounded-lg transition-all hover:border-[#006d77] hover:bg-[#006d77]/10"
+              variant="outline"
+              size="lg"
+              magneticStrength={0.3}
             >
               Let's Talk
-            </a>
+            </MagneticButton>
+            <MagneticButton
+              href="/resume"
+              variant="secondary"
+              size="lg"
+              magneticStrength={0.3}
+            >
+              View Resume
+            </MagneticButton>
           </motion.div>
         </motion.div>
       </div>
