@@ -10,6 +10,8 @@ jobs:
   setup:
     name: Setup
     runs-on: ubuntu-latest
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: true
     outputs:
       node-version: 20
     steps:
@@ -27,6 +29,8 @@ jobs:
     name: Build and Typecheck
     runs-on: ubuntu-latest
     needs: setup
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: true
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node

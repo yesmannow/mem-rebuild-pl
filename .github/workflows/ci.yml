@@ -11,6 +11,7 @@ jobs:
     env:
       PREBUILD_PIPELINE: off
       CI: true
+      PUPPETEER_SKIP_DOWNLOAD: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

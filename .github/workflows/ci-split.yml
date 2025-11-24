@@ -10,6 +10,8 @@ jobs:
   quick-checks:
     name: Quick Checks (lint, typecheck, unit tests)
     runs-on: ubuntu-latest
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -30,6 +32,8 @@ jobs:
     needs: quick-checks
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
