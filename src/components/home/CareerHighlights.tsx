@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase } from 'lucide-react';
+import { OceanBackgroundBeams } from '../ui/OceanBackgroundBeams';
+import { OceanGradientText } from '../ui/OceanGradientText';
 import './CareerHighlights.css';
 
 // Show only most recent roles on home page (2013-present) - full history on resume
@@ -182,9 +184,12 @@ const CareerHighlights: React.FC = () => {
 
   return (
     <section ref={sectionRef} id="experience" className="career-highlights container-px mx-auto max-w-6xl py-16 md:py-24 relative">
+      {/* Ocean Background Beams */}
+      <OceanBackgroundBeams className="opacity-30" />
+
       {/* Background decorative elements */}
       <motion.div
-        className="absolute top-40 right-10 w-72 h-72 bg-[var(--telemetry-400)]/5 rounded-full blur-3xl"
+        className="absolute top-40 right-10 w-72 h-72 bg-[#83c5be]/5 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -204,8 +209,10 @@ const CareerHighlights: React.FC = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="section-heading">Career Journey</h2>
-        <p className="text-lg text-[var(--parchment-050)]/60 mt-4 max-w-2xl mx-auto text-center font-body">
+        <h2 className="section-heading">
+          <OceanGradientText text="Career Journey" className="text-[#edf6f9]" />
+        </h2>
+        <p className="text-lg text-[#edf6f9]/60 mt-4 max-w-2xl mx-auto text-center font-body">
           16+ years building marketing systems across healthcare, legal, and SaaS industries
         </p>
       </motion.div>
@@ -275,7 +282,7 @@ const CareerHighlights: React.FC = () => {
         </p>
         <a
           href="/resume"
-          className="inline-flex items-center gap-2 px-8 py-3 border-2 border-[var(--signal-500)] text-[var(--signal-500)] font-semibold rounded-lg transition-all hover:bg-[var(--signal-500)] hover:text-[var(--ink-900)]"
+          className="inline-flex items-center gap-2 px-8 py-3 border-2 border-[#006d77] text-[#006d77] font-semibold rounded-lg transition-all hover:bg-[#006d77] hover:text-[#edf6f9]"
         >
           View Full Resume
           <Briefcase className="w-5 h-5" />

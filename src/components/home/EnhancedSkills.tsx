@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import GlassCard from '../ui/GlassCard';
 import SkillBadge from '../ui/SkillBadge';
+import { OceanGradientText } from '../ui/OceanGradientText';
 
 const skillCategories = [
   {
@@ -13,7 +14,7 @@ const skillCategories = [
       { name: 'Zapier', icon: '⚙️', level: 'expert' as const },
       { name: 'Automated Campaigns', icon: '🚀', level: 'expert' as const },
     ],
-    gradient: 'from-[var(--signal-500)]/10 to-[var(--signal-500)]/5',
+    gradient: 'from-[#006d77]/10 to-[#006d77]/5',
   },
   {
     category: 'Analytics & Data',
@@ -24,7 +25,7 @@ const skillCategories = [
       { name: 'Data Visualization', icon: '📉', level: 'advanced' as const },
       { name: 'A/B Testing', icon: '🧪', level: 'expert' as const },
     ],
-    gradient: 'from-[var(--telemetry-400)]/10 to-[var(--telemetry-400)]/5',
+    gradient: 'from-[#83c5be]/10 to-[#83c5be]/5',
   },
   {
     category: 'Development',
@@ -69,7 +70,7 @@ const skillCategories = [
       { name: 'Security', icon: '🔒', level: 'advanced' as const },
       { name: 'CDN Optimization', icon: '⚡', level: 'expert' as const },
     ],
-    gradient: 'from-[var(--telemetry-400)]/10 to-[var(--signal-500)]/5',
+    gradient: 'from-[#83c5be]/10 to-[#006d77]/5',
   },
 ];
 
@@ -83,10 +84,13 @@ const EnhancedSkills: React.FC = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-4xl md:text-5xl font-display font-bold text-[var(--parchment-050)] mb-4">
-          Where Strategy Meets Stack
+        <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
+          <OceanGradientText
+            text="Where Strategy Meets Stack"
+            className="text-[#edf6f9]"
+          />
         </h2>
-        <p className="text-lg text-[var(--parchment-050)]/70 max-w-3xl mx-auto font-body">
+        <p className="text-lg text-[#edf6f9]/70 max-w-3xl mx-auto font-body">
           From first click to final sale — systems that scale, connect, and convert.
         </p>
       </motion.div>
@@ -105,21 +109,36 @@ const EnhancedSkills: React.FC = () => {
                 <span className="text-3xl" aria-hidden="true">
                   {category.icon}
                 </span>
-                <h3 className="text-xl font-semibold text-[var(--parchment-050)] font-display">
+                <h3 className="text-xl font-semibold text-[#edf6f9] font-display">
                   {category.category}
                 </h3>
               </div>
 
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, skillIndex) => (
-                  <SkillBadge
+                  <div
                     key={skill.name}
-                    skill={skill.name}
-                    icon={skill.icon}
-                    level={skill.level}
-                    category={category.category}
-                    delay={categoryIndex * 0.1 + skillIndex * 0.05}
-                  />
+                    className="group relative"
+                    onMouseEnter={() => {}}
+                  >
+                    <SkillBadge
+                      skill={skill.name}
+                      icon={skill.icon}
+                      level={skill.level}
+                      category={category.category}
+                      delay={categoryIndex * 0.1 + skillIndex * 0.05}
+                    />
+                    {/* Custom tooltip for skill */}
+                    <div className="absolute -top-12 left-1/2 -translate-x-1/2 z-50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                      <div className="bg-[#006d77] text-[#edf6f9] px-3 py-2 rounded-md text-xs shadow-xl border border-[#83c5be]/20 whitespace-nowrap">
+                        <div className="font-bold">{skill.name}</div>
+                        <div className="text-[#83c5be] text-[10px] mt-0.5">
+                          {category.category} • {skill.level}
+                        </div>
+                        <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#006d77] rotate-45 border-r border-b border-[#83c5be]/20"></div>
+                      </div>
+                    </div>
+                  </div>
                 ))}
               </div>
             </GlassCard>

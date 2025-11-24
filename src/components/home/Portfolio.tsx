@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 import CaseStudyCard from '@components/cards/CaseStudyCard';
 import { caseStudies } from '@data/caseStudies';
+import { OceanBackgroundBeams } from '../ui/OceanBackgroundBeams';
+import { OceanGradientText } from '../ui/OceanGradientText';
+import { OceanCardContainer, OceanCardBody, OceanCardItem } from '../ui/Ocean3DCard';
 import './Portfolio.css';
 
 // Map case studies to CaseStudyCard format
@@ -17,7 +20,7 @@ const featuredCaseStudies = caseStudies
     // Create gradient from color or use default
     const gradient = cs.color
       ? `linear-gradient(135deg, ${cs.color}15 0%, ${cs.color}30 50%, ${cs.color}50 100%)`
-      : 'linear-gradient(135deg, var(--ink-900) 0%, var(--ink-700) 40%, var(--telemetry-400) 100%)';
+      : 'linear-gradient(135deg, #006d77 0%, #5a7a7d 40%, #83c5be 100%)';
 
     // Use color for hoverGlow or default
     const hoverGlow = cs.color || 'var(--color-success)'; // telemetry-400
@@ -39,9 +42,12 @@ const featuredCaseStudies = caseStudies
 const Portfolio: React.FC = () => {
   return (
     <section id="portfolio" className="portfolio container-px mx-auto max-w-6xl py-16 md:py-24 relative">
+      {/* Ocean Background Beams */}
+      <OceanBackgroundBeams className="opacity-25" />
+
       {/* Background gradient orb */}
       <motion.div
-        className="absolute top-20 left-10 w-96 h-96 bg-[var(--signal-500)]/5 rounded-full blur-3xl"
+        className="absolute top-20 left-10 w-96 h-96 bg-[#e29578]/5 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.15, 1],
           opacity: [0.2, 0.4, 0.2],
@@ -61,23 +67,38 @@ const Portfolio: React.FC = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="section-heading">Featured Case Studies</h2>
-        <p className="text-lg text-[var(--parchment-050)]/60 mt-4 max-w-2xl mx-auto text-center font-body">
+        <h2 className="section-heading">
+          <OceanGradientText text="Featured Case Studies" className="text-[#edf6f9]" />
+        </h2>
+        <p className="text-lg text-[#edf6f9]/60 mt-4 max-w-2xl mx-auto text-center font-body">
           Real-world systems delivering measurable results
         </p>
       </motion.div>
 
       <div className="portfolio__grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
         {featuredCaseStudies.map((study, index) => (
-          <motion.div
+          <OceanCardContainer
             key={study.slug}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            containerClassName="py-0"
+            className="w-full"
           >
-            <CaseStudyCard {...study} />
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="w-full"
+            >
+              <OceanCardBody className="h-auto w-full">
+                <OceanCardItem
+                  translateZ={20}
+                  className="w-full"
+                >
+                  <CaseStudyCard {...study} />
+                </OceanCardItem>
+              </OceanCardBody>
+            </motion.div>
+          </OceanCardContainer>
         ))}
       </div>
 

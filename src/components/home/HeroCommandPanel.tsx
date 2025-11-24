@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
+import { OceanAuroraBackground } from '../ui/OceanAuroraBackground';
+import { OceanTextGenerateEffect } from '../ui/OceanTextGenerateEffect';
+import { OceanGradientText } from '../ui/OceanGradientText';
 
 /**
  * HeroCommandPanel - Split-screen hero with portrait and telemetry ticker
@@ -28,42 +31,46 @@ const HeroCommandPanel: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[var(--ink-900)]">
-      {/* Blueprint texture overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03] blueprint-grid"
-        aria-hidden="true"
-      />
+    <OceanAuroraBackground
+      className="min-h-[90vh] flex items-center overflow-hidden"
+      showRadialGradient={true}
+    >
+      <section className="relative w-full min-h-[90vh] flex items-center overflow-hidden">
+        {/* Blueprint texture overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.03] blueprint-grid"
+          aria-hidden="true"
+        />
 
-      {/* Animated gradient orbs */}
-      <motion.div
-        className="absolute top-20 right-20 w-96 h-96 bg-[var(--signal-500)]/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        aria-hidden="true"
-      />
-      <motion.div
-        className="absolute bottom-20 left-20 w-96 h-96 bg-[var(--telemetry-400)]/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.5, 0.3, 0.5],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        aria-hidden="true"
-      />
+        {/* Animated gradient orbs - Ocean Pearl colors */}
+        <motion.div
+          className="absolute top-20 right-20 w-96 h-96 bg-[#e29578]/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          aria-hidden="true"
+        />
+        <motion.div
+          className="absolute bottom-20 left-20 w-96 h-96 bg-[#83c5be]/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.5, 0.3, 0.5],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          aria-hidden="true"
+        />
 
-      <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
         {/* Left: Portrait with telemetry captions */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -72,9 +79,9 @@ const HeroCommandPanel: React.FC = () => {
           className="relative"
         >
           <div className="relative">
-            {/* Animated border ring */}
+            {/* Animated border ring - Ocean Pearl */}
             <motion.div
-              className="absolute -inset-2 rounded-lg bg-gradient-to-r from-[var(--signal-500)] via-[var(--telemetry-400)] to-[var(--signal-500)] opacity-75"
+              className="absolute -inset-2 rounded-lg bg-gradient-to-r from-[#006d77] via-[#83c5be] to-[#006d77] opacity-75"
               animate={{
                 rotate: [0, 360],
               }}
@@ -86,7 +93,7 @@ const HeroCommandPanel: React.FC = () => {
               style={{ filter: 'blur(8px)' }}
               aria-hidden="true"
             />
-            
+
             {/* Bio Portrait with modern fallback */}
             <div className="aspect-[3/4] max-w-md mx-auto rounded-lg overflow-hidden relative shadow-2xl">
               <picture>
@@ -101,7 +108,7 @@ const HeroCommandPanel: React.FC = () => {
               </picture>
 
               {/* Telemetry captions overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[var(--ink-900)]/90 to-transparent space-y-2">
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#006d77]/90 to-transparent space-y-2">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentTelemetry}
@@ -132,7 +139,7 @@ const HeroCommandPanel: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-mono text-sm text-[var(--signal-500)] uppercase tracking-wider mb-4"
+              className="font-mono text-sm text-[#006d77] uppercase tracking-wider mb-4"
             >
               Marketing Technologist
             </motion.div>
@@ -140,11 +147,19 @@ const HeroCommandPanel: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-[var(--parchment-050)] leading-[1.1]"
+              className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-[#edf6f9] leading-[1.1]"
             >
-              Building Systems
-              <br />
-              That <span className="text-[var(--signal-500)]">Scale Growth</span>
+              <OceanTextGenerateEffect
+                words="Building Systems"
+                className="block mb-2"
+                duration={0.6}
+                staggerDelay={0.05}
+              />
+              That <OceanGradientText
+                text="Scale Growth"
+                className="inline-block"
+                neon={false}
+              />
             </motion.h1>
           </div>
 
@@ -155,13 +170,13 @@ const HeroCommandPanel: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="space-y-4"
           >
-            <p className="text-lg md:text-xl text-[var(--parchment-050)]/70 max-w-xl font-body leading-relaxed">
+            <p className="text-lg md:text-xl text-[#edf6f9]/70 max-w-xl font-body leading-relaxed">
               I design and deploy marketing infrastructure that connects insight to action—from automation and CRM architecture to analytics and campaign strategy.
             </p>
-            
+
             {/* Who I serve */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--signal-500)]/10 border border-[var(--signal-500)]/20">
-              <span className="text-sm font-mono text-[var(--signal-500)] uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#006d77]/10 border border-[#006d77]/20">
+              <span className="text-sm font-mono text-[#006d77] uppercase tracking-wider">
                 Serving: SaaS • Healthcare • Legal • Financial Services
               </span>
             </div>
@@ -174,7 +189,7 @@ const HeroCommandPanel: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex items-center gap-4 font-mono text-sm"
           >
-            <div className="flex items-center gap-2 text-[var(--telemetry-400)]">
+            <div className="flex items-center gap-2 text-[#83c5be]">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentTelemetry}
@@ -187,8 +202,8 @@ const HeroCommandPanel: React.FC = () => {
                 </motion.span>
               </AnimatePresence>
             </div>
-            <div className="h-px flex-1 bg-[var(--ink-700)]" />
-            <div className="text-[var(--parchment-050)]/40 uppercase tracking-wider">
+            <div className="h-px flex-1 bg-[#5a7a7d]" />
+            <div className="text-[#edf6f9]/40 uppercase tracking-wider">
               Scroll Down
             </div>
           </motion.div>
@@ -202,14 +217,14 @@ const HeroCommandPanel: React.FC = () => {
           >
             <a
               href="/case-studies"
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-[var(--signal-500)] text-[var(--ink-900)] font-semibold rounded-lg transition-all hover:scale-105 hover:shadow-[0_20px_40px_rgba(255,107,61,0.3)]"
+              className="group inline-flex items-center gap-2 px-8 py-4 bg-[#006d77] text-[#edf6f9] font-semibold rounded-lg transition-all hover:scale-105 hover:bg-[#005a63] hover:shadow-[0_20px_40px_rgba(0,109,119,0.3)]"
             >
               Explore Systems
               <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </a>
             <a
               href="/contact"
-              className="inline-flex items-center px-8 py-4 border-2 border-[var(--ink-700)] text-[var(--parchment-050)] font-semibold rounded-lg transition-all hover:border-[var(--signal-500)] hover:bg-[var(--signal-500)]/10"
+              className="inline-flex items-center px-8 py-4 border-2 border-[#5a7a7d] text-[#edf6f9] font-semibold rounded-lg transition-all hover:border-[#006d77] hover:bg-[#006d77]/10"
             >
               Let's Talk
             </a>
@@ -217,6 +232,7 @@ const HeroCommandPanel: React.FC = () => {
         </motion.div>
       </div>
     </section>
+    </OceanAuroraBackground>
   );
 };
 

@@ -66,9 +66,10 @@ const Toolbox: React.FC = () => {
   };
 
   return (
-  <main className="toolbox-page bg-[var(--ink-900)] text-[var(--parchment-050)]">
+    <main className="toolbox-page bg-[var(--ink-900)] text-[var(--parchment-050)] relative">
+      <OceanBackgroundBeams className="opacity-25" />
       <AnimatedSection>
-        <section className="toolbox-header container mx-auto px-6 py-12">
+        <section className="toolbox-header container mx-auto px-6 py-12 relative z-10">
           <motion.h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight" variants={fadeInUp}>Skills & Tools</motion.h1>
           <motion.p className="lead mt-3 text-lg md:text-xl text-[var(--parchment-050)]/70 max-w-4xl" variants={fadeInUp}>
             A unique combination of marketing and technical skills. I'm proficient in marketing

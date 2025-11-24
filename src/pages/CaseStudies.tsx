@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { caseStudies, getCategories } from '../data/caseStudies';
 import Icon from '../components/Icon';
+import { OceanGradientAnimation } from '../components/ui/OceanGradientAnimation';
 import './CaseStudies.css';
 import './CaseStudiesEnhanced.css';
 
@@ -81,13 +82,20 @@ const CaseStudies: React.FC = () => {
 
   return (
     <main className="case-studies-modern">
-      {/* Hero Section */}
-      <motion.section
-        className="case-studies-hero"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+      {/* Hero Section with Ocean Gradient Animation */}
+      <OceanGradientAnimation
+        containerClassName="case-studies-hero-wrapper"
+        className="case-studies-hero-content"
+        interactive={true}
+        size="60%"
+        blendingValue="soft-light"
       >
+        <motion.section
+          className="case-studies-hero relative z-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
         <div className="hero-content-cases">
           <motion.div
             className="hero-badge"
@@ -139,6 +147,7 @@ const CaseStudies: React.FC = () => {
           </motion.div>
         </div>
       </motion.section>
+      </OceanGradientAnimation>
 
       {/* Enhanced Filter Bar */}
       <section id="filters" className="filter-section">

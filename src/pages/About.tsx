@@ -9,6 +9,7 @@ import ClientLogos from '../components/clients/ClientLogos';
 import TheGapDiagram from '../components/diagrams/TheGapDiagram';
 import VennDiagram from '../components/diagrams/VennDiagram';
 import AnchorNav from '../components/navigation/AnchorNav';
+import { OceanWavyBackground } from '../components/ui/OceanWavyBackground';
 import { fadeInUp } from '../utils/animations';
 import './About.css';
 
@@ -193,10 +194,17 @@ const About: React.FC = () => {
   ];
 
   return (
-    <main className="about-page">
-      <AnchorNav anchors={anchorItems} />
-      <AnimatedSection>
-        <section id="story" className="about-intro">
+    <OceanWavyBackground
+      className="about-page"
+      containerClassName="min-h-screen"
+      speed="slow"
+      waveOpacity={0.3}
+      colors={['#006d77', '#83c5be', '#7ab5c2', '#ffddd2']}
+    >
+      <main className="relative z-10">
+        <AnchorNav anchors={anchorItems} />
+        <AnimatedSection>
+          <section id="story" className="about-intro">
           <motion.h1 variants={fadeInUp}>About Me</motion.h1>
 
           <motion.div className="intro-content" variants={fadeInUp}>
@@ -446,7 +454,8 @@ const About: React.FC = () => {
           </div>
         </section>
       </AnimatedSection>
-    </main>
+      </main>
+    </OceanWavyBackground>
   );
 };
 

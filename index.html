@@ -164,12 +164,18 @@
       window.addEventListener('error', function(e) {
         if (!e) return;
 
-        // Aggressively suppress TinyMCE custom element errors (from Vite overlay)
+        // Aggressively suppress TinyMCE custom element errors (from Vite overlay or browser extensions)
         const message = e.message || '';
         const filename = e.filename || '';
 
-        if (message.includes('mce-autosize-textarea') || filename.includes('webcomponents-ce.js')) {
-          // Silently ignore TinyMCE/Vite overlay errors
+        if (
+          message.includes('mce-autosize-textarea') ||
+          filename.includes('webcomponents-ce.js') ||
+          filename.includes('chrome-extension://') ||
+          filename.includes('moz-extension://') ||
+          (message.includes('has already been defined') && filename.includes('overlay_bundle.js'))
+        ) {
+          // Silently ignore TinyMCE/Vite overlay/browser extension errors
           e.preventDefault();
           e.stopPropagation();
           return false;

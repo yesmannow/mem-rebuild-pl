@@ -10,6 +10,7 @@ import {
   categoryColors,
   type DesignItem,
 } from '../utils/loadDesign';
+import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
 import designManifest from '../../public/images/design/manifest.json';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -200,10 +201,11 @@ const Design: React.FC = () => {
   }, [filteredDesigns]);
 
   return (
-  <main className="design-page-modern bg-[var(--ink-900)] text-[var(--parchment-050)]">
+    <main className="design-page-modern bg-[var(--ink-900)] text-[var(--parchment-050)] relative">
+      <OceanBackgroundBeams className="opacity-25" />
       {/* Hero Section */}
       <motion.section
-        className="design-hero py-16 md:py-20"
+        className="design-hero py-16 md:py-20 relative z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}

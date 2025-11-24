@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import items from '@data/gallery.json';
 import GalleryGrid from '@components/gallery/GalleryGrid';
 import PageLayout from '@components/layout/PageLayout';
+import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
 
 export default function GalleryPage() {
   return (
@@ -16,13 +17,16 @@ export default function GalleryPage() {
       </Helmet>
 
       <PageLayout>
-        <main className="mx-auto max-w-6xl px-6 py-12">
-          <h1 className="mb-6 text-3xl font-bold text-white">From the Work</h1>
+        <main className="mx-auto max-w-6xl px-6 py-12 relative">
+          <OceanBackgroundBeams className="opacity-20" />
+          <div className="relative z-10">
+            <h1 className="mb-6 text-3xl font-bold text-white">From the Work</h1>
           {items && Array.isArray(items) && items.length > 0 ? (
             <GalleryGrid items={items} />
           ) : (
             <p className="text-neutral-400">No gallery items available yet.</p>
           )}
+          </div>
         </main>
       </PageLayout>
     </>

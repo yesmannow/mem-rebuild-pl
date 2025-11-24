@@ -6,6 +6,7 @@ import { fadeInUp } from '../utils/animationVariants';
 import { projects } from '../data/projects';
 import FeaturedProjectsGrid from '../components/home/FeaturedProjectsGrid';
 import type { FeaturedProjectCardProps } from '../components/home/FeaturedProjectCard';
+import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
 import './Projects.css';
 
 const Projects: React.FC = () => {
@@ -25,9 +26,10 @@ const Projects: React.FC = () => {
   }, []);
 
   return (
-    <main className="projects-page">
+    <main className="projects-page relative">
+      <OceanBackgroundBeams className="opacity-20" />
       <AnimatedSection>
-        <header className="projects-header">
+        <header className="projects-header relative z-10">
           <TextReveal text="Web Development Projects" className="page-title" />
           <motion.p className="page-subtitle" variants={fadeInUp}>
             Professional websites built with WordPress, combining strategic design with technical

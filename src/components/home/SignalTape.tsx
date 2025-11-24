@@ -19,7 +19,7 @@ const metrics: Metric[] = [
 
 const SignalTape: React.FC = () => {
   return (
-    <div className="relative overflow-hidden bg-[var(--ink-900)] border-t border-[var(--ink-700)] py-4">
+    <div className="relative overflow-hidden bg-[#006d77] border-t border-[#5a7a7d] py-4">
       <motion.div
         className="flex gap-12 font-mono text-xs uppercase tracking-wider"
         animate={{
@@ -40,9 +40,9 @@ const SignalTape: React.FC = () => {
             key={index}
             className="flex items-center gap-3 whitespace-nowrap"
           >
-            <span className="text-[var(--telemetry-400)]">{metric.value}</span>
-            <span className="text-[var(--parchment-050)]/40">{metric.label}</span>
-            <span className="text-[var(--ink-700)]">•</span>
+            <span className="text-[#83c5be] font-bold">{metric.value}</span>
+            <span className="text-[#edf6f9]/40">{metric.label}</span>
+            <span className="text-[#5a7a7d]">•</span>
           </div>
         ))}
       </motion.div>

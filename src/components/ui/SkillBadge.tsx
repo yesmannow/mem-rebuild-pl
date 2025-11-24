@@ -17,10 +17,10 @@ const SkillBadge: React.FC<SkillBadgeProps> = ({
   delay = 0,
 }) => {
   const levelColors = {
-    beginner: 'from-[var(--telemetry-400)]/20 to-[var(--telemetry-400)]/10 border-[var(--telemetry-400)]/30 text-[var(--telemetry-400)]',
-    intermediate: 'from-[var(--telemetry-400)]/20 to-[var(--signal-500)]/10 border-[var(--telemetry-400)]/30 text-[var(--telemetry-400)]',
-    advanced: 'from-[var(--signal-500)]/20 to-[var(--signal-500)]/10 border-[var(--signal-500)]/30 text-[var(--signal-500)]',
-    expert: 'from-[var(--signal-500)]/30 to-[var(--telemetry-400)]/20 border-[var(--signal-500)]/40 text-[var(--signal-500)]',
+    beginner: 'from-[#83c5be]/20 to-[#83c5be]/10 border-[#83c5be]/30 text-[#83c5be]',
+    intermediate: 'from-[#83c5be]/20 to-[#006d77]/10 border-[#83c5be]/30 text-[#83c5be]',
+    advanced: 'from-[#006d77]/20 to-[#006d77]/10 border-[#006d77]/30 text-[#006d77]',
+    expert: 'from-[#006d77]/30 to-[#83c5be]/20 border-[#006d77]/40 text-[#006d77]',
   };
 
   const levelDots = {

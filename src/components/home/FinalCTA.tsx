@@ -9,7 +9,7 @@ import './FinalCTA.css';
 
 const FinalCTA: React.FC = () => {
   return (
-    <SectionWrapper bg="bg-[var(--signal-500)]" id="contact">
+    <SectionWrapper bg="bg-[#006d77]" id="contact">
       <motion.div
         className="final-cta__content"
         initial={{ opacity: 0, y: 20 }}

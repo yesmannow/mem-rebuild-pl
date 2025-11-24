@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { OceanGradientText } from '../ui/OceanGradientText';
+import { OceanMarquee, OceanMarqueeItem } from '../ui/OceanMarquee';
 import './ClientLogos.css';
 
 const clientLogos = [
@@ -23,30 +25,22 @@ const ClientLogos: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
+        className="text-3xl md:text-4xl font-display font-bold"
       >
-        Trusted by Leading Organizations
+        <OceanGradientText text="Trusted by Leading Organizations" className="text-[#006d77]" />
       </motion.h2>
-      <motion.div
-        className="logos-grid"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
+      <OceanMarquee speed={30} pauseOnHover={true} className="py-8">
         {clientLogos.map((client, index) => (
-          <motion.div
-            key={client.name}
-            className="logo-item"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.05 }}
-            whileHover={{ scale: 1.05, y: -5 }}
-          >
-            <img src={client.src} alt={client.name} />
-          </motion.div>
+          <OceanMarqueeItem key={`${client.name}-${index}`}>
+            <motion.div
+              className="logo-item flex items-center justify-center h-20 w-32 grayscale hover:grayscale-0 transition-all duration-300"
+              whileHover={{ scale: 1.1, y: -5 }}
+            >
+              <img src={client.src} alt={client.name} className="max-h-full max-w-full object-contain" />
+            </motion.div>
+          </OceanMarqueeItem>
         ))}
-      </motion.div>
+      </OceanMarquee>
     </section>
   );
 };

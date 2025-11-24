@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { OceanGradientText } from '../ui/OceanGradientText';
 
 interface Service {
   number: string;
@@ -14,10 +15,10 @@ interface ServiceLadderProps {
 
 export const ServiceLadder: React.FC<ServiceLadderProps> = ({ services }) => {
   return (
-    <section className="py-24 bg-[var(--ink-900)] relative overflow-hidden">
+    <section className="py-24 bg-[#006d77] relative overflow-hidden">
       {/* Background gradient orbs */}
       <motion.div
-        className="absolute bottom-20 left-20 w-96 h-96 bg-[var(--telemetry-400)]/5 rounded-full blur-3xl"
+        className="absolute bottom-20 left-20 w-96 h-96 bg-[#83c5be]/5 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.2, 0.4, 0.2],
@@ -29,7 +30,7 @@ export const ServiceLadder: React.FC<ServiceLadderProps> = ({ services }) => {
         }}
         aria-hidden="true"
       />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -39,10 +40,10 @@ export const ServiceLadder: React.FC<ServiceLadderProps> = ({ services }) => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-[var(--parchment-050)] mb-4">
-            What I Deliver
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
+            <OceanGradientText text="What I Deliver" className="text-[#edf6f9]" />
           </h2>
-          <p className="text-lg text-[var(--parchment-050)]/60 max-w-2xl mx-auto font-body">
+          <p className="text-lg text-[#edf6f9]/60 max-w-2xl mx-auto font-body">
             End-to-end marketing systems built for scale
           </p>
         </motion.div>
@@ -56,25 +57,25 @@ export const ServiceLadder: React.FC<ServiceLadderProps> = ({ services }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
-              className="group relative bg-[var(--ink-700)] border border-[var(--ink-700)] rounded-lg p-8 min-h-[400px] flex flex-col cursor-pointer"
+              className="group relative bg-[#5a7a7d]/30 border border-[#5a7a7d]/50 rounded-lg p-8 min-h-[400px] flex flex-col cursor-pointer backdrop-blur-sm"
             >
-              {/* Stacked card effect on hover */}
-              <div className="absolute inset-0 rounded-lg bg-[var(--signal-500)]/10 opacity-0 group-hover:opacity-100 transition-opacity -z-10 translate-y-2" />
-              <div className="absolute inset-0 rounded-lg bg-[var(--signal-500)]/5 opacity-0 group-hover:opacity-100 transition-opacity -z-20 translate-y-4" />
-              
-              <div className="font-mono text-6xl font-bold text-[var(--signal-500)]/20 mb-4">
+              {/* Stacked card effect on hover - Ocean Pearl */}
+              <div className="absolute inset-0 rounded-lg bg-[#006d77]/10 opacity-0 group-hover:opacity-100 transition-opacity -z-10 translate-y-2" />
+              <div className="absolute inset-0 rounded-lg bg-[#006d77]/5 opacity-0 group-hover:opacity-100 transition-opacity -z-20 translate-y-4" />
+
+              <div className="font-mono text-6xl font-bold text-[#006d77]/20 mb-4">
                 {service.number}
               </div>
-              
+
               {service.icon && (
                 <div className="text-4xl mb-4">{service.icon}</div>
               )}
-              
-              <h3 className="text-2xl font-display font-bold text-[var(--parchment-050)] mb-4">
+
+              <h3 className="text-2xl font-display font-bold text-[#edf6f9] mb-4">
                 {service.title}
               </h3>
-              
-              <p className="text-[var(--parchment-050)]/70 font-body leading-relaxed flex-grow">
+
+              <p className="text-[#edf6f9]/70 font-body leading-relaxed flex-grow">
                 {service.description}
               </p>
             </motion.div>

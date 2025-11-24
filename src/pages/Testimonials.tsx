@@ -21,9 +21,10 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <main className="testimonials-page">
+    <main className="testimonials-page relative">
+      <OceanBackgroundBeams className="opacity-30" />
       <AnimatedSection>
-        <header className="testimonials-header">
+        <header className="testimonials-header relative z-10">
           <TextReveal text="Client Testimonials" className="page-title" />
           <motion.p className="page-subtitle" variants={fadeInUp}>
             What colleagues, clients, and partners say about working with me

@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import AnimatedSection from '../components/animations/AnimatedSection';
 import TextReveal from '../components/animations/TextReveal';
+import { OceanGradientAnimation } from '../components/ui/OceanGradientAnimation';
 import { fadeInUp } from '../utils/animations';
 import './BrandBuilder.css';
 
@@ -109,14 +110,21 @@ const BrandBuilder: React.FC = () => {
   };
 
   return (
-    <main className="brand-builder-page">
-      {/* Hero Section */}
-      <motion.section
-        className="builder-hero"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
+    <OceanGradientAnimation
+      containerClassName="brand-builder-page-wrapper"
+      className="brand-builder-page-content"
+      interactive={true}
+      size="60%"
+      blendingValue="soft-light"
+    >
+      <main className="brand-builder-page relative z-10">
+        {/* Hero Section */}
+        <motion.section
+          className="builder-hero"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
         <div className="hero-content">
           <motion.div
             className="hero-icon"
@@ -239,7 +247,8 @@ const BrandBuilder: React.FC = () => {
           )}
         </div>
       </AnimatedSection>
-    </main>
+      </main>
+    </OceanGradientAnimation>
   );
 };
 

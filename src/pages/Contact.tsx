@@ -19,6 +19,7 @@ import {
 import SectionWrapper from '../components/SectionWrapper';
 import { trackCTA, trackPortfolioEngagement } from '../utils/analytics';
 import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations';
+import { OceanGradientAnimation } from '../components/ui/OceanGradientAnimation';
 import './Contact.css';
 
 interface FormData {
@@ -212,8 +213,15 @@ const Contact: React.FC = () => {
   }, []);
 
   return (
-    <main className="contact-page">
-      <SectionWrapper bg="bg-white" animate={true}>
+    <OceanGradientAnimation
+      containerClassName="contact-page-wrapper"
+      className="contact-page-content"
+      interactive={false}
+      size="50%"
+      blendingValue="soft-light"
+    >
+      <main className="contact-page relative z-10">
+        <SectionWrapper bg="bg-white/95 backdrop-blur-sm" animate={true}>
         <motion.div variants={staggerContainer} initial="hidden" animate="visible">
           <motion.div className="contact-header" variants={fadeInUp}>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
@@ -666,7 +674,8 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </SectionWrapper>
-    </main>
+      </main>
+    </OceanGradientAnimation>
   );
 };
 

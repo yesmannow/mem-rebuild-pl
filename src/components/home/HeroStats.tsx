@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { OceanCountingNumber } from '../ui/OceanCountingNumber';
+import { OceanGradientText } from '../ui/OceanGradientText';
 
 interface StatProps {
   value: number;
@@ -8,52 +10,12 @@ interface StatProps {
   delay?: number;
 }
 
-// Animation constants
-const ANIMATION_DURATION_MS = 2000;
-const ANIMATION_STEPS = 60;
-
 const AnimatedStat: React.FC<StatProps> = ({ value, suffix = '', label, delay = 0 }) => {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
-  const isMountedRef = useRef(true);
-
-  useEffect(() => {
-    isMountedRef.current = true;
-    return () => {
-      isMountedRef.current = false;
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!isInView) return;
-
-    const increment = value / ANIMATION_STEPS;
-    let current = 0;
-
-    const timer = setInterval(() => {
-      if (!isMountedRef.current) {
-        clearInterval(timer);
-        return;
-      }
-      
-      current += increment;
-      if (current >= value) {
-        setCount(value);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, ANIMATION_DURATION_MS / ANIMATION_STEPS);
-
-    return () => clearInterval(timer);
-  }, [isInView, value]);
-
   return (
     <motion.div
-      ref={ref}
       initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
       className="relative group"
     >
@@ -61,28 +23,34 @@ const AnimatedStat: React.FC<StatProps> = ({ value, suffix = '', label, delay = 
         {/* Stat Value */}
         <div className="relative">
           <motion.div
-            className="text-5xl md:text-6xl font-bold font-mono text-[var(--signal-500)] relative z-10"
+            className="text-5xl md:text-6xl font-bold font-mono relative z-10"
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
-            {count}{suffix}
+            <OceanCountingNumber
+              number={value}
+              className="text-[#006d77]"
+              transition={{ stiffness: 90, damping: 50 }}
+            />
+            {suffix}
           </motion.div>
-          
+
           {/* Glow effect on hover */}
-          <div className="absolute inset-0 bg-[var(--signal-500)]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-[#006d77]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
 
         {/* Stat Label */}
-        <div className="text-sm md:text-base text-[var(--parchment-050)]/70 font-body uppercase tracking-wider">
+        <div className="text-sm md:text-base text-[#edf6f9]/70 font-body uppercase tracking-wider">
           {label}
         </div>
       </div>
 
       {/* Decorative line */}
       <motion.div
-        className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 h-px bg-gradient-to-r from-transparent via-[var(--signal-500)]/50 to-transparent"
+        className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 h-px bg-gradient-to-r from-transparent via-[#006d77]/50 to-transparent"
         initial={{ width: 0 }}
-        animate={isInView ? { width: '100%' } : { width: 0 }}
+        whileInView={{ width: '100%' }}
+        viewport={{ once: true }}
         transition={{ duration: 0.8, delay: delay + 0.3 }}
       />
     </motion.div>
@@ -98,14 +66,14 @@ const HeroStats: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-20 bg-[var(--ink-900)] overflow-hidden">
+    <section className="relative py-20 bg-[#006d77] overflow-hidden">
       {/* Background grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `
-            linear-gradient(var(--parchment-050) 1px, transparent 1px),
-            linear-gradient(90deg, var(--parchment-050) 1px, transparent 1px)
+            linear-gradient(#edf6f9 1px, transparent 1px),
+            linear-gradient(90deg, #edf6f9 1px, transparent 1px)
           `,
           backgroundSize: '50px 50px',
         }}
@@ -121,10 +89,13 @@ const HeroStats: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-[var(--parchment-050)] mb-4">
-            Proven Track Record
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+            <OceanGradientText
+              text="Proven Track Record"
+              className="text-[var(--parchment-050)]"
+            />
           </h2>
-          <p className="text-lg text-[var(--parchment-050)]/60 max-w-2xl mx-auto font-body">
+          <p className="text-lg text-[#edf6f9]/60 max-w-2xl mx-auto font-body">
             Real results from systems-first marketing
           </p>
         </motion.div>
@@ -150,7 +121,7 @@ const HeroStats: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mt-16 flex justify-center"
         >
-          <div className="w-px h-16 bg-gradient-to-b from-[var(--signal-500)] to-transparent" />
+          <div className="w-px h-16 bg-gradient-to-b from-[#006d77] to-transparent" />
         </motion.div>
       </div>
     </section>

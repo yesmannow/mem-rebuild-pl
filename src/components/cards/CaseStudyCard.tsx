@@ -23,7 +23,7 @@ function ImpactBar({ value = 0.45 }: { value: number }) {
   return (
     <div className="mt-5 h-1.5 w-full rounded-full bg-neutral-800">
       <div
-        className="h-1.5 rounded-full bg-gradient-to-r from-[var(--signal-500)] to-[var(--telemetry-400)]"
+        className="h-1.5 rounded-full bg-gradient-to-r from-[#006d77] via-[#83c5be] to-[#e29578]"
         style={{ width: `${Math.min(100, Math.max(0, value * 100))}%` }}
       />
     </div>

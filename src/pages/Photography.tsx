@@ -11,6 +11,7 @@ import {
   categoryColors,
   type PhotoItem,
 } from '../utils/loadPhotography';
+import { OceanWavyBackground } from '../components/ui/OceanWavyBackground';
 import photographyManifest from '../../public/images/photography/manifest.json';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -156,14 +157,21 @@ const Photography: React.FC = () => {
   }, [filteredPhotos]);
 
   return (
-  <main className="photography-page-modern bg-[var(--ink-900)] text-[var(--parchment-050)]">
-      {/* Hero Section with Parallax */}
-      <motion.section
-        className="photo-hero py-16 md:py-20"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+    <OceanWavyBackground
+      className="photography-page-modern"
+      containerClassName="min-h-screen bg-[var(--ink-900)] text-[var(--parchment-050)]"
+      speed="slow"
+      waveOpacity={0.25}
+      colors={['#006d77', '#83c5be', '#7ab5c2', '#ffddd2']}
+    >
+      <main className="relative z-10">
+        {/* Hero Section with Parallax */}
+        <motion.section
+          className="photo-hero py-16 md:py-20"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
         <div className="hero-content-photo container mx-auto px-6">
           <motion.h1
             className="photo-page-title font-display text-4xl md:text-5xl font-bold tracking-tight"
@@ -430,7 +438,8 @@ const Photography: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </main>
+      </main>
+    </OceanWavyBackground>
   );
 };
 

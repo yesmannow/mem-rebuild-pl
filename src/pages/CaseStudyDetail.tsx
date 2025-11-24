@@ -283,7 +283,8 @@ const CaseStudyDetail: React.FC = () => {
           </div>
         </section>
       </AnimatedSection>
-    </main>
+      </main>
+    </OceanAuroraBackground>
   );
 };
 

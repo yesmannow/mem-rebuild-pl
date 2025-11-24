@@ -7,7 +7,7 @@
   overflow: hidden;
   z-index: -1;
   pointer-events: none;
-  background: linear-gradient(135deg, var(--color-neutral-50) 0%, var(--color-neutral-100) 100%);
+  background: linear-gradient(135deg, #edf6f9 0%, #d4e8ed 100%); /* Alice Blue gradient */
 }
 
 .bg-image-layer {
@@ -56,7 +56,7 @@
 .shape-1 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.4), transparent);
+  background: radial-gradient(circle, rgba(0, 109, 119, 0.4), transparent); /* Stormy Teal */
   top: 10%;
   left: 10%;
   animation-delay: 0s;
@@ -65,7 +65,7 @@
 .shape-2 {
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.4), transparent);
+  background: radial-gradient(circle, rgba(131, 197, 190, 0.4), transparent); /* Pearl Aqua */
   top: 60%;
   right: 15%;
   animation-delay: 5s;
@@ -74,7 +74,7 @@
 .shape-3 {
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.4), transparent);
+  background: radial-gradient(circle, rgba(226, 149, 120, 0.4), transparent); /* Tangerine Dream */
   bottom: 15%;
   left: 50%;
   animation-delay: 10s;

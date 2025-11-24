@@ -5,7 +5,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import { ThemeProvider } from './components/theme/ThemeProvider';
 import { ToastProvider } from './components/ui/Toast';
 import Layout from './components/layout/Layout';
-import GradientMesh from './components/ui/GradientMesh';
+import { EnhancedOceanBackground } from './components/ui/EnhancedOceanBackground';
 import { queryClient } from './lib/queryClient';
 import { initLenis, destroyLenis } from './utils/motion-sync';
 import { initAnalytics } from './utils/analytics';
@@ -70,8 +70,12 @@ const App: React.FC = () => {
         <HelmetProvider>
           <ThemeProvider>
             <ToastProvider>
-              {/* Blueprint texture background - no gradients */}
-              <GradientMesh colors={['var(--color-dark)', 'var(--color-neutral-1)']} speed={0.0001} />
+              {/* Ocean Pearl Delight Background - Subtle gradient for global background */}
+              <EnhancedOceanBackground
+                variant="minimal"
+                intensity="subtle"
+                className="fixed inset-0 -z-10"
+              />
 
               <JSONLD />
               <Suspense fallback={null}>

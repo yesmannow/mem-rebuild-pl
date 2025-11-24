@@ -24,6 +24,7 @@ import {
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import AnchorNav from '../components/navigation/AnchorNav';
+import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
 import resumeData from '../data/resume.json';
 import '../styles/bearcave-brand.css';
 import './Resume.css';
@@ -228,7 +229,8 @@ const Resume: React.FC = () => {
         </script>
       </Helmet>
 
-      <main className="resume-page" id="resume-main">
+      <main className="resume-page relative" id="resume-main">
+        <OceanBackgroundBeams className="opacity-20" />
         <AnchorNav anchors={anchorItems} />
         {/* Skip to content link */}
         <a href="#resume-content" className="skip-link">
@@ -236,7 +238,7 @@ const Resume: React.FC = () => {
         </a>
 
         {/* Hero Section */}
-        <section className="hero resume-hero" ref={heroRef} id="resume-hero">
+        <section className="hero resume-hero relative z-10" ref={heroRef} id="resume-hero">
           {/* Tech Background */}
           <div className="hero-bg">
             <div className="tech-grid" />

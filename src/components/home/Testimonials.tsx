@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { OceanGradientText } from '../ui/OceanGradientText';
+import { OceanAnimatedTestimonials } from '../ui/OceanAnimatedTestimonials';
 import './Testimonials.css';
 
 interface Testimonial {
@@ -59,13 +61,20 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
 
   if (testimonials.length === 0) return null;
 
-  const current = testimonials[currentIndex];
+  // Convert testimonials to OceanAnimatedTestimonials format
+  const oceanTestimonials = testimonials.map((t, index) => ({
+    quote: t.quote,
+    name: t.name,
+    designation: t.title,
+    company: t.company,
+    src: undefined, // Can add avatar images later
+  }));
 
   return (
     <section id="testimonials" className="testimonials container-px mx-auto max-w-6xl py-16 md:py-24 relative">
-      {/* Background decorative gradient */}
+      {/* Background decorative gradient - Ocean Pearl */}
       <motion.div
-        className="absolute -top-10 right-0 w-80 h-80 bg-[var(--signal-500)]/5 rounded-full blur-3xl"
+        className="absolute -top-10 right-0 w-80 h-80 bg-[#e29578]/5 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -79,82 +88,26 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
       />
 
       <motion.div
-        className="testimonials__header relative z-10"
+        className="testimonials__header relative z-10 mb-12"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="section-heading">What People Say</h2>
-        <p className="text-lg text-[var(--parchment-050)]/60 mt-4 max-w-2xl mx-auto text-center font-body">
+        <h2 className="section-heading">
+          <OceanGradientText text="What People Say" className="text-[#edf6f9]" />
+        </h2>
+        <p className="text-lg text-[#edf6f9]/60 mt-4 max-w-2xl mx-auto text-center font-body">
           Trusted by leaders across industries
         </p>
       </motion.div>
 
-      <div
-        className="testimonials__carousel"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-      >
-        <button
-          className="testimonials__nav testimonials__nav--prev"
-          onClick={goToPrevious}
-          onKeyDown={(e) => handleKeyDown(e, 'prev')}
-          aria-label="Previous testimonial"
-        >
-          <ChevronLeft size={24} />
-        </button>
-
-        <div className="testimonials__wrapper" aria-live="polite">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              className="testimonial-card"
-              initial={prefersReducedMotion ? {} : { opacity: 0, scale: 0.95, y: 20 }}
-              animate={prefersReducedMotion ? {} : { opacity: 1, scale: 1, y: 0 }}
-              exit={prefersReducedMotion ? {} : { opacity: 0, scale: 0.95, y: -20 }}
-              transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-            >
-              <Star className="testimonial-card__star-icon" size={48} fill="currentColor" />
-              <blockquote className="testimonial-card__quote">
-                {current.quote}
-              </blockquote>
-              <div className="testimonial-card__author">
-                <div className="testimonial-card__author-info">
-                  <div className="testimonial-card__author-name">{current.name}</div>
-                  <div className="testimonial-card__author-title">{current.title}</div>
-                  {current.date && (
-                    <div className="testimonial-card__author-date">{current.date}</div>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        <button
-          className="testimonials__nav testimonials__nav--next"
-          onClick={goToNext}
-          onKeyDown={(e) => handleKeyDown(e, 'next')}
-          aria-label="Next testimonial"
-        >
-          <ChevronRight size={24} />
-        </button>
-      </div>
-
-      {/* Indicators */}
-      <div className="testimonials__indicators" role="tablist">
-        {testimonials.map((_, index) => (
-          <button
-            key={index}
-            className={`testimonials__indicator ${index === currentIndex ? 'is-active' : ''}`}
-            onClick={() => setCurrentIndex(index)}
-            aria-label={`Go to testimonial ${index + 1}`}
-            role="tab"
-            aria-selected={index === currentIndex}
-          />
-        ))}
-      </div>
+      {/* Enhanced Animated Testimonials */}
+      <OceanAnimatedTestimonials
+        testimonials={oceanTestimonials}
+        autoplay={true}
+        className="relative z-10"
+      />
     </section>
   );
 };

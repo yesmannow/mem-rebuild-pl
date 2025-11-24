@@ -5,6 +5,7 @@ import { applications, getAllCategories } from '../data/applications';
 import { staggerContainer, staggerItem } from '../utils/animations';
 import AnimatedSection from '../components/animations/AnimatedSection';
 import AppDemoModal from '../components/modals/AppDemoModal';
+import { OceanGradientAnimation } from '../components/ui/OceanGradientAnimation';
 import './Applications.css';
 
 const Applications: React.FC = () => {
@@ -49,9 +50,16 @@ const Applications: React.FC = () => {
     .size;
 
   return (
-    <main className="applications-page">
-      <AnimatedSection>
-        <section className="applications-header">
+    <OceanGradientAnimation
+      containerClassName="applications-page-wrapper"
+      className="applications-page-content"
+      interactive={true}
+      size="70%"
+      blendingValue="soft-light"
+    >
+      <main className="applications-page relative z-10">
+        <AnimatedSection>
+          <section className="applications-header">
           <div className="header-badge">
             <span className="badge-dot"></span>
             <span>Live & Interactive</span>
@@ -356,7 +364,8 @@ const Applications: React.FC = () => {
           appUrl={modalApp.url}
         />
       )}
-    </main>
+      </main>
+    </OceanGradientAnimation>
   );
 };
 
