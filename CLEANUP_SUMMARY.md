@@ -70,6 +70,13 @@ Moved to `docs/archive/`:
 - ⚠️ 25 vulnerabilities detected (7 low, 13 moderate, 5 high)
 - ℹ️ Several deprecated packages noted (see npm install output)
 
+**Security Action Required:**
+- 🔴 **HIGH PRIORITY**: Address 5 high-severity vulnerabilities
+  - Run `npm audit` for detailed vulnerability report
+  - Execute `npm audit fix` for automated fixes (non-breaking)
+  - Review remaining high-severity issues for manual remediation
+  - Schedule security review within 1 week of merge
+
 **Known Issues:**
 - Puppeteer requires `PUPPETEER_SKIP_DOWNLOAD=true` in restricted network environments
 - Vite peer dependency conflicts with Storybook (non-breaking)

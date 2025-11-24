@@ -1,3 +1,5 @@
+> **⚠️ ARCHIVED DOCUMENTATION**: This document is historical and may contain outdated information. Kept for reference only.
+
 ## Executive Summary
 
 - **Added FeaturedProjectCard component** - Reusable card component with hover lift animation, gradient overlay, and semantic anchor structure

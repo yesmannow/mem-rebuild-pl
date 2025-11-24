@@ -1,3 +1,5 @@
+> **⚠️ ARCHIVED DOCUMENTATION**: This document is historical and may contain outdated information. Kept for reference only.
+
 # ✅ ES Module Conversion - Final Status
 
 ## 🎉 Complete!

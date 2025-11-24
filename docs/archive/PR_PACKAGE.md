@@ -1,5 +1,7 @@
 # PR Package: MCP+CLI Comprehensive Audit and Modernization
 
+> **⚠️ ARCHIVED DOCUMENTATION**: This document is historical and represents a previous iteration of the project. Information may be outdated or superseded by current implementations. Kept for reference only.
+
 **Branch:** `copilot/analyze-research-fix-redesign`  
 **Base:** `main`  
 **Date:** 2025-11-12  
