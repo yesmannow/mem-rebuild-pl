@@ -4,10 +4,8 @@
  * Matches design system palette and typography
  */
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence, useInView, type Variants } from 'framer-motion';
 import './TestimonialCarousel.css';
 
 export interface Testimonial {
@@ -62,7 +60,7 @@ export const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({
 
   const currentTestimonial = testimonials[currentIndex];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -72,7 +70,7 @@ export const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
