@@ -5,6 +5,10 @@ import { existsSync } from 'fs';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig({
+  // Set base path for GitHub Pages deployment
+  // Use '/' for root domain deployments (Vercel, Netlify, etc.)
+  // Use '/mem-rebuild-pl/' for GitHub Pages
+  base: process.env.GITHUB_PAGES === 'true' ? '/mem-rebuild-pl/' : '/',
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
