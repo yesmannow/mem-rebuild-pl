@@ -8,7 +8,7 @@ export default defineConfig({
   // Set base path for GitHub Pages deployment
   // Use '/' for root domain deployments (Vercel, Netlify, etc.)
   // Use repository name for GitHub Pages (e.g., '/mem-rebuild-pl/')
-  base: process.env.GITHUB_PAGES === 'true' 
+  base: process.env.GITHUB_PAGES === 'true'
     ? `/${process.env.GITHUB_REPOSITORY?.split('/')[1] || 'mem-rebuild-pl'}/`
     : '/',
   resolve: {
@@ -25,13 +25,11 @@ export default defineConfig({
   },
   plugins: [
     react({
-      // Fix preamble detection issues - use classic runtime for class components
+      // Ensure React Fast Refresh preamble is injected correctly
       jsxRuntime: 'automatic',
       jsxImportSource: 'react',
       // Include all files for transformation
       include: '**/*.{jsx,tsx}',
-      // Don't exclude anything
-      exclude: undefined,
     }),
     // Bundle analyzer - run with ANALYZE=true npm run build
     process.env.ANALYZE && visualizer({

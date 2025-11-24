@@ -59,64 +59,8 @@ if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   });
 }
 
-// Enhanced error suppression for TinyMCE and external script conflicts
-// This must run IMMEDIATELY before any other scripts to catch early registrations
-// Set up error suppression BEFORE any imports to catch early errors
-if (typeof window !== 'undefined') {
-  // Note: Removed aggressive error suppression
-  // Vite 5.4.21 should have fixed HMR overlay issues
-
-  // Backup protection layer (index.html has primary protection)
-  // This ensures protection even if index.html script runs late or fails
-  // Vite 5.4.21 should have fixed HMR overlay issues, but this is a safety net
-  if (window.customElements && !(window.customElements as any)._defineBackupInstalled) {
-    const originalDefine = window.customElements.define;
-    if (originalDefine) {
-      (window.customElements as any)._defineBackupInstalled = true;
-
-      // Check if already wrapped by index.html script
-      const isAlreadyWrapped =
-        originalDefine.toString().includes('__defineGuardInstalled') ||
-        (window.customElements as any).__defineGuardInstalled;
-
-      if (!isAlreadyWrapped) {
-        window.customElements.define = function (name, constructor, options) {
-          // Recommended pattern: Check if element is NOT already defined
-          if (!customElements.get(name)) {
-            try {
-              // Element doesn't exist - safe to define
-              return originalDefine.call(this, name, constructor, options);
-            } catch (error: unknown) {
-              // Handle race conditions where element might be defined between check and call
-              const errorMsg = error ? (error as Error).message || String(error) : '';
-              if (
-                typeof errorMsg === 'string' &&
-                (errorMsg.includes('has already been used') ||
-                  errorMsg.includes('has already been defined'))
-              ) {
-                // Race condition - element was defined by another script between check and call
-                if (process.env.NODE_ENV === 'development') {
-                  // eslint-disable-next-line no-console
-                  console.warn(
-                    `[main.tsx] Custom element "${name}" was defined during registration. Skipping.`
-                  );
-                }
-                return; // Silently skip duplicate definitions
-              }
-              // Re-throw other errors (not duplicate registration errors)
-              throw error;
-            }
-          }
-          // Element already exists - skip registration
-          if (process.env.NODE_ENV === 'development') {
-            // eslint-disable-next-line no-console
-            console.warn(`[main.tsx] Custom element "${name}" is already registered. Skipping.`);
-          }
-        };
-      }
-    }
-  }
-}
+// Custom Elements guard is handled by ce-guard.js (imported at top)
+// No need for duplicate wrapping here - ce-guard.js already protects against duplicate definitions
 
 // Set a timeout to show error if React doesn't mount within 10 seconds
 const mountTimeout = setTimeout(() => {

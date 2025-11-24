@@ -144,7 +144,7 @@
     "design:all": "npm run design:analyze && npm run design:generate && npm run design:optimize",
     "logo:generate": "node scripts/generate-logo-variations.js",
     "content:audit": "node scripts/content-audit-tool.js",
-    "magic:assets": "npm run mcp:cli -- generate-tech-icons && npm run mcp:cli -- generate-social-images && npm run mcp:cli -- generate-cybernetic-logo && node scripts/generate-brand-logos.mjs && npx ts-node src/cli/generate-logo.ts && npm run mcp:cli -- generate-inspiration && npm run mcp:cli -- process-bio-assets"
+    "magic:assets": "npm run mcp:cli -- generate-tech-icons && npm run mcp:cli -- generate-social-images && npm run mcp:cli -- generate-cybernetic-logo && node scripts/generate-brand-logos.mjs && npm run mcp:cli -- generate-inspiration && npm run mcp:cli -- process-bio-assets"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

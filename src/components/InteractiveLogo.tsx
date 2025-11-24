@@ -24,7 +24,7 @@ const InteractiveLogo: React.FC<InteractiveLogoProps> = ({
       <motion.div
         className={`relative transition-all duration-300 ${
           isHovered
-            ? 'drop-shadow-[0_0_20px_rgba(64,224,208,0.6)] drop-shadow-[0_0_15px_rgba(255,165,0,0.4)]'
+            ? 'drop-shadow-[0_0_20px_rgba(64,224,208,0.6),0_0_15px_rgba(255,165,0,0.4)]'
             : 'drop-shadow-[0_0_8px_rgba(64,224,208,0.2)]'
         }`}
         animate={{
