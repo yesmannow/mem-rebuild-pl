@@ -147,7 +147,7 @@ const NavItem: React.FC<NavItemProps> = ({
           className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--signal-500)]/50 ${
             isActive
               ? 'text-[var(--signal-500)] bg-[var(--signal-500)]/10'
-              : 'text-[var(--parchment-050)]/80 hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/5'
+              : 'text-[var(--parchment-050)] hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/5'
           }`}
           onClick={onClick}
           whileHover={{ scale: 1.05 }}
@@ -168,7 +168,7 @@ const NavItem: React.FC<NavItemProps> = ({
           className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--signal-500)]/50 ${
             isActive
               ? 'text-[var(--signal-500)] bg-[var(--signal-500)]/10'
-              : 'text-[var(--parchment-050)]/80 hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/5'
+              : 'text-[var(--parchment-050)] hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/5'
           }`}
           onClick={onClick}
         >
@@ -338,7 +338,7 @@ export default function EnhancedNav() {
                   className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--signal-500)]/50 ${
                     action.cta
                       ? 'bg-[var(--signal-500)] text-[var(--ink-900)] hover:bg-[var(--signal-500)]/90 shadow-lg hover:shadow-[var(--signal-500)]/25'
-                      : 'text-[var(--parchment-050)]/80 hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/5'
+                      : 'text-[var(--parchment-050)] hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/5'
                   }`}
                 >
                   {action.label}
@@ -347,7 +347,7 @@ export default function EnhancedNav() {
 
               {/* Command Palette Trigger */}
               <button
-                className="flex items-center gap-2 px-3 py-2 rounded-lg text-[var(--parchment-050)]/70 hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--signal-500)]/50"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg text-[var(--parchment-050)] hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--signal-500)]/50"
                 aria-label="Open command palette"
               >
                 <Search size={16} />

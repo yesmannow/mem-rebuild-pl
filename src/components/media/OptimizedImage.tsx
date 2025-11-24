@@ -1,4 +1,5 @@
 import React from "react";
+import { assetPath } from "@utils/assetPath";
 
 // Type definition for manifest entry
 interface ImageManifestEntry {
@@ -29,7 +30,7 @@ export default function OptimizedImage({ src, alt, className, priority }: Optimi
     // Fallback to regular img if not in manifest
     return (
       <img
-        src={`/${src}`}
+        src={assetPath(src)}
         alt={alt}
         className={className}
         loading={priority ? "eager" : "lazy"}
@@ -47,8 +48,8 @@ export default function OptimizedImage({ src, alt, className, priority }: Optimi
     >
       <div style={{ paddingTop: `${ratio}%` }} />
       <img
-        src={`/${base}.webp`}
-        srcSet={`/${base}.avif 1x, /${base}.webp 1x`}
+        src={assetPath(`${base}.webp`)}
+        srcSet={`${assetPath(`${base}.avif`)} 1x, ${assetPath(`${base}.webp`)} 1x`}
         alt={alt}
         loading={priority ? "eager" : "lazy"}
         decoding="async"

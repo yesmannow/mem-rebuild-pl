@@ -4,19 +4,19 @@
    =================================================================== */
 
 :root {
-  /* ===== OCEAN PEARL DELIGHT COLOR SYSTEM ===== */
-  --ink-900: var(--color-neutral-1); /* Stormy Teal - Base background */
-  --ink-700: #005a63; /* Darker Stormy Teal - Secondary surfaces */
-  --parchment-050: var(--color-surface); /* Alice Blue - Light surface */
-  --signal-500: var(--color-accent); /* Tangerine Dream - Primary accent */
-  --telemetry-400: var(--color-secondary); /* Pearl Aqua - Secondary accent */
+  /* ===== MONOCHROME BEACH COLOR SYSTEM ===== */
+  --ink-900: var(--color-neutral-1); /* Graphite - Base background */
+  --ink-700: var(--color-neutral-700); /* Deep gray - Secondary surfaces */
+  --parchment-050: var(--color-surface); /* White - Light surface */
+  --signal-500: var(--color-accent); /* Stormy Teal - Primary accent */
+  --telemetry-400: var(--color-secondary); /* Yale Blue - Secondary accent */
 
   /* Shadow system */
   --shadow-signal: 0 20px 40px rgba(15, 20, 24, 0.35);
 
   /* Legacy aliases for compatibility */
-  --color-primary: #006d77; /* Stormy Teal */
-  --color-accent: #e29578; /* Tangerine Dream */
+  --color-primary: #3c6e71; /* Stormy Teal */
+  --color-accent: #3c6e71; /* Stormy Teal */
   --color-bg: var(--ink-900);
   --color-text: var(--parchment-050);
   --color-text-muted: var(--color-neutral-2);
