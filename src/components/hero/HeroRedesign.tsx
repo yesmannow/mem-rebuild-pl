@@ -73,8 +73,10 @@ export const HeroRedesign: React.FC<HeroRedesignProps> = ({
 
   // Trigger animation on mount
   useEffect(() => {
-    // Small delay to ensure CSS is loaded
-    const timer = setTimeout(() => setMounted(true), 50);
+    // Small delay (50ms) to ensure CSS is loaded and browser has painted initial state
+    // This prevents animation flash and ensures smooth orchestrated reveal
+    const MOUNT_DELAY_MS = 50;
+    const timer = setTimeout(() => setMounted(true), MOUNT_DELAY_MS);
     return () => clearTimeout(timer);
   }, []);
 

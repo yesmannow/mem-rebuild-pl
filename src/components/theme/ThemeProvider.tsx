@@ -109,26 +109,26 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
 
 
+  // Analytics helper
+  const trackEvent = React.useCallback((eventName: string, params: Record<string, unknown>) => {
+    if (typeof window !== 'undefined' && 'gtag' in window) {
+      const gtag = (window as { gtag: (event: string, name: string, params: Record<string, unknown>) => void }).gtag;
+      gtag('event', eventName, params);
+    }
+  }, []);
+
   const setTheme = (t: Theme) => {
     setThemeState(t);
     localStorage.setItem('theme', t);
     apply(t, brand, brandAccent);
-
-    // Analytics tracking (optional)
-    if (typeof window !== 'undefined' && (window as Record<string, unknown>).gtag) {
-      ((window as Record<string, unknown>).gtag as (event: string, name: string, params: Record<string, unknown>) => void)('event', 'theme_change', { theme: t });
-    }
+    trackEvent('theme_change', { theme: t });
   };
 
   const setBrand = (b: Brand) => {
     setBrandState(b);
     localStorage.setItem('brand', b);
     apply(theme, b, brandAccent);
-
-    // Analytics tracking (optional)
-    if (typeof window !== 'undefined' && (window as Record<string, unknown>).gtag) {
-      ((window as Record<string, unknown>).gtag as (event: string, name: string, params: Record<string, unknown>) => void)('event', 'brand_change', { brand: b });
-    }
+    trackEvent('brand_change', { brand: b });
   };
 
   const setBrandAccent = (color?: string) => {
@@ -139,11 +139,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       localStorage.removeItem('brandAccent');
     }
     apply(theme, brand, color);
-
-    // Analytics tracking (optional)
-    if (typeof window !== 'undefined' && (window as Record<string, unknown>).gtag) {
-      ((window as Record<string, unknown>).gtag as (event: string, name: string, params: Record<string, unknown>) => void)('event', 'brand_accent_change', { color });
-    }
+    trackEvent('brand_accent_change', { color: color || 'none' });
   };
 
   // Always provide context - never return children without Provider

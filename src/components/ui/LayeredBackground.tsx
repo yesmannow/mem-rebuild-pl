@@ -60,6 +60,8 @@ export const LayeredBackground: React.FC<LayeredBackgroundProps> = ({
 }) => {
   const { prefersReducedMotion } = useTheme();
   const layerRef = useRef<HTMLDivElement>(null);
+  // Generate unique ID to avoid SVG filter conflicts when multiple instances are rendered
+  const filterId = React.useMemo(() => `noise-${Math.random().toString(36).substr(2, 9)}`, []);
 
   // Build gradient CSS string
   const gradientString = Array.isArray(gradient)
@@ -124,7 +126,7 @@ export const LayeredBackground: React.FC<LayeredBackgroundProps> = ({
           height="100%"
         >
           <defs>
-            <filter id="noise">
+            <filter id={filterId}>
               <feTurbulence 
                 type="fractalNoise" 
                 baseFrequency="0.65" 
@@ -134,7 +136,7 @@ export const LayeredBackground: React.FC<LayeredBackgroundProps> = ({
               <feColorMatrix type="saturate" values="0" />
             </filter>
           </defs>
-          <rect width="100%" height="100%" filter="url(#noise)" opacity="0.15" />
+          <rect width="100%" height="100%" filter={`url(#${filterId})`} opacity="0.15" />
         </svg>
       </div>
       
