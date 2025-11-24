@@ -61,8 +61,8 @@ const SectionReveal: React.FC<SectionRevealProps> = ({
       whileInView="visible"
       viewport={{ once, margin: '-50px' }}
     >
-      {React.Children.map(children, (child) => (
-        <motion.div variants={itemVariants}>{child}</motion.div>
+      {React.Children.map(children, (child, index) => (
+        <motion.div key={index} variants={itemVariants}>{child}</motion.div>
       ))}
     </motion.div>
   );

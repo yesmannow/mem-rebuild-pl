@@ -2,11 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import EmbedWrapper from '../components/media/EmbedWrapper';
-import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
+import SectionReveal from '../components/animations/SectionReveal';
+import { TiltCard } from '../components/animations/TiltCard';
+import InteractiveBackground from '../components/ui/InteractiveBackground';
+import { AnimatedCursorWrapper } from '../components/ui/AnimatedCursorWrapper';
 
 const GraphicDesign: React.FC = () => {
   return (
-    <>
+    <AnimatedCursorWrapper enableByDefault>
       <Helmet>
         <title>Graphic Design Portfolio | BearCave Marketing</title>
         <meta
@@ -25,7 +28,7 @@ const GraphicDesign: React.FC = () => {
       </Helmet>
 
       <main className="graphic-design-page min-h-screen bg-[var(--ink-900)] text-[var(--parchment-050)] relative">
-        <OceanBackgroundBeams className="opacity-25" />
+        <InteractiveBackground variant="mesh" className="opacity-30" />
 
         {/* Hero Section */}
         <section className="hero-section relative z-10 py-16 md:py-24">
@@ -119,34 +122,28 @@ const GraphicDesign: React.FC = () => {
               Selected Works
             </motion.h2>
 
-            <motion.div
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              {/* Placeholder cards - can be replaced with actual content */}
+            <SectionReveal className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[1, 2, 3].map((item) => (
-                <div
-                  key={item}
-                  className="work-card bg-[var(--ink-700)]/30 backdrop-blur-sm rounded-lg overflow-hidden border border-[var(--ink-700)]/60 hover:border-[var(--signal-500)]/40 transition-all duration-300 cursor-pointer group"
-                >
-                  <div className="aspect-[4/3] bg-gradient-to-br from-[var(--telemetry-400)]/20 to-[var(--signal-500)]/20 flex items-center justify-center">
-                    <span className="text-4xl opacity-30 group-hover:opacity-50 transition-opacity">
-                      {item}
-                    </span>
+                <TiltCard key={item} className="rounded-xl overflow-hidden cursor-hover">
+                  <div className="work-card bg-[var(--ink-700)]/30 backdrop-blur-sm border border-[var(--ink-700)]/60 hover:border-[var(--signal-500)]/40 transition-all duration-300 group overflow-hidden">
+                    <div className="aspect-[4/3] bg-gradient-to-br from-[var(--telemetry-400)]/20 to-[var(--signal-500)]/20 flex items-center justify-center relative">
+                      <span className="text-5xl opacity-30 group-hover:opacity-50 transition-opacity">
+                        {item}
+                      </span>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-[var(--parchment-050)] mb-2">
+                        Project Title {item}
+                      </h3>
+                      <p className="text-sm text-[var(--parchment-050)]/70">
+                        Brief description of the project and its objectives.
+                      </p>
+                    </div>
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-[var(--parchment-050)] mb-2">
-                      Project Title {item}
-                    </h3>
-                    <p className="text-sm text-[var(--parchment-050)]/70">
-                      Brief description of the project and its objectives.
-                    </p>
-                  </div>
-                </div>
+                </TiltCard>
               ))}
-            </motion.div>
+            </SectionReveal>
           </div>
         </section>
 
@@ -188,7 +185,7 @@ const GraphicDesign: React.FC = () => {
           </div>
         </section>
       </main>
-    </>
+    </AnimatedCursorWrapper>
   );
 };
 

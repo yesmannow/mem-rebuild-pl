@@ -232,14 +232,16 @@ const Creative: React.FC = () => {
 
             <SectionReveal className="space-y-6 max-w-4xl mx-auto">
               {webBuilds.map((build) => (
-                <motion.a
+                <Link
                   key={build.id}
-                  href={build.link}
+                  to={build.link}
                   className="block group"
-                  whileHover={{ x: 8 }}
-                  transition={{ duration: 0.2 }}
                 >
-                  <div className="bg-[var(--ink-700)]/30 backdrop-blur-sm rounded-lg p-6 border border-[var(--ink-700)]/60 group-hover:border-[var(--signal-500)]/40 transition-all duration-300">
+                  <motion.div
+                    className="bg-[var(--ink-700)]/30 backdrop-blur-sm rounded-lg p-6 border border-[var(--ink-700)]/60 group-hover:border-[var(--signal-500)]/40 transition-all duration-300"
+                    whileHover={{ x: 8 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     <div className="flex items-start justify-between gap-4">
                       <div>
                         <h3 className="font-semibold text-xl text-[var(--parchment-050)] mb-2 group-hover:text-[var(--signal-500)] transition-colors">
@@ -271,8 +273,8 @@ const Creative: React.FC = () => {
                         <path d="M5 12h14M12 5l7 7-7 7" />
                       </svg>
                     </div>
-                  </div>
-                </motion.a>
+                  </motion.div>
+                </Link>
               ))}
             </SectionReveal>
           </div>
