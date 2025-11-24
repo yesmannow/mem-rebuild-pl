@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { assetPath } from '@utils/assetPath';
 
 interface OptimizedImageProps {
   src: string;
@@ -34,15 +35,15 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   const imgRef = useRef<HTMLImageElement>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
-  // Generate WebP and AVIF sources
+  // Generate WebP and AVIF sources with correct base path
   const getOptimizedSources = (originalSrc: string) => {
     const basePath = originalSrc.replace(/\.[^/.]+$/, '');
     const extension = originalSrc.split('.').pop()?.toLowerCase();
 
     return {
-      avif: `${basePath}.avif`,
-      webp: `${basePath}.webp`,
-      original: originalSrc,
+      avif: assetPath(`${basePath}.avif`),
+      webp: assetPath(`${basePath}.webp`),
+      original: assetPath(originalSrc),
     };
   };
 
