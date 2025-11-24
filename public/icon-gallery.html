@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Gallery - Design System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: #f5f5f5;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .icon-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .icon-card:hover {
+            border-color: #4F46E5;
+            background: #F5F3FF;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+        }
+        
+        .icon-card svg {
+            width: 48px;
+            height: 48px;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+        
+        .icon-card:hover svg {
+            color: #4F46E5;
+        }
+        
+        .icon-name {
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #F9FAFB;
+            border-radius: 8px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4F46E5;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #10B981;
+            color: white;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Icon Gallery <span class="badge">✓ Complete</span></h1>
+        <p class="subtitle">Design System Icons - Lucide Icons Collection</p>
+        
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">17</div>
+                <div class="stat-label">Total Icons</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">2px</div>
+                <div class="stat-label">Stroke Width</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">24×24</div>
+                <div class="stat-label">ViewBox Size</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Accessible</div>
+            </div>
+        </div>
+        
+        <div class="gallery" id="gallery"></div>
+    </div>
+    
+    <script>
+        const icons = [
+            { name: 'menu', category: 'Navigation' },
+            { name: 'close', category: 'Navigation' },
+            { name: 'about', category: 'Navigation' },
+            { name: 'projects', category: 'Navigation' },
+            { name: 'skills', category: 'Navigation' },
+            { name: 'tools', category: 'Navigation' },
+            { name: 'download', category: 'Actions' },
+            { name: 'email', category: 'Actions' },
+            { name: 'pdf', category: 'Actions' },
+            { name: 'linkedin', category: 'Social' },
+            { name: 'github', category: 'Social' },
+            { name: 'twitter', category: 'Social' },
+            { name: 'x', category: 'Social' },
+            { name: 'success', category: 'Status' },
+            { name: 'warning', category: 'Status' },
+            { name: 'error', category: 'Status' },
+            { name: 'awards', category: 'Status' }
+        ];
+        
+        const gallery = document.getElementById('gallery');
+        
+        icons.forEach(icon => {
+            const card = document.createElement('div');
+            card.className = 'icon-card';
+            card.title = `${icon.name} (${icon.category})`;
+            
+            const img = document.createElement('img');
+            img.src = `/icons/${icon.name}.svg`;
+            img.alt = icon.name;
+            img.style.width = '48px';
+            img.style.height = '48px';
+            
+            const name = document.createElement('div');
+            name.className = 'icon-name';
+            name.textContent = icon.name;
+            
+            card.appendChild(img);
+            card.appendChild(name);
+            gallery.appendChild(card);
+            
+            card.addEventListener('click', () => {
+                alert(`Icon: ${icon.name}\nCategory: ${icon.category}\nPath: /icons/${icon.name}.svg`);
+            });
+        });
+    </script>
+</body>
+</html>
