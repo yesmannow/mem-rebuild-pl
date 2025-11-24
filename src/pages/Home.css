@@ -12,7 +12,6 @@
   right: -10%;
   width: 800px;
   height: 800px;
-  /* background-image: url('/images/site-design-assets/geometric-5969508_1280.png'); */
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.03;
@@ -27,7 +26,6 @@
   left: -10%;
   width: 700px;
   height: 700px;
-  /* background-image: url('/images/site design assests/abstract-1262246_1280.png'); */
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.04;
@@ -453,7 +451,6 @@
   left: -5%;
   width: 400px;
   height: 400px;
-  /* background-image: url('/images/site design assests/gear-wheel-7163768_1280.png'); */
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.02;
@@ -472,7 +469,6 @@
   right: -5%;
   width: 400px;
   height: 400px;
-  /* background-image: url('/images/site design assests/blockchain-9027651_1280.png'); */
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.02;
@@ -491,7 +487,6 @@
   transform: translateX(-50%);
   width: 500px;
   height: 500px;
-  /* background-image: url('/images/site design assests/connection-technology-4878379_1280.png'); */
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.02;

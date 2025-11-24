@@ -15,7 +15,7 @@ export interface HeroIntroProps {
 }
 
 const HeroIntro: React.FC<HeroIntroProps> = ({
-  avatarSrc = '/assets/jacob-avatar.jpg',
+  avatarSrc = '/images/bio/bio-photo.webp',
   avatarAlt = 'Jacob Darling',
   headline = 'Architect of Systems, Curator of Stories',
   subhead = 'I build things that empower people—and assistants—to think, create, and scale.',

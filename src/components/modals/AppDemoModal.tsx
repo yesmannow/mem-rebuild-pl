@@ -10,6 +10,15 @@ interface AppDemoModalProps {
 }
 
 const AppDemoModal: React.FC<AppDemoModalProps> = ({ isOpen, onClose, appTitle, appUrl }) => {
+  const isSameOrigin = (() => {
+    try {
+      const url = new URL(appUrl, window.location.href);
+      return url.origin === window.location.origin;
+    } catch {
+      return false;
+    }
+  })();
+
   // Prevent body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -75,14 +84,30 @@ const AppDemoModal: React.FC<AppDemoModalProps> = ({ isOpen, onClose, appTitle, 
 
           {/* Modal Content */}
           <div className="app-demo-modal-content">
-            <iframe
-              src={appUrl}
-              title={`${appTitle} Demo`}
-              className="app-demo-iframe"
-              frameBorder="0"
-              allowFullScreen
-              allow="clipboard-write; encrypted-media; picture-in-picture; web-share"
-            />
+            {isSameOrigin ? (
+              <iframe
+                src={appUrl}
+                title={`${appTitle} Demo`}
+                className="app-demo-iframe"
+                frameBorder="0"
+                allowFullScreen
+                allow="clipboard-write; encrypted-media; picture-in-picture; web-share"
+              />
+            ) : (
+              <div className="flex flex-col items-center justify-center text-center p-6 gap-4">
+                <p>
+                  This demo is hosted externally and can’t be embedded due to site restrictions.
+                </p>
+                <a
+                  href={appUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="modal-footer-link"
+                >
+                  Open in New Tab
+                </a>
+              </div>
+            )}
           </div>
 
           {/* Modal Footer */}

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Design Enhancement Script
  * Uses MCP browser tools and analysis to improve design

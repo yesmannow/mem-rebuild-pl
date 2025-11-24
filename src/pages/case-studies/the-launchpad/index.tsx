@@ -16,8 +16,8 @@ import PageLayout from '@components/layout/PageLayout';
 const TheLaunchpadPage: React.FC = () => {
   const { visualIdentity } = theLaunchpad;
 
-  // Use dominant theme from hero image
-  useDominantTheme('demos/Graston Growth Engine.jpg');
+  // Use dominant theme from hero image (ensure correct filename)
+  useDominantTheme('/demos/graston-growth-engine.jpg');
 
   return (
     <>
@@ -32,7 +32,7 @@ const TheLaunchpadPage: React.FC = () => {
       <div data-case-study="the-launchpad">
         <PageLayout>
           {/* Hero Media */}
-          <HeroMedia src="demos/Graston Growth Engine.jpg" alt="The Launchpad - Growth Engine" />
+          <HeroMedia src="/demos/graston-growth-engine.jpg" alt="The Launchpad - Growth Engine" />
 
           {/* Ambient glow background */}
           <div

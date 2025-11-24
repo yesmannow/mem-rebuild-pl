@@ -10,7 +10,7 @@ export const Default = () => (
   <HeroIntro
     headline="Welcome to My Portfolio"
     subhead="Building exceptional digital experiences"
-    avatarSrc="/demoAssets/avatar.jpg"
+    avatarSrc="/images/bio/bio-photo.jpg"
     avatarAlt="Profile avatar"
   />
 );

@@ -3,7 +3,6 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, Calendar, Tag } from 'lucide-react';
 import inspirationProjects from '../data/inspiration-projects.json';
 import AnchorNav from '../components/navigation/AnchorNav';
-import './InspirationDetail.css';
 
 interface Project {
   title: string;
@@ -102,43 +101,43 @@ const InspirationDetail: React.FC = () => {
     : null;
 
   return (
-    <main className="inspiration-detail">
+  <main className="inspiration-detail bg-[var(--ink-900)] text-[var(--parchment-050)]">
       {/* Anchor Navigation */}
       {sections.length > 0 && <AnchorNav anchors={anchorItems} />}
 
-      <div className="inspiration-detail__container">
+      <div className="inspiration-detail__container container mx-auto px-6 py-10">
         {/* Back Link */}
-        <Link to="/inspiration" className="inspiration-detail__back">
+        <Link to="/inspiration" className="inspiration-detail__back inline-flex items-center gap-2 text-[var(--parchment-050)]/70 hover:text-[var(--signal-500)] transition-colors">
           <ArrowLeft size={20} />
           <span>Back to Inspiration</span>
         </Link>
 
         {/* Hero Section */}
-        <section className="inspiration-detail__hero">
-          <div className="inspiration-detail__image-wrapper">
+        <section className="inspiration-detail__hero grid md:grid-cols-2 gap-6 mt-6">
+          <div className="inspiration-detail__image-wrapper rounded-xl overflow-hidden border border-[var(--ink-700)]/60">
             <img
               src={project.image}
               alt={project.title}
-              className="inspiration-detail__image"
+              className="inspiration-detail__image w-full h-full object-cover"
             />
           </div>
 
           <div className="inspiration-detail__header">
-            <h1 className="inspiration-detail__title">{project.title}</h1>
+            <h1 className="inspiration-detail__title text-3xl md:text-4xl font-display font-bold tracking-tight">{project.title}</h1>
 
             <div className="inspiration-detail__meta">
               {formattedDate && (
-                <div className="inspiration-detail__meta-item">
+                <div className="inspiration-detail__meta-item mt-2 inline-flex items-center gap-2 text-[var(--parchment-050)]/70">
                   <Calendar size={16} />
                   <span>{formattedDate}</span>
                 </div>
               )}
 
               {project.tags && project.tags.length > 0 && (
-                <div className="inspiration-detail__tags">
+                <div className="inspiration-detail__tags mt-2 flex flex-wrap gap-2">
                   <Tag size={16} />
                   {project.tags.map(tag => (
-                    <span key={tag} className="inspiration-detail__tag">
+                    <span key={tag} className="inspiration-detail__tag text-xs px-2 py-1 rounded-full bg-[var(--ink-800)] border border-[var(--ink-700)]/60">
                       {tag}
                     </span>
                   ))}
@@ -147,27 +146,27 @@ const InspirationDetail: React.FC = () => {
             </div>
 
             {project.source_credit && (
-              <p className="inspiration-detail__credit">{project.source_credit}</p>
+              <p className="inspiration-detail__credit mt-3 text-[var(--parchment-050)]/70">{project.source_credit}</p>
             )}
           </div>
         </section>
 
         {/* Content Section */}
-        <section className="inspiration-detail__content">
+        <section className="inspiration-detail__content mt-10">
           <div id="overview" className="inspiration-detail__summary">
-            <h2>Overview</h2>
-            <p className="inspiration-detail__summary-text">{project.summary}</p>
+            <h2 className="text-2xl md:text-3xl font-semibold">Overview</h2>
+            <p className="inspiration-detail__summary-text mt-2 text-[var(--parchment-050)]/80">{project.summary}</p>
           </div>
 
           {sections.length > 0 && (
-            <div className="inspiration-detail__deep-dive">
-              <h2 className="inspiration-detail__deep-dive-title">Deep Dive</h2>
+            <div className="inspiration-detail__deep-dive mt-10">
+              <h2 className="inspiration-detail__deep-dive-title text-2xl md:text-3xl font-semibold">Deep Dive</h2>
               {sections.map((section) => {
                 const contentParagraphs = section.content.split('\n\n').filter(p => p.trim());
                 return (
-                  <div key={section.id} id={section.id} className="inspiration-detail__section">
-                    <h3 className="inspiration-detail__section-title">{section.title}</h3>
-                    <div className="inspiration-detail__section-content">
+                  <div key={section.id} id={section.id} className="inspiration-detail__section mt-6">
+                    <h3 className="inspiration-detail__section-title text-xl font-semibold">{section.title}</h3>
+                    <div className="inspiration-detail__section-content mt-2 space-y-3 text-[var(--parchment-050)]/80">
                       {contentParagraphs.length > 0 ? (
                         contentParagraphs.map((paragraph, index) => (
                           <p key={index}>{paragraph.trim()}</p>
@@ -185,12 +184,12 @@ const InspirationDetail: React.FC = () => {
 
         {/* External Link */}
         {project.url && (
-          <section className="inspiration-detail__actions">
+          <section className="inspiration-detail__actions mt-10">
             <a
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inspiration-detail__external-link"
+              className="inspiration-detail__external-link inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--signal-500)] text-[var(--ink-900)] font-semibold"
             >
               <ExternalLink size={20} />
               <span>View Original Project</span>

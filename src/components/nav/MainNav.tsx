@@ -8,7 +8,6 @@ import {
   Search,
   Command,
   ExternalLink,
-  Home,
   User,
   Briefcase,
   Camera,
@@ -73,12 +72,6 @@ const NAV_SECTIONS = [
         description: 'Custom applications and interactive tools'
       },
       {
-        label: 'Demos',
-        to: '/demos',
-        icon: Code,
-        description: 'Interactive demos and prototypes'
-      },
-      {
         label: 'Toolbox',
         to: '/toolbox',
         icon: Wrench,
@@ -121,7 +114,6 @@ const NAV_SECTIONS = [
 
 const QUICK_ACTIONS = [
   { label: 'View Resume', to: '/resume', cta: true },
-  { label: 'Go to Home', to: '/', icon: Home }
 ];
 
 interface NavItemProps {
@@ -226,9 +218,6 @@ export default function MainNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Compute aria-expanded value for accessibility
-  const ariaExpanded: "true" | "false" = mobileMenuOpen ? "true" : "false";
-
   // Handle scroll effects
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -329,12 +318,10 @@ export default function MainNav() {
               <Search size={20} />
             </button>
 
-            {/* eslint-disable-next-line react/aria-props */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-cave-text hover:text-turquoise transition-colors"
               aria-label="Toggle menu"
-              aria-expanded={ariaExpanded}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

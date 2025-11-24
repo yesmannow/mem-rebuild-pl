@@ -9,31 +9,37 @@ I've created a comprehensive set of enhanced tools and learning components that 
 ### 1. **Enhanced Extraction Tools** (`scripts/enhanced-brand-extraction.js`)
 
 #### AI-Powered Content Enrichment
+
 - Uses OpenAI GPT-4 to generate educational content
 - Automatically creates history, lessons, use cases, and unique aspects
 - Makes brands more educational and informative
 
 #### Image Color Extraction
+
 - Extracts dominant colors from brand logos/images
 - Uses Vibrant.js (already in your dependencies!)
 - Identifies vibrant, muted, and light/dark color variations
 
 #### Design Token Extraction
+
 - Extracts CSS custom properties and design tokens
 - Categorizes tokens (colors, typography, spacing, shadows)
 - Parses design system documentation automatically
 
 #### Comprehensive Brand Extraction
+
 - Combines multiple extraction methods for complete data
 - Extracts colors, fonts, typography scales, design principles
 - More accurate than single-method extraction
 
 #### Brand Quiz Generation
+
 - AI-generated quiz questions about brand identity
 - Multiple-choice format with explanations
 - Tests understanding of design concepts
 
 #### Brand Comparison
+
 - AI-powered comparison between two brands
 - Identifies similarities, differences, and lessons
 - Provides actionable insights
@@ -41,17 +47,20 @@ I've created a comprehensive set of enhanced tools and learning components that 
 ### 2. **Interactive Learning Components** (`src/components/inspiration/LearningComponents.tsx`)
 
 #### BrandQuiz Component
+
 - Interactive quiz with real-time feedback
 - Progress tracking and score display
 - Explanations for each answer
 - Achievement badges
 
 #### BrandComparisonInsights Component
+
 - Displays AI-generated comparison insights
 - Visual comparison charts
 - Similarities and differences analysis
 
 #### LearningPath Component
+
 - Step-by-step learning progression
 - Completion tracking
 - Achievement system
@@ -59,24 +68,29 @@ I've created a comprehensive set of enhanced tools and learning components that 
 ## 🚀 Quick Start
 
 ### Step 1: Install Dependencies (if needed)
+
 ```bash
 # node-vibrant is already installed!
 # Just need OpenAI API key for AI features (optional)
 ```
 
 ### Step 2: Add OpenAI API Key (Optional)
+
 Create `.env` file:
-```
+
+```env
 OPENAI_API_KEY=your_api_key_here
 ```
 
 ### Step 3: Use Enhanced Extraction
+
 ```bash
 # Extract comprehensive brand data
 node scripts/examples/enhanced-extraction-example.js
 ```
 
 ### Step 4: Integrate Learning Components
+
 ```tsx
 import { BrandQuiz, LearningPath, BrandComparisonInsights } from './components/inspiration/LearningComponents';
 
@@ -89,6 +103,7 @@ import { BrandQuiz, LearningPath, BrandComparisonInsights } from './components/i
 ## 📊 Comparison: Old vs New
 
 ### Old Approach
+
 - ❌ Manual extraction via MCP browser tools
 - ❌ Basic color/typography extraction
 - ❌ Static educational content
@@ -96,6 +111,7 @@ import { BrandQuiz, LearningPath, BrandComparisonInsights } from './components/i
 - ❌ Limited data sources
 
 ### New Approach
+
 - ✅ **Multiple extraction methods** (CSS vars, computed styles, text parsing)
 - ✅ **AI-powered content generation** (history, lessons, insights)
 - ✅ **Image color extraction** (from logos/images)
@@ -106,14 +122,16 @@ import { BrandQuiz, LearningPath, BrandComparisonInsights } from './components/i
 
 ## 🎓 Educational Benefits
 
-### For Users:
+### For Users
+
 1. **Learn by Doing**: Interactive quizzes test understanding
 2. **Compare & Contrast**: See how brands differ and why
 3. **Structured Learning**: Step-by-step paths guide exploration
 4. **Rich Content**: AI-generated insights provide context
 5. **Export Data**: Save brand data for personal use
 
-### For You:
+### For You
+
 1. **Less Manual Work**: AI generates educational content
 2. **Better Data**: Multiple extraction methods = more accurate
 3. **Scalable**: Easy to add new brands
@@ -156,6 +174,7 @@ updateBrandData('ibm-design', {
 ## 🎯 Next Steps
 
 1. **Test Enhanced Extraction**
+
    ```bash
    node scripts/examples/enhanced-extraction-example.js
    ```
@@ -192,6 +211,7 @@ updateBrandData('ibm-design', {
 ## 🎉 Summary
 
 You now have:
+
 - ✅ Enhanced extraction tools with multiple methods
 - ✅ AI-powered content generation
 - ✅ Interactive learning components
@@ -201,4 +221,3 @@ You now have:
 - ✅ Design token parsing
 
 These tools will make your inspiration page **more informative**, **more educational**, and **more engaging** for users!
-

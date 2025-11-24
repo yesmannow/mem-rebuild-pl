@@ -27,7 +27,6 @@ const Contact = React.lazy(() => import('../pages/Contact'));
 const Inspiration = React.lazy(() => import('../pages/InspirationPage'));
 const InspirationDetail = React.lazy(() => import('../pages/InspirationDetail'));
 const Gallery = React.lazy(() => import('../pages/Gallery'));
-const Demos = React.lazy(() => import('../pages/Demos'));
 const BrandBuilder = React.lazy(() => import('../pages/BrandBuilder'));
 const BrandDetail = React.lazy(() => import('../pages/brand/BrandDetail'));
 const TheLaunchpad = React.lazy(() => import('../pages/case-studies/the-launchpad'));
@@ -151,13 +150,6 @@ const AppRouter: React.FC = () => {
         description:
           'Explore curated brand identity systems and design systems created with the Brand Builder',
         keywords: 'brand gallery, brand boards, design systems, brand identity',
-      };
-    } else if (path === '/demos') {
-      return {
-        title: 'Interactive Demos | BearCave Marketing',
-        description:
-          'Explore interactive demos and tools built for marketing automation, lead generation, and growth systems',
-        keywords: 'interactive demos, marketing tools, marketing automation demos, lead generation tools',
       };
     } else if (path === '/brand-builder') {
       return {
@@ -419,14 +411,6 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <Gallery />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/demos"
-              element={
-                <PageTransition>
-                  <Demos />
                 </PageTransition>
               }
             />

@@ -11,13 +11,10 @@ const PlaygroundPreview: React.FC = () => {
 
   const getAppImage = (appId: string) => {
     const imageMap: { [key: string]: string } = {
-      'clinical-compass':
-        '/demos/images of apps/Screenshot of Graston Clinical Compass - Intelligent Protocol Builder.jpg',
-      'gt9-pricing-sheet':
-        '/demos/images of apps/Screenshot of Graston Technique® Smart Pricing Tool.jpg',
-      'license-requirements-tool':
-        '/demos/images of apps/Screenshot of Practitioner License Requirements _ Graston Technique.jpg',
-      'roi-calculator': '/demos/images of apps/Screenshot of Graston Technique ROI Calculator.jpg',
+      'clinical-compass': '/apps/clinical-compass-thumbnail.png',
+      'gt9-pricing-sheet': '/apps/gt9-pricing-thumbnail.png',
+      'license-requirements-tool': '/apps/license-requirements-thumbnail.png',
+      'roi-calculator': '/apps/roi-calculator-thumbnail.png',
     };
     return imageMap[appId] || '';
   };

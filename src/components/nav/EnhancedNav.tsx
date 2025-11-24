@@ -73,12 +73,6 @@ const NAV_SECTIONS = [
         description: 'Custom applications and interactive tools',
       },
       {
-        label: 'Demos',
-        to: '/demos',
-        icon: Code,
-        description: 'Interactive demos and prototypes',
-      },
-      {
         label: 'Toolbox',
         to: '/toolbox',
         icon: Wrench,
@@ -121,7 +115,6 @@ const NAV_SECTIONS = [
 
 const QUICK_ACTIONS = [
   { label: 'View Resume', to: '/resume', cta: true },
-  { label: 'Go to Home', to: '/', icon: Home },
 ];
 
 interface NavItemProps {

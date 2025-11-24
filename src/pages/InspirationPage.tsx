@@ -109,17 +109,16 @@ const InspirationPage: React.FC = () => {
       try {
         setLoading(true); // Set loading when starting to fetch moodboards
         const moodboardFiles = [
-          '/moodboards/317 bbq.json',
-          '/moodboards/317-bbq.json',
-          '/moodboards/classified.json',
+          // Manifests
           '/moodboards/enhanced-moodboards.json',
           '/moodboards/moodboards.json',
-          '/moodboards/riley bennett egloff.json',
+          '/moodboards/classified.json', // may not include image data; handled below
+          // Known single-board files (slugified)
+          '/moodboards/317-bbq.json',
           '/moodboards/riley-bennett-egloff.json',
-          '/moodboards/Russell painting.json',
           '/moodboards/russell-painting.json',
-          '/moodboards/Tuohy Bailey & Moore LLP.json',
-          '/moodboards/tuohy-bailey-moore-llp.json'
+          '/moodboards/tuohy-bailey-moore-llp.json',
+          '/moodboards/tuohy-bailey--moore-llp.json'
         ];
 
         const moodboardProjects: Project[] = [];

@@ -11,7 +11,6 @@ import {
   type DesignItem,
 } from '../utils/loadDesign';
 import designManifest from '../../public/images/design/manifest.json';
-import './Design.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -201,17 +200,17 @@ const Design: React.FC = () => {
   }, [filteredDesigns]);
 
   return (
-    <main className="design-page-modern">
+  <main className="design-page-modern bg-[var(--ink-900)] text-[var(--parchment-050)]">
       {/* Hero Section */}
       <motion.section
-        className="design-hero"
+        className="design-hero py-16 md:py-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <div className="hero-content-design">
+        <div className="hero-content-design container mx-auto px-6">
           <motion.h1
-            className="design-page-title"
+            className="design-page-title font-display text-4xl md:text-5xl font-bold tracking-tight"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -219,7 +218,7 @@ const Design: React.FC = () => {
             Design Portfolio
           </motion.h1>
           <motion.p
-            className="design-page-subtitle"
+            className="design-page-subtitle mt-3 text-lg md:text-xl text-[var(--parchment-050)]/70 max-w-3xl"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -230,7 +229,7 @@ const Design: React.FC = () => {
 
         {/* Floating Category Pills */}
         <motion.div
-          className="floating-categories"
+          className="floating-categories container mx-auto px-6 mt-6 flex flex-wrap gap-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
@@ -238,7 +237,7 @@ const Design: React.FC = () => {
           {categories.map((category, idx) => (
             <motion.button
               key={category}
-              className={`category-pill ${activeCategory === category ? 'active' : ''}`}
+            className={`category-pill ${activeCategory === category ? 'active' : ''} px-4 py-2 rounded-full text-sm font-medium border border-[var(--ink-700)]/60 text-[var(--parchment-050)]/80`}
               onClick={() => setActiveCategory(category)}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -259,11 +258,11 @@ const Design: React.FC = () => {
       </motion.section>
 
       {/* Bento Grid Gallery */}
-      <section className="bento-gallery">
+      <section className="bento-gallery container mx-auto px-6 py-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
-            className="design-bento-grid"
+            className="design-bento-grid grid gap-6 md:gap-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -303,7 +302,7 @@ const Design: React.FC = () => {
 
       {/* View More CTA */}
       <motion.section
-        className="view-more-cta"
+        className="view-more-cta container mx-auto px-6 py-12"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -313,7 +312,7 @@ const Design: React.FC = () => {
           href="https://www.behance.net/your-portfolio"
           target="_blank"
           rel="noopener noreferrer"
-          className="portfolio-cta"
+          className="portfolio-cta inline-flex items-center gap-4 rounded-xl px-6 py-4 bg-[var(--signal-500)] text-[var(--ink-900)] font-semibold"
           whileHover={{ scale: 1.05, y: -5 }}
           whileTap={{ scale: 0.95 }}
         >

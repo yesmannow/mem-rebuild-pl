@@ -19,7 +19,6 @@ import Icon from '../components/Icon';
 import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations';
 import { technicalCategories, technologyStacks } from '../data/toolbox';
 import { getTechDescription } from '../data/techDescriptions';
-import './Toolbox.css';
 
 const Toolbox: React.FC = () => {
   const [expandedCategory, setExpandedCategory] = useState<number | null>(null);
@@ -67,11 +66,11 @@ const Toolbox: React.FC = () => {
   };
 
   return (
-    <main className="toolbox-page">
+  <main className="toolbox-page bg-[var(--ink-900)] text-[var(--parchment-050)]">
       <AnimatedSection>
-        <section className="toolbox-header">
-          <motion.h1 variants={fadeInUp}>Skills & Tools</motion.h1>
-          <motion.p className="lead" variants={fadeInUp}>
+        <section className="toolbox-header container mx-auto px-6 py-12">
+          <motion.h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight" variants={fadeInUp}>Skills & Tools</motion.h1>
+          <motion.p className="lead mt-3 text-lg md:text-xl text-[var(--parchment-050)]/70 max-w-4xl" variants={fadeInUp}>
             A unique combination of marketing and technical skills. I'm proficient in marketing
             automation platforms (HubSpot, Marketo, Salesforce CRM), analytics tools (Google
             Analytics, Google Ads, Facebook Ads Manager), email automation (Zapier, FluentCRM),
@@ -87,38 +86,38 @@ const Toolbox: React.FC = () => {
       <ToolboxEcosystem />
 
       <AnimatedSection delay={0.2}>
-        <section className="technical-categories">
-          <div className="section-intro">
-            <h2>Core Technical Categories</h2>
-            <p>Specialized expertise organized by technical discipline</p>
+        <section className="technical-categories container mx-auto px-6 py-12">
+          <div className="section-intro mb-6">
+            <h2 className="text-2xl md:text-3xl font-semibold">Core Technical Categories</h2>
+            <p className="text-[var(--parchment-050)]/70">Specialized expertise organized by technical discipline</p>
           </div>
 
-          <div className="categories-list">
+          <div className="categories-list grid gap-6">
             {technicalCategories.map((category, index) => {
               const isExpanded = expandedCategory === index;
               return (
                 <motion.div
                   key={index}
-                  className={`category-card ${isExpanded ? 'expanded' : ''}`}
+                  className={`category-card ${isExpanded ? 'expanded' : ''} border border-[var(--ink-700)]/60 rounded-xl overflow-hidden bg-[var(--ink-800)]/40`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
                   <button
-                    className="category-header"
+                    className="category-header w-full flex items-center justify-between gap-4 px-4 py-3"
                     onClick={() => toggleCategory(index)}
                     {...(isExpanded ? { 'aria-expanded': "true" } : { 'aria-expanded': "false" })}
                   >
-                    <div className="header-content">
-                      <div className="icon-wrapper">{getIconForCategory(category.title)}</div>
+                    <div className="header-content flex items-start gap-3 text-left">
+                      <div className="icon-wrapper text-[var(--signal-500)]">{getIconForCategory(category.title)}</div>
                       <div className="text-content">
-                        <h3>{category.title}</h3>
-                        <p className="description">{category.description}</p>
+                        <h3 className="font-semibold">{category.title}</h3>
+                        <p className="description text-[var(--parchment-050)]/70">{category.description}</p>
                       </div>
                     </div>
                     <ChevronDownIcon
-                      className={`chevron ${expandedCategory === index ? 'rotated' : ''}`}
+                      className={`chevron ${expandedCategory === index ? 'rotated' : ''} transition-transform`}
                     />
                   </button>
 
@@ -131,17 +130,17 @@ const Toolbox: React.FC = () => {
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                         style={{ overflow: 'hidden' }}
                       >
-                        <div className="category-skills">
-                          <div className="skills-grid">
+                        <div className="category-skills px-4 pb-4">
+                          <div className="skills-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                             {category.skills.map((skill, skillIndex) => (
                               <motion.div
                                 key={skillIndex}
-                                className="skill-item"
+                                className="skill-item flex items-center gap-2 text-[var(--parchment-050)]/80"
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: skillIndex * 0.03 }}
                               >
-                                <div className="skill-dot"></div>
+                                <div className="skill-dot size-2 rounded-full bg-[var(--signal-500)]"></div>
                                 <span>{skill}</span>
                               </motion.div>
                             ))}
@@ -158,16 +157,16 @@ const Toolbox: React.FC = () => {
       </AnimatedSection>
 
       <AnimatedSection delay={0.3}>
-        <section className="technology-stacks">
-          <div className="section-intro">
-            <h2>Technology Stacks</h2>
-            <p>
+        <section className="technology-stacks container mx-auto px-6 py-12">
+          <div className="section-intro mb-6">
+            <h2 className="text-2xl md:text-3xl font-semibold">Technology Stacks</h2>
+            <p className="text-[var(--parchment-050)]/70">
               Comprehensive tool proficiency across development, analytics, and marketing platforms
             </p>
           </div>
 
           <motion.div
-            className="stacks-grid"
+            className="stacks-grid grid md:grid-cols-2 gap-6"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -176,22 +175,22 @@ const Toolbox: React.FC = () => {
             {technologyStacks.map((stack, index) => (
               <motion.div
                 key={index}
-                className="stack-card"
+                className="stack-card rounded-xl border border-[var(--ink-700)]/60 bg-[var(--ink-800)]/40 p-5"
                 variants={staggerItem}
                 whileHover={{ scale: 1.05, translateY: -5 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="stack-header">
-                  <span className="stack-icon">{stack.icon}</span>
-                  <h3>{stack.category}</h3>
+                <div className="stack-header flex items-center gap-2 mb-3">
+                  <span className="stack-icon text-[var(--signal-500)]">{stack.icon}</span>
+                  <h3 className="font-semibold">{stack.category}</h3>
                 </div>
-                <div className="stack-technologies">
+                <div className="stack-technologies grid sm:grid-cols-2 gap-2">
                   {stack.technologies.map((tech, techIndex) => {
                     const techInfo = getTechDescription(tech);
                     return (
                       <div
                         key={techIndex}
-                        className="tech-item"
+                        className="tech-item flex items-center gap-2 text-[var(--parchment-050)]/80"
                         onMouseEnter={() => setHoveredTech(`${stack.category}-${techIndex}`)}
                         onMouseLeave={() => setHoveredTech(null)}
                       >
@@ -217,15 +216,15 @@ const Toolbox: React.FC = () => {
       </AnimatedSection>
 
       <AnimatedSection delay={0.4}>
-        <section className="toolbox-cta">
-          <h2>Want to see these skills in action?</h2>
-          <p>
+        <section className="toolbox-cta container mx-auto px-6 py-16 text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold">Want to see these skills in action?</h2>
+          <p className="text-[var(--parchment-050)]/70 mt-2">
             Explore my case studies to see how I apply these technical capabilities to solve real
             business challenges.
           </p>
           <motion.a
             href="/case-studies"
-            className="cta-button"
+            className="cta-button inline-block mt-6 px-6 py-3 rounded-lg bg-[var(--signal-500)] text-[var(--ink-900)] font-semibold"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

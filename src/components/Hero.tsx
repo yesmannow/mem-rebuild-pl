@@ -32,7 +32,7 @@ export default function Hero() {
           <>
             {/* Poster image for faster initial render */}
             <img
-              src="/images/hero-poster.jpg"
+              src="/images/bio/bio-photo.jpg"
               alt=""
               className={`hero-media__poster ${videoLoaded ? 'hero-media__poster--hidden' : ''}`}
               loading="eager"

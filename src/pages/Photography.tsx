@@ -12,7 +12,6 @@ import {
   type PhotoItem,
 } from '../utils/loadPhotography';
 import photographyManifest from '../../public/images/photography/manifest.json';
-import './Photography.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -157,17 +156,17 @@ const Photography: React.FC = () => {
   }, [filteredPhotos]);
 
   return (
-    <main className="photography-page-modern">
+  <main className="photography-page-modern bg-[var(--ink-900)] text-[var(--parchment-050)]">
       {/* Hero Section with Parallax */}
       <motion.section
-        className="photo-hero"
+        className="photo-hero py-16 md:py-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <div className="hero-content-photo">
+        <div className="hero-content-photo container mx-auto px-6">
           <motion.h1
-            className="photo-page-title"
+            className="photo-page-title font-display text-4xl md:text-5xl font-bold tracking-tight"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -175,7 +174,7 @@ const Photography: React.FC = () => {
             Visual Stories
           </motion.h1>
           <motion.p
-            className="photo-page-subtitle"
+            className="photo-page-subtitle mt-3 text-lg md:text-xl text-[var(--parchment-050)]/70 max-w-3xl"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -186,7 +185,7 @@ const Photography: React.FC = () => {
 
         {/* Floating Category Pills */}
         <motion.div
-          className="floating-categories"
+          className="floating-categories container mx-auto px-6 mt-6 flex flex-wrap gap-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
@@ -194,7 +193,7 @@ const Photography: React.FC = () => {
           {categories.map((category, idx) => (
             <motion.button
               key={category}
-              className={`category-pill ${activeCategory === category ? 'active' : ''}`}
+            className={`category-pill ${activeCategory === category ? 'active' : ''} px-4 py-2 rounded-full text-sm font-medium border border-[var(--ink-700)]/60 text-[var(--parchment-050)]/80`}
               onClick={() => setActiveCategory(category)}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -215,11 +214,11 @@ const Photography: React.FC = () => {
       </motion.section>
 
       {/* Bento Grid Gallery */}
-      <section className="bento-gallery">
+      <section className="bento-gallery container mx-auto px-6 py-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
-            className="photo-bento-grid"
+            className="photo-bento-grid grid gap-6 md:gap-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -259,7 +258,7 @@ const Photography: React.FC = () => {
 
       {/* View More CTA */}
       <motion.section
-        className="view-more-cta"
+        className="view-more-cta container mx-auto px-6 py-12"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -269,7 +268,7 @@ const Photography: React.FC = () => {
           href="https://lightroom.adobe.com/shares/1bd278c4190442cbbdc4eccfcef0d91b"
           target="_blank"
           rel="noopener noreferrer"
-          className="lightroom-cta"
+          className="lightroom-cta inline-flex items-center gap-4 rounded-xl px-6 py-4 bg-[var(--signal-500)] text-[var(--ink-900)] font-semibold"
           whileHover={{ scale: 1.05, y: -5 }}
           whileTap={{ scale: 0.95 }}
         >

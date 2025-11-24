@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { projects } from '../data/projects';
-import './ProjectDetail.css';
 
 const ProjectDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -12,62 +11,70 @@ const ProjectDetail: React.FC = () => {
   }
 
   return (
-    <main className="project-detail">
-      <Link to="/projects" className="back-link">
-        ← Back to Projects
-      </Link>
+    <main className="bg-[var(--ink-900)] text-[var(--parchment-050)] min-h-dvh">
+      <div className="container mx-auto px-6 py-10">
+        <Link
+          to="/projects"
+          className="inline-block mb-6 text-[var(--parchment-050)]/70 hover:text-[var(--signal-500)] transition-colors"
+        >
+          ← Back to Projects
+        </Link>
 
-      <section className="project-header">
-        <h1>{project.title}</h1>
-        <div className="project-tags">
-          {project.tags.map(tag => (
-            <span key={tag} className="tag">
-              {tag}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      <section className="project-description">
-        <p className="lead">{project.description}</p>
-        <p>{project.longDescription}</p>
-      </section>
-
-      {project.gallery && project.gallery.length > 0 && (
-        <section className="project-gallery">
-          <h2>Gallery</h2>
-          <div className="gallery-grid">
-            {project.gallery.map((image, index) => (
-              <div key={index} className="gallery-item">
-                <img src={image} alt={`${project.title} - Image ${index + 1}`} />
-              </div>
+        <section className="mb-8">
+          <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">{project.title}</h1>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {project.tags.map(tag => (
+              <span
+                key={tag}
+                className="text-xs px-2 py-1 rounded-full bg-[var(--ink-800)] border border-[var(--ink-700)]/60"
+              >
+                {tag}
+              </span>
             ))}
           </div>
         </section>
-      )}
 
-      <section className="project-links">
-        {project.link && (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-            Visit Website
-          </a>
+        <section className="mb-10">
+          <p className="text-lg text-[var(--parchment-050)]/80 mb-3">{project.description}</p>
+          <p className="text-[var(--parchment-050)]/70">{project.longDescription}</p>
+        </section>
+
+        {project.gallery && project.gallery.length > 0 && (
+          <section className="mb-10">
+            <h2 className="text-2xl font-semibold mb-4">Gallery</h2>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {project.gallery.map((image, index) => (
+                <div key={index} className="rounded-xl overflow-hidden border border-[var(--ink-700)]/60">
+                  <img src={image} alt={`${project.title} - Image ${index + 1}`} className="w-full h-full object-cover" />
+                </div>
+              ))}
+            </div>
+          </section>
         )}
-        {project.github && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-secondary"
-          >
-            View on GitHub
-          </a>
-        )}
-      </section>
+
+        <section className="flex gap-3">
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-[var(--signal-500)] text-[var(--ink-900)] font-semibold"
+            >
+              Visit Website
+            </a>
+          )}
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-[var(--ink-700)]/60 hover:border-[var(--signal-500)]/60 transition"
+            >
+              View on GitHub
+            </a>
+          )}
+        </section>
+      </div>
     </main>
   );
 };
