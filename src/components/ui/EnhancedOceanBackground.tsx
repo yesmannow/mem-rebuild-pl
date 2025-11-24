@@ -38,9 +38,11 @@ export const EnhancedOceanBackground: React.FC<EnhancedOceanBackgroundProps> = (
   switch (variant) {
     case "aurora":
       return (
-        <OceanAuroraBackground className={className} containerClassName={containerClassName}>
-          {children}
-        </OceanAuroraBackground>
+        <div className={cn("relative w-full h-full", containerClassName)}>
+          <OceanAuroraBackground className={className}>
+            {children}
+          </OceanAuroraBackground>
+        </div>
       );
 
     case "beams":

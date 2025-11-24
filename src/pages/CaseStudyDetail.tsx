@@ -8,6 +8,7 @@ import { getCaseStudyDiagrams } from '../components/diagrams/caseStudyDiagrams';
 import { trackPortfolioEngagement, createTimeTracker } from '../utils/analytics';
 import MetricsVisualization from '../components/case-study/MetricsVisualization';
 import Breadcrumbs from '../components/layout/Breadcrumbs';
+import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
 import caseStudyInspirationMap from '../data/caseStudyInspirationMap.json';
 import inspirationsData from '../data/inspirations.json';
 import './CaseStudyDetail.css';
@@ -111,7 +112,8 @@ const CaseStudyDetail: React.FC = () => {
     : [];
 
   return (
-    <main className="case-study-detail-modern">
+    <OceanAuroraBackground>
+      <main className="case-study-detail-modern">
       {/* Hero Section */}
       <motion.section
         className="detail-hero"
@@ -283,7 +285,7 @@ const CaseStudyDetail: React.FC = () => {
           </div>
         </section>
       </AnimatedSection>
-      </main>
+    </main>
     </OceanAuroraBackground>
   );
 };
