@@ -1,19 +1,15 @@
 {
-  "timestamp": "2025-11-25T00:14:00.487Z",
+  "timestamp": "2025-11-25T00:44:58.100Z",
   "summary": {
-    "unusedImages": 265,
-    "unusedComponents": 103,
-    "unusedAnimations": 4,
-    "totalUnusedSize": 32335884
+    "unusedImages": 260,
+    "unusedComponents": 102,
+    "unusedAnimations": 3,
+    "totalUnusedSize": 31972430
   },
   "unusedImages": [
     {
       "path": "/images/applications/graston-gt1.svg",
       "size": 1112
-    },
-    {
-      "path": "/images/awards/gold-key.svg",
-      "size": 1743
     },
     {
       "path": "/images/bio/adobe-express-2025-10-12-09.58.18.avif",
@@ -176,22 +172,6 @@
       "size": 1508
     },
     {
-      "path": "/images/education/iu-logo.svg",
-      "size": 273
-    },
-    {
-      "path": "/images/education/samplegatesheader-desktop.avif",
-      "size": 54136
-    },
-    {
-      "path": "/images/education/samplegatesheader-desktop.jpg",
-      "size": 183018
-    },
-    {
-      "path": "/images/education/samplegatesheader-desktop.webp",
-      "size": 121928
-    },
-    {
       "path": "/images/for-fellowkids-studio-kiln-shows-how-brands-can-behave-like-fans-thumb.avif",
       "size": 7376
     },
@@ -206,13 +186,869 @@
     {
       "path": "/images/how-kimera-built-cursors-identity-around-a-custom-typeface-system-thumb.avif",
       "size": 20935
+    },
+    {
+      "path": "/images/how-kimera-built-cursors-identity-around-a-custom-typeface-system-thumb.jpg",
+      "size": 44296
+    },
+    {
+      "path": "/images/how-kimera-built-cursors-identity-around-a-custom-typeface-system-thumb.webp",
+      "size": 37950
+    },
+    {
+      "path": "/images/how-wedge-shifted-allergen-brand-growhappy-from-fear-to-confidence-thumb.avif",
+      "size": 14427
+    },
+    {
+      "path": "/images/how-wedge-shifted-allergen-brand-growhappy-from-fear-to-confidence-thumb.jpg",
+      "size": 34461
+    },
+    {
+      "path": "/images/how-wedge-shifted-allergen-brand-growhappy-from-fear-to-confidence-thumb.webp",
+      "size": 26456
+    },
+    {
+      "path": "/images/inspirations/indiana-university.svg",
+      "size": 1504
+    },
+    {
+      "path": "/images/logos/bearcave-logo-full.svg",
+      "size": 6970
+    },
+    {
+      "path": "/images/logos/bearcave-logo-icon.svg",
+      "size": 5844
+    },
+    {
+      "path": "/images/logos/bf-monogram.svg",
+      "size": 452
+    },
+    {
+      "path": "/images/logos/black-letter.svg",
+      "size": 526
+    },
+    {
+      "path": "/images/logos/ca-logo.svg",
+      "size": 533
+    },
+    {
+      "path": "/images/logos/gomez-bbq.svg",
+      "size": 573
+    },
+    {
+      "path": "/images/logos/header-logo-secondary.avif",
+      "size": 3641
+    },
+    {
+      "path": "/images/logos/header-logo-secondary.png",
+      "size": 929027
+    },
+    {
+      "path": "/images/logos/header-logo-secondary.webp",
+      "size": 12100
+    },
+    {
+      "path": "/images/logos/header-logo.avif",
+      "size": 10456
+    },
+    {
+      "path": "/images/logos/header-logo.png",
+      "size": 2221372
+    },
+    {
+      "path": "/images/logos/header-logo.webp",
+      "size": 79494
+    },
+    {
+      "path": "/images/logos/heart-mark.svg",
+      "size": 530
+    },
+    {
+      "path": "/images/logos/herbs-rub.svg",
+      "size": 536
+    },
+    {
+      "path": "/images/logos/indiana-university.svg",
+      "size": 305
+    },
+    {
+      "path": "/images/logos/perpetual-movement.svg",
+      "size": 589
+    },
+    {
+      "path": "/images/logos/primary-care.svg",
+      "size": 533
+    },
+    {
+      "path": "/images/logos/riley-bennett-egloff.svg",
+      "size": 551
+    },
+    {
+      "path": "/images/logos/russell-painting.svg",
+      "size": 537
+    },
+    {
+      "path": "/images/logos/tbm.svg",
+      "size": 471
+    },
+    {
+      "path": "/images/logos/tuohy-bailey-moore.svg",
+      "size": 500
+    },
+    {
+      "path": "/images/los-yorks-pixel-based-system-gives-netflixs-eyeline-a-bold-new-vision-thumb.avif",
+      "size": 10381
+    },
+    {
+      "path": "/images/los-yorks-pixel-based-system-gives-netflixs-eyeline-a-bold-new-vision-thumb.jpg",
+      "size": 32418
+    },
+    {
+      "path": "/images/los-yorks-pixel-based-system-gives-netflixs-eyeline-a-bold-new-vision-thumb.webp",
+      "size": 23182
+    },
+    {
+      "path": "/images/process/sutherland-process-compose.svg",
+      "size": 319
+    },
+    {
+      "path": "/images/process/sutherland-process-finish.svg",
+      "size": 319
+    },
+    {
+      "path": "/images/process/sutherland-process-ink.svg",
+      "size": 316
+    },
+    {
+      "path": "/images/process/sutherland-process-press.svg",
+      "size": 316
+    },
+    {
+      "path": "/images/process/sutherland-process-type.svg",
+      "size": 319
+    },
+    {
+      "path": "/images/projects/317 bbq/download-1.avif",
+      "size": 204659
+    },
+    {
+      "path": "/images/projects/317 bbq/download-1.jpg",
+      "size": 720751
+    },
+    {
+      "path": "/images/projects/317 bbq/download-1.webp",
+      "size": 406294
+    },
+    {
+      "path": "/images/projects/317 bbq/screenshot-of-317-bbq-_-really-good-bbq.avif",
+      "size": 121502
+    },
+    {
+      "path": "/images/projects/317 bbq/screenshot-of-317-bbq-_-really-good-bbq.jpg",
+      "size": 515631
+    },
+    {
+      "path": "/images/projects/317 bbq/screenshot-of-317-bbq-_-really-good-bbq.webp",
+      "size": 235558
+    },
+    {
+      "path": "/images/projects/riley bennett egloff/rbe-logo-with--rgb-jpg.avif",
+      "size": 2283
+    },
+    {
+      "path": "/images/projects/riley bennett egloff/rbe-logo-with--rgb-jpg.jpg",
+      "size": 51589
+    },
+    {
+      "path": "/images/projects/riley bennett egloff/rbe-logo-with--rgb-jpg.webp",
+      "size": 3724
+    },
+    {
+      "path": "/images/projects/Russell painting/screenshot-of-power-washing-_-russell-painting-company-inc.avif",
+      "size": 240231
+    },
+    {
+      "path": "/images/projects/Russell painting/screenshot-of-power-washing-_-russell-painting-company-inc.jpg",
+      "size": 1074674
+    },
+    {
+      "path": "/images/projects/Russell painting/screenshot-of-power-washing-_-russell-painting-company-inc.webp",
+      "size": 501448
+    },
+    {
+      "path": "/images/projects/Tuohy Bailey & Moore LLP/screenshot-of-business-transactions---tuohy-bailey--moore-llp.avif",
+      "size": 93371
+    },
+    {
+      "path": "/images/projects/Tuohy Bailey & Moore LLP/screenshot-of-business-transactions---tuohy-bailey--moore-llp.jpg",
+      "size": 351490
+    },
+    {
+      "path": "/images/projects/Tuohy Bailey & Moore LLP/screenshot-of-business-transactions---tuohy-bailey--moore-llp.webp",
+      "size": 174372
+    },
+    {
+      "path": "/images/projects/Tuohy Bailey & Moore LLP/screenshot-of-commercial-law---tuohy-bailey--moore-llp.avif",
+      "size": 45730
+    },
+    {
+      "path": "/images/projects/Tuohy Bailey & Moore LLP/screenshot-of-commercial-law---tuohy-bailey--moore-llp.jpg",
+      "size": 162612
+    },
+    {
+      "path": "/images/projects/Tuohy Bailey & Moore LLP/screenshot-of-commercial-law---tuohy-bailey--moore-llp.webp",
+      "size": 84840
+    },
+    {
+      "path": "/images/projects/Tuohy Bailey & Moore LLP/screenshot-of-home---tuohy-bailey--moore-llp.avif",
+      "size": 85490
+    },
+    {
+      "path": "/images/projects/Tuohy Bailey & Moore LLP/screenshot-of-home---tuohy-bailey--moore-llp.jpg",
+      "size": 372715
+    },
+    {
+      "path": "/images/projects/Tuohy Bailey & Moore LLP/screenshot-of-home---tuohy-bailey--moore-llp.webp",
+      "size": 171226
+    },
+    {
+      "path": "/images/side-projects/317bbqlogo-11.avif",
+      "size": 36054
+    },
+    {
+      "path": "/images/side-projects/317bbqlogo-11.jpg",
+      "size": 254766
+    },
+    {
+      "path": "/images/side-projects/317bbqlogo-11.webp",
+      "size": 100890
+    },
+    {
+      "path": "/images/side-projects/all-5.avif",
+      "size": 34566
+    },
+    {
+      "path": "/images/side-projects/all-5.png",
+      "size": 1028764
+    },
+    {
+      "path": "/images/side-projects/all-5.webp",
+      "size": 79650
+    },
+    {
+      "path": "/images/side-projects/all-three.avif",
+      "size": 17460
+    },
+    {
+      "path": "/images/side-projects/all-three.png",
+      "size": 252726
+    },
+    {
+      "path": "/images/side-projects/all-three.webp",
+      "size": 36102
+    },
+    {
+      "path": "/images/side-projects/ayres-mechanical-logo.avif",
+      "size": 11137
+    },
+    {
+      "path": "/images/side-projects/ayres-mechanical-logo.png",
+      "size": 76379
+    },
+    {
+      "path": "/images/side-projects/ayres-mechanical-logo.webp",
+      "size": 18122
+    },
+    {
+      "path": "/images/side-projects/b-card-20232.avif",
+      "size": 18093
+    },
+    {
+      "path": "/images/side-projects/b-card-20232.png",
+      "size": 81841
+    },
+    {
+      "path": "/images/side-projects/b-card-20232.webp",
+      "size": 41466
+    },
+    {
+      "path": "/images/side-projects/b-card-kvb-2023-2.avif",
+      "size": 4789
+    },
+    {
+      "path": "/images/side-projects/b-card-kvb-2023-2.png",
+      "size": 26602
+    },
+    {
+      "path": "/images/side-projects/b-card-kvb-2023-2.webp",
+      "size": 9654
+    },
+    {
+      "path": "/images/side-projects/Be Free Home and Life logo.avif",
+      "size": 40113
+    },
+    {
+      "path": "/images/side-projects/Be Free Home and Life logo.png",
+      "size": 247250
+    },
+    {
+      "path": "/images/side-projects/Be Free Home and Life logo.webp",
+      "size": 98590
+    },
+    {
+      "path": "/images/side-projects/Behr Pet Essentialds logo.avif",
+      "size": 16208
+    },
+    {
+      "path": "/images/side-projects/Behr Pet Essentialds logo.jpg",
+      "size": 573143
+    },
+    {
+      "path": "/images/side-projects/Behr Pet Essentialds logo.webp",
+      "size": 55078
+    },
+    {
+      "path": "/images/side-projects/bf-mogogram-final-02-1.avif",
+      "size": 4562
+    },
+    {
+      "path": "/images/side-projects/bf-mogogram-final-02-1.jpg",
+      "size": 100710
+    },
+    {
+      "path": "/images/side-projects/bf-mogogram-final-02-1.webp",
+      "size": 15460
+    },
+    {
+      "path": "/images/side-projects/bird-1.avif",
+      "size": 25427
+    },
+    {
+      "path": "/images/side-projects/bird-1.webp",
+      "size": 59332
+    },
+    {
+      "path": "/images/side-projects/black-letter---full-logo-1.avif",
+      "size": 80014
+    },
+    {
+      "path": "/images/side-projects/black-letter---full-logo-1.png",
+      "size": 1159875
+    },
+    {
+      "path": "/images/side-projects/black-letter---full-logo-1.webp",
+      "size": 441400
+    },
+    {
+      "path": "/images/side-projects/ca-logo---primary-full-color.avif",
+      "size": 37224
+    },
+    {
+      "path": "/images/side-projects/ca-logo---primary-full-color.jpg",
+      "size": 1147052
+    },
+    {
+      "path": "/images/side-projects/ca-logo---primary-full-color.webp",
+      "size": 160090
+    },
+    {
+      "path": "/images/side-projects/cbd-oil.avif",
+      "size": 39093
+    },
+    {
+      "path": "/images/side-projects/cbd-oil.jpg",
+      "size": 691753
+    },
+    {
+      "path": "/images/side-projects/cbd-oil.webp",
+      "size": 147398
+    },
+    {
+      "path": "/images/side-projects/Clean Aesthetic logo design.avif",
+      "size": 37224
+    },
+    {
+      "path": "/images/side-projects/complete-solution-dogs.avif",
+      "size": 24607
+    },
+    {
+      "path": "/images/side-projects/complete-solution-dogs.png",
+      "size": 439457
+    },
+    {
+      "path": "/images/side-projects/complete-solution-dogs.webp",
+      "size": 56554
+    },
+    {
+      "path": "/images/side-projects/edgrh.avif",
+      "size": 60743
+    },
+    {
+      "path": "/images/side-projects/edgrh.png",
+      "size": 930229
+    },
+    {
+      "path": "/images/side-projects/edgrh.webp",
+      "size": 117902
+    },
+    {
+      "path": "/images/side-projects/fav-1.avif",
+      "size": 18972
+    },
+    {
+      "path": "/images/side-projects/fav-1.png",
+      "size": 205283
+    },
+    {
+      "path": "/images/side-projects/fav-1.webp",
+      "size": 40482
+    },
+    {
+      "path": "/images/side-projects/gomez-bbq-logo.avif",
+      "size": 2524
+    },
+    {
+      "path": "/images/side-projects/gomez-bbq-logo.png",
+      "size": 16695
+    },
+    {
+      "path": "/images/side-projects/gomez-bbq-logo.webp",
+      "size": 3848
+    },
+    {
+      "path": "/images/side-projects/gomez-png-2.avif",
+      "size": 11033
+    },
+    {
+      "path": "/images/side-projects/gomez-png-2.png",
+      "size": 96168
+    },
+    {
+      "path": "/images/side-projects/gomez-png-2.webp",
+      "size": 19676
+    },
+    {
+      "path": "/images/side-projects/graston-dashboard.svg",
+      "size": 629
+    },
+    {
+      "path": "/images/side-projects/herbs-rub-logo-1.avif",
+      "size": 85586
+    },
+    {
+      "path": "/images/side-projects/herbs-rub-logo-1.png",
+      "size": 1073194
+    },
+    {
+      "path": "/images/side-projects/herbs-rub-logo-1.webp",
+      "size": 233326
+    },
+    {
+      "path": "/images/side-projects/Hoosierboy Barbershop logo.avif",
+      "size": 25427
+    },
+    {
+      "path": "/images/side-projects/Hoosierboy Barbershop logo.png",
+      "size": 409436
+    },
+    {
+      "path": "/images/side-projects/Hoosierboy Barbershop logo.webp",
+      "size": 59332
+    },
+    {
+      "path": "/images/side-projects/logo-01-1.avif",
+      "size": 37021
+    },
+    {
+      "path": "/images/side-projects/logo-01-1.webp",
+      "size": 171874
+    },
+    {
+      "path": "/images/side-projects/logo-2.avif",
+      "size": 25687
+    },
+    {
+      "path": "/images/side-projects/logo-2.png",
+      "size": 138888
+    },
+    {
+      "path": "/images/side-projects/logo-2.webp",
+      "size": 44480
+    },
+    {
+      "path": "/images/side-projects/logo-7.avif",
+      "size": 64698
+    },
+    {
+      "path": "/images/side-projects/logo-7.png",
+      "size": 645371
+    },
+    {
+      "path": "/images/side-projects/logo-7.webp",
+      "size": 193168
+    },
+    {
+      "path": "/images/side-projects/logo-whhite-red.avif",
+      "size": 14331
+    },
+    {
+      "path": "/images/side-projects/logo-whhite-red.png",
+      "size": 194008
+    },
+    {
+      "path": "/images/side-projects/logo-whhite-red.webp",
+      "size": 56138
+    },
+    {
+      "path": "/images/side-projects/logo.avif",
+      "size": 25687
+    },
+    {
+      "path": "/images/side-projects/logo.png",
+      "size": 138888
+    },
+    {
+      "path": "/images/side-projects/logo.webp",
+      "size": 44480
+    },
+    {
+      "path": "/images/side-projects/logo_1-1.webp",
+      "size": 55078
+    },
+    {
+      "path": "/images/side-projects/man-at-the-doctors-office.avif",
+      "size": 10104
+    },
+    {
+      "path": "/images/side-projects/man-at-the-doctors-office.jpg",
+      "size": 46966
+    },
+    {
+      "path": "/images/side-projects/man-at-the-doctors-office.webp",
+      "size": 22798
+    },
+    {
+      "path": "/images/side-projects/my-project-14.avif",
+      "size": 27177
+    },
+    {
+      "path": "/images/side-projects/my-project-14.png",
+      "size": 903542
+    },
+    {
+      "path": "/images/side-projects/my-project-14.webp",
+      "size": 62462
+    },
+    {
+      "path": "/images/side-projects/my-project-8.avif",
+      "size": 30658
+    },
+    {
+      "path": "/images/side-projects/my-project-8.png",
+      "size": 797973
+    },
+    {
+      "path": "/images/side-projects/my-project-8.webp",
+      "size": 75192
+    },
+    {
+      "path": "/images/side-projects/new-logo---transparent.avif",
+      "size": 27157
+    },
+    {
+      "path": "/images/side-projects/new-logo---transparent.png",
+      "size": 423158
+    },
+    {
+      "path": "/images/side-projects/new-logo---transparent.webp",
+      "size": 117838
+    },
+    {
+      "path": "/images/side-projects/pci-google-review-business-cards.avif",
+      "size": 6491
+    },
+    {
+      "path": "/images/side-projects/pci-google-review-business-cards.jpg",
+      "size": 15879
+    },
+    {
+      "path": "/images/side-projects/pci-google-review-business-cards.webp",
+      "size": 9972
+    },
+    {
+      "path": "/images/side-projects/perpetual-movement-fitness---primary-logo-tm.avif",
+      "size": 17035
+    },
+    {
+      "path": "/images/side-projects/perpetual-movement-fitness---primary-logo-tm.png",
+      "size": 83492
+    },
+    {
+      "path": "/images/side-projects/perpetual-movement-fitness---primary-logo-tm.webp",
+      "size": 30318
+    },
+    {
+      "path": "/images/side-projects/pike-medical.svg",
+      "size": 593
+    },
+    {
+      "path": "/images/side-projects/primary-care-logo-with-pmc.avif",
+      "size": 27307
+    },
+    {
+      "path": "/images/side-projects/primary-care-logo-with-pmc.png",
+      "size": 265127
+    },
+    {
+      "path": "/images/side-projects/primary-care-logo-with-pmc.webp",
+      "size": 75962
+    },
+    {
+      "path": "/images/side-projects/rbe-consulting.svg",
+      "size": 608
+    },
+    {
+      "path": "/images/side-projects/school 80 Condominiums logo.avif",
+      "size": 14601
+    },
+    {
+      "path": "/images/side-projects/school 80 Condominiums logo.png",
+      "size": 67697
+    },
+    {
+      "path": "/images/side-projects/school 80 Condominiums logo.webp",
+      "size": 33972
+    },
+    {
+      "path": "/images/side-projects/screen-shot-2020-03-23-at-8.49.47-pm-1024x668-1.avif",
+      "size": 18406
+    },
+    {
+      "path": "/images/side-projects/screen-shot-2020-03-23-at-8.49.47-pm-1024x668-1.png",
+      "size": 498452
+    },
+    {
+      "path": "/images/side-projects/screen-shot-2020-03-23-at-8.49.47-pm-1024x668-1.webp",
+      "size": 36806
+    },
+    {
+      "path": "/images/side-projects/sfsdf.avif",
+      "size": 9388
+    },
+    {
+      "path": "/images/side-projects/sfsdf.png",
+      "size": 447202
+    },
+    {
+      "path": "/images/side-projects/sfsdf.webp",
+      "size": 23602
+    },
+    {
+      "path": "/images/side-projects/sports-physical-header-1.avif",
+      "size": 73252
+    },
+    {
+      "path": "/images/side-projects/sports-physical-header-1.jpg",
+      "size": 163330
+    },
+    {
+      "path": "/images/side-projects/sports-physical-header-1.webp",
+      "size": 142132
+    },
+    {
+      "path": "/images/side-projects/Tasco Ninja Logo.avif",
+      "size": 37021
+    },
+    {
+      "path": "/images/side-projects/Tasco Ninja Logo.png",
+      "size": 366737
+    },
+    {
+      "path": "/images/side-projects/Tasco Ninja Logo.webp",
+      "size": 171874
+    },
+    {
+      "path": "/images/side-projects/tbm-brand-playbook-demo.avif",
+      "size": 60416
+    },
+    {
+      "path": "/images/side-projects/tbm-brand-playbook-demo.png",
+      "size": 434654
+    },
+    {
+      "path": "/images/side-projects/tbm-brand-playbook-demo.webp",
+      "size": 152632
+    },
+    {
+      "path": "/images/side-projects/tbm-logo.webp",
+      "size": 121500
+    },
+    {
+      "path": "/images/side-projects/Tuohy Bailey and Moore Logo.avif",
+      "size": 75699
+    },
+    {
+      "path": "/images/side-projects/Tuohy Bailey and Moore Logo.png",
+      "size": 204140
+    },
+    {
+      "path": "/images/side-projects/Tuohy Bailey and Moore Logo.webp",
+      "size": 121500
+    },
+    {
+      "path": "/images/side-projects/uci-hours-covid.avif",
+      "size": 11340
+    },
+    {
+      "path": "/images/side-projects/uci-hours-covid.jpg",
+      "size": 137306
+    },
+    {
+      "path": "/images/side-projects/uci-hours-covid.webp",
+      "size": 25106
+    },
+    {
+      "path": "/images/side-projects/ultimate-technologies.svg",
+      "size": 656
+    },
+    {
+      "path": "/images/side-projects/untitled-2.avif",
+      "size": 3659
+    },
+    {
+      "path": "/images/side-projects/Untitled-2.png",
+      "size": 39417
+    },
+    {
+      "path": "/images/side-projects/untitled-2.webp",
+      "size": 6398
+    },
+    {
+      "path": "/images/side-projects/urgent-care-indy-logo---22.avif",
+      "size": 27014
+    },
+    {
+      "path": "/images/side-projects/urgent-care-indy-logo---22.png",
+      "size": 163145
+    },
+    {
+      "path": "/images/side-projects/urgent-care-indy-logo---22.webp",
+      "size": 43064
+    },
+    {
+      "path": "/images/tech-icons/express.svg",
+      "size": 1035
+    },
+    {
+      "path": "/images/tech-icons/github.svg",
+      "size": 1032
+    },
+    {
+      "path": "/images/tech-icons/hubspot.svg",
+      "size": 1035
+    },
+    {
+      "path": "/images/tech-icons/javascript.svg",
+      "size": 1044
+    },
+    {
+      "path": "/images/tech-icons/nodejs.svg",
+      "size": 1033
+    },
+    {
+      "path": "/images/tech-icons/python.svg",
+      "size": 1032
+    },
+    {
+      "path": "/images/tech-icons/react.svg",
+      "size": 1029
+    },
+    {
+      "path": "/images/tech-icons/tailwind-css.svg",
+      "size": 1051
+    },
+    {
+      "path": "/images/tech-icons/typescript.svg",
+      "size": 1044
+    },
+    {
+      "path": "/images/tech-icons/vite.svg",
+      "size": 1026
+    },
+    {
+      "path": "/images/the-brand-identity-home-of-the-greatest-since-2015-thumb.avif",
+      "size": 7376
+    },
+    {
+      "path": "/images/the-brand-identity-home-of-the-greatest-since-2015-thumb.jpg",
+      "size": 24381
+    },
+    {
+      "path": "/images/the-brand-identity-home-of-the-greatest-since-2015-thumb.webp",
+      "size": 15666
+    },
+    {
+      "path": "/apps/clinical-compass-thumbnail.avif",
+      "size": 59756
+    },
+    {
+      "path": "/apps/clinical-compass-thumbnail.png",
+      "size": 248075
+    },
+    {
+      "path": "/apps/clinical-compass-thumbnail.webp",
+      "size": 89260
+    },
+    {
+      "path": "/apps/graston-growth-engine-thumbnail.avif",
+      "size": 49348
+    },
+    {
+      "path": "/apps/graston-growth-engine-thumbnail.png",
+      "size": 190458
+    },
+    {
+      "path": "/apps/graston-growth-engine-thumbnail.webp",
+      "size": 71354
+    },
+    {
+      "path": "/apps/gt9-pricing-thumbnail.avif",
+      "size": 182002
+    },
+    {
+      "path": "/apps/gt9-pricing-thumbnail.png",
+      "size": 682046
+    },
+    {
+      "path": "/apps/gt9-pricing-thumbnail.webp",
+      "size": 247568
+    },
+    {
+      "path": "/apps/license-requirements-thumbnail.avif",
+      "size": 30422
+    },
+    {
+      "path": "/apps/license-requirements-thumbnail.png",
+      "size": 107906
+    },
+    {
+      "path": "/apps/license-requirements-thumbnail.webp",
+      "size": 44018
+    },
+    {
+      "path": "/apps/roi-calculator-thumbnail.avif",
+      "size": 32591
+    },
+    {
+      "path": "/apps/roi-calculator-thumbnail.png",
+      "size": 120173
+    },
+    {
+      "path": "/apps/roi-calculator-thumbnail.webp",
+      "size": 44650
     }
   ],
   "unusedComponents": [
-    {
-      "path": "src\\components\\animations\\AnimatedCounter.tsx",
-      "size": 1178
-    },
     {
       "path": "src\\components\\animations\\BackgroundLogos.tsx",
       "size": 2919
@@ -408,13 +1244,13 @@
     {
       "path": "src\\components\\inspiration\\ResponsiveInspirationWrapper.tsx",
       "size": 4709
+    },
+    {
+      "path": "src\\components\\InspirationExplorer.tsx",
+      "size": 4580
     }
   ],
   "unusedAnimations": [
-    {
-      "path": "src\\components\\animations\\AnimatedCounter.tsx",
-      "size": 1178
-    },
     {
       "path": "src\\components\\animations\\BackgroundLogos.tsx",
       "size": 2919

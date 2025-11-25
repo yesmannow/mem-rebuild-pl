@@ -435,7 +435,7 @@ function generateReport() {
         ...unusedAnimations,
       ].reduce((sum, item) => sum + item.size, 0),
     },
-    unusedImages: unusedImages.slice(0, 50),
+    unusedImages: unusedImages, // Include all unused images
     unusedComponents: unusedComponents.slice(0, 50),
     unusedAnimations: unusedAnimations.slice(0, 50),
   };

@@ -24,10 +24,12 @@ const OUTPUT_FORMATS = {
 };
 
 const QUALITY = {
-  webp: 85,
+  webp: 80,  // Updated to 80 as requested
   jpeg: 85,
   png: 90,
 };
+
+const MAX_WIDTH = 1920; // Resize images wider than this
 
 /**
  * Check if sharp is available (for WebP conversion)
@@ -67,12 +69,24 @@ function getImageFiles(dir, fileList = []) {
 }
 
 /**
- * Generate WebP version using sharp
+ * Generate WebP version using sharp with resizing
  */
 async function convertToWebP(inputPath, outputPath) {
   try {
     const sharp = require('sharp');
-    await sharp(inputPath).webp({ quality: QUALITY.webp }).toFile(outputPath);
+    const image = sharp(inputPath);
+    const metadata = await image.metadata();
+
+    // Resize if wider than MAX_WIDTH
+    let pipeline = image;
+    if (metadata.width && metadata.width > MAX_WIDTH) {
+      pipeline = pipeline.resize(MAX_WIDTH, null, {
+        withoutEnlargement: true,
+        fit: 'inside',
+      });
+    }
+
+    await pipeline.webp({ quality: QUALITY.webp }).toFile(outputPath);
     return true;
   } catch (error) {
     console.error(`❌ Failed to convert ${inputPath}:`, error.message);
@@ -81,12 +95,24 @@ async function convertToWebP(inputPath, outputPath) {
 }
 
 /**
- * Generate AVIF version using sharp
+ * Generate AVIF version using sharp with resizing
  */
 async function convertToAVIF(inputPath, outputPath) {
   try {
     const sharp = require('sharp');
-    await sharp(inputPath).avif({ quality: 80 }).toFile(outputPath);
+    const image = sharp(inputPath);
+    const metadata = await image.metadata();
+
+    // Resize if wider than MAX_WIDTH
+    let pipeline = image;
+    if (metadata.width && metadata.width > MAX_WIDTH) {
+      pipeline = pipeline.resize(MAX_WIDTH, null, {
+        withoutEnlargement: true,
+        fit: 'inside',
+      });
+    }
+
+    await pipeline.avif({ quality: 80 }).toFile(outputPath);
     return true;
   } catch (error) {
     console.error(`❌ Failed to convert ${inputPath} to AVIF:`, error.message);
@@ -144,7 +170,9 @@ async function optimizeImages(directory = 'public/images') {
         if (success) {
           const webpSize = getFileSize(webpPath);
           const savings = ((1 - webpSize / originalSize) * 100).toFixed(1);
-          console.log(`✅ ${path.basename(imagePath)} → ${basename}.webp (${savings}% smaller)`);
+          const metadata = await require('sharp')(imagePath).metadata();
+          const resizeInfo = metadata.width > MAX_WIDTH ? ` (resized from ${metadata.width}px)` : '';
+          console.log(`✅ ${path.basename(imagePath)} → ${basename}.webp (${savings}% smaller${resizeInfo})`);
           processed++;
         } else {
           errors++;
