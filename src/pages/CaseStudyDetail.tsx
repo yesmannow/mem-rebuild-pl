@@ -12,6 +12,10 @@ import Breadcrumbs from '../components/layout/Breadcrumbs';
 import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
 import caseStudyInspirationMap from '../data/caseStudyInspirationMap.json';
 import inspirationsData from '../data/inspirations.json';
+import DataStream from '../components/case-studies/DataStream';
+import ThreatMap from '../components/case-studies/ThreatMap';
+import WorkflowVisualizer from '../components/case-studies/WorkflowVisualizer';
+import SystemSchematic from '../components/case-studies/SystemSchematic';
 import './CaseStudyDetail.css';
 
 const renderInlineText = (text: string, keyPrefix: string) => {
@@ -112,19 +116,35 @@ const CaseStudyDetail: React.FC = () => {
     ? inspirationsData.filter(i => inspirationMapping.inspirations.includes(i.id))
     : [];
 
+  // Render Wow component based on case study ID
+  const renderWowComponent = (id: string) => {
+    switch (id) {
+      case 'the-compass':
+        return <DataStream />;
+      case 'the-fortress':
+        return <ThreatMap />;
+      case 'the-launchpad':
+        return <WorkflowVisualizer />;
+      case 'the-conductor':
+        return <SystemSchematic />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <OceanAuroraBackground>
       <main className="case-study-detail-modern">
       {/* Hero Section */}
       <motion.section
         className="detail-hero"
-        data-hero-bg-color={caseStudy.color || 'var(--color-secondary)'}
+        data-hero-bg-color={caseStudy.color || '#40E0D0'}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="detail-hero-content">
-          <Link to="/case-studies" className="back-link">
+        <div className="detail-hero-content" style={{ textAlign: 'center' }}>
+          <Link to="/case-studies" className="back-link" style={{ justifyContent: 'flex-start' }}>
             <svg
               width="20"
               height="20"
@@ -141,12 +161,13 @@ const CaseStudyDetail: React.FC = () => {
           {caseStudy.icon && (
             <motion.div
               className="hero-icon-large"
-              data-icon-bg-color={caseStudy.color || 'var(--color-secondary)'}
+              data-icon-bg-color={caseStudy.color || '#40E0D0'}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
+              style={{ display: 'flex', justifyContent: 'center' }}
             >
-              <span className="icon-large" data-icon-shadow-color={caseStudy.color || 'var(--color-secondary)'}>
+              <span className="icon-large" data-icon-shadow-color={caseStudy.color || '#40E0D0'}>
                 {caseStudy.icon}
               </span>
             </motion.div>
@@ -166,13 +187,14 @@ const CaseStudyDetail: React.FC = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5 }}
+            style={{ justifyContent: 'center' }}
           >
             <div className="meta-categories">
               {caseStudy.category.map(cat => (
                 <span
                   key={cat}
                   className="meta-category"
-                  data-category-color={caseStudy.color || 'var(--color-secondary)'}
+                  data-category-color={caseStudy.color || '#40E0D0'}
                 >
                   {cat}
                 </span>
@@ -245,6 +267,36 @@ const CaseStudyDetail: React.FC = () => {
             )}
           </section>
         </AnimatedSection>
+
+        {/* Architecture Section */}
+        {caseStudy.architecture && caseStudy.architecture.length > 0 && (
+          <AnimatedSection delay={0.45}>
+            <section className="content-section architecture">
+              <h2>
+                <span className="section-icon">🏗️</span> System Architecture
+              </h2>
+              <div className="section-content">
+                <p>The technical architecture connects the following systems:</p>
+                <div className="architecture-flow">
+                  {caseStudy.architecture.map((connection, index) => (
+                    <div key={index} className="architecture-connection">
+                      {connection}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </AnimatedSection>
+        )}
+
+        {/* Wow Component Section */}
+        {renderWowComponent(caseStudy.slug) && (
+          <AnimatedSection delay={0.5}>
+            <div className="wow-component-wrapper">
+              {renderWowComponent(caseStudy.slug)}
+            </div>
+          </AnimatedSection>
+        )}
 
         <AnimatedSection delay={0.5}>
           <section className="content-section impact">

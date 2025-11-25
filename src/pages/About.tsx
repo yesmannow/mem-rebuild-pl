@@ -5,6 +5,8 @@ import AwardsRow from '../components/AwardsRow';
 import { Search, Ruler, Hammer, Rocket, LucideIcon } from 'lucide-react';
 import GlowEffect from '../components/ui/GlowEffect';
 import FloatingParticles from '../components/ui/FloatingParticles';
+import TestimonialWall from '../components/ui/TestimonialWall';
+import InteractiveProcessFlow from '../components/ui/InteractiveProcessFlow';
 
 // Process Card Component with 3D Tilt
 interface ProcessCardProps {
@@ -201,7 +203,7 @@ const About = () => {
           </div>
         </motion.div>
 
-        {/* The Process: From Insight to Impact */}
+        {/* The Process: From Insight to Impact - Interactive Version */}
         <motion.div
           ref={processRef}
           initial={{ opacity: 0 }}
@@ -210,52 +212,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="mb-24"
         >
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl font-bold text-brand-text mb-12 text-center"
-          >
-            From Insight to Impact
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Phase 1 */}
-            <ProcessCard
-              icon={Search}
-              title="1. Discovery & Audit"
-              description="Deep dive into business goals and a full technical audit of the MarTech stack to establish a baseline for success."
-              color="teal"
-              delay={0.1}
-            />
-
-            {/* Phase 2 */}
-            <ProcessCard
-              icon={Ruler}
-              title="2. Strategy"
-              description="Designing the blueprint. Mapping systems architecture, data flows, and defining KPIs for a comprehensive plan."
-              color="orange"
-              delay={0.2}
-            />
-
-            {/* Phase 3 */}
-            <ProcessCard
-              icon={Hammer}
-              title="3. Build"
-              description="The execution phase. Leading hands-on builds from web dev and CRM implementation to analytics tracking."
-              color="teal"
-              delay={0.3}
-            />
-
-            {/* Phase 4 */}
-            <ProcessCard
-              icon={Rocket}
-              title="4. Optimization"
-              description="Continuous refinement. Using data to make intelligent decisions through A/B testing and funnel analysis."
-              color="orange"
-              delay={0.4}
-            />
-          </div>
+          <InteractiveProcessFlow />
         </motion.div>
 
         {/* Professional Journey Timeline */}
@@ -311,6 +268,26 @@ const About = () => {
 
         {/* Awards Section (Using the rescued Gold Key) */}
         <AwardsRow />
+
+        {/* Wall of Trust - Testimonials */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="mt-24"
+        >
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl font-bold text-brand-text mb-12 text-center"
+          >
+            Trusted by Leaders
+          </motion.h2>
+          <TestimonialWall />
+        </motion.div>
       </div>
     </div>
   );

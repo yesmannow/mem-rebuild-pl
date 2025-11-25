@@ -63,6 +63,7 @@ export interface CaseStudy {
     strategy?: string | RichSection;
     impact?: string | RichSection;
   };
+  architecture?: string[];
   featured?: boolean;
 }
 
@@ -111,6 +112,13 @@ export const caseStudies: CaseStudy[] = [
       },
     },
     technologies: ['LearnDash', 'WooCommerce', 'FluentCRM', 'Uncanny Automator', 'WP Fusion'],
+    architecture: [
+      'LearnDash → Course Completion Event',
+      'Uncanny Automator → Workflow Trigger',
+      'WooCommerce → Premium Profile Creation',
+      'FluentCRM → 60-Day Email Sequence',
+      'WP Fusion → Contact Sync & Tagging',
+    ],
     featured: true,
   },
   {
@@ -157,6 +165,13 @@ export const caseStudies: CaseStudy[] = [
       },
     },
     technologies: ['Cloudflare WAF', 'DNSSEC', 'Apache', 'SSL/TLS', 'mTLS'],
+    architecture: [
+      'Cloudflare Edge → WAF Rules & Super Bot Fight Mode',
+      'Origin Server → Authenticated Origin Pulls (mTLS)',
+      'DNS → DNSSEC Validation',
+      'Apache → Security Headers (HSTS, CSP)',
+      'Monitoring → Real-time Threat Detection',
+    ],
     featured: true,
   },
   {
@@ -197,6 +212,13 @@ export const caseStudies: CaseStudy[] = [
       },
     },
     technologies: ['WP Fusion', 'FluentCRM', 'Webhooks', 'Google Sheets API', 'Gravity Forms'],
+    architecture: [
+      'WooCommerce → Purchase Event',
+      'Uncanny Automator → Event Logger',
+      'WP Fusion → Data Mapping',
+      'FluentCRM → Unified Contact Record',
+      'Google Sheets → Admin Dashboard Sync',
+    ],
     featured: true,
   },
   {
@@ -237,6 +259,13 @@ export const caseStudies: CaseStudy[] = [
       },
     },
     technologies: ['PHP-FPM', 'Redis', 'LiteSpeed', 'Netdata', 'Linux CLI'],
+    architecture: [
+      'PHP-FPM 8.1 → Request Handler',
+      'Apache → LimitRequestLine Tuning',
+      'Redis → Object Cache Layer',
+      'Netdata → Real-time Monitoring',
+      'MySQL → Query Optimization',
+    ],
     featured: true,
   },
   {
@@ -283,6 +312,13 @@ export const caseStudies: CaseStudy[] = [
       },
     },
     technologies: ['Google Tag Manager', 'GA4', 'Server-Side Events', 'RegEx', 'Google Ads'],
+    architecture: [
+      'Server-Side PHP → Purchase/Lead Events',
+      'GTM v28 Container → Clean Data Layer',
+      'GA4 → User-ID Tracking',
+      'Google Ads → High-Intent Optimization',
+      'RegEx Filters → Data Validation',
+    ],
     featured: true,
   },
   {
@@ -329,7 +365,134 @@ export const caseStudies: CaseStudy[] = [
       },
     },
     technologies: ['Stripe API', 'WooCommerce', 'ACF', 'Gravity Forms', 'PHP'],
+    architecture: [
+      'Gravity Forms → Quote Generation',
+      'WooCommerce → Pending Order Creation',
+      'Stripe API → Payment Plan Configuration',
+      'ACF → Custom Payment Fields',
+      'Email → Secure Pay Link Delivery',
+    ],
     featured: true,
+  },
+  {
+    slug: 'clean-aesthetic',
+    title: 'Clean Aesthetic Brand Identity',
+    image: '/images/case-studies/clean-aesthetic.svg',
+    tagline: 'Medical credibility meets luxury appeal for concierge Botox.',
+    category: ['Branding', 'Design'],
+    tags: ['Branding', 'Design', 'Identity', 'Medical', 'Luxury'],
+    color: '#40E0D0',
+    icon: '✨',
+    metrics: [
+      { label: 'Brand Identity', value: 'Launched' },
+      { label: 'Timeline', value: '4 Weeks' },
+      { label: 'Client Satisfaction', value: '100%' },
+    ],
+    challenge:
+      'Medical credibility meets luxury appeal for concierge Botox. The brand needed to convey trust and sophistication while standing out in a competitive aesthetic medicine market.',
+    strategy:
+      'Designed a sophisticated monogram combining "C" and "A" with teal-green trust signals. Created a complete brand system including logo variations, color palette, typography, and application guidelines that balanced medical professionalism with luxury aesthetics.',
+    impact:
+      'Delivered a cohesive brand identity that elevated the practice positioning and provided a foundation for all marketing materials. The monogram became an instantly recognizable symbol of quality and trust.',
+    fullContent: {
+      challenge: {
+        paragraphs: [
+          'Medical credibility meets luxury appeal for concierge Botox. The brand needed to convey trust and sophistication while standing out in a competitive aesthetic medicine market.',
+        ],
+      },
+      strategy: {
+        paragraphs: [
+          'Designed a sophisticated monogram combining "C" and "A" with teal-green trust signals. Created a complete brand system including logo variations, color palette, typography, and application guidelines that balanced medical professionalism with luxury aesthetics.',
+        ],
+      },
+      impact: {
+        paragraphs: [
+          'Delivered a cohesive brand identity that elevated the practice positioning and provided a foundation for all marketing materials. The monogram became an instantly recognizable symbol of quality and trust.',
+        ],
+      },
+    },
+    technologies: ['Adobe Illustrator', 'Brand Guidelines', 'Typography', 'Color Theory'],
+    featured: false,
+  },
+  {
+    slug: 'russell-painting',
+    title: 'Russell Painting Redesign',
+    image: '/images/case-studies/russell-painting.svg',
+    tagline: 'Leveraging 43+ years of history for a modern web presence.',
+    category: ['Web Design', 'SEO'],
+    tags: ['Web Design', 'SEO', 'Conversion', 'Local Marketing', 'HomeAdvisor'],
+    color: '#40E0D0',
+    icon: '🏠',
+    metrics: [
+      { label: 'Lead Gen', value: '+30%' },
+      { label: 'SEO', value: 'Local #1' },
+      { label: 'Conversion', value: 'Improved' },
+    ],
+    challenge:
+      'A 43-year family painting business needed to modernize their web presence while leveraging their legacy of trust and local reputation. The site needed to integrate with HomeAdvisor and rank for local search.',
+    strategy:
+      'Developed a trust-building strategy with HomeAdvisor integration and "Family Business" narrative. Redesigned the website with local SEO optimization, conversion-focused landing pages, and seamless lead capture workflows.',
+    impact:
+      'Achieved #1 local search rankings for key terms and increased qualified leads by 30%. The "Family Business" positioning resonated with local customers seeking reliable, established contractors.',
+    fullContent: {
+      challenge: {
+        paragraphs: [
+          'A 43-year family painting business needed to modernize their web presence while leveraging their legacy of trust and local reputation. The site needed to integrate with HomeAdvisor and rank for local search.',
+        ],
+      },
+      strategy: {
+        paragraphs: [
+          'Developed a trust-building strategy with HomeAdvisor integration and "Family Business" narrative. Redesigned the website with local SEO optimization, conversion-focused landing pages, and seamless lead capture workflows.',
+        ],
+      },
+      impact: {
+        paragraphs: [
+          'Achieved #1 local search rankings for key terms and increased qualified leads by 30%. The "Family Business" positioning resonated with local customers seeking reliable, established contractors.',
+        ],
+      },
+    },
+    technologies: ['WordPress', 'HomeAdvisor API', 'Local SEO', 'Conversion Optimization'],
+    featured: false,
+  },
+  {
+    slug: 'installation-nation',
+    title: 'Installation Nation',
+    image: '/images/case-studies/installation-nation.svg',
+    tagline: 'Marketing a 23-day outdoor art exhibition on 9.5 acres.',
+    category: ['Event Marketing', 'Branding'],
+    tags: ['Event Marketing', 'Branding', 'Sponsorship', 'Arts', 'Community'],
+    color: '#40E0D0',
+    icon: '🎨',
+    metrics: [
+      { label: 'Raised', value: '$46k' },
+      { label: 'Attendance', value: '10k+' },
+      { label: 'Sponsors', value: '15+' },
+    ],
+    challenge:
+      'Marketing a 23-day outdoor art exhibition on 9.5 acres required a multi-tier sponsorship strategy and complete event branding. The challenge was creating awareness and securing funding for a large-scale community arts event.',
+    strategy:
+      'Developed a multi-tier sponsorship strategy with clear value propositions for each level. Created complete event branding including logo, signage, promotional materials, and digital assets. Executed a comprehensive marketing campaign across print, digital, and community channels.',
+    impact:
+      'Successfully raised $46k in sponsorship funding and attracted 10,000+ attendees over the 23-day exhibition. The event became a signature community arts experience and established a template for future installations.',
+    fullContent: {
+      challenge: {
+        paragraphs: [
+          'Marketing a 23-day outdoor art exhibition on 9.5 acres required a multi-tier sponsorship strategy and complete event branding. The challenge was creating awareness and securing funding for a large-scale community arts event.',
+        ],
+      },
+      strategy: {
+        paragraphs: [
+          'Developed a multi-tier sponsorship strategy with clear value propositions for each level. Created complete event branding including logo, signage, promotional materials, and digital assets. Executed a comprehensive marketing campaign across print, digital, and community channels.',
+        ],
+      },
+      impact: {
+        paragraphs: [
+          'Successfully raised $46k in sponsorship funding and attracted 10,000+ attendees over the 23-day exhibition. The event became a signature community arts experience and established a template for future installations.',
+        ],
+      },
+    },
+    technologies: ['Event Branding', 'Sponsorship Strategy', 'Print Design', 'Digital Marketing'],
+    featured: false,
   },
 ];
 

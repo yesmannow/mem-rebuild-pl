@@ -1,771 +1,384 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import {
-  Download,
-  Mail,
-  ExternalLink,
-  Users,
-  TrendingUp,
-  Zap,
-  Shield,
-  ChevronLeft,
-  ChevronRight,
-  Filter,
-  Calendar,
-  MapPin,
-  Building2,
-  Award,
-  Code,
-  GraduationCap,
-  Quote,
-} from 'lucide-react';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import AnchorNav from '../components/navigation/AnchorNav';
-import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
-import resumeData from '../data/resume.json';
-import '../styles/bearcave-brand.css';
-import './Resume.css';
+import { Download, ExternalLink, ArrowRight } from 'lucide-react';
+import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
+import TechProfile from '../components/TechProfile';
+import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
+import SkillsRadar from '../components/ui/SkillsRadar';
+import AnimatedCounter from '../components/animations/AnimatedCounter';
+import InteractiveSkillMatrix from '../components/ui/InteractiveSkillMatrix';
+import AchievementUnlocks from '../components/ui/AchievementUnlocks';
+import LiveMetricsDashboard from '../components/ui/LiveMetricsDashboard';
 
-gsap.registerPlugin(ScrollTrigger);
+// Resume data structure
+interface ExperienceItem {
+  company: string;
+  role: string;
+  dates: string;
+  location: string;
+  summary: string;
+  achievements: string[];
+  relatedCaseStudyId?: string;
+}
+
+const experience: ExperienceItem[] = [
+  {
+    company: 'Graston Technique®',
+    role: 'Marketing Director & System Architect',
+    dates: '2023 – Present',
+    location: 'Indianapolis, IN',
+    summary:
+      'Full-stack marketing leadership. Led a complete digital transformation, reducing support tickets by 70% via AI and increasing conversions by 40% through checkout innovation.',
+    achievements: [
+      'Reduced support tickets 70% via AI-powered assistant',
+      'Built 400+ CRM automations connecting LearnDash, WooCommerce, and FluentCRM',
+      'Architected provider directory with automated onboarding and revenue engine',
+      'Optimized site performance with Cloudflare, LiteSpeed, and server-level tuning',
+    ],
+    relatedCaseStudyId: 'the-launchpad',
+  },
+  {
+    company: 'Ultimate Technologies Group',
+    role: 'Interim Director of Marketing',
+    dates: '2023',
+    location: 'Fishers, IN',
+    summary:
+      'Stabilized operations during transition. Streamlined lead generation workflows resulting in a 40% improvement in campaign production timelines.',
+    achievements: [
+      'Stabilized marketing operations during organizational transition',
+      '40% faster campaign production through workflow optimization',
+      'Improved Google Ads performance and lead quality',
+      'Maintained brand consistency across all channels',
+    ],
+    relatedCaseStudyId: 'the-compass',
+  },
+  {
+    company: 'Riley Bennett Egloff, LLP',
+    role: 'Marketing Manager',
+    dates: '2015 – 2023',
+    location: 'Indianapolis, IN',
+    summary:
+      'Managed digital rebrand and SEO overhaul leading to a 35% increase in qualified client inquiries.',
+    achievements: [
+      '35% increase in qualified inquiries via SEO overhaul',
+      'Led complete digital rebrand and website redesign',
+      'Implemented marketing automation and CRM integration',
+      'Managed content strategy and social media presence',
+    ],
+    relatedCaseStudyId: 'the-fortress',
+  },
+];
+
+const education = [
+  {
+    degree: 'B.S. Business Administration',
+    institution: 'Indiana University',
+    year: '2009',
+  },
+];
 
 const Resume: React.FC = () => {
-  const [activeSkillFilter, setActiveSkillFilter] = useState<string | null>(null);
-  const [showreelIndex, setShowreelIndex] = useState(0);
-  const [testimonialIndex, setTestimonialIndex] = useState(0);
-  const [activeYear, setActiveYear] = useState<string | null>(null);
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const heroRef = useRef<HTMLDivElement>(null);
-
-  const {
-    name,
-    title,
-    intro,
-    tagline,
-    chips,
-    contact,
-    links,
-    experience,
-    skills,
-    tools,
-    education,
-    communityLeadership,
-    stats,
-    metrics,
-    testimonials,
-    awards,
-    showreel,
-    executiveSummary,
-    volunteerExperience,
-  } = resumeData;
-
-  // Extract unique years from experience
-  const years = Array.from(
-    new Set(
-      experience
-        .map(exp => {
-          const match = exp.dates.match(/\d{4}/);
-          return match ? match[0] : null;
-        })
-        .filter((year): year is string => year !== null)
-    )
-  ).sort((a, b) => parseInt(b) - parseInt(a));
-
-  // Group skills by category
-  const skillCategories: { [key: string]: string[] } = {
-    Automation: skills.filter(
-      s => s.toLowerCase().includes('automation') || s.toLowerCase().includes('crm')
-    ),
-    Analytics: skills.filter(
-      s =>
-        s.toLowerCase().includes('analytics') ||
-        s.toLowerCase().includes('data') ||
-        s.toLowerCase().includes('attribution')
-    ),
-    Development: skills.filter(
-      s =>
-        s.toLowerCase().includes('development') ||
-        s.toLowerCase().includes('code') ||
-        s.toLowerCase().includes('javascript') ||
-        s.toLowerCase().includes('react')
-    ),
-    Strategy: skills.filter(
-      s =>
-        s.toLowerCase().includes('strategy') ||
-        s.toLowerCase().includes('leadership') ||
-        s.toLowerCase().includes('brand')
-    ),
-    Tools: tools,
-  };
-
-  // GSAP Scroll Animations
-  useEffect(() => {
-    const sections = gsap.utils.toArray('.resume-section');
-
-    sections.forEach((section: any) => {
-      gsap.fromTo(
-        section,
-        { opacity: 0, y: 60 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      );
-    });
-
-    // Timeline year tracking
-    if (timelineRef.current) {
-      experience.forEach((exp, index) => {
-        const element = document.getElementById(`experience-${index}`);
-        if (element) {
-          ScrollTrigger.create({
-            trigger: element,
-            start: 'top center',
-            end: 'bottom center',
-            onEnter: () => {
-              const match = exp.dates.match(/\d{4}/);
-              if (match && match[0]) setActiveYear(match[0]);
-            },
-            onEnterBack: () => {
-              const match = exp.dates.match(/\d{4}/);
-              if (match && match[0]) setActiveYear(match[0]);
-            },
-          });
-        }
-      });
-    }
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) => trigger.kill());
-    };
-  }, [experience]);
-
-  // Auto-advance showreel
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setShowreelIndex(prev => (prev + 1) % showreel.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [showreel.length]);
-
-  // Auto-advance testimonials
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTestimonialIndex(prev => (prev + 1) % testimonials.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
+  const [hoveredRole, setHoveredRole] = useState<string | null>(null);
 
   const handleDownloadPDF = () => {
-    window.print();
+    // Open PDF in new tab or trigger download
+    window.open('/resume.pdf', '_blank');
   };
-
-  const handlePrint = () => {
-    window.print();
-  };
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'users':
-        return <Users size={24} />;
-      case 'trending':
-        return <TrendingUp size={24} />;
-      case 'zap':
-        return <Zap size={24} />;
-      case 'shield':
-        return <Shield size={24} />;
-      default:
-        return null;
-    }
-  };
-
-  const anchorItems = [
-    { id: 'executive-summary', label: 'Summary' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'testimonials', label: 'Testimonials' },
-    { id: 'volunteer', label: 'Volunteer' },
-    { id: 'education', label: 'Education' },
-  ];
 
   return (
     <>
       <Helmet>
-        <title>{name} - Resume | BearCave Marketing</title>
-        <meta name="description" content={`${title}. ${intro}`} />
-        <meta property="og:title" content={`${name} - Resume`} />
-        <meta property="og:description" content={intro} />
-        <meta property="og:type" content="profile" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Person',
-            name: name,
-            jobTitle: title,
-            url: links.website,
-            sameAs: [links.linkedin, links.github],
-            email: links.email,
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: contact.location,
-            },
-          })}
-        </script>
+        <title>Jacob Darling - Resume | BearCave Marketing</title>
+        <meta
+          name="description"
+          content="Marketing Director & System Architect with 15+ years of experience building revenue-driving marketing infrastructure."
+        />
       </Helmet>
 
-      <main className="resume-page relative" id="resume-main">
-        <OceanBackgroundBeams className="opacity-20" />
-        <AnchorNav anchors={anchorItems} />
-        {/* Skip to content link */}
-        <a href="#resume-content" className="skip-link">
-          Skip to content
-        </a>
-
-        {/* Hero Section */}
-        <section className="hero resume-hero relative z-10" ref={heroRef} id="resume-hero">
-          {/* Tech Background */}
-          <div className="hero-bg">
-            <div className="tech-grid" />
-            <div className="gradient-overlay" />
-          </div>
-
-          <div className="hero-content" id="resume-content">
-            <motion.h1
-              className="hero-tagline"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+      <OceanAuroraBackground>
+        <main className="min-h-screen relative z-10">
+          {/* Holographic Header */}
+          <section className="relative min-h-[60vh] flex flex-col items-center justify-center pt-24 pb-12 px-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
+              className="mb-8"
             >
-              {name}
-            </motion.h1>
+              <TechProfile size="lg" />
+            </motion.div>
 
-            <motion.p
-              className="hero-subtitle"
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-5xl md:text-6xl font-bold text-brand-text text-center mb-4"
             >
-              {title}
-            </motion.p>
+              Jacob Darling
+            </motion.h1>
 
             <motion.p
-              className="hero-tagline-text"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="text-xl md:text-2xl text-brand-muted text-center mb-12"
+            >
+              Marketing Director & System Architect
+            </motion.p>
+
+            {/* Live Stats */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
+              className="flex flex-wrap justify-center gap-8 md:gap-12"
             >
-              {tagline}
-            </motion.p>
-
-            {/* Chips */}
-            <motion.div
-              className="hero-chips"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-            >
-              {chips.map((chip, index) => (
-                <span key={index} className="chip">
-                  {chip}
-                </span>
-              ))}
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div
-              className="hero-ctas"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
-            >
-              <button
-                className="btn-primary"
-                onClick={handleDownloadPDF}
-                aria-label="Download PDF resume"
-              >
-                <Download size={20} />
-                Download PDF
-              </button>
-              <Link to="/contact" className="btn-secondary">
-                <Mail size={20} />
-                Contact Me
-              </Link>
-            </motion.div>
-          </div>
-
-          {/* Animated Metrics Row */}
-          <motion.div
-            className="hero-metrics"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.8 }}
-          >
-            {metrics.map((metric, index) => (
-              <motion.div
-                key={index}
-                className="metric-card"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.2 + index * 0.1, duration: 0.5 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-              >
-                <div className="metric-icon">{getIcon(metric.icon)}</div>
-                <div className="metric-value">{metric.value}</div>
-                <div className="metric-label">{metric.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </section>
-
-        {/* Executive Summary Section */}
-        {executiveSummary && (
-          <section className="resume-section executive-summary-section section-style-1" id="executive-summary">
-            <div className="container">
-              <div className="section-header-wrapper">
-                <h2 className="section-heading">Executive Summary</h2>
-                <div className="section-divider"></div>
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-brand-teal mb-2">
+                  <AnimatedCounter end={15} suffix="+" />
+                </div>
+                <div className="text-sm text-brand-muted uppercase tracking-wide">Years Experience</div>
               </div>
-              <div className="executive-summary-content">
-                <p className="executive-summary-text">{executiveSummary}</p>
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-brand-teal mb-2">
+                  <AnimatedCounter end={30} suffix="k+" />
+                </div>
+                <div className="text-sm text-brand-muted uppercase tracking-wide">Users Served</div>
               </div>
-            </div>
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-brand-teal mb-2">
+                  <AnimatedCounter end={400} suffix="+" />
+                </div>
+                <div className="text-sm text-brand-muted uppercase tracking-wide">Automations</div>
+              </div>
+            </motion.div>
           </section>
-        )}
 
-        {/* Experience Timeline */}
-        <section className="resume-section experience-timeline-section section-style-2" id="experience">
-          <div className="container">
-            <h2 className="section-heading">Career Journey</h2>
-            <p className="section-subheading">
-              A progression through strategic growth, technical innovation, and transformative
-              leadership
-            </p>
+          {/* Evidence-Based Timeline */}
+          <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-bold text-brand-text mb-12 text-center"
+            >
+              Career Journey
+            </motion.h2>
 
-            <div className="timeline-wrapper" ref={timelineRef}>
-              {/* Sticky Year Rail */}
-              <div className="timeline-rail">
-                {years.map(year => (
-                  <button
-                    key={year}
-                    className={`year-marker ${activeYear === year ? 'active' : ''}`}
-                    onClick={() => {
-                      const expIndex = experience.findIndex(exp => exp.dates.includes(year));
-                      if (expIndex !== -1) {
-                        scrollToSection(`experience-${expIndex}`);
-                      }
-                    }}
-                    aria-label={`Jump to ${year}`}
-                  >
-                    {year}
-                  </button>
-                ))}
-              </div>
-
-              {/* Experience Cards */}
-              <div className="timeline-cards">
-                {experience.map((exp, index) => (
-                  <motion.div
-                    key={index}
-                    id={`experience-${index}`}
-                    className="card experience-card"
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+            <div className="space-y-12 border-l-2 border-brand-teal/20 pl-8 ml-4">
+              {experience.map((exp, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  className="relative"
+                  onMouseEnter={() => setHoveredRole(exp.company)}
+                  onMouseLeave={() => setHoveredRole(null)}
+                >
+                  {/* Timeline dot */}
+                  <motion.span
+                    className={`absolute -left-[41px] top-2 w-5 h-5 rounded-full border-4 border-brand-dark ${
+                      index === 0 ? 'bg-brand-teal' : 'bg-brand-surface'
+                    }`}
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: index * 0.1 + 0.2, type: 'spring' }}
+                  />
+
+                  <motion.div
+                    className={`bg-brand-surface/50 border border-brand-teal/20 rounded-xl p-6 backdrop-blur-sm transition-all duration-300 ${
+                      hoveredRole === exp.company ? 'scale-105 border-brand-teal/40 shadow-lg' : ''
+                    }`}
                   >
-                    <div className="experience-header">
-                      <div>
-                        <h3 className="experience-role">{exp.role}</h3>
-                        <div className="experience-company">
-                          <Building2 size={18} />
-                          <span>{exp.company}</span>
-                        </div>
-                      </div>
-                      <div className="experience-meta">
-                        <div className="experience-date">
-                          <Calendar size={16} />
-                          <span>{exp.dates}</span>
-                        </div>
-                        <div className="experience-location">
-                          <MapPin size={16} />
-                          <span>{exp.location}</span>
-                        </div>
-                      </div>
+                    <div className="mb-4">
+                      <div className="font-mono text-sm text-brand-teal mb-2">{exp.dates}</div>
+                      <h3 className="text-2xl font-bold text-brand-text mb-1">{exp.role}</h3>
+                      <div className="text-lg font-medium text-brand-orange mb-2">{exp.company}</div>
+                      <div className="text-sm text-brand-muted">{exp.location}</div>
                     </div>
 
-                    <p className="experience-summary">{exp.summary}</p>
+                    <p className="text-brand-muted mb-4">{exp.summary}</p>
 
-                    {/* Impact Chips */}
-                    <div className="impact-chips">
-                      {exp.achievements.slice(0, 3).map((achievement, idx) => {
-                        const match = achievement.match(/(\d+%|\d+K\+|\$\d+[KM]?)/);
-                        if (match) {
-                          return (
-                            <span key={idx} className="chip impact-chip">
-                              {match[1]}
+                    <ul className="space-y-2 mb-4">
+                      {exp.achievements.map((achievement, idx) => {
+                        // Check if achievement mentions a case study
+                        const hasCaseStudy = exp.relatedCaseStudyId && idx === 0;
+
+                        return (
+                          <li key={idx} className="text-brand-muted flex items-start gap-2">
+                            <span className="text-brand-teal mt-1">▸</span>
+                            <span>
+                              {achievement}
+                              {hasCaseStudy && (
+                                <Link
+                                  to={`/case-studies/${exp.relatedCaseStudyId}`}
+                                  className="ml-2 inline-flex items-center gap-1 px-2 py-1 bg-brand-teal/10 border border-brand-teal/30 rounded text-brand-teal text-xs font-medium hover:bg-brand-teal/20 transition-all"
+                                >
+                                  View Proof
+                                  <ExternalLink size={12} />
+                                </Link>
+                              )}
                             </span>
-                          );
-                        }
-                        return null;
+                          </li>
+                        );
                       })}
-                    </div>
-
-                    {/* Achievements (expandable) */}
-                    <details className="achievements-details">
-                      <summary className="achievements-summary">
-                        <Award size={18} />
-                        Key Achievements ({exp.achievements.length})
-                      </summary>
-                      <ul className="achievements-list">
-                        {exp.achievements.map((achievement, idx) => (
-                          <li key={idx}>{achievement}</li>
-                        ))}
-                      </ul>
-                    </details>
-
-                    {/* Technologies */}
-                    {exp.technologies && (
-                      <div className="technologies">
-                        <Code size={18} />
-                        <div className="tech-chips">
-                          {exp.technologies.map((tech, idx) => (
-                            <span key={idx} className="chip">
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                    </ul>
                   </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Skills Matrix */}
-        <section className="resume-section skills-section section-style-3" id="skills">
-          <div className="container">
-            <h2 className="section-heading">Skills & Expertise</h2>
-            <p className="section-subheading">
-              A comprehensive toolkit spanning strategy, development, and automation
-            </p>
-
-            {/* Filter Toggles */}
-            <div className="skill-filters">
-              <button
-                className={`chip filter-chip ${activeSkillFilter === null ? 'active' : ''}`}
-                onClick={() => setActiveSkillFilter(null)}
-              >
-                <Filter size={16} />
-                All Skills
-              </button>
-              {Object.keys(skillCategories).map(category => (
-                <button
-                  key={category}
-                  className={`chip filter-chip ${activeSkillFilter === category ? 'active' : ''}`}
-                  onClick={() => setActiveSkillFilter(category)}
-                >
-                  {category}
-                </button>
+                </motion.div>
               ))}
             </div>
+          </section>
 
-            {/* Skills Grid */}
-            <div className="skills-grid">
-              {Object.entries(skillCategories).map(([category, items]) => {
-                if (activeSkillFilter && activeSkillFilter !== category) return null;
-                if (items.length === 0) return null;
+          {/* Skills Visualization */}
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-24">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-6">
+                  Hybrid Skillset
+                </h2>
+                <p className="text-brand-muted text-lg mb-6">
+                  The radar chart below visualizes my unique combination of strategic CMO-level thinking
+                  and hands-on technical execution. This hybrid approach is what makes me a "Unicorn"
+                  hire—able to bridge the gap between creative vision and technical implementation.
+                </p>
+                <p className="text-brand-muted">
+                  Unlike traditional marketers who rely on agencies, or developers who lack business
+                  acumen, I operate across all six dimensions: Strategy, Analytics, Engineering,
+                  Creative, Leadership, and Automation.
+                </p>
+              </motion.div>
 
-                return (
-                  <motion.div
-                    key={category}
-                    className="skill-category"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                  >
-                    <h3 className="skill-category-title">{category}</h3>
-                    <div className="skill-items">
-                      {items.map((skill, idx) => (
-                        <motion.span
-                          key={idx}
-                          className="chip skill-chip"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: idx * 0.05 }}
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          {skill}
-                        </motion.span>
-                      ))}
-                    </div>
-                  </motion.div>
-                );
-              })}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <SkillsRadar showLegend={true} showTooltip={true} />
+              </motion.div>
             </div>
-          </div>
-        </section>
 
-        {/* Showreel Carousel */}
-        {showreel && showreel.length > 0 && (
-          <section className="resume-section showreel-section section-style-1" id="showreel">
-            <div className="container">
-              <h2 className="section-heading">Featured Work</h2>
-              <p className="section-subheading">
-                A showcase of campaigns, dashboards, and systems I've built
+            {/* Interactive Skill Matrix */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-24"
+            >
+              <InteractiveSkillMatrix />
+            </motion.div>
+
+            {/* Achievement Unlocks */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-24"
+            >
+              <AchievementUnlocks />
+            </motion.div>
+
+            {/* Live Metrics Dashboard */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <LiveMetricsDashboard />
+            </motion.div>
+          </section>
+
+          {/* Education */}
+          <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-bold text-brand-text mb-12 text-center"
+            >
+              Education
+            </motion.h2>
+
+            <div className="space-y-6">
+              {education.map((edu, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-brand-surface/50 border border-brand-teal/20 rounded-xl p-6 backdrop-blur-sm"
+                >
+                  <h3 className="text-xl font-bold text-brand-text mb-2">{edu.degree}</h3>
+                  <div className="text-brand-orange font-medium mb-1">{edu.institution}</div>
+                  <div className="text-brand-muted">{edu.year}</div>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+
+          {/* CTA Section */}
+          <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-brand-surface/50 border border-brand-teal/20 rounded-2xl p-12 text-center backdrop-blur-sm"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">
+                Let's Build Your Growth Engine
+              </h2>
+              <p className="text-brand-muted text-lg mb-8">
+                Ready to transform your marketing systems? Let's discuss how I can help.
               </p>
-
-              <div className="showreel-carousel">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={showreelIndex}
-                    className="showreel-slide"
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -100 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <img
-                      src={showreel[showreelIndex].src}
-                      alt={showreel[showreelIndex].title}
-                      loading="lazy"
-                    />
-                    <div className="showreel-info">
-                      <h3>{showreel[showreelIndex].title}</h3>
-                      <p>{showreel[showreelIndex].description}</p>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-
-                {/* Navigation */}
-                <button
-                  className="carousel-nav prev"
-                  onClick={() =>
-                    setShowreelIndex(prev => (prev - 1 + showreel.length) % showreel.length)
-                  }
-                  aria-label="Previous slide"
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link
+                  to="/contact"
+                  className="px-6 py-3 bg-brand-teal text-brand-dark font-semibold rounded-lg hover:bg-brand-teal/90 transition-all flex items-center gap-2"
                 >
-                  <ChevronLeft size={24} />
-                </button>
-                <button
-                  className="carousel-nav next"
-                  onClick={() => setShowreelIndex(prev => (prev + 1) % showreel.length)}
-                  aria-label="Next slide"
+                  Start a Conversation
+                  <ArrowRight size={20} />
+                </Link>
+                <Link
+                  to="/case-studies"
+                  className="px-6 py-3 bg-brand-surface border border-brand-teal/30 text-brand-text font-semibold rounded-lg hover:border-brand-teal/50 transition-all"
                 >
-                  <ChevronRight size={24} />
-                </button>
-
-                {/* Indicators */}
-                <div className="carousel-indicators">
-                  {showreel.map((_, idx) => (
-                    <button
-                      key={idx}
-                      className={`indicator ${idx === showreelIndex ? 'active' : ''}`}
-                      onClick={() => setShowreelIndex(idx)}
-                      aria-label={`Go to slide ${idx + 1}`}
-                    />
-                  ))}
-                </div>
+                  View Case Studies
+                </Link>
               </div>
-            </div>
+            </motion.div>
           </section>
-        )}
+        </main>
 
-        {/* Testimonials + Metrics Panel */}
-        <section className="resume-section testimonials-section section-style-2" id="testimonials">
-          <div className="container">
-            <div className="testimonials-metrics-grid">
-              {/* Testimonials */}
-              <div className="testimonials-panel">
-                <h2 className="section-heading">What Colleagues Say</h2>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={testimonialIndex}
-                    className="testimonial-card"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <Quote size={32} className="quote-icon" />
-                    <p className="testimonial-quote">"{testimonials[testimonialIndex].quote}"</p>
-                    <div className="testimonial-author">
-                      <div>
-                        <h4>{testimonials[testimonialIndex].name}</h4>
-                        <p>{testimonials[testimonialIndex].role}</p>
-                        {testimonials[testimonialIndex].company && (
-                          <p className="testimonial-company">
-                            {testimonials[testimonialIndex].company}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-
-                {/* Testimonial Navigation */}
-                <div className="testimonial-nav">
-                  {testimonials.map((_, idx) => (
-                    <button
-                      key={idx}
-                      className={`testimonial-dot ${idx === testimonialIndex ? 'active' : ''}`}
-                      onClick={() => setTestimonialIndex(idx)}
-                      aria-label={`View testimonial ${idx + 1}`}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              {/* Metrics Panel */}
-              <div className="metrics-panel">
-                <h2 className="section-heading">Impact Metrics</h2>
-                <div className="metrics-grid">
-                  {metrics.map((metric, idx) => (
-                    <motion.div
-                      key={idx}
-                      className="metric-card"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.1 }}
-                      whileHover={{ scale: 1.05, y: -5 }}
-                    >
-                      <div className="metric-icon">{getIcon(metric.icon)}</div>
-                      <div className="metric-value">{metric.value}</div>
-                      <div className="metric-label">{metric.label}</div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Volunteer Experience */}
-        {volunteerExperience && volunteerExperience.length > 0 && (
-          <section className="resume-section volunteer-section section-style-3" id="volunteer">
-            <div className="container">
-              <div className="section-header-wrapper">
-                <h2 className="section-heading">
-                  <Users size={32} />
-                  Volunteer Experience
-                </h2>
-                <div className="section-divider"></div>
-              </div>
-              <div className="volunteer-grid">
-                {volunteerExperience.map((volunteer, idx) => (
-                  <motion.div
-                    key={idx}
-                    className="card volunteer-card"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                  >
-                    <div className="volunteer-header">
-                      <h3 className="volunteer-role">{volunteer.role}</h3>
-                      <div className="volunteer-organization">{volunteer.organization}</div>
-                    </div>
-                    <div className="volunteer-date">
-                      <Calendar size={16} />
-                      <span>{volunteer.dates}</span>
-                    </div>
-                    <p className="volunteer-summary">{volunteer.summary}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Education & Awards */}
-        <section className="resume-section education-section section-style-1" id="education">
-          <div className="container">
-            <div className="education-awards-grid">
-              {/* Education */}
-              <div>
-                <h2 className="section-heading">
-                  <GraduationCap size={32} />
-                  Education
-                </h2>
-                {education.map((edu, idx) => (
-                  <motion.div
-                    key={idx}
-                    className="card education-card"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                  >
-                    <h3>{edu.degree}</h3>
-                    <p className="education-institution">{edu.institution}</p>
-                    <p className="education-year">{edu.year}</p>
-                    {edu.details && <p className="education-details">{edu.details}</p>}
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Awards */}
-              {awards && awards.length > 0 && (
-                <div>
-                  <h2 className="section-heading">
-                    <Award size={32} />
-                    Awards & Recognition
-                  </h2>
-                  {awards.map((award, idx) => (
-                    <motion.div
-                      key={idx}
-                      className="card award-card"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                    >
-                      <h3>{award.title}</h3>
-                      <p className="award-organization">{award.organization}</p>
-                      <p className="award-year">{award.year}</p>
-                      {award.description && (
-                        <p className="award-description">{award.description}</p>
-                      )}
-                    </motion.div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Banner */}
-        <section className="resume-section cta-banner-section section-style-2">
-          <div className="cta-banner">
-            <h2 className="cta-heading">Let's build your growth engine.</h2>
-            <div className="cta-buttons">
-              <Link to="/contact" className="btn-primary">
-                Work With Me
-              </Link>
-              <Link to="/case-studies" className="btn-secondary">
-                See My Work
-              </Link>
-            </div>
-          </div>
-        </section>
-      </main>
+        {/* Floating Download PDF Button */}
+        <motion.button
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          onClick={handleDownloadPDF}
+          className="fixed bottom-8 right-8 z-50 p-4 bg-brand-teal text-brand-dark rounded-full shadow-lg hover:bg-brand-teal/90 transition-all flex items-center gap-2 group"
+          aria-label="Download PDF Resume"
+        >
+          <Download size={24} />
+          <span className="hidden md:block font-semibold">Download PDF</span>
+        </motion.button>
+      </OceanAuroraBackground>
     </>
   );
 };
