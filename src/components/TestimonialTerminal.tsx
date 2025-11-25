@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { cn } from '../lib/utils';
+import { testimonials, getFeaturedTestimonials } from '../data/testimonials';
 
 export interface TestimonialLog {
   id: string;
@@ -11,25 +12,45 @@ export interface TestimonialLog {
 }
 
 interface TestimonialTerminalProps {
-  testimonials: TestimonialLog[];
+  testimonials?: TestimonialLog[];
   className?: string;
   autoPlay?: boolean;
   interval?: number;
+  useFeatured?: boolean;
 }
 
 const TestimonialTerminal: React.FC<TestimonialTerminalProps> = ({
-  testimonials,
+  testimonials: providedTestimonials,
   className,
   autoPlay = true,
   interval = 8000,
+  useFeatured = true,
 }) => {
+  // Use provided testimonials or fetch from data
+  const testimonialData = providedTestimonials || (useFeatured
+    ? getFeaturedTestimonials().map(t => ({
+        id: t.id,
+        quote: t.quote,
+        author: t.name,
+        role: t.role,
+        timestamp: t.date,
+      }))
+    : testimonials.map(t => ({
+        id: t.id,
+        quote: t.quote,
+        author: t.name,
+        role: t.role,
+        timestamp: t.date,
+      }))
+  );
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: '-100px' });
 
-  const currentTestimonial = testimonials[currentIndex];
+  const currentTestimonial = testimonialData[currentIndex];
 
   // Typewriter effect
   useEffect(() => {
@@ -61,7 +82,7 @@ const TestimonialTerminal: React.FC<TestimonialTerminalProps> = ({
     }, interval);
 
     return () => clearTimeout(timeout);
-  }, [isInView, autoPlay, interval, isTyping, testimonials.length]);
+  }, [isInView, autoPlay, interval, isTyping, testimonialData.length]);
 
   if (!isInView) {
     return <div ref={containerRef} className={cn('h-64', className)} />;
@@ -76,16 +97,30 @@ const TestimonialTerminal: React.FC<TestimonialTerminalProps> = ({
         className="bg-slate-950 rounded-lg border border-slate-800 overflow-hidden shadow-2xl"
       >
         {/* Terminal Header */}
-        <div className="flex items-center gap-2 px-4 py-3 bg-slate-900 border-b border-slate-800">
-          <div className="flex gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-500" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500" />
-            <div className="w-3 h-3 rounded-full bg-green-500" />
+        <div className="flex items-center gap-2 px-4 py-3 bg-slate-900 border-b border-slate-800 relative">
+          {/* Subtle glow on header */}
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-teal/0 via-brand-teal/5 to-brand-orange/0" />
+          <div className="flex gap-2 relative z-10">
+            <motion.div
+              className="w-3 h-3 rounded-full bg-red-500"
+              animate={{ opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <motion.div
+              className="w-3 h-3 rounded-full bg-yellow-500"
+              animate={{ opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity, delay: 0.2 }}
+            />
+            <motion.div
+              className="w-3 h-3 rounded-full bg-green-500"
+              animate={{ opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity, delay: 0.4 }}
+            />
           </div>
-          <div className="flex-1 text-center">
+          <div className="flex-1 text-center relative z-10">
             <span className="text-xs font-mono text-slate-400">testimonial.log</span>
           </div>
-          <div className="w-12" /> {/* Spacer for centering */}
+          <div className="w-12 relative z-10" /> {/* Spacer for centering */}
         </div>
 
         {/* Terminal Content */}
@@ -142,7 +177,7 @@ const TestimonialTerminal: React.FC<TestimonialTerminalProps> = ({
 
             {/* Progress indicator */}
             <div className="flex gap-1 mt-6">
-              {testimonials.map((_, index) => (
+              {testimonialData.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}

@@ -12,6 +12,16 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
+    id: 'jesse-wey',
+    name: 'Jesse Wey',
+    role: 'Web Development | IT | Marketing',
+    company: 'LinkedIn Recommendation',
+    quote: "Jacob brings energy, creativity, and execution. Rare mix of strategy and hands-on delivery.",
+    date: 'October 2025',
+    relationship: 'Worked together for over two decades',
+    featured: true,
+  },
+  {
     id: 'kevin-martin-see',
     name: 'Kevin Martin See',
     role: 'IBMer | Connector | Ally',

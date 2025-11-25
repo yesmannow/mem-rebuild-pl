@@ -7,6 +7,16 @@ import { BentoGrid, BentoCard } from '../components/ui/BentoGrid';
 import TechProfile from '../components/TechProfile';
 import { OceanMarquee, OceanMarqueeItem } from '../components/ui/OceanMarquee';
 import TestimonialTerminal from '../components/TestimonialTerminal';
+import ProcessFlow from '../components/ProcessFlow';
+import ServiceModules from '../components/ServiceModules';
+import ScrollProgress from '../components/ui/ScrollProgress';
+import AnimatedGradientText from '../components/ui/AnimatedGradientText';
+import MagneticCard from '../components/ui/MagneticCard';
+import FloatingParticles from '../components/ui/FloatingParticles';
+import GlowEffect from '../components/ui/GlowEffect';
+import ScrollIndicator from '../components/ui/ScrollIndicator';
+import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
+import SectionDivider from '../components/ui/SectionDivider';
 
 // Brand logos for trust section
 const brandLogos = [
@@ -44,10 +54,12 @@ const Home: React.FC = () => {
       className="bg-brand-dark"
       style={{ minHeight: '100vh', height: 'auto' }}
     >
+      <ScrollProgress />
       <div className="relative z-10 w-full min-h-screen flex flex-col">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center pt-24 pb-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto w-full text-center">
+        <section className="relative min-h-screen flex items-center justify-center pt-24 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+          <FloatingParticles count={30} />
+          <div className="max-w-7xl mx-auto w-full text-center relative z-10">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -55,9 +67,11 @@ const Home: React.FC = () => {
               className="text-5xl md:text-7xl font-bold text-brand-text leading-tight mb-6"
             >
               Building Marketing Engines That{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-brand-orange">
-                Scale Revenue.
-              </span>
+              <AnimatedGradientText
+                text="Scale Revenue."
+                className="text-5xl md:text-7xl font-bold"
+                delay={0.3}
+              />
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -69,16 +83,23 @@ const Home: React.FC = () => {
               <strong className="text-brand-text">CTO Execution</strong>. I don't just plan campaigns; I build the automated systems that run them.
             </motion.p>
           </div>
+          <ScrollIndicator />
         </section>
 
         {/* Bento Grid Section */}
         <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
           <BentoGrid className="mb-12">
             {/* Card 1: Latest Win (Large) */}
-            <BentoCard span="2" className="group cursor-pointer">
+            <BentoCard span="2" className="group cursor-pointer relative overflow-hidden">
+              {/* Animated glow on hover */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-brand-teal/0 via-brand-teal/0 to-brand-orange/0 group-hover:via-brand-teal/20 group-hover:to-brand-orange/20 transition-all duration-500 rounded-xl"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+              />
               <Link
                 to="/case-studies/the-launchpad"
-                className="block h-full flex flex-col justify-between"
+                className="block h-full flex flex-col justify-between relative z-10"
               >
                 <div>
                   <div className="flex items-center gap-2 mb-4">
@@ -97,7 +118,17 @@ const Home: React.FC = () => {
                 <div className="flex items-end justify-between">
                   <div>
                     <div className="text-6xl md:text-7xl font-bold text-brand-teal mb-2">
-                      +212%
+                      <motion.span
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, delay: 0.3 }}
+                      >
+                        +<OceanCountingNumber
+                          number={212}
+                          className="text-6xl md:text-7xl font-bold text-brand-teal"
+                          inView={true}
+                        />%
+                      </motion.span>
                     </div>
                     <p className="text-brand-muted">Qualified Leads</p>
                   </div>
@@ -107,17 +138,22 @@ const Home: React.FC = () => {
             </BentoCard>
 
             {/* Card 2: Tech Profile (Tall) */}
-            <BentoCard span="1" rowSpan="2" className="flex flex-col items-center justify-center">
+            <BentoCard span="1" rowSpan="2" className="flex flex-col items-center justify-center relative overflow-hidden group">
+              <GlowEffect intensity="low" color="teal" />
+              <div className="relative z-10">
               <div className="mb-4">
                 <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
                   Tech Profile
                 </span>
               </div>
               <TechProfile size="md" className="mx-auto" />
+              </div>
             </BentoCard>
 
             {/* Card 3: My Stack (Small) */}
-            <BentoCard span="1" className="flex flex-col">
+            <BentoCard span="1" className="flex flex-col relative overflow-hidden group">
+              <GlowEffect intensity="low" color="orange" />
+              <div className="relative z-10">
               <div className="mb-4">
                 <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
                   My Stack
@@ -140,10 +176,18 @@ const Home: React.FC = () => {
                   </motion.div>
                 ))}
               </div>
+              </div>
             </BentoCard>
 
             {/* Card 4: Philosophy (Wide) */}
-            <BentoCard span="2" className="flex flex-col justify-center">
+            <BentoCard span="2" className="flex flex-col justify-center relative overflow-hidden group">
+              {/* Animated glow */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-brand-teal/0 via-brand-orange/0 to-brand-teal/0 group-hover:via-brand-teal/15 group-hover:to-brand-orange/15 transition-all duration-500 rounded-xl"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+              />
+              <div className="relative z-10">
               <div className="mb-4">
                 <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
                   Philosophy
@@ -151,15 +195,28 @@ const Home: React.FC = () => {
               </div>
               <div className="space-y-4">
                 <h3 className="text-4xl md:text-5xl font-bold text-brand-text">
-                  Strategy. Systems. Shipping.
+                  <AnimatedGradientText text="Strategy. Systems. Shipping." delay={0.1} />
                 </h3>
                 <p className="text-brand-muted text-lg max-w-2xl">
                   Every marketing engine starts with strategy, gets built with systems, and delivers through consistent shipping. No hand-waving, no vanity metrics—just revenue that scales.
                 </p>
               </div>
+              </div>
             </BentoCard>
           </BentoGrid>
         </section>
+
+        <SectionDivider />
+
+        {/* Process Flow Section */}
+        <ProcessFlow />
+
+        <SectionDivider />
+
+        {/* Service Modules Section */}
+        <ServiceModules />
+
+        <SectionDivider />
 
         {/* Testimonials Section */}
         <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
@@ -174,15 +231,7 @@ const Home: React.FC = () => {
               System Logs
             </motion.h2>
             <TestimonialTerminal
-              testimonials={[
-                {
-                  id: 'jesse-wey',
-                  quote: "Jacob brings energy, creativity, and execution. Rare mix of strategy and hands-on delivery.",
-                  author: 'Jesse Wey',
-                  role: 'Web Development | IT | Marketing',
-                  timestamp: '2025-10-15',
-                },
-              ]}
+              useFeatured={true}
               autoPlay={true}
               interval={8000}
             />

@@ -203,6 +203,7 @@ function printUsage() {
       "  generate-titles Generate human-readable titles for gallery images",
       "  build-gallery  Build gallery datasets from image folders",
       "  generate-tech-icons Generate custom SVG icons for top technologies",
+      "  generate-concept-icons Generate concept icons (process, services, testimonials)",
       "  generate-inspiration Generate and validate inspiration projects data",
       "  audit-score    Calculate unified Portfolio Health Score from all audits",
       "  generate-cybernetic-logo Generate cybernetic monogram logo with tech brackets",
@@ -220,6 +221,7 @@ function printUsage() {
       "  node scripts/mcp-cli.js build-gallery",
       "  node scripts/mcp-cli.js generate-titles",
       "  node scripts/mcp-cli.js generate-tech-icons",
+      "  node scripts/mcp-cli.js generate-concept-icons",
       "  node scripts/mcp-cli.js generate-inspiration",
       "  node scripts/mcp-cli.js audit-score",
     ].join("\n")
@@ -591,6 +593,35 @@ ${formattedMetrics}
         console.log("1. Icons have been generated in public/images/tech-icons/");
         console.log("2. Update src/pages/ToolsShowcase.tsx to include iconSrc in tool objects");
         console.log("3. Example: iconSrc: '/images/tech-icons/react.svg'");
+        console.log("=".repeat(70) + "\n");
+        break;
+      }
+      case "generate-concept-icons": {
+        // Generate concept icons (process, services, testimonials)
+        const conceptIconScript = path.join(__dirname, "generate-concept-icons.mjs");
+        if (!fs.existsSync(conceptIconScript)) {
+          console.error(`Error: generate-concept-icons.mjs not found at ${conceptIconScript}`);
+          process.exit(1);
+        }
+
+        if (dryRun) {
+          console.log(`[dry-run] Would generate concept icons using ${conceptIconScript}`);
+          console.log("  Process icons: audit, architect, automate, scale");
+          console.log("  Service icons: growth-os, content-api, data-link");
+          console.log("  Testimonial icon: terminal-user");
+          console.log("  Output: public/images/concepts/");
+          console.log("  Theme: Ocean Pearl (teal/orange gradients)");
+          break;
+        }
+
+        await runOrEcho("node", [conceptIconScript, ...passthroughArgs]);
+
+        console.log("\n" + "=".repeat(70));
+        console.log("📝 Next Steps:");
+        console.log("=".repeat(70));
+        console.log("1. Icons have been generated in public/images/concepts/");
+        console.log("2. Update src/data/process.ts, services.ts with iconSrc paths");
+        console.log("3. Example: iconSrc: '/images/concepts/audit.svg'");
         console.log("=".repeat(70) + "\n");
         break;
       }
