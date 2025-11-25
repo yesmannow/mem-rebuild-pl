@@ -10,11 +10,12 @@ import PullQuote from '@components/case-study/PullQuote';
 import CapabilitiesBadges from '@components/case-study/CapabilitiesBadges';
 import CaseStudyCTA from '@components/case-study/CTA';
 import PageLayout from '@components/layout/PageLayout';
+import SystemSchematic from '@components/case-studies/SystemSchematic';
 
 const TheConductorPage: React.FC = () => {
   const primaryStat = theConductor.outcomes.beforeAfter[0];
   const strategyContent = theConductor.strategy.map(s => `${s.title}: ${s.detail}`).join('\n\n');
-  const buildContent = theConductor.build.map(b => 
+  const buildContent = theConductor.build.map(b =>
     `${b.title}:\n${b.items.map(item => `  • ${item}`).join('\n')}`
   ).join('\n\n');
 
@@ -64,6 +65,11 @@ const TheConductorPage: React.FC = () => {
               primaryColor: theConductor.theme['--cs-primary'],
             }}
           />
+
+          {/* System Architecture Visualization */}
+          <section className="my-16">
+            <SystemSchematic />
+          </section>
 
           <OutcomesSection
             outcomes={{

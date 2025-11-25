@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
 import { ExternalLink, Calendar, Tag, Filter, Palette } from 'lucide-react';
 import sideProjectsData from '../data/side-projects-structured.json';
+import ProjectVault from '../components/ui/ProjectVault';
 
 // Try to derive a logo image from /images/side-projects when a project has no images
 const getFallbackLogoForSlug = (slug: string): string[] => {
@@ -25,6 +26,25 @@ const SideProjects: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const [activeFilter, setActiveFilter] = useState<string>('All');
+  const [useVaultLayout, setUseVaultLayout] = useState(true); // Toggle for new layout
+  const [scrapedData, setScrapedData] = useState<any>(null);
+
+  // Load scraped data if available
+  useEffect(() => {
+    const loadScrapedData = async () => {
+      try {
+        // Try to import scraped data (will fail gracefully if file doesn't exist)
+        const scraped = await import('../data/scraped-side-projects.json');
+        if (scraped.default) {
+          setScrapedData(scraped.default);
+        }
+      } catch (error) {
+        // Scraped data not available, use existing data
+        // This is expected if scraping hasn't been run yet
+      }
+    };
+    loadScrapedData();
+  }, []);
 
   useEffect(() => {
     // Hero parallax animation
@@ -98,17 +118,38 @@ const SideProjects: React.FC = () => {
     },
   };
 
+  // Merge scraped data with existing projects
+  const enrichedProjects = useMemo(() => {
+    if (!scrapedData || scrapedData.length === 0) {
+      return sideProjectsData.projects;
+    }
+
+    return sideProjectsData.projects.map(project => {
+      const scraped = scrapedData.find((s: any) => s.slug === project.slug);
+      if (scraped && scraped.success) {
+        return {
+          ...project,
+          images: scraped.screenshot ? [scraped.screenshot, ...(project.images || [])] : project.images,
+          techStack: scraped.techStack || project.techStack,
+          colors: scraped.colors || project.colors,
+        };
+      }
+      return project;
+    });
+  }, [scrapedData]);
+
   // Filter projects based on active filter
   const filteredProjects = useMemo(() => {
-    if (activeFilter === 'All') return sideProjectsData.projects;
+    const projects = enrichedProjects;
+    if (activeFilter === 'All') return projects;
     if (activeFilter === 'Logo Design')
-      return sideProjectsData.projects.filter(p => p.logoOnly === true);
-    return sideProjectsData.projects.filter(
-      p =>
-        p.category.toLowerCase().includes(activeFilter.toLowerCase()) ||
-        p.services.some(s => s.toLowerCase().includes(activeFilter.toLowerCase()))
+      return projects.filter((p: any) => p.logoOnly === true);
+    return projects.filter(
+      (p: any) =>
+        p.category?.toLowerCase().includes(activeFilter.toLowerCase()) ||
+        p.services?.some((s: string) => s.toLowerCase().includes(activeFilter.toLowerCase()))
     );
-  }, [activeFilter]);
+  }, [activeFilter, enrichedProjects]);
 
   // Get unique categories for filter buttons
   const categories = useMemo(() => {
@@ -221,7 +262,12 @@ const SideProjects: React.FC = () => {
             </div>
           </motion.div>
 
-        <div className="projects-grid grid gap-6 md:grid-cols-2 lg:grid-cols-3" ref={gridRef}>
+        {useVaultLayout ? (
+          <div ref={gridRef}>
+            <ProjectVault projects={filteredProjects} />
+          </div>
+        ) : (
+          <div className="projects-grid grid gap-6 md:grid-cols-2 lg:grid-cols-3" ref={gridRef}>
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -292,7 +338,8 @@ const SideProjects: React.FC = () => {
               </motion.div>
             ))}
           </div>
-        </div>
+        )}
+      </div>
       </section>
 
       {/* Call to Action */}

@@ -24,6 +24,7 @@
     "scrape:images": "node scripts/scrape-design-assets.js images",
     "scrape:design": "node scripts/scrape-design-assets.js design",
     "scrape:all": "node scripts/scrape-design-assets.js all",
+    "scrape:side-projects": "node scripts/scrape-side-projects.js",
     "scrape:lightroom:photography": "node scripts/scrape-design-assets.js images --url \"https://lightroom.adobe.com/shares/b1f8050aa3ac452baae9e3590e1c92c8\" --output public/images/photography --prefix photo",
     "scrape:lightroom:design": "node scripts/scrape-design-assets.js images --url \"https://lightroom.adobe.com/shares/f5ddb4cab0ca4bcc95b17fa13ab992bd\" --output public/images/design --prefix design",
     "scrape:lightroom:all": "npm run scrape:lightroom:photography && npm run scrape:lightroom:design",

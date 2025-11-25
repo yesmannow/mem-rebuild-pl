@@ -22,6 +22,7 @@ const ApplicationDetail = React.lazy(() => import('../pages/ApplicationDetail'))
 const Photography = React.lazy(() => import('../pages/Photography'));
 const Design = React.lazy(() => import('../pages/Design'));
 const GraphicDesign = React.lazy(() => import('../pages/GraphicDesign'));
+const Studio = React.lazy(() => import('../pages/Studio'));
 const Creative = React.lazy(() => import('../pages/Creative'));
 const SideProjects = React.lazy(() => import('../pages/SideProjects'));
 const SideProjectDetail = React.lazy(() => import('../pages/side-projects/SideProjectDetail'));
@@ -459,6 +460,15 @@ const AppRouter: React.FC = () => {
                 </PageTransition>
               }
             />
+            <Route
+              path="/studio"
+              element={
+                <PageTransition>
+                  <Studio />
+                </PageTransition>
+              }
+            />
+            {/* Legacy routes - kept for backward compatibility */}
             <Route
               path="/photography"
               element={

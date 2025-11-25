@@ -3,6 +3,9 @@ import { Helmet } from 'react-helmet-async';
 import { motion, useInView } from 'framer-motion';
 import { Briefcase, Code, Palette, TrendingUp, DollarSign, Target, Zap, Database, Globe, Type, Image, Video } from 'lucide-react';
 import SkillsRadar from '../components/ui/SkillsRadar';
+import TheAtlas from '../components/ui/TheAtlas';
+import ServiceModules from '../components/ServiceModules';
+import InteractiveProcessFlow from '../components/ui/InteractiveProcessFlow';
 
 const Services: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -171,6 +174,27 @@ const Services: React.FC = () => {
               </p>
             </motion.div>
             <SkillsRadar />
+          </div>
+        </section>
+
+        {/* Process Flow */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <InteractiveProcessFlow />
+          </div>
+        </section>
+
+        {/* Service Modules - Productized Services */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-dark/50">
+          <div className="max-w-7xl mx-auto">
+            <ServiceModules />
+          </div>
+        </section>
+
+        {/* The Atlas - Data Visualization */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <TheAtlas />
           </div>
         </section>
 

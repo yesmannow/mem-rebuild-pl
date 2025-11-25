@@ -1,0 +1,223 @@
+{
+  "photography": [
+    {
+      "src": "/images/photography/20240628_215608-2.jpg",
+      "alt": "Cinematic landscape photography with dramatic lighting",
+      "title": "Dramatic Landscape",
+      "category": "landscape",
+      "tags": ["landscape", "dramatic", "cinematic"],
+      "featured": true,
+      "exif": {
+        "iso": "400",
+        "aperture": "f/2.8",
+        "shutter": "1/1000s",
+        "camera": "Sony A7III",
+        "lens": "24-70mm f/2.8"
+      }
+    },
+    {
+      "src": "/images/photography/20240628_214922.jpg",
+      "alt": "Golden hour nature photography with warm tones",
+      "title": "Golden Hour",
+      "category": "nature",
+      "tags": ["nature", "golden-hour", "warm"],
+      "featured": true,
+      "exif": {
+        "iso": "200",
+        "aperture": "f/1.8",
+        "shutter": "1/500s",
+        "camera": "Sony A7III",
+        "lens": "85mm f/1.8"
+      }
+    },
+    {
+      "src": "/images/photography/IMG_20230707_235448_262~2.jpg",
+      "alt": "Artistic portrait photography with creative lighting",
+      "title": "Portrait Study",
+      "category": "portrait",
+      "tags": ["portrait", "artistic", "lighting"],
+      "featured": true,
+      "exif": {
+        "iso": "800",
+        "aperture": "f/2.0",
+        "shutter": "1/125s",
+        "camera": "Sony A7III",
+        "lens": "50mm f/1.4"
+      }
+    },
+    {
+      "src": "/images/photography/20210907_113007~2.jpg",
+      "alt": "Professional outdoor photography with natural composition",
+      "title": "Outdoor Scene",
+      "category": "outdoor",
+      "tags": ["outdoor", "professional", "composition"],
+      "featured": false,
+      "exif": {
+        "iso": "100",
+        "aperture": "f/5.6",
+        "shutter": "1/250s",
+        "camera": "Sony A7III",
+        "lens": "24-70mm f/2.8"
+      }
+    },
+    {
+      "src": "/images/photography/20211024_075305~4.jpg",
+      "alt": "Morning light photography capturing serene moments",
+      "title": "Morning Light",
+      "category": "nature",
+      "tags": ["morning", "serene", "light"],
+      "featured": false,
+      "exif": {
+        "iso": "200",
+        "aperture": "f/4.0",
+        "shutter": "1/320s",
+        "camera": "Sony A7III",
+        "lens": "24-70mm f/2.8"
+      }
+    },
+    {
+      "src": "/images/photography/20210905_173133.jpg",
+      "alt": "Afternoon photography with natural depth of field",
+      "title": "Afternoon Depth",
+      "category": "outdoor",
+      "tags": ["afternoon", "depth-of-field", "natural"],
+      "featured": false,
+      "exif": {
+        "iso": "400",
+        "aperture": "f/1.8",
+        "shutter": "1/800s",
+        "camera": "Sony A7III",
+        "lens": "85mm f/1.8"
+      }
+    },
+    {
+      "src": "/images/photography/20240629_214210.jpg",
+      "alt": "Evening photography with moody atmosphere",
+      "title": "Moody Evening",
+      "category": "landscape",
+      "tags": ["evening", "moody", "atmosphere"],
+      "featured": false,
+      "exif": {
+        "iso": "1600",
+        "aperture": "f/2.8",
+        "shutter": "1/60s",
+        "camera": "Sony A7III",
+        "lens": "24-70mm f/2.8"
+      }
+    },
+    {
+      "src": "/images/photography/20220722_053113.jpg",
+      "alt": "Early morning photography with soft lighting",
+      "title": "Dawn Light",
+      "category": "nature",
+      "tags": ["dawn", "soft", "peaceful"],
+      "featured": false,
+      "exif": {
+        "iso": "100",
+        "aperture": "f/4.0",
+        "shutter": "1/200s",
+        "camera": "Sony A7III",
+        "lens": "24-70mm f/2.8"
+      }
+    },
+    {
+      "src": "/images/photography/20230528_105239~3.jpg",
+      "alt": "Midday photography with vibrant colors",
+      "title": "Vibrant Midday",
+      "category": "outdoor",
+      "tags": ["midday", "vibrant", "colors"],
+      "featured": false,
+      "exif": {
+        "iso": "200",
+        "aperture": "f/5.6",
+        "shutter": "1/400s",
+        "camera": "Sony A7III",
+        "lens": "24-70mm f/2.8"
+      }
+    }
+  ],
+  "design": [
+    {
+      "src": "/images/design/Adobe_Express_20220527_2105230.6071119382485303.png",
+      "alt": "Creative digital design with vibrant colors and modern typography",
+      "title": "Digital Art",
+      "category": "Digital Art",
+      "tags": ["digital", "creative", "vibrant", "typography"],
+      "featured": true,
+      "colors": ["#40E0D0", "#0F172A", "#FFA500", "#1E293B", "#F8FAFC"]
+    },
+    {
+      "src": "/images/design/file_00000000c524623091018296ba5b34a3.png",
+      "alt": "Professional graphic design with clean layout",
+      "title": "Clean Layout",
+      "category": "Graphic Design",
+      "tags": ["graphic", "professional", "clean", "layout"],
+      "featured": true,
+      "colors": ["#006D77", "#83C5BE", "#EDF6F9", "#E29578", "#FFDDD2"]
+    },
+    {
+      "src": "/images/design/file_000000009d0861f8a59c35ae82dde4b7 (1).png",
+      "alt": "Modern branding design with sophisticated color palette",
+      "title": "Brand Identity",
+      "category": "Branding",
+      "tags": ["branding", "modern", "sophisticated", "color-palette"],
+      "featured": true,
+      "colors": ["#1A1A1A", "#FFFFFF", "#40E0D0", "#FFA500", "#94A3B8"]
+    },
+    {
+      "src": "/images/design/file_0000000040d46230b3f420ddf8f917de.png",
+      "alt": "Contemporary design with bold visual elements",
+      "title": "Bold Contemporary",
+      "category": "Digital Art",
+      "tags": ["contemporary", "bold", "visual", "elements"],
+      "featured": false,
+      "colors": ["#000000", "#FF0000", "#FFFF00", "#0000FF", "#FFFFFF"]
+    },
+    {
+      "src": "/images/design/IMG_20220529_193948_726.jpg",
+      "alt": "Creative poster design with artistic typography",
+      "title": "Poster Design",
+      "category": "Print Design",
+      "tags": ["poster", "creative", "artistic", "typography"],
+      "featured": false,
+      "colors": ["#2C3E50", "#E74C3C", "#F39C12", "#3498DB", "#ECF0F1"]
+    },
+    {
+      "src": "/images/design/IMG_20220513_222748_444.jpg",
+      "alt": "Professional marketing design with strategic layout",
+      "title": "Marketing Design",
+      "category": "Marketing",
+      "tags": ["marketing", "professional", "strategic", "layout"],
+      "featured": false,
+      "colors": ["#1E293B", "#40E0D0", "#FFA500", "#F8FAFC", "#94A3B8"]
+    },
+    {
+      "src": "/images/design/IMG_20230617_015647_366.jpg",
+      "alt": "Brand identity design with cohesive visual system",
+      "title": "Visual System",
+      "category": "Branding",
+      "tags": ["identity", "brand", "cohesive", "system"],
+      "featured": false,
+      "colors": ["#006D77", "#83C5BE", "#EDF6F9", "#E29578", "#FFFFFF"]
+    },
+    {
+      "src": "/images/design/2021 Health Care Ad.png",
+      "alt": "Healthcare advertising design with clean medical aesthetic",
+      "title": "Healthcare Ad",
+      "category": "Advertising",
+      "tags": ["healthcare", "advertising", "clean", "medical"],
+      "featured": false,
+      "colors": ["#FFFFFF", "#0066CC", "#00CC66", "#CCCCCC", "#333333"]
+    },
+    {
+      "src": "/images/design/Herbs Rub Logo.png",
+      "alt": "Logo design for culinary brand with organic aesthetic",
+      "title": "Herbs Rub Logo",
+      "category": "Logo Design",
+      "tags": ["logo", "culinary", "organic", "brand"],
+      "featured": false,
+      "colors": ["#2D5016", "#6B8E23", "#8FBC8F", "#F5DEB3", "#FFFFFF"]
+    }
+  ]
+}
+
