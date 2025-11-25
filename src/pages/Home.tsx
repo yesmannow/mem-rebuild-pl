@@ -119,7 +119,7 @@ const Home: React.FC = () => {
                         <TrendingUp className="w-4 h-4 text-brand-teal" />
                       </div>
                       <div className="text-3xl lg:text-4xl font-bold text-brand-text">
-                        $<OceanCountingNumber value={12.5} decimals={1} suffix="M" />
+                        $<OceanCountingNumber number={12.5} decimalPlaces={1} suffix="M" />
                       </div>
                       <p className="text-sm text-brand-muted mt-1">Generated across systems</p>
                     </div>
@@ -129,7 +129,7 @@ const Home: React.FC = () => {
                         <TrendingUp className="w-4 h-4 text-brand-teal" />
                       </div>
                       <div className="text-3xl lg:text-4xl font-bold text-brand-text">
-                        <OceanCountingNumber value={47} />
+                        <OceanCountingNumber number={47} />
                       </div>
                       <p className="text-sm text-brand-muted mt-1">Marketing engines deployed</p>
                     </div>
@@ -139,7 +139,7 @@ const Home: React.FC = () => {
                         <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                       </div>
                       <div className="text-3xl lg:text-4xl font-bold text-brand-text">
-                        <OceanCountingNumber value={99.9} decimals={1} suffix="%" />
+                        <OceanCountingNumber number={99.9} decimalPlaces={1} suffix="%" />
                       </div>
                       <p className="text-sm text-brand-muted mt-1">System reliability</p>
                     </div>
