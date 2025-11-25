@@ -42,6 +42,36 @@ function printStep(step, message) {
 }
 
 /**
+ * Strip Adobe's security prefix and parse JSON response
+ * Adobe wraps JSON in "while (1) {}" to prevent JSON hijacking
+ */
+function parseAdobeResponse(data) {
+  // If data is already an object, return it
+  if (typeof data === 'object' && data !== null) {
+    return data;
+  }
+
+  // If data is a string, check for security prefix
+  if (typeof data === 'string') {
+    let cleanData = data;
+
+    // Strip the "while (1) {}" prefix if present
+    if (cleanData.trim().startsWith('while')) {
+      cleanData = cleanData.replace(/^while\s*\(1\)\s*\{\}\s*/, '');
+    }
+
+    // Parse the JSON
+    try {
+      return JSON.parse(cleanData);
+    } catch (error) {
+      throw new Error(`Failed to parse JSON response: ${error.message}`);
+    }
+  }
+
+  return data;
+}
+
+/**
  * Get access token from refresh token
  */
 async function getAccessToken(clientId, clientSecret, refreshToken) {
@@ -91,10 +121,15 @@ async function discoverCatalog(accessToken) {
         Authorization: `Bearer ${accessToken}`,
         'X-API-Key': process.env.ADOBE_CLIENT_ID,
       },
+      responseType: 'text', // Get raw response to handle security prefix
     });
 
-    const catalogId = response.data?.id || response.data?.catalog?.id;
+    // Handle Adobe's security prefix and parse JSON
+    const data = parseAdobeResponse(response.data);
+
+    const catalogId = data?.id || data?.catalog?.id;
     if (!catalogId) {
+      console.log('\nDEBUG: Adobe Catalog Response:', JSON.stringify(data, null, 2));
       throw new Error('No catalog ID found in response');
     }
 
@@ -128,10 +163,14 @@ async function fetchAssets(accessToken, catalogId, limit = 20) {
           limit,
           subtype: 'image',
         },
+        responseType: 'text', // Get raw response to handle security prefix
       }
     );
 
-    const assets = response.data?.resources || response.data?.assets || [];
+    // Handle Adobe's security prefix and parse JSON
+    const data = parseAdobeResponse(response.data);
+
+    const assets = data?.resources || data?.assets || [];
     printColor(`✓ Found ${assets.length} assets`, colors.green);
     return assets;
   } catch (error) {
@@ -160,14 +199,18 @@ async function getRenditionUrl(accessToken, catalogId, assetId, size = '2048') {
           'X-API-Key': process.env.ADOBE_CLIENT_ID,
           'Content-Type': 'application/json',
         },
+        responseType: 'text', // Get raw response to handle security prefix
       }
     );
 
+    // Handle Adobe's security prefix and parse JSON
+    const data = parseAdobeResponse(response.data);
+
     // The rendition URL might be in different places depending on API version
     const renditionUrl =
-      response.data?.resources?.[0]?.href ||
-      response.data?.href ||
-      response.data?.url;
+      data?.resources?.[0]?.href ||
+      data?.href ||
+      data?.url;
 
     if (!renditionUrl) {
       throw new Error('No rendition URL found in response');
