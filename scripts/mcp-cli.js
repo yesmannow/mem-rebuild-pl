@@ -210,6 +210,7 @@ function printUsage() {
       "  generate-cybernetic-logo Generate cybernetic monogram logo with tech brackets",
       "  generate-social-images Generate Open Graph social images for sharing",
       "  process-bio-assets Process and standardize bio photos for TechProfile component",
+      "  fetch-lightroom Fetch photos from Adobe Lightroom API and download locally",
       "",
       "Options:",
       "  --dry-run    Print what would run, but don't execute",
@@ -1070,6 +1071,16 @@ ${formattedMetrics}
         console.log("2. Blur placeholder generated for loading effect");
         console.log("3. TechProfile component can now use /images/profile-main.webp");
         console.log("=".repeat(70) + "\n");
+        break;
+      }
+      case "fetch-lightroom": {
+        // Fetch photos from Adobe Lightroom API
+        const fetchScript = path.join(__dirname, "fetch-lightroom.js");
+        if (!fs.existsSync(fetchScript)) {
+          console.error(`Error: fetch-lightroom.js not found at ${fetchScript}`);
+          process.exit(1);
+        }
+        await runOrEcho("node", [fetchScript, ...passthroughArgs]);
         break;
       }
       default:
