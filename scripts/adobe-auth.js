@@ -54,7 +54,7 @@ async function main() {
 
   // Step 2: Generate Authorization URL
   const redirectUri = 'https://localhost/';
-  const scopes = ['openid', 'offline_access', 'lr_partner_apis'].join(' ');
+  const scopes = 'openid,offline_access,lr_partner_apis';
   const state = Math.random().toString(36).substring(2, 15);
 
   const authUrl = new URL('https://ims-na1.adobelogin.com/ims/authorize/v2');
@@ -67,11 +67,14 @@ async function main() {
   console.log('\n' + '='.repeat(60));
   printColor('STEP 1: Authorization URL Generated', colors.bright);
   console.log('='.repeat(60));
-  console.log('\nCopy and paste this URL into your browser:\n');
+  console.log('\nFollow these steps:\n');
+  console.log('1. Copy and paste this URL into your browser:\n');
   printColor(authUrl.toString(), colors.cyan);
-  console.log('\nAfter logging in, you will be redirected to an error page.');
-  printColor('Copy the "code" parameter from the URL in your browser address bar.', colors.yellow);
-  console.log('Example: https://localhost/?code=ABC123&state=xyz\n');
+  console.log('\n2. Log in with your Adobe account.');
+  console.log('3. You will see a "Site Can\'t Be Reached" error (this is expected).');
+  printColor('4. Copy the "code=" value from the address bar in your browser.', colors.yellow);
+  console.log('\nExample URL: https://localhost/?code=ABC123XYZ&state=xyz');
+  console.log('Copy just the code value: ABC123XYZ\n');
 
   // Step 3: Get authorization code from user
   const authCode = await question('Paste the authorization code here: ');
@@ -89,7 +92,7 @@ async function main() {
 
   try {
     const tokenResponse = await axios.post(
-      'https://ims-na1.adobelogin.com/ims/token/v2',
+      'https://ims-na1.adobelogin.com/ims/token/v3',
       new URLSearchParams({
         grant_type: 'authorization_code',
         client_id: clientId,
