@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface TechProfileProps {
   className?: string;
@@ -13,7 +13,24 @@ const TechProfile: React.FC<TechProfileProps> = ({
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const [blurDataUri, setBlurDataUri] = useState<string | null>(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Scroll-linked animation for mobile
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'end start']
+  });
+
+  // Transform scroll progress into rotation values
+  const rotateX = useTransform(scrollYProgress, [0, 1], [5, -5]);
+  const rotateY = useTransform(scrollYProgress, [0, 1], [-5, 5]);
+
+  // Detect touch device
+  useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
 
   // Load blur data on mount
   useEffect(() => {
@@ -38,9 +55,9 @@ const TechProfile: React.FC<TechProfileProps> = ({
     }
   }, []);
 
-  // Handle mouse movement for 3D parallax effect
+  // Handle mouse movement for 3D parallax effect (desktop only)
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (!cardRef.current || isTouchDevice) return;
 
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -56,6 +73,7 @@ const TechProfile: React.FC<TechProfileProps> = ({
   };
 
   const handleMouseLeave = () => {
+    if (isTouchDevice) return;
     setMousePosition({ x: 0, y: 0 });
     setIsHovered(false);
   };
@@ -68,10 +86,11 @@ const TechProfile: React.FC<TechProfileProps> = ({
 
   return (
     <div
+      ref={containerRef}
       className={`relative ${sizeClasses[size]} ${className}`}
       style={{ perspective: '1000px' }}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
+      onMouseEnter={() => !isTouchDevice && setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
     >
       {/* 3D Card Container */}
@@ -80,8 +99,18 @@ const TechProfile: React.FC<TechProfileProps> = ({
         className="relative w-full h-full"
         style={{
           transformStyle: 'preserve-3d',
-          transform: `rotateX(${mousePosition.y}deg) rotateY(${mousePosition.x}deg)`,
-          transition: 'transform 0.1s ease-out',
+          ...(isTouchDevice
+            ? {
+                // Mobile: Use scroll-linked animation
+                rotateX,
+                rotateY,
+              }
+            : {
+                // Desktop: Use mouse position
+                transform: `rotateX(${mousePosition.y}deg) rotateY(${mousePosition.x}deg)`,
+                transition: 'transform 0.1s ease-out',
+              }
+          ),
         }}
       >
         {/* Pulsing Glow Background */}
@@ -92,8 +121,8 @@ const TechProfile: React.FC<TechProfileProps> = ({
             filter: 'blur(20px)',
           }}
           animate={{
-            opacity: isHovered ? [0.5, 0.8, 0.5] : [0.3, 0.5, 0.3],
-            scale: isHovered ? [1, 1.1, 1] : [1, 1.05, 1],
+            opacity: (isHovered || isTouchDevice) ? [0.5, 0.8, 0.5] : [0.3, 0.5, 0.3],
+            scale: (isHovered || isTouchDevice) ? [1, 1.1, 1] : [1, 1.05, 1],
           }}
           transition={{
             duration: 2,
@@ -122,7 +151,7 @@ const TechProfile: React.FC<TechProfileProps> = ({
               alt="Jacob Darling - Marketing Technologist"
               className="absolute inset-0 w-full h-full object-cover"
               style={{
-                filter: isHovered ? 'grayscale(0%)' : 'grayscale(100%)',
+                filter: (isHovered || isTouchDevice) ? 'grayscale(0%)' : 'grayscale(100%)',
                 transition: 'filter 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
               }}
               initial={{ opacity: 0 }}
@@ -156,11 +185,11 @@ const TechProfile: React.FC<TechProfileProps> = ({
               }}
             />
 
-            {/* Data HUD Overlay (appears on hover) */}
+            {/* Data HUD Overlay (appears on hover or always visible on mobile) */}
             <motion.div
               className="absolute inset-0 pointer-events-none"
               initial={{ opacity: 0 }}
-              animate={{ opacity: isHovered ? 1 : 0 }}
+              animate={{ opacity: (isHovered || isTouchDevice) ? 1 : 0 }}
               transition={{ duration: 0.3 }}
             >
               {/* Corner Brackets - Using divs for better control */}
@@ -226,8 +255,8 @@ const TechProfile: React.FC<TechProfileProps> = ({
           </div>
         </div>
 
-        {/* Additional Glow on Hover */}
-        {isHovered && (
+        {/* Additional Glow on Hover (or always on mobile) */}
+        {(isHovered || isTouchDevice) && (
           <motion.div
             className="absolute inset-0 rounded-2xl pointer-events-none"
             style={{

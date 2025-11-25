@@ -5,6 +5,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import { ThemeProvider } from './components/theme/ThemeProvider';
 import { ToastProvider } from './components/ui/Toast';
 import Layout from './components/layout/Layout';
+import SwipeShell from './components/SwipeShell';
 import { EnhancedOceanBackground } from './components/ui/EnhancedOceanBackground';
 import { queryClient } from './lib/queryClient';
 import { initLenis, destroyLenis } from './utils/motion-sync';
@@ -85,7 +86,9 @@ const App: React.FC = () => {
                 <PerformanceMonitor />
               </Suspense>
               <Layout>
-                <AppRouter />
+                <SwipeShell>
+                  <AppRouter />
+                </SwipeShell>
               </Layout>
             </ToastProvider>
           </ThemeProvider>

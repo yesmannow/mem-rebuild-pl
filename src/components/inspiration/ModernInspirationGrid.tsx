@@ -48,7 +48,14 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
     null
   );
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [tappedItem, setTappedItem] = useState<string | null>(null); // For mobile tap-to-reveal
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const gridRef = useRef<HTMLDivElement>(null);
+
+  // Detect touch device
+  useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -84,7 +91,24 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
     return () => ctx.revert();
   }, [items]);
 
-  const handleItemClick = (item: InspirationItem, index: number) => {
+  const handleItemClick = (item: InspirationItem, index: number, e?: React.MouseEvent) => {
+    // On mobile/touch devices: first tap reveals overlay, second tap opens lightbox
+    if (isTouchDevice && !tappedItem) {
+      e?.preventDefault();
+      e?.stopPropagation();
+      setTappedItem(item.id);
+      return;
+    }
+
+    // If overlay is already revealed on mobile, open lightbox
+    if (isTouchDevice && tappedItem === item.id) {
+      setTappedItem(null);
+      setSelectedItem({ item, index });
+      onItemClick?.(item, index);
+      return;
+    }
+
+    // Desktop behavior: direct lightbox open
     setSelectedItem({ item, index });
     onItemClick?.(item, index);
   };
@@ -136,6 +160,9 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
   const renderGridItem = (item: InspirationItem, index: number) => {
     const isHovered = hoveredItem === item.id;
     const isSelected = selectedItem?.item.id === item.id;
+    const isTapped = tappedItem === item.id;
+    // Show overlay on hover (desktop) OR tap (mobile)
+    const showOverlay = isHovered || isTapped;
 
     if (viewMode === 'list') {
       return (
@@ -143,9 +170,9 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
           key={item.id}
           className="group flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-2xl hover:border-purple-400/50 transition-all duration-300 cursor-pointer"
           whileHover={{ scale: 1.02, y: -2 }}
-          onClick={() => handleItemClick(item, index)}
-          onHoverStart={() => setHoveredItem(item.id)}
-          onHoverEnd={() => setHoveredItem(null)}
+          onClick={(e) => handleItemClick(item, index, e)}
+          onHoverStart={() => !isTouchDevice && setHoveredItem(item.id)}
+          onHoverEnd={() => !isTouchDevice && setHoveredItem(null)}
         >
           <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
             <img
@@ -198,14 +225,14 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
       <motion.div
         key={item.id}
         className="group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-purple-400/50 transition-all duration-500 cursor-pointer"
-        whileHover={{
+        whileHover={!isTouchDevice ? {
           scale: 1.02,
           y: -8,
           boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-        }}
-        onClick={() => handleItemClick(item, index)}
-        onHoverStart={() => setHoveredItem(item.id)}
-        onHoverEnd={() => setHoveredItem(null)}
+        } : {}}
+        onClick={(e) => handleItemClick(item, index, e)}
+        onHoverStart={() => !isTouchDevice && setHoveredItem(item.id)}
+        onHoverEnd={() => !isTouchDevice && setHoveredItem(null)}
         layout
       >
         <div className="aspect-square overflow-hidden">
@@ -217,15 +244,15 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
           />
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-300 ${showOverlay ? 'opacity-100' : 'opacity-0'}`} />
 
           {/* Category Badge */}
-          <div className="absolute top-3 left-3 px-3 py-1 bg-black/50 backdrop-blur-sm rounded-full text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className={`absolute top-3 left-3 px-3 py-1 bg-black/50 backdrop-blur-sm rounded-full text-xs text-white transition-opacity duration-300 ${showOverlay ? 'opacity-100' : 'opacity-0'}`}>
             {item.category}
           </div>
 
           {/* Action Buttons */}
-          <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className={`absolute top-3 right-3 flex gap-2 transition-opacity duration-300 ${showOverlay ? 'opacity-100' : 'opacity-0'}`}>
             <button
               onClick={e => {
                 e.stopPropagation();
@@ -251,26 +278,26 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
           </div>
 
           {/* Content Overlay */}
-          <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-            <div className="flex items-center justify-between text-sm text-gray-300">
+          <div className={`absolute inset-0 p-3 sm:p-6 flex flex-col justify-end transition-opacity duration-300 ${showOverlay ? 'opacity-100' : 'opacity-0'}`}>
+            <h3 className="text-base sm:text-lg font-semibold text-white mb-2">{item.title}</h3>
+            <div className="flex items-center justify-between text-xs sm:text-sm text-gray-300">
               <span className="flex items-center gap-1">
                 <Palette className="w-3 h-3" />
                 {item.category}
               </span>
               <span className="flex items-center gap-1">
                 <Eye className="w-3 h-3" />
-                View
+                {isTouchDevice && isTapped ? 'Tap to Open' : 'View'}
               </span>
             </div>
 
             {/* Color Palette Preview */}
             {item.colors && (
-              <div className="flex gap-1 mt-3">
+              <div className="flex gap-1 mt-2 sm:mt-3">
                 {item.colors.slice(0, 4).map((color, idx) => (
                   <div
                     key={idx}
-                    className="w-4 h-4 rounded-full border border-white/20 color-swatch"
+                    className="w-4 h-4 sm:w-5 sm:h-5 rounded-full border border-white/20 color-swatch"
                     data-color={color}
                     title={`Color: ${color}`}
                   />
@@ -278,6 +305,18 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
               </div>
             )}
           </div>
+
+          {/* Mobile: Tap outside to close overlay */}
+          {isTouchDevice && isTapped && (
+            <div
+              className="fixed inset-0 z-30"
+              onClick={(e) => {
+                e.stopPropagation();
+                setTappedItem(null);
+              }}
+              style={{ pointerEvents: 'auto' }}
+            />
+          )}
         </div>
       </motion.div>
     );

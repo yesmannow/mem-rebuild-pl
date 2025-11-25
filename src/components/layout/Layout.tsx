@@ -5,6 +5,7 @@ const Navbar = lazy(() => import('../Navbar'));
 const EnhancedFooter = lazy(() => import('./EnhancedFooter'));
 const ScrollToTop = lazy(() => import('../utils/ScrollToTop'));
 const BackToTop = lazy(() => import('../utilities/BackToTop'));
+const MobileDock = lazy(() => import('../MobileDock'));
 
 interface LayoutProps {
   children: ReactNode;
@@ -43,7 +44,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </Suspense>
 
         {/* Main content area */}
-        <main id="main-content" className="flex-1" role="main">
+        <main id="main-content" className="flex-1 pb-24 md:pb-0" role="main">
           {children}
         </main>
 
@@ -58,6 +59,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           }
         >
           <EnhancedFooter />
+        </Suspense>
+
+        {/* Mobile Navigation Dock */}
+        <Suspense fallback={null}>
+          <MobileDock />
         </Suspense>
       </div>
     </>
