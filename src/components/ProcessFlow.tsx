@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { processes, ProcessItem } from '../data/process';
+import { processes } from '../data/process';
 import { cn } from '../lib/utils';
 
 interface ProcessFlowProps {
@@ -10,6 +10,20 @@ interface ProcessFlowProps {
 const ProcessFlow: React.FC<ProcessFlowProps> = ({ className }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: '-100px' });
+
+  // Create refs and inView states for each process item at the top level
+  const itemRef0 = useRef<HTMLDivElement>(null);
+  const itemRef1 = useRef<HTMLDivElement>(null);
+  const itemRef2 = useRef<HTMLDivElement>(null);
+  const itemRef3 = useRef<HTMLDivElement>(null);
+
+  const itemInView0 = useInView(itemRef0, { once: true, margin: '-50px' });
+  const itemInView1 = useInView(itemRef1, { once: true, margin: '-50px' });
+  const itemInView2 = useInView(itemRef2, { once: true, margin: '-50px' });
+  const itemInView3 = useInView(itemRef3, { once: true, margin: '-50px' });
+
+  const itemRefs = [itemRef0, itemRef1, itemRef2, itemRef3];
+  const itemInViews = [itemInView0, itemInView1, itemInView2, itemInView3];
 
   return (
     <section ref={containerRef} className={cn('py-20 px-4 sm:px-6 lg:px-8', className)}>
@@ -43,15 +57,12 @@ const ProcessFlow: React.FC<ProcessFlowProps> = ({ className }) => {
           )}
 
           {processes.map((process, index) => {
-            const itemRef = useRef<HTMLDivElement>(null);
-            const itemInView = useInView(itemRef, { once: true, margin: '-50px' });
-
             return (
               <motion.div
                 key={process.id}
-                ref={itemRef}
+                ref={itemRefs[index]}
                 initial={{ opacity: 0, y: 20 }}
-                animate={itemInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                animate={itemInViews[index] ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative z-10"
               >
@@ -75,7 +86,7 @@ const ProcessFlow: React.FC<ProcessFlowProps> = ({ className }) => {
                     <motion.div
                       className="w-16 h-16 mx-auto"
                       animate={
-                        itemInView
+                        itemInViews[index]
                           ? {
                               scale: [1, 1.1, 1],
                               opacity: [0.8, 1, 0.8],

@@ -1,11 +1,4 @@
 {
-  "images/bio/1732967007485.jpg": {
-    "width": 500,
-    "height": 500,
-    "base": "images/bio/1732967007485",
-    "color": "rgb(72 40 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAABQBQCdASoUABQAPxF2sVIsJySiqA1RgCIJbAC1F2QA3jmBIEl5seIZDMLx2BxyZ2X4pMAAzFPTkEB/2ih5mwHK5B9bQxVJhZIFATip5gXvUwFZm4KOq0Mk5mPJtfw4JKex/uHHBQMj7rJvyFi1Yrv8/U7sRwb6cqtxAhsNytMah2RKiwjEMHnvBgwmiHUm6YGVb43d6sDqOokGZnVZjTafOcUX+0Vxwrsv4NnqsLtxEy5NhQDAAA=="
-  },
   "images/education/Indiana_Hoosiers_logo.svg.png": {
     "width": 270,
     "height": 341,
@@ -19,6 +12,13 @@
     "base": "images/bio/bio-photo",
     "color": "rgb(216 200 184)",
     "blurDataURL": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAAAwBACdASoUAA0APxFysFAsJqSisAgBgCIJZACdAYxEijwPk/W21lamdsAA/IrWgeJybeF3HmypMzALdbLcvmfETMVUkhzMs3+kXpgGsuIyxXUDu+6wwAS5U1Jx8ZUSWngQ9aRsH2npMl+vEzhp5C0JmN7T+TZS3szg8a4+k6baaY43Z4+OaFBO2dYAAA=="
+  },
+  "images/bio/1732967007485.jpg": {
+    "width": 500,
+    "height": 500,
+    "base": "images/bio/1732967007485",
+    "color": "rgb(72 40 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAABQBQCdASoUABQAPxF2sVIsJySiqA1RgCIJbAC1F2QA3jmBIEl5seIZDMLx2BxyZ2X4pMAAzFPTkEB/2ih5mwHK5B9bQxVJhZIFATip5gXvUwFZm4KOq0Mk5mPJtfw4JKex/uHHBQMj7rJvyFi1Yrv8/U7sRwb6cqtxAhsNytMah2RKiwjEMHnvBgwmiHUm6YGVb43d6sDqOokGZnVZjTafOcUX+0Vxwrsv4NnqsLtxEy5NhQDAAA=="
   },
   "images/auto-generated/awards/gold-key-award.png": {
     "width": 820,
@@ -34,19 +34,19 @@
     "color": "rgb(200 152 8)",
     "blurDataURL": "data:image/webp;base64,UklGRmABAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSIIAAAABcFTbttPc/xmzsJdeJBEX1U+vKoA83hklPAkRobZtGyaa0tsXkgqV8+PH+s9xXqpIklLW6IkDOM+RclLKucbt6+Bfc+qcUtaGr/GDddTKWmDOH9xYqLrQ85eeS7XGGMBYHyOyfeMwpJ6+DOI0MYkpsZBYoditYjeN3T72o9gvQz8XVlA4ILgAAACwBQCdASoUABQAPxGAt1WsJ6UjKAgBgCIJbACdMoR0RuAiwD0ABngAP+UthNMmWWrPK6XYBEAA+3XdsLPogQbAg/afD+K5vK0mm49V1JIX/Z7/s1LZv6LnURn97XyYPRB7C7mVS2PTTRvQymyoJ/LkzumE9vtu0fMinuNi8kCKWbCX00A/GvcyIsIf/j/gbEJAcyfNUVVIpFdrA2E24DJs2VS0e6VvkOvkIu5pJUAnqhugbSjR4uAA"
   },
-  "images/projects/317 bbq/20231008_175109.jpg": {
-    "width": 900,
-    "height": 420,
-    "base": "images/projects/317 bbq/20231008_175109",
-    "color": "rgb(8 8 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOgBFlLY89kZ27RSgAAzZaJumFbRSUgNFE4xP+4T9HCU8pxz0jLA/BzVoMi3xloaQQgNXWLQP/rX4vc0XfX3q1Yt+V3F/y/8j2Ed6WqeS65AAA="
-  },
   "images/projects/317 bbq/20231008_174703.jpg": {
     "width": 900,
     "height": 420,
     "base": "images/projects/317 bbq/20231008_174703",
     "color": "rgb(24 24 24)",
     "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAwCdASoUAAkAPxFysVCsJqSisAgBgCIJYwAAYdidW24azZazawAA/t2e4m2bCJyiwDovqYuLuE1SCeKhHJpj4HJ2VswLfeDr3EAGQbOsb7fZUE563mymAAA="
+  },
+  "images/projects/317 bbq/20231008_175026.jpg": {
+    "width": 900,
+    "height": 420,
+    "base": "images/projects/317 bbq/20231008_175026",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQAwCdASoUAAkAPxFysFCsJqSisAgBgCIJZACdH8ACGLX2382L5gAA/un1SDdvkvO7v+Vd68pzDebdW43raj3vCN1bJY00Xx2bGjaDsY+/HsvkGF6d6okEisFLykMAAAA="
   },
   "images/education/samplegatesheader-desktop.jpg": {
     "width": 1200,
@@ -62,26 +62,19 @@
     "color": "rgb(24 24 8)",
     "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOiP/wEpc6Rl8L4HlgA/klMNCEzPtLFh+4XOVt58sG0LoR3GwW15SbT3HMFBicxKsV1lrUQjL9l3mHsI/4hq+wvoDw5svUHT4MR9vpuAAAA"
   },
-  "images/projects/317 bbq/20231008_175026.jpg": {
+  "images/projects/317 bbq/20231008_175109.jpg": {
     "width": 900,
     "height": 420,
-    "base": "images/projects/317 bbq/20231008_175026",
+    "base": "images/projects/317 bbq/20231008_175109",
     "color": "rgb(8 8 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQAwCdASoUAAkAPxFysFCsJqSisAgBgCIJZACdH8ACGLX2382L5gAA/un1SDdvkvO7v+Vd68pzDebdW43raj3vCN1bJY00Xx2bGjaDsY+/HsvkGF6d6okEisFLykMAAAA="
+    "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOgBFlLY89kZ27RSgAAzZaJumFbRSUgNFE4xP+4T9HCU8pxz0jLA/BzVoMi3xloaQQgNXWLQP/rX4vc0XfX3q1Yt+V3F/y/8j2Ed6WqeS65AAA="
   },
-  "images/projects/317 bbq/20231008_175512.jpg": {
+  "images/projects/317 bbq/20231008_175510.jpg": {
     "width": 900,
     "height": 420,
-    "base": "images/projects/317 bbq/20231008_175512",
-    "color": "rgb(248 232 216)",
-    "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAAkAPxF2sVAsJ6SisAgBgCIJagCdMoADCfg0bkLzbAAA4lFuh8CYLfqGmh7m1dbp+F14MI4iK7jkPSxt3lW2LQ+FMIW9YtjjQ47h3ATNevQPbfgcYOJujwBU44D5DO4q3CmJzRpbQF4nfAQaBSR8AwAAAA=="
-  },
-  "images/projects/317 bbq/20231008_175654.jpg": {
-    "width": 900,
-    "height": 420,
-    "base": "images/projects/317 bbq/20231008_175654",
-    "color": "rgb(184 168 136)",
-    "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCw7BxB0MO+ILhgAAD8XIxCQo0/6tMhwRxQFKVcAybTxiCi1eRVa5LTy9RT2ECMVbL4ESzYgAp9hCJp1h+10ZRuSDQY/Zbzjo5gAAA="
+    "base": "images/projects/317 bbq/20231008_175510",
+    "color": "rgb(72 56 40)",
+    "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
   },
   "images/projects/317 bbq/20231008_175650.jpg": {
     "width": 900,
@@ -90,12 +83,19 @@
     "color": "rgb(24 24 24)",
     "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoUAAkAPxFysFAsJqSisAgBgCIJZACdMoACxGdBHE/ZSu/VMSAA4dkn27ihdVbw/g8ed/njRaG4zEDUDLKlbxnyxSkrKEY7wx0SHztHTGZdAhOAMJ+5zVERfXo40Uonc7GNAAAA"
   },
-  "images/projects/317 bbq/20231008_175510.jpg": {
+  "images/projects/317 bbq/20231008_175654.jpg": {
     "width": 900,
     "height": 420,
-    "base": "images/projects/317 bbq/20231008_175510",
-    "color": "rgb(72 56 40)",
-    "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
+    "base": "images/projects/317 bbq/20231008_175654",
+    "color": "rgb(184 168 136)",
+    "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCw7BxB0MO+ILhgAAD8XIxCQo0/6tMhwRxQFKVcAybTxiCi1eRVa5LTy9RT2ECMVbL4ESzYgAp9hCJp1h+10ZRuSDQY/Zbzjo5gAAA="
+  },
+  "images/projects/317 bbq/20231008_175512.jpg": {
+    "width": 900,
+    "height": 420,
+    "base": "images/projects/317 bbq/20231008_175512",
+    "color": "rgb(248 232 216)",
+    "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAAkAPxF2sVAsJ6SisAgBgCIJagCdMoADCfg0bkLzbAAA4lFuh8CYLfqGmh7m1dbp+F14MI4iK7jkPSxt3lW2LQ+FMIW9YtjjQ47h3ATNevQPbfgcYOJujwBU44D5DO4q3CmJzRpbQF4nfAQaBSR8AwAAAA=="
   },
   "images/projects/317 bbq/20231008_180910.jpg": {
     "width": 900,
@@ -125,13 +125,6 @@
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoUABwAPxFys1KsJiSisBgIAYAiCUAYbgIhpExx19sfrmkOVY0Hz5AgAP5b/LmOnVoT7YOUUIjV/KgiuUGXDvjmpI4Acbzof4M1yGzvvaT+On1ooa8rThu95IcLCPIPhqS4vCO0HTf6yMZAavu0HdFVEPB9zIbehvHwPwq/bFgBVPfNSfET2aTAmojKJaGfwr51v09AAAA="
   },
-  "images/projects/317 bbq/download.jpg": {
-    "width": 1712,
-    "height": 3022,
-    "base": "images/projects/317 bbq/download",
-    "color": "rgb(8 8 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAACQBQCdASoUACMAPxFwsVAsJiSjMBVdUYAiCWcAz6AuCtdYtYIkkzLsoZlNgmZ3dAn14jkxIAD+9CUEhG0w429uF+pYBOsfshR1+i7xPolCB/4nHLhpPQHivlnJR1urIg4rBivWxN11HQFqdtFJ4ffrbZlxW6cFbTFEHh9Z4wFgmHEKd15oCuqVrqKtgK7ikGoUsW4fnh3gq/O6HmoD3dQcaaegAA=="
-  },
   "images/projects/riley bennett egloff/attorneys.jpg": {
     "width": 1712,
     "height": 3620,
@@ -139,12 +132,12 @@
     "color": "rgb(216 216 216)",
     "blurDataURL": "data:image/webp;base64,UklGRggBAABXRUJQVlA4IPwAAACwBgCdASoUACoAPxF8tFOsJ6SiqqgBgCIJZwDSgf/ngDLckfVPyen5yyDFouXwT8F7aB9IljnmySNCNQyZQAD+51tElTEejHlF+pOPZ8q/M1tUEy1FsHQBb3SJMvlvat9Aubhnj1bfFqOuPrL/4V7FUURfOVBREtgbLgevtdQ/5gMXngoQuJNM9ot3heO+nxQYQHiTBl68XvO+zA3FUz+uPEu+3PlCaEn7LOIE+kah+RcJ5sn0maPYVWdrEW4EePu9FozOqzybdrz4YntObVcM0XnhjRSvVjw4PWbUsxZZgPhZoWV/xoS6B02TtG+MSY6lL6bzlO45MVpgAAA="
   },
-  "images/side-projects/cropped-PC_LOGO1-1024x174.jpg": {
-    "width": 1024,
-    "height": 174,
-    "base": "images/side-projects/cropped-PC_LOGO1-1024x174",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAgCdASoUAAMAPxFysFAsJqSisAgBgCIJaQAAeyAA/u/Vsh1Wq0tCO+GjDGcAAAA="
+  "images/projects/317 bbq/download.jpg": {
+    "width": 1712,
+    "height": 3022,
+    "base": "images/projects/317 bbq/download",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAACQBQCdASoUACMAPxFwsVAsJiSjMBVdUYAiCWcAz6AuCtdYtYIkkzLsoZlNgmZ3dAn14jkxIAD+9CUEhG0w429uF+pYBOsfshR1+i7xPolCB/4nHLhpPQHivlnJR1urIg4rBivWxN11HQFqdtFJ4ffrbZlxW6cFbTFEHh9Z4wFgmHEKd15oCuqVrqKtgK7ikGoUsW4fnh3gq/O6HmoD3dQcaaegAA=="
   },
   "images/side-projects/CBD-Oil-for-Pets.png": {
     "width": 1000,
@@ -152,6 +145,13 @@
     "base": "images/side-projects/CBD-Oil-for-Pets",
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAABwBACdASoUABQAPxF8s1QsJ6QjKAqpgCIJQBA8LJzTh0QMbNW92W7TIz1dZAD+7T+EL9xLrt9czIWEn18VeGjEVvL3N8Wi/Zb/0vTQiMGLo7kgi8ZtuD0Fo2U4EkH02s2V0kOqHvu0/64XAZdfutxKQi0CbidZd1/z4ww3IyjxVlWkkxeRcGqkxJAQNgECbPRj2GFmoxxyDfjroAAAAA=="
+  },
+  "images/side-projects/cropped-PC_LOGO1-1024x174.jpg": {
+    "width": 1024,
+    "height": 174,
+    "base": "images/side-projects/cropped-PC_LOGO1-1024x174",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAgCdASoUAAMAPxFysFAsJqSisAgBgCIJaQAAeyAA/u/Vsh1Wq0tCO+GjDGcAAAA="
   },
   "images/side-projects/CBD-for-Pets-and-Pet-Skin-Care.png": {
     "width": 831,
@@ -174,6 +174,13 @@
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRoABAABXRUJQVlA4WAoAAAAQAAAAEwAADQAAQUxQSOEAAAANkGvb2rFXe3+xbdturdrGTditnTJdarZ2i862bX5PdM41RMQEAAQEFAoBKJ/NbhnQkE8AAoEAIOw197TqrFtX9J71n/Uf6Z58tbfydhHx7uxxW/q6kDSYMlZYu6igCigxOJ7PGQ85Ua3P9BdNXT60jAAE9e746s4l9STPRB7FDTmrAYDC/YCPlxc/wzlj82eLq0+TQ0BmXx71Hw0fDbyeHx7E6t0IqvJObQ2hUKhoQhRRVVXzQMH/EqBovXbN/hcA0djsRtE/BAABqq7+Bh8kQIAgAAI01l0SIeSXUACArwYAVlA4IHgAAAAwBACdASoUAA4APxFysFAsJqSisAgBgCIJbACxC8GJ/gPIG+kFGReQAaAA/u8SXOqVn/8felr7zeYwQwDk8LXsZ0YdM9+4l3YFCPLRDsXwaLoyVZnHZqL1MSfX+Sh1HGjn3Ox1bzXzNhnix7oMFzkPlTeS6EgQAAA="
   },
+  "images/side-projects/dog-dry-skin-remedy.jpg": {
+    "width": 1005,
+    "height": 1000,
+    "base": "images/side-projects/dog-dry-skin-remedy",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABQBACdASoUABQAPxF0sFAsJySisBgMAYAiCWoAAC52WJzbx18DX9Y1OTgAAP7rJ1gYcIY5Ktp24XDkQA7lkT5QyP/yb5wAnFxOepCxRVrTO0hdh3HHRKmr0EGcw5f8iAAAAA=="
+  },
   "images/side-projects/Interior_sl.jpg": {
     "width": 620,
     "height": 352,
@@ -187,13 +194,6 @@
     "base": "images/side-projects/dot-physicals-header",
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQAwCdASoUAAwAPxFysFAsJqSisAgBgCIJQBhQAVEz0pUakAD+nvWP4vzgB5zRyvT/rnc9LIoUpEurSRPWRWuElwunDFdc0agkJAanq0mBlyi16gp2QGSuQAA="
-  },
-  "images/side-projects/dog-dry-skin-remedy.jpg": {
-    "width": 1005,
-    "height": 1000,
-    "base": "images/side-projects/dog-dry-skin-remedy",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABQBACdASoUABQAPxF0sFAsJySisBgMAYAiCWoAAC52WJzbx18DX9Y1OTgAAP7rJ1gYcIY5Ktp24XDkQA7lkT5QyP/yb5wAnFxOepCxRVrTO0hdh3HHRKmr0EGcw5f8iAAAAA=="
   },
   "images/side-projects/my-post-2.jpg": {
     "width": 1080,
@@ -209,13 +209,6 @@
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABQBACdASoUAA8APxFysFAsJqSisAgBgCIJZABTAAbfv7iuKmJKku48hRFgAP5zAlMygBpQz2DWSpBi5IaG5G4CIETVrIBr/WD/kkqYMcFq96S08nueCUbSwYlFy7YTODLSxVHdhNsDhdE/HIUfE2WcGhK5sggQAAA="
   },
-  "images/side-projects/pci-logo-retina-rev.png": {
-    "width": 700,
-    "height": 196,
-    "base": "images/side-projects/pci-logo-retina-rev",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRgIBAABXRUJQVlA4WAoAAAAQAAAAEwAABQAAQUxQSGIAAAABcBvbtqrs8wWLfoy7u7u7xeQ0QE4TNEYJVPMoIiISkG1j6Q9J4J2yw8cKCyMfpjV9fm+7xTxaTaRK1USskoBQ8/V7l9Pz/maw2DYy7fvG8xPYfjoIISFHVnUZxkhCkkDCJ1ZQOCB6AAAA8AMAnQEqFAAGAD8RdrFQrCckorAIAYAiCWoAnTlBOAAjLUZ0b0DnIAD+2GcjU2LgerAT3mrmKf1Rqpz29bPgTY9pOH//+DUmVdHau6XpDpFBCsX2Iz+TzkXawx/udPEijhBx0OopmNvy26fct4zYAB/oDYAFDcfQYAA="
-  },
   "images/side-projects/occ-health-header.jpg": {
     "width": 1000,
     "height": 603,
@@ -229,6 +222,13 @@
     "base": "images/side-projects/Skincare-for-Dogs-and-Cats",
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAACwBACdASoUABQAPxGAuFWsKCUjKAgBgCIJYwDKAA3mM6N8UBTGze0Wd0UJpcPgAP7oX7pA/9sbaWAE6t2B9OlOGoXVxcoS/7l1WVXsu6CBLI0LYRamOfTjDqehi9enMPFDb+AA85qu5fvVdfbTvIhoOeuXzgIc9ZlRfxXW87zkDye7EvqUgplB+4Vu2djcCOguxLFhVU/GIcelwEAYsJ1nAAA="
+  },
+  "images/side-projects/pci-logo-retina-rev.png": {
+    "width": 700,
+    "height": 196,
+    "base": "images/side-projects/pci-logo-retina-rev",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRgIBAABXRUJQVlA4WAoAAAAQAAAAEwAABQAAQUxQSGIAAAABcBvbtqrs8wWLfoy7u7u7xeQ0QE4TNEYJVPMoIiISkG1j6Q9J4J2yw8cKCyMfpjV9fm+7xTxaTaRK1USskoBQ8/V7l9Pz/maw2DYy7fvG8xPYfjoIISFHVnUZxkhCkkDCJ1ZQOCB6AAAA8AMAnQEqFAAGAD8RdrFQrCckorAIAYAiCWoAnTlBOAAjLUZ0b0DnIAD+2GcjU2LgerAT3mrmKf1Rqpz29bPgTY9pOH//+DUmVdHau6XpDpFBCsX2Iz+TzkXawx/udPEijhBx0OopmNvy26fct4zYAB/oDYAFDcfQYAA="
   },
   "images/side-projects/online-doctor-consultation-instagram-post.png": {
     "width": 1080,
@@ -265,19 +265,19 @@
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAgCdASoUAAwAPxFysVAsJqSisAgBgCIJaQAAeyAA/u9vdwl6heSQvLnnIRxHZW2AAA=="
   },
-  "demos/images of apps/screenshot-of-graston-clinical-compass---intelligent-protocol-builder.jpg": {
-    "width": 2269,
-    "height": 1780,
-    "base": "demos/images of apps/screenshot-of-graston-clinical-compass---intelligent-protocol-builder",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACQAwCdASoUABAAPxFysFAsJqSisAgBgCIJZQDA3CLKF0/oKZ4AAP7tUu/iRgOeJDEqgRSaf8/TAV+0zTVcsgAA"
-  },
   "demos/images of apps/screenshot-of-graston-technique-smart-pricing-tool.jpg": {
     "width": 2269,
     "height": 3499,
     "base": "demos/images of apps/screenshot-of-graston-technique-smart-pricing-tool",
     "color": "rgb(168 184 200)",
     "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwBACdASoUAB8APxF0sVAsJySisAgBgCIJQBe6A4X5RLSqe+T4fmttocAA/o05vL2hBS7q2zCwE/EA8ZZn7rinRdcLrOcWYyf/hZKdqSZ3/2gJyq50VKYXs5RDSgopQKpT+6U2EMAAAA=="
+  },
+  "demos/images of apps/screenshot-of-graston-clinical-compass---intelligent-protocol-builder.jpg": {
+    "width": 2269,
+    "height": 1780,
+    "base": "demos/images of apps/screenshot-of-graston-clinical-compass---intelligent-protocol-builder",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACQAwCdASoUABAAPxFysFAsJqSisAgBgCIJZQDA3CLKF0/oKZ4AAP7tUu/iRgOeJDEqgRSaf8/TAV+0zTVcsgAA"
   },
   "demos/images of apps/screenshot-of-practitioner-license-requirements-_-graston-technique.jpg": {
     "width": 1076,
