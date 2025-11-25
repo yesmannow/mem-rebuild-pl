@@ -71,7 +71,7 @@ export const caseStudies: CaseStudy[] = [
     slug: 'the-launchpad',
     title: 'The Launchpad',
     image: '/images/case-studies/brand-identity-systems.svg',
-    tagline: 'Transforming a static directory into a revenue engine for practitioners',
+    tagline: 'Transforming a static directory into an automated revenue engine.',
     category: ['Product Vision', 'Lifecycle Marketing'],
     tags: [
       'Product Vision',
@@ -83,179 +83,41 @@ export const caseStudies: CaseStudy[] = [
     color: '#7C5CFF',
     icon: '🚀',
     metrics: [
-      { label: 'Qualified Leads', value: '+212%' },
-      { label: 'Lead-to-Demo Conversion', value: '+38%' },
-      { label: 'New Revenue (6 months)', value: '$310K' },
+      { label: 'Conversion Lift', value: '+40%' },
+      { label: 'Admin Time', value: '-95%' },
+      { label: 'User Journey', value: 'Automated' },
     ],
     challenge:
-      'A beloved practitioner directory had audience trust but almost zero monetisation. Listings looked pretty yet produced no measurable pipeline.',
+      'The provider directory was a functional but passive asset. Clinicians completed training but often stalled at the next step, leaving a massive opportunity for recurring revenue on the table. The vision was to turn this into a "flywheel"—automatically enrolling graduates into a premium trial and converting them into subscribers without manual sales intervention.',
     strategy:
-      'Architected a full-funnel growth system that recast the directory as a performance product with automation, segmentation, and conversion paths.',
+      'I architected a deeply integrated "Conversion Engine" connecting LearnDash, WooCommerce, and FluentCRM. The moment a clinician completes training, Uncanny Automator triggers a workflow that generates a premium profile and activates a 60-day trial. A sophisticated 60-day email sequence then onboards the user, guiding them through profile optimization and demonstrating ROI before the hard sell.',
     impact:
-      'The relaunch produced triple-digit growth in revenue-driving metrics and established a repeatable model for regional expansions.',
+      'This transformed a cost center into a predictable revenue stream. The automated onboarding system reduced administrative overhead to near-zero while providing immediate value to graduates. It created a self-fueling marketing engine that continuously generates high-quality, pre-approved social proof and drives subscription renewals.',
     fullContent: {
       challenge: {
         paragraphs: [
-          'When I first inherited the directory it was a glossy brochure. Practitioners felt proud to be listed, but they could not tie the membership fee to real outcomes. There were no lead capture points, no attribution, and the CRM had no idea who was browsing the directory. Without proof of value renewals were a coin flip and sales conversations turned into discounts.',
-          'The brief was clear: turn the directory into an engine that proved value every single month, captured demand the second it appeared, and gave sales a predictable pipeline to close.',
-        ],
-        bullets: [
-          'No measurement beyond vanity page views',
-          'Manual CSV exports for email follow up',
-          'Zero segmentation or nurture for high-intent prospects',
+          'The provider directory was a functional but passive asset. Clinicians completed training but often stalled at the next step, leaving a massive opportunity for recurring revenue on the table. The vision was to turn this into a "flywheel"—automatically enrolling graduates into a premium trial and converting them into subscribers without manual sales intervention.',
         ],
       },
       strategy: {
         paragraphs: [
-          'I reframed the entire experience as a productised acquisition journey. The build combined net-new UX, data architecture, and marketing automation so the directory could sell itself.',
-        ],
-        bullets: [
-          'Designed new path-to-value with comparison widgets, outcomes copy, and embedded lead capture for every listing',
-          'Implemented a headless sync between the directory, HubSpot, and FluentCRM that scored behaviour in real time',
-          'Launched nurture sequences that reacted to signals—repeat visits, resource downloads, and geo intent',
-          'Delivered weekly revenue stand-ups with cohort and persona level reporting so the team could optimise within hours',
+          'I architected a deeply integrated "Conversion Engine" connecting LearnDash, WooCommerce, and FluentCRM. The moment a clinician completes training, Uncanny Automator triggers a workflow that generates a premium profile and activates a 60-day trial. A sophisticated 60-day email sequence then onboards the user, guiding them through profile optimization and demonstrating ROI before the hard sell.',
         ],
       },
       impact: {
         paragraphs: [
-          'Six months after launch the directory was unrecognisable. Practitioners finally saw deal flow, the sales team knew exactly who to call, and finance could forecast renewals with confidence.',
-        ],
-        bullets: [
-          'Qualified leads increased 212% with a 38% lift in lead-to-demo conversions',
-          'Membership renewals jumped 24 points because every provider received automated ROI proof',
-          'Regional expansion blueprint created an additional $310K in attributable revenue',
+          'This transformed a cost center into a predictable revenue stream. The automated onboarding system reduced administrative overhead to near-zero while providing immediate value to graduates. It created a self-fueling marketing engine that continuously generates high-quality, pre-approved social proof and drives subscription renewals.',
         ],
       },
     },
-    featured: true,
-  },
-  {
-    slug: 'the-guardian',
-    title: 'The Guardian',
-    image: '/images/case-studies/the-closer.svg',
-    tagline: 'Turning compliance pain into an automated trust-and-sales engine',
-    category: ['Automation', 'Customer Empathy'],
-    tags: [
-      'Customer Empathy',
-      'Data Architecture',
-      'Proactive Automation',
-      'Sales Funnel Development',
-    ],
-    color: '#FF8A65',
-    icon: '🛡️',
-    metrics: [
-      { label: 'Time to Compliance', value: 'Minutes → Seconds' },
-      { label: 'Upsell Conversion', value: '+27%' },
-      { label: 'Support Tickets', value: '-68%' },
-    ],
-    challenge:
-      'Clinics constantly phoned support to understand certification rules. The experience eroded trust and consumed the team’s time.',
-    strategy:
-      'Built an intelligent assistant that merged compliance data, purchase history, and nurture automations into a single workflow.',
-    impact:
-      'I moved the organisation from reactive firefighting to proactive enablement and turned mandatory compliance into a new revenue stream.',
-    fullContent: {
-      challenge: {
-        paragraphs: [
-          'Compliance questions were the number one support issue. Every state, credential, and renewal window had different requirements. Customers were anxious about missing a deadline and agents were digging through spreadsheets to answer the same questions over and over again.',
-          'The human cost was enormous: 45% of support capacity disappeared into compliance responses and the team missed obvious upgrade moments because agents were in catch-up mode.',
-        ],
-        bullets: [
-          'Multiple disconnected compliance sources with conflicting updates',
-          'No way to tie a customer’s purchases to required credentials',
-          'Support could not spot when a practitioner was eligible for premium offerings',
-        ],
-      },
-      strategy: {
-        paragraphs: [
-          'I reverse engineered every question I heard and mapped it against data the business already owned. Then I designed an automation stack that answered the question before the customer could send an email.',
-        ],
-        bullets: [
-          'Centralised state and board requirements inside a structured data warehouse refreshed nightly',
-          'Authenticated experience that surfaces personalised compliance status and next steps when customers log in',
-          'Trigger-based journeys in FluentCRM that automatically send reminders, curated CE options, and one-click upgrade paths',
-          'Escalation workflow that summarises customer context for humans only when intent or risk is high',
-        ],
-      },
-      impact: {
-        paragraphs: [
-          'Compliance moved from cost centre to conversion lever. Customers trusted me with their credential journey and bought deeper into the ecosystem.',
-        ],
-        bullets: [
-          'Support tickets related to compliance dropped 68% within two months',
-          'Self-service portal resolves 92% of inquiries in under 30 seconds',
-          'Personalised upsell prompts increased advanced course conversion by 27%',
-        ],
-      },
-    },
-    featured: true,
-  },
-  {
-    slug: 'the-compass',
-    title: 'The Compass',
-    image: '/images/case-studies/the-compass.svg',
-    tagline: 'Rebuilding analytics and attribution so every dollar is accountable',
-    category: ['Analytics', 'Data Strategy'],
-    tags: [
-      'Analytics Engineering',
-      'Data Integrity',
-      'Conversion Rate Optimization',
-      'Performance Marketing',
-      'GTM',
-    ],
-    color: '#34D399',
-    icon: '🧭',
-    metrics: [
-      { label: 'Attribution Accuracy', value: '+46 pts' },
-      { label: 'CAC Efficiency', value: '+32%' },
-      { label: 'Revenue Visibility', value: 'Full Funnel' },
-    ],
-    challenge:
-      'Leadership made six-figure decisions without reliable attribution. Data lived in silos and nothing reconciled.',
-    strategy:
-      'Engineered an analytics pipeline that unified web, CRM, and finance data with rock-solid governance and storytelling dashboards.',
-    impact:
-      'Marketing finally operated with instrumentation-grade clarity and could optimise spend in real time.',
-    fullContent: {
-      challenge: {
-        paragraphs: [
-          'Reporting conversations felt like guesswork. GA4, WooCommerce, and the CRM all disagreed on revenue. Finance pulled numbers from QuickBooks, marketing exported spreadsheets, and nobody trusted any of it. Without a shared truth the team flew blind when planning campaigns or forecasting inventory.',
-        ],
-        bullets: [
-          'Duplicate and unclassified traffic sources made attribution meaningless',
-          'Cohort retention was invisible because transactional data never met lifecycle tags',
-          'Executives spent hours reconciling numbers every quarter',
-        ],
-      },
-      strategy: {
-        paragraphs: [
-          'I treated analytics like a product. I documented the questions leaders needed answered, then built the plumbing to answer them daily.',
-        ],
-        bullets: [
-          'Implemented a first-party event model in GTM with 60+ custom events aligned to lifecycle milestones',
-          'Streamed orders and subscription events into a Snowflake warehouse, resolving customer identities across platforms',
-          'Authored dbt models that created trustworthy revenue, LTV, and funnel views with automated QA',
-          'Delivered executive dashboards in Looker Studio with story-first narratives that visualised momentum, risks, and next actions',
-        ],
-      },
-      impact: {
-        paragraphs: [
-          'Within one quarter marketing decisions shifted from feelings to forecasts. Budget moved to the channels that won, and experiments were decided in days instead of months.',
-        ],
-        bullets: [
-          'Attribution accuracy improved by 46 percentage points and CAC efficiency climbed 32%',
-          'Weekly growth council now runs on dashboards that blend spend, pipeline, and revenue in one place',
-          'Finance reconciles to marketing within minutes—no more midnight spreadsheets',
-        ],
-      },
-    },
+    technologies: ['LearnDash', 'WooCommerce', 'FluentCRM', 'Uncanny Automator', 'WP Fusion'],
     featured: true,
   },
   {
     slug: 'the-fortress',
     title: 'The Fortress',
     image: '/images/case-studies/the-fortress.svg',
-    tagline: 'Standing up an edge-first security posture that protects revenue 24/7',
+    tagline: 'Architecting a multi-layered security defense for a high-traffic platform.',
     category: ['Security', 'Risk Mitigation'],
     tags: [
       'Infrastructure Security',
@@ -267,363 +129,206 @@ export const caseStudies: CaseStudy[] = [
     color: '#60A5FA',
     icon: '🛡️',
     metrics: [
-      { label: 'Threats Blocked', value: '85K+/month' },
+      { label: 'Bad Bots Blocked', value: '85k/mo' },
       { label: 'Cache Hit Ratio', value: '86%' },
-      { label: 'Page Speed', value: '+210%' },
+      { label: 'Uptime', value: '99.99%' },
     ],
     challenge:
-      'Persistent bot attacks and scrapers slowed the storefront, spiked hosting bills, and threatened customer trust.',
+      'The platform was under a constant, invisible siege. Server logs revealed relentless brute-force login attempts and XML-RPC floods from botnets, causing CPU spikes and threatening clinician data. We needed to move from a reactive defense to a proactive, edge-first security posture.',
     strategy:
-      'Implemented a multi-layered Cloudflare stack with proactive rules, observability, and performance tuning at the edge.',
+      'I implemented a "Defense-in-Depth" strategy. At the edge, I deployed Cloudflare WAF rules to block exploits and activated "Super Bot Fight Mode" to neutralize threats before they reached the origin. Internally, I enforced strict security headers (HSTS, CSP), rolled out DNSSEC for trust, and configured Authenticated Origin Pulls to create an encrypted tunnel between Cloudflare and our server.',
     impact:
-      'Revenue-critical experiences stayed fast, safe, and available—even during coordinated attacks.',
+      'The digital fortress successfully neutralized ~85,000 malicious bot hits per month. By blocking traffic at the edge, we significantly reduced load on the origin server, freeing up resources for legitimate users and ensuring business continuity even during coordinated attacks.',
     fullContent: {
       challenge: {
         paragraphs: [
-          'The team was caught in a losing game of whack-a-mole. Malicious bots pounded wp-login, scrapers hammered the directory, and marketing launches slowed to a crawl whenever attacks spiked. Security and performance were treated separately, so fixes solved one problem and created another.',
-        ],
-        bullets: [
-          '80% of traffic was non-human noise hitting expensive PHP endpoints',
-          'Average page load ballooned to 5.8 seconds during attacks',
-          'Teams paused campaign launches because they feared downtime',
+          'The platform was under a constant, invisible siege. Server logs revealed relentless brute-force login attempts and XML-RPC floods from botnets, causing CPU spikes and threatening clinician data. We needed to move from a reactive defense to a proactive, edge-first security posture.',
         ],
       },
       strategy: {
         paragraphs: [
-          'I moved the fight to the edge. I designed a layered defence that filtered, cached, and monitored before traffic ever touched WordPress.',
-        ],
-        bullets: [
-          'Deployed Cloudflare WAF with custom rules to challenge suspicious behaviour and block credential stuffing',
-          "Implemented rate limiting on sensitive routes, plus bot management tuned to the site's content patterns",
-          'Built observability with Workers KV logs, Grafana dashboards, and automated alerts piped to Slack',
-          'Optimised origin performance with object caching, image optimisation, and queue-based background jobs',
+          'I implemented a "Defense-in-Depth" strategy. At the edge, I deployed Cloudflare WAF rules to block exploits and activated "Super Bot Fight Mode" to neutralize threats before they reached the origin. Internally, I enforced strict security headers (HSTS, CSP), rolled out DNSSEC for trust, and configured Authenticated Origin Pulls to create an encrypted tunnel between Cloudflare and our server.',
         ],
       },
       impact: {
         paragraphs: [
-          'Security became an enabler. Marketing could ship promotions during peak traffic knowing the platform would hold.',
-        ],
-        bullets: [
-          'Blocked 85,000+ malicious hits every month and cut server load in half',
-          'Edge caching pushed the cache-hit ratio to 86% while improving conversion-critical page speeds by 210%',
-          'Incident response playbooks now resolve edge anomalies in under 5 minutes',
+          'The digital fortress successfully neutralized ~85,000 malicious bot hits per month. By blocking traffic at the edge, we significantly reduced load on the origin server, freeing up resources for legitimate users and ensuring business continuity even during coordinated attacks.',
         ],
       },
     },
+    technologies: ['Cloudflare WAF', 'DNSSEC', 'Apache', 'SSL/TLS', 'mTLS'],
     featured: true,
   },
   {
     slug: 'the-conductor',
     title: 'The Conductor',
     image: '/images/case-studies/command-center.svg',
-    tagline: 'Orchestrating a unified data pipeline across marketing, education, and finance',
+    tagline: 'Orchestrating a unified data pipeline across 5 disparate platforms.',
     category: ['Systems Integration', 'Automation'],
     tags: ['Systems Integration', 'Data Architecture', 'Process Automation', 'MarTech'],
     color: '#F472B6',
     icon: '🎼',
     metrics: [
-      { label: 'Platforms Unified', value: '6' },
-      { label: 'Manual Hours Saved', value: '48 hrs/week' },
-      { label: 'Data Accuracy', value: '99.8%' },
+      { label: 'Admin Tasks', value: '-80%' },
+      { label: 'Data Accuracy', value: '99%' },
+      { label: 'Sync Latency', value: '<2s' },
     ],
     challenge:
-      'WooCommerce, LearnDash, Gravity Forms, FluentCRM, and Google Sheets all told different stories. Teams worked from conflicting data.',
+      'A single training registration created a trail of disconnected records across WooCommerce, LearnDash, and Gravity Forms. Marketing flew blind with fragmented data, and the admin team wasted hours manually stitching spreadsheets together to get a clear picture of a single customer.',
     strategy:
-      'Built a central nervous system that synced transactions, learning progress, and customer states with zero manual intervention.',
+      'I built an event-driven data highway. Now, a purchase instantly triggers enrollment; Uncanny Automator logs the event; and WP Fusion maps every data point into a single, unified FluentCRM contact record. This created a "Single Source of Truth" where a customer\'s history, license type, and training status are instantly accessible and accurate.',
     impact:
-      'Every department now operates from the same live truth, and automation handles the busywork humans used to dread.',
+      'We eliminated hours of mind-numbing manual data entry every week. With accurate data, marketing automation became exponentially smarter—allowing for hyper-targeted reminders and upsells. The system is now a scalable infrastructure that supports growth without creating new operational debt.',
     fullContent: {
       challenge: {
         paragraphs: [
-          'Operations, education, and marketing each maintained their own spreadsheets. Course completion in LearnDash never triggered CRM tags, finance manually reconciled payment plans, and instructors could not see who was actually progressing. The business needed orchestration, not more logins.',
-        ],
-        bullets: [
-          'Data fragmentation created conflicting metrics at weekly stand-ups',
-          'Manual CSV imports introduced costly mistakes and delays',
-          'Students experienced inconsistent messaging because platforms were unaware of each other',
+          'A single training registration created a trail of disconnected records across WooCommerce, LearnDash, and Gravity Forms. Marketing flew blind with fragmented data, and the admin team wasted hours manually stitching spreadsheets together to get a clear picture of a single customer.',
         ],
       },
       strategy: {
         paragraphs: [
-          'I mapped the lifecycle from purchase to renewal, then engineered connectors that carried truth to every system.',
-        ],
-        bullets: [
-          'Custom Node.js workers pulled events from WooCommerce, LearnDash, and Gravity Forms on a rolling schedule',
-          'FluentCRM automations reacted instantly to state changes—sending sequences, updating health scores, and notifying account owners',
-          'Centralised warehouse normalised entities so finance, ops, and marketing saw identical metrics',
-          'Created instructor dashboards that surfaced attendance, satisfaction, and outstanding tasks',
+          'I built an event-driven data highway. Now, a purchase instantly triggers enrollment; Uncanny Automator logs the event; and WP Fusion maps every data point into a single, unified FluentCRM contact record. This created a "Single Source of Truth" where a customer\'s history, license type, and training status are instantly accessible and accurate.',
         ],
       },
       impact: {
         paragraphs: [
-          'Orchestration unlocked both growth and sanity. Automations executed the routine so people could focus on creative work.',
-        ],
-        bullets: [
-          'Saved 48 hours of manual data work every week and removed 11 spreadsheets from the process',
-          'Automation accuracy hit 99.8%, eliminating embarrassing student miscommunications',
-          'Leadership reviews now focus on decisions, not data clean up',
+          'We eliminated hours of mind-numbing manual data entry every week. With accurate data, marketing automation became exponentially smarter—allowing for hyper-targeted reminders and upsells. The system is now a scalable infrastructure that supports growth without creating new operational debt.',
         ],
       },
     },
+    technologies: ['WP Fusion', 'FluentCRM', 'Webhooks', 'Google Sheets API', 'Gravity Forms'],
     featured: true,
   },
   {
     slug: 'the-engine-room',
     title: 'The Engine Room',
     image: '/images/case-studies/the-safety-net.svg',
-    tagline: 'Rebuilding the infrastructure so speed and stability become competitive advantages',
+    tagline: 'Rescuing performance with deep server-level optimizations.',
     category: ['Performance', 'DevOps'],
     tags: ['Server Administration', 'Performance Tuning', 'DevOps', 'PHP', 'MySQL'],
     color: '#38BDF8',
     icon: '⚙️',
     metrics: [
-      { label: 'Page Load Time', value: '5.8s → 1.2s' },
-      { label: 'Checkout Failures', value: '-92%' },
-      { label: 'Deployment Confidence', value: '99%' },
+      { label: 'CPU Usage', value: '-40%' },
+      { label: 'Page Load', value: '30% Faster' },
+      { label: '504 Errors', value: '0' },
     ],
     challenge:
-      'The flagship ecommerce site creaked under growth. Slow pages, checkout errors, and risky deployments limited sales velocity.',
+      'The site was choking on its own success. During peak traffic, editors faced 504 gateway timeouts and users experienced slow checkouts. This wasn\'t a frontend issue; the problems were buried deep in the server configuration, threatening revenue during critical campaigns.',
     strategy:
-      'Optimised the entire stack—from servers to CI/CD—to create a resilient platform that could ship features without fear.',
+      'I executed a surgical intervention on the stack. I migrated the handler to PHP-FPM 8.1 for stability, tuned Apache\'s `LimitRequestLine` to handle complex CRM URLs, and installed Netdata for real-time monitoring. I also implemented Redis object caching to slash database query times.',
     impact:
-      'Customers experienced a blazing-fast store while the team gained an always-on release pipeline.',
+      'The results were immediate stability. We reduced CPU usage by 40% during peak loads and achieved ~30% faster page loads for end-users. The platform shifted from a source of constant firefighting to a reliable engine ready to scale.',
     fullContent: {
       challenge: {
         paragraphs: [
-          'Traffic growth outpaced the infrastructure. Pages took nearly six seconds to load, checkout hiccups cost real revenue, and any code change required an all-hands prayer.',
-        ],
-        bullets: [
-          'Legacy LEMP stack lacked object caching and PHP tuning',
-          'Manual FTP deployments regularly introduced regressions',
-          'Error visibility stopped at Apache logs—no observability pipeline',
+          'The site was choking on its own success. During peak traffic, editors faced 504 gateway timeouts and users experienced slow checkouts. This wasn\'t a frontend issue; the problems were buried deep in the server configuration, threatening revenue during critical campaigns.',
         ],
       },
       strategy: {
         paragraphs: [
-          'I treated performance and reliability as a product sprint. I rebuilt the foundation and automated the release process.',
-        ],
-        bullets: [
-          'Provisioned new autoscaling infrastructure with tuned PHP-FPM workers and Redis object cache',
-          'Implemented CI/CD with GitHub Actions, automated smoke tests, and instant rollback playbooks',
-          'Instrumented the stack with New Relic, Sentry, and uptime monitors feeding a shared war room dashboard',
-          'Refactored WooCommerce queries and introduced queue workers for heavy tasks like PDF generation',
+          'I executed a surgical intervention on the stack. I migrated the handler to PHP-FPM 8.1 for stability, tuned Apache\'s `LimitRequestLine` to handle complex CRM URLs, and installed Netdata for real-time monitoring. I also implemented Redis object caching to slash database query times.',
         ],
       },
       impact: {
         paragraphs: [
-          'The storefront now feels instant, support no longer braces for outages, and marketing can launch without negotiating with engineering.',
-        ],
-        bullets: [
-          'Average page load time dropped from 5.8 seconds to 1.2 seconds',
-          'Checkout failures plummeted 92% thanks to better scaling and observability',
-          'Deployments happen daily with a 99% confidence score from automated health checks',
+          'The results were immediate stability. We reduced CPU usage by 40% during peak loads and achieved ~30% faster page loads for end-users. The platform shifted from a source of constant firefighting to a reliable engine ready to scale.',
         ],
       },
     },
+    technologies: ['PHP-FPM', 'Redis', 'LiteSpeed', 'Netdata', 'Linux CLI'],
     featured: true,
   },
   {
-    slug: 'graston-technique-ceu-system',
-    title: 'Graston Technique CEU System',
-    image: '/images/case-studies/graston-ceu-system.svg',
-    tagline: 'Building a comprehensive continuing education system that transforms provider experience',
-    category: ['Healthcare Technology', 'Automation'],
+    slug: 'the-compass',
+    title: 'The Compass',
+    image: '/images/case-studies/the-compass.svg',
+    tagline: 'Rebuilding analytics to enable laser-focused marketing attribution.',
+    category: ['Analytics', 'Data Strategy'],
     tags: [
-      'Marketing Automation',
-      'CRM Strategy',
-      'Healthcare Technology',
-      'E-learning Systems',
-      'Compliance Automation',
-      'UX Optimization',
-    ],
-    color: '#06B6D4',
-    icon: '🏥',
-    metrics: [
-      { label: 'Support Ticket Reduction', value: '70%' },
-      { label: 'Checkout Conversion Lift', value: '40%' },
-      { label: 'Automation Workflows', value: '400+' },
-      { label: 'System Uptime', value: '99.8%' },
-    ],
-    challenge:
-      'Healthcare providers struggled with a fragmented CEU purchasing process, leading to high support ticket volume and checkout abandonment. The existing system could not handle the complexity of continuing education credits across multiple states and specializations.',
-    strategy:
-      'Redesigned the entire CEU ecosystem with focus on user experience, automated compliance checking, and seamless payment processing. Implemented a CRM-driven approach that could handle complex credential validation and state-specific requirements.',
-    impact:
-      'Built a comprehensive system that reduced support burden, increased conversions, and created a scalable foundation for continuing education delivery across healthcare disciplines.',
-    fullContent: {
-      challenge: {
-        paragraphs: [
-          'The Graston Technique continuing education system was drowning in complexity. Providers needed to navigate different state requirements, credential types, and renewal cycles while trying to purchase courses. The existing checkout process was so confusing that support tickets flooded in daily, and qualified leads abandoned at the moment of purchase.',
-          'The technical debt was enormous: disconnected systems, manual compliance checking, and no way to track customer progress across their certification journey. The business was leaving money on the table with every abandoned cart.',
-        ],
-        bullets: [
-          'Support team spent 60% of time answering basic CEU questions',
-          'Checkout abandonment rate exceeded 45% due to complexity',
-          'No automated tracking of certification progress or renewals',
-          'Manual compliance verification for each state and credential type',
-        ],
-      },
-      strategy: {
-        paragraphs: [
-          'I approached this as a complete ecosystem rebuild, not just a website fix. The goal was to create a self-service experience that handled complexity behind the scenes while presenting a simple, trustworthy interface to healthcare providers.',
-        ],
-        bullets: [
-          'Architected 400+ automation workflows using FluentCRM and WP Fusion to handle every scenario',
-          'Integrated LearnDash LMS with WooCommerce for seamless course delivery and progress tracking',
-          'Built custom state-specific compliance validation system that checks requirements in real-time',
-          'Implemented multi-tier pricing with automatic credit allocation based on provider credentials',
-          'Created automated email sequences for certificate generation, delivery, and renewal reminders',
-          'Integrated with external credential verification APIs for instant validation',
-        ],
-      },
-      impact: {
-        paragraphs: [
-          'The transformation was immediate and measurable. Providers could now navigate the entire CEU process with confidence, support tickets virtually disappeared, and the business saw dramatic improvements in both customer satisfaction and revenue.',
-        ],
-        bullets: [
-          'Support ticket volume dropped 70% within the first month of launch',
-          'Checkout conversion rates improved 40% through simplified user experience',
-          'System achieved 99.8% uptime during peak enrollment periods',
-          'Created scalable foundation supporting 400+ automated workflows across the ecosystem',
-        ],
-      },
-    },
-    featured: true,
-  },
-  {
-    slug: 'riley-bennett-egloff-overhaul',
-    title: 'Riley Bennett Egloff Brand & Digital Overhaul',
-    image: '/images/case-studies/riley-bennett-egloff.svg',
-    tagline: 'Complete brand repositioning and digital presence overhaul for a prestigious law firm',
-    category: ['Legal Services', 'Branding'],
-    tags: [
-      'Brand Strategy',
-      'Web Design',
-      'Content Marketing',
-      'Legal Services',
-      'SEO Optimization',
-      'Thought Leadership',
-    ],
-    color: '#8B5CF6',
-    icon: '⚖️',
-    metrics: [
-      { label: 'Organic Search Traffic', value: '+180%' },
-      { label: 'Corporate Client Inquiries', value: '+65%' },
-      { label: 'Average Page Load Time', value: '1.8s' },
-      { label: 'Mobile Conversion Rate', value: '+45%' },
-    ],
-    challenge:
-      'Established law firm with traditional marketing approach was losing market share to younger, digitally-savvy competitors. Their website and branding felt dated, and they struggled to communicate their expertise to both individual and corporate clients.',
-    strategy:
-      'Developed a trust-first brand strategy that positioned the firm as both traditional excellence and modern innovation. Created content hub focusing on legal insights, case studies, and thought leadership while improving user experience for both individual and corporate clients.',
-    impact:
-      'Transformed the firms digital presence into a powerful lead generation and thought leadership platform that attracts both individual and corporate clients while building lasting brand authority.',
-    fullContent: {
-      challenge: {
-        paragraphs: [
-          'Riley Bennett Egloff was caught in a difficult position. As an established law firm, they had deep expertise and strong client relationships, but their digital presence communicated none of this authority. Their website looked like it was built in the early 2000s, their thought leadership was buried, and younger competitors with better digital strategies were capturing market share.',
-          'The firm needed to modernize without losing the gravitas and trust that came with decades of excellence. They wanted to attract both sophisticated corporate clients and individual clients, but their current approach spoke to neither audience effectively.',
-        ],
-        bullets: [
-          'Website design and user experience felt dated and untrustworthy',
-          'No clear content strategy or SEO optimization for legal keywords',
-          'Difficulty communicating complex legal expertise in accessible language',
-          'Competing against younger firms with stronger digital marketing',
-        ],
-      },
-      strategy: {
-        paragraphs: [
-          'I approached this as a complete brand and digital transformation, not just a website redesign. The strategy focused on building trust through modern design, clear communication of expertise, and a content strategy that established thought leadership.',
-        ],
-        bullets: [
-          'Complete brand identity refresh with modern, trustworthy aesthetic that maintains professional gravitas',
-          'Rebuilt website with improved case study presentation and clear service descriptions',
-          'Implemented comprehensive content marketing strategy for SEO and thought leadership positioning',
-          'Created secure client portal for case updates and document sharing',
-          'Launched targeted LinkedIn campaign for corporate client acquisition',
-          'Optimized all content for local search and professional service rankings',
-        ],
-      },
-      impact: {
-        paragraphs: [
-          'The transformation repositioned Riley Bennett Egloff as a modern, tech-savvy firm that still maintains the trust and expertise of their established practice. The new digital presence now actively generates qualified leads and builds their reputation as thought leaders.',
-        ],
-        bullets: [
-          'Organic search traffic increased 180% through content strategy and technical SEO',
-          'Corporate client inquiries increased 65% with higher quality prospects',
-          'Website page load time improved from 4.2s to 1.8s with modern optimization techniques',
-          'Mobile conversion rates increased 45% through responsive design and UX improvements',
-        ],
-      },
-    },
-    featured: true,
-  },
-  {
-    slug: 'ultimate-technologies-ads-rebuild',
-    title: 'Ultimate Technologies ROI Growth',
-    image: '/images/case-studies/ultimate-tech-ads.svg',
-    tagline: 'Complete overhaul of paid advertising strategy for IT services company',
-    category: ['Technology Services', 'Performance Marketing'],
-    tags: [
+      'Analytics Engineering',
+      'Data Integrity',
+      'Conversion Rate Optimization',
       'Performance Marketing',
-      'Account-Based Marketing',
-      'IT Services',
-      'ROI Optimization',
-      'Lead Generation',
-      'B2B Marketing',
+      'GTM',
     ],
-    color: '#F59E0B',
-    icon: '💻',
+    color: '#34D399',
+    icon: '🧭',
     metrics: [
-      { label: 'ROI Improvement', value: '+320%' },
-      { label: 'Cost Per Lead Reduction', value: '-55%' },
-      { label: 'Lead Quality Score', value: '8.2/10' },
-      { label: 'Conversion Rate', value: '4.8%' },
+      { label: 'Attribution', value: '100%' },
+      { label: 'ROAS', value: 'Increased' },
+      { label: 'Tag Bloat', value: 'Removed' },
     ],
     challenge:
-      'IT services company was spending significantly on paid advertising but seeing poor lead quality and inconsistent ROI. Their campaigns were broad and unfocused, leading to high cost-per-lead and low conversion rates.',
+      'We were flying blind. Legacy tag bloat and cross-domain tracking errors meant we couldn\'t trust our attribution. Google Ads algorithms were optimizing for low-value "form fills" rather than actual revenue, wasting significant budget.',
     strategy:
-      'Implemented account-based marketing (ABM) approach with laser-focused targeting, improved ad creative testing, and sophisticated lead scoring to ensure sales team only receives high-quality prospects.',
+      'I declared bankruptcy on the old data layer. I deployed a clean GTM v28 container, implemented server-side PHP hooks to push reliable `purchase` and `generate_lead` events, and configured Google Ads to optimize ONLY for high-intent actions. I also enabled User-ID tracking to solve cross-device attribution drift.',
     impact:
-      'Transformed ineffective advertising spend into a predictable, high-ROI lead generation machine that delivers qualified prospects directly to the sales team.',
+      'Every marketing dollar became smarter. We achieved precise attribution from first click to final sale, allowing us to cut wasted spend and scale profitable campaigns. We moved from guessing to knowing.',
     fullContent: {
       challenge: {
         paragraphs: [
-          'Ultimate Technologies was burning through marketing budget with little to show for it. Their paid advertising campaigns were broad, unfocused, and generated leads that sales would never close. The cost per lead was astronomical, and the sales team was frustrated with the poor quality of marketing-generated prospects.',
-          'The fundamental problem was a lack of focus. They were trying to appeal to everyone, which meant appealing to no one effectively. Without proper targeting and lead scoring, the sales team spent most of their time disqualifying prospects instead of closing deals.',
-        ],
-        bullets: [
-          'High advertising spend with poor ROI and lead quality',
-          'Broad, unfocused campaigns that attracted unqualified prospects',
-          'Sales team spending too much time on lead qualification',
-          'No systematic approach to account-based marketing',
+          'We were flying blind. Legacy tag bloat and cross-domain tracking errors meant we couldn\'t trust our attribution. Google Ads algorithms were optimizing for low-value "form fills" rather than actual revenue, wasting significant budget.',
         ],
       },
       strategy: {
         paragraphs: [
-          'I completely rebuilt their advertising strategy from the ground up, focusing on precision targeting, lead quality over quantity, and sophisticated nurturing that only delivered sales-ready prospects to the team.',
-        ],
-        bullets: [
-          'Restructured Google Ads campaigns with comprehensive negative keyword strategy and precise audience targeting',
-          'Launched LinkedIn ABM campaigns specifically targeting enterprise-level IT decision makers',
-          'Implemented advanced conversion tracking with offline data integration to track full customer journey',
-          'Created custom landing pages for different service lines with industry-specific messaging',
-          'Established lead scoring models that prioritize prospects most likely to convert',
-          'Set up automated bidding strategies and budget optimization based on performance data',
+          'I declared bankruptcy on the old data layer. I deployed a clean GTM v28 container, implemented server-side PHP hooks to push reliable `purchase` and `generate_lead` events, and configured Google Ads to optimize ONLY for high-intent actions. I also enabled User-ID tracking to solve cross-device attribution drift.',
         ],
       },
       impact: {
         paragraphs: [
-          'The new approach transformed Ultimate Technologies from a company that spent money on advertising to one that invested in predictable, profitable growth. The sales team now receives high-quality, sales-ready leads consistently.',
-        ],
-        bullets: [
-          'Overall ROI improved by 320% through better targeting and optimization',
-          'Cost per lead reduced by 55% while improving lead quality significantly',
-          'Average lead quality score increased to 8.2/10 through better qualification',
-          'Conversion rate from ads to qualified opportunities reached 4.8%',
+          'Every marketing dollar became smarter. We achieved precise attribution from first click to final sale, allowing us to cut wasted spend and scale profitable campaigns. We moved from guessing to knowing.',
         ],
       },
     },
+    technologies: ['Google Tag Manager', 'GA4', 'Server-Side Events', 'RegEx', 'Google Ads'],
+    featured: true,
+  },
+  {
+    slug: 'the-closer',
+    title: 'The Closer',
+    image: '/images/case-studies/the-closer.svg',
+    tagline: 'A quote-to-order system that unlocks high-ticket revenue.',
+    category: ['E-commerce', 'Payment Systems'],
+    tags: [
+      'Payment Processing',
+      'Quote Management',
+      'E-commerce Automation',
+      'Stripe',
+      'WooCommerce',
+    ],
+    color: '#10B981',
+    icon: '💳',
+    metrics: [
+      { label: 'Close Rate', value: 'Increased' },
+      { label: 'Manual Invoices', value: '0' },
+      { label: 'Payment Plans', value: 'Automated' },
+    ],
+    challenge:
+      'High-value training bundles were stalling at checkout due to payment friction. Sales reps had to manually generate invoices, and customers lacked flexible payment options, creating a barrier to entry for our premium products.',
+    strategy:
+      'I built a custom "Quote-to-Order" system. Sales reps can now generate a custom quote that instantly creates a pending WooCommerce order and emails a secure "Pay Link" to the client. Crucially, I integrated Stripe to offer ACF-driven payment plans (3-18 months) directly in the checkout flow.',
+    impact:
+      'This removed the friction from high-ticket sales. We saw a significant increase in close rates for phone orders and lowered the operational overhead of managing payment plans. It turned a manual accounts-receivable headache into an automated revenue lever.',
+    fullContent: {
+      challenge: {
+        paragraphs: [
+          'High-value training bundles were stalling at checkout due to payment friction. Sales reps had to manually generate invoices, and customers lacked flexible payment options, creating a barrier to entry for our premium products.',
+        ],
+      },
+      strategy: {
+        paragraphs: [
+          'I built a custom "Quote-to-Order" system. Sales reps can now generate a custom quote that instantly creates a pending WooCommerce order and emails a secure "Pay Link" to the client. Crucially, I integrated Stripe to offer ACF-driven payment plans (3-18 months) directly in the checkout flow.',
+        ],
+      },
+      impact: {
+        paragraphs: [
+          'This removed the friction from high-ticket sales. We saw a significant increase in close rates for phone orders and lowered the operational overhead of managing payment plans. It turned a manual accounts-receivable headache into an automated revenue lever.',
+        ],
+      },
+    },
+    technologies: ['Stripe API', 'WooCommerce', 'ACF', 'Gravity Forms', 'PHP'],
     featured: true,
   },
 ];

@@ -29,6 +29,7 @@ const Testimonials = React.lazy(() => import('../pages/Testimonials'));
 const Resume = React.lazy(() => import('../pages/Resume'));
 const Contact = React.lazy(() => import('../pages/Contact'));
 const Services = React.lazy(() => import('../pages/Services'));
+const WarRoom = React.lazy(() => import('../pages/WarRoom'));
 // Legacy routes - commented out
 // const Inspiration = React.lazy(() => import('../pages/InspirationPage'));
 // const InspirationDetail = React.lazy(() => import('../pages/InspirationDetail'));
@@ -124,6 +125,13 @@ const AppRouter: React.FC = () => {
         description:
           'Deep dive into deployment architecture, dual base path configuration, custom element guards, and bundle optimization strategies.',
         keywords: 'devops, deployment, vite, github pages, cloudflare pages, build optimization, CI/CD',
+      };
+    } else if (path === '/war-room') {
+      return {
+        title: 'The War Room | BearCave Marketing',
+        description:
+          'A transparent, real-time look at how we executed a multi-week site optimization project, transforming performance, security, and reliability from the server to the browser.',
+        keywords: 'devops, system optimization, performance tuning, server administration, cloudflare, litespeed, redis',
       };
     } else if (path === '/resume') {
       return {
@@ -377,6 +385,14 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <DevOpsPortfolio />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/war-room"
+              element={
+                <PageTransition>
+                  <WarRoom />
                 </PageTransition>
               }
             />
