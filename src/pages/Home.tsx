@@ -17,6 +17,7 @@ import GlowEffect from '../components/ui/GlowEffect';
 import ScrollIndicator from '../components/ui/ScrollIndicator';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import SectionDivider from '../components/ui/SectionDivider';
+import AnimatedCounter from '../components/animations/AnimatedCounter';
 
 // Brand logos for trust section
 const brandLogos = [
@@ -123,11 +124,13 @@ const Home: React.FC = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
                       >
-                        +<OceanCountingNumber
-                          number={212}
+                        <AnimatedCounter
+                          to={212}
+                          prefix="+"
+                          suffix="%"
+                          duration={2}
                           className="text-6xl md:text-7xl font-bold text-brand-teal"
-                          inView={true}
-                        />%
+                        />
                       </motion.span>
                     </div>
                     <p className="text-brand-muted">Qualified Leads</p>

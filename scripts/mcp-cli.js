@@ -205,6 +205,7 @@ function printUsage() {
       "  generate-tech-icons Generate custom SVG icons for top technologies",
       "  generate-concept-icons Generate concept icons (process, services, testimonials)",
       "  generate-inspiration Generate and validate inspiration projects data",
+      "  view-unused         Generate HTML gallery of unused assets for visual audit",
       "  audit-score    Calculate unified Portfolio Health Score from all audits",
       "  generate-cybernetic-logo Generate cybernetic monogram logo with tech brackets",
       "  generate-social-images Generate Open Graph social images for sharing",
@@ -622,6 +623,33 @@ ${formattedMetrics}
         console.log("1. Icons have been generated in public/images/concepts/");
         console.log("2. Update src/data/process.ts, services.ts with iconSrc paths");
         console.log("3. Example: iconSrc: '/images/concepts/audit.svg'");
+        console.log("=".repeat(70) + "\n");
+        break;
+      }
+      case "view-unused": {
+        // Generate HTML gallery of unused assets for visual audit
+        const viewUnusedScript = path.join(__dirname, "view-unused.js");
+        if (!fs.existsSync(viewUnusedScript)) {
+          console.error(`Error: view-unused.js not found at ${viewUnusedScript}`);
+          process.exit(1);
+        }
+
+        if (dryRun) {
+          console.log(`[dry-run] Would generate unused assets gallery using ${viewUnusedScript}`);
+          console.log("  Reads: reports/unused-assets-report.json");
+          console.log("  Output: unused-gallery.html");
+          console.log("  Displays: All unused images in a visual grid");
+          break;
+        }
+
+        await runOrEcho("node", [viewUnusedScript, ...passthroughArgs]);
+
+        console.log("\n" + "=".repeat(70));
+        console.log("📝 Next Steps:");
+        console.log("=".repeat(70));
+        console.log("1. Open unused-gallery.html in your browser");
+        console.log("2. Review unused assets visually");
+        console.log("3. Decide which assets to keep or remove");
         console.log("=".repeat(70) + "\n");
         break;
       }

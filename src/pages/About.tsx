@@ -13,6 +13,8 @@ import { OceanWavyBackground } from '../components/ui/OceanWavyBackground';
 import { GitHubStats } from '../components/github/GitHubStats';
 import TechProfile from '../components/TechProfile';
 import VerticalTimeline from '../components/timeline/VerticalTimeline';
+import AwardsRow from '../components/AwardsRow';
+import EducationRoots from '../components/EducationRoots';
 import { fadeInUp } from '../utils/animations';
 import './About.css';
 
@@ -158,6 +160,7 @@ const About: React.FC = () => {
     { id: 'story', label: 'Story' },
     { id: 'philosophy', label: 'Philosophy' },
     { id: 'timeline', label: 'Timeline' },
+    { id: 'education', label: 'Education' },
     { id: 'community', label: 'Community' },
   ];
 
@@ -285,6 +288,13 @@ const About: React.FC = () => {
         </section>
       </AnimatedSection>
 
+      {/* Education & Roots Section */}
+      <AnimatedSection delay={0.35}>
+        <section id="education" className="mb-16">
+          <EducationRoots />
+        </section>
+      </AnimatedSection>
+
       <AnimatedSection delay={0.4}>
         <section id="community" className="volunteering-section">
           <h2>Community & Volunteer Work</h2>
@@ -337,6 +347,9 @@ const About: React.FC = () => {
           </div>
         </section>
       </AnimatedSection>
+
+      {/* Awards Section */}
+      <AwardsRow />
       </main>
     </OceanWavyBackground>
     </div>

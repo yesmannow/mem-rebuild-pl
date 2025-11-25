@@ -1,0 +1,431 @@
+{
+  "timestamp": "2025-11-25T00:14:00.487Z",
+  "summary": {
+    "unusedImages": 265,
+    "unusedComponents": 103,
+    "unusedAnimations": 4,
+    "totalUnusedSize": 32335884
+  },
+  "unusedImages": [
+    {
+      "path": "/images/applications/graston-gt1.svg",
+      "size": 1112
+    },
+    {
+      "path": "/images/awards/gold-key.svg",
+      "size": 1743
+    },
+    {
+      "path": "/images/bio/adobe-express-2025-10-12-09.58.18.avif",
+      "size": 6182
+    },
+    {
+      "path": "/images/bio/adobe-express-2025-10-12-09.58.18.png",
+      "size": 114530
+    },
+    {
+      "path": "/images/bio/adobe-express-2025-10-12-09.58.18.webp",
+      "size": 16898
+    },
+    {
+      "path": "/images/case-studies/brand-identity-systems.svg",
+      "size": 921
+    },
+    {
+      "path": "/images/case-studies/branding-reel/after.svg",
+      "size": 308
+    },
+    {
+      "path": "/images/case-studies/branding-reel/before.svg",
+      "size": 309
+    },
+    {
+      "path": "/images/case-studies/branding-reel/gallery-1.svg",
+      "size": 557
+    },
+    {
+      "path": "/images/case-studies/branding-reel/gallery-2.svg",
+      "size": 555
+    },
+    {
+      "path": "/images/case-studies/cinematic-portfolio/after.svg",
+      "size": 308
+    },
+    {
+      "path": "/images/case-studies/cinematic-portfolio/before.svg",
+      "size": 309
+    },
+    {
+      "path": "/images/case-studies/cinematic-portfolio/gallery-1.svg",
+      "size": 556
+    },
+    {
+      "path": "/images/case-studies/cinematic-portfolio/gallery-2.svg",
+      "size": 557
+    },
+    {
+      "path": "/images/case-studies/command-center.svg",
+      "size": 1123
+    },
+    {
+      "path": "/images/case-studies/graston-ceu-system.svg",
+      "size": 2433
+    },
+    {
+      "path": "/images/case-studies/graston-dashboard/after.svg",
+      "size": 308
+    },
+    {
+      "path": "/images/case-studies/graston-dashboard/before.svg",
+      "size": 309
+    },
+    {
+      "path": "/images/case-studies/graston-dashboard/gallery-1.svg",
+      "size": 552
+    },
+    {
+      "path": "/images/case-studies/graston-dashboard/gallery-2.svg",
+      "size": 555
+    },
+    {
+      "path": "/images/case-studies/healthcare-campaign.svg",
+      "size": 1020
+    },
+    {
+      "path": "/images/case-studies/proactive-support-engine.svg",
+      "size": 1086
+    },
+    {
+      "path": "/images/case-studies/promotional-campaigns.svg",
+      "size": 1111
+    },
+    {
+      "path": "/images/case-studies/riley-bennett-egloff.svg",
+      "size": 2384
+    },
+    {
+      "path": "/images/case-studies/the-closer.svg",
+      "size": 853
+    },
+    {
+      "path": "/images/case-studies/the-compass.svg",
+      "size": 924
+    },
+    {
+      "path": "/images/case-studies/the-fortress.svg",
+      "size": 1079
+    },
+    {
+      "path": "/images/case-studies/the-pipeline.svg",
+      "size": 929
+    },
+    {
+      "path": "/images/case-studies/the-safety-net.svg",
+      "size": 891
+    },
+    {
+      "path": "/images/case-studies/the-spotlight.svg",
+      "size": 862
+    },
+    {
+      "path": "/images/concepts/architect.svg",
+      "size": 867
+    },
+    {
+      "path": "/images/concepts/audit.svg",
+      "size": 818
+    },
+    {
+      "path": "/images/concepts/automate.svg",
+      "size": 859
+    },
+    {
+      "path": "/images/concepts/content-api.svg",
+      "size": 975
+    },
+    {
+      "path": "/images/concepts/data-link.svg",
+      "size": 980
+    },
+    {
+      "path": "/images/concepts/growth-os.svg",
+      "size": 849
+    },
+    {
+      "path": "/images/concepts/scale.svg",
+      "size": 811
+    },
+    {
+      "path": "/images/concepts/terminal-user.svg",
+      "size": 1183
+    },
+    {
+      "path": "/images/education/Indiana_Hoosiers_logo.svg.avif",
+      "size": 1400
+    },
+    {
+      "path": "/images/education/Indiana_Hoosiers_logo.svg.png",
+      "size": 1968
+    },
+    {
+      "path": "/images/education/indiana_hoosiers_logo.svg.webp",
+      "size": 1672
+    },
+    {
+      "path": "/images/education/iu-campus.svg",
+      "size": 1508
+    },
+    {
+      "path": "/images/education/iu-logo.svg",
+      "size": 273
+    },
+    {
+      "path": "/images/education/samplegatesheader-desktop.avif",
+      "size": 54136
+    },
+    {
+      "path": "/images/education/samplegatesheader-desktop.jpg",
+      "size": 183018
+    },
+    {
+      "path": "/images/education/samplegatesheader-desktop.webp",
+      "size": 121928
+    },
+    {
+      "path": "/images/for-fellowkids-studio-kiln-shows-how-brands-can-behave-like-fans-thumb.avif",
+      "size": 7376
+    },
+    {
+      "path": "/images/for-fellowkids-studio-kiln-shows-how-brands-can-behave-like-fans-thumb.jpg",
+      "size": 24381
+    },
+    {
+      "path": "/images/for-fellowkids-studio-kiln-shows-how-brands-can-behave-like-fans-thumb.webp",
+      "size": 15666
+    },
+    {
+      "path": "/images/how-kimera-built-cursors-identity-around-a-custom-typeface-system-thumb.avif",
+      "size": 20935
+    }
+  ],
+  "unusedComponents": [
+    {
+      "path": "src\\components\\animations\\AnimatedCounter.tsx",
+      "size": 1178
+    },
+    {
+      "path": "src\\components\\animations\\BackgroundLogos.tsx",
+      "size": 2919
+    },
+    {
+      "path": "src\\components\\animations\\FloatingElements.tsx",
+      "size": 1778
+    },
+    {
+      "path": "src\\components\\animations\\LogoIntro.tsx",
+      "size": 3638
+    },
+    {
+      "path": "src\\components\\ApplicationsPanel.tsx",
+      "size": 3928
+    },
+    {
+      "path": "src\\components\\ArtifactExplorer.tsx",
+      "size": 2879
+    },
+    {
+      "path": "src\\components\\automation\\AIAutomationShowcase.tsx",
+      "size": 9112
+    },
+    {
+      "path": "src\\components\\awards\\AwardShowcase.tsx",
+      "size": 5993
+    },
+    {
+      "path": "src\\components\\branding\\BearCaveLogo.tsx",
+      "size": 12647
+    },
+    {
+      "path": "src\\components\\branding\\LogoVariations.tsx",
+      "size": 354
+    },
+    {
+      "path": "src\\components\\branding\\SplashIntro.tsx",
+      "size": 6255
+    },
+    {
+      "path": "src\\components\\BrandLineageSection.tsx",
+      "size": 847
+    },
+    {
+      "path": "src\\components\\BuilderShell.tsx",
+      "size": 2301
+    },
+    {
+      "path": "src\\components\\CareerTimeline.tsx",
+      "size": 1480
+    },
+    {
+      "path": "src\\components\\CareerTimelineProgress.tsx",
+      "size": 2120
+    },
+    {
+      "path": "src\\components\\Carousel.tsx",
+      "size": 4967
+    },
+    {
+      "path": "src\\components\\case-study\\CaseStudyExplorer.tsx",
+      "size": 9837
+    },
+    {
+      "path": "src\\components\\case-study\\Hero.tsx",
+      "size": 1753
+    },
+    {
+      "path": "src\\components\\CaseStudy.tsx",
+      "size": 2418
+    },
+    {
+      "path": "src\\components\\CaseStudyExplorer.tsx",
+      "size": 9831
+    },
+    {
+      "path": "src\\components\\Charts\\ResultChart.tsx",
+      "size": 2127
+    },
+    {
+      "path": "src\\components\\common\\ResponsiveImage.tsx",
+      "size": 3487
+    },
+    {
+      "path": "src\\components\\ContactForm.tsx",
+      "size": 5468
+    },
+    {
+      "path": "src\\components\\DesignPrinciplesExplorer.tsx",
+      "size": 9214
+    },
+    {
+      "path": "src\\components\\diagrams\\ProcessDiagram.tsx",
+      "size": 8268
+    },
+    {
+      "path": "src\\components\\examples\\ApiServiceExamples.tsx",
+      "size": 10032
+    },
+    {
+      "path": "src\\components\\examples\\ExamplePage.tsx",
+      "size": 4885
+    },
+    {
+      "path": "src\\components\\ExportPanel.tsx",
+      "size": 3424
+    },
+    {
+      "path": "src\\components\\gallery\\TagFilter.tsx",
+      "size": 2375
+    },
+    {
+      "path": "src\\components\\hero\\BrandHero.tsx",
+      "size": 844
+    },
+    {
+      "path": "src\\components\\hero\\Hero.tsx",
+      "size": 3281
+    },
+    {
+      "path": "src\\components\\hero\\ParticleHero.tsx",
+      "size": 6403
+    },
+    {
+      "path": "src\\components\\hero\\ProactiveSupportHero.tsx",
+      "size": 10822
+    },
+    {
+      "path": "src\\components\\Hero.tsx",
+      "size": 4084
+    },
+    {
+      "path": "src\\components\\HeroAbout.tsx",
+      "size": 950
+    },
+    {
+      "path": "src\\components\\HeroAnimated.tsx",
+      "size": 1947
+    },
+    {
+      "path": "src\\components\\HeroGradient.tsx",
+      "size": 1065
+    },
+    {
+      "path": "src\\components\\home\\FinalCTA.tsx",
+      "size": 1975
+    },
+    {
+      "path": "src\\components\\home\\MySkills.tsx",
+      "size": 3177
+    },
+    {
+      "path": "src\\components\\home\\WhoIAm.tsx",
+      "size": 3092
+    },
+    {
+      "path": "src\\components\\icons\\IconRegistry.tsx",
+      "size": 1657
+    },
+    {
+      "path": "src\\components\\IdentityTile.tsx",
+      "size": 5503
+    },
+    {
+      "path": "src\\components\\inspiration\\AnimationTemplates.tsx",
+      "size": 10233
+    },
+    {
+      "path": "src\\components\\inspiration\\BrandBuilderCTA.tsx",
+      "size": 6867
+    },
+    {
+      "path": "src\\components\\inspiration\\DesignChallenges.tsx",
+      "size": 9239
+    },
+    {
+      "path": "src\\components\\inspiration\\InspirationCTASection.tsx",
+      "size": 1289
+    },
+    {
+      "path": "src\\components\\inspiration\\InspirationExplorer.tsx",
+      "size": 13083
+    },
+    {
+      "path": "src\\components\\inspiration\\InspirationTimeline.tsx",
+      "size": 6407
+    },
+    {
+      "path": "src\\components\\inspiration\\PerformanceOptimizer.tsx",
+      "size": 10953
+    },
+    {
+      "path": "src\\components\\inspiration\\ResponsiveInspirationWrapper.tsx",
+      "size": 4709
+    }
+  ],
+  "unusedAnimations": [
+    {
+      "path": "src\\components\\animations\\AnimatedCounter.tsx",
+      "size": 1178
+    },
+    {
+      "path": "src\\components\\animations\\BackgroundLogos.tsx",
+      "size": 2919
+    },
+    {
+      "path": "src\\components\\animations\\FloatingElements.tsx",
+      "size": 1778
+    },
+    {
+      "path": "src\\components\\animations\\LogoIntro.tsx",
+      "size": 3638
+    }
+  ]
+}

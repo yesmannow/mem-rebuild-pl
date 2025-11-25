@@ -2,10 +2,36 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { TrendingUp, Users, Zap, ArrowRight } from 'lucide-react';
 import { CaseStudySimple } from '../data/caseStudies';
+import AnimatedCounter from './animations/AnimatedCounter';
 
 interface CaseStudyCardProps {
   caseStudy: CaseStudySimple;
 }
+
+// Helper to parse metric values for animation
+const parseMetricValue = (value: string): number | null => {
+  // Extract numeric part from strings like "+212%", "$310K", "5.8s → 1.2s"
+  const match = value.match(/([+-]?)(\d+(?:\.\d+)?)/);
+  if (match) {
+    const num = parseFloat(match[2]);
+    return isNaN(num) ? null : num;
+  }
+  return null;
+};
+
+const extractPrefix = (value: string): string => {
+  if (value.startsWith('+') || value.startsWith('-')) return value[0];
+  if (value.startsWith('$')) return '$';
+  return '';
+};
+
+const extractSuffix = (value: string): string => {
+  if (value.includes('%')) return '%';
+  if (value.includes('K')) return 'K';
+  if (value.includes('M')) return 'M';
+  if (value.includes('s')) return 's';
+  return '';
+};
 
 const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ caseStudy }) => {
   const { id, title, client, oneLiner, stats, tags, description } = caseStudy;
@@ -58,7 +84,21 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ caseStudy }) => {
                   <Icon className="w-4 h-4 text-brand-teal" />
                 </div>
                 <div className="text-xs text-brand-muted mb-1">{stat.label}</div>
-                <div className="text-lg font-bold text-brand-text">{stat.value}</div>
+                <div className="text-lg font-bold text-brand-text">
+                  {(() => {
+                    const numericValue = parseMetricValue(stat.value);
+                    return numericValue !== null ? (
+                      <AnimatedCounter
+                        to={numericValue}
+                        prefix={extractPrefix(stat.value)}
+                        suffix={extractSuffix(stat.value)}
+                        duration={1.5}
+                      />
+                    ) : (
+                      stat.value
+                    );
+                  })()}
+                </div>
               </div>
             );
           })}
