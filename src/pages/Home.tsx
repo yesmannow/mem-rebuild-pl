@@ -4,11 +4,16 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
 import { BentoGrid, BentoCard } from '../components/ui/BentoGrid';
+import { EnhancedBentoCard } from '../components/ui/EnhancedBentoCard';
+import AnimatedMetricsDashboard from '../components/ui/AnimatedMetricsDashboard';
+import TechStackCloud from '../components/ui/TechStackCloud';
 import TechProfile from '../components/TechProfile';
 import { OceanMarquee, OceanMarqueeItem } from '../components/ui/OceanMarquee';
 import TestimonialTerminal from '../components/TestimonialTerminal';
 import ProcessFlow from '../components/ProcessFlow';
 import ServiceModules from '../components/ServiceModules';
+import StrategicPillars from '../components/StrategicPillars';
+import Icon from '../components/Icon';
 import ScrollProgress from '../components/ui/ScrollProgress';
 import AnimatedGradientText from '../components/ui/AnimatedGradientText';
 import MagneticCard from '../components/ui/MagneticCard';
@@ -40,13 +45,15 @@ const brandLogos = [
 
 // Tech stack icons for "My Stack" card
 const techStack = [
-  'React',
-  'TypeScript',
-  'Tailwind CSS',
-  'Framer Motion',
-  'Node.js',
-  'Vite',
-  'GitHub',
+  { name: 'React', slug: 'react' },
+  { name: 'TypeScript', slug: 'typescript' },
+  { name: 'Tailwind CSS', slug: 'tailwind' },
+  { name: 'Node.js', slug: 'node' },
+  { name: 'Vite', slug: 'vite' },
+  { name: 'GitHub', slug: 'github' },
+  { name: 'Python', slug: 'python' },
+  { name: 'HubSpot', slug: 'hubspot' },
+  { name: 'JavaScript', slug: 'javascript' },
 ];
 
 const Home: React.FC = () => {
@@ -67,7 +74,7 @@ const Home: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-5xl md:text-7xl font-bold text-brand-text leading-tight mb-6"
             >
-              Building Marketing Engines That{' '}
+              I Build Marketing Engines That{' '}
               <AnimatedGradientText
                 text="Scale Revenue."
                 className="text-5xl md:text-7xl font-bold"
@@ -80,27 +87,28 @@ const Home: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-xl md:text-2xl text-brand-muted max-w-3xl mx-auto mb-12"
             >
-              I bridge the gap between <strong className="text-brand-text">CMO Strategy</strong> and{' '}
-              <strong className="text-brand-text">CTO Execution</strong>. I don't just plan campaigns; I build the automated systems that run them.
+              Fractional CMO & Marketing Technologist
             </motion.p>
           </div>
           <ScrollIndicator />
         </section>
 
+        {/* Strategic Pillars Section */}
+        <StrategicPillars />
+
         {/* Bento Grid Section */}
         <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
           <BentoGrid className="mb-12">
-            {/* Card 1: Latest Win (Large) */}
-            <BentoCard span="2" className="group cursor-pointer relative overflow-hidden">
-              {/* Animated glow on hover */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-brand-teal/0 via-brand-teal/0 to-brand-orange/0 group-hover:via-brand-teal/20 group-hover:to-brand-orange/20 transition-all duration-500 rounded-xl"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-              />
+            {/* Card 1: Latest Win (Large) with Metrics Dashboard */}
+            <EnhancedBentoCard
+              span="2"
+              enable3DTilt={true}
+              enableMagnetic={true}
+              className="group cursor-pointer"
+            >
               <Link
                 to="/case-studies/the-launchpad"
-                className="block h-full flex flex-col justify-between relative z-10"
+                className="flex h-full flex-col justify-between relative z-10"
               >
                 <div>
                   <div className="flex items-center gap-2 mb-4">
@@ -115,97 +123,94 @@ const Home: React.FC = () => {
                   <p className="text-brand-muted text-lg mb-6">
                     Transforming a static directory into a revenue engine for practitioners
                   </p>
+
+                  {/* Animated Metrics Dashboard */}
+                  <AnimatedMetricsDashboard
+                    metrics={[
+                      { label: 'Qualified Leads', value: '+212%', trend: 'up', change: 'vs. baseline' },
+                      { label: 'Lead-to-Demo', value: '+38%', trend: 'up', change: 'conversion' },
+                      { label: 'New Revenue', value: '$310K', trend: 'up', change: '6 months' },
+                    ]}
+                    chartData={[
+                      { month: 'Jan', value: 45 },
+                      { month: 'Feb', value: 68 },
+                      { month: 'Mar', value: 89 },
+                      { month: 'Apr', value: 112 },
+                      { month: 'May', value: 145 },
+                      { month: 'Jun', value: 212 },
+                    ]}
+                    className="mt-6"
+                  />
                 </div>
-                <div className="flex items-end justify-between">
-                  <div>
-                    <div className="text-6xl md:text-7xl font-bold text-brand-teal mb-2">
-                      <motion.span
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                      >
-                        <AnimatedCounter
-                          to={212}
-                          prefix="+"
-                          suffix="%"
-                          duration={2}
-                          className="text-6xl md:text-7xl font-bold text-brand-teal"
-                        />
-                      </motion.span>
-                    </div>
-                    <p className="text-brand-muted">Qualified Leads</p>
-                  </div>
+                <div className="flex items-center justify-end mt-4">
                   <ArrowRight className="w-6 h-6 text-brand-muted group-hover:text-brand-teal group-hover:translate-x-1 transition-all" />
                 </div>
               </Link>
-            </BentoCard>
+            </EnhancedBentoCard>
 
             {/* Card 2: Tech Profile (Tall) */}
-            <BentoCard span="1" rowSpan="2" className="flex flex-col items-center justify-center relative overflow-hidden group">
+            <EnhancedBentoCard
+              span="1"
+              rowSpan="2"
+              enable3DTilt={true}
+              enableMagnetic={true}
+              className="flex flex-col items-center justify-center relative overflow-hidden group"
+            >
               <GlowEffect intensity="low" color="teal" />
               <div className="relative z-10">
-              <div className="mb-4">
-                <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
-                  Tech Profile
-                </span>
+                <div className="mb-4">
+                  <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
+                    Tech Profile
+                  </span>
+                </div>
+                <TechProfile size="md" className="mx-auto" />
               </div>
-              <TechProfile size="md" className="mx-auto" />
-              </div>
-            </BentoCard>
+            </EnhancedBentoCard>
 
-            {/* Card 3: My Stack (Small) */}
-            <BentoCard span="1" className="flex flex-col relative overflow-hidden group">
+            {/* Card 3: My Stack (Wide) - Tech Stack Cloud */}
+            <EnhancedBentoCard
+              span="2"
+              enable3DTilt={true}
+              enableMagnetic={true}
+              className="flex flex-col relative overflow-hidden group"
+            >
               <GlowEffect intensity="low" color="orange" />
               <div className="relative z-10">
-              <div className="mb-4">
-                <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
-                  My Stack
-                </span>
+                <div className="mb-4">
+                  <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
+                    My Stack
+                  </span>
+                </div>
+                <TechStackCloud
+                  tech={techStack.map((t) => ({ name: t.name, slug: t.slug }))}
+                  className="flex-1"
+                />
               </div>
-              <div className="flex-1 flex flex-wrap gap-3 items-center justify-center">
-                {techStack.map((tech, index) => (
-                  <motion.div
-                    key={tech}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      delay: index * 0.1,
-                      duration: 0.3,
-                    }}
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    className="px-3 py-2 bg-brand-surface/50 border border-brand-muted/20 rounded-lg text-sm font-medium text-brand-text hover:border-brand-teal/40 transition-all"
-                  >
-                    {tech}
-                  </motion.div>
-                ))}
-              </div>
-              </div>
-            </BentoCard>
+            </EnhancedBentoCard>
 
             {/* Card 4: Philosophy (Wide) */}
-            <BentoCard span="2" className="flex flex-col justify-center relative overflow-hidden group">
-              {/* Animated glow */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-brand-teal/0 via-brand-orange/0 to-brand-teal/0 group-hover:via-brand-teal/15 group-hover:to-brand-orange/15 transition-all duration-500 rounded-xl"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-              />
+            <EnhancedBentoCard
+              span="2"
+              enable3DTilt={true}
+              enableMagnetic={true}
+              className="flex flex-col justify-center relative overflow-hidden group"
+            >
               <div className="relative z-10">
-              <div className="mb-4">
-                <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
-                  Philosophy
-                </span>
+                <div className="mb-4">
+                  <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
+                    Philosophy
+                  </span>
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-4xl md:text-5xl font-bold text-brand-text">
+                    <AnimatedGradientText text="Strategy. Systems. Shipping." delay={0.1} />
+                  </h3>
+                  <p className="text-brand-muted text-lg max-w-2xl">
+                    Every marketing engine starts with strategy, gets built with systems, and delivers through consistent shipping. No hand-waving, no vanity metrics—just revenue that scales.
+                  </p>
+                </div>
               </div>
-              <div className="space-y-4">
-                <h3 className="text-4xl md:text-5xl font-bold text-brand-text">
-                  <AnimatedGradientText text="Strategy. Systems. Shipping." delay={0.1} />
-                </h3>
-                <p className="text-brand-muted text-lg max-w-2xl">
-                  Every marketing engine starts with strategy, gets built with systems, and delivers through consistent shipping. No hand-waving, no vanity metrics—just revenue that scales.
-                </p>
-              </div>
-              </div>
-            </BentoCard>
+            </EnhancedBentoCard>
           </BentoGrid>
         </section>
 
@@ -213,13 +218,6 @@ const Home: React.FC = () => {
 
         {/* Process Flow Section */}
         <ProcessFlow />
-
-        <SectionDivider />
-
-        {/* Service Modules Section */}
-        <ServiceModules />
-
-        <SectionDivider />
 
         {/* Testimonials Section */}
         <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">

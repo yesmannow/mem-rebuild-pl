@@ -28,10 +28,12 @@ const SideProjectDetail = React.lazy(() => import('../pages/side-projects/SidePr
 const Testimonials = React.lazy(() => import('../pages/Testimonials'));
 const Resume = React.lazy(() => import('../pages/Resume'));
 const Contact = React.lazy(() => import('../pages/Contact'));
-const Inspiration = React.lazy(() => import('../pages/InspirationPage'));
-const InspirationDetail = React.lazy(() => import('../pages/InspirationDetail'));
+const Services = React.lazy(() => import('../pages/Services'));
+// Legacy routes - commented out
+// const Inspiration = React.lazy(() => import('../pages/InspirationPage'));
+// const InspirationDetail = React.lazy(() => import('../pages/InspirationDetail'));
 const Gallery = React.lazy(() => import('../pages/Gallery'));
-const BrandBuilder = React.lazy(() => import('../pages/BrandBuilder'));
+// const BrandBuilder = React.lazy(() => import('../pages/BrandBuilder'));
 const BrandDetail = React.lazy(() => import('../pages/brand/BrandDetail'));
 const TheLaunchpad = React.lazy(() => import('../pages/case-studies/the-launchpad'));
 const TheCompass = React.lazy(() => import('../pages/case-studies/the-compass'));
@@ -101,6 +103,13 @@ const AppRouter: React.FC = () => {
         description:
           'Marketing and product systems toolkit built by Jacob Darling—frameworks, automations, and go-to templates.',
         keywords: 'marketing toolbox, automation toolkit, systems architecture',
+      };
+    } else if (path === '/services') {
+      return {
+        title: 'Services | BearCave Marketing',
+        description:
+          'Deployable marketing systems. Audit, architect, automate, and scale your marketing operations with proven frameworks and pre-built modules.',
+        keywords: 'marketing automation, marketing systems, growth operations, marketing technology, CRM automation',
       };
     } else if (path === '/tools') {
       return {
@@ -174,19 +183,20 @@ const AppRouter: React.FC = () => {
         keywords:
           'creative portfolio, photography, graphic design, branding, web design, motion design, visual design',
       };
-    } else if (path === '/inspiration') {
-      return {
-        title: 'Inspiration | BearCave Marketing',
-        description:
-          'A curated journey through the systems, designs, and philosophies that shape creative work',
-        keywords: 'design inspiration, creative influences, design systems, branding inspiration',
-      };
-    } else if (path.startsWith('/inspiration/')) {
-      return {
-        title: 'Brand Project | BearCave Marketing',
-        description: 'Explore this exceptional branding and design project',
-        keywords: 'branding project, design case study, brand identity',
-      };
+    // Legacy inspiration routes - commented out
+    // } else if (path === '/inspiration') {
+    //   return {
+    //     title: 'Inspiration | BearCave Marketing',
+    //     description:
+    //       'A curated journey through the systems, designs, and philosophies that shape creative work',
+    //     keywords: 'design inspiration, creative influences, design systems, branding inspiration',
+    //   };
+    // } else if (path.startsWith('/inspiration/')) {
+    //   return {
+    //     title: 'Brand Project | BearCave Marketing',
+    //     description: 'Explore this exceptional branding and design project',
+    //     keywords: 'branding project, design case study, brand identity',
+    //   };
     } else if (path === '/gallery') {
       return {
         title: 'Brand Gallery | BearCave Marketing',
@@ -194,13 +204,14 @@ const AppRouter: React.FC = () => {
           'Explore curated brand identity systems and design systems created with the Brand Builder',
         keywords: 'brand gallery, brand boards, design systems, brand identity',
       };
-    } else if (path === '/brand-builder') {
-      return {
-        title: 'Brand Builder | BearCave Marketing',
-        description:
-          'Create a complete brand identity system in minutes with our interactive brand builder',
-        keywords: 'brand builder, brand identity, design system, brand creation',
-      };
+    // Legacy brand builder route - commented out
+    // } else if (path === '/brand-builder') {
+    //   return {
+    //     title: 'Brand Builder | BearCave Marketing',
+    //     description:
+    //       'Create a complete brand identity system in minutes with our interactive brand builder',
+    //     keywords: 'brand builder, brand identity, design system, brand creation',
+    //   };
     } else if (path === '/showcase') {
       return {
         title: 'Component Showcase | BearCave Marketing',
@@ -346,6 +357,14 @@ const AppRouter: React.FC = () => {
               }
             />
             <Route
+              path="/services"
+              element={
+                <PageTransition>
+                  <Services />
+                </PageTransition>
+              }
+            />
+            <Route
               path="/tools"
               element={
                 <PageTransition>
@@ -426,22 +445,6 @@ const AppRouter: React.FC = () => {
               }
             />
             <Route
-              path="/inspiration"
-              element={
-                <PageTransition>
-                  <Inspiration />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/inspiration/:slug"
-              element={
-                <PageTransition>
-                  <InspirationDetail />
-                </PageTransition>
-              }
-            />
-            <Route
               path="/side-projects"
               element={
                 <PageTransition>
@@ -486,22 +489,6 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <Gallery />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/brand-builder"
-              element={
-                <PageTransition>
-                  <BrandBuilder />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/brand/:slug"
-              element={
-                <PageTransition>
-                  <BrandDetail />
                 </PageTransition>
               }
             />

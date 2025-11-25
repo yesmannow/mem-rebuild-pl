@@ -28,6 +28,8 @@ function generateConceptIcon(name, type) {
     svg = generateServiceIcon(name, safeId);
   } else if (type === 'testimonial') {
     svg = generateTestimonialIcon(name, safeId);
+  } else if (type === 'pillar') {
+    svg = generateServiceIcon(name, safeId); // Reuse service icon generator for pillars
   } else {
     svg = generateDefaultIcon(name, safeId);
   }
@@ -96,6 +98,30 @@ function generateServiceIcon(name, safeId) {
       accent: `<path d="M20 32 L28 32 M36 32 L44 32" stroke="${BRAND_TEAL}" stroke-width="3" stroke-linecap="round"/>
                <circle cx="24" cy="32" r="2" fill="${BRAND_ORANGE}"/>
                <circle cx="40" cy="32" r="2" fill="${BRAND_ORANGE}"/>`,
+    },
+    // Strategic Pillar Icons
+    'strategy': {
+      shape: `<path d="M20 20 L44 20 L44 44 L20 44 Z M24 24 L40 24 L40 40 L24 40 Z" fill="url(#gradient-${safeId})" opacity="0.9"/>`,
+      accent: `<path d="M28 28 L36 28 M28 32 L36 32 M28 36 L36 36" stroke="${BRAND_TEAL}" stroke-width="2" stroke-linecap="round"/>
+               <circle cx="32" cy="20" r="2" fill="${BRAND_ORANGE}" opacity="0.8"/>`,
+    },
+    'revenue': {
+      shape: `<path d="M16 48 L20 40 L28 36 L36 24 L44 20 L48 16" stroke="url(#gradient-${safeId})" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M16 48 L20 40 L28 36 L36 24 L44 20 L48 16" stroke="${BRAND_TEAL}" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>`,
+      accent: `<circle cx="20" cy="40" r="2" fill="${BRAND_ORANGE}"/>
+               <circle cx="28" cy="36" r="2" fill="${BRAND_ORANGE}"/>
+               <circle cx="36" cy="24" r="2" fill="${BRAND_ORANGE}"/>
+               <circle cx="44" cy="20" r="2" fill="${BRAND_ORANGE}"/>`,
+    },
+    'leadership': {
+      shape: `<circle cx="32" cy="24" r="8" fill="url(#gradient-${safeId})" opacity="0.9"/>
+             <path d="M20 40 Q32 36 44 40" stroke="url(#gradient-${safeId})" stroke-width="3" fill="none" stroke-linecap="round"/>`,
+      accent: `<circle cx="28" cy="24" r="2" fill="${BRAND_TEAL}" opacity="0.8"/>
+               <circle cx="36" cy="24" r="2" fill="${BRAND_TEAL}" opacity="0.8"/>
+               <path d="M26 30 Q32 32 38 30" stroke="${BRAND_ORANGE}" stroke-width="2" fill="none" stroke-linecap="round"/>
+               <circle cx="24" cy="40" r="2" fill="${BRAND_TEAL}"/>
+               <circle cx="32" cy="40" r="2" fill="${BRAND_TEAL}"/>
+               <circle cx="40" cy="40" r="2" fill="${BRAND_TEAL}"/>`,
     },
   };
 
@@ -188,13 +214,20 @@ async function main() {
   await fs.mkdir(conceptsDir, { recursive: true });
 
   const icons = [
+    // Process icons
     { name: 'audit', type: 'process' },
     { name: 'architect', type: 'process' },
     { name: 'automate', type: 'process' },
     { name: 'scale', type: 'process' },
+    // Strategic Pillar icons
+    { name: 'strategy', type: 'pillar' },
+    { name: 'revenue', type: 'pillar' },
+    { name: 'leadership', type: 'pillar' },
+    // Service icons
     { name: 'growth-os', type: 'service' },
     { name: 'content-api', type: 'service' },
     { name: 'data-link', type: 'service' },
+    // Testimonial icons
     { name: 'terminal-user', type: 'testimonial' },
   ];
 

@@ -177,7 +177,7 @@ const About: React.FC = () => {
         <AnchorNav anchors={anchorItems} />
         <AnimatedSection>
           <section id="story" className="about-intro">
-          <motion.h1 variants={fadeInUp}>About Me</motion.h1>
+          <motion.h1 variants={fadeInUp}>Marketing Director & Systems Architect</motion.h1>
 
           <motion.div className="intro-content" variants={fadeInUp}>
             <div className="bio-photo-wrapper">
@@ -186,27 +186,30 @@ const About: React.FC = () => {
             </div>
             <div className="intro-text">
               <p className="lead">
-                Hello, I'm Jacob Darling—a Marketing Strategist & Systems Architect with over a
-                decade of experience driving growth through data-driven marketing and innovative
-                tech solutions. I specialize in marketing automation, CRM campaigns, SEO/SEM
-                optimization, analytics-driven strategy, and cross-functional project management. My
-                unique strength lies in bridging marketing strategy and technical execution, turning
-                marketing goals into measurable results.
+                I'm Jacob Darling—a Marketing Director who bridges the gap between strategy and execution.
+                With over a decade of experience leading teams and building systems, I translate CMO vision
+                into technical reality. My unique strength is speaking both languages: the strategic language
+                of marketing leadership and the technical language of systems architecture.
               </p>
               <p>
-                <strong>Key Strengths:</strong> Campaign optimization, team leadership, data
-                analysis, creative content development, marketing automation, and full-stack
-                development. I'm passionate about leveraging AI and automation to improve marketing
-                ROI, continuously learning new technologies, and building collaborative
-                relationships with cross-functional teams.
+                <strong>Leadership & Team Management:</strong> I've led cross-functional teams at every
+                stage—from small creative shops to enterprise organizations. My approach combines strategic
+                vision with hands-on execution, ensuring that marketing goals translate into measurable systems.
+                I excel at aligning creative teams with technical teams, breaking down silos, and building
+                collaborative workflows that scale.
               </p>
               <p>
-                <strong>Proven Results:</strong> At Graston Technique®, I built a marketing
-                automation system with 400+ workflows that reduced support tickets by 70%, optimized
-                checkout flows that increased conversions by 40%, and managed multi-channel
-                advertising campaigns (Google Ads, Meta Ads, LinkedIn Ads) with measurable ROI.
-                These are documented results from production systems serving 30,000+ practitioners
-                worldwide.
+                <strong>Bridging Creative & Technical:</strong> Most marketing directors can't code. Most
+                developers can't craft strategy. I do both. This dual capability means I can translate
+                creative vision into technical requirements, build the systems myself, and lead the teams
+                that maintain them. I don't just plan campaigns—I architect the infrastructure that runs them.
+              </p>
+              <p>
+                <strong>Proven Leadership:</strong> At Graston Technique®, I led a marketing team while
+                simultaneously architecting the technical systems. I built a marketing automation platform
+                with 400+ workflows, managed multi-channel advertising campaigns, and optimized conversion
+                funnels—all while leading cross-functional teams and reporting directly to executive leadership.
+                These systems served 30,000+ practitioners worldwide and delivered measurable ROI every quarter.
               </p>
 
               {/* GitHub Activity Stats */}
@@ -240,34 +243,35 @@ const About: React.FC = () => {
 
           <div className="philosophy-grid">
             <div className="philosophy-card">
-              <div className="icon">📊</div>
-              <h3>Analytics-Driven Strategy</h3>
+              <div className="icon">👥</div>
+              <h3>Team Leadership & Development</h3>
               <p>
-                Every marketing decision is backed by data. I configure Google Tag Manager, GA4, and
-                custom event tracking to measure campaign performance, conversion funnels, and
-                ROI—ensuring every marketing dollar drives measurable results.
+                I lead marketing teams by setting clear vision, building collaborative workflows, and
+                empowering team members to execute. My leadership style combines strategic direction with
+                hands-on mentorship, ensuring that both creative and technical team members understand
+                how their work drives business outcomes.
               </p>
             </div>
 
             <div className="philosophy-card">
-              <div className="icon">🔄</div>
-              <h3>Marketing Automation Excellence</h3>
+              <div className="icon">🌉</div>
+              <h3>Bridging Creative & Technical Teams</h3>
               <p>
-                I bridge marketing strategy and technical execution by building CRM workflows, email
-                automation sequences, and campaign automation systems. At Graston Technique®, I
-                developed 400+ marketing automations that reduced support workload by 70% while
-                improving customer experience.
+                I excel at translating between creative vision and technical execution. I speak the
+                language of designers, copywriters, and brand strategists—and I speak the language of
+                developers, data engineers, and systems architects. This dual fluency eliminates
+                miscommunication and accelerates delivery.
               </p>
             </div>
 
             <div className="philosophy-card">
-              <div className="icon">🎯</div>
-              <h3>Cross-Functional Campaign Management</h3>
+              <div className="icon">📈</div>
+              <h3>Strategic Execution</h3>
               <p>
-                I lead multi-channel marketing campaigns across Google Ads, Meta Ads, and LinkedIn
-                Ads with cross-functional project management. My campaigns are designed for
-                scalability, with proven results: 40% increase in checkout conversions, 30%
-                improvement in lead conversion rates, and measurable ROI across all channels.
+                I don't just plan—I execute. As a Marketing Director who codes, I can architect the
+                systems, build the workflows, and lead the teams that maintain them. This end-to-end
+                capability means faster delivery, fewer handoffs, and systems that actually work as
+                designed.
               </p>
             </div>
           </div>
