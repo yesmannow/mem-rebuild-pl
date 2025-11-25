@@ -20,6 +20,7 @@ type OceanCountingNumberProps = React.ComponentProps<'span'> & {
   decimalSeparator?: string;
   transition?: SpringOptions;
   decimalPlaces?: number;
+  suffix?: string;
   className?: string;
 };
 
@@ -34,13 +35,16 @@ function OceanCountingNumber({
   decimalSeparator = '.',
   transition = { stiffness: 90, damping: 50 },
   decimalPlaces = 0,
+  suffix = '',
   className,
   ...props
 }: OceanCountingNumberProps) {
   const localRef = React.useRef<HTMLSpanElement>(null);
   React.useImperativeHandle(ref, () => localRef.current as HTMLSpanElement);
 
-  const numberStr = number.toString();
+  // Guard against undefined number
+  const safeNumber = number ?? 0;
+  const numberStr = safeNumber.toString();
   const decimals =
     typeof decimalPlaces === 'number'
       ? decimalPlaces
@@ -57,8 +61,8 @@ function OceanCountingNumber({
   const isInView = !inView || inViewResult;
 
   React.useEffect(() => {
-    if (isInView) motionVal.set(number);
-  }, [isInView, number, motionVal]);
+    if (isInView) motionVal.set(safeNumber);
+  }, [isInView, safeNumber, motionVal]);
 
   React.useEffect(() => {
     const unsubscribe = springVal.on('change', (latest) => {
@@ -73,7 +77,7 @@ function OceanCountingNumber({
         }
 
         if (padStart) {
-          const finalIntLength = Math.floor(Math.abs(number)).toString().length;
+          const finalIntLength = Math.floor(Math.abs(safeNumber)).toString().length;
           const [intPart, fracPart] = formatted.split(decimalSeparator);
           const paddedInt = intPart?.padStart(finalIntLength, '0') ?? '';
           formatted = fracPart
@@ -81,17 +85,17 @@ function OceanCountingNumber({
             : paddedInt;
         }
 
-        localRef.current.textContent = formatted;
+        localRef.current.textContent = formatted + suffix;
       }
     });
     return () => unsubscribe();
-  }, [springVal, decimals, padStart, number, decimalSeparator]);
+  }, [springVal, decimals, padStart, safeNumber, decimalSeparator, suffix]);
 
-  const finalIntLength = Math.floor(Math.abs(number)).toString().length;
+  const finalIntLength = Math.floor(Math.abs(safeNumber)).toString().length;
   const initialText = padStart
     ? '0'.padStart(finalIntLength, '0') +
-      (decimals > 0 ? decimalSeparator + '0'.repeat(decimals) : '')
-    : '0' + (decimals > 0 ? decimalSeparator + '0'.repeat(decimals) : '');
+      (decimals > 0 ? decimalSeparator + '0'.repeat(decimals) : '') + suffix
+    : '0' + (decimals > 0 ? decimalSeparator + '0'.repeat(decimals) : '') + suffix;
 
   return (
     <span
