@@ -12,6 +12,7 @@ import { initLenis, destroyLenis } from './utils/motion-sync';
 import { initAnalytics } from './utils/analytics';
 import { initAccessibility } from './utils/accessibility';
 import JSONLD from './components/seo/JSONLD';
+import { useKonami, DebugOverlay } from './hooks/useKonami';
 import 'lenis/dist/lenis.css';
 import './styles/skip-to-content.css';
 
@@ -19,7 +20,14 @@ const PersonSchema = lazy(() => import('./components/seo/PersonSchema'));
 const PerformanceMonitor = lazy(() => import('./components/utils/PerformanceMonitor'));
 const AppRouter = lazy(() => import('./router/AppRouter'));
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
+  // Konami code hook for "God Mode"
+  const { isActive: isKonamiActive, setIsActive: setKonamiActive } = useKonami(() => {
+    if (process.env.NODE_ENV === 'development') {
+      console.log('🎮 Konami Code Activated - God Mode Enabled!');
+    }
+  });
+
   useEffect(() => {
     // Initialize analytics
     initAnalytics();
@@ -90,12 +98,22 @@ const App: React.FC = () => {
                   <AppRouter />
                 </SwipeShell>
               </Layout>
+
+              {/* Konami Code Debug Overlay */}
+              <DebugOverlay
+                isActive={isKonamiActive}
+                onClose={() => setKonamiActive(false)}
+              />
             </ToastProvider>
           </ThemeProvider>
         </HelmetProvider>
       </QueryClientProvider>
     </ErrorBoundary>
   );
+};
+
+const App: React.FC = () => {
+  return <AppContent />;
 };
 
 export default App;

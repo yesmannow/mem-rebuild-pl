@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Home, Briefcase, Terminal, User, Download } from 'lucide-react';
 import { useHaptic } from '../hooks/useHaptic';
 import { usePWAInstall } from '../hooks/usePWAInstall';
+import BrandToggle from './theme/BrandToggle';
 
 const MobileDock: React.FC = () => {
   const location = useLocation();
@@ -82,6 +83,11 @@ const MobileDock: React.FC = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-brand-teal/60 to-transparent" />
 
         <div className="flex items-center justify-around px-2 py-3">
+          {/* Brand Toggle - Compact version for mobile */}
+          <div className="px-2">
+            <BrandToggle />
+          </div>
+
           {dockItems.map((item) => {
             const Icon = item.icon;
             const active = isActive(item.path);

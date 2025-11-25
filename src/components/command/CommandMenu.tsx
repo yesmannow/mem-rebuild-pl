@@ -16,8 +16,36 @@ import {
   Building2,
   Mail,
   FileText,
-  ExternalLink
+  ExternalLink,
+  Copy,
+  Download,
+  Moon,
+  Sun
 } from 'lucide-react';
+import { useTheme } from '../theme/ThemeProvider';
+
+// Types for command items
+type NavigationItem = {
+  id: string;
+  title: string;
+  description: string;
+  icon: React.ComponentType<{ size?: number }>;
+  to: string;
+  keywords: string[];
+  type: 'navigation';
+};
+
+type ActionItem = {
+  id: string;
+  title: string;
+  description: string;
+  icon: React.ComponentType<{ size?: number }>;
+  action: () => void;
+  keywords: string[];
+  type: 'action';
+};
+
+type CommandItem = NavigationItem | ActionItem;
 
 // Command data structure
 const COMMAND_ITEMS = {
@@ -28,7 +56,8 @@ const COMMAND_ITEMS = {
       description: 'BearCave Marketing homepage',
       icon: Home,
       to: '/',
-      keywords: ['main', 'landing', 'start']
+      keywords: ['main', 'landing', 'start'],
+      type: 'navigation' as const
     },
     {
       id: 'about',
@@ -36,7 +65,8 @@ const COMMAND_ITEMS = {
       description: 'Learn about my journey and background',
       icon: User,
       to: '/about',
-      keywords: ['me', 'story', 'bio', 'background']
+      keywords: ['me', 'story', 'bio', 'background'],
+      type: 'navigation' as const
     },
     {
       id: 'contact',
@@ -44,7 +74,8 @@ const COMMAND_ITEMS = {
       description: 'Get in touch for collaborations',
       icon: Mail,
       to: '/contact',
-      keywords: ['reach', 'message', 'connect']
+      keywords: ['reach', 'message', 'connect'],
+      type: 'navigation' as const
     },
     {
       id: 'resume',
@@ -52,7 +83,8 @@ const COMMAND_ITEMS = {
       description: 'View my professional experience',
       icon: FileText,
       to: '/resume',
-      keywords: ['cv', 'curriculum', 'experience']
+      keywords: ['cv', 'curriculum', 'experience'],
+      type: 'navigation' as const
     }
   ],
   work: [
@@ -132,13 +164,14 @@ const COMMAND_ITEMS = {
       to: '/gallery',
       keywords: ['gallery', 'showcase', 'portfolio']
     }
-  ]
+  ],
+  actions: [] as ActionItem[] // Will be populated dynamically
 };
 
-const ALL_COMMANDS = Object.values(COMMAND_ITEMS).flat();
+const ALL_COMMANDS: CommandItem[] = Object.values(COMMAND_ITEMS).flat();
 
 interface CommandItemProps {
-  item: typeof ALL_COMMANDS[0];
+  item: CommandItem;
   isSelected: boolean;
   onSelect: () => void;
 }
@@ -170,19 +203,25 @@ const CommandItem: React.FC<CommandItemProps> = ({ item, isSelected, onSelect })
           {item.description}
         </div>
       </div>
-      <ArrowRight size={14} className={`transition-transform ${
-        isSelected ? 'rotate-90 text-[var(--signal-500)]' : 'text-[var(--parchment-050)]/40'
-      }`} />
+      {item.type === 'navigation' ? (
+        <ArrowRight size={14} className={`transition-transform ${
+          isSelected ? 'rotate-90 text-[var(--signal-500)]' : 'text-[var(--parchment-050)]/40'
+        }`} />
+      ) : (
+        <div className="text-xs text-[var(--parchment-050)]/40 px-2 py-1 bg-[var(--ink-700)] rounded">
+          Action
+        </div>
+      )}
     </motion.div>
   );
 };
 
 interface CommandGroupProps {
   title: string;
-  items: typeof ALL_COMMANDS;
+  items: CommandItem[];
   selectedIndex: number;
   startIndex: number;
-  onSelectItem: (item: typeof ALL_COMMANDS[0]) => void;
+  onSelectItem: (item: CommandItem) => void;
 }
 
 const CommandGroup: React.FC<CommandGroupProps> = ({
@@ -218,35 +257,118 @@ export default function CommandMenu({ open, onClose }: CommandMenuProps) {
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const navigate = useNavigate();
+  const { theme, setTheme } = useTheme();
+
+  // Email address
+  const EMAIL = 'jacob@jacobdarling.com';
+
+  // Determine current effective theme (handle 'system')
+  const effectiveTheme = theme === 'system'
+    ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    : theme;
+
+  // Action handlers
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      // Show toast notification (you can enhance this with a toast system)
+      console.log('Email copied to clipboard');
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  };
+
+  const handleDownloadResume = () => {
+    // Navigate to resume page and trigger download
+    navigate('/resume');
+    // The resume page should have a download button that can be triggered
+    // For now, we'll just navigate there
+  };
+
+  const handleToggleTheme = () => {
+    const newTheme = effectiveTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  };
+
+  // Build actions dynamically
+  const actionItems: ActionItem[] = useMemo(() => [
+    {
+      id: 'copy-email',
+      title: 'Copy Email',
+      description: EMAIL,
+      icon: Copy,
+      action: handleCopyEmail,
+      keywords: ['email', 'contact', 'copy', 'clipboard'],
+      type: 'action' as const
+    },
+    {
+      id: 'download-resume',
+      title: 'Download Resume',
+      description: 'Get my professional resume as PDF',
+      icon: Download,
+      action: handleDownloadResume,
+      keywords: ['resume', 'cv', 'download', 'pdf'],
+      type: 'action' as const
+    },
+    {
+      id: 'toggle-theme',
+      title: `Switch to ${effectiveTheme === 'dark' ? 'Light' : 'Dark'} Mode`,
+      description: `Currently using ${effectiveTheme} theme`,
+      icon: effectiveTheme === 'dark' ? Sun : Moon,
+      action: handleToggleTheme,
+      keywords: ['theme', 'dark', 'light', 'mode', 'toggle'],
+      type: 'action' as const
+    }
+  ], [effectiveTheme, EMAIL]);
+
+  // Combine all commands with actions
+  const allCommandsWithActions = useMemo(() => {
+    return [
+      ...COMMAND_ITEMS.pages,
+      ...COMMAND_ITEMS.work,
+      ...COMMAND_ITEMS.tools,
+      ...COMMAND_ITEMS.inspiration,
+      ...actionItems
+    ];
+  }, [actionItems]);
 
   // Flatten all items for keyboard navigation
-  const allItems = useMemo(() => ALL_COMMANDS, []);
+  const allItems = useMemo(() => allCommandsWithActions, [allCommandsWithActions]);
 
   // Filter items based on query
   const filteredItems = useMemo(() => {
-    if (!query.trim()) return ALL_COMMANDS;
+    if (!query.trim()) return allItems;
 
     const searchTerm = query.toLowerCase();
-    return ALL_COMMANDS.filter(item =>
+    return allItems.filter(item =>
       item.title.toLowerCase().includes(searchTerm) ||
       item.description.toLowerCase().includes(searchTerm) ||
       item.keywords.some(keyword => keyword.toLowerCase().includes(searchTerm))
     );
-  }, [query]);
+  }, [query, allItems]);
 
   // Group filtered items
   const groupedItems = useMemo(() => {
     const groups = {
-      pages: [] as typeof ALL_COMMANDS,
-      work: [] as typeof ALL_COMMANDS,
-      tools: [] as typeof ALL_COMMANDS,
-      inspiration: [] as typeof ALL_COMMANDS
+      pages: [] as CommandItem[],
+      work: [] as CommandItem[],
+      tools: [] as CommandItem[],
+      inspiration: [] as CommandItem[],
+      actions: [] as CommandItem[]
     };
 
     filteredItems.forEach(item => {
+      // Check if it's an action
+      if (item.type === 'action') {
+        groups.actions.push(item);
+        return;
+      }
+
+      // Check other groups
       for (const [groupName, groupItems] of Object.entries(COMMAND_ITEMS)) {
+        if (groupName === 'actions') continue;
         if (groupItems.some(groupItem => groupItem.id === item.id)) {
-          (groups[groupName as keyof typeof groups] as typeof ALL_COMMANDS).push(item);
+          (groups[groupName as keyof typeof groups] as CommandItem[]).push(item);
           break;
         }
       }
@@ -291,10 +413,16 @@ export default function CommandMenu({ open, onClose }: CommandMenuProps) {
     setSelectedIndex(0);
   }, [query]);
 
-  const handleSelectItem = (item: typeof ALL_COMMANDS[0]) => {
-    navigate(item.to);
-    onClose();
-    setQuery('');
+  const handleSelectItem = (item: CommandItem) => {
+    if (item.type === 'action') {
+      item.action();
+      onClose();
+      setQuery('');
+    } else {
+      navigate(item.to);
+      onClose();
+      setQuery('');
+    }
   };
 
   // Focus input when menu opens
@@ -361,7 +489,8 @@ export default function CommandMenu({ open, onClose }: CommandMenuProps) {
                       pages: 'Pages',
                       work: 'Work',
                       tools: 'Tools & Skills',
-                      inspiration: 'Inspiration'
+                      inspiration: 'Inspiration',
+                      actions: 'Actions'
                     };
 
                     return (

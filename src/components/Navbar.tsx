@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import InteractiveLogo from './InteractiveLogo';
+import BrandToggle from './theme/BrandToggle';
 
 const Navbar = () => {
   const location = useLocation();
@@ -30,7 +31,7 @@ const Navbar = () => {
           </Link>
 
           {/* DESKTOP NAV */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -42,6 +43,9 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+
+            {/* Brand Toggle */}
+            <BrandToggle />
 
             <a
               href="mailto:jacob@jacobdarling.com"

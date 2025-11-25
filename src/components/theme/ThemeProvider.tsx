@@ -69,31 +69,40 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
     document.documentElement.classList.toggle('dark', isDark);
     document.documentElement.setAttribute('data-brand', b);
-    
+
+    // Apply brand-specific font family
+    const fontFamilies = {
+      cmo: "'Newsreader', 'Merriweather', Georgia, serif",
+      dev: "'JetBrains Mono', 'Fira Code', 'Consolas', monospace",
+      default: "'Montserrat', system-ui, sans-serif"
+    };
+    document.documentElement.style.setProperty('--brand-font-family', fontFamilies[b]);
+    document.body.style.fontFamily = fontFamilies[b];
+
     if (accent) {
       document.documentElement.style.setProperty('--brand-accent-override', accent);
       document.documentElement.style.setProperty('--accent', accent);
     } else {
       document.documentElement.style.removeProperty('--brand-accent-override');
     }
-    
+
     updateThemeColor(isDark);
   }, [updateThemeColor]);
 
   useEffect(() => {
     apply(theme, brand, brandAccent);
-    
+
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(motionQuery.matches);
-    
+
     const handleMotionChange = (e: MediaQueryListEvent) => {
       setPrefersReducedMotion(e.matches);
       document.documentElement.classList.toggle('reduce-motion', e.matches);
     };
-    
+
     motionQuery.addEventListener('change', handleMotionChange);
     document.documentElement.classList.toggle('reduce-motion', motionQuery.matches);
-    
+
     return () => motionQuery.removeEventListener('change', handleMotionChange);
   }, [apply, theme, brand, brandAccent]);
 
@@ -144,15 +153,15 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // Always provide context - never return children without Provider
   return (
-    <ThemeContext.Provider 
-      value={{ 
-        theme, 
-        brand, 
-        brandAccent, 
-        setTheme, 
-        setBrand, 
+    <ThemeContext.Provider
+      value={{
+        theme,
+        brand,
+        brandAccent,
+        setTheme,
+        setBrand,
         setBrandAccent,
-        prefersReducedMotion 
+        prefersReducedMotion
       }}
     >
       {/* Smooth crossfade on theme changes */}

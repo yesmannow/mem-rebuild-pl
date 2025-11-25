@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useInView } from 'framer-motion';
 import { Briefcase, Code, Palette, TrendingUp, DollarSign, Target, Zap, Database, Globe, Type, Image, Video } from 'lucide-react';
+import SkillsRadar from '../components/ui/SkillsRadar';
 
 const Services: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -149,6 +150,27 @@ const Services: React.FC = () => {
             >
               From strategic leadership to technical execution, I build marketing systems that compound value. Each capability is production-tested and ready to deploy.
             </motion.p>
+          </div>
+        </section>
+
+        {/* Skills Radar - The "Unicorn" Visualization */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-dark/30">
+          <div className="max-w-7xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-brand-text mb-4">
+                The Hybrid Skillset
+              </h2>
+              <p className="text-lg text-brand-muted max-w-3xl mx-auto">
+                This is why you're a "Unicorn" hire. Full-spectrum coverage across Strategy, Analytics, Engineering, Creative, Leadership, and Automation.
+              </p>
+            </motion.div>
+            <SkillsRadar />
           </div>
         </section>
 

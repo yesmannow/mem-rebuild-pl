@@ -211,6 +211,7 @@ function printUsage() {
       "  generate-social-images Generate Open Graph social images for sharing",
       "  process-bio-assets Process and standardize bio photos for TechProfile component",
       "  fetch-lightroom Fetch photos from Adobe Lightroom API and download locally",
+      "  generate-pwa-icons Generate PWA icons (192x192 and 512x512) from SVG logo",
       "",
       "Options:",
       "  --dry-run    Print what would run, but don't execute",
@@ -1081,6 +1082,84 @@ ${formattedMetrics}
           process.exit(1);
         }
         await runOrEcho("node", [fetchScript, ...passthroughArgs]);
+        break;
+      }
+      case "generate-pwa-icons": {
+        console.log("\n" + "=".repeat(70));
+        console.log("📱 PWA Icon Generator");
+        console.log("=".repeat(70) + "\n");
+
+        if (dryRun) {
+          console.log("[DRY RUN] Would generate PWA icons:");
+          console.log("  - Source: public/logo-tech.svg (or header-logo.svg)");
+          console.log("  - Output: public/pwa-192.png (192x192)");
+          console.log("  - Output: public/pwa-512.png (512x512)");
+          console.log("  - Background: #0f172a (brand-dark)");
+          break;
+        }
+
+        try {
+          // Try to import sharp
+          const { default: sharp } = await import('sharp');
+
+          // Find source SVG (prefer logo-tech.svg, fallback to header-logo.svg)
+          const logoTechPath = path.join(repoRoot, "public", "logo-tech.svg");
+          const headerLogoPath = path.join(repoRoot, "public", "header-logo.svg");
+
+          let sourceSvg = null;
+          if (fs.existsSync(logoTechPath)) {
+            sourceSvg = logoTechPath;
+            console.log("✅ Using source: logo-tech.svg");
+          } else if (fs.existsSync(headerLogoPath)) {
+            sourceSvg = headerLogoPath;
+            console.log("✅ Using source: header-logo.svg");
+          } else {
+            console.error("❌ Error: No SVG logo found. Expected logo-tech.svg or header-logo.svg in public/");
+            process.exit(1);
+          }
+
+          // Read SVG
+          const svgBuffer = await fsPromises.readFile(sourceSvg);
+
+          // Background color for PWA icons
+          const backgroundColor = "#0f172a"; // brand-dark
+
+          // Generate 192x192 icon
+          const icon192Path = path.join(repoRoot, "public", "pwa-192.png");
+          await sharp(svgBuffer)
+            .resize(192, 192, { fit: 'contain', background: backgroundColor })
+            .png()
+            .toFile(icon192Path);
+          console.log("✅ Generated: pwa-192.png (192x192)");
+
+          // Generate 512x512 icon
+          const icon512Path = path.join(repoRoot, "public", "pwa-512.png");
+          await sharp(svgBuffer)
+            .resize(512, 512, { fit: 'contain', background: backgroundColor })
+            .png()
+            .toFile(icon512Path);
+          console.log("✅ Generated: pwa-512.png (512x512)");
+
+          console.log("\n" + "=".repeat(70));
+          console.log("📝 Next Steps:");
+          console.log("=".repeat(70));
+          console.log("1. Icons generated in public/");
+          console.log("2. Verify manifest.json references /pwa-192.png and /pwa-512.png");
+          console.log("3. Test PWA installation on mobile device");
+          console.log("=".repeat(70) + "\n");
+        } catch (error) {
+          if (error.code === 'MODULE_NOT_FOUND' || error.message.includes('sharp')) {
+            console.error("❌ Error: 'sharp' package not found.");
+            console.log("\n💡 To install sharp, run:");
+            console.log("   npm install sharp");
+            console.log("\n💡 Alternative: Use npx pwa-asset-generator");
+            console.log("   npx pwa-asset-generator public/logo-tech.svg public/");
+            process.exit(1);
+          } else {
+            console.error(`❌ Error generating PWA icons: ${error.message}`);
+            process.exit(1);
+          }
+        }
         break;
       }
       default:
