@@ -47,6 +47,15 @@ const RBELaw = React.lazy(() => import('../pages/case-studies/rbe-law'));
 const UltimateTechROI = React.lazy(() => import('../pages/case-studies/ultimate-tech-roi'));
 const DesignSystemDemo = React.lazy(() => import('../pages/DesignSystemDemo'));
 const DeploymentStatus = React.lazy(() => import('../pages/DeploymentStatus'));
+const AppsLibrary = React.lazy(() => import('../pages/AppsLibrary'));
+const GrowthEngine = React.lazy(() => import('../components/apps/GrowthEngine'));
+const LicenseHub = React.lazy(() => import('../components/apps/LicenseHub'));
+const ClinicalCompass = React.lazy(() => import('../components/apps/ClinicalCompass'));
+const LeadScoreLab = React.lazy(() => import('../components/apps/LeadScoreLab'));
+const LinkArchitect = React.lazy(() => import('../components/apps/LinkArchitect'));
+const SEOScanner = React.lazy(() => import('../components/apps/SEOScanner'));
+const CampaignPerformanceVisualizer = React.lazy(() => import('../components/apps/CampaignPerformanceVisualizer'));
+const CompetitorIntelligenceHub = React.lazy(() => import('../components/apps/CompetitorIntelligenceHub'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
 
 // Loading component with accessible Loader
@@ -238,6 +247,28 @@ const AppRouter: React.FC = () => {
       return {
         title: 'Brand Board | BearCave Marketing',
         description: 'Explore this brand identity system and design tokens',
+      };
+    } else if (path === '/apps') {
+      return {
+        title: 'The Lab | BearCave Marketing',
+        description:
+          'Interactive tools built for scale and compliance. Modern React applications ported from legacy HTML.',
+        keywords: 'interactive tools, React applications, business software, portfolio showcase',
+      };
+    } else if (path === '/apps/growth-engine') {
+      return {
+        title: 'Growth Engine | BearCave Marketing',
+        description: 'ROI modeling & quote generation tools for sales enablement',
+      };
+    } else if (path === '/apps/license-hub') {
+      return {
+        title: 'License Hub | BearCave Marketing',
+        description: '50-state compliance database for continuing education requirements',
+      };
+    } else if (path === '/apps/clinical-compass') {
+      return {
+        title: 'Clinical Compass | BearCave Marketing',
+        description: 'Logic-based treatment protocols and clinical reasoning tool',
       };
     }
 
@@ -529,6 +560,78 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <DeploymentStatus />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps"
+              element={
+                <PageTransition>
+                  <AppsLibrary />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps/campaign-performance"
+              element={
+                <PageTransition>
+                  <CampaignPerformanceVisualizer />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps/competitor-intelligence"
+              element={
+                <PageTransition>
+                  <CompetitorIntelligenceHub />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps/lead-lab"
+              element={
+                <PageTransition>
+                  <LeadScoreLab />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps/link-architect"
+              element={
+                <PageTransition>
+                  <LinkArchitect />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps/seo-scanner"
+              element={
+                <PageTransition>
+                  <SEOScanner />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps/growth-engine"
+              element={
+                <PageTransition>
+                  <GrowthEngine />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps/license-hub"
+              element={
+                <PageTransition>
+                  <LicenseHub />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps/clinical-compass"
+              element={
+                <PageTransition>
+                  <ClinicalCompass />
                 </PageTransition>
               }
             />
