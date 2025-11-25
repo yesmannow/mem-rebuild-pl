@@ -54,7 +54,7 @@ async function main() {
 
   // Step 2: Generate Authorization URL
   const redirectUri = 'https://localhost/';
-  const scopes = 'openid,offline_access,lr_partner_apis';
+  const scopes = 'openid,offline_access,lr_partner_apis,lr_partner_rendition_apis';
   const state = Math.random().toString(36).substring(2, 15);
 
   const authUrl = new URL('https://ims-na1.adobelogin.com/ims/authorize/v2');

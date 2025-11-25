@@ -137,8 +137,33 @@ async function discoverCatalog(accessToken) {
     return catalogId;
   } catch (error) {
     if (error.response) {
+      const status = error.response.status;
+      const errorData = error.response.data;
+
+      // Enhanced logging for 403 errors
+      if (status === 403) {
+        console.error('\n❌ 403 Forbidden Error - Full Response:');
+        console.error('Status:', status);
+        console.error('Headers:', JSON.stringify(error.response.headers, null, 2));
+
+        // Try to parse error data if it's a string
+        let parsedError = errorData;
+        if (typeof errorData === 'string') {
+          try {
+            parsedError = parseAdobeResponse(errorData);
+          } catch {
+            // If parsing fails, use raw string
+          }
+        }
+
+        console.error('Error Body:', JSON.stringify(parsedError, null, 2));
+        throw new Error(
+          `403 Forbidden: Access denied. Check if your refresh token has the required scopes (lr_partner_apis, lr_partner_rendition_apis).`
+        );
+      }
+
       throw new Error(
-        `Failed to discover catalog: ${error.response.status} - ${JSON.stringify(error.response.data)}`
+        `Failed to discover catalog: ${status} - ${JSON.stringify(errorData)}`
       );
     }
     throw error;
@@ -175,8 +200,33 @@ async function fetchAssets(accessToken, catalogId, limit = 20) {
     return assets;
   } catch (error) {
     if (error.response) {
+      const status = error.response.status;
+      const errorData = error.response.data;
+
+      // Enhanced logging for 403 errors
+      if (status === 403) {
+        console.error('\n❌ 403 Forbidden Error - Full Response:');
+        console.error('Status:', status);
+        console.error('Headers:', JSON.stringify(error.response.headers, null, 2));
+
+        // Try to parse error data if it's a string
+        let parsedError = errorData;
+        if (typeof errorData === 'string') {
+          try {
+            parsedError = parseAdobeResponse(errorData);
+          } catch {
+            // If parsing fails, use raw string
+          }
+        }
+
+        console.error('Error Body:', JSON.stringify(parsedError, null, 2));
+        throw new Error(
+          `403 Forbidden: Access denied. Check if your refresh token has the required scopes (lr_partner_apis, lr_partner_rendition_apis).`
+        );
+      }
+
       throw new Error(
-        `Failed to fetch assets: ${error.response.status} - ${JSON.stringify(error.response.data)}`
+        `Failed to fetch assets: ${status} - ${JSON.stringify(errorData)}`
       );
     }
     throw error;
@@ -185,47 +235,138 @@ async function fetchAssets(accessToken, catalogId, limit = 20) {
 
 /**
  * Get rendition URL for an asset
+ * Tries multiple endpoint formats and sizes as fallbacks
  */
 async function getRenditionUrl(accessToken, catalogId, assetId, size = '2048') {
-  try {
-    const response = await axios.post(
-      `https://lr.adobe.io/v2/catalogs/${catalogId}/assets/${assetId}/renditions`,
+  // Try different sizes in order of preference (thumbnail2x first as it's often pre-generated)
+  const sizesToTry = ['thumbnail2x', size, '1280', '640'];
+
+  for (const trySize of sizesToTry) {
+    // Try multiple endpoint and body format combinations
+    const attempts = [
+      // Attempt 1: GET with size in URL path
       {
-        size: size,
+        method: 'GET',
+        url: `https://lr.adobe.io/v2/catalogs/${catalogId}/assets/${assetId}/renditions/${trySize}`,
+        body: null,
       },
+      // Attempt 2: POST to /renditions with rendition_type in body
       {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          'X-API-Key': process.env.ADOBE_CLIENT_ID,
-          'Content-Type': 'application/json',
-        },
-        responseType: 'text', // Get raw response to handle security prefix
+        method: 'POST',
+        url: `https://lr.adobe.io/v2/catalogs/${catalogId}/assets/${assetId}/renditions`,
+        body: { rendition_type: trySize },
+      },
+      // Attempt 3: POST to /renditions with type in body
+      {
+        method: 'POST',
+        url: `https://lr.adobe.io/v2/catalogs/${catalogId}/assets/${assetId}/renditions`,
+        body: { type: trySize },
+      },
+      // Attempt 4: POST to /renditions/2048 with empty body
+      {
+        method: 'POST',
+        url: `https://lr.adobe.io/v2/catalogs/${catalogId}/assets/${assetId}/renditions/${trySize}`,
+        body: {},
+      },
+    ];
+
+    for (const attempt of attempts) {
+      try {
+        const requestConfig = {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            'X-API-Key': process.env.ADOBE_CLIENT_ID,
+          },
+          responseType: 'text', // Get raw response to handle security prefix
+        };
+
+        let response;
+        if (attempt.method === 'POST') {
+          requestConfig.headers['Content-Type'] = 'application/json';
+          if (attempt.body && Object.keys(attempt.body).length > 0) {
+            response = await axios.post(attempt.url, attempt.body, requestConfig);
+          } else {
+            response = await axios.post(attempt.url, {}, requestConfig);
+          }
+        } else {
+          response = await axios.get(attempt.url, requestConfig);
+        }
+
+        // Handle Adobe's security prefix and parse JSON
+        const data = parseAdobeResponse(response.data);
+
+        // The rendition URL might be in different places depending on API version
+        const renditionUrl =
+          data?.resources?.[0]?.href ||
+          data?.resources?.[0]?.url ||
+          data?.href ||
+          data?.url ||
+          data?.link?.href;
+
+        if (renditionUrl) {
+          if (trySize !== size) {
+            console.log(`    ℹ️  Using fallback size: ${trySize} (requested: ${size})`);
+          }
+          return renditionUrl;
+        }
+      } catch (error) {
+        if (error.response) {
+          const status = error.response.status;
+          const errorData = error.response.data;
+
+          // Enhanced logging for 400 errors (only log once per size to reduce noise)
+          if (status === 400 && attempt === attempts[attempts.length - 1]) {
+            // Only log on the last attempt for this size
+            let parsedError = errorData;
+            if (typeof errorData === 'string') {
+              try {
+                parsedError = parseAdobeResponse(errorData);
+              } catch {
+                // If parsing fails, use raw string
+              }
+            }
+
+            // Continue to next attempt/size silently unless it's the last one
+            continue;
+          }
+
+          // Enhanced logging for 403 errors
+          if (status === 403) {
+            console.error(`\n❌ 403 Forbidden Error for asset ${assetId} - Full Response:`);
+            console.error('Status:', status);
+            console.error('Headers:', JSON.stringify(error.response.headers, null, 2));
+
+            // Try to parse error data if it's a string
+            let parsedError = errorData;
+            if (typeof errorData === 'string') {
+              try {
+                parsedError = parseAdobeResponse(errorData);
+              } catch {
+                // If parsing fails, use raw string
+              }
+            }
+
+            console.error('Error Body:', JSON.stringify(parsedError, null, 2));
+            console.error('This likely means the refresh token is missing the lr_partner_rendition_apis scope.');
+            return null; // Don't retry for 403
+          }
+
+          // For other errors, continue to next endpoint/size
+          if (status !== 404) {
+            // 404 might mean size not available, so continue
+            continue;
+          }
+        } else {
+          // Network or other non-HTTP error, continue
+          continue;
+        }
       }
-    );
-
-    // Handle Adobe's security prefix and parse JSON
-    const data = parseAdobeResponse(response.data);
-
-    // The rendition URL might be in different places depending on API version
-    const renditionUrl =
-      data?.resources?.[0]?.href ||
-      data?.href ||
-      data?.url;
-
-    if (!renditionUrl) {
-      throw new Error('No rendition URL found in response');
     }
-
-    return renditionUrl;
-  } catch (error) {
-    if (error.response) {
-      console.warn(
-        `Warning: Could not get rendition for asset ${assetId}: ${error.response.status}`
-      );
-      return null;
-    }
-    throw error;
   }
+
+  // All attempts failed
+  console.warn(`    ⚠️  Could not get rendition for asset ${assetId} after trying all sizes and endpoints`);
+  return null;
 }
 
 /**
