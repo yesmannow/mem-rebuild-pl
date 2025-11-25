@@ -47,7 +47,7 @@ async function scrapeLightroomImages(url, outputDir, prefix = 'photo') {
 
     // Wait for images to load - Lightroom uses dynamic loading
     console.log('⏳ Waiting for images to render...');
-    await page.waitForTimeout(3000); // Initial wait for page load
+    await new Promise(resolve => setTimeout(resolve, 3000)); // Initial wait for page load
 
     // Scroll to load more images (Lightroom often lazy loads)
     await page.evaluate(() => {
