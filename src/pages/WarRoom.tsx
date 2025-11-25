@@ -4,6 +4,7 @@ import { Server, Activity, Shield, Cpu, Database } from 'lucide-react';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import AnimatedProgressBar from '../components/ui/AnimatedProgressBar';
 import TypingTerminal from '../components/ui/TypingTerminal';
+import InteractiveTerminal from '../components/ui/InteractiveTerminal';
 import FloatingParticles from '../components/ui/FloatingParticles';
 import GlowEffect from '../components/ui/GlowEffect';
 import { AnimatedBeam } from '../components/ui/shadcn-io/animated-beam';
@@ -281,6 +282,23 @@ const WarRoom = () => {
             </>
           )}
         </div>
+
+        {/* Interactive Terminal Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-16"
+        >
+          <div className="mb-6">
+            <h2 className="text-3xl font-bold text-brand-text mb-2">Interactive Terminal</h2>
+            <p className="text-brand-muted">
+              Try typing commands: <code className="text-brand-teal">help</code>, <code className="text-brand-teal">status</code>, <code className="text-brand-teal">version</code>
+            </p>
+          </div>
+          <InteractiveTerminal />
+        </motion.div>
       </div>
     </div>
   );

@@ -4,9 +4,14 @@ import { Link } from 'react-router-dom';
 import { Mail, Linkedin, Github, ArrowUp } from 'lucide-react';
 import AnimatedCaveLogo from '../branding/AnimatedCaveLogo';
 import SignalTape from '../home/SignalTape';
+import SystemLog from '../ui/SystemLog';
+import { usePerformanceMetrics } from '../../hooks/usePerformanceMetrics';
+import { useTheme } from '../theme/ThemeProvider';
 
 const EnhancedFooter: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const metrics = usePerformanceMetrics();
+  const { brand } = useTheme();
 
   const footerLinks = {
     About: [
@@ -136,7 +141,7 @@ const EnhancedFooter: React.FC = () => {
               </motion.div>
             ))}
 
-            {/* Newsletter/CTA Section */}
+            {/* Newsletter/CTA Section with System Log */}
             <motion.div
               className="col-span-1 md:col-span-4"
               initial={{ opacity: 0, y: 20 }}
@@ -152,38 +157,132 @@ const EnhancedFooter: React.FC = () => {
               </p>
               <motion.a
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--signal-500)] text-[var(--ink-900)] font-semibold rounded-lg hover:bg-[var(--signal-500)]/90 transition-colors font-body"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--signal-500)] text-[var(--ink-900)] font-semibold rounded-lg hover:bg-[var(--signal-500)]/90 transition-colors font-body mb-6"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Get in Touch
                 <ArrowUp size={16} className="rotate-45" />
               </motion.a>
+
+              {/* System Log */}
+              <SystemLog maxEntries={4} />
             </motion.div>
           </div>
 
-          {/* Bottom Bar - Enhanced */}
+          {/* Bottom Bar - System Status Style */}
           <motion.div
-            className="border-t border-[var(--ink-700)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+            className="border-t border-[var(--ink-700)] pt-4 mt-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <p className="text-[var(--parchment-050)]/60 text-sm font-mono text-center md:text-left">
-              © {currentYear} Jacob Darling · All systems engineered in Indianapolis
-            </p>
+            <div className="bg-[var(--ink-700)]/50 backdrop-blur-sm rounded px-4 py-2 flex flex-col md:flex-row justify-between items-center gap-2 font-mono text-xs">
+              {/* Left: Copyright */}
+              <div className="text-[var(--parchment-050)]/60">
+                © {currentYear} Jacob Darling
+              </div>
 
-            <div className="flex items-center gap-6">
-              <motion.button
-                onClick={scrollToTop}
-                className="p-2 rounded-lg bg-[var(--ink-700)] text-[var(--parchment-050)]/60 hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/10 transition-all"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.9 }}
-                aria-label="Scroll to top"
-              >
-                <ArrowUp size={18} />
-              </motion.button>
+              {/* Right: System Status with Live Metrics */}
+              <div className="flex items-center gap-3 text-[var(--parchment-050)]/70 flex-wrap">
+                {/* Status Indicator */}
+                <div className="flex items-center gap-1.5">
+                  <motion.span
+                    className="w-2 h-2 rounded-full bg-green-500"
+                    animate={{
+                      opacity: [1, 0.5, 1],
+                      scale: [1, 1.1, 1],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                    }}
+                  />
+                  <span>System: Operational</span>
+                </div>
+
+                <span className="text-[var(--parchment-050)]/40">|</span>
+
+                {/* Live FPS (Dev Mode) or Business Metrics (CMO Mode) */}
+                {brand === 'dev' ? (
+                  <>
+                    <div className="flex items-center gap-1">
+                      <span>🎮</span>
+                      <span className={metrics.fps >= 55 ? 'text-green-400' : metrics.fps >= 30 ? 'text-yellow-400' : 'text-red-400'}>
+                        {metrics.fps} FPS
+                      </span>
+                    </div>
+                    {metrics.memory && (
+                      <>
+                        <span className="text-[var(--parchment-050)]/40">|</span>
+                        <div className="flex items-center gap-1">
+                          <span>💾</span>
+                          <span className={metrics.memory.percentage < 70 ? 'text-green-400' : metrics.memory.percentage < 90 ? 'text-yellow-400' : 'text-red-400'}>
+                            {metrics.memory.used}MB
+                          </span>
+                        </div>
+                      </>
+                    )}
+                  </>
+                ) : brand === 'cmo' ? (
+                  <>
+                    <div className="flex items-center gap-1">
+                      <span>📊</span>
+                      <span>ROI: +{Math.round(Math.random() * 50 + 150)}%</span>
+                    </div>
+                    <span className="text-[var(--parchment-050)]/40">|</span>
+                    <div className="flex items-center gap-1">
+                      <span>📈</span>
+                      <span>Growth: {Math.round(Math.random() * 20 + 30)}%</span>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="flex items-center gap-1">
+                      <span>⚡</span>
+                      <span>Latency: {metrics.latency}ms</span>
+                    </div>
+                    {metrics.memory && (
+                      <>
+                        <span className="text-[var(--parchment-050)]/40">|</span>
+                        <div className="flex items-center gap-1">
+                          <span>💾</span>
+                          <span>{metrics.memory.used}MB</span>
+                        </div>
+                      </>
+                    )}
+                  </>
+                )}
+
+                <span className="text-[var(--parchment-050)]/40">|</span>
+
+                {/* Version */}
+                <div className="flex items-center gap-1">
+                  <span>⚡</span>
+                  <span>v2.5.0</span>
+                </div>
+
+                <span className="text-[var(--parchment-050)]/40">|</span>
+
+                {/* Location */}
+                <div className="flex items-center gap-1">
+                  <span>📍</span>
+                  <span>Indianapolis</span>
+                </div>
+
+                {/* Scroll to Top Button */}
+                <motion.button
+                  onClick={scrollToTop}
+                  className="ml-2 p-1.5 rounded bg-[var(--ink-900)] text-[var(--parchment-050)]/60 hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/10 transition-all"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                  aria-label="Scroll to top"
+                >
+                  <ArrowUp size={14} />
+                </motion.button>
+              </div>
             </div>
           </motion.div>
         </div>

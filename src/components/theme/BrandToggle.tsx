@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Code, Sparkles } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
+import ThemeTransitionEffects from '../ui/ThemeTransitionEffects';
 
 type Brand = 'cmo' | 'dev' | 'default';
 
@@ -13,11 +14,23 @@ const BRAND_OPTIONS: { value: Brand; label: string; icon: React.ComponentType<{ 
 
 export default function BrandToggle() {
   const { brand, setBrand } = useTheme();
+  const prevBrandRef = useRef(brand);
 
   const currentIndex = BRAND_OPTIONS.findIndex(opt => opt.value === brand);
   const activeIndex = currentIndex >= 0 ? currentIndex : 1; // Default to Hybrid
 
+  const handleBrandChange = (newBrand: 'cmo' | 'dev' | 'default') => {
+    prevBrandRef.current = brand;
+    setBrand(newBrand);
+  };
+
+  useEffect(() => {
+    prevBrandRef.current = brand;
+  }, [brand]);
+
   return (
+    <>
+      <ThemeTransitionEffects brand={brand} prevBrand={prevBrandRef.current} />
     <div className="flex items-center gap-1 bg-brand-dark/50 backdrop-blur-sm border border-brand-teal/20 rounded-full p-1">
       {BRAND_OPTIONS.map((option, index) => {
         const Icon = option.icon;
@@ -26,7 +39,7 @@ export default function BrandToggle() {
         return (
           <button
             key={option.value}
-            onClick={() => setBrand(option.value)}
+            onClick={() => handleBrandChange(option.value)}
             className={`
               relative px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300
               ${isActive
@@ -59,6 +72,7 @@ export default function BrandToggle() {
         );
       })}
     </div>
+    </>
   );
 }
 

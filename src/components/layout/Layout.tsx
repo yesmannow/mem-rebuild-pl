@@ -1,5 +1,7 @@
 import React, { lazy, Suspense, ReactNode } from 'react';
 import Loader from '../ui/Loader';
+import ReadingProgressBar from '../ui/ReadingProgressBar';
+import KeyboardShortcuts from '../ui/KeyboardShortcuts';
 
 const Navbar = lazy(() => import('../Navbar'));
 const EnhancedFooter = lazy(() => import('./EnhancedFooter'));
@@ -24,6 +26,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </a>
 
       <div className="app min-h-dvh flex flex-col bg-[var(--ink-900)] text-[var(--parchment-050)]">
+        {/* Reading Progress Bar */}
+        <ReadingProgressBar />
+
         {/* Navigation */}
         <Suspense
           fallback={
@@ -65,6 +70,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Suspense fallback={null}>
           <MobileDock />
         </Suspense>
+
+        {/* Keyboard Shortcuts Overlay */}
+        <KeyboardShortcuts />
       </div>
     </>
   );
