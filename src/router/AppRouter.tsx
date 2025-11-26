@@ -49,6 +49,7 @@ const UltimateTechROI = React.lazy(() => import('../pages/case-studies/ultimate-
 const DesignSystemDemo = React.lazy(() => import('../pages/DesignSystemDemo'));
 const DeploymentStatus = React.lazy(() => import('../pages/DeploymentStatus'));
 const AppsLibrary = React.lazy(() => import('../pages/AppsLibrary'));
+const Lab = React.lazy(() => import('../pages/Lab'));
 const GrowthEngine = React.lazy(() => import('../components/apps/GrowthEngine'));
 const LicenseHub = React.lazy(() => import('../components/apps/LicenseHub'));
 const ClinicalCompass = React.lazy(() => import('../components/apps/ClinicalCompass'));
@@ -260,6 +261,11 @@ const AppRouter: React.FC = () => {
       return {
         title: 'Growth Engine | BearCave Marketing',
         description: 'ROI modeling & quote generation tools for sales enablement',
+      };
+    } else if (path === '/apps/seo-scanner') {
+      return {
+        title: 'SEO Scanner | BearCave Marketing',
+        description: 'Edge HTMLRewriter audit for titles, meta descriptions, H1, and og:image.',
       };
     } else if (path === '/apps/license-hub') {
       return {
@@ -577,7 +583,7 @@ const AppRouter: React.FC = () => {
               path="/apps"
               element={
                 <PageTransition>
-                  <AppsLibrary />
+                  <Lab />
                 </PageTransition>
               }
             />

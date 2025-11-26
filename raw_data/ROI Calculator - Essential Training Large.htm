@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graston Technique ROI Calculator</title>
+    <!-- Google Fonts: Lato for body, Montserrat for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* CSS Variables for consistent styling */
+        :root {
+            --primary: #2c3e50; /* Dark blue/gray for primary elements */
+            --secondary: #3498db; /* Bright blue for accents */
+            --accent: #3498db; /* Same as secondary for general accent */
+            --bg: #f0f4f8; /* Lighter background for the page */
+            --white: #fff;
+            --gray: #d3d3d3; /* Light gray for borders/dividers */
+            --text: #333; /* Dark text color */
+            --muted: #777; /* Muted text color for labels */
+            --success: #2ecc71; /* Green for positive results */
+            --error: #e74c3c; /* Red for error messages */
+            --radius: 12px; /* Increased border radius for a softer look */
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Lighter shadow for depth */
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Lato', sans-serif;
+        }
+
+        /* Basic body styling */
+        body {
+            font-family: var(--body-font);
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Allow content to stack vertically */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+
+        /* Main calculator container styling */
+        .roi-calculator-container {
+            width: 90%;
+            max-width: 900px; /* Adjusted for hero rectangle size */
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px; /* Increased padding for larger size */
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+        }
+
+        /* Title styling */
+        .roi-calculator-title {
+            font-family: var(--heading-font);
+            font-size: 2rem; /* Reverted to original font size */
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 30px; /* Reverted to original margin */
+            text-align: center;
+        }
+
+        /* Section headings */
+        .calculator-section {
+            margin-bottom: 30px; /* Reverted to original margin */
+        }
+
+        .calculator-section h4 {
+            font-family: var(--heading-font);
+            font-size: 1.4rem; /* Reverted to original font size */
+            color: var(--primary);
+            margin-bottom: 20px; /* Reverted to original margin */
+        }
+
+        /* Input group styling */
+        .calculator-input-group {
+            margin-bottom: 30px; /* Reverted to original margin */
+            position: relative; /* For error message positioning */
+        }
+
+        .calculator-label {
+            display: block;
+            font-size: 1.1rem; /* Reverted to original font size */
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 12px; /* Reverted to original margin */
+        }
+
+        /* Slider and value input container */
+        .calculator-slider-container {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Reverted to original gap */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        /* Custom Slider Styles */
+        .calculator-slider {
+            flex-grow: 1;
+            height: 10px; /* Reverted to original thickness */
+            border-radius: 5px;
+            background: #e1e7ed;
+            outline: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            cursor: pointer;
+            min-width: 150px; /* Reverted to original min-width */
+        }
+
+        .calculator-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px; /* Reverted to original thumb size */
+            height: 24px; /* Reverted to original thumb size */
+            border-radius: 50%;
+            background: var(--secondary);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Reverted to original shadow */
+        }
+
+        .calculator-slider::-moz-range-thumb {
+            width: 24px; /* Reverted to original thumb size */
+            height: 24px; /* Reverted to original thumb size */
+            border-radius: 50%;
+            background: var(--secondary);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .calculator-slider-value {
+            width: 100px; /* Reverted to original width */
+            padding: 12px 16px; /* Reverted to original padding */
+            border: 1px solid var(--gray);
+            border-radius: var(--radius);
+            text-align: center;
+            font-size: 1rem; /* Reverted to original font size */
+            box-sizing: border-box;
+            transition: border-color 0.2s ease;
+        }
+
+        .calculator-slider-value.error {
+            border-color: var(--error);
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 0.9rem; /* Reverted to original font size */
+            margin-top: 5px;
+            position: absolute;
+            bottom: -20px; /* Reverted to original position */
+            left: 0;
+            width: 100%;
+            text-align: left;
+        }
+
+
+        /* Select dropdown styling */
+        .calculator-select {
+            width: 100%;
+            padding: 12px; /* Reverted to original padding */
+            border-radius: var(--radius);
+            border: 1px solid var(--gray);
+            font-size: 1rem; /* Reverted to original font size */
+            box-sizing: border-box;
+            transition: border-color 0.2s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.75rem center; /* Reverted to original position */
+            background-repeat: no-repeat;
+            background-size: 1.2em; /* Reverted to original size */
+            padding-right: 2.5rem; /* Reverted to original space */
+        }
+
+        .calculator-select:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        /* Bundle details display */
+        .bundle-details {
+            background: #f7f9fc;
+            border-radius: 15px;
+            padding: 20px; /* Reverted to original padding */
+            box-shadow: var(--shadow);
+            margin-top: 20px; /* Reverted to original margin */
+        }
+
+        .bundle-details .bundle-name {
+            font-family: var(--heading-font);
+            font-size: 1.2rem; /* Reverted to original font size */
+            color: var(--primary);
+            margin-bottom: 10px; /* Reverted to original margin */
+        }
+
+        .bundle-details .price {
+            font-size: 2rem; /* Reverted to original font size */
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 15px; /* Reverted to original margin */
+            display: flex;
+            align-items: baseline;
+            gap: 10px; /* Reverted to original gap */
+        }
+
+        .bundle-details .price .regular-price {
+            font-size: 1.2rem; /* Reverted to original font size */
+            color: var(--muted);
+            text-decoration: line-through;
+            font-weight: 400;
+        }
+
+        .bundle-details .price .sale-price {
+            font-size: 2rem; /* Reverted to original font size */
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .bundle-details ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .bundle-details ul li {
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Reverted to original gap */
+            margin-bottom: 8px; /* Reverted to original margin */
+            font-size: 1rem; /* Reverted to original font size */
+        }
+
+        .bundle-details ul li::before {
+            content: '✔';
+            color: var(--success);
+        }
+
+        /* Results section styling */
+        .calculator-results {
+            background: #f7f9fc;
+            border-radius: 15px;
+            padding: 30px; /* Reverted to original padding */
+            box-shadow: var(--shadow);
+            margin-top: 40px; /* Reverted to original margin */
+        }
+
+        .calculator-result-item {
+            margin-bottom: 20px; /* Reverted to original margin */
+        }
+
+        .calculator-result-label {
+            font-size: 1.2rem; /* Reverted to original font size */
+            font-weight: 500;
+            color: var(--muted);
+        }
+
+        .calculator-result-value {
+            font-size: 2.5rem; /* Reverted to original font size */
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        /* Call to action button */
+        .calculator-cta {
+            margin-top: 50px; /* Reverted to original margin */
+            text-align: center;
+            display: flex;
+            flex-direction: row; /* Changed to row for wider layout */
+            gap: 15px; /* Reverted to original gap */
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .calculator-cta .btn {
+            display: inline-block; /* Reverted to inline-block */
+            width: auto; /* Reverted to auto width */
+            font-size: 1.2rem; /* Reverted to original font size */
+            padding: 16px 32px; /* Reverted to original padding */
+            background-color: var(--secondary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: var(--radius);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .calculator-cta .btn.reset-btn {
+            background-color: var(--muted);
+        }
+
+        .calculator-cta .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .calculator-cta .btn.reset-btn:hover {
+            background-color: #666;
+        }
+
+        .calculator-cta .btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="roi-calculator-container">
+        <h2 class="roi-calculator-title">Investment & ROI Planner</h2>
+
+        <div class="calculator-section">
+            <h4>1. Enter Your Clinic's Numbers</h4>
+            <div class="calculator-input-group">
+                <label for="reimbursementSlider" class="calculator-label" id="reimbursementLabel">Avg. Reimbursement per Session ($)</label>
+                <div class="calculator-slider-container">
+                    <input type="range" id="reimbursementSlider" class="calculator-slider" min="0" max="100"
+                        value="45" aria-labelledby="reimbursementLabel">
+                    <input type="text" id="reimbursementValue" class="calculator-slider-value" value="$45"
+                        aria-label="Average Reimbursement Value">
+                </div>
+                <div id="reimbursementError" class="error-message" style="display: none;">Please enter a valid number between $0 and $100.</div>
+            </div>
+            <div class="calculator-input-group">
+                <label for="patientsSlider" class="calculator-label" id="patientsLabel">Graston Treatment Sessions per Week</label>
+                <div class="calculator-slider-container">
+                    <input type="range" id="patientsSlider" class="calculator-slider" min="0" max="20" value="3"
+                        aria-labelledby="patientsLabel">
+                    <input type="text" id="patientsValue" class="calculator-slider-value" value="3"
+                        aria-label="Graston Treatment Sessions per Week Value">
+                </div>
+                <div id="patientsError" class="error-message" style="display: none;">Please enter a valid number between 0 and 20.</div>
+            </div>
+        </div>
+
+        <div class="calculator-section">
+            <h4>2. Choose Your Investment</h4>
+            <label for="bundleSelector" class="calculator-label">Select a Bundle to Calculate:</label>
+            <select id="bundleSelector" class="calculator-select" aria-label="Select Investment Bundle">
+                <optgroup label="With Instruments">
+                    <option value="2890" selected>Essential Practitioner Bundle</option>
+                    <option value="3250">Advanced Practitioner Bundle</option>
+                    <option value="3655">Master Practitioner Bundle</option>
+                </optgroup>
+                <optgroup label="Without Instruments">
+                    <option value="650">Essential Training Only</option>
+                    <option value="1370">Advanced Practitioner Bundle (No Instruments)</option>
+                    <option value="1710">Master Practitioner Bundle (No Instruments)</option>
+                </optgroup>
+            </select>
+            <div class="bundle-details" id="bundleDetails">
+                <h4 class="bundle-name" id="bundleName">Essential Practitioner Bundle</h4>
+                <p class="price" id="bundlePrice">
+                    <span class="regular-price">$3,045</span>
+                    <span class="sale-price">$2,890</span>
+                </p>
+                <ul id="bundleFeatures">
+                    <li>Essential Training</li>
+                    <li>6-Piece Instrument Set</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="calculator-section">
+            <h4>3. See Your Projected ROI</h4>
+            <div class="calculator-results">
+                <div class="calculator-result-item">
+                    <div class="calculator-result-label">Added Weekly Revenue</div>
+                    <div class="calculator-result-value" id="weeklyRevenue">$0</div>
+                </div>
+                <div class="calculator-result-item">
+                    <div class="calculator-result-label">Added Monthly Revenue</div>
+                    <div class="calculator-result-value" id="monthlyRevenue">$0</div>
+                </div>
+                <div class="calculator-result-item">
+                    <div class="calculator-result-label">Break-Even Time</div>
+                    <div class="calculator-result-value" id="breakEvenTime">~0 Weeks</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="calculator-cta">
+            <button id="resetButton" class="btn reset-btn">Reset Calculator</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get references to all necessary DOM elements
+            const reimbursementSlider = document.getElementById('reimbursementSlider');
+            const reimbursementValueInput = document.getElementById('reimbursementValue');
+            const reimbursementError = document.getElementById('reimbursementError');
+            const patientsSlider = document.getElementById('patientsSlider');
+            const patientsValueInput = document.getElementById('patientsValue');
+            const patientsError = document.getElementById('patientsError');
+            const bundleSelector = document.getElementById('bundleSelector');
+            const bundleNameEl = document.getElementById('bundleName');
+            const bundlePriceEl = document.getElementById('bundlePrice');
+            const bundleFeaturesEl = document.getElementById('bundleFeatures');
+            const weeklyRevenueEl = document.getElementById('weeklyRevenue');
+            const monthlyRevenueEl = document.getElementById('monthlyRevenue');
+            const breakEvenTimeEl = document.getElementById('breakEvenTime');
+            const resetButton = document.getElementById('resetButton');
+
+            // Data structure for bundle details, including regular and sale prices, and full features
+            const bundleData = {
+                '2890': {
+                    name: 'Essential Practitioner Bundle',
+                    features: ['Essential Training', '6-Piece Instrument Set'],
+                    regularPrice: 3045,
+                    salePrice: 2890
+                },
+                '3250': {
+                    name: 'Advanced Practitioner Bundle',
+                    features: ['Essential Training', 'Advanced Training', '6-Piece Instrument Set', 'GT Specialist Exam Access'],
+                    regularPrice: 3639,
+                    salePrice: 3250
+                },
+                '3655': {
+                    name: 'Master Practitioner Bundle',
+                    features: ['Essential Training', 'Advanced Training', '6-Piece Instrument Set', 'Upper Quadrant Course', 'GT Specialist Exam Access'],
+                    regularPrice: 4290,
+                    salePrice: 3655
+                },
+                '650': {
+                    name: 'Essential Training Only',
+                    features: ['Essential Training', 'Training Manual', '1oz Emollient Jar'],
+                    regularPrice: 650, // No explicit slashed price, so regular = sale
+                    salePrice: 650
+                },
+                '1370': {
+                    name: 'Advanced Practitioner Bundle (No Instruments)',
+                    features: ['Essential Training', 'Advanced Training', 'Training Manual', '1oz Emollient Jar', 'GT Specialist Exam Access'],
+                    regularPrice: 1444,
+                    salePrice: 1370
+                },
+                '1710': {
+                    name: 'Master Practitioner Bundle (No Instruments)',
+                    features: ['Essential Training', 'Advanced Training', 'Training Manual', '1oz Emollient Jar', 'Upper Quadrant Course', 'GT Specialist Exam Access'],
+                    regularPrice: 1903,
+                    salePrice: 1710
+                }
+            };
+
+            /**
+             * Formats a number as a currency string (e.g., "$123").
+             * @param {number} value - The number to format.
+             * @returns {string} The formatted currency string.
+             */
+            function formatCurrency(value) {
+                return `$${Number(value).toFixed(0)}`; // Format to whole dollar amounts
+            }
+
+            /**
+             * Formats a number (e.g., for patient count).
+             * @param {number} value - The number to format.
+             * @returns {number} The number itself.
+             */
+            function formatNumber(value) {
+                return Number(value);
+            }
+
+            /**
+             * Synchronizes a slider's value with its corresponding text input field.
+             * Handles both slider changes and manual input changes, including validation feedback.
+             * @param {HTMLInputElement} slider - The range input element.
+             * @param {HTMLInputElement} valueInput - The text input element displaying the value.
+             * @param {HTMLElement} errorElement - The element to display error messages.
+             * @param {Function} formatFunc - The function to format the value for display.
+             */
+            function syncSliderAndInputValue(slider, valueInput, errorElement, formatFunc) {
+                // Set initial value for the text input based on the slider's default value
+                valueInput.value = formatFunc(slider.value);
+
+                // Event listener for when the slider's value changes
+                slider.addEventListener('input', function () {
+                    valueInput.value = formatFunc(this.value); // Update text input
+                    errorElement.style.display = 'none'; // Hide error on slider change
+                    valueInput.classList.remove('error'); // Remove error class
+                    performCalculations(); // Recalculate ROI
+                });
+
+                // Event listener for when the text input's value changes (e.g., manual typing)
+                valueInput.addEventListener('change', function () {
+                    // Clean the input: remove '$', ',', and trim whitespace
+                    const cleanedValue = this.value.replace(/[$,]/g, '').trim();
+                    let numValue = parseFloat(cleanedValue); // Parse as float to handle potential decimals
+
+                    const min = parseFloat(slider.min);
+                    const max = parseFloat(slider.max);
+
+                    // Validate input
+                    if (isNaN(numValue) || cleanedValue === '' || numValue < min || numValue > max) {
+                        // Display error message and style input
+                        errorElement.style.display = 'block';
+                        valueInput.classList.add('error');
+                        numValue = Number(slider.value); // Fallback to the current slider value
+                    } else {
+                        // Hide error and remove error style if valid
+                        errorElement.style.display = 'none';
+                        valueInput.classList.remove('error');
+                    }
+
+                    slider.value = numValue; // Update the slider's position to reflect valid input
+                    valueInput.value = formatFunc(numValue); // Format and display the validated number
+                    performCalculations(); // Recalculate ROI
+                });
+            }
+
+            // Initialize synchronization for both sliders and their respective input fields
+            syncSliderAndInputValue(reimbursementSlider, reimbursementValueInput, reimbursementError, formatCurrency);
+            syncSliderAndInputValue(patientsSlider, patientsValueInput, patientsError, formatNumber);
+
+            /**
+             * Updates the displayed bundle details (name, price, features) based on the selected bundle.
+             * @param {string} bundleValue - The value (cost) of the selected bundle.
+             */
+            function updateBundleDetails(bundleValue) {
+                const bundle = bundleData[bundleValue];
+                if (bundle) {
+                    bundleNameEl.textContent = bundle.name;
+
+                    // Clear existing price and add new price elements
+                    bundlePriceEl.innerHTML = '';
+                    if (bundle.regularPrice && bundle.regularPrice !== bundle.salePrice) {
+                        const regularPriceSpan = document.createElement('span');
+                        regularPriceSpan.classList.add('regular-price');
+                        regularPriceSpan.textContent = `$${bundle.regularPrice.toLocaleString()}`;
+                        bundlePriceEl.appendChild(regularPriceSpan);
+                    }
+                    const salePriceSpan = document.createElement('span');
+                    salePriceSpan.classList.add('sale-price');
+                    salePriceSpan.textContent = `$${bundle.salePrice.toLocaleString()}`;
+                    bundlePriceEl.appendChild(salePriceSpan);
+
+
+                    bundleFeaturesEl.innerHTML = ''; // Clear existing features list
+
+                    // Populate features list
+                    bundle.features.forEach(feature => {
+                        const li = document.createElement('li');
+                        li.textContent = feature; // Set text content, checkmark is handled by CSS
+                        bundleFeaturesEl.appendChild(li);
+                    });
+                    performCalculations(); // Trigger calculations after bundle details update
+                }
+            }
+
+            // Event listener for when the bundle selection changes
+            bundleSelector.addEventListener('change', function () {
+                updateBundleDetails(this.value);
+            });
+
+            // Initialize bundle details display on page load with the default selected bundle
+            updateBundleDetails(bundleSelector.value);
+
+            /**
+             * Performs the ROI calculations based on current input values and updates the display.
+             */
+            function performCalculations() {
+                // Get numerical values from inputs, cleaning currency symbols
+                const reimbursement = parseFloat(reimbursementValueInput.value.replace(/[$,]/g, ''));
+                const patients = Number(patientsValueInput.value); // Get directly from input field after sync
+                const bundleCost = Number(bundleSelector.value); // This is the sale price
+
+                // Calculate weekly and monthly revenue
+                const weeklyRevenue = reimbursement * patients;
+                const monthlyRevenue = weeklyRevenue * 4; // Assuming 4 weeks in a month
+
+                // Calculate break-even time in weeks
+                // Prevent division by zero if weeklyRevenue is 0
+                const breakEvenWeeks = weeklyRevenue > 0 ? Math.ceil(bundleCost / weeklyRevenue) : 0;
+
+                // Update the display elements with the calculated values
+                weeklyRevenueEl.textContent = formatCurrency(weeklyRevenue);
+                monthlyRevenueEl.textContent = formatCurrency(monthlyRevenue);
+                breakEvenTimeEl.textContent = `~${breakEvenWeeks} Weeks`;
+            }
+
+            /**
+             * Resets all input fields and calculations to their initial default values.
+             */
+            function resetCalculator() {
+                // Reset sliders to their default values
+                reimbursementSlider.value = 45;
+                patientsSlider.value = 3;
+
+                // Reset text inputs and hide any error messages
+                reimbursementValueInput.value = formatCurrency(reimbursementSlider.value);
+                patientsValueInput.value = formatNumber(patientsSlider.value);
+                reimbursementValueInput.classList.remove('error');
+                patientsValueInput.classList.remove('error');
+                reimbursementError.style.display = 'none';
+                patientsError.style.display = 'none';
+
+                // Reset bundle selector to the first option
+                bundleSelector.value = "2890";
+                updateBundleDetails(bundleSelector.value); // This will also trigger performCalculations()
+            }
+
+            // Event listener for the reset button
+            resetButton.addEventListener('click', resetCalculator);
+
+            // Perform initial calculations when the page loads
+            performCalculations();
+        });
+    </script>
+</body>
+
+</html>

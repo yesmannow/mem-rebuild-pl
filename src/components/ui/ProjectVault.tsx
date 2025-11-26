@@ -107,8 +107,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             className="absolute inset-0"
             style={{
               y: isHovered ? -20 : 0,
-              transition: { duration: 0.3 },
             }}
+            transition={{ duration: 0.3 }}
           >
             {!imageError ? (
               <img

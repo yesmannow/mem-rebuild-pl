@@ -66,7 +66,7 @@ const AdvancedFilterSystem: React.FC<AdvancedFilterSystemProps> = ({
       id: 'Design',
       label: 'Design',
       icon: Palette,
-      color: 'from-purple-400 to-pink-400',
+      color: 'from-brand-teal to-brand-orange',
       count: Math.floor(totalItems * 0.4),
     },
     {
@@ -160,7 +160,7 @@ const AdvancedFilterSystem: React.FC<AdvancedFilterSystemProps> = ({
               placeholder="Search inspiration, colors, projects..."
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-12 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:bg-white/10 transition-all duration-300 text-lg"
+              className="w-full pl-12 pr-12 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-teal focus:bg-white/10 transition-all duration-300 text-lg"
             />
             {searchQuery && (
               <motion.button
@@ -186,7 +186,7 @@ const AdvancedFilterSystem: React.FC<AdvancedFilterSystemProps> = ({
                 onClick={() => setActiveCategory(category.id)}
                 className={`relative px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === category.id
-                    ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/25'
+                    ? 'bg-gradient-to-r from-brand-teal to-brand-orange text-brand-dark shadow-[0_10px_30px_rgba(64,224,208,0.25)]'
                     : 'bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white border border-white/10'
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -220,7 +220,7 @@ const AdvancedFilterSystem: React.FC<AdvancedFilterSystemProps> = ({
                   onClick={() => setViewMode(mode)}
                   className={`p-2 rounded-full transition-all duration-300 ${
                     viewMode === mode
-                      ? 'bg-purple-500 text-white shadow-lg'
+                      ? 'bg-brand-teal text-brand-dark shadow-[0_10px_30px_rgba(64,224,208,0.25)]'
                       : 'text-gray-400 hover:text-white hover:bg-white/10'
                   }`}
                   title={label}
@@ -234,7 +234,7 @@ const AdvancedFilterSystem: React.FC<AdvancedFilterSystemProps> = ({
             <select
               value={sortBy}
               onChange={e => setSortBy(e.target.value)}
-              className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-white text-sm focus:outline-none focus:border-purple-400 transition-all duration-300"
+              className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-white text-sm focus:outline-none focus:border-brand-teal transition-all duration-300"
               title="Sort by"
               aria-label="Sort by"
             >
@@ -250,7 +250,7 @@ const AdvancedFilterSystem: React.FC<AdvancedFilterSystemProps> = ({
               onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
               className={`p-2 rounded-full transition-all duration-300 ${
                 showAdvancedFilters
-                  ? 'bg-purple-500 text-white'
+                  ? 'bg-brand-orange text-brand-dark'
                   : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10'
               }`}
               whileHover={{ scale: 1.05 }}
@@ -284,7 +284,7 @@ const AdvancedFilterSystem: React.FC<AdvancedFilterSystemProps> = ({
                       onClick={() => handleTagToggle(tag)}
                       className={`px-3 py-1 rounded-full text-xs transition-all duration-300 ${
                         selectedTags.includes(tag)
-                          ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white'
+                          ? 'bg-gradient-to-r from-brand-teal to-brand-orange text-brand-dark'
                           : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
                       }`}
                       whileHover={{ scale: 1.05 }}

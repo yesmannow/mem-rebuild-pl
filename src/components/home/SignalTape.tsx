@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 /**
  * SignalTape - Persistent footer marquee with live metrics
- * Replaces purple gradient mesh with data-driven signal display
+ * Replaces legacy gradient mesh with data-driven signal display
  */
 interface Metric {
   label: string;

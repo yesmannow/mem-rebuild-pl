@@ -59,7 +59,7 @@ const skillCategories = [
       { name: 'Copywriting', icon: '✍️', level: 'expert' as const },
       { name: 'Content Strategy', icon: '📋', level: 'expert' as const },
     ],
-    gradient: 'from-pink-500/10 to-pink-600/5',
+    gradient: 'from-brand-teal/10 to-brand-orange/5',
   },
   {
     category: 'Infrastructure',

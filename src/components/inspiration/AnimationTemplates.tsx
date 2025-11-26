@@ -18,7 +18,7 @@ export const ParticleSystem: React.FC<{ count?: number; className?: string }> = 
     const particles = Array.from({ length: count }, (_, i) => {
       const particle = document.createElement('div');
       particle.className =
-        'absolute w-1 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-60';
+        'absolute w-1 h-1 bg-gradient-to-r from-brand-teal to-brand-orange rounded-full opacity-60';
       particle.style.left = `${Math.random() * 100}%`;
       particle.style.top = `${Math.random() * 100}%`;
       containerRef.current?.appendChild(particle);
@@ -71,8 +71,8 @@ export const MorphingShapes: React.FC<{ className?: string }> = ({ className = '
 
   return (
     <div ref={shapesRef} className={`absolute inset-0 ${className}`}>
-      <div className="absolute top-20 left-20 w-16 h-16 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full opacity-60" />
-      <div className="absolute top-40 right-20 w-12 h-12 bg-gradient-to-r from-pink-400 to-red-400 transform rotate-45 opacity-60" />
+      <div className="absolute top-20 left-20 w-16 h-16 bg-gradient-to-r from-brand-teal to-brand-orange rounded-full opacity-60" />
+      <div className="absolute top-40 right-20 w-12 h-12 bg-gradient-to-r from-brand-orange to-brand-teal transform rotate-45 opacity-60" />
       <div className="absolute bottom-20 left-1/2 w-20 h-20 bg-gradient-to-r from-cyan-400 to-green-400 rounded-lg opacity-60" />
       <div className="absolute bottom-40 right-40 w-14 h-14 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full opacity-60" />
     </div>
@@ -369,7 +369,7 @@ export const LoadingSpinner: React.FC<{
 
   return (
     <motion.div
-      className={`${sizeClasses[size]} border-2 border-purple-400 border-t-transparent rounded-full ${className}`}
+      className={`${sizeClasses[size]} border-2 border-brand-teal border-t-transparent rounded-full ${className}`}
       animate={{ rotate: 360 }}
       transition={{
         duration: 1,

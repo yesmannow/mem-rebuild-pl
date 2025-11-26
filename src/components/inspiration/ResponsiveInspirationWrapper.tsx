@@ -42,7 +42,7 @@ const ResponsiveInspirationWrapper: React.FC<ResponsiveInspirationWrapperProps> 
           transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
           className="flex flex-col items-center gap-4"
         >
-          <div className="w-8 h-8 border-2 border-purple-400 border-t-transparent rounded-full" />
+          <div className="w-8 h-8 border-2 border-brand-teal border-t-transparent rounded-full" />
           <p className="text-sm text-gray-400">Loading inspiration...</p>
         </motion.div>
       </div>

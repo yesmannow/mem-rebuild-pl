@@ -7,6 +7,16 @@ import { ExternalLink, Calendar, Tag, Filter, Palette } from 'lucide-react';
 import sideProjectsData from '../data/side-projects-structured.json';
 import ProjectVault from '../components/ui/ProjectVault';
 
+type BaseProject = (typeof sideProjectsData.projects)[number];
+type EnrichedProject = Omit<BaseProject, 'metrics'> & {
+  metrics?: BaseProject extends { metrics: infer M } ? Partial<M> : undefined;
+  techStack?: string[];
+  colors?: string[];
+  images?: string[];
+  success?: boolean;
+  screenshot?: string;
+};
+
 // Try to derive a logo image from /images/side-projects when a project has no images
 const getFallbackLogoForSlug = (slug: string): string[] => {
   const base = `/images/side-projects/${slug}`;
@@ -26,17 +36,17 @@ const SideProjects: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const [activeFilter, setActiveFilter] = useState<string>('All');
-  const [useVaultLayout, setUseVaultLayout] = useState(true); // Toggle for new layout
-  const [scrapedData, setScrapedData] = useState<any>(null);
+  const [useVaultLayout] = useState(true); // Toggle for new layout
+  const [scrapedData, setScrapedData] = useState<EnrichedProject[] | null>(null);
 
   // Load scraped data if available
   useEffect(() => {
     const loadScrapedData = async () => {
       try {
         // Try to import scraped data (will fail gracefully if file doesn't exist)
-        const scraped = await import('../data/scraped-side-projects.json');
-        if (scraped.default) {
-          setScrapedData(scraped.default);
+        const scraped = (await import('../data/scraped-side-projects.json')).default as EnrichedProject[] | undefined;
+        if (scraped) {
+          setScrapedData(scraped);
         }
       } catch (error) {
         // Scraped data not available, use existing data
@@ -119,13 +129,13 @@ const SideProjects: React.FC = () => {
   };
 
   // Merge scraped data with existing projects
-  const enrichedProjects = useMemo(() => {
+  const enrichedProjects: EnrichedProject[] = useMemo(() => {
     if (!scrapedData || scrapedData.length === 0) {
-      return sideProjectsData.projects;
+      return sideProjectsData.projects as EnrichedProject[];
     }
 
-    return sideProjectsData.projects.map(project => {
-      const scraped = scrapedData.find((s: any) => s.slug === project.slug);
+    return (sideProjectsData.projects as EnrichedProject[]).map(project => {
+      const scraped = scrapedData.find((s) => s.slug === project.slug);
       if (scraped && scraped.success) {
         return {
           ...project,
@@ -143,11 +153,11 @@ const SideProjects: React.FC = () => {
     const projects = enrichedProjects;
     if (activeFilter === 'All') return projects;
     if (activeFilter === 'Logo Design')
-      return projects.filter((p: any) => p.logoOnly === true);
+      return projects.filter((p) => p.logoOnly === true);
     return projects.filter(
-      (p: any) =>
+      (p) =>
         p.category?.toLowerCase().includes(activeFilter.toLowerCase()) ||
-        p.services?.some((s: string) => s.toLowerCase().includes(activeFilter.toLowerCase()))
+        p.services?.some((s) => s.toLowerCase().includes(activeFilter.toLowerCase()))
     );
   }, [activeFilter, enrichedProjects]);
 

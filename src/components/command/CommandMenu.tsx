@@ -48,7 +48,13 @@ type ActionItem = {
 type CommandItem = NavigationItem | ActionItem;
 
 // Command data structure
-const COMMAND_ITEMS = {
+const COMMAND_ITEMS: {
+  pages: NavigationItem[];
+  work: NavigationItem[];
+  tools: NavigationItem[];
+  inspiration: NavigationItem[];
+  actions: ActionItem[];
+} = {
   pages: [
     {
       id: 'home',
@@ -94,7 +100,8 @@ const COMMAND_ITEMS = {
       description: 'Deep-dive into problem-solving and results',
       icon: Briefcase,
       to: '/case-studies',
-      keywords: ['projects', 'results', 'success']
+      keywords: ['projects', 'results', 'success'],
+      type: 'navigation' as const
     },
     {
       id: 'design',
@@ -102,7 +109,8 @@ const COMMAND_ITEMS = {
       description: 'Visual identity and brand systems',
       icon: Palette,
       to: '/design',
-      keywords: ['visual', 'branding', 'identity']
+      keywords: ['visual', 'branding', 'identity'],
+      type: 'navigation' as const
     },
     {
       id: 'photography',
@@ -110,7 +118,8 @@ const COMMAND_ITEMS = {
       description: 'Visual storytelling and composition',
       icon: Camera,
       to: '/photography',
-      keywords: ['images', 'visual', 'pictures']
+      keywords: ['images', 'visual', 'pictures'],
+      type: 'navigation' as const
     },
     {
       id: 'side-projects',
@@ -118,7 +127,8 @@ const COMMAND_ITEMS = {
       description: 'Experimental work and collaborations',
       icon: Code,
       to: '/side-projects',
-      keywords: ['experimental', 'collaborations', 'personal']
+      keywords: ['experimental', 'collaborations', 'personal'],
+      type: 'navigation' as const
     }
   ],
   tools: [
@@ -128,7 +138,8 @@ const COMMAND_ITEMS = {
       description: 'Custom applications and interactive tools',
       icon: Code,
       to: '/applications',
-      keywords: ['tools', 'interactive', 'development']
+      keywords: ['tools', 'interactive', 'development'],
+      type: 'navigation' as const
     },
     {
       id: 'toolbox',
@@ -136,7 +147,8 @@ const COMMAND_ITEMS = {
       description: 'Frameworks, templates, and resources',
       icon: Wrench,
       to: '/toolbox',
-      keywords: ['resources', 'templates', 'frameworks']
+      keywords: ['resources', 'templates', 'frameworks'],
+      type: 'navigation' as const
     }
   ],
   inspiration: [
@@ -146,7 +158,8 @@ const COMMAND_ITEMS = {
       description: 'Design references and creative influences',
       icon: Lightbulb,
       to: '/inspiration',
-      keywords: ['references', 'influences', 'creative']
+      keywords: ['references', 'influences', 'creative'],
+      type: 'navigation' as const
     },
     {
       id: 'brand-builder',
@@ -154,7 +167,8 @@ const COMMAND_ITEMS = {
       description: 'Interactive brand identity creation tool',
       icon: Building2,
       to: '/brand-builder',
-      keywords: ['brand', 'identity', 'create']
+      keywords: ['brand', 'identity', 'create'],
+      type: 'navigation' as const
     },
     {
       id: 'gallery',
@@ -162,13 +176,14 @@ const COMMAND_ITEMS = {
       description: 'Curated brand identity systems',
       icon: Palette,
       to: '/gallery',
-      keywords: ['gallery', 'showcase', 'portfolio']
+      keywords: ['gallery', 'showcase', 'portfolio'],
+      type: 'navigation' as const
     }
   ],
   actions: [] as ActionItem[] // Will be populated dynamically
 };
 
-const ALL_COMMANDS: CommandItem[] = Object.values(COMMAND_ITEMS).flat();
+const ALL_COMMANDS: CommandItem[] = Object.values(COMMAND_ITEMS).flat() as CommandItem[];
 
 interface CommandItemProps {
   item: CommandItem;

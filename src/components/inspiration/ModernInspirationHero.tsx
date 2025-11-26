@@ -85,7 +85,7 @@ const ModernInspirationHero: React.FC = () => {
   }, []);
 
   const stats = [
-    { icon: Palette, label: 'Color Palettes', value: '50+', color: 'from-purple-400 to-pink-400' },
+    { icon: Palette, label: 'Color Palettes', value: '50+', color: 'from-brand-teal to-brand-orange' },
     { icon: Camera, label: 'Photography', value: '200+', color: 'from-blue-400 to-cyan-400' },
     { icon: Code, label: 'Design Systems', value: '15+', color: 'from-green-400 to-emerald-400' },
     { icon: Brain, label: 'AI Projects', value: '8+', color: 'from-orange-400 to-red-400' },
@@ -99,7 +99,7 @@ const ModernInspirationHero: React.FC = () => {
       {/* Animated Background */}
       <div className="absolute inset-0">
         {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 via-blue-900/30 to-pink-900/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-dark/80 via-brand-surface/50 to-brand-dark/80" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
 
         {/* Animated Grid */}
@@ -122,7 +122,7 @@ const ModernInspirationHero: React.FC = () => {
           {Array.from({ length: 20 }).map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"
+              className="absolute w-2 h-2 bg-gradient-to-r from-brand-teal to-brand-orange rounded-full"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -145,7 +145,7 @@ const ModernInspirationHero: React.FC = () => {
         {/* Geometric Shapes */}
         <div className="absolute inset-0">
           <motion.div
-            className="absolute top-20 left-20 w-32 h-32 border-2 border-purple-400/30 rounded-full"
+            className="absolute top-20 left-20 w-32 h-32 border-2 border-brand-teal/30 rounded-full"
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
           />
@@ -155,7 +155,7 @@ const ModernInspirationHero: React.FC = () => {
             transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
           />
           <motion.div
-            className="absolute top-1/2 left-10 w-16 h-16 border-2 border-pink-400/30 transform rotate-45"
+            className="absolute top-1/2 left-10 w-16 h-16 border-2 border-brand-orange/30 transform rotate-45"
             animate={{ rotate: 180 }}
             transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
           />
@@ -171,7 +171,7 @@ const ModernInspirationHero: React.FC = () => {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm mb-8"
         >
-          <Sparkles className="w-4 h-4 text-purple-400" />
+          <Sparkles className="w-4 h-4 text-brand-teal" />
           <span>Visual Inspiration Hub</span>
           <Zap className="w-4 h-4 text-yellow-400" />
         </motion.div>
@@ -179,11 +179,11 @@ const ModernInspirationHero: React.FC = () => {
         {/* Main Title */}
         <motion.h1
           ref={titleRef}
-          className="text-7xl md:text-9xl font-bold mb-8 bg-gradient-to-r from-purple-400 via-blue-400 to-pink-400 bg-clip-text text-transparent leading-tight"
+          className="text-7xl md:text-9xl font-bold mb-8 bg-gradient-to-r from-brand-teal via-brand-surface to-brand-orange bg-clip-text text-transparent leading-tight"
         >
           Creative
           <br />
-          <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-brand-teal via-brand-orange to-brand-teal bg-clip-text text-transparent">
             Universe
           </span>
         </motion.h1>
@@ -222,7 +222,7 @@ const ModernInspirationHero: React.FC = () => {
               <div className="text-sm text-gray-400">{stat.label}</div>
 
               {/* Hover Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-teal/10 to-brand-orange/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
           ))}
         </motion.div>

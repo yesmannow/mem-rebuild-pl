@@ -120,7 +120,7 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
               <button
                 onClick={() => setIsFilterOpen(!isFilterOpen)}
                 className={`p-2 rounded-full text-white transition-colors ${
-                  hasActiveFilters ? 'bg-purple-500' : 'bg-white/10 hover:bg-white/20'
+                  hasActiveFilters ? 'bg-brand-orange text-brand-dark' : 'bg-white/10 hover:bg-white/20'
                 }`}
                 aria-label="Filters"
               >
@@ -132,7 +132,7 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
                 <button
                   onClick={() => setViewMode('grid')}
                   className={`p-1.5 rounded-full transition-colors ${
-                    viewMode === 'grid' ? 'bg-purple-500 text-white' : 'text-gray-400'
+                    viewMode === 'grid' ? 'bg-brand-teal text-brand-dark' : 'text-gray-400'
                   }`}
                   aria-label="Grid view"
                   title="Grid view"
@@ -142,7 +142,7 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
                 <button
                   onClick={() => setViewMode('list')}
                   className={`p-1.5 rounded-full transition-colors ${
-                    viewMode === 'list' ? 'bg-purple-500 text-white' : 'text-gray-400'
+                    viewMode === 'list' ? 'bg-brand-teal text-brand-dark' : 'text-gray-400'
                   }`}
                   aria-label="List view"
                   title="List view"
@@ -170,7 +170,7 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
                     placeholder="Search inspiration..."
                     value={searchQuery}
                     onChange={e => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-10 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-400"
+                    className="w-full pl-10 pr-10 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-brand-teal"
                   />
                   {searchQuery && (
                     <button
@@ -225,7 +225,7 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
                         onClick={() => setSelectedCategory(category.id)}
                         className={`w-full flex items-center justify-between p-3 rounded-lg transition-colors ${
                           selectedCategory === category.id
-                            ? 'bg-purple-500 text-white'
+                            ? 'bg-brand-teal text-brand-dark'
                             : 'bg-white/5 text-gray-300 hover:bg-white/10'
                         }`}
                       >
@@ -246,7 +246,7 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
                         onClick={() => handleTagToggle(tag)}
                         className={`px-3 py-1 rounded-full text-xs transition-colors ${
                           selectedTags.includes(tag)
-                            ? 'bg-purple-500 text-white'
+                            ? 'bg-brand-teal text-brand-dark'
                             : 'bg-white/5 text-gray-300 hover:bg-white/10'
                         }`}
                       >
@@ -289,7 +289,7 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
           {items.map((item, index) => (
             <motion.div
               key={item.id || index}
-              className={`group relative overflow-hidden rounded-xl bg-white/5 border border-white/10 hover:border-purple-400/50 transition-all duration-300 cursor-pointer ${
+              className={`group relative overflow-hidden rounded-xl bg-white/5 border border-white/10 hover:border-brand-teal/50 transition-all duration-300 cursor-pointer ${
                 viewMode === 'list' ? 'flex items-center gap-3 p-3' : 'aspect-square'
               }`}
               whileHover={{ scale: 1.02 }}
@@ -363,7 +363,7 @@ const MobileOptimizedInspiration: React.FC<MobileOptimizedInspirationProps> = ({
             {hasActiveFilters && (
               <button
                 onClick={clearFilters}
-                className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors"
+                className="px-4 py-2 bg-brand-orange text-brand-dark rounded-lg hover:bg-brand-orange/90 transition-colors"
               >
                 Clear Filters
               </button>

@@ -137,19 +137,19 @@ const Resume: React.FC = () => {
             >
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-brand-teal mb-2">
-                  <AnimatedCounter end={15} suffix="+" />
+                  <AnimatedCounter to={15} suffix="+" />
                 </div>
                 <div className="text-sm text-brand-muted uppercase tracking-wide">Years Experience</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-brand-teal mb-2">
-                  <AnimatedCounter end={30} suffix="k+" />
+                  <AnimatedCounter to={30} suffix="k+" />
                 </div>
                 <div className="text-sm text-brand-muted uppercase tracking-wide">Users Served</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-brand-teal mb-2">
-                  <AnimatedCounter end={400} suffix="+" />
+                  <AnimatedCounter to={400} suffix="+" />
                 </div>
                 <div className="text-sm text-brand-muted uppercase tracking-wide">Automations</div>
               </div>

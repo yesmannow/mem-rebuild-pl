@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, type Variants } from 'framer-motion';
 import { useSpring, animated as _animated } from '@react-spring/web';
 import './StatsSection.css';
 
@@ -97,7 +97,7 @@ const StatsSection: React.FC<StatsSectionProps> = ({
 
 interface StatItemProps {
   stat: Stat;
-  variants: any;
+  variants: Variants;
   isInView: boolean;
 }
 
@@ -118,7 +118,7 @@ const StatItem: React.FC<StatItemProps> = ({ stat, variants, isInView }) => {
             {stat.prefix}
             {/* TODO: React Spring animated.span type issue - using type assertion for compatibility */}
             <animatedAny.span>
-              {number.to((n) => Math.floor(n))}
+              {number.to((n: number) => Math.floor(n))}
             </animatedAny.span>
             {stat.suffix}
           </>

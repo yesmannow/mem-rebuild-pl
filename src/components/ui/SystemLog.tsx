@@ -8,7 +8,7 @@ interface LogEntry {
   type: 'view' | 'action' | 'system' | 'user';
   message: string;
   timestamp: Date;
-  icon: React.ComponentType<{ size?: number }>;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
 }
 
 const generateLogEntry = (location: string): LogEntry | null => {
@@ -17,7 +17,7 @@ const generateLogEntry = (location: string): LogEntry | null => {
   const page = path[path.length - 1] || 'home';
 
   // Map routes to log messages
-  const logMessages: Record<string, { message: string; type: LogEntry['type']; icon: React.ComponentType<{ size?: number }> }> = {
+  const logMessages: Record<string, { message: string; type: LogEntry['type']; icon: React.ComponentType<{ size?: number; className?: string }> }> = {
     '': { message: 'User accessed homepage', type: 'view', icon: Eye },
     'about': { message: 'User viewed bio page', type: 'view', icon: User },
     'case-studies': { message: 'User browsed case studies', type: 'view', icon: FileText },
@@ -67,7 +67,7 @@ export default function SystemLog({ maxEntries = 5, className = '' }: SystemLogP
       case 'system':
         return 'text-yellow-400';
       case 'user':
-        return 'text-purple-400';
+        return 'text-brand-teal';
       default:
         return 'text-[var(--parchment-050)]/60';
     }

@@ -28,7 +28,7 @@
     "skipLibCheck": true, // Skip type checking of declaration files
     "types": [
       "node",
-      "@react-three/fiber",
+      "jest",
       "vite/client"
     ]
   },

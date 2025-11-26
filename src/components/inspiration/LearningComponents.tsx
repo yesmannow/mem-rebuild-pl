@@ -217,7 +217,7 @@ export const BrandComparisonInsights: React.FC<{ comparison: any }> = ({ compari
         {comparison.lessons && (
           <div>
             <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-purple-500" />
+              <Sparkles className="h-4 w-4 text-brand-teal" />
               Design Lessons
             </h4>
             <p className="text-gray-700 dark:text-gray-300">{comparison.lessons}</p>

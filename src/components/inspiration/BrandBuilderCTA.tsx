@@ -5,12 +5,12 @@ import { Sparkles, Palette, Type, Lightbulb, ArrowRight } from 'lucide-react';
 
 const BrandBuilderCTA: React.FC = () => {
   return (
-    <section className="relative py-20 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white overflow-hidden">
+    <section className="relative py-20 bg-gradient-to-br from-brand-dark via-brand-surface to-brand-dark text-white overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-blob" />
-        <div className="absolute top-10 right-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000" />
-        <div className="absolute bottom-10 left-1/2 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000" />
+        <div className="absolute top-10 left-10 w-72 h-72 bg-brand-teal rounded-full mix-blend-multiply filter blur-xl animate-blob" />
+        <div className="absolute top-10 right-10 w-72 h-72 bg-brand-orange rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000" />
+        <div className="absolute bottom-10 left-1/2 w-72 h-72 bg-brand-teal rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

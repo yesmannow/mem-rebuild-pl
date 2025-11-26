@@ -86,7 +86,7 @@ const FloatingActionButtons: React.FC = () => {
           >
             <FileText className="w-5 h-5" />
             <span className="hidden sm:inline whitespace-nowrap">Resume</span>
-            <span className="absolute -top-1 -right-1 w-3 h-3 bg-pink-500 rounded-full animate-pulse" />
+            <span className="absolute -top-1 -right-1 w-3 h-3 bg-brand-orange rounded-full animate-pulse" />
           </motion.button>
         )}
       </AnimatePresence>

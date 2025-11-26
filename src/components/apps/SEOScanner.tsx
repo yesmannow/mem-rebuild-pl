@@ -1,28 +1,90 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useMemo, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { AlertTriangle, ImageIcon, LinkIcon, Loader2, ShieldCheck } from 'lucide-react';
+import SEOHead from '../seo/SEOHead';
 
-interface SEOAuditResult {
-  url: string;
-  title: string | null;
-  titleLength: number;
-  metaDescription: string | null;
-  metaDescriptionLength: number;
-  h1Count: number;
-  h1Text: string[];
-  healthScore: number;
-  issues: string[];
-  timestamp: string;
+interface AuditResult {
+  title: string;
+  description: string;
+  h1: string;
+  ogImage: string;
 }
 
-const SEOScanner: React.FC = () => {
+type CardStatus = 'pass' | 'warn' | 'fail';
+
+const statusClasses: Record<CardStatus, string> = {
+  pass: 'border-emerald-400/40 bg-emerald-400/10 text-emerald-200',
+  warn: 'border-amber-400/40 bg-amber-400/10 text-amber-200',
+  fail: 'border-rose-400/40 bg-rose-400/10 text-rose-200',
+};
+
+const normalizeUrl = (raw: string): string => {
+  const trimmed = raw.trim();
+  if (!trimmed) return '';
+  if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) return trimmed;
+  return `https://${trimmed}`;
+};
+
+const SeoScanner: React.FC = () => {
   const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<SEOAuditResult | null>(null);
+  const [result, setResult] = useState<AuditResult | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  const evaluateTitle = (title: string): CardStatus => {
+    if (!title) return 'fail';
+    if (title.length > 60) return 'warn';
+    return 'pass';
+  };
+
+  const evaluateDescription = (description: string): CardStatus => {
+    if (!description) return 'fail';
+    return 'pass';
+  };
+
+  const evaluateH1 = (h1: string): CardStatus => (h1 ? 'pass' : 'fail');
+
+  const cards = useMemo(() => {
+    if (!result) return [];
+    return [
+      {
+        label: 'Title Tag',
+        value: result.title || 'Missing title tag',
+        status: evaluateTitle(result.title),
+        helper:
+          result.title && result.title.length > 60
+            ? 'Consider trimming to 60 characters.'
+            : result.title
+            ? `${result.title.length} characters`
+            : 'Add a concise, keyword-led title.',
+      },
+      {
+        label: 'Meta Description',
+        value: result.description || 'Meta description is missing.',
+        status: evaluateDescription(result.description),
+        helper: result.description
+          ? `${result.description.length} characters`
+          : 'Add a compelling, 150–160 character summary.',
+      },
+      {
+        label: 'H1',
+        value: result.h1 || 'H1 not found.',
+        status: evaluateH1(result.h1),
+        helper: result.h1 ? 'Single primary heading detected.' : 'Add one clear H1 per page.',
+      },
+      {
+        label: 'Open Graph Image',
+        value: result.ogImage || 'og:image not detected.',
+        status: result.ogImage ? 'pass' : ('warn' as CardStatus),
+        helper: result.ogImage ? 'Preview ready for social shares.' : 'Add an og:image for rich cards.',
+      },
+    ];
+  }, [result]);
+
   const handleScan = async () => {
-    if (!url.trim()) {
-      setError('Please enter a URL');
+    const normalizedUrl = normalizeUrl(url);
+    if (!normalizedUrl) {
+      setError('Enter a valid URL first.');
       return;
     }
 
@@ -31,292 +93,210 @@ const SEOScanner: React.FC = () => {
     setResult(null);
 
     try {
-      // Call the Cloudflare Pages function
-      const apiUrl = `/api/audit-url?url=${encodeURIComponent(url)}`;
-      const response = await fetch(apiUrl);
-
+      const response = await fetch(`/api/audit-url?url=${encodeURIComponent(normalizedUrl)}`);
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to scan URL');
+        const data = await response.json();
+        throw new Error(data.error || 'Could not scan target');
       }
-
-      const data: SEOAuditResult = await response.json();
+      const data: AuditResult = await response.json();
       setResult(data);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An unknown error occurred');
+      const message = err instanceof Error ? err.message : 'Unexpected error';
+      setError(message);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && !loading) {
-      handleScan();
-    }
-  };
-
-  const getScoreColor = (score: number) => {
-    if (score >= 80) return 'text-green-400';
-    if (score >= 60) return 'text-yellow-400';
-    return 'text-red-400';
-  };
-
-  const getScoreBgColor = (score: number) => {
-    if (score >= 80) return 'bg-green-500/20 border-green-500/50';
-    if (score >= 60) return 'bg-yellow-500/20 border-yellow-500/50';
-    return 'bg-red-500/20 border-red-500/50';
-  };
-
-  const getBadgeColor = (isGood: boolean) => {
-    return isGood
-      ? 'bg-green-500/20 border-green-500/50 text-green-400'
-      : 'bg-red-500/20 border-red-500/50 text-red-400';
-  };
-
   return (
-    <div className="min-h-screen bg-brand-dark py-12">
-      <div className="max-w-5xl mx-auto px-4">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-4xl font-bold text-white mb-4">SEO Scanner</h1>
-          <p className="text-brand-muted text-lg">
-            Edge audit tool for technical SEO analysis
-          </p>
-        </motion.div>
-
-        {/* Input Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-brand-surface/50 backdrop-blur-md rounded-2xl p-6 border border-brand-teal/20 mb-6"
-        >
-          <div className="flex gap-4">
-            <div className="flex-1">
-              <input
-                type="text"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="Enter URL to scan (e.g., example.com or https://example.com)"
-                className="w-full px-4 py-3 bg-brand-dark border border-brand-teal/30 rounded-lg text-white focus:outline-none focus:border-brand-teal"
-                disabled={loading}
-              />
-            </div>
-            <button
-              onClick={handleScan}
-              disabled={loading || !url.trim()}
-              className={`px-8 py-3 rounded-lg font-semibold transition-all flex items-center gap-2 ${
-                loading || !url.trim()
-                  ? 'bg-brand-surface/30 text-brand-muted cursor-not-allowed'
-                  : 'bg-brand-teal hover:bg-brand-teal/80 text-brand-dark'
-              }`}
-            >
-              {loading ? (
-                <>
-                  <span className="animate-spin">⏳</span>
-                  <span>Scanning...</span>
-                </>
-              ) : (
-                <>
-                  <span>🔍</span>
-                  <span>Scan</span>
-                </>
-              )}
-            </button>
-          </div>
-        </motion.div>
-
-        {/* Error Display */}
-        {error && (
+    <>
+      <SEOHead title="SEO Scanner | The Lab" description="Edge-powered SEO metadata scanner." />
+      <main className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-brand-text">
+        <div className="max-w-5xl mx-auto px-4 pt-24 pb-16">
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-red-500/20 border border-red-500/50 rounded-lg p-4 text-red-400 mb-6"
+            className="mb-8 space-y-2 text-center"
           >
-            <strong>Error:</strong> {error}
-          </motion.div>
-        )}
-
-        {/* Results Display */}
-        {result && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-brand-surface/50 backdrop-blur-md rounded-2xl p-6 border border-brand-teal/20"
-          >
-            <h2 className="text-2xl font-bold text-white mb-6">SEO Report Card</h2>
-
-            {/* Health Score */}
-            <div className={`mb-6 p-6 rounded-lg border-2 ${getScoreBgColor(result.healthScore)}`}>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-brand-muted">Health Score</span>
-                <span className={`text-4xl font-bold ${getScoreColor(result.healthScore)}`}>
-                  {result.healthScore}
-                </span>
-              </div>
-              <div className="w-full bg-brand-dark/50 rounded-full h-3 mt-4">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: `${result.healthScore}%` }}
-                  transition={{ duration: 0.5 }}
-                  className={`h-3 rounded-full ${
-                    result.healthScore >= 80
-                      ? 'bg-green-500'
-                      : result.healthScore >= 60
-                      ? 'bg-yellow-500'
-                      : 'bg-red-500'
-                  }`}
-                />
-              </div>
-            </div>
-
-            {/* Report Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              {/* Title Check */}
-              <div className="bg-brand-dark/50 rounded-lg p-4 border border-brand-teal/20">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-white font-semibold">Title Tag</span>
-                  <span
-                    className={`px-3 py-1 rounded-full text-xs font-semibold border ${
-                      result.title && result.titleLength >= 30 && result.titleLength <= 60
-                        ? getBadgeColor(true)
-                        : getBadgeColor(false)
-                    }`}
-                  >
-                    {result.title && result.titleLength >= 30 && result.titleLength <= 60
-                      ? '✓ Good'
-                      : '✗ Issue'}
-                  </span>
-                </div>
-                {result.title ? (
-                  <div className="text-sm text-brand-muted mt-2">
-                    <div className="text-white mb-1 line-clamp-2">{result.title}</div>
-                    <div className="text-xs">
-                      {result.titleLength} characters
-                      {result.titleLength < 30 && ' (too short)'}
-                      {result.titleLength > 60 && ' (too long)'}
-                    </div>
-                  </div>
-                ) : (
-                  <div className="text-sm text-red-400 mt-2">Missing</div>
-                )}
-              </div>
-
-              {/* Meta Description Check */}
-              <div className="bg-brand-dark/50 rounded-lg p-4 border border-brand-teal/20">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-white font-semibold">Meta Description</span>
-                  <span
-                    className={`px-3 py-1 rounded-full text-xs font-semibold border ${
-                      result.metaDescription &&
-                      result.metaDescriptionLength >= 120 &&
-                      result.metaDescriptionLength <= 160
-                        ? getBadgeColor(true)
-                        : getBadgeColor(false)
-                    }`}
-                  >
-                    {result.metaDescription &&
-                    result.metaDescriptionLength >= 120 &&
-                    result.metaDescriptionLength <= 160
-                      ? '✓ Good'
-                      : '✗ Issue'}
-                  </span>
-                </div>
-                {result.metaDescription ? (
-                  <div className="text-sm text-brand-muted mt-2">
-                    <div className="text-white mb-1 line-clamp-2">{result.metaDescription}</div>
-                    <div className="text-xs">
-                      {result.metaDescriptionLength} characters
-                      {result.metaDescriptionLength < 120 && ' (too short)'}
-                      {result.metaDescriptionLength > 160 && ' (too long)'}
-                    </div>
-                  </div>
-                ) : (
-                  <div className="text-sm text-red-400 mt-2">Missing</div>
-                )}
-              </div>
-
-              {/* H1 Check */}
-              <div className="bg-brand-dark/50 rounded-lg p-4 border border-brand-teal/20">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-white font-semibold">H1 Tag</span>
-                  <span
-                    className={`px-3 py-1 rounded-full text-xs font-semibold border ${
-                      result.h1Count === 1 ? getBadgeColor(true) : getBadgeColor(false)
-                    }`}
-                  >
-                    {result.h1Count === 1 ? '✓ Good' : '✗ Issue'}
-                  </span>
-                </div>
-                <div className="text-sm text-brand-muted mt-2">
-                  {result.h1Count > 0 ? (
-                    <>
-                      <div className="text-white mb-1">
-                        {result.h1Count} {result.h1Count === 1 ? 'tag found' : 'tags found'}
-                      </div>
-                      {result.h1Text.length > 0 && (
-                        <div className="text-xs text-white line-clamp-2">
-                          {result.h1Text[0]}
-                        </div>
-                      )}
-                    </>
-                  ) : (
-                    <div className="text-red-400">Missing</div>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* Issues List */}
-            {result.issues.length > 0 && (
-              <div className="mt-6">
-                <h3 className="text-lg font-semibold text-white mb-3">Issues Found</h3>
-                <div className="space-y-2">
-                  {result.issues.map((issue, idx) => (
-                    <div
-                      key={idx}
-                      className="bg-red-500/10 border border-red-500/30 rounded-lg p-3 text-red-400 text-sm"
-                    >
-                      ⚠️ {issue}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Raw Data */}
-            <details className="mt-6">
-              <summary className="text-brand-muted cursor-pointer hover:text-white">
-                View Raw Data
-              </summary>
-              <pre className="mt-4 bg-brand-dark rounded-lg p-4 text-xs text-brand-muted overflow-auto">
-                {JSON.stringify(result, null, 2)}
-              </pre>
-            </details>
-          </motion.div>
-        )}
-
-        {/* Info Box */}
-        {!result && !loading && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="bg-brand-teal/10 border border-brand-teal/30 rounded-lg p-6 text-center"
-          >
+            <p className="text-xs uppercase tracking-[0.3em] text-brand-muted">Edge Scanner</p>
+            <h1 className="text-4xl md:text-5xl font-bold">SEO Scanner</h1>
             <p className="text-brand-muted">
-              Enter a URL above to scan for SEO metadata, title tags, meta descriptions, and H1
-              tags.
+              Cloudflare Edge HTMLRewriter + Ocean Pearl UI. Paste a URL to get a quick metadata verdict.
             </p>
           </motion.div>
-        )}
-      </div>
-    </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="rounded-2xl border border-white/10 bg-slate-900/70 backdrop-blur-xl p-4 shadow-soft-dark"
+          >
+            <label className="text-sm text-brand-muted mb-2 block font-semibold">Target URL</label>
+            <div className="flex flex-col gap-3 md:flex-row md:items-center">
+              <div className="flex-1 rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 shadow-inner">
+                <div className="flex items-center gap-2 text-brand-muted text-xs font-mono uppercase tracking-[0.2em]">
+                  <LinkIcon size={14} className="text-brand-teal" />
+                  Address Bar
+                </div>
+                <input
+                  value={url}
+                  onChange={(e) => setUrl(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && !loading && handleScan()}
+                  placeholder="https://example.com"
+                  className="mt-1 w-full bg-transparent text-brand-text font-mono text-sm focus:outline-none placeholder:text-slate-500"
+                  aria-label="URL to scan"
+                />
+              </div>
+              <button
+                type="button"
+                onClick={handleScan}
+                disabled={loading}
+                className="inline-flex items-center justify-center rounded-xl bg-brand-teal px-6 py-3 font-semibold text-slate-900 shadow-accent transition-all hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {loading ? (
+                  <span className="flex items-center gap-2">
+                    <Loader2 className="animate-spin" size={18} />
+                    Scanning...
+                  </span>
+                ) : (
+                  'Run Audit'
+                )}
+              </button>
+            </div>
+
+            <AnimatePresence>
+              {loading && (
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  className="mt-4 rounded-lg border border-brand-teal/30 bg-brand-teal/5 p-3"
+                >
+                  <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-brand-muted">
+                    <span>Scanning Edge</span>
+                    <span>HTMLRewriter Pass</span>
+                  </div>
+                  <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-800">
+                    <motion.div
+                      className="h-full bg-brand-teal"
+                      initial={{ width: '0%' }}
+                      animate={{ width: '100%' }}
+                      transition={{ duration: 1.2, ease: 'easeInOut', repeat: Infinity }}
+                    />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+          {error && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-4 rounded-xl border border-rose-500/30 bg-rose-500/10 p-4 text-rose-100"
+            >
+              <div className="flex items-center gap-2 font-semibold">
+                <AlertTriangle size={16} />
+                {error}
+              </div>
+              <p className="text-sm text-rose-200/80 mt-1">
+                Make sure the URL is reachable from the public internet.
+              </p>
+            </motion.div>
+          )}
+
+          <AnimatePresence>
+            {result && (
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                className="mt-6 space-y-4"
+              >
+                <div className="rounded-2xl border border-white/10 bg-slate-900/70 backdrop-blur-xl p-5">
+                  <div className="flex items-start justify-between gap-4 flex-wrap">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.25em] text-brand-muted">Result</p>
+                      <h2 className="text-2xl font-semibold">Scan Summary</h2>
+                      <p className="text-brand-muted text-sm">
+                        Title length warning triggers at 60+ characters. Missing description is a hard fail.
+                      </p>
+                    </div>
+                    <div
+                      className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-sm ${
+                        evaluateDescription(result.description) === 'fail'
+                          ? statusClasses.fail
+                          : evaluateTitle(result.title) === 'warn'
+                          ? statusClasses.warn
+                          : statusClasses.pass
+                      }`}
+                    >
+                      <ShieldCheck size={16} />
+                      Edge Verified
+                    </div>
+                  </div>
+
+                  <div className="mt-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+                    {cards.map((card) => (
+                      <motion.div
+                        key={card.label}
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="rounded-xl border border-white/10 bg-slate-950/60 p-4 shadow-soft-dark"
+                      >
+                        <div className="flex items-center justify-between">
+                          <p className="text-sm font-semibold">{card.label}</p>
+                          <span
+                            className={`rounded-full px-2.5 py-1 text-[11px] font-semibold border ${statusClasses[card.status]}`}
+                          >
+                            {card.status === 'pass'
+                              ? 'Pass'
+                              : card.status === 'warn'
+                              ? 'Warning'
+                              : 'Fail'}
+                          </span>
+                        </div>
+                        <p className="mt-2 text-sm text-brand-muted line-clamp-3">{card.value}</p>
+                        <p className="mt-3 text-xs text-slate-400">{card.helper}</p>
+                        {card.label === 'Open Graph Image' && card.status === 'pass' && result.ogImage && (
+                          <div className="mt-3 overflow-hidden rounded-lg border border-white/10 bg-slate-900">
+                            <div className="relative aspect-video">
+                              <img
+                                src={result.ogImage}
+                                alt="Open Graph preview"
+                                className="h-full w-full object-cover"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-b from-slate-900/10 to-slate-900/60" />
+                              <div className="absolute bottom-2 left-2 flex items-center gap-2 rounded-md bg-slate-900/70 px-2 py-1 text-[11px] text-brand-text">
+                                <ImageIcon size={12} />
+                                og:image
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {!result && !loading && !error && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-6 rounded-xl border border-dashed border-brand-teal/40 bg-brand-teal/5 p-5 text-center"
+            >
+              <p className="text-sm text-brand-muted">
+                Paste a live URL to pull Title, Meta Description, first H1, and og:image directly from the edge.
+              </p>
+            </motion.div>
+          )}
+        </div>
+      </main>
+    </>
   );
 };
 
-export default SEOScanner;
-
+export default SeoScanner;

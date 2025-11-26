@@ -12,7 +12,7 @@ const ClinicalCompass: React.FC = () => {
   const [selectedPathology, setSelectedPathology] = useState('');
   const [texture, setTexture] = useState('fibrotic');
   const [selectedFindings, setSelectedFindings] = useState<string[]>([]);
-  const [protocolResult, setProtocolResult] = useState<JSX.Element | null>(null);
+  const [protocolResult, setProtocolResult] = useState<React.ReactNode | null>(null);
 
   const regions = Object.keys(protocolData).map((key) => ({
     key,

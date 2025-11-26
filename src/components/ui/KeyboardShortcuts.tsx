@@ -7,7 +7,7 @@ interface Shortcut {
   keys: string[];
   description: string;
   category: string;
-  icon?: React.ComponentType<{ size?: number }>;
+  icon?: React.ComponentType<{ size?: number; className?: string }>;
 }
 
 const shortcuts: Shortcut[] = [

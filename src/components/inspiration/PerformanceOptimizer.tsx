@@ -275,7 +275,7 @@ export const OptimizedGrid: React.FC<{
           <motion.button
             onClick={loadMore}
             disabled={isLoading}
-            className="px-6 py-3 bg-purple-500 text-white rounded-lg hover:bg-purple-600 disabled:opacity-50 transition-colors"
+            className="px-6 py-3 bg-brand-orange text-brand-dark rounded-lg hover:bg-brand-orange/90 disabled:opacity-50 transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

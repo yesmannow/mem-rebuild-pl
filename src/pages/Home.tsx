@@ -1,30 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, TrendingUp } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
-import { BentoGrid, BentoCard } from '../components/ui/BentoGrid';
-import { EnhancedBentoCard } from '../components/ui/EnhancedBentoCard';
-import AnimatedMetricsDashboard from '../components/ui/AnimatedMetricsDashboard';
-import TechStackCloud from '../components/ui/TechStackCloud';
 import TechProfile from '../components/TechProfile';
 import { OceanMarquee, OceanMarqueeItem } from '../components/ui/OceanMarquee';
 import TestimonialTerminal from '../components/TestimonialTerminal';
 import ProcessFlow from '../components/ProcessFlow';
-import ServiceModules from '../components/ServiceModules';
 import StrategicPillars from '../components/StrategicPillars';
-import Icon from '../components/Icon';
 import ScrollProgress from '../components/ui/ScrollProgress';
 import AnimatedGradientText from '../components/ui/AnimatedGradientText';
-import MagneticCard from '../components/ui/MagneticCard';
 import FloatingParticles from '../components/ui/FloatingParticles';
-import GlowEffect from '../components/ui/GlowEffect';
-import ScrollIndicator from '../components/ui/ScrollIndicator';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import SectionDivider from '../components/ui/SectionDivider';
-import AnimatedCounter from '../components/animations/AnimatedCounter';
+import { EnhancedBentoCard } from '../components/ui/EnhancedBentoCard';
 
-// Brand logos for trust section
 const brandLogos = [
   { name: 'Eat My Shorts', src: '/images/inspirations/eat-my-shorts.svg' },
   { name: 'Folklorious', src: '/images/inspirations/folklorious.svg' },
@@ -43,217 +33,157 @@ const brandLogos = [
   { name: 'Zonzo Estate', src: '/images/inspirations/zonzo-estate.svg' },
 ];
 
-// Tech stack icons for "My Stack" card
-const techStack = [
-  { name: 'React', slug: 'react' },
-  { name: 'TypeScript', slug: 'typescript' },
-  { name: 'Tailwind CSS', slug: 'tailwind' },
-  { name: 'Node.js', slug: 'node' },
-  { name: 'Vite', slug: 'vite' },
-  { name: 'GitHub', slug: 'github' },
-  { name: 'Python', slug: 'python' },
-  { name: 'HubSpot', slug: 'hubspot' },
-  { name: 'JavaScript', slug: 'javascript' },
+const metrics = [
+  {
+    label: 'Revenue Impact',
+    value: 12.5,
+    suffix: 'M',
+    description: 'Generated across marketing engines',
+  },
+  {
+    label: 'Systems Deployed',
+    value: 47,
+    description: 'Full-funnel builds shipped',
+  },
+  {
+    label: 'Reliability',
+    value: 99.9,
+    suffix: '%',
+    description: 'Uptime across stacks',
+    decimalPlaces: 1,
+  },
 ];
 
 const Home: React.FC = () => {
   return (
-    <OceanAuroraBackground
-      className="bg-brand-dark"
-      style={{ minHeight: '100vh', height: 'auto' }}
-    >
+    <OceanAuroraBackground className="bg-brand-dark" style={{ minHeight: '100vh', height: 'auto' }}>
       <ScrollProgress />
       <div className="relative z-10 w-full min-h-screen flex flex-col">
-        {/* Hero Section - Executive Hero */}
-        <section className="relative min-h-[80vh] flex items-center pt-24 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
           <FloatingParticles count={30} />
-          <div className="max-w-7xl mx-auto w-full relative z-10">
-            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-              {/* Left: Hero Text (60%) */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                className="flex-1 lg:w-[60%] text-center lg:text-left"
-              >
-                <motion.h1
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.1 }}
-                  className="text-5xl md:text-6xl lg:text-7xl font-bold text-brand-text leading-tight mb-6"
-                >
-                  I Build Marketing Engines That{' '}
-                  <AnimatedGradientText
-                    text="Scale Revenue."
-                    className="text-5xl md:text-6xl lg:text-7xl font-bold"
-                    delay={0.3}
-                  />
-                </motion.h1>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-xl md:text-2xl text-brand-muted mb-8"
-                >
-                  Fractional CMO & Marketing Technologist
-                </motion.p>
-              </motion.div>
-
-              {/* Right: Live System Status (40%) */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="flex-1 lg:w-[40%] w-full"
-              >
-                <div className="bg-brand-surface/50 border border-brand-teal/20 rounded-2xl p-6 lg:p-8 backdrop-blur-sm">
-                  <div className="mb-6">
-                    <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
-                      System Status
-                    </span>
-                  </div>
-                  <div className="space-y-6">
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs font-mono text-brand-muted uppercase">Revenue Impact</span>
-                        <TrendingUp className="w-4 h-4 text-brand-teal" />
-                      </div>
-                      <div className="text-3xl lg:text-4xl font-bold text-brand-text">
-                        $<OceanCountingNumber number={12.5} decimalPlaces={1} suffix="M" />
-                      </div>
-                      <p className="text-sm text-brand-muted mt-1">Generated across systems</p>
-                    </div>
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs font-mono text-brand-muted uppercase">Systems Built</span>
-                        <TrendingUp className="w-4 h-4 text-brand-teal" />
-                      </div>
-                      <div className="text-3xl lg:text-4xl font-bold text-brand-text">
-                        <OceanCountingNumber number={47} />
-                      </div>
-                      <p className="text-sm text-brand-muted mt-1">Marketing engines deployed</p>
-                    </div>
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs font-mono text-brand-muted uppercase">Uptime</span>
-                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                      </div>
-                      <div className="text-3xl lg:text-4xl font-bold text-brand-text">
-                        <OceanCountingNumber number={99.9} decimalPlaces={1} suffix="%" />
-                      </div>
-                      <p className="text-sm text-brand-muted mt-1">System reliability</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-          <ScrollIndicator />
-        </section>
-
-        {/* Command Center Section */}
-        <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl font-bold text-brand-text text-center mb-12"
+              className="mb-8"
             >
-              Command Center
-            </motion.h2>
+              <p className="text-sm font-mono uppercase tracking-[0.2em] text-brand-muted">
+                Marketing Director + Technologist
+              </p>
+            </motion.div>
 
-            {/* CSS Grid Layout for Command Center */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Slot 1: Tech Profile (Large) - Controller */}
-              <EnhancedBentoCard
-                span="1"
-                rowSpan="2"
-                enable3DTilt={true}
-                enableMagnetic={true}
-                className="flex flex-col items-center justify-center relative overflow-hidden group h-full"
-              >
-                <GlowEffect intensity="low" color="teal" />
-                <div className="relative z-10 w-full h-full flex flex-col items-center justify-center">
-                  <div className="mb-4">
-                    <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
+            <div className="grid grid-cols-1 lg:grid-cols-3 lg:auto-rows-[minmax(260px,1fr)] gap-6">
+              <EnhancedBentoCard span="1" rowSpan="2" className="flex flex-col justify-between">
+                <div className="space-y-4">
+                  <motion.h1
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1, duration: 0.6 }}
+                    className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-text leading-tight"
+                  >
+                    I Build Marketing Engines that{' '}
+                    <AnimatedGradientText
+                      text="Scale Revenue."
+                      className="text-4xl md:text-5xl lg:text-6xl font-bold"
+                      delay={0.3}
+                    />
+                  </motion.h1>
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.6 }}
+                    className="text-lg md:text-xl text-brand-muted"
+                  >
+                    Fractional CMO rigor with hands-on engineering chops. Systems thinking, creative
+                    direction, and automation under one roof.
+                  </motion.p>
+                </div>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link
+                    to="/case-studies"
+                    className="inline-flex items-center gap-2 px-5 py-3 bg-brand-teal text-brand-dark font-semibold rounded-lg shadow-[0_10px_30px_rgba(64,224,208,0.25)] hover:bg-white transition-colors"
+                  >
+                    View Proof
+                    <ArrowRight size={18} />
+                  </Link>
+                  <Link
+                    to="/services"
+                    className="inline-flex items-center gap-2 px-5 py-3 border border-brand-teal/40 text-brand-text font-semibold rounded-lg hover:border-brand-teal hover:text-brand-teal transition-colors"
+                  >
+                    Services
+                  </Link>
+                </div>
+              </EnhancedBentoCard>
+
+              <EnhancedBentoCard span="1" rowSpan="2" className="flex flex-col">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <span className="text-xs font-mono uppercase tracking-wide text-brand-muted">
                       Tech Profile
                     </span>
-                    <div className="mt-2 text-xs text-brand-muted font-mono">
-                      Hover to scan identity
+                    <p className="text-sm text-brand-muted">Signal-locked to the grid</p>
+                  </div>
+                  <div className="w-2 h-2 rounded-full bg-brand-teal animate-pulse" />
+                </div>
+                <div className="flex-1 flex items-center justify-center">
+                  <TechProfile size="lg" className="mx-auto" />
+                </div>
+              </EnhancedBentoCard>
+
+              <EnhancedBentoCard span="1" rowSpan="2" className="flex flex-col justify-between">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <span className="text-xs font-mono uppercase tracking-wide text-brand-muted">
+                      System Telemetry
+                    </span>
+                    <p className="text-sm text-brand-muted">Live throughput from recent builds</p>
+                  </div>
+                </div>
+                <div className="space-y-5">
+                  {metrics.map((metric, idx) => (
+                    <div key={metric.label} className="p-4 rounded-lg bg-brand-surface/60 border border-brand-teal/10">
+                      <div className="flex items-center justify-between">
+                        <p className="text-sm font-semibold text-brand-text">{metric.label}</p>
+                        <span className="text-xs text-brand-muted">#{idx + 1}</span>
+                      </div>
+                      <div className="text-3xl font-bold text-brand-text mt-2 flex items-baseline gap-1">
+                        <OceanCountingNumber
+                          number={metric.value}
+                          decimalPlaces={metric.decimalPlaces ?? 0}
+                          suffix={metric.suffix}
+                        />
+                      </div>
+                      <p className="text-xs text-brand-muted mt-1">{metric.description}</p>
                     </div>
-                  </div>
-                  <div className="flex-1 flex items-center justify-center">
-                    <TechProfile size="lg" className="mx-auto" />
-                  </div>
+                  ))}
                 </div>
               </EnhancedBentoCard>
 
-              {/* Slot 2: The Stack (Medium) */}
-              <EnhancedBentoCard
-                span="1"
-                enable3DTilt={true}
-                enableMagnetic={true}
-                className="flex flex-col relative overflow-hidden group h-full"
-              >
-                <GlowEffect intensity="low" color="orange" />
-                <div className="relative z-10">
-                  <div className="mb-4">
-                    <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
-                      Operational Stack
-                    </span>
-                  </div>
-                  <TechStackCloud
-                    tech={techStack.map((t) => ({ name: t.name, slug: t.slug }))}
-                    className="flex-1"
-                  />
-                </div>
-              </EnhancedBentoCard>
-
-              {/* Slot 3: Strategy (Medium) */}
-              <EnhancedBentoCard
-                span="1"
-                enable3DTilt={true}
-                enableMagnetic={true}
-                className="flex flex-col justify-center relative overflow-hidden group h-full"
-              >
-                <div className="relative z-10">
-                  <div className="mb-4">
-                    <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
-                      Philosophy
-                    </span>
-                  </div>
-                  <div className="space-y-4">
-                    <h3 className="text-3xl md:text-4xl font-bold text-brand-text">
-                      <AnimatedGradientText text="Strategy. Systems. Shipping." delay={0.1} />
-                    </h3>
-                    <p className="text-brand-muted text-base">
-                      Bridging the gap between Creative Vision and Technical Execution.
-                    </p>
-                  </div>
-                </div>
-              </EnhancedBentoCard>
-
-              {/* Slot 4: Trust Wall (Full Width) */}
               <EnhancedBentoCard
                 span="3"
                 enable3DTilt={false}
                 enableMagnetic={false}
-                className="relative overflow-hidden"
+                className="lg:col-span-3"
               >
-                <div className="relative z-10">
-                  <div className="mb-6">
-                    <span className="text-sm font-mono text-brand-teal uppercase tracking-wide">
-                      Trusted by Leading Brands
-                    </span>
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center justify-between flex-wrap gap-3">
+                    <div>
+                      <span className="text-xs font-mono uppercase tracking-wide text-brand-muted">
+                        The Trust Wall
+                      </span>
+                      <p className="text-brand-text text-lg font-semibold">Signal from recent partners</p>
+                    </div>
+                    <div className="px-3 py-1 rounded-full bg-brand-surface/70 border border-brand-teal/20 text-xs text-brand-muted">
+                      Infinite scroll - Hover to pause
+                    </div>
                   </div>
-                  <OceanMarquee speed={30} pauseOnHover={true} className="py-4">
-                    {brandLogos.map((brand, index) => (
-                      <OceanMarqueeItem key={`${brand.name}-${index}`}>
+                  <OceanMarquee speed={28} pauseOnHover className="py-4">
+                    {brandLogos.map((brand) => (
+                      <OceanMarqueeItem key={brand.name}>
                         <motion.div
-                          className="flex items-center justify-center h-20 w-28 mx-4 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
-                          whileHover={{ scale: 1.1, y: -5 }}
+                          className="flex items-center justify-center h-16 w-24 mx-4 grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                          whileHover={{ scale: 1.05, y: -4 }}
                         >
                           <img
                             src={brand.src}
@@ -270,7 +200,8 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        {/* Strategic Pillars Section */}
+        <SectionDivider />
+
         <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <StrategicPillars />
@@ -279,14 +210,12 @@ const Home: React.FC = () => {
 
         <SectionDivider />
 
-        {/* Process Flow Section */}
         <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <ProcessFlow />
           </div>
         </section>
 
-        {/* Testimonials Section */}
         <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.h2
@@ -298,11 +227,7 @@ const Home: React.FC = () => {
             >
               System Logs
             </motion.h2>
-            <TestimonialTerminal
-              useFeatured={true}
-              autoPlay={true}
-              interval={8000}
-            />
+            <TestimonialTerminal useFeatured autoPlay interval={8000} />
           </div>
         </section>
       </div>

@@ -190,7 +190,7 @@ const ColorPaletteExtractor: React.FC<ColorPaletteExtractorProps> = ({
     >
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+          <div className="w-10 h-10 bg-gradient-to-r from-brand-teal to-brand-orange rounded-xl flex items-center justify-center">
             <Palette className="w-5 h-5 text-white" />
           </div>
           <div>
@@ -222,7 +222,7 @@ const ColorPaletteExtractor: React.FC<ColorPaletteExtractorProps> = ({
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-            className="w-8 h-8 border-2 border-purple-400 border-t-transparent rounded-full"
+            className="w-8 h-8 border-2 border-brand-teal border-t-transparent rounded-full"
           />
           <span className="ml-3 text-gray-400">Extracting colors...</span>
         </div>
@@ -326,7 +326,7 @@ const ColorPaletteExtractor: React.FC<ColorPaletteExtractorProps> = ({
                 <div className="flex gap-2 mt-6">
                   <button
                     onClick={() => copyToClipboard(selectedColor.hex, 'hex')}
-                    className="flex-1 px-4 py-2 bg-purple-500 hover:bg-purple-600 rounded-lg text-white transition-colors"
+                    className="flex-1 px-4 py-2 bg-brand-teal hover:bg-brand-teal/90 rounded-lg text-brand-dark transition-colors"
                   >
                     Copy HEX
                   </button>

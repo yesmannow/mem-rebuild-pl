@@ -168,7 +168,7 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
       return (
         <motion.div
           key={item.id}
-          className="group flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-2xl hover:border-purple-400/50 transition-all duration-300 cursor-pointer"
+          className="group flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-2xl hover:border-brand-teal/50 transition-all duration-300 cursor-pointer"
           whileHover={{ scale: 1.02, y: -2 }}
           onClick={(e) => handleItemClick(item, index, e)}
           onHoverStart={() => !isTouchDevice && setHoveredItem(item.id)}
@@ -224,7 +224,7 @@ const ModernInspirationGrid: React.FC<ModernInspirationGridProps> = ({
     return (
       <motion.div
         key={item.id}
-        className="group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-purple-400/50 transition-all duration-500 cursor-pointer"
+        className="group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-brand-teal/50 transition-all duration-500 cursor-pointer"
         whileHover={!isTouchDevice ? {
           scale: 1.02,
           y: -8,

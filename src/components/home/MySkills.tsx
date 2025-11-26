@@ -8,7 +8,7 @@ const skills = [
     icon: Zap,
     title: 'Marketing Automation',
     items: ['FluentCRM', 'HubSpot', 'Zapier', 'Automated Campaigns'],
-    color: '#8b5cf6', // purple
+    color: '#40E0D0', // brand teal accent
   },
   {
     icon: BarChart3,
@@ -32,7 +32,7 @@ const skills = [
     icon: Palette,
     title: 'Design & Content',
     items: ['Brand Systems', 'UI/UX', 'Copywriting', 'Content Strategy'],
-    color: 'var(--color-danger)', // pink
+    color: '#FFA500', // brand orange accent
   },
   {
     icon: Users,
@@ -44,7 +44,7 @@ const skills = [
     icon: Server,
     title: 'Infrastructure',
     items: ['Cloudflare', 'CI/CD', 'Security', 'CDN Optimization'],
-    color: '#6366f1', // indigo
+    color: '#83c5be', // pearl aqua accent
   },
 ];
 
