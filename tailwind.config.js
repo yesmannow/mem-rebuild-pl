@@ -13,9 +13,9 @@ export default {
 		colors: {
 			// Ocean Pearl Brand Palette (Primary)
 			brand: {
-				teal: '#40E0D0',    // Primary Accent
-				orange: '#FFA500',  // Secondary Accent
-				dark: '#0f172a',    // Rich dark blue-grey background
+				teal: '#2DD4BF',    // Slightly darker teal for contrast
+				orange: '#FF9B1A',  // Slightly deeper orange for contrast
+				dark: '#111827',    // Subtle lift for background contrast
 				surface: '#1e293b', // Lighter card backgrounds
 				text: '#f8fafc',    // Main text
 				muted: '#94a3b8',   // Secondary text

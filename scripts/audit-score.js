@@ -76,7 +76,7 @@ const stopPreview = (proc) => {
 const runLighthouse = async () => {
   const chrome = await chromeLauncher.launch({ chromeFlags: ['--headless'] });
   const options = { logLevel: 'error', output: 'json', port: chrome.port };
-  const runnerResult = await lighthouse(TARGET_URL, options);
+  const runnerResult = await lighthouse.default(TARGET_URL, options);
   await chrome.kill();
 
   const cats = runnerResult.lhr.categories;
