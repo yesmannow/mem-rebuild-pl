@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useMemo, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
@@ -11,9 +11,11 @@ import StrategicPillars from '../components/StrategicPillars';
 import ScrollProgress from '../components/ui/ScrollProgress';
 import AnimatedGradientText from '../components/ui/AnimatedGradientText';
 import FloatingParticles from '../components/ui/FloatingParticles';
-import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import SectionDivider from '../components/ui/SectionDivider';
-import { EnhancedBentoCard } from '../components/ui/EnhancedBentoCard';
+import { BentoGrid, BentoCard } from '../components/ui/BentoGrid';
+import TerminalBlock from '../components/ui/TerminalBlock';
+import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
+import { GALLERY_MANIFESTS } from '../data/config';
 
 const brandLogos = [
   { name: 'Eat My Shorts', src: '/images/inspirations/eat-my-shorts.svg' },
@@ -33,90 +35,75 @@ const brandLogos = [
   { name: 'Zonzo Estate', src: '/images/inspirations/zonzo-estate.svg' },
 ];
 
-const metrics = [
-  {
-    label: 'Revenue Impact',
-    value: 12.5,
-    suffix: 'M',
-    description: 'Generated across marketing engines',
-  },
-  {
-    label: 'Systems Deployed',
-    value: 47,
-    description: 'Full-funnel builds shipped',
-  },
-  {
-    label: 'Reliability',
-    value: 99.9,
-    suffix: '%',
-    description: 'Uptime across stacks',
-    decimalPlaces: 1,
-  },
-];
+interface AssetCounts {
+  photo?: number;
+  design?: number;
+}
 
 const Home: React.FC = () => {
+  const [counts, setCounts] = useState<AssetCounts>({});
+
+  useEffect(() => {
+    const fetchCount = async (url: string): Promise<number | undefined> => {
+      try {
+        const res = await fetch(url);
+        if (!res.ok) return undefined;
+        const data = await res.json();
+        if (Array.isArray(data?.files)) return data.files.length;
+        return undefined;
+      } catch {
+        return undefined;
+      }
+    };
+
+    const hydrate = async () => {
+      const [photo, design] = await Promise.all([
+        fetchCount(GALLERY_MANIFESTS.photography),
+        fetchCount(GALLERY_MANIFESTS.design),
+      ]);
+      setCounts({ photo, design });
+    };
+
+    void hydrate();
+  }, []);
+
   return (
     <OceanAuroraBackground className="bg-brand-dark" style={{ minHeight: '100vh', height: 'auto' }}>
       <ScrollProgress />
       <div className="relative z-10 w-full min-h-screen flex flex-col">
         <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
           <FloatingParticles count={30} />
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl mx-auto space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mb-8"
+              className="space-y-2"
             >
               <p className="text-sm font-mono uppercase tracking-[0.2em] text-brand-muted">
                 Marketing Director + Technologist
               </p>
+              <motion.h1
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.6 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-text leading-tight"
+              >
+                I Build Marketing Engines that{' '}
+                <AnimatedGradientText
+                  text="Scale Revenue."
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold"
+                  delay={0.3}
+                />
+              </motion.h1>
             </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 lg:auto-rows-[minmax(260px,1fr)] gap-6">
-              <EnhancedBentoCard span="1" rowSpan="2" className="flex flex-col justify-between">
-                <div className="space-y-4">
-                  <motion.h1
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1, duration: 0.6 }}
-                    className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-text leading-tight"
-                  >
-                    I Build Marketing Engines that{' '}
-                    <AnimatedGradientText
-                      text="Scale Revenue."
-                      className="text-4xl md:text-5xl lg:text-6xl font-bold"
-                      delay={0.3}
-                    />
-                  </motion.h1>
-                  <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.6 }}
-                    className="text-lg md:text-xl text-brand-muted"
-                  >
-                    Fractional CMO rigor with hands-on engineering chops. Systems thinking, creative
-                    direction, and automation under one roof.
-                  </motion.p>
-                </div>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <Link
-                    to="/case-studies"
-                    className="inline-flex items-center gap-2 px-5 py-3 bg-brand-teal text-brand-dark font-semibold rounded-lg shadow-[0_10px_30px_rgba(64,224,208,0.25)] hover:bg-white transition-colors"
-                  >
-                    View Proof
-                    <ArrowRight size={18} />
-                  </Link>
-                  <Link
-                    to="/services"
-                    className="inline-flex items-center gap-2 px-5 py-3 border border-brand-teal/40 text-brand-text font-semibold rounded-lg hover:border-brand-teal hover:text-brand-teal transition-colors"
-                  >
-                    Services
-                  </Link>
-                </div>
-              </EnhancedBentoCard>
+            <BentoGrid className="auto-rows-[minmax(220px,_1fr)]">
+              <BentoCard span="2" rowSpan="2" className="p-0">
+                <SystemTerminal counts={counts} />
+              </BentoCard>
 
-              <EnhancedBentoCard span="1" rowSpan="2" className="flex flex-col">
+              <BentoCard span="2" rowSpan="2" className="flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <span className="text-xs font-mono uppercase tracking-wide text-brand-muted">
@@ -129,73 +116,45 @@ const Home: React.FC = () => {
                 <div className="flex-1 flex items-center justify-center">
                   <TechProfile size="lg" className="mx-auto" />
                 </div>
-              </EnhancedBentoCard>
+              </BentoCard>
 
-              <EnhancedBentoCard span="1" rowSpan="2" className="flex flex-col justify-between">
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <span className="text-xs font-mono uppercase tracking-wide text-brand-muted">
-                      System Telemetry
-                    </span>
-                    <p className="text-sm text-brand-muted">Live throughput from recent builds</p>
-                  </div>
-                </div>
-                <div className="space-y-5">
-                  {metrics.map((metric, idx) => (
-                    <div key={metric.label} className="p-4 rounded-lg bg-brand-surface/60 border border-brand-teal/10">
-                      <div className="flex items-center justify-between">
-                        <p className="text-sm font-semibold text-brand-text">{metric.label}</p>
-                        <span className="text-xs text-brand-muted">#{idx + 1}</span>
-                      </div>
-                      <div className="text-3xl font-bold text-brand-text mt-2 flex items-baseline gap-1">
-                        <OceanCountingNumber
-                          number={metric.value}
-                          decimalPlaces={metric.decimalPlaces ?? 0}
-                          suffix={metric.suffix}
-                        />
-                      </div>
-                      <p className="text-xs text-brand-muted mt-1">{metric.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </EnhancedBentoCard>
+              <BentoCard span="2" rowSpan="1" className="flex flex-col justify-center">
+                <AssetMonitor counts={counts} />
+              </BentoCard>
 
-              <EnhancedBentoCard
-                span="3"
-                enable3DTilt={false}
-                enableMagnetic={false}
-                className="lg:col-span-3"
-              >
-                <div className="flex flex-col gap-4">
-                  <div className="flex items-center justify-between flex-wrap gap-3">
-                    <div>
-                      <span className="text-xs font-mono uppercase tracking-wide text-brand-muted">
-                        The Trust Wall
-                      </span>
-                      <p className="text-brand-text text-lg font-semibold">Signal from recent partners</p>
-                    </div>
-                    <div className="px-3 py-1 rounded-full bg-brand-surface/70 border border-brand-teal/20 text-xs text-brand-muted">
-                      Infinite scroll - Hover to pause
-                    </div>
-                  </div>
-                  <OceanMarquee speed={28} pauseOnHover className="py-4">
-                    {brandLogos.map((brand) => (
-                      <OceanMarqueeItem key={brand.name}>
-                        <motion.div
-                          className="flex items-center justify-center h-16 w-24 mx-4 grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
-                          whileHover={{ scale: 1.05, y: -4 }}
-                        >
-                          <img
-                            src={brand.src}
-                            alt={brand.name}
-                            className="max-h-full max-w-full object-contain"
-                          />
-                        </motion.div>
-                      </OceanMarqueeItem>
-                    ))}
-                  </OceanMarquee>
+              <BentoCard span="2" rowSpan="1" className="flex flex-col justify-center">
+                <QuickActions />
+              </BentoCard>
+            </BentoGrid>
+
+            <div className="rounded-2xl border border-brand-teal/20 bg-brand-surface/50 backdrop-blur-md p-6">
+              <div className="flex items-center justify-between flex-wrap gap-3">
+                <div>
+                  <span className="text-xs font-mono uppercase tracking-wide text-brand-muted">
+                    The Trust Wall
+                  </span>
+                  <p className="text-brand-text text-lg font-semibold">Signal from recent partners</p>
                 </div>
-              </EnhancedBentoCard>
+                <div className="px-3 py-1 rounded-full bg-brand-surface/70 border border-brand-teal/20 text-xs text-brand-muted">
+                  Infinite scroll - Hover to pause
+                </div>
+              </div>
+              <OceanMarquee speed={28} pauseOnHover className="py-4">
+                {brandLogos.map((brand) => (
+                  <OceanMarqueeItem key={brand.name}>
+                    <motion.div
+                      className="flex items-center justify-center h-16 w-24 mx-4 grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                      whileHover={{ scale: 1.05, y: -4 }}
+                    >
+                      <img
+                        src={brand.src}
+                        alt={brand.name}
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </motion.div>
+                  </OceanMarqueeItem>
+                ))}
+              </OceanMarquee>
             </div>
           </div>
         </section>
@@ -232,6 +191,128 @@ const Home: React.FC = () => {
         </section>
       </div>
     </OceanAuroraBackground>
+  );
+};
+
+interface SystemTerminalProps {
+  counts: AssetCounts;
+}
+
+const SystemTerminal: React.FC<SystemTerminalProps> = ({ counts }) => {
+  const [lines, setLines] = useState<string[]>([]);
+
+  const photoCount = useMemo(
+    () => counts.photo ?? Math.floor(Math.random() * 20) + 12,
+    [counts.photo]
+  );
+
+  useEffect(() => {
+    const seq = [
+      '> CONNECTING TO SATELLITE... [OK]',
+      '> SYNCING LIGHTROOM ASSETS...',
+      `> FOUND ${photoCount} NEW PHOTOS.`,
+      '> OPTIMIZING VITE BUILD... [DONE]',
+      '> SYSTEM READY. WELCOME, USER.',
+    ];
+
+    const timers: NodeJS.Timeout[] = [];
+    setLines([]);
+    seq.forEach((line, idx) => {
+      timers.push(
+        setTimeout(() => {
+          setLines((prev) => [...prev, line]);
+        }, idx * 700 + (idx === 1 ? 800 : 0))
+      );
+    });
+
+    return () => timers.forEach((t) => clearTimeout(t));
+  }, [photoCount]);
+
+  return (
+    <TerminalBlock title="Command Center">
+      <div className="space-y-1 font-mono text-sm text-brand-text">
+        <AnimatePresence>
+          {lines.map((line) => (
+            <motion.div
+              key={line}
+              initial={{ opacity: 0, x: -6 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 6 }}
+              transition={{ duration: 0.25 }}
+              className="whitespace-pre"
+            >
+              {line}
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+    </TerminalBlock>
+  );
+};
+
+interface AssetMonitorProps {
+  counts: AssetCounts;
+}
+
+const AssetMonitor: React.FC<AssetMonitorProps> = ({ counts }) => {
+  const items = [
+    { label: 'Photography', count: counts.photo ?? 0 },
+    { label: 'Design', count: counts.design ?? 0 },
+  ];
+
+  return (
+    <div className="rounded-lg border border-brand-teal/30 bg-slate-900/80 p-4 backdrop-blur">
+      <div className="flex items-center justify-between mb-3">
+        <p className="text-xs font-mono uppercase tracking-[0.2em] text-brand-muted">Asset Monitor</p>
+        <span className="inline-flex items-center gap-2 text-xs text-brand-muted">
+          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+          Online
+        </span>
+      </div>
+      <div className="grid grid-cols-2 gap-3">
+        {items.map((item) => (
+          <div
+            key={item.label}
+            className="rounded-md border border-white/10 bg-slate-950/60 px-3 py-2 shadow-soft-dark"
+          >
+            <p className="text-[11px] uppercase tracking-[0.2em] text-brand-muted">{item.label}</p>
+            <div className="mt-1 flex items-baseline gap-1 font-mono text-brand-text">
+              <OceanCountingNumber number={item.count} />
+              <span className="text-xs text-brand-muted">Items</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const QuickActions: React.FC = () => {
+  const actions = [
+    { label: 'View Work', href: '/case-studies', tone: 'primary' as const },
+    { label: 'Open Terminal', href: '/war-room', tone: 'secondary' as const },
+    { label: 'Contact', href: '/contact', tone: 'accent' as const },
+  ];
+
+  const toneClasses = {
+    primary: 'bg-brand-teal text-slate-900 shadow-accent hover:brightness-110',
+    secondary: 'border border-brand-teal/40 text-brand-text hover:border-brand-teal',
+    accent: 'bg-[#FFA500] text-slate-900 hover:brightness-110',
+  };
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+      {actions.map((action) => (
+        <Link
+          key={action.label}
+          to={action.href}
+          className={`flex items-center justify-between rounded-lg px-4 py-3 font-semibold transition ${toneClasses[action.tone]}`}
+        >
+          <span>{action.label}</span>
+          <ArrowRight size={16} />
+        </Link>
+      ))}
+    </div>
   );
 };
 

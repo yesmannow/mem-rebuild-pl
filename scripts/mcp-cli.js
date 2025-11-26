@@ -1084,6 +1084,120 @@ ${formattedMetrics}
         await runOrEcho("node", [fetchScript, ...passthroughArgs]);
         break;
       }
+      case "scrape:lightroom:all": {
+        const [{ default: puppeteer }, { default: sharp }, axiosModule] = await Promise.all([
+          import("puppeteer"),
+          import("sharp"),
+          import("axios"),
+        ]);
+        const axios = axiosModule.default || axiosModule;
+
+        const albums = [
+          {
+            url: "https://adobe.ly/4o3play",
+            output: path.join(repoRoot, "public", "images", "photography"),
+            prefix: "photo",
+          },
+          {
+            url: "https://adobe.ly/4hb8ErI",
+            output: path.join(repoRoot, "public", "images", "design"),
+            prefix: "design",
+          },
+        ];
+
+        const ensureDir = async (dir) => {
+          await fsPromises.mkdir(dir, { recursive: true });
+        };
+
+        const autoScroll = async (page) => {
+          await page.evaluate(async () => {
+            await new Promise((resolve) => {
+              let totalHeight = 0;
+              const distance = 600;
+              const timer = setInterval(() => {
+                const { scrollHeight } = document.body;
+                window.scrollBy(0, distance);
+                totalHeight += distance;
+                if (totalHeight >= scrollHeight - window.innerHeight) {
+                  clearInterval(timer);
+                  resolve();
+                }
+              }, 250);
+            });
+          });
+        };
+
+        const scrapeAlbum = async ({ url, output, prefix }) => {
+          await ensureDir(output);
+          console.log(`? Scraping ${url} -> ${path.relative(repoRoot, output)}`);
+
+          const browser = await puppeteer.launch({ headless: "new" });
+          const page = await browser.newPage();
+          await page.goto(url, { waitUntil: "networkidle0", timeout: 120000 });
+          await autoScroll(page);
+
+          const rawUrls = await page.evaluate(() => {
+            const imgs = Array.from(document.querySelectorAll("img"));
+            const urls = imgs
+              .map((img) => {
+                const srcset = img.getAttribute("srcset");
+                if (srcset) {
+                  const candidates = srcset
+                    .split(",")
+                    .map((s) => s.trim())
+                    .map((entry) => {
+                      const [u, w] = entry.split(" ");
+                      return { url: u, width: parseInt(w || "0", 10) || 0 };
+                    })
+                    .sort((a, b) => b.width - a.width);
+                  return candidates[0]?.url || img.src;
+                }
+                return img.src;
+              })
+              .filter(Boolean);
+            return Array.from(new Set(urls));
+          }, chooseBestSrc.toString());
+
+          await browser.close();
+
+          const uniqueUrls = Array.from(new Set(rawUrls));
+          const files = [];
+          let index = 1;
+
+          for (const assetUrl of uniqueUrls) {
+            try {
+              const response = await axios.get(assetUrl, { responseType: "arraybuffer" });
+              const buffer = Buffer.from(response.data);
+              const filename = `${prefix}-${String(index).padStart(3, "0")}.webp`;
+              const outputPath = path.join(output, filename);
+
+              await sharp(buffer)
+                .resize({ width: 2500, withoutEnlargement: true })
+                .webp({ quality: 85 })
+                .toFile(outputPath);
+
+              files.push(filename);
+              index += 1;
+              console.log(`  ✔ ${filename}`);
+            } catch (error) {
+              console.log(`  ?? Skipped ${assetUrl} (${error.message})`);
+            }
+          }
+
+          const manifestPath = path.join(output, "manifest.json");
+          await fsPromises.writeFile(manifestPath, JSON.stringify({ files }, null, 2));
+          console.log(`? Manifest written: ${path.relative(repoRoot, manifestPath)}`);
+        };
+
+        for (const album of albums) {
+          if (dryRun) {
+            console.log(`[dry-run] Would scrape ${album.url} -> ${album.output}`);
+          } else {
+            await scrapeAlbum(album);
+          }
+        }
+        break;
+      }
       case "generate-pwa-icons": {
         console.log("\n" + "=".repeat(70));
         console.log("📱 PWA Icon Generator");

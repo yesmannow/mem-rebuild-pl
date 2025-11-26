@@ -1,29 +1,78 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Camera, Palette, Sparkles } from 'lucide-react';
 import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
-import SmartGallery from '../components/SmartGallery';
-import smartGalleryData from '../data/smart-gallery.json';
+import SmartGallery, { GalleryItem, GalleryMode } from '../components/SmartGallery';
+import { GALLERY_MANIFESTS, GALLERY_BASE } from '../data/config';
 
-type GalleryMode = 'photo' | 'design';
+interface Manifest {
+  files: string[];
+}
 
 const Studio: React.FC = () => {
   const [mode, setMode] = useState<GalleryMode>('photo');
   const [filter, setFilter] = useState<string>('all');
+  const [photos, setPhotos] = useState<GalleryItem[]>([]);
+  const [designs, setDesigns] = useState<GalleryItem[]>([]);
 
-  const photos = smartGalleryData.photography;
-  const designs = smartGalleryData.design;
+  useEffect(() => {
+    const loadManifest = async (url: string): Promise<Manifest | null> => {
+      try {
+        const res = await fetch(url);
+        if (!res.ok) return null;
+        return (await res.json()) as Manifest;
+      } catch {
+        return null;
+      }
+    };
+
+    const hydrate = async () => {
+      const [photoManifest, designManifest] = await Promise.all([
+        loadManifest(GALLERY_MANIFESTS.photography),
+        loadManifest(GALLERY_MANIFESTS.design),
+      ]);
+
+      if (photoManifest?.files?.length) {
+        setPhotos(
+          photoManifest.files.map((file, idx) => ({
+            src: `${GALLERY_BASE.photography}${file}`,
+            alt: `Photo ${idx + 1}`,
+            title: `Photo ${idx + 1}`,
+            category: 'Photography',
+          }))
+        );
+      }
+
+      if (designManifest?.files?.length) {
+        setDesigns(
+          designManifest.files.map((file, idx) => ({
+            src: `${GALLERY_BASE.design}${file}`,
+            alt: `Design ${idx + 1}`,
+            title: `Design ${idx + 1}`,
+            category: 'Design',
+          }))
+        );
+      }
+    };
+
+    void hydrate();
+  }, []);
 
   const currentItems = mode === 'photo' ? photos : designs;
-  const categories = Array.from(
-    new Set(currentItems.map((item) => item.category))
-  ).sort();
+  const categories = useMemo(
+    () =>
+      Array.from(new Set(currentItems.map((item) => item.category || (mode === 'photo' ? 'Photography' : 'Design')))).sort(),
+    [currentItems, mode]
+  );
 
-  const filteredItems =
-    filter === 'all'
-      ? currentItems
-      : currentItems.filter((item) => item.category === filter);
+  const filteredItems = useMemo(
+    () =>
+      filter === 'all'
+        ? currentItems
+        : currentItems.filter((item) => item.category === filter),
+    [currentItems, filter]
+  );
 
   return (
     <>

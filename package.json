@@ -25,9 +25,7 @@
     "scrape:design": "node scripts/scrape-design-assets.js design",
     "scrape:all": "node scripts/scrape-design-assets.js all",
     "scrape:side-projects": "node scripts/scrape-side-projects.js",
-    "scrape:lightroom:photography": "node scripts/scrape-design-assets.js images --url \"https://lightroom.adobe.com/shares/b1f8050aa3ac452baae9e3590e1c92c8\" --output public/images/photography --prefix photo",
-    "scrape:lightroom:design": "node scripts/scrape-design-assets.js images --url \"https://lightroom.adobe.com/shares/f5ddb4cab0ca4bcc95b17fa13ab992bd\" --output public/images/design --prefix design",
-    "scrape:lightroom:all": "npm run scrape:lightroom:photography && npm run scrape:lightroom:design",
+    "scrape:lightroom:all": "node scripts/mcp-cli.js scrape:lightroom:all",
     "design:analyze-portfolio": "python scripts/analyze-portfolio-design.py",
     "design:consolidate-colors": "node scripts/consolidate-colors.js",
     "design:map-colors": "node scripts/enhanced-color-mapping.js",
@@ -142,6 +140,7 @@
     "cleanup:unused": "node scripts/cleanup-duplicates.js --unused-only --dry-run",
     "cleanup:interactive": "node scripts/cleanup-duplicates.js --interactive",
     "cleanup:auto": "node scripts/cleanup-duplicates.js --auto",
+    "audit-score": "node scripts/audit-score.js",
     "cleanup:archive": "node scripts/cleanup-archive.mjs",
     "cleanup:archive:dry": "node scripts/cleanup-archive.mjs --dry-run",
     "cleanup:archive:interactive": "node scripts/cleanup-archive.mjs --interactive",
@@ -249,6 +248,10 @@
     "typescript": "^5.9.3",
     "vite": "^6.0.7",
     "vite-plugin-html": "^3.2.2",
-    "vite-plugin-pwa": "^1.1.0"
+    "vite-plugin-pwa": "^1.1.0",
+    "lighthouse": "^12.1.0",
+    "chrome-launcher": "^1.1.1",
+    "pa11y": "^6.2.3",
+    "chalk": "^5.3.0"
   }
 }
