@@ -39,7 +39,9 @@ function OceanCountingNumber({
   className,
   ...props
 }: OceanCountingNumberProps) {
-  if (typeof number !== 'number') {
+  const hasValidInput = typeof number === 'number' || typeof number === 'string';
+
+  if (!hasValidInput) {
     return (
       <span data-slot="counting-number" className={cn('text-[var(--color-primary)] font-bold', className)} {...props}>
         0
@@ -47,7 +49,8 @@ function OceanCountingNumber({
     );
   }
 
-  const safeNumber = typeof number === 'number' ? number : 0;
+  const parsedNumber = typeof number === 'string' ? Number(number) : number;
+  const safeNumber = Number.isFinite(parsedNumber) ? parsedNumber : 0;
   const localRef = React.useRef<HTMLSpanElement>(null);
   React.useImperativeHandle(ref, () => localRef.current as HTMLSpanElement);
 

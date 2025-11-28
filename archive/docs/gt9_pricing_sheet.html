@@ -380,6 +380,12 @@
             display: none !important;
         }
 
+        .membership-btn {
+            margin-top: 15px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+        }
+
         .quick-calc {
             background: #f8f9fa;
             padding: 15px;
@@ -578,7 +584,7 @@
                     <input type="text" id="searchInput" placeholder="Search products, training, instruments..." onkeyup="searchProducts()">
                     <span class="search-icon">🔍</span>
                 </div>
-                <select id="customerType" class="filter-select" onchange="filterByCustomer()">
+                <select id="customerType" class="filter-select" onchange="filterByCustomer()" title="Select customer type">
                     <option value="all">All Customers</option>
                     <option value="retail">List Price</option>
                     <option value="corporate">Corporate</option>
@@ -951,14 +957,14 @@
                     <h3>CEU Unlimited Membership</h3>
                     <div class="membership-price">$249/year</div>
                     <p>Access UP TO 60 CEU Short Courses (ONLY) per year</p>
-                    <button class="btn btn-success" onclick="addToQuote(this, 'CEU Unlimited Membership', 249, 249, 249)" style="margin-top: 15px; background: rgba(255,255,255,0.2); border: 2px solid white;">Add to Quote</button>
+                    <button type="button" class="btn btn-success membership-btn" onclick="addToQuote(this, 'CEU Unlimited Membership', 249, 249, 249)">Add to Quote</button>
                 </div>
 
                 <div class="membership-card" data-category="memberships" data-keywords="preferred membership listing">
                     <h3>Preferred Membership</h3>
                     <div class="membership-price">$199/year</div>
                     <p>Preferred Listing + Preferred Assets</p>
-                    <button class="btn btn-success" onclick="addToQuote(this, 'Preferred Membership', 199, 199, 199)" style="margin-top: 15px; background: rgba(255,255,255,0.2); border: 2px solid white;">Add to Quote</button>
+                    <button type="button" class="btn btn-success membership-btn" onclick="addToQuote(this, 'Preferred Membership', 199, 199, 199)">Add to Quote</button>
                 </div>
 
             </div>

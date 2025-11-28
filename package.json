@@ -10,8 +10,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm run prebuild && npm run images:build && npm run datasets:build && vite build",
+    "build": "npm run sync && tsc && vite build",
     "assets:validate": "node scripts/ensure-images.js",
+    "sync": "node scripts/sync-assets.js",
     "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --runInBand",
     "build:verify": "npm run build && node scripts/verify-build.mjs",
     "mcp:start": "node mcp/server.js",

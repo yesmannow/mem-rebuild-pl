@@ -65,6 +65,7 @@ const EnhancedFooter: React.FC = () => {
                   className="p-2 rounded-lg bg-[var(--ink-700)] text-[var(--parchment-050)]/70 hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/10 transition-all"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
+                  aria-label="LinkedIn"
                 >
                   <Linkedin size={20} />
                 </motion.a>
@@ -75,6 +76,7 @@ const EnhancedFooter: React.FC = () => {
                   className="p-2 rounded-lg bg-[var(--ink-700)] text-[var(--parchment-050)]/70 hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/10 transition-all"
                   whileHover={{ scale: 1.1, rotate: -5 }}
                   whileTap={{ scale: 0.9 }}
+                  aria-label="GitHub"
                 >
                   <Github size={20} />
                 </motion.a>
@@ -83,6 +85,7 @@ const EnhancedFooter: React.FC = () => {
                   className="p-2 rounded-lg bg-[var(--ink-700)] text-[var(--parchment-050)]/70 hover:text-[var(--signal-500)] hover:bg-[var(--signal-500)]/10 transition-all"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
+                  aria-label="Contact"
                 >
                   <Mail size={20} />
                 </motion.a>
