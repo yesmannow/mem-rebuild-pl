@@ -66,6 +66,12 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
+        .api-status {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
         .control-panel {
             background: white;
             border-radius: 15px;
@@ -166,6 +172,12 @@
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
         }
 
         .products-grid {
@@ -380,6 +392,13 @@
             display: none !important;
         }
 
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
         .membership-btn {
             margin-top: 15px;
             background: rgba(255,255,255,0.2);
@@ -558,7 +577,7 @@
             </div>
             <h1>🚀 Smart Sales & Pricing Tool</h1>
             <p>Find pricing fast • Build quotes instantly • Close deals • Leader in IASTM</p>
-            <div id="api-status" class="api-status" style="margin-top: 10px; font-size: 0.9em; color: #ccc;">
+            <div id="api-status" class="api-status">
                 <span id="api-indicator">🔄 Loading live data...</span>
             </div>
         </div>
@@ -590,7 +609,7 @@
                     <option value="corporate">Corporate</option>
                     <option value="student">Student/Military</option>
                 </select>
-                <select id="category" class="filter-select" onchange="filterByCategory()">
+                <select id="category" class="filter-select" onchange="filterByCategory()" aria-label="Filter by product category">
                     <option value="all">All Categories</option>
                     <option value="training">Training</option>
                     <option value="instruments">Instruments</option>
@@ -655,7 +674,7 @@
                         <div id="quotePreviewContent"></div>
                     </div>
 
-                    <div style="display: flex; gap: 15px; justify-content: center;">
+                    <div class="modal-actions">
                         <button type="button" class="btn btn-success" onclick="sendEmailQuote()">📧 Send Quote & Tag CRM</button>
                         <button type="button" class="btn btn-outline" onclick="closeEmailModal()">Cancel</button>
                     </div>
@@ -950,7 +969,7 @@
                     <h3>Premier Membership</h3>
                     <div class="membership-price">$299/year</div>
                     <p>Premier Listing + Premier Assets + CEU Unlimited + Exclusive Pricing (10% OFF EVERYTHING)</p>
-                    <button class="btn btn-success" onclick="addToQuote(this, 'Premier Membership', 299, 299, 299)" style="margin-top: 15px; background: rgba(255,255,255,0.2); border: 2px solid white;">Add to Quote</button>
+                    <button class="btn btn-success membership-btn" onclick="addToQuote(this, 'Premier Membership', 299, 299, 299)">Add to Quote</button>
                 </div>
 
                 <div class="membership-card" data-category="memberships" data-keywords="ceu unlimited membership">
@@ -1053,7 +1072,7 @@
             </div>
         </div>
 
-        <div style="text-align: center; color: white; margin-top: 40px; padding: 20px;">
+        <div class="footer">
             <p>&copy; 2025 Graston Technique, LLC. All rights reserved. | Leader in Instrument-Assisted Soft Tissue Mobilization (IASTM)</p>
         </div>
     </div>

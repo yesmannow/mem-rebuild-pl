@@ -50,16 +50,6 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_174703.jpg",
-    "meta": {
-      "width": 900,
-      "height": 420,
-      "base": "images/projects/317 bbq/20231008_174703",
-      "color": "rgb(24 24 24)",
-      "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAwCdASoUAAkAPxFysVCsJqSisAgBgCIJYwAAYdidW24azZazawAA/t2e4m2bCJyiwDovqYuLuE1SCeKhHJpj4HJ2VswLfeDr3EAGQbOsb7fZUE563mymAAA="
-    }
-  },
-  {
     "file": "images/projects/317 bbq/20231008_175026.jpg",
     "meta": {
       "width": 900,
@@ -70,13 +60,13 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_175109.jpg",
+    "file": "images/projects/317 bbq/20231008_174703.jpg",
     "meta": {
       "width": 900,
       "height": 420,
-      "base": "images/projects/317 bbq/20231008_175109",
-      "color": "rgb(8 8 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOgBFlLY89kZ27RSgAAzZaJumFbRSUgNFE4xP+4T9HCU8pxz0jLA/BzVoMi3xloaQQgNXWLQP/rX4vc0XfX3q1Yt+V3F/y/8j2Ed6WqeS65AAA="
+      "base": "images/projects/317 bbq/20231008_174703",
+      "color": "rgb(24 24 24)",
+      "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAwCdASoUAAkAPxFysVCsJqSisAgBgCIJYwAAYdidW24azZazawAA/t2e4m2bCJyiwDovqYuLuE1SCeKhHJpj4HJ2VswLfeDr3EAGQbOsb7fZUE563mymAAA="
     }
   },
   {
@@ -87,6 +77,16 @@
       "base": "images/projects/317 bbq/20231008_175244",
       "color": "rgb(24 24 8)",
       "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOiP/wEpc6Rl8L4HlgA/klMNCEzPtLFh+4XOVt58sG0LoR3GwW15SbT3HMFBicxKsV1lrUQjL9l3mHsI/4hq+wvoDw5svUHT4MR9vpuAAAA"
+    }
+  },
+  {
+    "file": "images/projects/317 bbq/20231008_175109.jpg",
+    "meta": {
+      "width": 900,
+      "height": 420,
+      "base": "images/projects/317 bbq/20231008_175109",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOgBFlLY89kZ27RSgAAzZaJumFbRSUgNFE4xP+4T9HCU8pxz0jLA/BzVoMi3xloaQQgNXWLQP/rX4vc0XfX3q1Yt+V3F/y/8j2Ed6WqeS65AAA="
     }
   },
   {
@@ -110,16 +110,6 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_175650.jpg",
-    "meta": {
-      "width": 900,
-      "height": 420,
-      "base": "images/projects/317 bbq/20231008_175650",
-      "color": "rgb(24 24 24)",
-      "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoUAAkAPxFysFAsJqSisAgBgCIJZACdMoACxGdBHE/ZSu/VMSAA4dkn27ihdVbw/g8ed/njRaG4zEDUDLKlbxnyxSkrKEY7wx0SHztHTGZdAhOAMJ+5zVERfXo40Uonc7GNAAAA"
-    }
-  },
-  {
     "file": "images/projects/317 bbq/20231008_175654.jpg",
     "meta": {
       "width": 900,
@@ -130,13 +120,13 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_180910.jpg",
+    "file": "images/projects/317 bbq/20231008_175650.jpg",
     "meta": {
       "width": 900,
       "height": 420,
-      "base": "images/projects/317 bbq/20231008_180910",
-      "color": "rgb(24 24 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACwAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCdABMEZDQPXXrSAAD+o1U6P/byUraqBSlkZmUsOLVnOmwcuxrYjy+9xA65i1geDXnbSpXW/8z31ymBp6oKKo9O9OBNJXMm/ACUvLFcT0BsHpR9gAAA"
+      "base": "images/projects/317 bbq/20231008_175650",
+      "color": "rgb(24 24 24)",
+      "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoUAAkAPxFysFAsJqSisAgBgCIJZACdMoACxGdBHE/ZSu/VMSAA4dkn27ihdVbw/g8ed/njRaG4zEDUDLKlbxnyxSkrKEY7wx0SHztHTGZdAhOAMJ+5zVERfXo40Uonc7GNAAAA"
     }
   },
   {
@@ -150,6 +140,16 @@
     }
   },
   {
+    "file": "images/projects/317 bbq/20231008_180910.jpg",
+    "meta": {
+      "width": 900,
+      "height": 420,
+      "base": "images/projects/317 bbq/20231008_180910",
+      "color": "rgb(24 24 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACwAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCdABMEZDQPXXrSAAD+o1U6P/byUraqBSlkZmUsOLVnOmwcuxrYjy+9xA65i1geDXnbSpXW/8z31ymBp6oKKo9O9OBNJXMm/ACUvLFcT0BsHpR9gAAA"
+    }
+  },
+  {
     "file": "images/projects/317 bbq/20231008_181722.jpg",
     "meta": {
       "width": 900,
@@ -160,16 +160,6 @@
     }
   },
   {
-    "file": "images/projects/riley bennett egloff/download.jpg",
-    "meta": {
-      "width": 1712,
-      "height": 2399,
-      "base": "images/projects/riley bennett egloff/download",
-      "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoUABwAPxFys1KsJiSisBgIAYAiCUAYbgIhpExx19sfrmkOVY0Hz5AgAP5b/LmOnVoT7YOUUIjV/KgiuUGXDvjmpI4Acbzof4M1yGzvvaT+On1ooa8rThu95IcLCPIPhqS4vCO0HTf6yMZAavu0HdFVEPB9zIbehvHwPwq/bFgBVPfNSfET2aTAmojKJaGfwr51v09AAAA="
-    }
-  },
-  {
     "file": "images/projects/riley bennett egloff/dss.jpg",
     "meta": {
       "width": 1712,
@@ -177,6 +167,16 @@
       "base": "images/projects/riley bennett egloff/dss",
       "color": "rgb(248 248 248)",
       "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADwBACdASoUABwAPxF6t1MsJ6WiqAqpgCIJZQAALngBiyejzEBWxG+QSB/eSBN5/MAA/I/5WrdMXFEqpJ1esGZLrMM5QnKfCArikyvuxKwcL5dLrsjRbLtjvDu15JG+sR4bJatlenxr/2uhDoaxI/Gj/al1CgAA"
+    }
+  },
+  {
+    "file": "images/projects/riley bennett egloff/download.jpg",
+    "meta": {
+      "width": 1712,
+      "height": 2399,
+      "base": "images/projects/riley bennett egloff/download",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoUABwAPxFys1KsJiSisBgIAYAiCUAYbgIhpExx19sfrmkOVY0Hz5AgAP5b/LmOnVoT7YOUUIjV/KgiuUGXDvjmpI4Acbzof4M1yGzvvaT+On1ooa8rThu95IcLCPIPhqS4vCO0HTf6yMZAavu0HdFVEPB9zIbehvHwPwq/bFgBVPfNSfET2aTAmojKJaGfwr51v09AAAA="
     }
   },
   {
@@ -270,16 +270,6 @@
     }
   },
   {
-    "file": "images/side-projects/dot-physicals-header.jpg",
-    "meta": {
-      "width": 1000,
-      "height": 603,
-      "base": "images/side-projects/dot-physicals-header",
-      "color": "rgb(8 8 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQAwCdASoUAAwAPxFysFAsJqSisAgBgCIJQBhQAVEz0pUakAD+nvWP4vzgB5zRyvT/rnc9LIoUpEurSRPWRWuElwunDFdc0agkJAanq0mBlyi16gp2QGSuQAA="
-    }
-  },
-  {
     "file": "images/side-projects/my-post-2.jpg",
     "meta": {
       "width": 1080,
@@ -290,6 +280,16 @@
     }
   },
   {
+    "file": "images/side-projects/dot-physicals-header.jpg",
+    "meta": {
+      "width": 1000,
+      "height": 603,
+      "base": "images/side-projects/dot-physicals-header",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQAwCdASoUAAwAPxFysFAsJqSisAgBgCIJQBhQAVEz0pUakAD+nvWP4vzgB5zRyvT/rnc9LIoUpEurSRPWRWuElwunDFdc0agkJAanq0mBlyi16gp2QGSuQAA="
+    }
+  },
+  {
     "file": "images/side-projects/interior_w3.jpg",
     "meta": {
       "width": 1632,
@@ -297,16 +297,6 @@
       "base": "images/side-projects/interior_w3",
       "color": "rgb(248 248 248)",
       "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABQBACdASoUAA8APxFysFAsJqSisAgBgCIJZABTAAbfv7iuKmJKku48hRFgAP5zAlMygBpQz2DWSpBi5IaG5G4CIETVrIBr/WD/kkqYMcFq96S08nueCUbSwYlFy7YTODLSxVHdhNsDhdE/HIUfE2WcGhK5sggQAAA="
-    }
-  },
-  {
-    "file": "images/side-projects/occ-health-header.jpg",
-    "meta": {
-      "width": 1000,
-      "height": 603,
-      "base": "images/side-projects/occ-health-header",
-      "color": "rgb(168 168 168)",
-      "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJYgDE2BUpkH/mJ99rs/P+APd6ZeXCv5JNRwKHdumuYcSJ67IPaBHoT5WDySeAYaYQqcJZm9acI4eFVVtlZ10DxfL0bF0i0Wi3bUI8J3YAAA=="
     }
   },
   {
@@ -327,6 +317,16 @@
       "base": "images/side-projects/Skincare-for-Dogs-and-Cats",
       "color": "rgb(248 248 248)",
       "blurDataURL": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAACwBACdASoUABQAPxGAuFWsKCUjKAgBgCIJYwDKAA3mM6N8UBTGze0Wd0UJpcPgAP7oX7pA/9sbaWAE6t2B9OlOGoXVxcoS/7l1WVXsu6CBLI0LYRamOfTjDqehi9enMPFDb+AA85qu5fvVdfbTvIhoOeuXzgIc9ZlRfxXW87zkDye7EvqUgplB+4Vu2djcCOguxLFhVU/GIcelwEAYsJ1nAAA="
+    }
+  },
+  {
+    "file": "images/side-projects/occ-health-header.jpg",
+    "meta": {
+      "width": 1000,
+      "height": 603,
+      "base": "images/side-projects/occ-health-header",
+      "color": "rgb(168 168 168)",
+      "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJYgDE2BUpkH/mJ99rs/P+APd6ZeXCv5JNRwKHdumuYcSJ67IPaBHoT5WDySeAYaYQqcJZm9acI4eFVVtlZ10DxfL0bF0i0Wi3bUI8J3YAAA=="
     }
   },
   {

@@ -13,6 +13,7 @@
     "emitDeclarationOnly": false,
     "declaration": false,
     "incremental": true,
+    "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "jsx": "react-jsx",
     "strict": true,
@@ -34,17 +35,7 @@
       "vite/client"
     ]
   },
-  "include": [
-    "src",
-    "src/types",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.d.ts",
-    "src/**/*.json",
-    "src/**/*.js",
-    "vite-env.d.ts",
-    "public/**/*.json"
-  ],
+  "include": ["src"],
   "exclude": [
     "node_modules",
     "dist",
