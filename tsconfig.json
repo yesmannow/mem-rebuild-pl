@@ -6,7 +6,6 @@
     "baseUrl": ".",
     "noEmit": true,
     "emitDeclarationOnly": false,
-    "declaration": false,
     "incremental": true,
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.tsbuildinfo",

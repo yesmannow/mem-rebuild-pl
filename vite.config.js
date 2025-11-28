@@ -155,7 +155,7 @@ export default defineConfig({
         },
         manualChunks: {
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-animation': ['framer-motion', 'lottie-web'],
+          'vendor-animation': ['framer-motion'],
           'vendor-utils': ['date-fns', 'clsx', 'tailwind-merge'],
         },
       }
