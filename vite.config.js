@@ -154,9 +154,9 @@ export default defineConfig({
           return 'assets/[name]-[hash][extname]';
         },
         manualChunks: {
-          vendor: ['react', 'react-dom'],
-          motion: ['framer-motion'],
-          router: ['react-router-dom'],
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-animation': ['framer-motion', 'lottie-web'],
+          'vendor-utils': ['date-fns', 'clsx', 'tailwind-merge'],
         },
       }
     },

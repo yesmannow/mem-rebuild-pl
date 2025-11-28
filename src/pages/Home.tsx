@@ -1,21 +1,28 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { Suspense, useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
-import TechProfile from '../components/TechProfile';
 import { OceanMarquee, OceanMarqueeItem } from '../components/ui/OceanMarquee';
 import TestimonialTerminal from '../components/TestimonialTerminal';
 import ProcessFlow from '../components/ProcessFlow';
 import StrategicPillars from '../components/StrategicPillars';
 import ScrollProgress from '../components/ui/ScrollProgress';
 import AnimatedGradientText from '../components/ui/AnimatedGradientText';
-import FloatingParticles from '../components/ui/FloatingParticles';
 import SectionDivider from '../components/ui/SectionDivider';
-import { BentoGrid, BentoCard } from '../components/ui/BentoGrid';
 import TerminalBlock from '../components/ui/TerminalBlock';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import { GALLERY_MANIFESTS } from '../data/config';
+
+// Lazy-load heavy visuals to reduce main-thread blocking on initial load
+const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
+const BentoGrid = React.lazy(() =>
+  import('../components/ui/BentoGrid').then((mod) => ({ default: mod.BentoGrid }))
+);
+const BentoCard = React.lazy(() =>
+  import('../components/ui/BentoGrid').then((mod) => ({ default: mod.BentoCard }))
+);
+const TechProfile = React.lazy(() => import('../components/TechProfile'));
 
 const brandLogos = [
   { name: 'Eat My Shorts', src: '/images/inspirations/eat-my-shorts.svg' },
@@ -72,7 +79,9 @@ const Home: React.FC = () => {
       <ScrollProgress />
       <div className="relative z-10 w-full min-h-screen flex flex-col">
         <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-          <FloatingParticles count={30} />
+          <Suspense fallback={<div className="h-24" />}>
+            <FloatingParticles count={30} />
+          </Suspense>
           <div className="max-w-7xl mx-auto space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -98,34 +107,38 @@ const Home: React.FC = () => {
               </motion.h1>
             </motion.div>
 
-            <BentoGrid className="auto-rows-[minmax(220px,_1fr)]">
-              <BentoCard span="2" rowSpan="2" className="p-0">
-                <SystemTerminal counts={counts} />
-              </BentoCard>
+            <Suspense fallback={<div className="h-96 w-full animate-pulse bg-brand-dark/50" />}>
+              <BentoGrid className="auto-rows-[minmax(220px,_1fr)]">
+                <BentoCard span="2" rowSpan="2" className="p-0">
+                  <SystemTerminal counts={counts} />
+                </BentoCard>
 
-              <BentoCard span="2" rowSpan="2" className="flex flex-col">
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <span className="text-xs font-mono uppercase tracking-wide text-brand-muted">
-                      Tech Profile
-                    </span>
-                    <p className="text-sm text-brand-muted">Signal-locked to the grid</p>
+                <BentoCard span="2" rowSpan="2" className="flex flex-col">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <span className="text-xs font-mono uppercase tracking-wide text-brand-muted">
+                        Tech Profile
+                      </span>
+                      <p className="text-sm text-brand-muted">Signal-locked to the grid</p>
+                    </div>
+                    <div className="w-2 h-2 rounded-full bg-brand-teal animate-pulse" />
                   </div>
-                  <div className="w-2 h-2 rounded-full bg-brand-teal animate-pulse" />
-                </div>
-                <div className="flex-1 flex items-center justify-center">
-                  <TechProfile size="lg" className="mx-auto" />
-                </div>
-              </BentoCard>
+                  <div className="flex-1 flex items-center justify-center">
+                    <Suspense fallback={<div className="h-24 w-full animate-pulse bg-brand-dark/50" />}>
+                      <TechProfile size="lg" className="mx-auto" />
+                    </Suspense>
+                  </div>
+                </BentoCard>
 
-              <BentoCard span="2" rowSpan="1" className="flex flex-col justify-center">
-                <AssetMonitor counts={counts} />
-              </BentoCard>
+                <BentoCard span="2" rowSpan="1" className="flex flex-col justify-center">
+                  <AssetMonitor counts={counts} />
+                </BentoCard>
 
-              <BentoCard span="2" rowSpan="1" className="flex flex-col justify-center">
-                <QuickActions />
-              </BentoCard>
-            </BentoGrid>
+                <BentoCard span="2" rowSpan="1" className="flex flex-col justify-center">
+                  <QuickActions />
+                </BentoCard>
+              </BentoGrid>
+            </Suspense>
 
             <div className="rounded-2xl border border-brand-teal/20 bg-brand-surface/50 backdrop-blur-md p-6">
               <div className="flex items-center justify-between flex-wrap gap-3">

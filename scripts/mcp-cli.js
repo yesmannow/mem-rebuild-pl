@@ -21,6 +21,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, "..");
 
+// Select largest candidate from a srcset string
+const chooseBestSrc = (srcset) => {
+  if (!srcset) return null;
+  return srcset
+    .split(",")
+    .map((entry) => {
+      const [url, width] = entry.trim().split(" ");
+      return { url, width: parseInt(width || "0", 10) || 0 };
+    })
+    .sort((a, b) => b.width - a.width)[0]?.url;
+};
+
 function readPackageJson() {
   const pkgPath = path.join(repoRoot, "package.json");
   try {
@@ -1127,6 +1139,27 @@ ${formattedMetrics}
           });
         };
 
+        const createPlaceholderImages = async (output, prefix, count = 5) => {
+          await ensureDir(output);
+          const files = [];
+          for (let i = 1; i <= count; i++) {
+            const filename = `${prefix}-${String(i).padStart(3, "0")}.webp`;
+            const outputPath = path.join(output, filename);
+            const color = prefix === "photo" ? { r: 15, g: 148, b: 136, alpha: 1 } : { r: 234, g: 88, b: 12, alpha: 1 };
+            const image = sharp({
+              create: {
+                width: 1200,
+                height: 800,
+                channels: 4,
+                background: color,
+              },
+            });
+            await image.webp({ quality: 70 }).toFile(outputPath);
+            files.push(filename);
+          }
+          return files;
+        };
+
         const scrapeAlbum = async ({ url, output, prefix }) => {
           await ensureDir(output);
           console.log(`? Scraping ${url} -> ${path.relative(repoRoot, output)}`);
@@ -1136,27 +1169,17 @@ ${formattedMetrics}
           await page.goto(url, { waitUntil: "networkidle0", timeout: 120000 });
           await autoScroll(page);
 
-          const rawUrls = await page.evaluate(() => {
-            const imgs = Array.from(document.querySelectorAll("img"));
-            const urls = imgs
-              .map((img) => {
-                const srcset = img.getAttribute("srcset");
-                if (srcset) {
-                  const candidates = srcset
-                    .split(",")
-                    .map((s) => s.trim())
-                    .map((entry) => {
-                      const [u, w] = entry.split(" ");
-                      return { url: u, width: parseInt(w || "0", 10) || 0 };
-                    })
-                    .sort((a, b) => b.width - a.width);
-                  return candidates[0]?.url || img.src;
-                }
-                return img.src;
-              })
-              .filter(Boolean);
-            return Array.from(new Set(urls));
-          }, chooseBestSrc.toString());
+        const rawUrls = await page.evaluate((fnStr) => {
+          const choose = eval(`(${fnStr})`);
+          const imgs = Array.from(document.querySelectorAll("img"));
+          const urls = imgs
+            .map((img) => {
+              const best = choose(img.getAttribute("srcset"));
+              return best || img.getAttribute("src");
+            })
+            .filter(Boolean);
+          return Array.from(new Set(urls));
+        }, chooseBestSrc.toString());
 
           await browser.close();
 
@@ -1184,8 +1207,16 @@ ${formattedMetrics}
             }
           }
 
+          let finalFiles = files;
+
+          // If scrape found nothing, generate placeholders to avoid broken links
+          if (finalFiles.length === 0) {
+            console.log("?? No assets scraped; generating placeholder images...");
+            finalFiles = await createPlaceholderImages(output, prefix, 5);
+          }
+
           const manifestPath = path.join(output, "manifest.json");
-          await fsPromises.writeFile(manifestPath, JSON.stringify({ files }, null, 2));
+          await fsPromises.writeFile(manifestPath, JSON.stringify({ files: finalFiles }, null, 2));
           console.log(`? Manifest written: ${path.relative(repoRoot, manifestPath)}`);
         };
 
@@ -1193,7 +1224,16 @@ ${formattedMetrics}
           if (dryRun) {
             console.log(`[dry-run] Would scrape ${album.url} -> ${album.output}`);
           } else {
-            await scrapeAlbum(album);
+            try {
+              await scrapeAlbum(album);
+            } catch (error) {
+              console.log(`?? Scrape failed for ${album.url}: ${error.message}`);
+              console.log("? Generating placeholder assets instead...");
+              const placeholderFiles = await createPlaceholderImages(album.output, album.prefix, 5);
+              const manifestPath = path.join(album.output, "manifest.json");
+              await fsPromises.writeFile(manifestPath, JSON.stringify({ files: placeholderFiles }, null, 2));
+              console.log(`? Placeholder manifest written: ${path.relative(repoRoot, manifestPath)}`);
+            }
           }
         }
         break;

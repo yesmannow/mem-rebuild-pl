@@ -39,11 +39,18 @@ function OceanCountingNumber({
   className,
   ...props
 }: OceanCountingNumberProps) {
+  if (typeof number !== 'number') {
+    return (
+      <span data-slot="counting-number" className={cn('text-[var(--color-primary)] font-bold', className)} {...props}>
+        0
+      </span>
+    );
+  }
+
+  const safeNumber = typeof number === 'number' ? number : 0;
   const localRef = React.useRef<HTMLSpanElement>(null);
   React.useImperativeHandle(ref, () => localRef.current as HTMLSpanElement);
 
-  // Guard against undefined number
-  const safeNumber = number ?? 0;
   const numberStr = safeNumber.toString();
   const decimals =
     typeof decimalPlaces === 'number'

@@ -140,7 +140,7 @@
     "cleanup:unused": "node scripts/cleanup-duplicates.js --unused-only --dry-run",
     "cleanup:interactive": "node scripts/cleanup-duplicates.js --interactive",
     "cleanup:auto": "node scripts/cleanup-duplicates.js --auto",
-    "audit-score": "node scripts/audit-score.js",
+    "audit-score": "npm run build && node scripts/audit-score.js",
     "cleanup:archive": "node scripts/cleanup-archive.mjs",
     "cleanup:archive:dry": "node scripts/cleanup-archive.mjs --dry-run",
     "cleanup:archive:interactive": "node scripts/cleanup-archive.mjs --interactive",

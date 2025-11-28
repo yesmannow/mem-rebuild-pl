@@ -13,11 +13,11 @@ export default {
 		colors: {
 			// Ocean Pearl Brand Palette (Primary)
 			brand: {
-				teal: '#2DD4BF',    // Slightly darker teal for contrast
-				orange: '#FF9B1A',  // Slightly deeper orange for contrast
+				teal: '#0D9488',    // Teal-600 for WCAG contrast
+				orange: '#EA580C',  // Orange-600 for WCAG contrast
 				dark: '#111827',    // Subtle lift for background contrast
 				surface: '#1e293b', // Lighter card backgrounds
-				text: '#f8fafc',    // Main text
+				text: '#F8FAFC',    // Main text high contrast
 				muted: '#94a3b8',   // Secondary text
 			},
 			// Ocean Pearl Delight Palette (Legacy support)
