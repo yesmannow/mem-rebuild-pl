@@ -1,100 +1,58 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Camera, Palette } from 'lucide-react';
-import { SmartGallery } from '../components/SmartGallery';
-import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
-import { loadPhotography, type PhotoItem } from '../utils/loadPhotography';
-import { loadDesignAssets } from '../utils/loadDesign';
+import { TabbedMasonryGallery } from '../components/ui/TabbedMasonryGallery';
+import { 
+  photographyItems, 
+  designItems, 
+  fallbackPhotographyItems, 
+  fallbackDesignItems,
+  type StudioItem 
+} from '../data/studioData';
 
-type ActiveTab = 'photography' | 'design';
-
-// Fallback placeholder images when manifest is empty or fails to load
-const FALLBACK_PHOTOS: PhotoItem[] = [
-  {
-    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
-    width: 800,
-    height: 600,
-    alt: 'Abstract tech patterns - creative direction',
-    key: 'fallback-1',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80',
-    width: 800,
-    height: 1000,
-    alt: 'Retro tech design aesthetic',
-    key: 'fallback-2',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80',
-    width: 800,
-    height: 600,
-    alt: 'Technology circuits and engineering',
-    key: 'fallback-3',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80',
-    width: 800,
-    height: 1000,
-    alt: 'Digital matrix visualization',
-    key: 'fallback-4',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80',
-    width: 800,
-    height: 600,
-    alt: 'Earth from space - global perspective',
-    key: 'fallback-5',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?w=800&q=80',
-    width: 800,
-    height: 800,
-    alt: 'Neon lights and urban design',
-    key: 'fallback-6',
-  },
-];
-
+/**
+ * Studio Page - Visual Engineering
+ * 
+ * A data-driven visual showcase featuring:
+ * - Deep Slate background with proper layout structure
+ * - Tabbed masonry gallery with context-aware HUD overlays
+ * - Photography mode: Shows descriptive metadata
+ * - Design mode: Shows color palettes (Hex codes)
+ */
 const Studio: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<ActiveTab>('photography');
-  const [photos, setPhotos] = useState<PhotoItem[]>([]);
-  const [designAssets, setDesignAssets] = useState<PhotoItem[]>([]);
+  const [photos, setPhotos] = useState<StudioItem[]>([]);
+  const [designs, setDesigns] = useState<StudioItem[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [useFallback, setUseFallback] = useState<boolean>(false);
-
-  const tabs: { id: ActiveTab; label: string; icon: React.ReactNode }[] = [
-    { id: 'photography', label: 'Photography', icon: <Camera size={16} /> },
-    { id: 'design', label: 'Graphic Design', icon: <Palette size={16} /> },
-  ];
 
   useEffect(() => {
     let mounted = true;
 
     const loadAssets = async () => {
       try {
-        const [photoData, designData] = await Promise.all([
-          loadPhotography(),
-          loadDesignAssets(),
-        ]);
+        // Check if local photography images exist by testing first item
+        const testPhotoResponse = await fetch(photographyItems[0]?.src || '', { method: 'HEAD' });
+        const testDesignResponse = await fetch(designItems[0]?.src || '', { method: 'HEAD' });
 
         if (mounted) {
-          if (photoData && photoData.length > 0) {
-            setPhotos(photoData);
+          // Use curated items from studioData.ts if available
+          if (testPhotoResponse.ok && photographyItems.length > 0) {
+            setPhotos(photographyItems);
           } else {
-            setPhotos(FALLBACK_PHOTOS);
+            setPhotos(fallbackPhotographyItems);
             setUseFallback(true);
           }
 
-          if (designData && designData.length > 0) {
-            setDesignAssets(designData);
+          if (testDesignResponse.ok && designItems.length > 0) {
+            setDesigns(designItems);
+          } else {
+            setDesigns(fallbackDesignItems);
           }
         }
-      } catch (error) {
-        if (import.meta.env.DEV) {
-          console.warn('Failed to load assets:', error);
-        }
+      } catch {
         if (mounted) {
-          setPhotos(FALLBACK_PHOTOS);
+          setPhotos(fallbackPhotographyItems);
+          setDesigns(fallbackDesignItems);
           setUseFallback(true);
         }
       } finally {
@@ -111,75 +69,90 @@ const Studio: React.FC = () => {
     };
   }, []);
 
-  const currentItems = activeTab === 'photography' ? photos : designAssets;
-  const currentMode = activeTab === 'photography' ? 'photo' : 'design';
-
   return (
     <>
       <Helmet>
-        <title>The Studio | Visual Engineering & Creative Direction</title>
+        <title>Visual Engineering | Studio</title>
         <meta
           name="description"
-          content="Visual Engineering & Creative Direction. Explore photography and design work by Jacob Darling."
+          content="Visual Engineering - A data-driven showcase of photography and graphic design work. Featuring context-aware overlays and color palette analysis."
         />
       </Helmet>
 
-      <OceanAuroraBackground>
-        <main className="min-h-screen relative z-10 pt-24 pb-12 px-6">
+      {/* Deep Slate Background - War Room ecosystem integration */}
+      <div className="min-h-screen bg-slate-900 relative">
+        {/* Subtle gradient overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 pointer-events-none" />
+        
+        {/* Main Content */}
+        <main className="relative z-10 pt-24 pb-32 px-6">
           <section className="max-w-6xl mx-auto">
-            <div className="mb-8">
-              <h1 className="text-4xl font-bold text-brand-teal mb-3 drop-shadow-neon">Visual Engineering</h1>
-              <p className="text-lg text-brand-muted">
-                Photography and design work powered by live manifests to keep content in sync.
+            {/* Header Section */}
+            <motion.div 
+              className="mb-12 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight">
+                Visual <span className="text-brand-teal">Engineering</span>
+              </h1>
+              <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+                Photography and design work powered by live manifests.
+                <span className="block mt-1 text-slate-500 text-sm font-mono">
+                  Hover for technical data overlays.
+                </span>
               </p>
-              {useFallback && activeTab === 'photography' && (
-                <p className="text-sm text-brand-orange mt-2 italic">
-                  Displaying curated placeholder images. Run <code className="bg-slate-800 px-2 py-0.5 rounded">npm run magic:assets</code> to populate with your content.
-                </p>
+              
+              {useFallback && (
+                <motion.p 
+                  className="text-sm text-brand-orange mt-4 italic"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  Displaying curated placeholder images. Run{' '}
+                  <code className="bg-slate-800 px-2 py-0.5 rounded text-brand-teal">
+                    npm run magic:assets
+                  </code>{' '}
+                  to populate with your content.
+                </motion.p>
               )}
-            </div>
+            </motion.div>
 
-            {/* Tab Navigation */}
-            <div className="flex justify-center mb-8">
-              <div className="bg-slate-900/70 backdrop-blur-lg border border-brand-teal/20 rounded-full p-2 inline-flex gap-2">
-                {tabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-all ${
-                      activeTab === tab.id
-                        ? 'bg-brand-teal text-brand-dark shadow-[0_10px_30px_rgba(64,224,208,0.35)]'
-                        : 'text-brand-muted hover:text-brand-text hover:bg-slate-800/60'
-                    }`}
-                  >
-                    {tab.icon}
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
+            {/* Gallery Section */}
             {isLoading ? (
-              <div className="flex items-center justify-center py-12">
-                <div className="animate-pulse text-brand-teal">Loading visual assets...</div>
+              <div className="flex items-center justify-center py-24">
+                <div className="flex flex-col items-center gap-4">
+                  <div className="w-8 h-8 border-2 border-brand-teal border-t-transparent rounded-full animate-spin" />
+                  <span className="text-brand-teal text-sm font-mono">
+                    Loading visual assets...
+                  </span>
+                </div>
               </div>
-            ) : currentItems.length > 0 ? (
+            ) : photos.length > 0 || designs.length > 0 ? (
               <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <SmartGallery items={currentItems} mode={currentMode} />
+                <TabbedMasonryGallery
+                  photographyItems={photos}
+                  designItems={designs}
+                  initialTab="photography"
+                />
               </motion.div>
             ) : (
-              <div className="text-brand-muted py-12 text-center">
-                No {activeTab === 'photography' ? 'photography' : 'design'} assets available.
+              <div className="text-slate-500 py-24 text-center">
+                <p className="text-lg">No visual assets available.</p>
+                <p className="text-sm mt-2 font-mono">
+                  Run <code className="bg-slate-800 px-2 py-0.5 rounded">npm run magic:assets</code> to generate content.
+                </p>
               </div>
             )}
           </section>
         </main>
-      </OceanAuroraBackground>
+      </div>
     </>
   );
 };
