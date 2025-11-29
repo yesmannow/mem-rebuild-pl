@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useMemo, useRef, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useScroll } from 'framer-motion';
 import { Printer, Download, ChevronRight } from 'lucide-react';
@@ -7,6 +7,9 @@ import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import { BentoCard, BentoGrid } from '../components/ui/BentoGrid';
 import { experience, education, volunteering, awards, metrics, skillCategories } from '../data/resume';
 import type { ExperienceItem, SkillCategory as SkillCategoryType } from '../types';
+
+// Lazy load TechProfile for better initial page load
+const TechProfile = lazy(() => import('../components/TechProfile'));
 
 const timelineVariants = {
   hidden: { opacity: 0, x: 40 },
@@ -146,25 +149,41 @@ const About: React.FC = () => {
             <p className="text-brand-orange uppercase tracking-[0.3em] text-xs mb-3">
               Cinematic Resume
             </p>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-              <div>
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+              {/* Left Side - Text Content */}
+              <div className="flex-1">
                 <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                  The <span className="text-brand-teal">Architect</span> in the Marketing Room.
+                  The <span className="text-brand-teal drop-shadow-neon">Architect</span> in the Marketing Room.
                 </h1>
-                <p className="text-lg text-brand-muted max-w-3xl mt-4">
+                <p className="text-lg text-brand-muted max-w-2xl mt-4">
                   Scroll-triggered journey through systems, storytelling, and the metrics that prove it.
                   Download a print-ready dossier any time.
                 </p>
+                <div className="flex items-center gap-2 mt-6">
+                  <span className="text-xs font-mono uppercase tracking-[0.2em] text-brand-muted">Role:</span>
+                  <span className="text-sm font-semibold text-brand-teal">Architect</span>
+                  <span className="text-brand-orange mx-2">/</span>
+                  <span className="text-sm font-semibold text-brand-orange">Strategist</span>
+                </div>
+                <div className="no-print flex items-center gap-3 mt-6">
+                  <button
+                    type="button"
+                    onClick={handlePrint}
+                    className="inline-flex items-center gap-2 rounded-full bg-brand-teal text-brand-dark px-4 py-2 font-semibold shadow-lg hover:shadow-brand-teal/30 transition glow-teal"
+                  >
+                    <Printer size={16} />
+                    Download Dossier
+                  </button>
+                </div>
               </div>
-              <div className="no-print flex items-center gap-3">
-                <button
-                  type="button"
-                  onClick={handlePrint}
-                  className="inline-flex items-center gap-2 rounded-full bg-brand-teal text-brand-dark px-4 py-2 font-semibold shadow-lg hover:shadow-brand-teal/30 transition"
-                >
-                  <Printer size={16} />
-                  Download Dossier
-                </button>
+              
+              {/* Right Side - TechProfile Holographic Card */}
+              <div className="flex-shrink-0 flex justify-center lg:justify-end">
+                <Suspense fallback={
+                  <div className="w-64 h-64 rounded-2xl bg-slate-800/50 animate-pulse border border-brand-teal/20" />
+                }>
+                  <TechProfile size="lg" className="transform hover:scale-105 transition-transform duration-300" />
+                </Suspense>
               </div>
             </div>
           </header>
@@ -175,7 +194,7 @@ const About: React.FC = () => {
               {heroMetrics.map((metric) => (
                 <motion.div
                   key={metric.id}
-                  className="rounded-2xl border border-white/5 bg-slate-900/60 backdrop-blur p-5 shadow-soft-dark print-friendly"
+                  className="rounded-2xl border border-white/5 bg-slate-900/60 backdrop-blur p-5 shadow-soft-dark print-friendly hover:border-brand-teal/30 transition-all hover:glow-teal"
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -190,7 +209,7 @@ const About: React.FC = () => {
                       number={metric.value}
                       suffix={metric.suffix}
                       inView
-                      className="text-brand-teal"
+                      className="text-brand-teal drop-shadow-neon"
                     />
                   </div>
                 </motion.div>

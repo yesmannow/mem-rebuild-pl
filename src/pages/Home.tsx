@@ -23,6 +23,7 @@ const BentoCard = React.lazy(() =>
   import('../components/ui/BentoGrid').then((mod) => ({ default: mod.BentoCard }))
 );
 const TechProfile = React.lazy(() => import('../components/TechProfile'));
+const CurrentlyWorkingOn = React.lazy(() => import('../components/CurrentlyWorkingOn'));
 
 const brandLogos = [
   { name: 'Eat My Shorts', src: '/images/inspirations/eat-my-shorts.svg' },
@@ -169,6 +170,17 @@ const Home: React.FC = () => {
                 ))}
               </OceanMarquee>
             </div>
+          </div>
+        </section>
+
+        <SectionDivider />
+
+        {/* Currently Working On Section */}
+        <section className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <Suspense fallback={<div className="h-64 animate-pulse bg-slate-900/50 rounded-2xl" />}>
+              <CurrentlyWorkingOn />
+            </Suspense>
           </div>
         </section>
 

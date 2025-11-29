@@ -13,13 +13,6 @@
     "color": "rgb(24 24 8)",
     "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOiP/wEpc6Rl8L4HlgA/klMNCEzPtLFh+4XOVt58sG0LoR3GwW15SbT3HMFBicxKsV1lrUQjL9l3mHsI/4hq+wvoDw5svUHT4MR9vpuAAAA"
   },
-  "images/projects/317 bbq/20231008_175109.jpg": {
-    "width": 900,
-    "height": 420,
-    "base": "images/projects/317 bbq/20231008_175109",
-    "color": "rgb(8 8 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOgBFlLY89kZ27RSgAAzZaJumFbRSUgNFE4xP+4T9HCU8pxz0jLA/BzVoMi3xloaQQgNXWLQP/rX4vc0XfX3q1Yt+V3F/y/8j2Ed6WqeS65AAA="
-  },
   "images/projects/317 bbq/20231008_175026.jpg": {
     "width": 900,
     "height": 420,
@@ -27,19 +20,19 @@
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQAwCdASoUAAkAPxFysFCsJqSisAgBgCIJZACdH8ACGLX2382L5gAA/un1SDdvkvO7v+Vd68pzDebdW43raj3vCN1bJY00Xx2bGjaDsY+/HsvkGF6d6okEisFLykMAAAA="
   },
+  "images/projects/317 bbq/20231008_175109.jpg": {
+    "width": 900,
+    "height": 420,
+    "base": "images/projects/317 bbq/20231008_175109",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOgBFlLY89kZ27RSgAAzZaJumFbRSUgNFE4xP+4T9HCU8pxz0jLA/BzVoMi3xloaQQgNXWLQP/rX4vc0XfX3q1Yt+V3F/y/8j2Ed6WqeS65AAA="
+  },
   "images/projects/317 bbq/20231008_175510.jpg": {
     "width": 900,
     "height": 420,
     "base": "images/projects/317 bbq/20231008_175510",
     "color": "rgb(72 56 40)",
     "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
-  },
-  "images/projects/317 bbq/20231008_175650.jpg": {
-    "width": 900,
-    "height": 420,
-    "base": "images/projects/317 bbq/20231008_175650",
-    "color": "rgb(24 24 24)",
-    "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoUAAkAPxFysFAsJqSisAgBgCIJZACdMoACxGdBHE/ZSu/VMSAA4dkn27ihdVbw/g8ed/njRaG4zEDUDLKlbxnyxSkrKEY7wx0SHztHTGZdAhOAMJ+5zVERfXo40Uonc7GNAAAA"
   },
   "images/projects/317 bbq/20231008_175654.jpg": {
     "width": 900,
@@ -62,6 +55,13 @@
     "color": "rgb(248 232 216)",
     "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAAkAPxF2sVAsJ6SisAgBgCIJagCdMoADCfg0bkLzbAAA4lFuh8CYLfqGmh7m1dbp+F14MI4iK7jkPSxt3lW2LQ+FMIW9YtjjQ47h3ATNevQPbfgcYOJujwBU44D5DO4q3CmJzRpbQF4nfAQaBSR8AwAAAA=="
   },
+  "images/projects/317 bbq/20231008_175650.jpg": {
+    "width": 900,
+    "height": 420,
+    "base": "images/projects/317 bbq/20231008_175650",
+    "color": "rgb(24 24 24)",
+    "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoUAAkAPxFysFAsJqSisAgBgCIJZACdMoACxGdBHE/ZSu/VMSAA4dkn27ihdVbw/g8ed/njRaG4zEDUDLKlbxnyxSkrKEY7wx0SHztHTGZdAhOAMJ+5zVERfXo40Uonc7GNAAAA"
+  },
   "images/projects/317 bbq/20231008_181722.jpg": {
     "width": 900,
     "height": 420,
@@ -76,54 +76,12 @@
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4WAoAAAAQAAAAEwAAAwAAQUxQSFEAAAAAPYZtYVmBaUJ1UIt5UFxqa2NffDoUGDZLRDs5SE8nLTk9OjQ2NUBDGwUSFB4eHxUDDAkHBAIGHyEWTWkkGCorKiorFwIVCxcWExQpJxg3dSIAVlA4IGAAAAAwBACdASoUAAQAPxFwsFAsJiSisAgBgCIJZgCdMoHgA5/8B5IAzJrbYQAA/s4FJYxWXCMmBAQRGGrQ4wU/VgPa/SEz/s+9hwO5AIaL30z9pTcxxAWAU4lyjoxhbCu30AA="
   },
-  "images/projects/riley bennett egloff/download.jpg": {
-    "width": 1712,
-    "height": 2399,
-    "base": "images/projects/riley bennett egloff/download",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoUABwAPxFys1KsJiSisBgIAYAiCUAYbgIhpExx19sfrmkOVY0Hz5AgAP5b/LmOnVoT7YOUUIjV/KgiuUGXDvjmpI4Acbzof4M1yGzvvaT+On1ooa8rThu95IcLCPIPhqS4vCO0HTf6yMZAavu0HdFVEPB9zIbehvHwPwq/bFgBVPfNSfET2aTAmojKJaGfwr51v09AAAA="
-  },
-  "images/projects/317 bbq/download.jpg": {
-    "width": 1712,
-    "height": 3022,
-    "base": "images/projects/317 bbq/download",
-    "color": "rgb(8 8 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAACQBQCdASoUACMAPxFwsVAsJiSjMBVdUYAiCWcAz6AuCtdYtYIkkzLsoZlNgmZ3dAn14jkxIAD+9CUEhG0w429uF+pYBOsfshR1+i7xPolCB/4nHLhpPQHivlnJR1urIg4rBivWxN11HQFqdtFJ4ffrbZlxW6cFbTFEHh9Z4wFgmHEKd15oCuqVrqKtgK7ikGoUsW4fnh3gq/O6HmoD3dQcaaegAA=="
-  },
   "images/projects/Primarycare Indy/Primary Care Logo with PMC.png": {
     "width": 2356,
     "height": 604,
     "base": "images/projects/Primarycare Indy/Primary Care Logo with PMC",
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRvwAAABXRUJQVlA4WAoAAAAQAAAAEwAABAAAQUxQSGUAAAAAIBciKzkrAAAAAAEBAAAAAAEAAAAwC7GAGSwxLQQHBQUGBhEmCgMGAia61smzCkA5Rzw7MkMsLTAWOEsgDzymxC8BDBcrIy4jICIbJyAmLA8BAFlbAAECGR0ZIRkVGCEcFRkYBQBWUDggcAAAAPADAJ0BKhQABQA/EXKxUCwmpKKwCAGAIglsAJ0yga+2Av39sRsJucAA+PvsMpiC/ocfP7bhiDUp83PLNkYjMKy0vKY9TxJd0o7HQX4zYETv8PdtA9WPiGtn9DfMSXFXCczWBBKJ8Ss0Gug6TRz+QAA="
-  },
-  "images/projects/riley bennett egloff/attorneys.jpg": {
-    "width": 1712,
-    "height": 3620,
-    "base": "images/projects/riley bennett egloff/attorneys",
-    "color": "rgb(216 216 216)",
-    "blurDataURL": "data:image/webp;base64,UklGRggBAABXRUJQVlA4IPwAAACwBgCdASoUACoAPxF8tFOsJ6SiqqgBgCIJZwDSgf/ngDLckfVPyen5yyDFouXwT8F7aB9IljnmySNCNQyZQAD+51tElTEejHlF+pOPZ8q/M1tUEy1FsHQBb3SJMvlvat9Aubhnj1bfFqOuPrL/4V7FUURfOVBREtgbLgevtdQ/5gMXngoQuJNM9ot3heO+nxQYQHiTBl68XvO+zA3FUz+uPEu+3PlCaEn7LOIE+kah+RcJ5sn0maPYVWdrEW4EePu9FozOqzybdrz4YntObVcM0XnhjRSvVjw4PWbUsxZZgPhZoWV/xoS6B02TtG+MSY6lL6bzlO45MVpgAAA="
-  },
-  "images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1.png": {
-    "width": 400,
-    "height": 132,
-    "base": "images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1",
-    "color": "rgb(8 8 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRhQBAABXRUJQVlA4WAoAAAAQAAAAEwAABgAAQUxQSI0AAAAAADSWJQAlHAIGAgQDFSADAwIDBwFJrZesNStEMjpSTSswXj08O0U+BXWYiqFgCyEjIS0mFBMuKycwKB0Ek6kPwXUIDTVCHhUaJRkHAAEBAQBqm6CfVUYsNmw9Rz1iRA8AAQAAACyfp5cgFRcQGBgTExYcDAoNCQkAACt9IAAbJSMbGB8bFCEeHCEjHwEAVlA4IGAAAADQAwCdASoUAAcAPxFysFAsJqSisAgBgCIJbACdEf/gNlWdODvY+CAA/p8DAZBypCh3gHmU8mEqZeg1q+sj33c2FOmKzgz/Ts0zqmUK2pnwn5WEuUW34rKig58Vk3CAAAA="
-  },
-  "images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg.jpg": {
-    "width": 270,
-    "height": 104,
-    "base": "images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABwAwCdASoUAAgAPxFysFAsJqSisAgBgCIJZwAAW8ZludsVIwAA/rO3C1ID+3BzzKIigFBWu1yOfvxNhsr2LnEEKzs63Qhrktp/zHA5QeAAAA=="
-  },
-  "images/projects/riley bennett egloff/dss.jpg": {
-    "width": 1712,
-    "height": 2410,
-    "base": "images/projects/riley bennett egloff/dss",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADwBACdASoUABwAPxF6t1MsJ6WiqAqpgCIJZQAALngBiyejzEBWxG+QSB/eSBN5/MAA/I/5WrdMXFEqpJ1esGZLrMM5QnKfCArikyvuxKwcL5dLrsjRbLtjvDu15JG+sR4bJatlenxr/2uhDoaxI/Gj/al1CgAA"
   },
   "images/projects/Russell painting/Russell Painting Company Logo.png": {
     "width": 1904,
@@ -132,6 +90,13 @@
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRoABAABXRUJQVlA4WAoAAAAQAAAAEwAADQAAQUxQSOEAAAANkGvb2rFXe3+xbdturdrGTditnTJdarZ2i862bX5PdM41RMQEAAQEFAoBKJ/NbhnQkE8AAoEAIOw197TqrFtX9J71n/Uf6Z58tbfydhHx7uxxW/q6kDSYMlZYu6igCigxOJ7PGQ85Ua3P9BdNXT60jAAE9e746s4l9STPRB7FDTmrAYDC/YCPlxc/wzlj82eLq0+TQ0BmXx71Hw0fDbyeHx7E6t0IqvJObQ2hUKhoQhRRVVXzQMH/EqBovXbN/hcA0djsRtE/BAABqq7+Bh8kQIAgAAI01l0SIeSXUACArwYAVlA4IHgAAAAwBACdASoUAA4APxFysFAsJqSisAgBgCIJbACxC8GJ/gPIG+kFGReQAaAA/u8SXOqVn/8felr7zeYwQwDk8LXsZ0YdM9+4l3YFCPLRDsXwaLoyVZnHZqL1MSfX+Sh1HGjn3Ox1bzXzNhnix7oMFzkPlTeS6EgQAAA="
   },
+  "images/projects/317 bbq/download.jpg": {
+    "width": 1712,
+    "height": 3022,
+    "base": "images/projects/317 bbq/download",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAACQBQCdASoUACMAPxFwsVAsJiSjMBVdUYAiCWcAz6AuCtdYtYIkkzLsoZlNgmZ3dAn14jkxIAD+9CUEhG0w429uF+pYBOsfshR1+i7xPolCB/4nHLhpPQHivlnJR1urIg4rBivWxN11HQFqdtFJ4ffrbZlxW6cFbTFEHh9Z4wFgmHEKd15oCuqVrqKtgK7ikGoUsW4fnh3gq/O6HmoD3dQcaaegAA=="
+  },
   "images/projects/Taco Ninja/taco ninja logo.png": {
     "width": 8334,
     "height": 8334,
@@ -139,54 +104,40 @@
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRmwBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSNgAAAANgFvbtmplnfsFd3d3J6IFMiIGRVACEU18miDS0AqwzN3dHe7GvYCImAD+QzOQwPQJ4wkwOc8nZQ1ph7MPRvLJB6b0SMpp/GrvVkdV37npvR68otujZrr753jXnmIrcV6uq/NxBPf0RjwOpLQmcbExNJGBBzCnu8h43iqFV4DpjbzhUsYUCJZd4D1gKq5bv02bjE87mi3I3k9IXnkAHuLa8kcTTmNu8rfL1pISV3dM7C1uHDaexC3FW/CwaHM6EeDxGLY4xC64u4RHBBiYTDJhiHcFQrwVvxtWUDggbgAAAJADAJ0BKhQAFAA/EXyzVCwnpSMoCqmAIglkAFMAArTUcOkUk3AA/p70Zd2wK8b2PkTAhIw0nXwH7CylsG2uM2rSp+bqGcR1eUHuGJFRxtnY+sxzKHdks5S7A6VVSkIR5V1fe+SqQE4lG7BcAAAA"
   },
-  "images/side-projects/cropped-PC_LOGO1-1024x174.jpg": {
-    "width": 1024,
-    "height": 174,
-    "base": "images/side-projects/cropped-PC_LOGO1-1024x174",
+  "images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg.jpg": {
+    "width": 270,
+    "height": 104,
+    "base": "images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg",
     "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAgCdASoUAAMAPxFysFAsJqSisAgBgCIJaQAAeyAA/u/Vsh1Wq0tCO+GjDGcAAAA="
+    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABwAwCdASoUAAgAPxFysFAsJqSisAgBgCIJZwAAW8ZludsVIwAA/rO3C1ID+3BzzKIigFBWu1yOfvxNhsr2LnEEKzs63Qhrktp/zHA5QeAAAA=="
   },
-  "images/side-projects/CBD-Oil-for-Pets.png": {
-    "width": 1000,
-    "height": 1000,
-    "base": "images/side-projects/CBD-Oil-for-Pets",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAABwBACdASoUABQAPxF8s1QsJ6QjKAqpgCIJQBA8LJzTh0QMbNW92W7TIz1dZAD+7T+EL9xLrt9czIWEn18VeGjEVvL3N8Wi/Zb/0vTQiMGLo7kgi8ZtuD0Fo2U4EkH02s2V0kOqHvu0/64XAZdfutxKQi0CbidZd1/z4ww3IyjxVlWkkxeRcGqkxJAQNgECbPRj2GFmoxxyDfjroAAAAA=="
-  },
-  "images/side-projects/dog-dry-skin-remedy.jpg": {
-    "width": 1005,
-    "height": 1000,
-    "base": "images/side-projects/dog-dry-skin-remedy",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABQBACdASoUABQAPxF0sFAsJySisBgMAYAiCWoAAC52WJzbx18DX9Y1OTgAAP7rJ1gYcIY5Ktp24XDkQA7lkT5QyP/yb5wAnFxOepCxRVrTO0hdh3HHRKmr0EGcw5f8iAAAAA=="
-  },
-  "images/side-projects/CBD-for-Pets-and-Pet-Skin-Care.png": {
-    "width": 831,
-    "height": 519,
-    "base": "images/side-projects/CBD-for-Pets-and-Pet-Skin-Care",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
-  },
-  "images/side-projects/317bbqlogo_wht.png": {
-    "width": 1500,
-    "height": 1500,
-    "base": "images/side-projects/317bbqlogo_wht",
+  "images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1.png": {
+    "width": 400,
+    "height": 132,
+    "base": "images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1",
     "color": "rgb(8 8 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRqYBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSFoBAAABkCvbtmlbfc11bdu2bdu2nm3btm37RbZCM2Xo92Kd+xERMQEAojD2jk8KsQJhcMG2b9WKmVMXr54ZjlYGmszdQ70VCpviraPFQKjZ7oZSCgWMXapBSN1p4jtjild+r1/HqCpGTUcw2RbOzQfPT/T8aRty470l6zKgbjKcKl921/hLI5uvQcIKmB+LMPn3NOPvtbybjmapt9USK4goe7hf/yh1+Z2MMWPzXZejeDZk/j3T77mtn43R9Da4Lke4febWZeMfeSfOoo3obbBaYgXdr48m5h4OnLDdFc24fOblhrlueTIu6N3V6JWrDjoleizzomZWmPvex8ujnt7I2nLxil9G5VIw3hpCenuQRVu5mduQKmFNOkLKdn8LDJXCwn7CNAShentJtLUWI2Xpl7hggQYQMjfPrsiKdAupHLFxhFYGaGxbVy1bsWDx6omhyGCIQrzjkkPNQQAAVlA4ICYAAADQAgCdASoUABQAPxGCuVWsKKWjKAgBgCIJaQAAPaOgAP7wCfsAAA=="
+    "blurDataURL": "data:image/webp;base64,UklGRhQBAABXRUJQVlA4WAoAAAAQAAAAEwAABgAAQUxQSI0AAAAAADSWJQAlHAIGAgQDFSADAwIDBwFJrZesNStEMjpSTSswXj08O0U+BXWYiqFgCyEjIS0mFBMuKycwKB0Ek6kPwXUIDTVCHhUaJRkHAAEBAQBqm6CfVUYsNmw9Rz1iRA8AAQAAACyfp5cgFRcQGBgTExYcDAoNCQkAACt9IAAbJSMbGB8bFCEeHCEjHwEAVlA4IGAAAADQAwCdASoUAAcAPxFysFAsJqSisAgBgCIJbACdEf/gNlWdODvY+CAA/p8DAZBypCh3gHmU8mEqZeg1q+sj33c2FOmKzgz/Ts0zqmUK2pnwn5WEuUW34rKig58Vk3CAAAA="
   },
-  "images/side-projects/occ-health-header.jpg": {
-    "width": 1000,
-    "height": 603,
-    "base": "images/side-projects/occ-health-header",
-    "color": "rgb(168 168 168)",
-    "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJYgDE2BUpkH/mJ99rs/P+APd6ZeXCv5JNRwKHdumuYcSJ67IPaBHoT5WDySeAYaYQqcJZm9acI4eFVVtlZ10DxfL0bF0i0Wi3bUI8J3YAAA=="
+  "images/projects/riley bennett egloff/dss.jpg": {
+    "width": 1712,
+    "height": 2410,
+    "base": "images/projects/riley bennett egloff/dss",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADwBACdASoUABwAPxF6t1MsJ6WiqAqpgCIJZQAALngBiyejzEBWxG+QSB/eSBN5/MAA/I/5WrdMXFEqpJ1esGZLrMM5QnKfCArikyvuxKwcL5dLrsjRbLtjvDu15JG+sR4bJatlenxr/2uhDoaxI/Gj/al1CgAA"
   },
-  "images/side-projects/dot-physicals-header.jpg": {
-    "width": 1000,
-    "height": 603,
-    "base": "images/side-projects/dot-physicals-header",
-    "color": "rgb(8 8 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQAwCdASoUAAwAPxFysFAsJqSisAgBgCIJQBhQAVEz0pUakAD+nvWP4vzgB5zRyvT/rnc9LIoUpEurSRPWRWuElwunDFdc0agkJAanq0mBlyi16gp2QGSuQAA="
+  "images/projects/riley bennett egloff/download.jpg": {
+    "width": 1712,
+    "height": 2399,
+    "base": "images/projects/riley bennett egloff/download",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoUABwAPxFys1KsJiSisBgIAYAiCUAYbgIhpExx19sfrmkOVY0Hz5AgAP5b/LmOnVoT7YOUUIjV/KgiuUGXDvjmpI4Acbzof4M1yGzvvaT+On1ooa8rThu95IcLCPIPhqS4vCO0HTf6yMZAavu0HdFVEPB9zIbehvHwPwq/bFgBVPfNSfET2aTAmojKJaGfwr51v09AAAA="
+  },
+  "images/projects/riley bennett egloff/attorneys.jpg": {
+    "width": 1712,
+    "height": 3620,
+    "base": "images/projects/riley bennett egloff/attorneys",
+    "color": "rgb(216 216 216)",
+    "blurDataURL": "data:image/webp;base64,UklGRggBAABXRUJQVlA4IPwAAACwBgCdASoUACoAPxF8tFOsJ6SiqqgBgCIJZwDSgf/ngDLckfVPyen5yyDFouXwT8F7aB9IljnmySNCNQyZQAD+51tElTEejHlF+pOPZ8q/M1tUEy1FsHQBb3SJMvlvat9Aubhnj1bfFqOuPrL/4V7FUURfOVBREtgbLgevtdQ/5gMXngoQuJNM9ot3heO+nxQYQHiTBl68XvO+zA3FUz+uPEu+3PlCaEn7LOIE+kah+RcJ5sn0maPYVWdrEW4EePu9FozOqzybdrz4YntObVcM0XnhjRSvVjw4PWbUsxZZgPhZoWV/xoS6B02TtG+MSY6lL6bzlO45MVpgAAA="
   },
   "images/side-projects/Interior_sl.jpg": {
     "width": 620,
@@ -195,26 +146,19 @@
     "color": "rgb(136 104 56)",
     "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADQAwCdASoUAAsAPxFysFAsJqSisAgBgCIJZACdMoR4GBY1Mng1aAAA4ndxP+UaJXY0DmVvtV9X+PTDXWCwHkm4V1gSHwwBuxWidn4lfODhlgDVNVqoSxw4uhJEHqt2LqoAAA=="
   },
-  "images/side-projects/interior_w3.jpg": {
-    "width": 1632,
-    "height": 1224,
-    "base": "images/side-projects/interior_w3",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABQBACdASoUAA8APxFysFAsJqSisAgBgCIJZABTAAbfv7iuKmJKku48hRFgAP5zAlMygBpQz2DWSpBi5IaG5G4CIETVrIBr/WD/kkqYMcFq96S08nueCUbSwYlFy7YTODLSxVHdhNsDhdE/HIUfE2WcGhK5sggQAAA="
-  },
-  "images/side-projects/my-post-2.jpg": {
-    "width": 1080,
-    "height": 1080,
-    "base": "images/side-projects/my-post-2",
-    "color": "rgb(56 104 184)",
-    "blurDataURL": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAACQBACdASoUABQAPxF4sFKsJyQiqA1RgCIJQBhQAUZB0fW+I8uufY3f6Bo5fgAA/hWjAvYyrip1RdKFI7TqAXryM7/u/PyLWY5vVLUocOfAgLSYv0KdVyjAeYer6mqyVwM8315OR4l82Hpm7xndPuGZGsHHB8wi4LIAdQbrVOXM4AAA"
-  },
-  "images/side-projects/what-we-treat-1.jpg": {
+  "images/side-projects/CBD-Oil-for-Pets.png": {
     "width": 1000,
-    "height": 603,
-    "base": "images/side-projects/what-we-treat-1",
-    "color": "rgb(136 136 136)",
-    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJQBfJAzRNMF0vYKyEgAD+6PV/2NXw0tyZpPVx0f46B0+BOowtmiOjBQxc19VQS9JUq7Gj+7jPI8LDD+MxoAAA"
+    "height": 1000,
+    "base": "images/side-projects/CBD-Oil-for-Pets",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAABwBACdASoUABQAPxF8s1QsJ6QjKAqpgCIJQBA8LJzTh0QMbNW92W7TIz1dZAD+7T+EL9xLrt9czIWEn18VeGjEVvL3N8Wi/Zb/0vTQiMGLo7kgi8ZtuD0Fo2U4EkH02s2V0kOqHvu0/64XAZdfutxKQi0CbidZd1/z4ww3IyjxVlWkkxeRcGqkxJAQNgECbPRj2GFmoxxyDfjroAAAAA=="
+  },
+  "images/side-projects/CBD-for-Pets-and-Pet-Skin-Care.png": {
+    "width": 831,
+    "height": 519,
+    "base": "images/side-projects/CBD-for-Pets-and-Pet-Skin-Care",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
   },
   "images/side-projects/Skincare-for-Dogs-and-Cats.jpg": {
     "width": 1000,
@@ -223,12 +167,68 @@
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAACwBACdASoUABQAPxGAuFWsKCUjKAgBgCIJYwDKAA3mM6N8UBTGze0Wd0UJpcPgAP7oX7pA/9sbaWAE6t2B9OlOGoXVxcoS/7l1WVXsu6CBLI0LYRamOfTjDqehi9enMPFDb+AA85qu5fvVdfbTvIhoOeuXzgIc9ZlRfxXW87zkDye7EvqUgplB+4Vu2djcCOguxLFhVU/GIcelwEAYsJ1nAAA="
   },
+  "images/side-projects/317bbqlogo_wht.png": {
+    "width": 1500,
+    "height": 1500,
+    "base": "images/side-projects/317bbqlogo_wht",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRqYBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSFoBAAABkCvbtmlbfc11bdu2bdu2nm3btm37RbZCM2Xo92Kd+xERMQEAojD2jk8KsQJhcMG2b9WKmVMXr54ZjlYGmszdQ70VCpviraPFQKjZ7oZSCgWMXapBSN1p4jtjild+r1/HqCpGTUcw2RbOzQfPT/T8aRty470l6zKgbjKcKl921/hLI5uvQcIKmB+LMPn3NOPvtbybjmapt9USK4goe7hf/yh1+Z2MMWPzXZejeDZk/j3T77mtn43R9Da4Lke4febWZeMfeSfOoo3obbBaYgXdr48m5h4OnLDdFc24fOblhrlueTIu6N3V6JWrDjoleizzomZWmPvex8ujnt7I2nLxil9G5VIw3hpCenuQRVu5mduQKmFNOkLKdn8LDJXCwn7CNAShentJtLUWI2Xpl7hggQYQMjfPrsiKdAupHLFxhFYGaGxbVy1bsWDx6omhyGCIQrzjkkPNQQAAVlA4ICYAAADQAgCdASoUABQAPxGCuVWsKKWjKAgBgCIJaQAAPaOgAP7wCfsAAA=="
+  },
+  "images/side-projects/cropped-PC_LOGO1-1024x174.jpg": {
+    "width": 1024,
+    "height": 174,
+    "base": "images/side-projects/cropped-PC_LOGO1-1024x174",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAgCdASoUAAMAPxFysFAsJqSisAgBgCIJaQAAeyAA/u/Vsh1Wq0tCO+GjDGcAAAA="
+  },
+  "images/side-projects/dot-physicals-header.jpg": {
+    "width": 1000,
+    "height": 603,
+    "base": "images/side-projects/dot-physicals-header",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQAwCdASoUAAwAPxFysFAsJqSisAgBgCIJQBhQAVEz0pUakAD+nvWP4vzgB5zRyvT/rnc9LIoUpEurSRPWRWuElwunDFdc0agkJAanq0mBlyi16gp2QGSuQAA="
+  },
+  "images/side-projects/dog-dry-skin-remedy.jpg": {
+    "width": 1005,
+    "height": 1000,
+    "base": "images/side-projects/dog-dry-skin-remedy",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABQBACdASoUABQAPxF0sFAsJySisBgMAYAiCWoAAC52WJzbx18DX9Y1OTgAAP7rJ1gYcIY5Ktp24XDkQA7lkT5QyP/yb5wAnFxOepCxRVrTO0hdh3HHRKmr0EGcw5f8iAAAAA=="
+  },
+  "images/side-projects/my-post-2.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "base": "images/side-projects/my-post-2",
+    "color": "rgb(56 104 184)",
+    "blurDataURL": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAACQBACdASoUABQAPxF4sFKsJyQiqA1RgCIJQBhQAUZB0fW+I8uufY3f6Bo5fgAA/hWjAvYyrip1RdKFI7TqAXryM7/u/PyLWY5vVLUocOfAgLSYv0KdVyjAeYer6mqyVwM8315OR4l82Hpm7xndPuGZGsHHB8wi4LIAdQbrVOXM4AAA"
+  },
+  "images/side-projects/interior_w3.jpg": {
+    "width": 1632,
+    "height": 1224,
+    "base": "images/side-projects/interior_w3",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABQBACdASoUAA8APxFysFAsJqSisAgBgCIJZABTAAbfv7iuKmJKku48hRFgAP5zAlMygBpQz2DWSpBi5IaG5G4CIETVrIBr/WD/kkqYMcFq96S08nueCUbSwYlFy7YTODLSxVHdhNsDhdE/HIUfE2WcGhK5sggQAAA="
+  },
   "images/side-projects/primarycare indy logo.png": {
     "width": 700,
     "height": 196,
     "base": "images/side-projects/primarycare indy logo",
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRgIBAABXRUJQVlA4WAoAAAAQAAAAEwAABQAAQUxQSGIAAAABcBvbtqrs8wWLfoy7u7u7xeQ0QE4TNEYJVPMoIiISkG1j6Q9J4J2yw8cKCyMfpjV9fm+7xTxaTaRK1USskoBQ8/V7l9Pz/maw2DYy7fvG8xPYfjoIISFHVnUZxkhCkkDCJ1ZQOCB6AAAA8AMAnQEqFAAGAD8RdrFQrCckorAIAYAiCWoAnTlBOAAjLUZ0b0DnIAD+2GcjU2LgerAT3mrmKf1Rqpz29bPgTY9pOH//+DUmVdHau6XpDpFBCsX2Iz+TzkXawx/udPEijhBx0OopmNvy26fct4zYAB/oDYAFDcfQYAA="
+  },
+  "images/side-projects/occ-health-header.jpg": {
+    "width": 1000,
+    "height": 603,
+    "base": "images/side-projects/occ-health-header",
+    "color": "rgb(168 168 168)",
+    "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJYgDE2BUpkH/mJ99rs/P+APd6ZeXCv5JNRwKHdumuYcSJ67IPaBHoT5WDySeAYaYQqcJZm9acI4eFVVtlZ10DxfL0bF0i0Wi3bUI8J3YAAA=="
+  },
+  "images/side-projects/what-we-treat-1.jpg": {
+    "width": 1000,
+    "height": 603,
+    "base": "images/side-projects/what-we-treat-1",
+    "color": "rgb(136 136 136)",
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJQBfJAzRNMF0vYKyEgAD+6PV/2NXw0tyZpPVx0f46B0+BOowtmiOjBQxc19VQS9JUq7Gj+7jPI8LDD+MxoAAA"
   },
   "images/side-projects/painting_illustration_01.png": {
     "width": 800,
@@ -244,6 +244,13 @@
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoUABQAPvVip1AqpaOit+gBUB6JbADE2DJPZbuJ/qkcHr+olAAA/u3XsrFq6dO6rbFJLw1uomVtwRhjDDzU/HQEGD3ZQIaTNTwVmPQcD1gs34Eij4s5H1E6wcXgN1v+0/QqRiM/scuTApYBMFirqiKzk3NI0BXGYcWI9br0UkYAAA=="
   },
+  "demos/images of apps/screenshot-of-practitioner-license-requirements-_-graston-technique.jpg": {
+    "width": 1076,
+    "height": 842,
+    "base": "demos/images of apps/screenshot-of-practitioner-license-requirements-_-graston-technique",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAgCdASoUABAAPxFysFAsJqSisAgBgCIJaWhNADdYAAD+720t/03jrcaKnWgnCyp2a084AAA="
+  },
   "demos/images of apps/screenshot-of-graston-technique-roi-calculator.jpg": {
     "width": 2291,
     "height": 1352,
@@ -257,13 +264,6 @@
     "base": "demos/graston-growth-engine",
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAABQAwCdASoUABYAPwlurlArpiQit/VYAXAhCWkAADts21s+gAD+7/fGEAGzIR8+sEpfKZbOP8c9X6ifTVpXaFPaepC1MYCjuEAAAAAA"
-  },
-  "demos/images of apps/screenshot-of-practitioner-license-requirements-_-graston-technique.jpg": {
-    "width": 1076,
-    "height": 842,
-    "base": "demos/images of apps/screenshot-of-practitioner-license-requirements-_-graston-technique",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAgCdASoUABAAPxFysFAsJqSisAgBgCIJaWhNADdYAAD+720t/03jrcaKnWgnCyp2a084AAA="
   },
   "demos/images of apps/screenshot-of-graston-clinical-compass---intelligent-protocol-builder.jpg": {
     "width": 2269,

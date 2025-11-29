@@ -20,6 +20,7 @@ import './styles/skip-to-content.css';
 const PersonSchema = lazy(() => import('./components/seo/PersonSchema'));
 const PerformanceMonitor = lazy(() => import('./components/utils/PerformanceMonitor'));
 const AppRouter = lazy(() => import('./router/AppRouter'));
+const QuickContactFAB = lazy(() => import('./components/ui/QuickContactFAB'));
 
 const AppContent: React.FC = () => {
   // Konami code hook for "God Mode"
@@ -100,6 +101,11 @@ const AppContent: React.FC = () => {
                 </SwipeShell>
               </Layout>
               <CookieConsent />
+
+              {/* Quick Contact FAB for better conversion */}
+              <Suspense fallback={null}>
+                <QuickContactFAB />
+              </Suspense>
 
               {/* Konami Code Debug Overlay */}
               <DebugOverlay
