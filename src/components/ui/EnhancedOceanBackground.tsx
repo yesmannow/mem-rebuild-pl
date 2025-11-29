@@ -38,17 +38,20 @@ function useShouldSimplifyBackground(): boolean {
       // Check for reduced motion preference
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       
-      // Check for mobile device (touch or small screen)
+      // Check for mobile device (touch OR small screen - not both required)
       const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
       const isSmallScreen = window.innerWidth < 768;
-      const isMobile = isTouchDevice && isSmallScreen;
+      const isMobile = isTouchDevice || isSmallScreen;
       
       // Check for low memory devices (navigator.deviceMemory is in GB)
-      const isLowMemory = 'deviceMemory' in navigator && (navigator as Navigator & { deviceMemory?: number }).deviceMemory !== undefined && 
-        (navigator as Navigator & { deviceMemory?: number }).deviceMemory! < 4;
+      type NavigatorWithMemory = Navigator & { deviceMemory?: number };
+      const isLowMemory = 'deviceMemory' in navigator && 
+        (navigator as NavigatorWithMemory).deviceMemory !== undefined && 
+        (navigator as NavigatorWithMemory).deviceMemory! < 4;
       
       // Check for slow connection
-      const connection = (navigator as Navigator & { connection?: { effectiveType?: string } }).connection;
+      type NavigatorWithConnection = Navigator & { connection?: { effectiveType?: string } };
+      const connection = (navigator as NavigatorWithConnection).connection;
       const isSlowConnection = connection?.effectiveType === '2g' || connection?.effectiveType === 'slow-2g';
       
       setShouldSimplify(prefersReducedMotion || isMobile || isLowMemory || isSlowConnection);

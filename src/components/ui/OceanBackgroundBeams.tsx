@@ -20,7 +20,8 @@ export const OceanBackgroundBeams = React.memo(
         const isSmallScreen = window.innerWidth < 768;
         
         setPrefersReducedMotion(reducedMotion);
-        setIsMobile(isTouchDevice && isSmallScreen);
+        // Consider mobile if touch device OR small screen (not both required)
+        setIsMobile(isTouchDevice || isSmallScreen);
       };
       
       checkMotionAndDevice();
