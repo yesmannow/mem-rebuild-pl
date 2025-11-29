@@ -10,13 +10,13 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_175510.jpg",
+    "file": "images/projects/317 bbq/20231008_175244.jpg",
     "meta": {
       "width": 900,
       "height": 420,
-      "base": "images/projects/317 bbq/20231008_175510",
-      "color": "rgb(72 56 40)",
-      "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
+      "base": "images/projects/317 bbq/20231008_175244",
+      "color": "rgb(24 24 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOiP/wEpc6Rl8L4HlgA/klMNCEzPtLFh+4XOVt58sG0LoR3GwW15SbT3HMFBicxKsV1lrUQjL9l3mHsI/4hq+wvoDw5svUHT4MR9vpuAAAA"
     }
   },
   {
@@ -40,13 +40,13 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_175244.jpg",
+    "file": "images/projects/317 bbq/20231008_175510.jpg",
     "meta": {
       "width": 900,
       "height": 420,
-      "base": "images/projects/317 bbq/20231008_175244",
-      "color": "rgb(24 24 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOiP/wEpc6Rl8L4HlgA/klMNCEzPtLFh+4XOVt58sG0LoR3GwW15SbT3HMFBicxKsV1lrUQjL9l3mHsI/4hq+wvoDw5svUHT4MR9vpuAAAA"
+      "base": "images/projects/317 bbq/20231008_175510",
+      "color": "rgb(72 56 40)",
+      "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
     }
   },
   {
@@ -70,16 +70,6 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_175650.jpg",
-    "meta": {
-      "width": 900,
-      "height": 420,
-      "base": "images/projects/317 bbq/20231008_175650",
-      "color": "rgb(24 24 24)",
-      "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoUAAkAPxFysFAsJqSisAgBgCIJZACdMoACxGdBHE/ZSu/VMSAA4dkn27ihdVbw/g8ed/njRaG4zEDUDLKlbxnyxSkrKEY7wx0SHztHTGZdAhOAMJ+5zVERfXo40Uonc7GNAAAA"
-    }
-  },
-  {
     "file": "images/projects/317 bbq/20231008_175512.jpg",
     "meta": {
       "width": 900,
@@ -87,6 +77,16 @@
       "base": "images/projects/317 bbq/20231008_175512",
       "color": "rgb(248 232 216)",
       "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAAkAPxF2sVAsJ6SisAgBgCIJagCdMoADCfg0bkLzbAAA4lFuh8CYLfqGmh7m1dbp+F14MI4iK7jkPSxt3lW2LQ+FMIW9YtjjQ47h3ATNevQPbfgcYOJujwBU44D5DO4q3CmJzRpbQF4nfAQaBSR8AwAAAA=="
+    }
+  },
+  {
+    "file": "images/projects/317 bbq/20231008_175650.jpg",
+    "meta": {
+      "width": 900,
+      "height": 420,
+      "base": "images/projects/317 bbq/20231008_175650",
+      "color": "rgb(24 24 24)",
+      "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoUAAkAPxFysFAsJqSisAgBgCIJZACdMoACxGdBHE/ZSu/VMSAA4dkn27ihdVbw/g8ed/njRaG4zEDUDLKlbxnyxSkrKEY7wx0SHztHTGZdAhOAMJ+5zVERfXo40Uonc7GNAAAA"
     }
   },
   {
@@ -120,16 +120,6 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/download.jpg",
-    "meta": {
-      "width": 1712,
-      "height": 3022,
-      "base": "images/projects/317 bbq/download",
-      "color": "rgb(8 8 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAACQBQCdASoUACMAPxFwsVAsJiSjMBVdUYAiCWcAz6AuCtdYtYIkkzLsoZlNgmZ3dAn14jkxIAD+9CUEhG0w429uF+pYBOsfshR1+i7xPolCB/4nHLhpPQHivlnJR1urIg4rBivWxN11HQFqdtFJ4ffrbZlxW6cFbTFEHh9Z4wFgmHEKd15oCuqVrqKtgK7ikGoUsW4fnh3gq/O6HmoD3dQcaaegAA=="
-    }
-  },
-  {
     "file": "images/projects/Clean Aesthetic/Clean Aesthetic CA Logo - Primary (full color).png",
     "meta": {
       "width": 5700,
@@ -137,6 +127,16 @@
       "base": "images/projects/Clean Aesthetic/Clean Aesthetic CA Logo - Primary (full color)",
       "color": "rgb(248 248 248)",
       "blurDataURL": "data:image/webp;base64,UklGRjoBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSK0AAAABgGTbtmlnn3u/7f9j22bNtm2zZhdtO2mBk06kSb7/tSEiJgD/iQCACFIJSrlverwGJIGY66iwMGRqPQTMDUP2+cfiA8PduTuCbn9nZPYr3zJwFgISgNAxNv/5XVdasTgNLmKIvNh6Xo5aG6l4lENMkJUVdTf0PqbhuhlcxAFw77VaIGdDBwYQrHYPj6BgXZJ3gH+4Nd7BAUCnd1gcgb5+dk9bgMrHSv+Eah2kAgBWUDggZgAAABADAJ0BKhQADAA/EXKwUCwmpKKwCAGAIglAAHxXIrEiAADMGqEdPqIAbLo3SRq0FBiJXzqJ7z2DNNz+Ce8PlMGW67404iDk0igfUcTkgCpJvqsW//9BU0ODuuHvsKkS8dsMlAAAAA=="
+    }
+  },
+  {
+    "file": "images/projects/317 bbq/download.jpg",
+    "meta": {
+      "width": 1712,
+      "height": 3022,
+      "base": "images/projects/317 bbq/download",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAACQBQCdASoUACMAPxFwsVAsJiSjMBVdUYAiCWcAz6AuCtdYtYIkkzLsoZlNgmZ3dAn14jkxIAD+9CUEhG0w429uF+pYBOsfshR1+i7xPolCB/4nHLhpPQHivlnJR1urIg4rBivWxN11HQFqdtFJ4ffrbZlxW6cFbTFEHh9Z4wFgmHEKd15oCuqVrqKtgK7ikGoUsW4fnh3gq/O6HmoD3dQcaaegAA=="
     }
   },
   {
