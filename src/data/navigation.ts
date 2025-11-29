@@ -1,11 +1,11 @@
 import type { LucideIcon } from 'lucide-react';
 import {
   Briefcase,
-  Sparkles,
+  Rocket,
   FlaskConical,
   Palette,
-  Terminal,
   User,
+  Mail,
 } from 'lucide-react';
 
 export interface MainNavigationLink {
@@ -23,16 +23,16 @@ export const mainNavigationLinks: MainNavigationLink[] = [
     description: 'Systems-focused case studies and operational wins',
   },
   {
-    name: 'Side Projects',
+    name: 'Ventures',
     path: '/side-projects',
-    icon: Sparkles,
+    icon: Rocket,
     description: 'Independent experiments and creative labs',
   },
   {
     name: 'The Lab',
     path: '/apps',
     icon: FlaskConical,
-    description: 'Automation tools and internal applications',
+    description: 'Automation tools, telemetry, and command center',
   },
   {
     name: 'Studio',
@@ -41,15 +41,15 @@ export const mainNavigationLinks: MainNavigationLink[] = [
     description: 'Creative direction, brand, and visual systems',
   },
   {
-    name: 'War Room',
-    path: '/war-room',
-    icon: Terminal,
-    description: 'Live DevOps command center with streaming telemetry',
-  },
-  {
     name: 'Bio',
     path: '/about',
     icon: User,
     description: 'Professional background and systems architect story',
+  },
+  {
+    name: 'Contact',
+    path: '/contact',
+    icon: Mail,
+    description: 'Get in touch for opportunities and collaborations',
   },
 ];

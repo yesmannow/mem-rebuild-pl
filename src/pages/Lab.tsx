@@ -1,22 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEOHead from '../components/seo/SEOHead';
 import SystemCard from '../components/ui/SystemCard';
+import TerminalBlock from '../components/ui/TerminalBlock';
+import AnimatedCounter from '../components/ui/AnimatedCounter';
 import { labItems } from '../data/labItems';
 
-type ViewMode = 'app' | 'tool';
+const LatencyGlobe = React.lazy(() => import('../components/ui/LatencyGlobe'));
+const CodeVelocity = React.lazy(() => import('../components/ui/CodeVelocity'));
+
+type ViewMode = 'app' | 'tool' | 'telemetry';
+
+const bootSequence = [
+  '> INITIALIZING KERNEL MODULES...',
+  '> PROVISIONING CLOUDFLARE EDGE ADAPTERS...',
+  '> VALIDATING TLS CIRCUITS...',
+  '> WARMING CACHE LAYERS: CLEAR SIGNAL RECEIVED',
+  '> SCHEDULING HYPER-CRON TASKS...',
+  '> ATTACHING HEARTBEAT MONITOR (SOURCE: /dev/pulse)',
+];
+
+const statCards = [
+  {
+    label: 'Uptime',
+    value: 99.9,
+    suffix: '%',
+    description: 'Real-time nodes maintaining 99.9% availability.',
+    decimals: 1,
+  },
+  {
+    label: 'Requests / sec',
+    value: 1284,
+    suffix: ' r/s',
+    description: 'Average throughput across global edge nodes.',
+    decimals: 0,
+  },
+  {
+    label: 'Global latency',
+    value: 24,
+    suffix: ' ms',
+    description: 'Median RTT after edge caching and optimization.',
+    decimals: 0,
+  },
+];
 
 const Lab: React.FC = () => {
   const [viewMode, setViewMode] = useState<ViewMode>('app');
 
-  const filteredItems = labItems.filter((item) => item.type === viewMode);
+  const filteredItems = viewMode === 'telemetry' 
+    ? [] 
+    : labItems.filter((item) => item.type === viewMode);
+  
   const isAppMode = viewMode === 'app';
+  const isToolMode = viewMode === 'tool';
+  const isTelemetryMode = viewMode === 'telemetry';
 
   return (
     <>
       <SEOHead
         title="The Lab | Living Documentation System"
-        description="Explore client-facing applications and internal engineering tools. A living documentation system showcasing technical architecture and business impact."
+        description="Explore client-facing applications, internal engineering tools, and live system telemetry. A living documentation system showcasing technical architecture and business impact."
       />
       <main className="relative min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-brand-text overflow-hidden">
         {/* ActiveGrid Background with Reactive Lighting */}
@@ -32,7 +75,7 @@ const Lab: React.FC = () => {
           }}
         />
 
-        {/* Ambient Glow - Orange for Apps, Teal for Tools */}
+        {/* Ambient Glow - Orange for Apps, Teal for Tools/Telemetry */}
         <div
           className="fixed inset-0 pointer-events-none transition-all duration-700"
           style={{
@@ -49,29 +92,30 @@ const Lab: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-12 text-center"
           >
-            <p className="text-xs uppercase tracking-[0.3em] text-brand-muted mb-2">
-              Living Documentation System
-            </p>
-            <h1 className="text-4xl md:text-5xl font-bold mb-3">The Lab</h1>
+            <div className="flex flex-wrap items-center justify-center gap-4 text-xs uppercase tracking-[0.3em] text-brand-teal/70 mb-2">
+              <span className="inline-flex h-2 w-2 animate-pulse rounded-full bg-brand-teal" />
+              ALL SYSTEMS OPERATIONAL
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-3 text-white">The Lab</h1>
             <p className="text-brand-muted max-w-2xl mx-auto">
-              Explore the technical architecture behind client-facing applications and internal
-              engineering tools. Each system includes strategic context, technology rationale, and
-              measurable business impact.
+              Explore the technical architecture behind client-facing applications, internal
+              engineering tools, and live system telemetry. Each system includes strategic context, 
+              technology rationale, and measurable business impact.
             </p>
           </motion.div>
 
-          {/* Context Shift Toggle */}
+          {/* Context Shift Toggle - Three modes */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="flex justify-center mb-10"
           >
-            <div className="inline-flex rounded-xl bg-slate-800/50 border border-slate-700 p-1.5">
+            <div className="inline-flex rounded-xl bg-slate-800/50 border border-slate-700 p-1.5 flex-wrap justify-center gap-1">
               <button
                 onClick={() => setViewMode('app')}
                 className={`
-                  relative px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-300
+                  relative px-4 sm:px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-300
                   ${isAppMode
                     ? 'text-[#FFA500]'
                     : 'text-brand-muted hover:text-brand-text'
@@ -85,26 +129,45 @@ const Lab: React.FC = () => {
                     transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                   />
                 )}
-                <span className="relative z-10">Applications (Revenue)</span>
+                <span className="relative z-10">Applications</span>
               </button>
               <button
                 onClick={() => setViewMode('tool')}
                 className={`
-                  relative px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-300
-                  ${!isAppMode
+                  relative px-4 sm:px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-300
+                  ${isToolMode
                     ? 'text-[#40E0D0]'
                     : 'text-brand-muted hover:text-brand-text'
                   }
                 `}
               >
-                {!isAppMode && (
+                {isToolMode && (
                   <motion.div
                     layoutId="activeTab"
                     className="absolute inset-0 rounded-lg bg-[#40E0D0]/10 border border-[#40E0D0]/30"
                     transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                   />
                 )}
-                <span className="relative z-10">Engineering (Code)</span>
+                <span className="relative z-10">Engineering</span>
+              </button>
+              <button
+                onClick={() => setViewMode('telemetry')}
+                className={`
+                  relative px-4 sm:px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-300
+                  ${isTelemetryMode
+                    ? 'text-[#40E0D0]'
+                    : 'text-brand-muted hover:text-brand-text'
+                  }
+                `}
+              >
+                {isTelemetryMode && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-0 rounded-lg bg-[#40E0D0]/10 border border-[#40E0D0]/30"
+                    transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                <span className="relative z-10">Command Center</span>
               </button>
             </div>
           </motion.div>
@@ -120,7 +183,7 @@ const Lab: React.FC = () => {
               { label: 'Live Systems', value: labItems.filter((i) => i.type === 'app').length, color: 'text-green-400' },
               { label: 'Internal Tools', value: labItems.filter((i) => i.type === 'tool').length, color: 'text-[#40E0D0]' },
               { label: 'Technologies', value: new Set(labItems.flatMap((i) => i.techStack.map((t) => t.name))).size, color: 'text-brand-muted' },
-              { label: 'Categories', value: new Set(labItems.map((i) => i.category)).size, color: 'text-brand-muted' },
+              { label: 'Edge Nodes', value: 12, color: 'text-[#FFA500]' },
             ].map((stat) => (
               <div
                 key={stat.label}
@@ -132,24 +195,114 @@ const Lab: React.FC = () => {
             ))}
           </motion.div>
 
-          {/* Card Grid */}
+          {/* Content Area */}
           <AnimatePresence mode="wait">
-            <motion.div
-              key={viewMode}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-6"
-            >
-              {filteredItems.map((item, index) => (
-                <SystemCard key={item.id} item={item} index={index} />
-              ))}
-            </motion.div>
+            {isTelemetryMode ? (
+              /* War Room / Command Center Content */
+              <motion.div
+                key="telemetry"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-8"
+              >
+                {/* Telemetry Stats Cards */}
+                <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {statCards.map((card) => (
+                    <motion.article
+                      key={card.label}
+                      initial={{ opacity: 0, y: 18 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4 }}
+                      className="rounded-3xl border border-[#40E0D0]/30 bg-slate-900/60 p-6 shadow-[0_15px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl"
+                    >
+                      <p className="text-[10px] uppercase tracking-[0.4em] text-[#FFA500]/70">{card.label}</p>
+                      <div className="mt-3">
+                        <AnimatedCounter
+                          value={card.value}
+                          prefix=""
+                          suffix={card.suffix}
+                          decimals={card.decimals}
+                          className="text-4xl md:text-5xl text-[#40E0D0]"
+                        />
+                      </div>
+                      <p className="mt-3 text-sm text-white/60">{card.description}</p>
+                    </motion.article>
+                  ))}
+                </section>
+
+                {/* Terminal and Globe Grid */}
+                <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+                  <TerminalBlock title="Boot Sequence" className="min-h-[360px] border-[#40E0D0]/30 bg-slate-900/80">
+                    <div className="space-y-3 text-sm font-mono text-white/80">
+                      {bootSequence.map((line) => (
+                        <p key={line} className="leading-relaxed">
+                          <span className="text-[#FFA500]">{line}</span>
+                          <span className="ml-2 text-[#40E0D0]/70">[OK]</span>
+                        </p>
+                      ))}
+                    </div>
+                  </TerminalBlock>
+
+                  <Suspense
+                    fallback={
+                      <div className="flex h-full min-h-[360px] items-center justify-center rounded-3xl border border-[#40E0D0]/30 bg-slate-900/60 text-sm text-[#40E0D0]/80">
+                        Streaming telemetry...
+                      </div>
+                    }
+                  >
+                    <LatencyGlobe />
+                  </Suspense>
+                </section>
+
+                {/* Code Velocity Heatmap */}
+                <section className="space-y-4">
+                  <Suspense
+                    fallback={
+                      <div className="flex min-h-[360px] items-center justify-center rounded-3xl border border-[#40E0D0]/30 bg-slate-900/60 text-sm text-[#40E0D0]/80">
+                        Loading velocity heatmap...
+                      </div>
+                    }
+                  >
+                    <CodeVelocity />
+                  </Suspense>
+                </section>
+
+                {/* Status Footer */}
+                <section className="flex flex-col gap-2 border-t border-[#40E0D0]/20 pt-6">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-3 w-3 rounded-full bg-[#40E0D0] animate-ping" />
+                    <span className="text-xs uppercase tracking-[0.4em] text-[#40E0D0]/70">
+                      ALL SYSTEMS OPERATIONAL
+                    </span>
+                  </div>
+                  <p className="text-sm text-white/60">
+                    Edge telemetry, cache health, and incident counters are green. Drive-by anomalies get escalated to
+                    alert channels instantly.
+                  </p>
+                </section>
+              </motion.div>
+            ) : (
+              /* Applications & Tools Card Grid */
+              <motion.div
+                key={viewMode}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+              >
+                {filteredItems.map((item, index) => (
+                  <SystemCard key={item.id} item={item} index={index} />
+                ))}
+              </motion.div>
+            )}
           </AnimatePresence>
 
           {/* Empty State */}
-          {filteredItems.length === 0 && (
+          {!isTelemetryMode && filteredItems.length === 0 && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
