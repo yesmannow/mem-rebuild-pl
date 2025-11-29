@@ -1,13 +1,16 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 type Theme = 'light' | 'dark' | 'system';
+/** @deprecated Brand switching has been removed. Only 'default' (hybrid) brand is supported. */
 type Brand = 'default';
 
 type ThemeContextType = {
   theme: Theme;
+  /** Brand is always 'default' (hybrid mode) */
   brand: Brand;
   brandAccent?: string;
   setTheme: (t: Theme) => void;
+  /** @deprecated Brand switching has been removed. This function is a no-op. */
   setBrand: (b: Brand) => void;
   setBrandAccent: (color?: string) => void;
   prefersReducedMotion: boolean;
