@@ -31,12 +31,14 @@ export interface ExperienceItem {
   description: string;
   achievements: string[];
   techStack: string[];
+  highlight?: string;
 }
 
 export interface VolunteerItem {
   role: string;
   organization: string;
   period: string;
+  description?: string;
 }
 
 export interface EducationItem {
@@ -50,6 +52,7 @@ export interface Award {
   title: string;
   organization: string;
   year: string;
+  description?: string;
 }
 
 export interface SkillCategory {
