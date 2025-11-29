@@ -1,17 +1,16 @@
 import { SideProject } from '../types';
 
 export const sideProjects: SideProject[] = [
-  // --- TIER 1: DEEP DIVES (The Big Wins) ---
+  // --- TIER 1: DEEP DIVES ---
   {
     id: 'primary-care-indy',
     title: 'Primary Care Indy',
     category: 'Web Design',
     tags: ['Healthcare', 'SEO', 'Trust'],
     description: 'Modernized visual identity increasing patient inquiries by 45%.',
-    image: '/images/design/primary-care.jpg', // Ensure this file exists or use placeholder
+    image: '/images/projects/Primarycare Indy/Primary Care Logo with PMC.png', // UPDATED
     year: '2023',
-    challenge:
-      'Modernize a family practice brand to build trust and accessibility while maintaining warmth.',
+    challenge: 'Modernize a family practice brand to build trust and accessibility while maintaining warmth.',
     solution:
       'Created a clean, professional identity system and a conversion-focused WordPress site. Implemented local SEO strategies.',
     impact: ['+120% Online Engagement', '+45% New Patient Inquiries', '4.9/5 Patient Satisfaction'],
@@ -23,7 +22,7 @@ export const sideProjects: SideProject[] = [
     category: 'Web Design',
     tags: ['Healthcare', 'Ads', 'Conversion'],
     description: 'Digital transformation driving patient growth for a top walk-in clinic.',
-    image: '/images/design/urgent-care.jpg',
+    image: '/images/design/urgent-care.jpg', // Placeholder until file provided
     year: '2022',
     challenge: 'Rebrand a clinic to signal speed and compassion while reducing cost-per-acquisition.',
     solution: "Developed an 'Urgency meets Trust' logo system and a mobile-first website optimized for speed.",
@@ -39,13 +38,12 @@ export const sideProjects: SideProject[] = [
     image: '/images/design/Hoosierboy Barber shop logo.webp',
     year: '2023',
     challenge: 'Build a brand grounded in local pride (The Cardinal) that feels classic yet fresh.',
-    solution:
-      'Designed a logo system blending Indiana iconography with traditional barber stripes. Launched a booking-integrated website.',
+    solution: 'Designed a logo system blending Indiana iconography with traditional barber stripes. Launched a booking-integrated website.',
     impact: ['Immediate Local Buzz', 'Increased Foot Traffic', 'High Visibility Signage'],
     stack: ['Illustrator', 'Local SEO', 'Booking System'],
   },
 
-  // --- TIER 2: BRANDING & IDENTITY (The Creative Work) ---
+  // --- TIER 2: BRANDING & IDENTITY ---
   {
     id: '317-bbq',
     title: '317 BBQ',
@@ -66,7 +64,7 @@ export const sideProjects: SideProject[] = [
     category: 'Logo Design',
     tags: ['Character Design', 'Food', 'Playful'],
     description: "Character-driven identity combining 'Taco' and 'Ninja'.",
-    image: '/images/design/taco-ninja.jpg',
+    image: '/images/projects/Taco Ninja/taco ninja logo.png', // UPDATED
     year: '2024',
     challenge: 'Create a mascot that appeals to younger demographics without looking generic.',
     solution: 'Designed a minimalist, high-energy ninja character using a taco shell as the mask.',
@@ -79,7 +77,7 @@ export const sideProjects: SideProject[] = [
     category: 'Branding',
     tags: ['Fitness', 'Motion', 'Identity'],
     description: 'Kinetic brand identity for a high-energy fitness studio.',
-    image: '/images/design/perpetual-fitness.jpg',
+    image: '/images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM.png', // UPDATED
     year: '2023',
     challenge: "Visually communicate 'continuous movement' and transformation.",
     solution: 'Designed a dynamic logo system with flowing typography and kinetic visual elements.',
@@ -92,7 +90,7 @@ export const sideProjects: SideProject[] = [
     category: 'Strategy',
     tags: ['Corporate', 'Guidelines', 'B2B'],
     description: 'Comprehensive brand playbook and visual system.',
-    image: '/images/design/tbm.jpg',
+    image: '/images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1.png', // UPDATED
     year: '2022',
     challenge: 'Unify a growing business under a single, cohesive visual strategy.',
     solution: 'Delivered a complete Brand Playbook (Voice, Tone, Typography) to align internal teams.',
@@ -100,7 +98,7 @@ export const sideProjects: SideProject[] = [
     stack: ['Documentation', 'Strategy'],
   },
 
-  // --- TIER 3: PRODUCT & COMMUNITY (The Diverse Range) ---
+  // --- TIER 3: PRODUCT & COMMUNITY ---
   {
     id: 'resq-organic',
     title: 'ResQ Organic',
