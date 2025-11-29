@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { TrendingUp, DollarSign, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { TrendingUp, DollarSign, Users, ArrowRight } from 'lucide-react';
 
 interface StrategicPillar {
   icon: React.ElementType;
@@ -127,6 +128,36 @@ const StrategicPillars: React.FC = () => {
             <PillarCard key={pillar.title} pillar={pillar} index={index} />
           ))}
         </div>
+
+        {/* Links to key pages */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-12 flex flex-wrap justify-center gap-4"
+        >
+          <Link
+            to="/case-studies"
+            className="flex items-center gap-2 px-6 py-3 rounded-lg border border-brand-teal/40 text-brand-text hover:border-brand-teal hover:bg-brand-teal/10 transition-all"
+          >
+            <span>View Case Studies</span>
+            <ArrowRight size={16} />
+          </Link>
+          <Link
+            to="/services"
+            className="flex items-center gap-2 px-6 py-3 rounded-lg border border-brand-teal/40 text-brand-text hover:border-brand-teal hover:bg-brand-teal/10 transition-all"
+          >
+            <span>Explore Services</span>
+            <ArrowRight size={16} />
+          </Link>
+          <Link
+            to="/toolbox"
+            className="flex items-center gap-2 px-6 py-3 rounded-lg border border-brand-teal/40 text-brand-text hover:border-brand-teal hover:bg-brand-teal/10 transition-all"
+          >
+            <span>Browse Toolbox</span>
+            <ArrowRight size={16} />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

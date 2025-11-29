@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import { processes } from '../data/process';
 import { cn } from '../lib/utils';
 
@@ -128,6 +130,36 @@ const ProcessFlow: React.FC<ProcessFlowProps> = ({ className }) => {
             );
           })}
         </div>
+
+        {/* Links to key pages */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-12 flex flex-wrap justify-center gap-4"
+        >
+          <Link
+            to="/projects"
+            className="flex items-center gap-2 px-6 py-3 rounded-lg border border-brand-teal/40 text-brand-text hover:border-brand-teal hover:bg-brand-teal/10 transition-all"
+          >
+            <span>View Projects</span>
+            <ArrowRight size={16} />
+          </Link>
+          <Link
+            to="/case-studies"
+            className="flex items-center gap-2 px-6 py-3 rounded-lg border border-brand-teal/40 text-brand-text hover:border-brand-teal hover:bg-brand-teal/10 transition-all"
+          >
+            <span>See Case Studies</span>
+            <ArrowRight size={16} />
+          </Link>
+          <Link
+            to="/contact"
+            className="flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-teal text-slate-900 hover:brightness-110 transition-all font-semibold"
+          >
+            <span>Get in Touch</span>
+            <ArrowRight size={16} />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

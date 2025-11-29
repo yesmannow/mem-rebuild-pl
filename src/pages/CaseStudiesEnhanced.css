@@ -1,97 +1,53 @@
-/* Enhanced Case Studies Filter Controls */
-
-.search-controls {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
+/* Supplementary micro-interactions for the refreshed page */
+.results-meta {
+  animation: fadeUp 0.6s ease forwards;
 }
 
-.search-bar {
-  position: relative;
-  max-width: 400px;
-  width: 100%;
+.filter-pill,
+.view-toggle button,
+.filter-reset {
+  will-change: transform, box-shadow;
 }
 
-.search-input {
-  width: 100%;
-  padding: 0.75rem 1rem 0.75rem 3rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  color: var(--color-light);
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.search-input:focus {
+.filter-pill:focus-visible,
+.filter-reset:focus-visible,
+.view-toggle button:focus-visible,
+.sort-select:focus-visible,
+.search-input:focus-visible {
   outline: none;
-  border-color: var(--color-primary);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.25);
 }
 
-.search-input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.search-icon {
+.case-card-inner::after {
+  content: '';
   position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: rgba(255, 255, 255, 0.6);
+  inset: 0;
+  border-radius: 26px;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
   pointer-events: none;
 }
 
-.filter-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+.case-card:hover .case-card-inner::after {
+  border-color: rgba(64, 224, 208, 0.35);
 }
 
-.controls-group {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.case-card-inner:has(.case-gradient-overlay[data-color]) {
+  isolation: isolate;
 }
 
-.sort-select {
-  padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  color: var(--color-light);
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.case-gradient-overlay {
+  mix-blend-mode: multiply;
+  z-index: -1;
 }
 
-.sort-select:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.sort-select option {
-  background: #1a1a1a;
-  color: var(--color-light);
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .filter-row {
-    flex-direction: column;
-    gap: 1rem;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
   }
-
-  .controls-group {
-    justify-content: center;
-  }
-
-  .search-bar {
-    max-width: 100%;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

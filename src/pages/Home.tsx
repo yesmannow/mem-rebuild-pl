@@ -25,22 +25,29 @@ const BentoCard = React.lazy(() =>
 const TechProfile = React.lazy(() => import('../components/TechProfile'));
 const CurrentlyWorkingOn = React.lazy(() => import('../components/CurrentlyWorkingOn'));
 
-const brandLogos = [
-  { name: 'Eat My Shorts', src: '/images/inspirations/eat-my-shorts.svg' },
-  { name: 'Folklorious', src: '/images/inspirations/folklorious.svg' },
-  { name: 'Bombay Electric', src: '/images/inspirations/bombay-electric.svg' },
-  { name: 'British Rail', src: '/images/inspirations/british-rail.svg' },
-  { name: 'Eames Kit', src: '/images/inspirations/eames-kit.svg' },
-  { name: 'Felony Case', src: '/images/inspirations/felony-case.svg' },
-  { name: 'Glorioso', src: '/images/inspirations/glorioso.svg' },
-  { name: 'IBM Design', src: '/images/inspirations/ibm-design.svg' },
-  { name: 'Lune Croissanterie', src: '/images/inspirations/lune-croissanterie.svg' },
-  { name: 'NASA Manual', src: '/images/inspirations/nasa-manual.svg' },
-  { name: 'Qoni', src: '/images/inspirations/qoni.svg' },
-  { name: 'Sutherland Press', src: '/images/inspirations/sutherland-press.svg' },
-  { name: 'Tenth Muse', src: '/images/inspirations/tenth-muse.svg' },
-  { name: 'Yellow Owl', src: '/images/inspirations/yellow-owl.svg' },
-  { name: 'Zonzo Estate', src: '/images/inspirations/zonzo-estate.svg' },
+// Toolkit logos for the partner carousel
+const toolkitLogos = [
+  { name: 'WordPress', src: '/images/tech-icons/wordpress.svg', caption: 'CMS & Development' },
+  { name: 'React', src: '/images/tech-icons/react.svg', caption: 'Frontend Framework' },
+  { name: 'JavaScript', src: '/images/tech-icons/javascript.svg', caption: 'Core Language' },
+  { name: 'HubSpot', src: '/images/tech-icons/hubspot.svg', caption: 'CRM Automation' },
+  { name: 'FluentCRM', src: '/images/tech-icons/fluentcrm.svg', caption: 'Email Automation' },
+  { name: 'WP Fusion', src: '/images/tech-icons/wp-fusion.svg', caption: 'CRM Integration' },
+  { name: 'LearnDash', src: '/images/tech-icons/learndash.svg', caption: 'LMS Platform' },
+  { name: 'WooCommerce', src: '/images/tech-icons/woocommerce.svg', caption: 'E-commerce' },
+  { name: 'Google Analytics', src: '/images/tech-icons/google-analytics.svg', caption: 'Analytics' },
+  { name: 'Google Tag Manager', src: '/images/tech-icons/gtm.svg', caption: 'Tag Management' },
+  { name: 'Mapbox', src: '/images/tech-icons/mapbox.svg', caption: 'Maps & Location' },
+  { name: 'Cloudflare Workers', src: '/images/tech-icons/cloudflare.svg', caption: 'Serverless' },
+  { name: 'Cloudflare CDN', src: '/images/tech-icons/cloudflare.svg', caption: 'CDN & Performance' },
+  { name: 'WP Rocket', src: '/images/tech-icons/wp-rocket.svg', caption: 'Performance' },
+  { name: 'LiteSpeed', src: '/images/tech-icons/litespeed.svg', caption: 'Web Server' },
+  { name: 'ACF Pro', src: '/images/tech-icons/acf.svg', caption: 'Custom Fields' },
+  { name: 'FacetWP', src: '/images/tech-icons/facetwp.svg', caption: 'Search & Filter' },
+  { name: 'Figma', src: '/images/tech-icons/figma.svg', caption: 'Design Tool' },
+  { name: 'Adobe Creative Suite', src: '/images/tech-icons/adobe.svg', caption: 'Creative Tools' },
+  { name: 'Canva', src: '/images/tech-icons/canva.svg', caption: 'Design Tool' },
+  { name: 'Photoshop', src: '/images/tech-icons/photoshop.svg', caption: 'Image Editing' },
 ];
 
 interface AssetCounts {
@@ -91,7 +98,7 @@ const Home: React.FC = () => {
               className="space-y-2"
             >
               <p className="text-sm font-mono uppercase tracking-[0.2em] text-brand-muted">
-                Marketing Director + Technologist
+                Marketing Director + Developer + Automation Architect
               </p>
               <motion.h1
                 initial={{ opacity: 0, y: 10 }}
@@ -99,13 +106,21 @@ const Home: React.FC = () => {
                 transition={{ delay: 0.1, duration: 0.6 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-text leading-tight"
               >
-                I Build Marketing Engines that{' '}
+                I Build Marketing Systems that{' '}
                 <AnimatedGradientText
                   text="Scale Revenue."
                   className="text-4xl md:text-5xl lg:text-6xl font-bold"
                   delay={0.3}
                 />
               </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="text-lg md:text-xl text-brand-muted mt-4 max-w-3xl"
+              >
+                Spanning strategy, development, and automation—I architect end-to-end marketing engines that drive measurable growth.
+              </motion.p>
             </motion.div>
 
             <Suspense fallback={<div className="h-96 w-full animate-pulse bg-brand-dark/50" />}>
@@ -145,31 +160,211 @@ const Home: React.FC = () => {
               <div className="flex items-center justify-between flex-wrap gap-3">
                 <div>
                   <span className="text-xs font-mono uppercase tracking-wide text-brand-muted">
-                    The Trust Wall
+                    Comprehensive Toolkit
                   </span>
-                  <p className="text-brand-text text-lg font-semibold">Signal from recent partners</p>
+                  <p className="text-brand-text text-lg font-semibold">Technologies & Platforms</p>
                 </div>
                 <div className="px-3 py-1 rounded-full bg-brand-surface/70 border border-brand-teal/20 text-xs text-brand-muted">
                   Infinite scroll - Hover to pause
                 </div>
               </div>
               <OceanMarquee speed={28} pauseOnHover className="py-4">
-                {brandLogos.map((brand) => (
-                  <OceanMarqueeItem key={brand.name}>
+                {toolkitLogos.map((tool) => (
+                  <OceanMarqueeItem key={tool.name}>
                     <motion.div
-                      className="flex items-center justify-center h-16 w-24 mx-4 grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                      className="flex flex-col items-center justify-center h-20 w-32 mx-4 grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
                       whileHover={{ scale: 1.05, y: -4 }}
                     >
                       <img
-                        src={brand.src}
-                        alt={brand.name}
-                        className="max-h-full max-w-full object-contain"
+                        src={tool.src}
+                        alt={tool.name}
+                        className="max-h-12 max-w-full object-contain mb-1"
+                        onError={(e) => {
+                          // Fallback to text if image doesn't exist
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const parent = target.parentElement;
+                          if (parent && !parent.querySelector('.tool-fallback')) {
+                            const fallback = document.createElement('div');
+                            fallback.className = 'tool-fallback text-xs text-brand-muted text-center';
+                            fallback.textContent = tool.name;
+                            parent.appendChild(fallback);
+                          }
+                        }}
                       />
+                      <span className="text-[10px] text-brand-muted mt-1 text-center">{tool.caption}</span>
                     </motion.div>
                   </OceanMarqueeItem>
                 ))}
               </OceanMarquee>
             </div>
+          </div>
+        </section>
+
+        <SectionDivider />
+
+        {/* Comprehensive Toolkit Section */}
+        <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-brand-text mb-4">
+                A Comprehensive Toolkit
+              </h2>
+              <p className="text-lg text-brand-muted max-w-2xl mx-auto">
+                Spanning strategy, development, and automation
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Strategy */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-brand-surface/50 border border-brand-muted/20 rounded-xl p-6 hover:border-brand-teal/40 transition-all duration-300"
+              >
+                <h3 className="text-xl font-bold text-brand-text mb-4">Strategy</h3>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-sm font-semibold text-brand-muted mb-2">Skills</p>
+                    <ul className="space-y-2 text-sm text-brand-muted">
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-teal mt-1">•</span>
+                        <span>Strategic Marketing & Leadership</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-teal mt-1">•</span>
+                        <span>Brand Strategy & Transformation</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-teal mt-1">•</span>
+                        <span>Content Strategy & Technical SEO</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-teal mt-1">•</span>
+                        <span>Team Leadership & Cross-Functional Collaboration</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Automation */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-brand-surface/50 border border-brand-muted/20 rounded-xl p-6 hover:border-brand-teal/40 transition-all duration-300"
+              >
+                <h3 className="text-xl font-bold text-brand-text mb-4">Automation</h3>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-sm font-semibold text-brand-muted mb-2">Skills</p>
+                    <ul className="space-y-2 text-sm text-brand-muted">
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-teal mt-1">•</span>
+                        <span>CRM Architecture & Automation (HubSpot, FluentCRM, WP Fusion)</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Analytics */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="bg-brand-surface/50 border border-brand-muted/20 rounded-xl p-6 hover:border-brand-teal/40 transition-all duration-300"
+              >
+                <h3 className="text-xl font-bold text-brand-text mb-4">Analytics</h3>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-sm font-semibold text-brand-muted mb-2">Skills</p>
+                    <ul className="space-y-2 text-sm text-brand-muted">
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-teal mt-1">•</span>
+                        <span>Data Analytics & Attribution Modeling</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-teal mt-1">•</span>
+                        <span>Custom Analytics Dashboards (GA4, GTM, Mapbox)</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Development */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="bg-brand-surface/50 border border-brand-muted/20 rounded-xl p-6 hover:border-brand-teal/40 transition-all duration-300"
+              >
+                <h3 className="text-xl font-bold text-brand-text mb-4">Development</h3>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-sm font-semibold text-brand-muted mb-2">Skills</p>
+                    <ul className="space-y-2 text-sm text-brand-muted">
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-teal mt-1">•</span>
+                        <span>Full-Stack Web Development (WordPress, JavaScript, React)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand-teal mt-1">•</span>
+                        <span>Serverless Development (Cloudflare Workers)</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Tools Stack */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mt-12 bg-brand-surface/50 border border-brand-muted/20 rounded-xl p-8"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-bold text-brand-text">Tools Stack</h3>
+                <Link
+                  to="/toolbox"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg border border-brand-teal/40 text-brand-text hover:border-brand-teal hover:bg-brand-teal/10 transition-all text-sm"
+                >
+                  <span>Explore Full Toolbox</span>
+                  <ArrowRight size={14} />
+                </Link>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+                {[
+                  'WordPress', 'JavaScript', 'React', 'HubSpot', 'FluentCRM', 'WP Fusion', 'LearnDash',
+                  'WooCommerce', 'Google Analytics', 'Google Tag Manager', 'Mapbox', 'Cloudflare Workers',
+                  'Cloudflare CDN', 'WP Rocket', 'LiteSpeed', 'ACF Pro', 'FacetWP', 'Figma',
+                  'Adobe Creative Suite', 'Canva', 'Photoshop'
+                ].map((tool) => (
+                  <div
+                    key={tool}
+                    className="text-center p-3 rounded-lg bg-brand-dark/50 border border-brand-muted/10 hover:border-brand-teal/30 transition-all"
+                  >
+                    <p className="text-sm text-brand-muted">{tool}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </section>
 
@@ -234,6 +429,8 @@ const SystemTerminal: React.FC<SystemTerminalProps> = ({ counts }) => {
   useEffect(() => {
     const seq = [
       '> CONNECTING TO SATELLITE... [OK]',
+      '> SYNCING MARKETING METRICS...',
+      '> ANALYZING CAMPAIGN PERFORMANCE...',
       '> SYNCING LIGHTROOM ASSETS...',
       `> FOUND ${photoCount} NEW PHOTOS.`,
       '> OPTIMIZING VITE BUILD... [DONE]',
@@ -314,8 +511,9 @@ const AssetMonitor: React.FC<AssetMonitorProps> = ({ counts }) => {
 
 const QuickActions: React.FC = () => {
   const actions = [
-    { label: 'View Work', href: '/case-studies', tone: 'primary' as const },
-    { label: 'Open Terminal', href: '/war-room', tone: 'secondary' as const },
+    { label: 'Case Studies', href: '/case-studies', tone: 'primary' as const },
+    { label: 'Services', href: '/services', tone: 'secondary' as const },
+    { label: 'Resume', href: '/resume', tone: 'secondary' as const },
     { label: 'Contact', href: '/contact', tone: 'accent' as const },
   ];
 
@@ -326,7 +524,7 @@ const QuickActions: React.FC = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
       {actions.map((action) => (
         <Link
           key={action.label}

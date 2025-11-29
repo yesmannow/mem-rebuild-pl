@@ -14,7 +14,6 @@ const CaseStudies: React.FC = () => {
   const [sortBy, setSortBy] = useState<'default' | 'name' | 'recent' | 'featured'>('default');
   const categories = ['All', ...getCategories()];
 
-  // Map technology names to icon slugs
   const getTechIconSlug = (techName: string): string => {
     const techMap: { [key: string]: string } = {
       React: 'react',
@@ -43,18 +42,16 @@ const CaseStudies: React.FC = () => {
       'Gravity Forms': 'gravityforms',
       ACF: 'acf',
     };
-    return techMap[techName] || 'react'; // fallback to react icon
+    return techMap[techName] || 'react';
   };
 
   const filteredStudies = useMemo(() => {
     let filtered = caseStudies;
 
-    // Filter by category
     if (activeFilter !== 'All') {
       filtered = filtered.filter(study => study.category.includes(activeFilter));
     }
 
-    // Filter by search term
     if (searchTerm) {
       filtered = filtered.filter(
         study =>
@@ -65,7 +62,6 @@ const CaseStudies: React.FC = () => {
       );
     }
 
-    // Sort
     if (sortBy === 'name') {
       filtered = [...filtered].sort((a, b) => a.title.localeCompare(b.title));
     } else if (sortBy === 'recent') {
@@ -77,283 +73,293 @@ const CaseStudies: React.FC = () => {
     return filtered;
   }, [activeFilter, searchTerm, sortBy]);
 
-  // Get featured count
   const featuredCount = caseStudies.filter(s => s.featured).length;
+  const hasActiveFilters = activeFilter !== 'All' || searchTerm.trim().length > 0 || sortBy !== 'default';
+
+  const handleResetFilters = () => {
+    setActiveFilter('All');
+    setSearchTerm('');
+    setSortBy('default');
+  };
 
   return (
-    <div className="min-h-screen bg-brand-dark pt-24 pb-20">
-    <main className="case-studies-modern">
-      {/* Hero Section with Ocean Gradient Animation */}
-      <OceanGradientAnimation
-        containerClassName="case-studies-hero-wrapper"
-        className="case-studies-hero-content"
-        interactive={true}
-        size="60%"
-        blendingValue="soft-light"
-      >
-        <motion.section
-          className="case-studies-hero relative z-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+    <div className="case-studies-page">
+      <main className="case-studies-modern">
+        <OceanGradientAnimation
+          containerClassName="case-studies-hero-wrapper"
+          className="case-studies-hero-content"
+          interactive={true}
+          size="60%"
+          blendingValue="soft-light"
         >
-        <div className="hero-content-cases">
-          <motion.div
-            className="hero-badge"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+          <motion.section
+            className="case-studies-hero relative z-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
           >
-            ★ Project Deep Dives
-          </motion.div>
-
-          <motion.h1
-            className="case-studies-title"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
-            Project Deep Dives
-          </motion.h1>
-
-          <motion.p
-            className="case-studies-subtitle"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-          >
-            From Spark to System: The Stories Behind the Work… I break down the challenge, the
-            build, and the measurable impact so you can see exactly how I operate.
-          </motion.p>
-
-          {/* Stats */}
-          <motion.div
-            className="case-stats"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-          >
-            <div className="stat-item">
-              <div className="stat-number">{caseStudies.length}</div>
-              <div className="stat-label">Case Studies</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">{featuredCount}</div>
-              <div className="stat-label">Featured Projects</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">100%</div>
-              <div className="stat-label">Real Results</div>
-            </div>
-          </motion.div>
-        </div>
-      </motion.section>
-      </OceanGradientAnimation>
-
-      {/* Enhanced Filter Bar */}
-      <section id="filters" className="filter-section">
-        <motion.div
-          className="filter-controls"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-        >
-          {/* Search Bar */}
-          <div className="search-controls">
-            <div className="search-bar">
-              <input
-                type="text"
-                placeholder="Search case studies..."
-                value={searchTerm}
-                onChange={e => setSearchTerm(e.target.value)}
-                className="search-input"
-              />
-              <Icon slug="search" className="search-icon h-5 w-5" />
-            </div>
-          </div>
-
-          <div className="filter-row">
-            <div className="filter-pills">
-              {categories.map((category, idx) => (
-                <motion.button
-                  key={category}
-                  className={`filter-pill ${activeFilter === category ? 'active' : ''}`}
-                  onClick={() => setActiveFilter(category)}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.8 + idx * 0.05 }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {category}
-                </motion.button>
-              ))}
-            </div>
-
-            <div className="controls-group">
-              {/* Sort Dropdown */}
-              <select
-                value={sortBy}
-                onChange={e => setSortBy(e.target.value as any)}
-                className="sort-select"
-                title="Sort by"
-                aria-label="Sort by"
-              >
-                <option value="default">Default</option>
-                <option value="featured">Featured</option>
-                <option value="name">Name</option>
-                <option value="recent">Recent</option>
-              </select>
-
-              {/* View Toggle */}
-              <div className="view-toggle">
-                <button
-                  className={viewMode === 'grid' ? 'active' : ''}
-                  onClick={() => setViewMode('grid')}
-                  aria-label="Grid view"
-                  title="Grid view"
-                >
-                  <Icon slug="grid" className="h-5 w-5" />
-                </button>
-                <button
-                  className={viewMode === 'list' ? 'active' : ''}
-                  onClick={() => setViewMode('list')}
-                  aria-label="List view"
-                  title="List view"
-                >
-                  <Icon slug="list" className="h-5 w-5" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Case Studies Grid */}
-      <section className="cases-section">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeFilter + viewMode}
-            className={`cases-${viewMode}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-          >
-            {filteredStudies.map((study, index) => (
+            <div className="hero-content-cases">
               <motion.div
-                key={study.slug}
+                className="hero-badge"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05, duration: 0.4 }}
+                transition={{ delay: 0.2 }}
               >
-                <Link to={`/case-studies/${study.slug}`} className="case-card">
-                  <div className="case-card-inner">
-                    {/* Icon Header */}
-                    <div className="case-icon" data-color={study.color}>
-                      <span className="icon-emoji" data-color={study.color}>
-                        {study.icon}
-                      </span>
-                    </div>
+                Case Study Command Center
+              </motion.div>
 
-                    {/* Content */}
-                    <div className="case-content">
-                      <div className="case-header">
-                        <h3 className="case-title">{study.title}</h3>
-                        <p className="case-tagline">{study.tagline}</p>
+              <motion.h1
+                className="case-studies-title"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+              >
+                Project Deep Dives
+              </motion.h1>
+
+              <motion.p
+                className="case-studies-subtitle"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+              >
+                From spark to system, every engagement includes the challenge, the build, and the
+                measurable outcomes so you can see how each marketing system comes together.
+              </motion.p>
+
+              <motion.div
+                className="case-stats"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                <div className="stat-item">
+                  <div className="stat-number">{caseStudies.length}</div>
+                  <div className="stat-label">Case Studies</div>
+                </div>
+                <div className="stat-item">
+                  <div className="stat-number">{featuredCount}</div>
+                  <div className="stat-label">Featured Projects</div>
+                </div>
+                <div className="stat-item">
+                  <div className="stat-number">100%</div>
+                  <div className="stat-label">Real Results</div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.section>
+        </OceanGradientAnimation>
+
+        <section id="filters" className="filter-section">
+          <motion.div
+            className="filter-controls"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+          >
+            <div className="results-meta">
+              <div>
+                <p className="results-count" aria-live="polite">
+                  Showing <span>{filteredStudies.length}</span>{' '}
+                  {filteredStudies.length === 1 ? 'case study' : 'case studies'}
+                  {activeFilter !== 'All' && <span className="results-filter"> | {activeFilter}</span>}
+                </p>
+                <p className="results-note">Search by industry, filter by focus, or toggle the layout.</p>
+              </div>
+              {hasActiveFilters && (
+                <button type="button" className="filter-reset" onClick={handleResetFilters}>
+                  Reset filters
+                </button>
+              )}
+            </div>
+
+            <div className="search-controls">
+              <div className="search-bar">
+                <input
+                  type="text"
+                  placeholder="Search by client, focus area, or metric..."
+                  value={searchTerm}
+                  onChange={e => setSearchTerm(e.target.value)}
+                  className="search-input"
+                  aria-label="Search case studies"
+                />
+                <Icon slug="search" className="search-icon h-5 w-5" />
+              </div>
+            </div>
+
+            <div className="filter-row">
+              <div className="filter-pills">
+                {categories.map((category, idx) => (
+                  <motion.button
+                    key={category}
+                    className={`filter-pill ${activeFilter === category ? 'active' : ''}`}
+                    onClick={() => setActiveFilter(category)}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.8 + idx * 0.05 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {category}
+                  </motion.button>
+                ))}
+              </div>
+
+              <div className="controls-group">
+                <select
+                  value={sortBy}
+                  onChange={e => setSortBy(e.target.value as any)}
+                  className="sort-select"
+                  title="Sort by"
+                  aria-label="Sort case studies"
+                >
+                  <option value="default">Default</option>
+                  <option value="featured">Featured</option>
+                  <option value="name">Name</option>
+                  <option value="recent">Recent</option>
+                </select>
+
+                <div className="view-toggle" role="group" aria-label="Toggle card layout">
+                  <button
+                    type="button"
+                    className={viewMode === 'grid' ? 'active' : ''}
+                    onClick={() => setViewMode('grid')}
+                    aria-label="Grid view"
+                    title="Grid view"
+                  >
+                    <Icon slug="grid" className="h-5 w-5" />
+                  </button>
+                  <button
+                    type="button"
+                    className={viewMode === 'list' ? 'active' : ''}
+                    onClick={() => setViewMode('list')}
+                    aria-label="List view"
+                    title="List view"
+                  >
+                    <Icon slug="list" className="h-5 w-5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        <section className="cases-section">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeFilter + viewMode}
+              className={`cases-${viewMode}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+            >
+              {filteredStudies.map((study, index) => (
+                <motion.div
+                  key={study.slug}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05, duration: 0.4 }}
+                >
+                  <Link to={`/case-studies/${study.slug}`} className="case-card">
+                    <div className="case-card-inner">
+                      <div className="case-icon" data-color={study.color}>
+                        <span className="icon-emoji" data-color={study.color}>
+                          {study.icon}
+                        </span>
                       </div>
 
-                      {/* Categories */}
-                      <div className="case-categories">
-                        {study.category.map(cat => (
-                          <span key={cat} className="category-tag" data-color={study.color}>
-                            {cat}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Technology Stack */}
-                      {study.technologies && study.technologies.length > 0 && (
-                        <div className="case-tech-stack">
-                          <div className="tech-stack-icons">
-                            {study.technologies.slice(0, 4).map(tech => (
-                              <Icon
-                                key={tech}
-                                slug={getTechIconSlug(tech)}
-                                className="tech-stack-icon h-4 w-4"
-                                title={tech}
-                              />
-                            ))}
-                            {study.technologies.length > 4 && (
-                              <span className="tech-stack-more">
-                                +{study.technologies.length - 4}
-                              </span>
-                            )}
-                          </div>
+                      <div className="case-content">
+                        <div className="case-header">
+                          <h3 className="case-title">{study.title}</h3>
+                          <p className="case-tagline">{study.tagline}</p>
                         </div>
-                      )}
 
-                      {/* Challenge Preview */}
-                      <div className="case-preview">
-                        <p className="preview-label">Challenge</p>
-                        <p className="preview-text">{study.challenge}</p>
-                      </div>
+                        <div className="case-categories">
+                          {study.category.map(cat => (
+                            <span key={cat} className="category-tag" data-color={study.color}>
+                              {cat}
+                            </span>
+                          ))}
+                        </div>
 
-                      {/* Metrics */}
-                      <div className="case-metrics">
-                        {study.metrics.slice(0, 2).map((metric, idx) => (
-                          <div key={idx} className="metric-item">
-                            <div className="metric-icon">✓</div>
-                            <div className="metric-content">
-                              <div className="metric-label">{metric.label}</div>
-                              <div className="metric-value" data-color={study.color}>
-                                {metric.value}
-                              </div>
+                        {study.technologies && study.technologies.length > 0 && (
+                          <div className="case-tech-stack">
+                            <div className="tech-stack-icons">
+                              {study.technologies.slice(0, 4).map(tech => (
+                                <Icon
+                                  key={tech}
+                                  slug={getTechIconSlug(tech)}
+                                  className="tech-stack-icon h-4 w-4"
+                                  title={tech}
+                                />
+                              ))}
+                              {study.technologies.length > 4 && (
+                                <span className="tech-stack-more">+{study.technologies.length - 4}</span>
+                              )}
                             </div>
                           </div>
-                        ))}
-                      </div>
-
-                      {/* Tech Tags */}
-                      <div className="case-tech-tags">
-                        {study.tags.slice(0, 3).map(tag => (
-                          <span key={tag} className="tech-tag">
-                            <span>{tag}</span>
-                          </span>
-                        ))}
-                        {study.tags.length > 3 && (
-                          <span className="tech-tag-more">+{study.tags.length - 3}</span>
                         )}
+
+                        <div className="case-preview">
+                          <p className="preview-label">Challenge</p>
+                          <p className="preview-text">{study.challenge}</p>
+                        </div>
+
+                        <div className="case-metrics">
+                          {study.metrics.slice(0, 2).map((metric, idx) => (
+                            <div key={idx} className="metric-item">
+                              <div className="metric-icon" aria-hidden="true">
+                                &nearr;
+                              </div>
+                              <div className="metric-content">
+                                <div className="metric-label">{metric.label}</div>
+                                <div className="metric-value" data-color={study.color}>
+                                  {metric.value}
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="case-tech-tags">
+                          {study.tags.slice(0, 3).map(tag => (
+                            <span key={tag} className="tech-tag">
+                              <span>{tag}</span>
+                            </span>
+                          ))}
+                          {study.tags.length > 3 && (
+                            <span className="tech-tag-more">+{study.tags.length - 3}</span>
+                          )}
+                        </div>
                       </div>
+
+                      <div className="case-footer">
+                        <span className="view-case">
+                          View case study
+                          <Icon slug="chevron-right" className="h-4 w-4" />
+                        </span>
+                      </div>
+
+                      <div className="case-gradient-overlay" data-color={study.color} />
                     </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
 
-                    {/* Footer */}
-                    <div className="case-footer">
-                      <span className="view-case">
-                        View Case Study
-                        <Icon slug="chevron-right" className="h-4 w-4" />
-                      </span>
-                    </div>
-
-                    {/* Hover Gradient */}
-                    <div className="case-gradient-overlay" data-color={study.color} />
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
-
-        {/* No Results */}
-        {filteredStudies.length === 0 && (
-          <motion.div className="no-results" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <div className="no-results-icon">🔍</div>
-            <h3>No case studies found</h3>
-            <p>Try selecting a different category filter</p>
-          </motion.div>
-        )}
-      </section>
-    </main>
+          {filteredStudies.length === 0 && (
+            <motion.div className="no-results" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              <div className="no-results-icon">
+                <Icon slug="search" className="h-10 w-10" />
+              </div>
+              <h3>No case studies found</h3>
+              <p>Update your filters or search to surface a new combination.</p>
+            </motion.div>
+          )}
+        </section>
+      </main>
     </div>
   );
 };
