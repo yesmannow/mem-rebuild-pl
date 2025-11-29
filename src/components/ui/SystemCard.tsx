@@ -33,10 +33,24 @@ const SystemCard: React.FC<SystemCardProps> = ({ item, index = 0 }) => {
   const [showTypewriter, setShowTypewriter] = useState(false);
 
   const isApp = item.type === 'app';
+  const launchUrl = item.liveUrl ?? item.link;
+  const hasSeparateBuildLink =
+    Boolean(item.liveUrl && item.link && item.liveUrl !== item.link);
+  const isExternalLaunch = Boolean(launchUrl && launchUrl.startsWith('http'));
   const borderColor = isApp ? 'border-[#FFA500]' : 'border-[#40E0D0]';
   const glowColor = isApp ? 'shadow-[0_0_30px_rgba(255,165,0,0.15)]' : 'shadow-[0_0_30px_rgba(64,224,208,0.15)]';
   const accentColor = isApp ? 'text-[#FFA500]' : 'text-[#40E0D0]';
   const badgeBg = isApp ? 'bg-[#FFA500]/10' : 'bg-[#40E0D0]/10';
+  const launchButtonClasses = cn(
+    'flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
+    isApp
+      ? 'bg-[#FFA500]/20 hover:bg-[#FFA500]/30 border border-[#FFA500]/50 text-[#FFA500]'
+      : 'bg-[#40E0D0]/20 hover:bg-[#40E0D0]/30 border border-[#40E0D0]/50 text-[#40E0D0]'
+  );
+  const internalButtonClasses = cn(
+    'flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
+    'bg-slate-800/70 hover:bg-slate-700/70 border border-slate-700 hover:border-slate-600 text-brand-text'
+  );
 
   const handleExpand = () => {
     setIsExpanded(!isExpanded);
@@ -164,17 +178,26 @@ const SystemCard: React.FC<SystemCardProps> = ({ item, index = 0 }) => {
               {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             </button>
 
-            {item.link && (
-              <Link
-                to={item.link}
-                className={cn(
-                  'flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
-                  isApp
-                    ? 'bg-[#FFA500]/20 hover:bg-[#FFA500]/30 border border-[#FFA500]/50 text-[#FFA500]'
-                    : 'bg-[#40E0D0]/20 hover:bg-[#40E0D0]/30 border border-[#40E0D0]/50 text-[#40E0D0]'
-                )}
-              >
-                Launch <ExternalLink size={14} />
+            {launchUrl && (
+              isExternalLaunch ? (
+                <a
+                  href={launchUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={launchButtonClasses}
+                >
+                  Launch <ExternalLink size={14} />
+                </a>
+              ) : (
+                <Link to={launchUrl} className={launchButtonClasses}>
+                  Launch <ExternalLink size={14} />
+                </Link>
+              )
+            )}
+
+            {hasSeparateBuildLink && item.link && (
+              <Link to={item.link} className={internalButtonClasses}>
+                View Build
               </Link>
             )}
           </div>

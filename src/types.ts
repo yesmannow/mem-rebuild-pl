@@ -76,6 +76,7 @@ export interface LabItem {
     target: string;    // Target Audience
     usage: string;     // Operational Context
   };
-  link?: string;       // For Apps
+  link?: string;       // For internal routes / deep dives
+  liveUrl?: string;    // Optional direct deployment link
   command?: string;    // For Tools
 }
