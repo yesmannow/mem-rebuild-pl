@@ -585,7 +585,7 @@ const ToolsShowcase: React.FC = () => {
                   <strong className="text-slate-900 dark:text-white">lastUsed:</strong> Tracked via git log and file modification times
                 </div>
                 <div>
-                  <strong className="text-slate-900 dark:text-white">archiveLocation:</strong> Non-production tools moved to archive/
+                  <strong className="text-slate-900 dark:text-white">archiveLocation:</strong> Documentation moved to docs/
                 </div>
               </div>
             </div>

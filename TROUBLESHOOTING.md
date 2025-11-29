@@ -475,8 +475,7 @@ AI_FEATURES_ENABLED=false
 
 ### Support Resources
 
-- [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md) - Deployment guide
-- [PULL_REQUESTS_STATUS.md](./PULL_REQUESTS_STATUS.md) - PR status
+- [docs/VERCEL_DEPLOYMENT.md](./docs/VERCEL_DEPLOYMENT.md) - Deployment guide
 - [.env.example](./.env.example) - Environment variables
 - [README.md](./README.md) - Project overview
 

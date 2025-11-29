@@ -241,11 +241,8 @@ mem-rebuild-pl/
 │   └── ...
 ├── mcp/                    # MCP server implementation
 │   └── server.js
-├── archive/                # Archived non-production files
-│   ├── cli-workflow/       # Historical CLI tools (archived)
-│   ├── docs/               # Old documentation (archived)
-│   ├── reports/            # Historical reports (archived)
-│   └── prompts/            # Development prompts (archived)
+├── docs/                   # Documentation files
+│   └── *.md                # Various documentation and guides
 ├── vite.config.js          # Vite configuration with base path logic
 ├── package.json            # Dependencies and scripts
 └── README.md               # This file
@@ -353,7 +350,7 @@ All CLI tools include comprehensive metadata:
 - **sourcePath**: Automatically resolved from `scripts/` and `cli/` directories
 - **outputType**: Varies by tool (Markdown reports, Optimized assets, JSON data)
 - **lastUsed**: Tracked via git log and file modification timestamps
-- **archiveLocation**: Non-production tools stored in `archive/`
+- **archiveLocation**: Non-production tools can be moved to `/docs` for reference
 
 View the full tool catalog at `/tools` or in `src/pages/ToolsShowcase.tsx`
 
@@ -403,7 +400,7 @@ This portfolio is private and proprietary. All rights reserved.
 
 ## 🛠️ CLI Tools (Legacy)
 
-> **Note**: The following tools have been archived to `archive/` for reference.
+> **Note**: The CLI tools documentation has been consolidated to `/docs` for reference.
 > Active tools are documented at `/tools` and in the sections above.
 
 Run from terminal:
@@ -440,7 +437,7 @@ npm run api:utility -- users 5
 - 🔍 **Metadata Extractor**: Rich website metadata & Open Graph data
 - 🛠️ **Utility Services**: Avatars, QR codes, demo users, jokes, advice
 
-See [docs/API_RECOMMENDATIONS.md](docs/API_RECOMMENDATIONS.md) for comprehensive API research and recommendations.
+See [scripts/api-services/README.md](scripts/api-services/README.md) for comprehensive API documentation and usage examples.
 
 ## 🤖 Assistant Prompts
 
@@ -449,7 +446,7 @@ See `prompts/branding.json` for reusable instructions for staff and AI assistant
 ## 🌐 Deployment
 
 ### GitHub Pages
-The project is configured for automatic deployment to GitHub Pages. See [docs/GITHUB_PAGES_SETUP.md](./docs/GITHUB_PAGES_SETUP.md) for detailed setup instructions.
+The project is configured for automatic deployment to GitHub Pages. See [docs/HOW_TO_LAUNCH_GITHUB_PAGES.md](./docs/HOW_TO_LAUNCH_GITHUB_PAGES.md) for detailed setup instructions.
 
 **Quick Deploy:**
 ```bash
@@ -471,7 +468,7 @@ Uses `vercel.json` for Vercel deployment configuration.
 
 **Vercel (Alternative)**: [https://mem-rebuild-55q0c32al-gpttttys-projects.vercel.app/](https://mem-rebuild-55q0c32al-gpttttys-projects.vercel.app/)
 
-> 📝 See [docs/GITHUB_PAGES_SETUP.md](./docs/GITHUB_PAGES_SETUP.md) for GitHub Pages setup and [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md) for Vercel configuration.
+> 📝 See [docs/HOW_TO_LAUNCH_GITHUB_PAGES.md](./docs/HOW_TO_LAUNCH_GITHUB_PAGES.md) for GitHub Pages setup and [docs/VERCEL_DEPLOYMENT.md](./docs/VERCEL_DEPLOYMENT.md) for Vercel configuration.
 
 ## 🧠 Roadmap
 
