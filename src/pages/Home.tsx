@@ -1,7 +1,7 @@
-import React, { Suspense, useEffect, useMemo, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { Suspense, useEffect, useMemo, useState, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Target, Cpu, LineChart, ShieldCheck, Users } from 'lucide-react';
+import { ArrowRight, Target, Cpu, LineChart, ShieldCheck, Users, TrendingUp, Zap, CheckCircle2 } from 'lucide-react';
 import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
 import ScrollProgress from '../components/ui/ScrollProgress';
 import AnimatedGradientText from '../components/ui/AnimatedGradientText';
@@ -57,12 +57,23 @@ const valueComparisons = [
     label: 'Full-time CMO',
     value: '$250K+ / yr',
     detail: 'Salary, benefits, and onboarding time',
+    icon: Users,
+    highlight: false,
   },
   {
-    label: 'Bear Cave Fractional',
+    label: 'Fractional Partnership',
     value: '$6K-$12K / mo',
     detail: 'Strategy plus execution pods aligned to outcomes',
+    icon: Zap,
+    highlight: true,
   },
+];
+
+const operatingSignals = [
+  'WEEKLY SIGNAL REPORTS + KPI MONITORS',
+  'DONE-WITH-YOU IMPLEMENTATION',
+  'EXECUTIVE ALIGNMENT + TEAM ENABLEMENT',
+  'PLAYBOOKS THAT OUTLIVE THE ENGAGEMENT',
 ];
 
 const trustLogos = [
@@ -131,7 +142,7 @@ const Home: React.FC = () => {
         <div className="rounded-2xl border border-brand-teal/30 bg-slate-900/70 backdrop-blur p-6 shadow-soft-dark">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <p className="text-xs font-mono uppercase tracking-[0.25em] text-brand-muted">Bear Cave Ops</p>
+              <p className="text-xs font-mono uppercase tracking-[0.25em] text-brand-muted">System Status</p>
               <p className="text-brand-text font-semibold">Command Console</p>
             </div>
             <span className="inline-flex items-center text-xs text-brand-muted gap-2">
@@ -177,8 +188,8 @@ const Home: React.FC = () => {
                 Scaling companies through <AnimatedGradientText text="strategy + technology" className="text-4xl md:text-5xl lg:text-6xl font-bold" />
               </h1>
               <p className="text-lg md:text-xl text-brand-muted max-w-3xl">
-                I help CEOs, founders, and operators turn ambiguous growth goals into orchestrated systems. From the Bear Cave,
-                you get board-ready strategy, full-stack implementation, and the optimization muscle to prove it works.
+                I help CEOs, founders, and operators turn ambiguous growth goals into orchestrated systems.
+                You get board-ready strategy, full-stack implementation, and the optimization muscle to prove it works.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
@@ -263,72 +274,9 @@ const Home: React.FC = () => {
 
         <SectionDivider />
 
-        <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start">
-            <div className="space-y-6">
-              <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Why fractional?</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-text">
-                Cost-efficient leadership. Full-stack execution.
-              </h2>
-              <p className="text-brand-muted text-lg">
-                By pairing senior marketing leadership with hands-on technical execution, we eliminate the lag between strategy and results.
-                I embed with your team, stand up data visibility, and engineer automations that keep revenue programs accountable.
-              </p>
-              <ul className="space-y-3 text-brand-text/80">
-                <li className="flex gap-3">
-                  <ShieldCheck size={18} className="text-brand-teal mt-1" />
-                  <span>Board-ready operating rhythm with clear KPIs and accountability.</span>
-                </li>
-                <li className="flex gap-3">
-                  <Users size={18} className="text-brand-teal mt-1" />
-                  <span>Collaborate directly with product, sales, and RevOps-no agency telephone game.</span>
-                </li>
-                <li className="flex gap-3">
-                  <Cpu size={18} className="text-brand-teal mt-1" />
-                  <span>Technology decisions rooted in what your stack already has, not shiny objects.</span>
-                </li>
-              </ul>
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  to="/services"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-brand-teal/60 text-brand-text hover:border-brand-teal transition"
-                >
-                  View Service Models
-                  <ArrowRight size={16} />
-                </Link>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-brand-teal text-slate-900 font-semibold shadow-cta"
-                >
-                  Talk Through Your Roadmap
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-            <div className="space-y-6">
-              <div className="rounded-2xl border border-brand-teal/30 bg-slate-950/70 p-6">
-                <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-muted mb-4">Cost Snapshot</p>
-                <div className="space-y-5">
-                  {valueComparisons.map((item) => (
-                    <div key={item.label} className="p-4 rounded-xl bg-slate-900/70 border border-white/5">
-                      <p className="text-sm text-brand-muted">{item.label}</p>
-                      <p className="text-2xl font-semibold text-brand-text">{item.value}</p>
-                      <p className="text-sm text-brand-muted">{item.detail}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <TerminalBlock title="Operating Signals">
-                <div className="space-y-2 font-mono text-sm text-brand-text">
-                  <p>&gt; WEEKLY SIGNAL REPORTS + KPI MONITORS</p>
-                  <p>&gt; DONE-WITH-YOU IMPLEMENTATION</p>
-                  <p>&gt; EXECUTIVE ALIGNMENT + TEAM ENABLEMENT</p>
-                  <p>&gt; PLAYBOOKS THAT OUTLIVE THE ENGAGEMENT</p>
-                </div>
-              </TerminalBlock>
-            </div>
-          </div>
-        </section>
+        <WhyFractionalSection />
+
+        <SectionDivider />
 
         <SectionDivider />
 
@@ -341,7 +289,7 @@ const Home: React.FC = () => {
                   <h2 className="text-3xl font-bold text-brand-text">Proof instead of promises</h2>
                 </div>
                 <p className="text-brand-muted max-w-xl">
-                  From Series A startups to global product launches, Bear Cave Marketing partners with leaders who need strategic lift and executional horsepower.
+                  From Series A startups to global product launches, I partner with leaders who need strategic lift and executional horsepower.
                 </p>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
@@ -369,7 +317,7 @@ const Home: React.FC = () => {
               <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">About Jacob</p>
               <h2 className="text-3xl md:text-4xl font-bold text-brand-text">Marketing director meets systems architect.</h2>
               <p className="text-brand-muted text-lg">
-                I built Bear Cave Marketing to serve as the executive suite you call when growth is stuck. I speak creative, product, and engineering-then build the connective tissue so every team can see the same dashboard.
+                I serve as the executive partner you call when growth is stuck. I speak creative, product, and engineering—then build the connective tissue so every team can see the same dashboard.
               </p>
               <ul className="space-y-3 text-brand-text/80">
                 {aboutHighlights.map((highlight) => (
@@ -404,9 +352,9 @@ const Home: React.FC = () => {
         <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto text-center">
             <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Final CTA</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">Ready to work out of the Bear Cave?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">Ready to scale your growth?</h2>
             <p className="text-brand-muted text-lg mb-8">
-              Tell me where you want the business to go. We will architect the plan, build the stack, and keep the entire go-to-market motion honest.
+              Tell me where you want the business to go. I'll architect the plan, build the stack, and keep the entire go-to-market motion honest.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
@@ -442,6 +390,216 @@ const Home: React.FC = () => {
         </section>
       </div>
     </OceanAuroraBackground>
+  );
+};
+
+const WhyFractionalSection: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
+  const leftColumnRef = useRef<HTMLDivElement>(null);
+  const rightColumnRef = useRef<HTMLDivElement>(null);
+  const leftInView = useInView(leftColumnRef, { once: true, margin: '-50px' });
+  const rightInView = useInView(rightColumnRef, { once: true, margin: '-50px' });
+
+  return (
+    <section ref={sectionRef} className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Background gradient effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/5 via-transparent to-brand-teal/5 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start">
+        {/* Left Column - Content */}
+        <motion.div
+          ref={leftColumnRef}
+          initial={{ opacity: 0, x: -30 }}
+          animate={leftInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="space-y-6"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={leftInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.1, duration: 0.5 }}
+          >
+            <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Why fractional?</p>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={leftInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="text-3xl md:text-4xl font-bold text-brand-text"
+          >
+            Cost-efficient leadership. Full-stack execution.
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={leftInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="text-brand-muted text-lg leading-relaxed"
+          >
+            By pairing senior marketing leadership with hands-on technical execution, I eliminate the lag between strategy and results.
+            I embed with your team, stand up data visibility, and engineer automations that keep revenue programs accountable.
+          </motion.p>
+
+          <motion.ul
+            initial={{ opacity: 0 }}
+            animate={leftInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="space-y-4 text-brand-text/80"
+          >
+            <motion.li
+              initial={{ opacity: 0, x: -20 }}
+              animate={leftInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ delay: 0.5, duration: 0.4 }}
+              className="flex gap-3 group"
+            >
+              <ShieldCheck size={20} className="text-brand-teal mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
+              <span>Board-ready operating rhythm with clear KPIs and accountability.</span>
+            </motion.li>
+            <motion.li
+              initial={{ opacity: 0, x: -20 }}
+              animate={leftInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ delay: 0.6, duration: 0.4 }}
+              className="flex gap-3 group"
+            >
+              <Users size={20} className="text-brand-teal mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
+              <span>Collaborate directly with product, sales, and RevOps—no agency telephone game.</span>
+            </motion.li>
+            <motion.li
+              initial={{ opacity: 0, x: -20 }}
+              animate={leftInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ delay: 0.7, duration: 0.4 }}
+              className="flex gap-3 group"
+            >
+              <Cpu size={20} className="text-brand-teal mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
+              <span>Technology decisions rooted in what your stack already has, not shiny objects.</span>
+            </motion.li>
+          </motion.ul>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={leftInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.8, duration: 0.5 }}
+            className="flex flex-wrap gap-4 pt-2"
+          >
+            <Link
+              to="/services"
+              className="group inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-brand-teal/60 text-brand-text hover:border-brand-teal hover:bg-brand-teal/10 transition-all duration-300"
+            >
+              View Service Models
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-brand-teal text-slate-900 font-semibold shadow-cta hover:brightness-110 hover:shadow-[0_0_25px_rgba(64,224,208,0.5)] transition-all duration-300"
+            >
+              Talk Through Your Roadmap
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
+        </motion.div>
+
+        {/* Right Column - Cost Comparison & Signals */}
+        <motion.div
+          ref={rightColumnRef}
+          initial={{ opacity: 0, x: 30 }}
+          animate={rightInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="space-y-6"
+        >
+          {/* Cost Snapshot Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={rightInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="rounded-2xl border border-brand-teal/30 bg-slate-950/70 backdrop-blur-xl p-6 shadow-soft-dark hover:border-brand-teal/50 transition-all duration-300"
+          >
+            <div className="flex items-center justify-between mb-6">
+              <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-muted">Cost Snapshot</p>
+              <TrendingUp size={16} className="text-brand-teal" />
+            </div>
+            <div className="space-y-4">
+              {valueComparisons.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={rightInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.3 + index * 0.1, duration: 0.4 }}
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    className={`relative p-5 rounded-xl border transition-all duration-300 ${
+                      item.highlight
+                        ? 'bg-gradient-to-br from-brand-teal/20 to-brand-teal/5 border-brand-teal/50 shadow-lg shadow-brand-teal/20'
+                        : 'bg-slate-900/70 border-white/10 hover:border-white/20'
+                    }`}
+                  >
+                    {item.highlight && (
+                      <motion.div
+                        className="absolute -top-2 -right-2 px-2 py-1 rounded-full bg-brand-teal text-slate-900 text-xs font-bold"
+                        initial={{ scale: 0 }}
+                        animate={rightInView ? { scale: 1 } : {}}
+                        transition={{ delay: 0.5 + index * 0.1, type: 'spring', stiffness: 200 }}
+                      >
+                        RECOMMENDED
+                      </motion.div>
+                    )}
+                    <div className="flex items-start gap-3 mb-2">
+                      <div className={`p-2 rounded-lg ${item.highlight ? 'bg-brand-teal/20' : 'bg-slate-800/50'}`}>
+                        <Icon size={18} className={item.highlight ? 'text-brand-teal' : 'text-brand-muted'} />
+                      </div>
+                      <div className="flex-1">
+                        <p className={`text-sm font-medium ${item.highlight ? 'text-brand-text' : 'text-brand-muted'}`}>
+                          {item.label}
+                        </p>
+                      </div>
+                    </div>
+                    <p className={`text-2xl font-bold mb-1 ${item.highlight ? 'text-brand-teal' : 'text-brand-text'}`}>
+                      {item.value}
+                    </p>
+                    <p className="text-sm text-brand-muted">{item.detail}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          {/* Operating Signals Terminal */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={rightInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.5, duration: 0.5 }}
+          >
+            <TerminalBlock title="Operating Signals">
+              <div className="space-y-3 font-mono text-sm">
+                <AnimatePresence>
+                  {operatingSignals.map((signal, index) => (
+                    <motion.div
+                      key={signal}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={rightInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: 0.6 + index * 0.1, duration: 0.3 }}
+                      className="flex items-center gap-2 text-brand-text group"
+                    >
+                      <span className="text-brand-teal">&gt;</span>
+                      <span className="group-hover:text-brand-teal transition-colors">{signal}</span>
+                      <motion.div
+                        className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
+                        initial={{ x: -5 }}
+                        whileHover={{ x: 0 }}
+                      >
+                        <CheckCircle2 size={14} className="text-brand-teal" />
+                      </motion.div>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
+            </TerminalBlock>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

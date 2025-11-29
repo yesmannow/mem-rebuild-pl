@@ -5,30 +5,30 @@ const BASE_URL = 'https://www.bearcavemarketing.com';
 const OrganizationSchema: React.FC = () => {
   const schemaData = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'BearCave Marketing',
+    '@type': 'Person',
+    name: 'Jacob Darling',
     url: BASE_URL,
-    logo: `${BASE_URL}/images/logo-primary.svg`,
+    image: `${BASE_URL}/images/logo-primary.svg`,
+    jobTitle: 'Marketing Strategist & Systems Architect',
     description:
-      'Marketing systems architecture and automation services. Building revenue engines through strategy, creative, analytics, and execution.',
-    foundingDate: '2009',
-    founder: {
-      '@type': 'Person',
-      name: 'Jacob Darling',
-    },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'customer service',
-      email: 'hoosierdarling@gmail.com',
-      url: `${BASE_URL}/contact`,
-      areaServed: 'US',
-      availableLanguage: 'English',
-    },
+      'Marketing systems architect and strategist with 15+ years of experience building revenue engines through strategy, creative, analytics, and execution.',
+    email: 'hoosierdarling@gmail.com',
+    url: `${BASE_URL}/contact`,
     sameAs: ['https://linkedin.com/in/jacobdarling', 'https://github.com/JdarlingGT'],
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'US',
     },
+    knowsAbout: [
+      'Marketing Strategy',
+      'Marketing Automation',
+      'CRM Architecture',
+      'Go-to-Market Strategy',
+      'Marketing Analytics',
+      'Web Development',
+      'Brand Strategy',
+      'Revenue Operations',
+    ],
   };
 
   return (

@@ -19,26 +19,23 @@ export default function JSONLD() {
     ],
   };
 
-  const organizationSchema = {
+  const portfolioSchema = {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    name: 'BearCave Marketing',
+    '@type': 'CreativeWork',
+    name: 'Jacob Darling Portfolio',
     url: 'https://www.bearcavemarketing.com',
-    founder: {
+    creator: {
       '@type': 'Person',
       name: 'Jacob Darling',
     },
-    areaServed: {
-      '@type': 'Country',
-      name: 'United States',
-    },
-    serviceType: 'Marketing Strategy & Systems Architecture',
+    about: 'Marketing Strategy & Systems Architecture',
+    keywords: 'marketing strategy, marketing automation, CRM architecture, fractional CMO, marketing systems',
   };
 
   return (
     <>
       <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
-      <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(portfolioSchema)}</script>
     </>
   );
 }

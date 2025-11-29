@@ -365,49 +365,6 @@
   line-height: 1.6;
 }
 
-/* Strategy Call Card */
-.strategy-call-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 2rem;
-  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-  border: 2px solid var(--color-success);
-  border-radius: 16px;
-  margin-bottom: 2rem;
-  gap: 1rem;
-}
-
-.strategy-call-card h4 {
-  font-size: 1.125rem;
-  margin-bottom: 0.5rem;
-}
-
-.strategy-call-card p {
-  font-size: 0.875rem;
-  margin: 0;
-}
-
-.strategy-call-btn {
-  width: 100%;
-  padding: 0.875rem 1.5rem;
-  background: var(--color-success);
-  color: var(--color-light);
-  font-weight: 600;
-  font-size: 0.95rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-}
-
-.strategy-call-btn:hover {
-  background: #059669;
-  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
-}
-
 /* Contact Methods */
 .contact-methods {
   display: flex;

@@ -131,14 +131,14 @@ const Services: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Services | BearCave Marketing</title>
+        <title>Services & Capabilities | Jacob Darling</title>
         <meta
           name="description"
-          content="Deployable marketing systems. Fractional CMO leadership, marketing automation, CRM architecture, and creative direction for growth-focused brands."
+          content="Marketing systems architect and strategist. Fractional CMO leadership, marketing automation, CRM architecture, and creative direction capabilities."
         />
         <meta
           name="keywords"
-          content="fractional CMO, marketing automation, CRM architecture, GTM strategy, marketing systems, growth operations"
+          content="fractional CMO, marketing automation, CRM architecture, GTM strategy, marketing systems, growth operations, marketing strategist"
         />
       </Helmet>
 

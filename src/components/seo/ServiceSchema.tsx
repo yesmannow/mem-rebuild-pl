@@ -50,9 +50,10 @@ const ServiceSchema: React.FC<ServiceSchemaProps> = ({
     '@type': 'Service',
     serviceType: 'Marketing Services',
     provider: {
-      '@type': 'Organization',
-      name: 'BearCave Marketing',
+      '@type': 'Person',
+      name: 'Jacob Darling',
       url: BASE_URL,
+      jobTitle: 'Marketing Strategist & Systems Architect',
     },
     areaServed: {
       '@type': 'Country',

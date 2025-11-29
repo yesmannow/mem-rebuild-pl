@@ -1,0 +1,22 @@
+<svg width="480" height="360" viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Circle City Kicks Placeholder Logo</title>
+  <desc id="desc">Vibrant circular motif hinting at sneaker culture and Indianapolis skyline.</desc>
+  <defs>
+    <linearGradient id="sunset" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFB380" />
+      <stop offset="100%" stop-color="#E29578" />
+    </linearGradient>
+    <linearGradient id="teal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#006D77" />
+      <stop offset="100%" stop-color="#83C5BE" />
+    </linearGradient>
+  </defs>
+  <rect width="480" height="360" rx="32" fill="#02070B" />
+  <circle cx="240" cy="150" r="120" fill="none" stroke="url(#teal)" stroke-width="12" />
+  <circle cx="240" cy="150" r="70" fill="none" stroke="url(#sunset)" stroke-width="28" stroke-dasharray="40 20" stroke-linecap="round" />
+  <path d="M140 210 Q240 150 340 210" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="6" stroke-linecap="round" />
+  <path d="M170 225 Q240 180 310 225" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="4" stroke-linecap="round" />
+  <text x="240" y="300" text-anchor="middle" font-family="'Space Grotesk', Montserrat, sans-serif" font-size="28" letter-spacing="0.25em" fill="#F8FAFC">
+    CIRCLE CITY KICKS
+  </text>
+</svg>

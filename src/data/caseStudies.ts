@@ -112,7 +112,7 @@ export const caseStudies: CaseStudy[] = [
       impact: {
         paragraphs: [
           'This transformed a cost center into a predictable revenue stream. The automated onboarding system reduced administrative overhead to near-zero while providing immediate value to graduates. It created a self-fueling marketing engine that continuously generates high-quality, pre-approved social proof and drives subscription renewals.',
-          'Conversion rates increased by 40% because the system reaches every graduate instantly, not just the ones we remembered to follow up with. Admin time dropped by 95%—what used to take hours per graduate now happens automatically in seconds.',
+          'Conversion rates increased by 40% because the system reaches every graduate instantly, not just the ones the team remembered to follow up with. Admin time dropped by 95%—what used to take hours per graduate now happens automatically in seconds.',
           'The automated funnel runs 24/7, converting graduates into subscribers even when the team is sleeping. It\'s a true "set it and forget it" system that scales infinitely without requiring additional staff. The flywheel is spinning, and revenue is growing automatically.',
         ],
       },
@@ -170,8 +170,8 @@ export const caseStudies: CaseStudy[] = [
       },
       impact: {
         paragraphs: [
-          'The digital fortress successfully neutralized ~85,000 malicious bot hits per month. By blocking traffic at the edge, we significantly reduced load on the origin server, freeing up resources for legitimate users and ensuring business continuity even during coordinated attacks.',
-          'Server CPU usage dropped by 40% during peak traffic periods, and we achieved 99.99% uptime even during DDoS attempts. The cache hit ratio improved to 86%, meaning more requests are served instantly from the edge without touching the origin server.',
+          'The digital fortress successfully neutralized ~85,000 malicious bot hits per month. By blocking traffic at the edge, I significantly reduced load on the origin server, freeing up resources for legitimate users and ensuring business continuity even during coordinated attacks.',
+          'Server CPU usage dropped by 40% during peak traffic periods, and the platform achieved 99.99% uptime even during DDoS attempts. The cache hit ratio improved to 86%, meaning more requests are served instantly from the edge without touching the origin server.',
           'Most importantly, clinician data is now protected by multiple security layers, and the platform can scale confidently knowing that security threats are handled automatically at the edge. The system transformed from a vulnerable target into a hardened fortress.',
         ],
       },
@@ -223,7 +223,7 @@ export const caseStudies: CaseStudy[] = [
       },
       impact: {
         paragraphs: [
-          'We eliminated hours of mind-numbing manual data entry every week. With accurate data, marketing automation became exponentially smarter—allowing for hyper-targeted reminders and upsells. The system is now a scalable infrastructure that supports growth without creating new operational debt.',
+          'I eliminated hours of mind-numbing manual data entry every week. With accurate data, marketing automation became exponentially smarter—allowing for hyper-targeted reminders and upsells. The system is now a scalable infrastructure that supports growth without creating new operational debt.',
           'Admin tasks reduced by 80%, and data accuracy improved to 99%. Customer service can now answer questions instantly by looking at a single unified record. Marketing campaigns are now based on complete customer journeys, resulting in higher engagement and conversion rates.',
           'The system handles thousands of transactions daily with sync latency under 2 seconds. As the business scales, the unified data pipeline automatically handles increased volume without requiring additional manual processes. What was once a data nightmare is now a competitive advantage.',
         ],
@@ -264,7 +264,7 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           'The site was choking on its own success. During peak traffic, editors faced 504 gateway timeouts and users experienced slow checkouts. This wasn\'t a frontend issue; the problems were buried deep in the server configuration, threatening revenue during critical campaigns.',
           'Server logs revealed the root cause: PHP-FPM was running an outdated version that couldn\'t handle concurrent requests efficiently. Apache\'s `LimitRequestLine` was too restrictive for complex CRM-generated URLs, causing legitimate requests to be rejected. Database queries were running without caching, hitting MySQL on every page load.',
-          'During marketing campaigns, when traffic spiked, the server would become unresponsive. Editors couldn\'t publish content, customers couldn\'t complete purchases, and the entire business came to a halt. We needed a "Server-Level Optimization" that would handle traffic spikes gracefully.',
+          'During marketing campaigns, when traffic spiked, the server would become unresponsive. Editors couldn\'t publish content, customers couldn\'t complete purchases, and the entire business came to a halt. A "Server-Level Optimization" was needed that would handle traffic spikes gracefully.',
         ],
       },
       strategy: {
@@ -276,7 +276,7 @@ export const caseStudies: CaseStudy[] = [
       },
       impact: {
         paragraphs: [
-          'The results were immediate stability. We reduced CPU usage by 40% during peak loads and achieved ~30% faster page loads for end-users. The platform shifted from a source of constant firefighting to a reliable engine ready to scale.',
+          'The results were immediate stability. I reduced CPU usage by 40% during peak loads and achieved ~30% faster page loads for end-users. The platform shifted from a source of constant firefighting to a reliable engine ready to scale.',
           '504 errors dropped to zero, even during traffic spikes that previously would have crashed the site. Editors can now publish content reliably, and customers experience fast, consistent checkout flows. The server handles 3x the previous traffic volume without breaking a sweat.',
           'Most importantly, the platform is now ready for growth. As marketing campaigns drive more traffic, the optimized server infrastructure scales automatically. What was once a bottleneck is now a competitive advantage, enabling the business to scale confidently.',
         ],
@@ -335,9 +335,9 @@ export const caseStudies: CaseStudy[] = [
       },
       impact: {
         paragraphs: [
-          'Every marketing dollar became smarter. We achieved precise attribution from first click to final sale, allowing us to cut wasted spend and scale profitable campaigns. We moved from guessing to knowing.',
-          'ROAS increased significantly as Google Ads now optimizes for actual revenue instead of low-value form fills. We cut wasted spend on campaigns that looked good on paper but never converted, and scaled campaigns that drive real business results.',
-          'The analytics overhaul transformed marketing from a cost center into a revenue driver. Every decision is now data-driven, every campaign is measurable, and every dollar is accountable. We went from flying blind to having a crystal-clear view of the entire customer journey.',
+          'Every marketing dollar became smarter. I achieved precise attribution from first click to final sale, allowing the client to cut wasted spend and scale profitable campaigns. They moved from guessing to knowing.',
+          'ROAS increased significantly as Google Ads now optimizes for actual revenue instead of low-value form fills. The client cut wasted spend on campaigns that looked good on paper but never converted, and scaled campaigns that drive real business results.',
+          'The analytics overhaul transformed marketing from a cost center into a revenue driver. Every decision is now data-driven, every campaign is measurable, and every dollar is accountable. The client went from flying blind to having a crystal-clear view of the entire customer journey.',
         ],
       },
     },
@@ -382,7 +382,7 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           'High-value training bundles were stalling at checkout due to payment friction. Sales reps had to manually generate invoices, and customers lacked flexible payment options, creating a barrier to entry for our premium products.',
           'The sales process was broken. When a sales rep closed a deal over the phone, they had to manually create an invoice in a separate system, email it to the customer, wait for payment, then manually create the order in WooCommerce. This process took days and often resulted in lost sales when customers changed their minds during the delay.',
-          'Customers wanted payment flexibility—3-month, 6-month, or 12-month payment plans—but we had no way to offer this. High-ticket items ($2,000+) required full payment upfront, which was a significant barrier. We needed a "Quote-to-Order System" that could handle custom quotes, flexible payment plans, and instant order creation.',
+          'Customers wanted payment flexibility—3-month, 6-month, or 12-month payment plans—but the client had no way to offer this. High-ticket items ($2,000+) required full payment upfront, which was a significant barrier. A "Quote-to-Order System" was needed that could handle custom quotes, flexible payment plans, and instant order creation.',
         ],
       },
       strategy: {
@@ -394,7 +394,7 @@ export const caseStudies: CaseStudy[] = [
       },
       impact: {
         paragraphs: [
-          'This removed the friction from high-ticket sales. We saw a significant increase in close rates for phone orders and lowered the operational overhead of managing payment plans. It turned a manual accounts-receivable headache into an automated revenue lever.',
+          'This removed the friction from high-ticket sales. The client saw a significant increase in close rates for phone orders and lowered the operational overhead of managing payment plans. It turned a manual accounts-receivable headache into an automated revenue lever.',
           'Close rates increased because customers could pay immediately via the secure pay link, eliminating the "I\'ll think about it" delay that often killed deals. Payment plan options made high-ticket items accessible to more customers, expanding the addressable market.',
           'Manual invoice generation is now zero—what used to take 30 minutes per sale now happens automatically in seconds. The system handles payment plan management, subscription renewals, and failed payment retries automatically, freeing up finance team time for strategic work.',
         ],

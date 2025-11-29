@@ -15,6 +15,15 @@ const DEFAULT_CATEGORY: Record<StudioAssetType, string> = {
   design: 'creative',
 };
 
+// Helper functions - defined first to avoid hoisting issues
+const stripExtension = (value: string): string => value.replace(/\.[^.]+$/, '');
+
+const toBaseKey = (value: string): string => {
+  if (!value) return '';
+  const filename = value.split('/').pop() ?? value;
+  return stripExtension(filename).toLowerCase();
+};
+
 const buildCuratedMap = (items: StudioItem[]): Map<string, StudioItem> => {
   return items.reduce((map, item) => {
     const key = toBaseKey(item.src);
@@ -25,17 +34,17 @@ const buildCuratedMap = (items: StudioItem[]): Map<string, StudioItem> => {
   }, new Map<string, StudioItem>());
 };
 
-const curatedMaps: Record<StudioAssetType, Map<string, StudioItem>> = {
-  photography: buildCuratedMap(photographyItems),
-  design: buildCuratedMap(designItems),
-};
+// Lazy initialization to avoid module-level circular dependency issues
+let curatedMapsCache: Record<StudioAssetType, Map<string, StudioItem>> | null = null;
 
-const stripExtension = (value: string): string => value.replace(/\.[^.]+$/, '');
-
-const toBaseKey = (value: string): string => {
-  if (!value) return '';
-  const filename = value.split('/').pop() ?? value;
-  return stripExtension(filename).toLowerCase();
+const getCuratedMaps = (): Record<StudioAssetType, Map<string, StudioItem>> => {
+  if (!curatedMapsCache) {
+    curatedMapsCache = {
+      photography: buildCuratedMap(photographyItems),
+      design: buildCuratedMap(designItems),
+    };
+  }
+  return curatedMapsCache;
 };
 
 const getExtension = (filename: string): string => filename.split('.').pop()?.toLowerCase() ?? '';
@@ -114,6 +123,7 @@ export const manifestToStudioItems = (files: string[] | null | undefined, type: 
 
   const deduped = dedupeManifestEntries(files);
   const basePath = type === 'photography' ? '/images/photography/' : '/images/design/';
+  const curatedMaps = getCuratedMaps();
   const curatedMap = curatedMaps[type];
 
   return deduped.map((file, index) => {

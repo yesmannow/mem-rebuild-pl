@@ -128,6 +128,26 @@ const CaseStudies: React.FC = () => {
               </motion.p>
 
               <motion.div
+                className="case-studies-intro"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+              >
+                <p className="intro-text">
+                  This is where strategy meets execution. Each case study documents real-world marketing challenges,
+                  the technical solutions I built, and the measurable impact delivered. You'll see the full journey:
+                  problem identification, system architecture, implementation details, and quantifiable results.
+                  These aren't hypothetical scenarios—they're production systems that drove revenue, reduced costs,
+                  and scaled operations for clients across healthcare, SaaS, and e-commerce.
+                </p>
+                <div className="intro-features">
+                  <span className="feature-badge">Challenge → Strategy</span>
+                  <span className="feature-badge">Technical Architecture</span>
+                  <span className="feature-badge">Measurable Outcomes</span>
+                </div>
+              </motion.div>
+
+              <motion.div
                 className="case-stats"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

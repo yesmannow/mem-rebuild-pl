@@ -1,0 +1,24 @@
+<svg width="480" height="360" viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Black Letter Coffee Placeholder Logo</title>
+  <desc id="desc">Monogram inspired placeholder for Black Letter Coffee with luxe serif typography.</desc>
+  <defs>
+    <radialGradient id="bg" cx="30%" cy="20%" r="90%">
+      <stop offset="0%" stop-color="#0B0F16" />
+      <stop offset="100%" stop-color="#010204" />
+    </radialGradient>
+    <linearGradient id="stroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFDDD2" />
+      <stop offset="100%" stop-color="#E29578" />
+    </linearGradient>
+  </defs>
+  <rect width="480" height="360" rx="32" fill="url(#bg)" />
+  <g transform="translate(240 150)" fill="none" stroke="url(#stroke)" stroke-width="8">
+    <path d="M -70 60 V -60 C -70 -80 -50 -100 -20 -100 H 30 C 60 -100 80 -80 80 -50 V 70" />
+    <path d="M -20 -100 V 110" />
+    <path d="M 30 -100 V 110" />
+    <path d="M -70 20 H 60" />
+  </g>
+  <text x="240" y="300" text-anchor="middle" font-family="Fraunces 144, 'Clash Display', serif" font-size="30" letter-spacing="0.3em" fill="#F8FAFC">
+    BLACK LETTER COFFEE
+  </text>
+</svg>

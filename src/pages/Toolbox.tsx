@@ -81,6 +81,32 @@ const Toolbox: React.FC = () => {
             TypeScript). This dual expertise enables me to build complete marketing systems that
             drive measurable ROI.
           </motion.p>
+
+          <motion.div
+            className="intro-section mt-8 max-w-4xl mx-auto bg-[var(--ink-800)]/50 backdrop-blur-sm border border-[var(--ink-700)]/50 rounded-2xl p-6"
+            variants={fadeInUp}
+          >
+            <p className="text-[var(--parchment-050)]/90 leading-relaxed mb-4">
+              This is my technical arsenal—the tools, platforms, and technologies I use to build marketing systems
+              that scale. From strategic planning tools to hands-on development frameworks, each category represents
+              a different layer of the marketing technology stack. Hover over any technology to see detailed descriptions,
+              and explore the ecosystem diagram to understand how these tools connect in real-world implementations.
+            </p>
+            <div className="flex flex-wrap gap-2 mt-4">
+              <span className="px-3 py-1 bg-brand-teal/20 border border-brand-teal/30 rounded-full text-xs text-brand-teal font-mono">
+                Marketing Automation
+              </span>
+              <span className="px-3 py-1 bg-brand-orange/20 border border-brand-orange/30 rounded-full text-xs text-brand-orange font-mono">
+                Development Stack
+              </span>
+              <span className="px-3 py-1 bg-sky-400/20 border border-sky-400/30 rounded-full text-xs text-sky-300 font-mono">
+                Analytics & Tracking
+              </span>
+              <span className="px-3 py-1 bg-purple-400/20 border border-purple-400/30 rounded-full text-xs text-purple-300 font-mono">
+                Infrastructure
+              </span>
+            </div>
+          </motion.div>
         </section>
       </AnimatedSection>
 

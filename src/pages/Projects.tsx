@@ -35,6 +35,29 @@ const Projects: React.FC = () => {
             Professional websites built with WordPress, combining strategic design with technical
             execution
           </motion.p>
+
+          <motion.div
+            className="intro-section max-w-3xl mx-auto mt-8 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6"
+            variants={fadeInUp}
+          >
+            <p className="text-slate-300 leading-relaxed mb-4">
+              This collection showcases professional websites I've built for clients across various industries.
+              Each project represents a complete solution—from initial strategy and design through development,
+              optimization, and launch. These aren't just websites; they're marketing systems designed to convert
+              visitors into customers, built on WordPress for flexibility and scalability.
+            </p>
+            <div className="flex flex-wrap gap-2 justify-center">
+              <span className="px-3 py-1 bg-brand-teal/20 border border-brand-teal/30 rounded-full text-xs text-brand-teal">
+                WordPress Development
+              </span>
+              <span className="px-3 py-1 bg-brand-orange/20 border border-brand-orange/30 rounded-full text-xs text-brand-orange">
+                Custom Design
+              </span>
+              <span className="px-3 py-1 bg-slate-700/50 border border-slate-600/50 rounded-full text-xs text-slate-300">
+                Performance Optimized
+              </span>
+            </div>
+          </motion.div>
         </header>
       </AnimatedSection>
 

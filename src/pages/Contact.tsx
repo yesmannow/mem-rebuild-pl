@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -11,13 +11,12 @@ import {
   Building2,
   Phone,
   FileText,
-  CalendarDays,
   CheckCircle2,
   AlertCircle,
   Loader2,
 } from 'lucide-react';
 import SectionWrapper from '../components/SectionWrapper';
-import { trackCTA, trackPortfolioEngagement } from '../utils/analytics';
+import { trackPortfolioEngagement } from '../utils/analytics';
 import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations';
 import { OceanGradientAnimation } from '../components/ui/OceanGradientAnimation';
 import './Contact.css';
@@ -47,8 +46,6 @@ const CONTACT_REASONS = [
   { value: 'other', label: 'Other', description: 'Something else' },
 ];
 
-const STRATEGY_CALL_URL = 'https://cal.com/jacob-darling';
-
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -76,11 +73,12 @@ const Contact: React.FC = () => {
         if (!value.trim()) return 'Name is required';
         if (value.trim().length < 2) return 'Name must be at least 2 characters';
         return undefined;
-      case 'email':
+      case 'email': {
         if (!value.trim()) return 'Email is required';
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(value)) return 'Please enter a valid email address';
         return undefined;
+      }
       case 'reason':
         if (!value) return 'Please select a reason';
         return undefined;
@@ -205,13 +203,6 @@ const Contact: React.FC = () => {
     }
   };
 
-  const handleStrategyCallClick = useCallback(() => {
-    trackCTA('book_call', 'contact_info');
-    if (typeof window !== 'undefined') {
-      window.open(STRATEGY_CALL_URL, '_blank', 'noopener,noreferrer');
-    }
-  }, []);
-
   return (
     <OceanGradientAnimation
       containerClassName="contact-page-wrapper"
@@ -227,16 +218,32 @@ const Contact: React.FC = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
               Let's Create What Doesn't Exist Yet.
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              I'm currently open to new opportunities in marketing leadership and tech integration.
-              Feel free to reach out for interviews, collaborations, or any questions—I'd love to connect!
-              <br />
-              <br />
-              Have a challenge that needs solving? A system that needs building? An idea that needs shaping?
-              <br />
-              <br />
-              <span className="font-semibold text-gray-900">Let's talk.</span>
-            </p>
+            <motion.div
+              className="intro-section max-w-3xl mx-auto mb-8 bg-gradient-to-br from-blue-50 to-teal-50 border border-blue-200/50 rounded-2xl p-6"
+              variants={fadeInUp}
+            >
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
+                I'm currently open to new opportunities in marketing leadership and tech integration.
+                Feel free to reach out for interviews, collaborations, or any questions—I'd love to connect!
+              </p>
+              <p className="text-base text-gray-600 leading-relaxed mb-4">
+                Have a challenge that needs solving? A system that needs building? An idea that needs shaping?
+              </p>
+              <p className="text-lg font-semibold text-gray-900">
+                Let's talk.
+              </p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="px-3 py-1 bg-blue-100 border border-blue-200 rounded-full text-xs text-blue-700 font-medium">
+                  Job Opportunities
+                </span>
+                <span className="px-3 py-1 bg-teal-100 border border-teal-200 rounded-full text-xs text-teal-700 font-medium">
+                  Consulting Projects
+                </span>
+                <span className="px-3 py-1 bg-gray-100 border border-gray-200 rounded-full text-xs text-gray-700 font-medium">
+                  General Questions
+                </span>
+              </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </SectionWrapper>
@@ -551,28 +558,6 @@ const Contact: React.FC = () => {
               >
                 <h3 className="text-xl font-bold mb-4 text-gray-900">Get In Touch</h3>
                 <p className="text-gray-600 mb-6">Prefer to reach out directly? Use any of these options:</p>
-
-                {/* Strategy Call CTA Card */}
-                <motion.div
-                  className="strategy-call-card"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <CalendarDays size={32} className="text-[var(--color-success)]" />
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1">Book a Strategy Call</h4>
-                    <p className="text-sm text-gray-600">
-                      Map out your next growth move in a focused 30-minute session.
-                    </p>
-                  </div>
-                  <motion.button
-                    onClick={handleStrategyCallClick}
-                    className="strategy-call-btn"
-                    aria-label="Book a strategy call on Cal.com"
-                  >
-                    Schedule Now
-                  </motion.button>
-                </motion.div>
 
                 {/* Contact Methods */}
                 <div className="contact-methods">

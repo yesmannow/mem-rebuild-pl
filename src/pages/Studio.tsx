@@ -114,12 +114,41 @@ const Studio: React.FC = () => {
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight">
                 Visual <span className="text-brand-teal">Engineering</span>
               </h1>
-              <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+              <motion.p
+                className="text-lg text-slate-400 max-w-2xl mx-auto mb-6"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+              >
                 Photography and design work powered by live manifests.
                 <span className="block mt-1 text-slate-500 text-sm font-mono">
                   Hover for technical data overlays.
                 </span>
-              </p>
+              </motion.p>
+
+              <motion.div
+                className="intro-section max-w-3xl mx-auto text-left bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+              >
+                <p className="text-slate-300 leading-relaxed mb-4">
+                  This gallery showcases my visual work across photography and graphic design. Each piece represents
+                  a blend of technical precision and creative vision—from brand identity systems to campaign photography.
+                  The collection is dynamically loaded from live manifests, ensuring you're seeing the most current work.
+                </p>
+                <div className="flex flex-wrap gap-3 justify-center">
+                  <span className="px-3 py-1 bg-brand-teal/20 border border-brand-teal/30 rounded-full text-sm text-brand-teal">
+                    Photography
+                  </span>
+                  <span className="px-3 py-1 bg-brand-orange/20 border border-brand-orange/30 rounded-full text-sm text-brand-orange">
+                    Design Systems
+                  </span>
+                  <span className="px-3 py-1 bg-slate-700/50 border border-slate-600/50 rounded-full text-sm text-slate-300">
+                    Live Data
+                  </span>
+                </div>
+              </motion.div>
 
               {useFallback && (
                 <motion.p
