@@ -48,7 +48,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
                 to={link.path}
                 className={`relative ${
                   isActive(link.path)
-                    ? 'text-brand-teal'
+                    ? 'text-white scale-110'
                     : 'text-brand-muted hover:text-brand-teal'
                 } transition-all duration-300 font-medium text-sm uppercase tracking-wide group`}
               >
@@ -56,7 +56,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
                 {/* Hover glow effect */}
                 <span className={`absolute -bottom-1 left-0 w-full h-px transition-all duration-300 ${
                   isActive(link.path)
-                    ? 'bg-brand-teal shadow-[0_0_8px_rgba(64,224,208,0.5)]'
+                    ? 'bg-white shadow-[0_0_8px_rgba(255,255,255,0.5)]'
                     : 'bg-transparent group-hover:bg-brand-teal/50'
                 }`} />
               </Link>
