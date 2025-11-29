@@ -6,6 +6,7 @@ import { useReactToPrint } from 'react-to-print';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import { BentoCard, BentoGrid } from '../components/ui/BentoGrid';
 import { SchematicBackground } from '../components/ui/SchematicBackground';
+import { OceanRippleButton } from '../components/ui/OceanRippleButton';
 import { experience, education, volunteering, awards, metrics, skillCategories, executiveSummary } from '../data/resume';
 import type { ExperienceItem, SkillCategory as SkillCategoryType } from '../types';
 
@@ -41,13 +42,13 @@ const TimelineItem: React.FC<{ item: ExperienceItem; index: number }> = ({ item,
     >
       {/* Timeline dot */}
       <span className="absolute left-0 top-2 h-4 w-4 rounded-full bg-brand-teal shadow-[0_0_0_6px_rgba(64,224,208,0.1)]" />
-      
+
       {/* Year marker */}
       <div className="absolute -left-16 top-1 text-xs font-mono text-brand-muted hidden lg:block">
         {item.period.split(' - ')[0].split(' ').pop()}
       </div>
 
-      <div 
+      <div
         className={`rounded-2xl border bg-slate-900/50 backdrop-blur-lg shadow-soft-dark transition-all duration-300 overflow-hidden ${
           isExpanded ? 'border-brand-teal/50' : 'border-white/5 hover:border-brand-teal/30'
         }`}
@@ -68,7 +69,7 @@ const TimelineItem: React.FC<{ item: ExperienceItem; index: number }> = ({ item,
               <span className="text-brand-orange text-sm font-medium">{item.company}</span>
             </div>
             <p className="text-brand-muted line-clamp-2">{item.description}</p>
-            
+
             {/* Highlight badge if exists */}
             {item.highlight && (
               <div className="mt-3 inline-flex items-center gap-2 px-3 py-1 bg-brand-teal/20 border border-brand-teal/30 rounded-full">
@@ -77,12 +78,12 @@ const TimelineItem: React.FC<{ item: ExperienceItem; index: number }> = ({ item,
               </div>
             )}
           </div>
-          
+
           <div className="flex items-center gap-2">
             <span className="text-xs text-brand-muted">{item.achievements.length} achievements</span>
-            <ChevronDown 
-              size={20} 
-              className={`text-brand-teal transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
+            <ChevronDown
+              size={20}
+              className={`text-brand-teal transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
             />
           </div>
         </button>
@@ -104,8 +105,8 @@ const TimelineItem: React.FC<{ item: ExperienceItem; index: number }> = ({ item,
                 </h4>
                 <ul className="space-y-3 text-brand-muted/90 text-sm mb-6">
                   {item.achievements.map((ach, achIdx) => (
-                    <motion.li 
-                      key={achIdx} 
+                    <motion.li
+                      key={achIdx}
                       className="flex items-start gap-3"
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -215,7 +216,7 @@ const About: React.FC = () => {
         <main className="relative z-10 pt-24 pb-16 px-6">
           {/* Hero Header */}
           <header className="max-w-6xl mx-auto mb-12">
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-brand-orange uppercase tracking-[0.3em] text-xs mb-3"
@@ -225,7 +226,7 @@ const About: React.FC = () => {
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
               {/* Left Side - Text Content */}
               <div className="flex-1">
-                <motion.h1 
+                <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
@@ -233,9 +234,9 @@ const About: React.FC = () => {
                 >
                   The <span className="text-brand-teal drop-shadow-neon">Architect</span> in the Marketing Room.
                 </motion.h1>
-                
+
                 {/* Executive Summary */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -247,7 +248,7 @@ const About: React.FC = () => {
                   </p>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
@@ -258,7 +259,7 @@ const About: React.FC = () => {
                   <span className="text-brand-orange mx-2">/</span>
                   <span className="text-sm font-semibold text-brand-orange">Strategist</span>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
@@ -274,9 +275,9 @@ const About: React.FC = () => {
                   </button>
                 </motion.div>
               </div>
-              
+
               {/* Right Side - TechProfile Holographic Card */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3 }}
@@ -369,7 +370,7 @@ const About: React.FC = () => {
           {/* Education & Awards */}
           <section className="max-w-6xl mx-auto mb-16 grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Education */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -392,7 +393,7 @@ const About: React.FC = () => {
             </motion.div>
 
             {/* Awards */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -437,7 +438,7 @@ const About: React.FC = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {volunteering.map((vol, idx) => (
-                <motion.div 
+                <motion.div
                   key={`${vol.role}-${vol.organization}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -466,13 +467,16 @@ const About: React.FC = () => {
                   Explore the grid of prototypes, brand systems, and interactive tools.
                 </p>
               </div>
-              <a
+              <OceanRippleButton
+                asLink
                 href="/side-projects"
-                className="inline-flex items-center gap-2 rounded-full bg-brand-teal text-brand-dark px-5 py-3 font-semibold shadow-lg hover:shadow-brand-teal/30 transition"
+                variant="primary"
+                size="md"
+                className="inline-flex items-center gap-2"
               >
                 Enter The Vault
                 <ChevronRight size={18} />
-              </a>
+              </OceanRippleButton>
             </div>
           </section>
         </main>

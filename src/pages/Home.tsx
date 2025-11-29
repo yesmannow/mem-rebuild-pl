@@ -9,6 +9,7 @@ import SectionDivider from '../components/ui/SectionDivider';
 import TerminalBlock from '../components/ui/TerminalBlock';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import TestimonialTerminal from '../components/TestimonialTerminal';
+import { OceanRippleButton } from '../components/ui/OceanRippleButton';
 import { GALLERY_MANIFESTS } from '../data/config';
 
 const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
@@ -192,20 +193,24 @@ const Home: React.FC = () => {
                 You get board-ready strategy, full-stack implementation, and the optimization muscle to prove it works.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-teal text-slate-900 font-semibold shadow-cta hover:brightness-110 transition"
+                <OceanRippleButton
+                  asLink
+                  href="/contact"
+                  variant="primary"
+                  className="inline-flex items-center gap-2"
                 >
                   Book a Consultation
                   <ArrowRight size={16} />
-                </Link>
-                <Link
-                  to="/case-studies"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-brand-teal/60 text-brand-text hover:border-brand-teal transition"
+                </OceanRippleButton>
+                <OceanRippleButton
+                  asLink
+                  href="/case-studies"
+                  variant="outline"
+                  className="inline-flex items-center gap-2"
                 >
                   View Work
                   <ArrowRight size={16} />
-                </Link>
+                </OceanRippleButton>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {heroStats.map((stat) => (
@@ -355,20 +360,24 @@ const Home: React.FC = () => {
               Tell me where you want the business to go. I'll architect the plan, build the stack, and keep the entire go-to-market motion honest.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-teal text-slate-900 font-semibold shadow-cta"
+              <OceanRippleButton
+                asLink
+                href="/contact"
+                variant="primary"
+                className="inline-flex items-center gap-2"
               >
                 Start the Conversation
                 <ArrowRight size={16} />
-              </Link>
-              <Link
-                to="/services"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-brand-teal/60 text-brand-text hover:border-brand-teal transition"
+              </OceanRippleButton>
+              <OceanRippleButton
+                asLink
+                href="/services"
+                variant="outline"
+                className="inline-flex items-center gap-2"
               >
                 Review Services
                 <ArrowRight size={16} />
-              </Link>
+              </OceanRippleButton>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10">
               {finalCtaLinks.map((linkItem) => (
@@ -481,20 +490,26 @@ const WhyFractionalSection: React.FC = () => {
             transition={{ delay: 0.8, duration: 0.5 }}
             className="flex flex-wrap gap-4 pt-2"
           >
-            <Link
-              to="/case-studies"
-              className="group inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-brand-teal/60 text-brand-text hover:border-brand-teal hover:bg-brand-teal/10 transition-all duration-300"
+            <OceanRippleButton
+              asLink
+              href="/case-studies"
+              variant="outline"
+              size="md"
+              className="inline-flex items-center gap-2"
             >
               View Case Studies
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-brand-teal text-slate-900 font-semibold shadow-cta hover:brightness-110 hover:shadow-[0_0_25px_rgba(64,224,208,0.5)] transition-all duration-300"
+              <ArrowRight size={16} />
+            </OceanRippleButton>
+            <OceanRippleButton
+              asLink
+              href="/contact"
+              variant="primary"
+              size="md"
+              className="inline-flex items-center gap-2"
             >
               Let's Connect
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+              <ArrowRight size={16} />
+            </OceanRippleButton>
           </motion.div>
         </motion.div>
 

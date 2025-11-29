@@ -5,6 +5,7 @@ import SkillsRadar from '../components/skills/SkillsRadar';
 import ToolboxEcosystem from '../components/diagrams/ToolboxEcosystem';
 import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
 import { SkillProgressBar } from '../components/ui/SkillProgressBar';
+import { OceanRippleButton } from '../components/ui/OceanRippleButton';
 import {
   ZapIcon,
   ShieldIcon,
@@ -343,14 +344,15 @@ const Toolbox: React.FC = () => {
             Explore my case studies to see how I apply these technical capabilities to solve real
             business challenges.
           </p>
-          <motion.a
+          <OceanRippleButton
+            asLink
             href="/case-studies"
-            className="cta-button inline-block mt-6 px-6 py-3 rounded-lg bg-[var(--signal-500)] text-[var(--ink-900)] font-semibold"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            variant="primary"
+            size="lg"
+            className="cta-button inline-block mt-6"
           >
             View Case Studies →
-          </motion.a>
+          </OceanRippleButton>
         </section>
       </AnimatedSection>
     </main>

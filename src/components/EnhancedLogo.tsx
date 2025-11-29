@@ -24,11 +24,11 @@ const EnhancedLogo: React.FC<EnhancedLogoProps> = ({
       <motion.div
         className={`relative transition-all duration-300 ${
           isHovered
-            ? 'drop-shadow-[0_0_25px_rgba(64,224,208,0.7),0_0_20px_rgba(255,165,0,0.5)]'
-            : 'drop-shadow-[0_0_10px_rgba(64,224,208,0.3)]'
+            ? 'drop-shadow-[0_0_30px_rgba(64,224,208,0.8),0_0_25px_rgba(255,165,0,0.6)]'
+            : 'drop-shadow-[0_0_15px_rgba(64,224,208,0.5)]'
         }`}
         animate={{
-          scale: isHovered ? 1.08 : 1,
+          scale: isHovered ? 1.1 : 1,
         }}
         transition={{
           type: 'spring',
@@ -36,88 +36,88 @@ const EnhancedLogo: React.FC<EnhancedLogoProps> = ({
           damping: 20,
         }}
       >
-        {/* Modern SVG Logo */}
+        {/* Professional, Highly Visible SVG Logo */}
         <motion.svg
           width={size}
           height={size}
-          viewBox="0 0 80 80"
+          viewBox="0 0 120 120"
           xmlns="http://www.w3.org/2000/svg"
           className="transition-all duration-300"
         >
           <defs>
-            {/* Primary gradient: Teal to Orange */}
-            <linearGradient id="gradient-primary" x1="0%" y1="0%" x2="100%" y2="100%">
+            {/* J gradient (bright teal) */}
+            <linearGradient id="jd-gradient-j" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#40E0D0" stopOpacity="1" />
               <stop offset="50%" stopColor="#20B2AA" stopOpacity="1" />
+              <stop offset="100%" stopColor="#0F766E" stopOpacity="1" />
+            </linearGradient>
+
+            {/* D gradient (bright orange) */}
+            <linearGradient id="jd-gradient-d" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#FFA500" stopOpacity="1" />
+              <stop offset="50%" stopColor="#FF8C00" stopOpacity="1" />
+              <stop offset="100%" stopColor="#C2410C" stopOpacity="1" />
+            </linearGradient>
+
+            {/* Combined gradient for accents */}
+            <linearGradient id="jd-gradient-combined" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#40E0D0" stopOpacity="1" />
               <stop offset="100%" stopColor="#FFA500" stopOpacity="1" />
             </linearGradient>
 
-            {/* Secondary gradient for depth */}
-            <linearGradient id="gradient-secondary" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00CED1" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#FF8C00" stopOpacity="0.8" />
-            </linearGradient>
-
-            {/* Glow filter */}
-            <filter id="glow-filter" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            {/* Strong glow filter for visibility */}
+            <filter id="jd-glow-strong" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
               <feMerge>
                 <feMergeNode in="coloredBlur"/>
                 <feMergeNode in="SourceGraphic"/>
               </feMerge>
             </filter>
 
-            {/* Inner glow for status dot */}
-            <radialGradient id="status-glow" cx="50%" cy="50%">
-              <stop offset="0%" stopColor="#40E0D0" stopOpacity="1" />
-              <stop offset="70%" stopColor="#40E0D0" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#40E0D0" stopOpacity="0" />
-            </radialGradient>
+            {/* Outline filter for better contrast */}
+            <filter id="jd-outline" x="-50%" y="-50%" width="200%" height="200%">
+              <feMorphology operator="dilate" radius="1" in="SourceAlpha" result="thicken"/>
+              <feGaussianBlur in="thicken" stdDeviation="2" result="blurred"/>
+              <feFlood floodColor="#000" floodOpacity="0.5" result="glowColor"/>
+              <feComposite in="glowColor" in2="blurred" operator="in" result="softGlow"/>
+              <feMerge>
+                <feMergeNode in="softGlow"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
 
-            {/* Shadow for depth */}
-            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#000" floodOpacity="0.3"/>
+            {/* Shadow for depth and contrast */}
+            <filter id="jd-shadow-strong" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="3" stdDeviation="5" floodColor="#000" floodOpacity="0.6"/>
             </filter>
           </defs>
 
-          {/* Background circle with subtle gradient */}
+          {/* Subtle background circle for depth */}
           <circle
-            cx="40"
-            cy="40"
-            r="38"
-            fill="url(#gradient-primary)"
-            opacity={isHovered ? 0.15 : 0.1}
+            cx="60"
+            cy="60"
+            r="58"
+            fill="url(#jd-gradient-combined)"
+            opacity={isHovered ? 0.15 : 0.08}
             className="transition-opacity duration-300"
           />
 
-          {/* Outer ring for depth */}
-          <motion.circle
-            cx="40"
-            cy="40"
-            r="36"
-            fill="none"
-            stroke="url(#gradient-primary)"
-            strokeWidth="1.5"
-            opacity={isHovered ? 0.4 : 0.2}
-            animate={{
-              opacity: isHovered ? [0.4, 0.6, 0.4] : 0.2,
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-
-          {/* Modern J Letter - Stylized */}
-          <g transform="translate(40, 40)">
-            {/* J with modern curves */}
-            <motion.path
-              d="M -18 -20 L -18 12 L -8 12 L -8 8 L -2 8 L -2 4 L -6 4 L -6 -8 L -2 -12 L -8 -16 L -18 -20 Z"
-              fill="url(#gradient-primary)"
-              filter="url(#shadow)"
+          {/* J Letter - Bold, Professional, Highly Visible */}
+          <g transform="translate(60, 60)">
+            {/* J main vertical stroke - extra thick for visibility */}
+            <motion.rect
+              x="-36"
+              y="-35"
+              width="16"
+              height="58"
+              rx="3"
+              fill="url(#jd-gradient-j)"
+              filter="url(#jd-outline)"
+              stroke="#000"
+              strokeWidth="0.5"
+              strokeOpacity="0.3"
               animate={{
-                opacity: [1, 0.95, 1],
+                opacity: [1, 0.98, 1],
               }}
               transition={{
                 duration: 3,
@@ -125,29 +125,58 @@ const EnhancedLogo: React.FC<EnhancedLogoProps> = ({
                 ease: 'easeInOut',
               }}
             />
-
-            {/* J accent line */}
-            <motion.line
-              x1="-18"
-              y1="-20"
-              x2="-18"
-              y2="-12"
-              stroke="url(#gradient-secondary)"
-              strokeWidth="2"
-              strokeLinecap="round"
-              opacity={isHovered ? 1 : 0.7}
+            {/* J horizontal top bar - wider and thicker */}
+            <motion.rect
+              x="-36"
+              y="-35"
+              width="24"
+              height="10"
+              rx="3"
+              fill="url(#jd-gradient-j)"
+              filter="url(#jd-outline)"
+              stroke="#000"
+              strokeWidth="0.5"
+              strokeOpacity="0.3"
+            />
+            {/* J curved hook bottom - smoother curve */}
+            <motion.path
+              d="M -20 23 Q -12 23, -12 18 Q -12 13, -20 13 L -20 23 Z"
+              fill="url(#jd-gradient-j)"
+              filter="url(#jd-glow-strong)"
+              stroke="#000"
+              strokeWidth="0.5"
+              strokeOpacity="0.2"
+            />
+            {/* J inner highlight for depth */}
+            <motion.rect
+              x="-34"
+              y="-33"
+              width="12"
+              height="54"
+              rx="2"
+              fill="none"
+              stroke="rgba(255,255,255,0.2)"
+              strokeWidth="1"
+              opacity={isHovered ? 0.4 : 0.2}
             />
           </g>
 
-          {/* Modern D Letter - Stylized */}
-          <g transform="translate(40, 40)">
-            {/* D with modern design */}
-            <motion.path
-              d="M 2 -20 L 2 12 L 14 12 L 20 6 L 20 2 L 16 -2 L 20 -6 L 20 -10 L 16 -14 L 20 -18 L 20 -20 L 2 -20 Z M 6 -16 L 6 8 L 14 8 L 18 4 L 18 -2 L 14 -6 L 6 -16 Z"
-              fill="url(#gradient-primary)"
-              filter="url(#shadow)"
+          {/* D Letter - Bold, Professional, Highly Visible */}
+          <g transform="translate(60, 60)">
+            {/* D main vertical stroke - extra thick */}
+            <motion.rect
+              x="8"
+              y="-35"
+              width="16"
+              height="70"
+              rx="3"
+              fill="url(#jd-gradient-d)"
+              filter="url(#jd-outline)"
+              stroke="#000"
+              strokeWidth="0.5"
+              strokeOpacity="0.3"
               animate={{
-                opacity: [1, 0.95, 1],
+                opacity: [1, 0.98, 1],
               }}
               transition={{
                 duration: 3,
@@ -156,46 +185,69 @@ const EnhancedLogo: React.FC<EnhancedLogoProps> = ({
                 delay: 0.1,
               }}
             />
-
-            {/* D inner accent */}
+            {/* D curved right side - top half */}
+            <motion.path
+              d="M 24 -35 L 36 -35 Q 44 -35, 44 -25 L 44 -15 Q 44 -5, 36 -5 L 24 -5 Z"
+              fill="url(#jd-gradient-d)"
+              filter="url(#jd-outline)"
+              stroke="#000"
+              strokeWidth="0.5"
+              strokeOpacity="0.3"
+            />
+            {/* D curved right side - bottom half */}
+            <motion.path
+              d="M 24 5 L 36 5 Q 44 5, 44 15 L 44 25 Q 44 35, 36 35 L 24 35 Z"
+              fill="url(#jd-gradient-d)"
+              filter="url(#jd-outline)"
+              stroke="#000"
+              strokeWidth="0.5"
+              strokeOpacity="0.3"
+            />
+            {/* D inner highlight for depth */}
             <motion.ellipse
-              cx="10"
+              cx="30"
               cy="0"
-              rx="4"
-              ry="8"
+              rx="8"
+              ry="24"
               fill="none"
-              stroke="url(#gradient-secondary)"
+              stroke="rgba(255,255,255,0.25)"
               strokeWidth="1.5"
-              opacity={isHovered ? 0.6 : 0.3}
+              opacity={isHovered ? 0.5 : 0.3}
+              filter="url(#jd-glow-strong)"
             />
           </g>
 
-          {/* Connecting element between J and D */}
+          {/* Connecting accent element between J and D */}
           <motion.path
-            d="M 22 40 Q 30 35, 38 40"
+            d="M 32 60 Q 42 58, 52 60"
             fill="none"
-            stroke="url(#gradient-secondary)"
-            strokeWidth="1.5"
+            stroke="url(#jd-gradient-combined)"
+            strokeWidth="2.5"
             strokeLinecap="round"
-            opacity={isHovered ? 0.5 : 0.2}
+            opacity={isHovered ? 0.7 : 0.4}
+            filter="url(#jd-glow-strong)"
             animate={{
-              pathLength: isHovered ? [0, 1] : [0, 0.3],
+              pathLength: isHovered ? [0, 1] : [0, 0.5],
+              opacity: isHovered ? [0.4, 0.7, 0.4] : 0.4,
             }}
             transition={{
-              duration: 0.5,
+              duration: 0.6,
             }}
           />
 
-          {/* Status indicator - Top right */}
+          {/* Status indicator - Top right corner */}
           <motion.circle
-            cx="62"
-            cy="18"
+            cx="98"
+            cy="22"
             r="5"
             fill="#40E0D0"
-            filter="url(#glow-filter)"
+            filter="url(#jd-glow-strong)"
+            stroke="#000"
+            strokeWidth="0.5"
+            strokeOpacity="0.3"
             animate={{
-              opacity: [0.8, 1, 0.8],
-              scale: isHovered ? [1, 1.3, 1] : [1, 1.15, 1],
+              opacity: [0.9, 1, 0.9],
+              scale: isHovered ? [1, 1.4, 1] : [1, 1.2, 1],
             }}
             transition={{
               duration: 2,
@@ -206,51 +258,18 @@ const EnhancedLogo: React.FC<EnhancedLogoProps> = ({
 
           {/* Status inner glow */}
           <motion.circle
-            cx="62"
-            cy="18"
+            cx="98"
+            cy="22"
             r="2.5"
-            fill="url(#status-glow)"
+            fill="#40E0D0"
+            opacity={0.9}
             animate={{
-              opacity: [0.6, 1, 0.6],
+              opacity: [0.8, 1, 0.8],
             }}
             transition={{
               duration: 2,
               repeat: Infinity,
               ease: 'easeInOut',
-            }}
-          />
-
-          {/* Decorative corner elements */}
-          <motion.circle
-            cx="18"
-            cy="18"
-            r="2"
-            fill="url(#gradient-secondary)"
-            opacity={isHovered ? 0.6 : 0.3}
-            animate={{
-              scale: isHovered ? [1, 1.2, 1] : 1,
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-
-          <motion.circle
-            cx="62"
-            cy="62"
-            r="2"
-            fill="url(#gradient-secondary)"
-            opacity={isHovered ? 0.6 : 0.3}
-            animate={{
-              scale: isHovered ? [1, 1.2, 1] : 1,
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: 1,
             }}
           />
         </motion.svg>
@@ -275,4 +294,3 @@ const EnhancedLogo: React.FC<EnhancedLogoProps> = ({
 };
 
 export default EnhancedLogo;
-

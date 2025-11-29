@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import {
   Mail,
   Linkedin,
@@ -19,6 +18,7 @@ import SectionWrapper from '../components/SectionWrapper';
 import { trackPortfolioEngagement } from '../utils/analytics';
 import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations';
 import { OceanGradientAnimation } from '../components/ui/OceanGradientAnimation';
+import { OceanRippleButton } from '../components/ui/OceanRippleButton';
 import './Contact.css';
 
 interface FormData {
@@ -519,12 +519,12 @@ const Contact: React.FC = () => {
                     </AnimatePresence>
 
                     {/* Submit Button */}
-                    <motion.button
+                    <OceanRippleButton
                       type="submit"
-                      className="btn-primary"
+                      variant="primary"
+                      size="lg"
                       disabled={isSubmitting || !isFormValid()}
-                      whileHover={!isSubmitting && isFormValid() ? { scale: 1.02 } : {}}
-                      whileTap={!isSubmitting && isFormValid() ? { scale: 0.98 } : {}}
+                      className="btn-primary w-full"
                       aria-label="Submit contact form"
                     >
                       {isSubmitting ? (
@@ -538,7 +538,7 @@ const Contact: React.FC = () => {
                           Send Message
                         </>
                       )}
-                    </motion.button>
+                    </OceanRippleButton>
                   </motion.form>
                 )}
               </AnimatePresence>
@@ -647,13 +647,16 @@ const Contact: React.FC = () => {
                 <p className="text-gray-600 mb-4">
                   Explore my case studies to see how I solve real business challenges.
                 </p>
-                <Link
-                  to="/case-studies"
+                <OceanRippleButton
+                  asLink
+                  href="/case-studies"
+                  variant="outline"
+                  size="md"
                   className="btn-secondary"
                   aria-label="View case studies"
                 >
                   View Case Studies →
-                </Link>
+                </OceanRippleButton>
               </motion.div>
             </div>
           </div>
