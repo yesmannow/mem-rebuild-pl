@@ -320,10 +320,10 @@ const Home: React.FC = () => {
               </div>
               <TerminalBlock title="Operating Signals">
                 <div className="space-y-2 font-mono text-sm text-brand-text">
-                  <p>> WEEKLY SIGNAL REPORTS + KPI MONITORS</p>
-                  <p>> DONE-WITH-YOU IMPLEMENTATION</p>
-                  <p>> EXECUTIVE ALIGNMENT + TEAM ENABLEMENT</p>
-                  <p>> PLAYBOOKS THAT OUTLIVE THE ENGAGEMENT</p>
+                  <p>&gt; WEEKLY SIGNAL REPORTS + KPI MONITORS</p>
+                  <p>&gt; DONE-WITH-YOU IMPLEMENTATION</p>
+                  <p>&gt; EXECUTIVE ALIGNMENT + TEAM ENABLEMENT</p>
+                  <p>&gt; PLAYBOOKS THAT OUTLIVE THE ENGAGEMENT</p>
                 </div>
               </TerminalBlock>
             </div>
@@ -390,9 +390,9 @@ const Home: React.FC = () => {
             <div className="space-y-6">
               <TerminalBlock title="Current Focus">
                 <div className="space-y-2 text-sm text-brand-text">
-                  <p>> Scaling demand gen engines for technical founders</p>
-                  <p>> Rolling up marketing and sales ops into one RevOps layer</p>
-                  <p>> Automating measurement from first touch to booked revenue</p>
+                  <p>&gt; Scaling demand gen engines for technical founders</p>
+                  <p>&gt; Rolling up marketing and sales ops into one RevOps layer</p>
+                  <p>&gt; Automating measurement from first touch to booked revenue</p>
                 </div>
               </TerminalBlock>
             </div>
