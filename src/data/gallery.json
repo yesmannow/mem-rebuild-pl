@@ -20,16 +20,6 @@
     }
   },
   {
-    "file": "images/bio/1732967007485.jpg",
-    "meta": {
-      "width": 500,
-      "height": 500,
-      "base": "images/bio/1732967007485",
-      "color": "rgb(72 40 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAABQBQCdASoUABQAPxF2sVIsJySiqA1RgCIJbAC1F2QA3jmBIEl5seIZDMLx2BxyZ2X4pMAAzFPTkEB/2ih5mwHK5B9bQxVJhZIFATip5gXvUwFZm4KOq0Mk5mPJtfw4JKex/uHHBQMj7rJvyFi1Yrv8/U7sRwb6cqtxAhsNytMah2RKiwjEMHnvBgwmiHUm6YGVb43d6sDqOokGZnVZjTafOcUX+0Vxwrsv4NnqsLtxEy5NhQDAAA=="
-    }
-  },
-  {
     "file": "images/auto-generated/awards/gold-key-award.png",
     "meta": {
       "width": 820,
@@ -37,6 +27,16 @@
       "base": "images/auto-generated/awards/gold-key-award",
       "color": "rgb(248 248 248)",
       "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAACQBACdASoUABsAPvVkp1AqpaOit+gBUB6JZgDKtDJegknUw0+BlDAJ+KA1zZgA/u/Dfm2gmEHJgt2l1hhNs930t7ErixaA+ArqehcZAvs2c7mbC6vXoWtMAyMMQwqwmUnKqFzJPUe7WggjmOUm/7WFll7OQAAA"
+    }
+  },
+  {
+    "file": "images/bio/1732967007485.jpg",
+    "meta": {
+      "width": 500,
+      "height": 500,
+      "base": "images/bio/1732967007485",
+      "color": "rgb(72 40 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAABQBQCdASoUABQAPxF2sVIsJySiqA1RgCIJbAC1F2QA3jmBIEl5seIZDMLx2BxyZ2X4pMAAzFPTkEB/2ih5mwHK5B9bQxVJhZIFATip5gXvUwFZm4KOq0Mk5mPJtfw4JKex/uHHBQMj7rJvyFi1Yrv8/U7sRwb6cqtxAhsNytMah2RKiwjEMHnvBgwmiHUm6YGVb43d6sDqOokGZnVZjTafOcUX+0Vxwrsv4NnqsLtxEy5NhQDAAA=="
     }
   },
   {
@@ -380,16 +380,6 @@
     }
   },
   {
-    "file": "images/side-projects/online-doctor-consultation-instagram-post.png",
-    "meta": {
-      "width": 1080,
-      "height": 1080,
-      "base": "images/side-projects/online-doctor-consultation-instagram-post",
-      "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoUABQAPvVip1AqpaOit+gBUB6JbADE2DJPZbuJ/qkcHr+olAAA/u3XsrFq6dO6rbFJLw1uomVtwRhjDDzU/HQEGD3ZQIaTNTwVmPQcD1gs34Eij4s5H1E6wcXgN1v+0/QqRiM/scuTApYBMFirqiKzk3NI0BXGYcWI9br0UkYAAA=="
-    }
-  },
-  {
     "file": "images/side-projects/my-post-2.jpg",
     "meta": {
       "width": 1080,
@@ -397,6 +387,16 @@
       "base": "images/side-projects/my-post-2",
       "color": "rgb(56 104 184)",
       "blurDataURL": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAACQBACdASoUABQAPxF4sFKsJyQiqA1RgCIJQBhQAUZB0fW+I8uufY3f6Bo5fgAA/hWjAvYyrip1RdKFI7TqAXryM7/u/PyLWY5vVLUocOfAgLSYv0KdVyjAeYer6mqyVwM8315OR4l82Hpm7xndPuGZGsHHB8wi4LIAdQbrVOXM4AAA"
+    }
+  },
+  {
+    "file": "images/side-projects/online-doctor-consultation-instagram-post.png",
+    "meta": {
+      "width": 1080,
+      "height": 1080,
+      "base": "images/side-projects/online-doctor-consultation-instagram-post",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoUABQAPvVip1AqpaOit+gBUB6JbADE2DJPZbuJ/qkcHr+olAAA/u3XsrFq6dO6rbFJLw1uomVtwRhjDDzU/HQEGD3ZQIaTNTwVmPQcD1gs34Eij4s5H1E6wcXgN1v+0/QqRiM/scuTApYBMFirqiKzk3NI0BXGYcWI9br0UkYAAA=="
     }
   },
   {
