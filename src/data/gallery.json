@@ -60,16 +60,6 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_175512.jpg",
-    "meta": {
-      "width": 900,
-      "height": 420,
-      "base": "images/projects/317 bbq/20231008_175512",
-      "color": "rgb(248 232 216)",
-      "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAAkAPxF2sVAsJ6SisAgBgCIJagCdMoADCfg0bkLzbAAA4lFuh8CYLfqGmh7m1dbp+F14MI4iK7jkPSxt3lW2LQ+FMIW9YtjjQ47h3ATNevQPbfgcYOJujwBU44D5DO4q3CmJzRpbQF4nfAQaBSR8AwAAAA=="
-    }
-  },
-  {
     "file": "images/projects/317 bbq/20231008_181722.jpg",
     "meta": {
       "width": 900,
@@ -87,6 +77,16 @@
       "base": "images/projects/317 bbq/20231008_175650",
       "color": "rgb(24 24 24)",
       "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoUAAkAPxFysFAsJqSisAgBgCIJZACdMoACxGdBHE/ZSu/VMSAA4dkn27ihdVbw/g8ed/njRaG4zEDUDLKlbxnyxSkrKEY7wx0SHztHTGZdAhOAMJ+5zVERfXo40Uonc7GNAAAA"
+    }
+  },
+  {
+    "file": "images/projects/317 bbq/20231008_175512.jpg",
+    "meta": {
+      "width": 900,
+      "height": 420,
+      "base": "images/projects/317 bbq/20231008_175512",
+      "color": "rgb(248 232 216)",
+      "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAAkAPxF2sVAsJ6SisAgBgCIJagCdMoADCfg0bkLzbAAA4lFuh8CYLfqGmh7m1dbp+F14MI4iK7jkPSxt3lW2LQ+FMIW9YtjjQ47h3ATNevQPbfgcYOJujwBU44D5DO4q3CmJzRpbQF4nfAQaBSR8AwAAAA=="
     }
   },
   {
@@ -310,16 +310,6 @@
     }
   },
   {
-    "file": "images/side-projects/what-we-treat-1.jpg",
-    "meta": {
-      "width": 1000,
-      "height": 603,
-      "base": "images/side-projects/what-we-treat-1",
-      "color": "rgb(136 136 136)",
-      "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJQBfJAzRNMF0vYKyEgAD+6PV/2NXw0tyZpPVx0f46B0+BOowtmiOjBQxc19VQS9JUq7Gj+7jPI8LDD+MxoAAA"
-    }
-  },
-  {
     "file": "images/side-projects/occ-health-header.jpg",
     "meta": {
       "width": 1000,
@@ -327,6 +317,16 @@
       "base": "images/side-projects/occ-health-header",
       "color": "rgb(168 168 168)",
       "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJYgDE2BUpkH/mJ99rs/P+APd6ZeXCv5JNRwKHdumuYcSJ67IPaBHoT5WDySeAYaYQqcJZm9acI4eFVVtlZ10DxfL0bF0i0Wi3bUI8J3YAAA=="
+    }
+  },
+  {
+    "file": "images/side-projects/what-we-treat-1.jpg",
+    "meta": {
+      "width": 1000,
+      "height": 603,
+      "base": "images/side-projects/what-we-treat-1",
+      "color": "rgb(136 136 136)",
+      "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJQBfJAzRNMF0vYKyEgAD+6PV/2NXw0tyZpPVx0f46B0+BOowtmiOjBQxc19VQS9JUq7Gj+7jPI8LDD+MxoAAA"
     }
   },
   {
