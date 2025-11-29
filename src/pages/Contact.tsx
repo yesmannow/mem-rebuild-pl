@@ -25,7 +25,6 @@ import { OceanRippleButton } from '../components/ui/OceanRippleButton';
 import TerminalBlock from '../components/ui/TerminalBlock';
 import TechProfile from '../components/TechProfile';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
-import AnimatedGradientText from '../components/ui/AnimatedGradientText';
 import { AvailabilityBadge } from '../components/ui/AvailabilityBadge';
 import './Contact.css';
 
@@ -249,10 +248,6 @@ const Contact: React.FC = () => {
                 <p className="text-sm font-mono uppercase tracking-[0.35em] text-brand-muted mb-4">
                   Let's Connect
                 </p>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-brand-text">
-                  Let's Create What{' '}
-                  <AnimatedGradientText text="Doesn't Exist Yet" className="text-4xl md:text-5xl lg:text-6xl font-bold" />
-                </h1>
                 <p className="text-lg md:text-xl text-brand-muted leading-relaxed mb-4">
                   I'm currently open to new opportunities in marketing leadership and tech integration.
                   Feel free to reach out for interviews, collaborations, or any questions—I'd love to connect!
