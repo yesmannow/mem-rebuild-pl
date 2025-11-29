@@ -306,10 +306,12 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       switch (e.key) {
         case 'ArrowDown':
           e.preventDefault();
+          if (filteredItems.length === 0) return;
           setSelectedIndex(prev => (prev + 1) % filteredItems.length);
           break;
         case 'ArrowUp':
           e.preventDefault();
+          if (filteredItems.length === 0) return;
           setSelectedIndex(prev => prev === 0 ? filteredItems.length - 1 : prev - 1);
           break;
         case 'Enter':

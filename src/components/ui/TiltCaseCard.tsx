@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import Icon from '../Icon';
 
 interface TiltCaseCardProps {
   study: any;

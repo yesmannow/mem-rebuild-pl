@@ -5,7 +5,7 @@ import OptimizedImage from "@components/media/OptimizedImage";
 // Handle missing manifest gracefully in development
 let manifest: Record<string, unknown> = {};
 try {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require
   const manifestData = require("@data/images.manifest.json");
   manifest = manifestData || {};
 } catch {

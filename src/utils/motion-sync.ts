@@ -6,6 +6,25 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Global Lenis instance - single source of truth
 let lenis: Lenis | null = null;
+let rafId: number | null = null;
+
+const startRafLoop = () => {
+  if (rafId !== null) return;
+
+  const loop = (time: number) => {
+    if (lenis) {
+      lenis.raf(time);
+    }
+
+    if (lenis) {
+      rafId = requestAnimationFrame(loop);
+    } else {
+      rafId = null;
+    }
+  };
+
+  rafId = requestAnimationFrame(loop);
+};
 
 /**
  * Initialize Lenis smooth scroll with GSAP ScrollTrigger integration
@@ -29,14 +48,7 @@ export function initLenis(): Lenis | null {
       infinite: false,
     });
 
-    // Simple RAF loop for Lenis
-    function raf(time: number) {
-      if (lenis) {
-        lenis.raf(time);
-      }
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
+    startRafLoop();
 
     // Sync Lenis scroll with ScrollTrigger
     if (lenis.on) {
@@ -78,14 +90,20 @@ export function destroyLenis(): void {
       if (typeof lenis.destroy === 'function') {
         lenis.destroy();
       }
-      lenis = null;
-      if (process.env.NODE_ENV === 'development') {
-        console.log('🔄 Lenis destroyed (cleanup)');
-      }
     } catch (error) {
       console.error('Error destroying Lenis:', error);
-      lenis = null;
     }
+  }
+
+  lenis = null;
+
+  if (rafId !== null) {
+    cancelAnimationFrame(rafId);
+    rafId = null;
+  }
+
+  if (process.env.NODE_ENV === 'development') {
+    console.log('🔄 Lenis destroyed (cleanup)');
   }
 }
 
