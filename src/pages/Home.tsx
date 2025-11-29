@@ -278,8 +278,6 @@ const Home: React.FC = () => {
 
         <SectionDivider />
 
-        <SectionDivider />
-
         <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="rounded-3xl border border-white/10 bg-slate-950/70 p-8">
