@@ -61,3 +61,21 @@ export interface SkillCategory {
   items: string[];
   accent?: 'teal' | 'orange' | 'blue';
 }
+
+export interface LabItem {
+  id: string;
+  title: string;
+  type: 'app' | 'tool'; // 'app' = Client Facing, 'tool' = Internal Engineering
+  category: string;
+  tagline: string;
+  techStack: { name: string; reason: string }[]; // Include architect's rationale
+  context: {
+    problem: string;   // The Strategic Challenge
+    solution: string;  // The Technical Architecture
+    impact: string;    // The ROI / Outcome
+    target: string;    // Target Audience
+    usage: string;     // Operational Context
+  };
+  link?: string;       // For Apps
+  command?: string;    // For Tools
+}

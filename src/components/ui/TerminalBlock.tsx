@@ -1,13 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { cn } from '../../lib/utils';
 
 interface TerminalBlockProps {
   title?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
+  command?: string;
+  typewriter?: boolean;
+  typewriterSpeed?: number;
 }
 
-const TerminalBlock: React.FC<TerminalBlockProps> = ({ title, children, className }) => {
+const TerminalBlock: React.FC<TerminalBlockProps> = ({
+  title,
+  children,
+  className,
+  command,
+  typewriter = false,
+  typewriterSpeed = 50,
+}) => {
+  const [displayedText, setDisplayedText] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+
+  useEffect(() => {
+    if (typewriter && command) {
+      setIsTyping(true);
+      setDisplayedText('');
+      let index = 0;
+      const timer = setInterval(() => {
+        if (index < command.length) {
+          setDisplayedText(command.slice(0, index + 1));
+          index++;
+        } else {
+          clearInterval(timer);
+          setIsTyping(false);
+        }
+      }, typewriterSpeed);
+      return () => clearInterval(timer);
+    }
+  }, [command, typewriter, typewriterSpeed]);
+
   return (
     <div
       className={cn(
@@ -24,7 +55,19 @@ const TerminalBlock: React.FC<TerminalBlockProps> = ({ title, children, classNam
           </span>
         </div>
       )}
-      <div className="space-y-1 leading-relaxed">{children}</div>
+      {command && typewriter ? (
+        <div className="space-y-1 leading-relaxed font-mono" style={{ fontFamily: "'Fira Code', monospace" }}>
+          <span className="text-brand-teal">$</span>{' '}
+          <span>{displayedText}</span>
+          {isTyping && <span className="animate-pulse">▋</span>}
+        </div>
+      ) : command ? (
+        <div className="space-y-1 leading-relaxed font-mono" style={{ fontFamily: "'Fira Code', monospace" }}>
+          <span className="text-brand-teal">$</span> {command}
+        </div>
+      ) : (
+        <div className="space-y-1 leading-relaxed">{children}</div>
+      )}
     </div>
   );
 };
