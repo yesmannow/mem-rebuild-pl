@@ -183,11 +183,12 @@ export default defineConfig({
           if (id.includes('node_modules/framer-motion/')) {
             return 'vendor-animation';
           }
-          // Recharts - very large, only used on Services page
+          // Charts: keep bundled with React to avoid cyclic vendor chunk imports
+          // (Recharts was previously in its own chunk and created a circular dependency with vendor-react)
           if (id.includes('node_modules/recharts/') || 
               id.includes('node_modules/d3-') ||
               id.includes('node_modules/victory-')) {
-            return 'vendor-charts';
+            return 'vendor-react';
           }
           // GSAP and smooth scroll - heavy animation
           if (id.includes('node_modules/gsap/') || 
