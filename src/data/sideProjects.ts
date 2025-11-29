@@ -50,7 +50,7 @@ export const sideProjects: SideProject[] = [
     category: 'Branding',
     tags: ['Hospitality', 'Print', 'Identity'],
     description: 'Authentic Texas smoke identity for a saturated market.',
-    image: '/images/side-projects/317bbqlogo_wht.avif',
+    image: '/images/projects/317 bbq/317bbqlogo_wht.avif',
     year: '2023',
     challenge: 'Create a memorable identity for a new BBQ joint that captures the smoky essence of traditional cooking.',
     solution:
@@ -146,7 +146,7 @@ export const sideProjects: SideProject[] = [
     category: 'Non-Profit',
     tags: ['Event', 'Community', 'Fundraising'],
     description: 'Campaign strategy raising $46k+ for local arts.',
-    image: '/images/side-projects/cropped-PC_LOGO1-1024x174.jpg',
+    image: '/images/projects/Primary Colours/cropped-PC_LOGO1-1024x174.jpg',
     year: '2019',
     challenge: 'Increase community engagement and fundraising for a 23-day outdoor art exhibition.',
     solution: 'Executed a multi-tier sponsorship program and integrated social media campaign.',
