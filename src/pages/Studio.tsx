@@ -130,7 +130,7 @@ const Studio: React.FC = () => {
             <div className="mb-8">
               <h1 className="text-4xl font-bold text-brand-teal mb-3 drop-shadow-neon">Visual Engineering</h1>
               <p className="text-lg text-brand-muted">
-                Photography and design work powered by live manifests to keep every capture in sync.
+                Photography and design work powered by live manifests to keep content in sync.
               </p>
               {useFallback && activeTab === 'photography' && (
                 <p className="text-sm text-brand-orange mt-2 italic">
