@@ -150,4 +150,144 @@ export const labItems: LabItem[] = [
     },
     command: 'npx scrape-gen --source dribbble --query "SaaS dashboard" --ai-analysis',
   },
+  {
+    id: 'icon-factory',
+    title: 'Icon Component Factory',
+    type: 'tool',
+    category: 'Build Tool',
+    tagline: 'SVG-to-React Transformation Engine',
+    techStack: [
+      { name: 'SVGR', reason: 'Industry-standard AST transformer that converts raw SVG strings into tree-shakable React components.' },
+      { name: 'Prettier', reason: 'Enforces consistent formatting on generated files to ensure they pass linting rules automatically.' },
+      { name: 'TypeScript', reason: "Auto-generates interface definitions for props like 'size' and 'color' to ensure type safety." }
+    ],
+    command: "npm run icons:compile -- --prefix='Icon' --typescript",
+    context: {
+      problem: 'Designers hand off raw SVGs with inconsistent attributes, leading to spaghetti code and bloated DOMs.',
+      solution: 'A build-step script that sanitizes raw SVG files, converts attributes to camelCase, and wraps them in a standardized React functional component template.',
+      impact: 'Reduced icon bundle size by 40% and eliminated hydration mismatches.',
+      target: 'UI Engineers, Design Systems Team',
+      usage: 'Run on commit when new assets are added.',
+    },
+  },
+  {
+    id: 'route-auditor',
+    title: 'Route Integrity Monitor',
+    type: 'tool',
+    category: 'QA Automation',
+    tagline: 'Dead Link & Redirect Sentinel',
+    techStack: [
+      { name: 'Node.js', reason: 'Leverages the file system (fs) to recursively scan the codebase for link patterns.' },
+      { name: 'Glob', reason: 'Efficient pattern matching to identify all tsx/mdx files.' },
+      { name: 'Chalk', reason: 'Provides color-coded terminal output for critical errors.' }
+    ],
+    command: 'npm run audit:routes -- --strict --report=json',
+    context: {
+      problem: 'Internal links to renamed or moved pages were breaking, silently hurting SEO authority.',
+      solution: 'A static analysis tool that parses every Link tag, compares hrefs against a valid route registry, and flags orphans.',
+      impact: 'Achieved 0% broken links in production and prevented 3 critical SEO regressions.',
+      target: 'SEO Specialists, QA Engineers',
+      usage: 'Pre-commit hook.',
+    },
+  },
+  {
+    id: 'bundle-analyzer',
+    title: 'Bundle Anatomy Lab',
+    type: 'tool',
+    category: 'Performance',
+    tagline: 'Dependency Weight Visualizer',
+    techStack: [
+      { name: 'Rollup', reason: 'Exposes the module graph for detailed analysis.' },
+      { name: 'Brotli', reason: "Calculates 'real world' transfer size of assets." },
+      { name: 'D3.js', reason: 'Powers the interactive treemap visualization.' }
+    ],
+    command: 'npm run build:analyze -- --mode=treemap --open',
+    context: {
+      problem: 'Accidental import of heavy libraries was silently bloating the main bundle.',
+      solution: 'An interactive visualization step injected into the build pipeline to map module sizes.',
+      impact: 'Identified and removed 200kb of unused dependencies. Improved TTI by 1.2s.',
+      target: 'Performance Engineers',
+      usage: 'Monthly dependency audit.',
+    },
+  },
+  {
+    id: 'theme-tokenizer',
+    title: 'Design Token Engine',
+    type: 'tool',
+    category: 'Design Ops',
+    tagline: 'Figma-to-Tailwind Sync Bridge',
+    techStack: [
+      { name: 'Figma API', reason: 'Direct REST connection to fetch latest styles.' },
+      { name: 'Zod', reason: 'Validates incoming token schema.' },
+      { name: 'PostCSS', reason: 'Transforms tokens into CSS variables.' }
+    ],
+    command: 'npm run theme:sync -- --file=ocean-pearl-v2',
+    context: {
+      problem: 'Manual copying of hex codes resulted in design drift and magic numbers.',
+      solution: 'Automated bridge that fetches Figma styles and auto-generates tailwind.config.js.',
+      impact: 'Reduced handoff time by 50% and ensured 100% color accuracy.',
+      target: 'Frontend Leads, UI Designers',
+      usage: 'Triggered on UI Kit updates.',
+    },
+  },
+  {
+    id: 'og-generator',
+    title: 'Open Graph Automator',
+    type: 'tool',
+    category: 'Brand Ops',
+    tagline: 'Programmatic Social Asset Factory',
+    techStack: [
+      { name: 'Puppeteer', reason: "Headless browser automation to 'screenshot' components." },
+      { name: 'Canvas API', reason: 'Pixel-perfect compositing of brand overlays.' },
+      { name: 'Node.js', reason: 'Orchestrates batch generation.' }
+    ],
+    command: 'npm run generate-social-images -- --force',
+    context: {
+      problem: 'Manually designing social cards for every post is unscalable.',
+      solution: 'Headless script that renders a React template for each route and captures a screenshot.',
+      impact: 'Ensured 100% brand consistency and saved ~2 hours/launch.',
+      target: 'Brand Directors',
+      usage: "Runs during 'magic:assets' build.",
+    },
+  },
+  {
+    id: 'telemetry-dashboard',
+    title: 'The Quality Gatekeeper',
+    type: 'tool',
+    category: 'QA Automation',
+    tagline: 'Composite Health Scoring Engine',
+    techStack: [
+      { name: 'Lighthouse CI', reason: 'Programmatic access to Core Web Vitals.' },
+      { name: 'Pa11y', reason: 'Automated accessibility scanner.' },
+      { name: 'Chalk', reason: 'Color-coded terminal dashboards.' }
+    ],
+    command: 'npm run audit-score -- --strict',
+    context: {
+      problem: 'Performance regressions often go unnoticed until SEO drops.',
+      solution: "Custom script that runs audits and calculates a composite 'Health Score'.",
+      impact: 'Maintained 100/100 Accessibility score.',
+      target: 'QA Engineers',
+      usage: 'Pre-push git hook.',
+    },
+  },
+  {
+    id: 'edge-personalizer',
+    title: 'Edge Geo-Personalizer',
+    type: 'tool',
+    category: 'Edge Computing',
+    tagline: 'Serverless Localization Engine',
+    techStack: [
+      { name: 'Cloudflare Workers', reason: 'Executes logic at the network edge.' },
+      { name: 'V8 Runtime', reason: 'Shares utility code between frontend and edge.' },
+      { name: 'Geolocation API', reason: 'Extracts country/city from request headers.' }
+    ],
+    command: 'Deployed to: functions/api/geo.js',
+    context: {
+      problem: 'Static sites feel impersonal without dynamic origins.',
+      solution: 'Edge function that intercepts requests and injects location data into hydration state.',
+      impact: 'Increased engagement by 15% via localized hooks.',
+      target: 'Growth Engineers',
+      usage: 'Active on every page load.',
+    },
+  },
 ];

@@ -13,7 +13,11 @@ export default defineConfig({
     ? `/${process.env.GITHUB_REPOSITORY?.split('/')[1] || 'mem-rebuild-pl'}/`
     : '/',
   resolve: {
+    dedupe: ['react', 'react-dom', 'react-is'],
     alias: {
+      react: resolve(__dirname, 'node_modules/react'),
+      'react-dom': resolve(__dirname, 'node_modules/react-dom'),
+      'react/jsx-runtime': resolve(__dirname, 'node_modules/react/jsx-runtime'),
       '@': resolve(__dirname, 'src'),
       '@components': resolve(__dirname, 'src/components'),
       '@pages': resolve(__dirname, 'src/pages'),
@@ -172,23 +176,29 @@ export default defineConfig({
           return 'assets/[name]-[hash][extname]';
         },
         manualChunks: (id) => {
-          // React core - frequently cached
-          if (id.includes('node_modules/react/') || 
-              id.includes('node_modules/react-dom/') || 
-              id.includes('node_modules/react-router-dom/') ||
+          if (!id.includes('node_modules')) return;
+
+          // Keep React core isolated to avoid interop loss across chunks
+          if (id.includes('node_modules/react/') ||
+              id.includes('node_modules/react-dom/') ||
+              id.includes('node_modules/react-is/') ||
               id.includes('node_modules/scheduler/')) {
-            return 'vendor-react';
+            return 'react-vendor';
+          }
+
+          // Force Recharts and its d3 deps into their own stable chunk
+          if (id.includes('node_modules/recharts/') ||
+              id.includes('node_modules/d3-') ||
+              id.includes('node_modules/victory-')) {
+            return 'recharts-vendor';
+          }
+
+          if (id.includes('node_modules/react-router-dom/')) {
+            return 'vendor-router';
           }
           // Animation libraries - large but cacheable
           if (id.includes('node_modules/framer-motion/')) {
             return 'vendor-animation';
-          }
-          // Charts: keep bundled with React to avoid cyclic vendor chunk imports
-          // (Recharts was previously in its own chunk and created a circular dependency with vendor-react)
-          if (id.includes('node_modules/recharts/') || 
-              id.includes('node_modules/d3-') ||
-              id.includes('node_modules/victory-')) {
-            return 'vendor-react';
           }
           // GSAP and smooth scroll - heavy animation
           if (id.includes('node_modules/gsap/') || 

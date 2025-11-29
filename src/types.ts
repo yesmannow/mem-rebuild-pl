@@ -68,7 +68,7 @@ export interface LabItem {
   type: 'app' | 'tool'; // 'app' = Client Facing, 'tool' = Internal Engineering
   category: string;
   tagline: string;
-  techStack: { name: string; reason: string }[]; // Include architect's rationale
+  techStack: Array<{ name: string; reason: string }>; // Architectural rationale per tool
   context: {
     problem: string;   // The Strategic Challenge
     solution: string;  // The Technical Architecture

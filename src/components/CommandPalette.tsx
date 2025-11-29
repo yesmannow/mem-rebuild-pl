@@ -345,7 +345,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[200] bg-slate-950/80 backdrop-blur-sm"
+        className="fixed inset-0 z-[200] bg-slate-950/50 backdrop-blur-2xl"
         onClick={onClose}
       >
         <div className="flex items-start justify-center pt-[15vh] min-h-screen px-4">
@@ -354,19 +354,21 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ type: "spring", duration: 0.3 }}
-            className="w-full max-w-2xl bg-slate-900 border border-brand-teal/30 rounded-2xl shadow-2xl overflow-hidden"
+            className="w-full max-w-2xl bg-slate-900/60 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_20px_70px_rgba(0,0,0,0.65)] overflow-hidden"
             style={{
               boxShadow: '0 0 40px rgba(64, 224, 208, 0.15), 0 25px 50px -12px rgba(0, 0, 0, 0.5)'
             }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Search Input Header */}
-            <div className="flex items-center gap-3 p-4 border-b border-white/10">
-              <Search className="text-brand-teal" size={20} />
+            <div className="flex items-center gap-3 p-4 border-b border-white/10 bg-white/5 backdrop-blur-xl">
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-brand-teal/15 text-brand-teal text-xs font-semibold uppercase tracking-wide">
+                <Command size={14} /> Palette
+              </div>
               <input
                 ref={inputRef}
                 type="text"
-                placeholder="Search pages, case studies, actions..."
+                placeholder="Search apps, gallery, resume, contact..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 className="flex-1 bg-transparent text-white placeholder-brand-muted outline-none text-lg"

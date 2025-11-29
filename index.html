@@ -4,7 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Removed customElements define guard after ensuring no duplicate registrations -->
+    <script>
+      // Patch to silence duplicate custom element definition errors (e.g., from extensions/TinyMCE)
+      const originalDefine = customElements.define;
+      customElements.define = function(name, constructor, options) {
+        if (customElements.get(name)) {
+          console.warn(`Silencing duplicate registration for custom element: ${name}`);
+          return;
+        }
+        originalDefine.call(this, name, constructor, options);
+      };
+    </script>
 
     <!-- Theme Init - Zero-FOUC theme loading -->
     <script>

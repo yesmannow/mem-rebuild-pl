@@ -260,6 +260,23 @@ const EnhancedFooter: React.FC = () => {
           </motion.div>
         </div>
       </footer>
+
+      {/* Status Bar */}
+      <div className="bg-[var(--ink-900)] border-t border-[var(--ink-700)] text-slate-400 font-mono text-xs">
+        <div className="container mx-auto px-4 md:px-8 py-2 flex flex-wrap items-center gap-4">
+          <div className="flex items-center gap-2">
+            <motion.span
+              className="w-2 h-2 rounded-full bg-green-400"
+              animate={{ opacity: [1, 0.5, 1], scale: [1, 1.1, 1] }}
+              transition={{ duration: 1.6, repeat: Infinity }}
+            />
+            <span>STATUS: OPERATIONAL</span>
+          </div>
+          <span className="uppercase tracking-wide">LATENCY: 24ms</span>
+          <span className="uppercase tracking-wide">NODE: US-EAST-1</span>
+          <span className="uppercase tracking-wide">BUILD: v2.4.0</span>
+        </div>
+      </div>
     </>
   );
 };

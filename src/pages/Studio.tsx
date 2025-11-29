@@ -2,17 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { TabbedMasonryGallery } from '../components/ui/TabbedMasonryGallery';
-import { 
-  photographyItems, 
-  designItems, 
-  fallbackPhotographyItems, 
+import {
+  photographyItems,
+  designItems,
+  fallbackPhotographyItems,
   fallbackDesignItems,
-  type StudioItem 
+  type StudioItem,
 } from '../data/studioData';
+import { manifestToStudioItems } from '../utils/studioManifest';
 
 /**
  * Studio Page - Visual Engineering
- * 
+ *
  * A data-driven visual showcase featuring:
  * - Deep Slate background with proper layout structure
  * - Tabbed masonry gallery with context-aware HUD overlays
@@ -28,33 +29,49 @@ const Studio: React.FC = () => {
   useEffect(() => {
     let mounted = true;
 
+    const fetchManifest = async (path: string): Promise<string[] | null> => {
+      try {
+        const response = await fetch(path, { cache: 'no-store' });
+        if (!response.ok) return null;
+        const payload = await response.json();
+        return Array.isArray(payload) ? payload : null;
+      } catch {
+        return null;
+      }
+    };
+
     const loadAssets = async () => {
       try {
-        // Check if local photography images exist by testing first item
-        const testPhotoResponse = await fetch(photographyItems[0]?.src || '', { method: 'HEAD' });
-        const testDesignResponse = await fetch(designItems[0]?.src || '', { method: 'HEAD' });
+        const [photoManifest, designManifest] = await Promise.all([
+          fetchManifest('/images/photography/manifest.json'),
+          fetchManifest('/images/design/manifest.json'),
+        ]);
 
-        if (mounted) {
-          // Use curated items from studioData.ts if available
-          if (testPhotoResponse.ok && photographyItems.length > 0) {
-            setPhotos(photographyItems);
-          } else {
-            setPhotos(fallbackPhotographyItems);
-            setUseFallback(true);
-          }
+        if (!mounted) return;
 
-          if (testDesignResponse.ok && designItems.length > 0) {
-            setDesigns(designItems);
-          } else {
-            setDesigns(fallbackDesignItems);
-          }
-        }
+        const manifestPhotos = manifestToStudioItems(photoManifest, 'photography');
+        const manifestDesigns = manifestToStudioItems(designManifest, 'design');
+
+        const resolvedPhotos = manifestPhotos.length
+          ? manifestPhotos
+          : photographyItems.length
+            ? photographyItems
+            : fallbackPhotographyItems;
+
+        const resolvedDesigns = manifestDesigns.length
+          ? manifestDesigns
+          : designItems.length
+            ? designItems
+            : fallbackDesignItems;
+
+        setPhotos(resolvedPhotos);
+        setDesigns(resolvedDesigns);
+        setUseFallback(!(manifestPhotos.length && manifestDesigns.length));
       } catch {
-        if (mounted) {
-          setPhotos(fallbackPhotographyItems);
-          setDesigns(fallbackDesignItems);
-          setUseFallback(true);
-        }
+        if (!mounted) return;
+        setPhotos(fallbackPhotographyItems);
+        setDesigns(fallbackDesignItems);
+        setUseFallback(true);
       } finally {
         if (mounted) {
           setIsLoading(false);
@@ -62,7 +79,7 @@ const Studio: React.FC = () => {
       }
     };
 
-    loadAssets();
+    void loadAssets();
 
     return () => {
       mounted = false;
@@ -83,12 +100,12 @@ const Studio: React.FC = () => {
       <div className="min-h-screen bg-slate-900 relative">
         {/* Subtle gradient overlay for depth */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 pointer-events-none" />
-        
+
         {/* Main Content */}
         <main className="relative z-10 pt-24 pb-32 px-6">
           <section className="max-w-6xl mx-auto">
             {/* Header Section */}
-            <motion.div 
+            <motion.div
               className="mb-12 text-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -103,19 +120,19 @@ const Studio: React.FC = () => {
                   Hover for technical data overlays.
                 </span>
               </p>
-              
+
               {useFallback && (
-                <motion.p 
+                <motion.p
                   className="text-sm text-brand-orange mt-4 italic"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
                 >
-                  Displaying curated placeholder images. Run{' '}
+                  Some manifest assets are unavailable, so curated placeholders are filling the gaps. Run{' '}
                   <code className="bg-slate-800 px-2 py-0.5 rounded text-brand-teal">
                     npm run magic:assets
                   </code>{' '}
-                  to populate with your content.
+                  to regenerate the image manifests and sync your full gallery.
                 </motion.p>
               )}
             </motion.div>

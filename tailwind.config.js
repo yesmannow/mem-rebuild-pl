@@ -10,6 +10,9 @@ export default {
   ],
   theme: {
   	extend: {
+      fontFamily: {
+        mono: ['"Fira Code"', 'SFMono-Regular', 'Menlo', 'monospace'],
+      },
 		colors: {
 			// Ocean Pearl Brand Palette (Primary)
 			brand: {
