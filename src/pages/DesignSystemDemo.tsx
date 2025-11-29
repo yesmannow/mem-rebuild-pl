@@ -15,7 +15,7 @@ import './DesignSystemDemo.css';
  * as part of the frontend redesign initiative.
  */
 const DesignSystemDemo: React.FC = () => {
-  const { setTheme, setBrand, setBrandAccent, prefersReducedMotion } = useTheme();
+  const { setTheme, setBrandAccent, prefersReducedMotion } = useTheme();
 
   const services = [
     {
@@ -74,7 +74,7 @@ const DesignSystemDemo: React.FC = () => {
           <div className="demo-container">
             <h2 className="demo-heading">Theme Controls</h2>
             <p className="demo-subheading">
-              Test the dynamic theme system with different modes and brand variants
+              Test the dynamic theme system with different modes and custom accents
             </p>
 
             <div className="demo-controls">
@@ -89,21 +89,6 @@ const DesignSystemDemo: React.FC = () => {
                   </Button>
                   <Button variant="outline" size="sm" onClick={() => setTheme('system')}>
                     System
-                  </Button>
-                </div>
-              </div>
-
-              <div className="demo-control-group">
-                <h3 className="demo-control-label">Brand Variant</h3>
-                <div className="demo-buttons">
-                  <Button variant="outline" size="sm" onClick={() => setBrand('default')}>
-                    Default
-                  </Button>
-                  <Button variant="outline" size="sm" onClick={() => setBrand('cmo')}>
-                    CMO
-                  </Button>
-                  <Button variant="outline" size="sm" onClick={() => setBrand('dev')}>
-                    Dev
                   </Button>
                 </div>
               </div>

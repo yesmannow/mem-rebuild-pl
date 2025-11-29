@@ -241,24 +241,6 @@ html.dark {
   color-scheme: dark;
 }
 
-/* Brand Modes (stack on top of light/dark via data-brand attr) */
-
-/* CMO Mode: confident serif headings, navy accent, slightly squarer radius */
-html[data-brand='cmo'] {
-  --accent: var(--color-dark); /* navy */
-  --font-brand: 'Newsreader', ui-serif, Georgia, serif;
-  --radius: 1rem;
-}
-
-/* Dev Mode: neon-ish accent, mono UI font, extra rounded cards */
-html[data-brand='dev'] {
-  --accent: var(--color-secondary); /* cyan */
-  --font-ui:
-    ui-monospace, 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New',
-    monospace;
-  --radius: 1.5rem;
-}
-
 /* Utility class for theme-aware cards */
 .theme-card {
   background: var(--card);
