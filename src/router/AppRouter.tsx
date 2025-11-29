@@ -49,6 +49,7 @@ const RBELaw = React.lazy(() => import('../pages/case-studies/rbe-law'));
 const UltimateTechROI = React.lazy(() => import('../pages/case-studies/ultimate-tech-roi'));
 const DesignSystemDemo = React.lazy(() => import('../pages/DesignSystemDemo'));
 const DeploymentStatus = React.lazy(() => import('../pages/DeploymentStatus'));
+const ResumePrint = React.lazy(() => import('../pages/ResumePrint'));
 const AppsLibrary = React.lazy(() => import('../pages/AppsLibrary'));
 const Lab = React.lazy(() => import('../pages/Lab'));
 const GrowthEngine = React.lazy(() => import('../components/apps/GrowthEngine'));
@@ -151,6 +152,13 @@ const AppRouter: React.FC = () => {
         description:
           'Professional resume and experience of Jacob Darling - Marketing Strategist & Systems Architect with 16+ years experience',
         keywords: 'resume, CV, marketing director, systems architect, marketing automation',
+      };
+    } else if (path === '/resume-print') {
+      return {
+        title: 'Resume - Jacob Darling | Marketing Director & Systems Architect',
+        description:
+          'ATS-optimized, printable resume for Jacob Darling - Marketing Director & Systems Architect with 15+ years experience building revenue-driving infrastructure.',
+        keywords: 'resume, CV, marketing director, systems architect, ATS, printable resume',
       };
     } else if (path === '/case-studies') {
       return {
@@ -533,6 +541,14 @@ const AppRouter: React.FC = () => {
               }
             />
             <Route path="/resume" element={<Navigate to="/about" replace />} />
+            <Route
+              path="/resume-print"
+              element={
+                <PageTransition>
+                  <ResumePrint />
+                </PageTransition>
+              }
+            />
             <Route
               path="/contact"
               element={
