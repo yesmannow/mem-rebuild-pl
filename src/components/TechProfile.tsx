@@ -147,7 +147,7 @@ const TechProfile: React.FC<TechProfileProps> = ({
 
             {/* Main Image */}
             <motion.img
-              src="/images/profile-main.webp"
+              src="/images/design/jacob-brady-resized.webp"
               alt="Jacob Darling - Marketing Technologist"
               className="absolute inset-0 w-full h-full object-cover"
               style={{
@@ -157,13 +157,6 @@ const TechProfile: React.FC<TechProfileProps> = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              onError={(e) => {
-                // Fallback to bio-photo if profile-main.webp doesn't exist
-                const target = e.target as HTMLImageElement;
-                if (target.src !== '/images/bio/bio-photo.webp') {
-                  target.src = '/images/bio/bio-photo.webp';
-                }
-              }}
             />
 
             {/* Scanner Line Effect */}
