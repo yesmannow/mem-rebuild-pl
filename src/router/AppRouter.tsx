@@ -31,7 +31,6 @@ const TermsOfService = React.lazy(() => import('../pages/legal/TermsOfService'))
 const Testimonials = React.lazy(() => import('../pages/Testimonials'));
 const Contact = React.lazy(() => import('../pages/Contact'));
 const Services = React.lazy(() => import('../pages/Services'));
-const WarRoom = React.lazy(() => import('../pages/WarRoom'));
 // Legacy routes - commented out
 // const Inspiration = React.lazy(() => import('../pages/InspirationPage'));
 // const InspirationDetail = React.lazy(() => import('../pages/InspirationDetail'));
@@ -256,8 +255,8 @@ const AppRouter: React.FC = () => {
       return {
         title: 'The Lab | Jacob Darling Portfolio',
         description:
-          'Interactive tools built for scale and compliance. Modern React applications ported from legacy HTML.',
-        keywords: 'interactive tools, React applications, business software, portfolio showcase',
+          'Interactive tools, live system telemetry, and command center. Explore applications, engineering tools, and real-time infrastructure monitoring.',
+        keywords: 'interactive tools, React applications, telemetry, command center, devops, portfolio showcase',
       };
     } else if (path === '/apps/growth-engine') {
       return {
@@ -424,11 +423,7 @@ const AppRouter: React.FC = () => {
             />
             <Route
               path="/war-room"
-              element={
-                <PageTransition>
-                  <WarRoom />
-                </PageTransition>
-              }
+              element={<Navigate to="/apps" replace />}
             />
             <Route
               path="/projects"

@@ -73,16 +73,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
                 <Command size={10} />K
               </kbd>
             </button>
-
-            <Link
-              to="/contact"
-              className="bg-brand-teal text-brand-dark px-4 py-2 rounded-md font-bold text-sm hover:bg-white transition-all shadow-[0_0_15px_rgba(64,224,208,0.3)] hover:shadow-[0_0_25px_rgba(64,224,208,0.5)]"
-            >
-              Contact Me
-            </Link>
           </div>
 
-          {/* MOBILE: Only "Start Project" Button (No Hamburger Menu) */}
+          {/* MOBILE: Only search button (navigation handled by MobileDock) */}
           <div className="md:hidden flex items-center gap-2">
             {/* Mobile Cmd+K trigger */}
             <button
@@ -92,13 +85,6 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
             >
               <Search size={18} />
             </button>
-            <Link
-              to="/contact"
-              className="bg-brand-teal text-brand-dark px-3 py-2 rounded-md font-bold text-sm hover:bg-white transition-all shadow-[0_0_15px_rgba(64,224,208,0.3)] touch-target whitespace-nowrap"
-            >
-              <span className="hidden sm:inline">Contact Me</span>
-              <span className="sm:hidden">Contact</span>
-            </Link>
           </div>
         </div>
       </div>

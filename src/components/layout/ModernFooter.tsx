@@ -32,19 +32,19 @@ const ModernFooter: React.FC = () => {
       icon: Briefcase,
       links: [
         { name: 'Case Studies', path: '/case-studies', description: 'Deep-dive problem solving' },
-        { name: 'Projects', path: '/projects', description: 'Technical portfolio' },
+        { name: 'Ventures', path: '/side-projects', description: 'Independent experiments' },
       ],
     },
     {
       title: 'Explore',
       icon: Sparkles,
       links: [
-        { name: 'The Lab', path: '/apps', description: 'Experimental tools' },
+        { name: 'The Lab', path: '/apps', description: 'Tools & telemetry' },
         { name: 'Studio', path: '/studio', description: 'Creative workspace' },
       ],
     },
     {
-      title: 'About',
+      title: 'Connect',
       icon: User,
       links: [
         { name: 'Bio', path: '/about', description: 'My story' },
