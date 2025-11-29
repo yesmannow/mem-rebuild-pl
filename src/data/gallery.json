@@ -20,6 +20,16 @@
     }
   },
   {
+    "file": "images/projects/317 bbq/20231008_175510.jpg",
+    "meta": {
+      "width": 900,
+      "height": 420,
+      "base": "images/projects/317 bbq/20231008_175510",
+      "color": "rgb(72 56 40)",
+      "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
+    }
+  },
+  {
     "file": "images/projects/317 bbq/20231008_175026.jpg",
     "meta": {
       "width": 900,
@@ -40,13 +50,13 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_175510.jpg",
+    "file": "images/projects/317 bbq/20231008_175654.jpg",
     "meta": {
       "width": 900,
       "height": 420,
-      "base": "images/projects/317 bbq/20231008_175510",
-      "color": "rgb(72 56 40)",
-      "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
+      "base": "images/projects/317 bbq/20231008_175654",
+      "color": "rgb(184 168 136)",
+      "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCw7BxB0MO+ILhgAAD8XIxCQo0/6tMhwRxQFKVcAybTxiCi1eRVa5LTy9RT2ECMVbL4ESzYgAp9hCJp1h+10ZRuSDQY/Zbzjo5gAAA="
     }
   },
   {
@@ -57,16 +67,6 @@
       "base": "images/projects/317 bbq/20231008_180910",
       "color": "rgb(24 24 8)",
       "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACwAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCdABMEZDQPXXrSAAD+o1U6P/byUraqBSlkZmUsOLVnOmwcuxrYjy+9xA65i1geDXnbSpXW/8z31ymBp6oKKo9O9OBNJXMm/ACUvLFcT0BsHpR9gAAA"
-    }
-  },
-  {
-    "file": "images/projects/317 bbq/20231008_181722.jpg",
-    "meta": {
-      "width": 900,
-      "height": 420,
-      "base": "images/projects/317 bbq/20231008_181722",
-      "color": "rgb(40 40 40)",
-      "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCdAB8v/m1YUUmtzwAA8p4y7OwR2Iaa9y9xrKc+PK59c6SL0EtMf74PvhMZfgYmDJRKb0wVhDJAsafWjyFzU3gAAA=="
     }
   },
   {
@@ -90,13 +90,13 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_175654.jpg",
+    "file": "images/projects/317 bbq/20231008_181722.jpg",
     "meta": {
       "width": 900,
       "height": 420,
-      "base": "images/projects/317 bbq/20231008_175654",
-      "color": "rgb(184 168 136)",
-      "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCw7BxB0MO+ILhgAAD8XIxCQo0/6tMhwRxQFKVcAybTxiCi1eRVa5LTy9RT2ECMVbL4ESzYgAp9hCJp1h+10ZRuSDQY/Zbzjo5gAAA="
+      "base": "images/projects/317 bbq/20231008_181722",
+      "color": "rgb(40 40 40)",
+      "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCdAB8v/m1YUUmtzwAA8p4y7OwR2Iaa9y9xrKc+PK59c6SL0EtMf74PvhMZfgYmDJRKb0wVhDJAsafWjyFzU3gAAA=="
     }
   },
   {
@@ -220,16 +220,6 @@
     }
   },
   {
-    "file": "images/side-projects/CBD-for-Pets-and-Pet-Skin-Care.png",
-    "meta": {
-      "width": 831,
-      "height": 519,
-      "base": "images/side-projects/CBD-for-Pets-and-Pet-Skin-Care",
-      "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
-    }
-  },
-  {
     "file": "images/side-projects/Skincare-for-Dogs-and-Cats.jpg",
     "meta": {
       "width": 1000,
@@ -237,6 +227,16 @@
       "base": "images/side-projects/Skincare-for-Dogs-and-Cats",
       "color": "rgb(248 248 248)",
       "blurDataURL": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAACwBACdASoUABQAPxGAuFWsKCUjKAgBgCIJYwDKAA3mM6N8UBTGze0Wd0UJpcPgAP7oX7pA/9sbaWAE6t2B9OlOGoXVxcoS/7l1WVXsu6CBLI0LYRamOfTjDqehi9enMPFDb+AA85qu5fvVdfbTvIhoOeuXzgIc9ZlRfxXW87zkDye7EvqUgplB+4Vu2djcCOguxLFhVU/GIcelwEAYsJ1nAAA="
+    }
+  },
+  {
+    "file": "images/side-projects/CBD-for-Pets-and-Pet-Skin-Care.png",
+    "meta": {
+      "width": 831,
+      "height": 519,
+      "base": "images/side-projects/CBD-for-Pets-and-Pet-Skin-Care",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
     }
   },
   {
