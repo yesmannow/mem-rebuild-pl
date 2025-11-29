@@ -310,7 +310,7 @@ const CaseStudies: React.FC = () => {
                           {study.metrics.slice(0, 2).map((metric, idx) => (
                             <div key={idx} className="metric-item">
                               <div className="metric-icon" aria-hidden="true">
-                                &nearr;
+                                ↗
                               </div>
                               <div className="metric-content">
                                 <div className="metric-label">{metric.label}</div>
