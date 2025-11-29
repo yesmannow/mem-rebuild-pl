@@ -5,7 +5,7 @@ import KeyboardShortcuts from '../ui/KeyboardShortcuts';
 import Atmosphere from '../ui/Atmosphere';
 
 const Navbar = lazy(() => import('../Navbar'));
-const EnhancedFooter = lazy(() => import('./EnhancedFooter'));
+const ModernFooter = lazy(() => import('./ModernFooter'));
 const ScrollToTop = lazy(() => import('../utils/ScrollToTop'));
 const BackToTop = lazy(() => import('../utilities/BackToTop'));
 const MobileDock = lazy(() => import('../MobileDock'));
@@ -89,7 +89,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </footer>
           }
         >
-          <EnhancedFooter />
+          <ModernFooter />
         </Suspense>
 
         {/* Mobile Navigation Dock */}
