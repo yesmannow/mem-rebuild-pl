@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "../../lib/utils";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState, useEffect } from "react";
 
 interface OceanAuroraBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -14,6 +14,50 @@ export const OceanAuroraBackground = ({
   showRadialGradient = true,
   ...props
 }: OceanAuroraBackgroundProps) => {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMotionAndDevice = () => {
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isSmallScreen = window.innerWidth < 768;
+      
+      setPrefersReducedMotion(reducedMotion);
+      // Consider mobile if touch device OR small screen (not both required)
+      setIsMobile(isTouchDevice || isSmallScreen);
+    };
+    
+    checkMotionAndDevice();
+    
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    motionQuery.addEventListener('change', checkMotionAndDevice);
+    window.addEventListener('resize', checkMotionAndDevice);
+    
+    return () => {
+      motionQuery.removeEventListener('change', checkMotionAndDevice);
+      window.removeEventListener('resize', checkMotionAndDevice);
+    };
+  }, []);
+  
+  // For mobile/reduced motion, render a simplified static version
+  if (prefersReducedMotion || isMobile) {
+    return (
+      <main>
+        <div
+          className={cn(
+            "relative flex h-[100vh] flex-col items-center justify-center bg-gradient-to-br from-[#edf6f9] via-[#83c5be] to-[#006d77] text-[#006d77] dark:text-[#edf6f9] dark:from-[#005a63] dark:via-[#006d77] dark:to-[#003d44]",
+            className,
+          )}
+          style={{ willChange: 'auto' }}
+          {...props}
+        >
+          {children}
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main>
       <div

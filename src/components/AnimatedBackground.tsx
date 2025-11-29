@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './AnimatedBackground.css';
 
 interface AnimatedBackgroundProps {
@@ -17,15 +17,35 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
   reducedMotion = false,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = useRef(
-    typeof window !== 'undefined'
-      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      : false
-  );
+  const [shouldReduceMotion, setShouldReduceMotion] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMotionAndDevice = () => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isSmallScreen = window.innerWidth < 768;
+      
+      setShouldReduceMotion(prefersReducedMotion || reducedMotion);
+      // Consider mobile if touch device OR small screen (not both required)
+      setIsMobile(isTouchDevice || isSmallScreen);
+    };
+    
+    checkMotionAndDevice();
+    
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    motionQuery.addEventListener('change', checkMotionAndDevice);
+    window.addEventListener('resize', checkMotionAndDevice);
+    
+    return () => {
+      motionQuery.removeEventListener('change', checkMotionAndDevice);
+      window.removeEventListener('resize', checkMotionAndDevice);
+    };
+  }, [reducedMotion]);
 
   useEffect(() => {
-    // Respect user's motion preferences
-    const shouldReduceMotion = reducedMotion || prefersReducedMotion.current;
+    // Disable animations when reduced motion is preferred or on mobile
+    const shouldDisableAnimations = shouldReduceMotion || isMobile;
 
     // Create floating animation for background elements
     const elements = containerRef.current?.querySelectorAll('.bg-image-layer');
@@ -34,9 +54,10 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
     elements.forEach((element, index) => {
       const el = element as HTMLElement;
 
-      if (shouldReduceMotion) {
+      if (shouldDisableAnimations) {
         // Disable animations when reduced motion is preferred
         el.style.animation = 'none';
+        el.style.transform = 'none';
       } else {
         const duration = (20 + index * 5) / speed; // Varying durations for each layer, adjusted by speed
         const delay = index * 2;
@@ -51,12 +72,30 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
     if (shapes) {
       shapes.forEach((shape) => {
         const el = shape as HTMLElement;
-        if (shouldReduceMotion) {
+        if (shouldDisableAnimations) {
           el.style.animation = 'none';
+          el.style.transform = 'none';
         }
       });
     }
-  }, [images, speed, reducedMotion]);
+  }, [images, speed, shouldReduceMotion, isMobile]);
+  
+  // On mobile, render a simplified version without animated elements
+  if (isMobile) {
+    return (
+      <div
+        ref={containerRef}
+        className={`animated-background ${className}`}
+        aria-hidden="true"
+        style={{
+          ...(color ? { '--bg-color': color } as React.CSSProperties : undefined),
+          willChange: 'auto',
+        }}
+      >
+        {/* No animated shapes or image layers on mobile */}
+      </div>
+    );
+  }
 
   return (
     <div
@@ -72,17 +111,21 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
           style={{
             backgroundImage: `url(${image})`,
             opacity: 0.15 + index * 0.05, // Varying opacity
-            transform: `scale(${0.8 + index * 0.1})`, // Varying scale
+            transform: shouldReduceMotion ? 'none' : `scale(${0.8 + index * 0.1})`, // Varying scale
             zIndex: index,
             left: `${index * 10}%`, // Spread layers horizontally
             top: `${index * 5}%`, // Spread layers vertically
           }}
         />
       ))}
-      {/* Additional animated shapes */}
-      <div className="animated-shape shape-1" />
-      <div className="animated-shape shape-2" />
-      <div className="animated-shape shape-3" />
+      {/* Additional animated shapes - only render if motion is allowed */}
+      {!shouldReduceMotion && (
+        <>
+          <div className="animated-shape shape-1" />
+          <div className="animated-shape shape-2" />
+          <div className="animated-shape shape-3" />
+        </>
+      )}
     </div>
   );
 };

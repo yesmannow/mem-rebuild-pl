@@ -30,6 +30,8 @@ export const OceanWavyBackground = ({
 }: OceanWavyBackgroundProps) => {
   const [isSafari, setIsSafari] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Simple noise function (fallback if simplex-noise not available)
   const noise = (x: number, y: number, t: number) => {
@@ -44,6 +46,8 @@ export const OceanWavyBackground = ({
     ctx: any,
     canvas: any;
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationIdRef = useRef<number | null>(null);
+  
   const getSpeed = () => {
     switch (speed) {
       case "slow":
@@ -55,8 +59,41 @@ export const OceanWavyBackground = ({
     }
   };
 
+  const waveColors = colors ?? [
+    "#006d77", // Stormy Teal
+    "#83c5be", // Pearl Aqua
+    "#7ab5c2", // Medium teal
+    "#ffddd2", // Almond Silk
+    "#e29578", // Tangerine Dream
+  ];
+
+  const drawWave = (n: number) => {
+    if (!ctx) return;
+    nt += getSpeed();
+    for (i = 0; i < n; i++) {
+      ctx.beginPath();
+      ctx.lineWidth = waveWidth || 50;
+      ctx.strokeStyle = waveColors[i % waveColors.length];
+      for (x = 0; x < w; x += 5) {
+        const y = noise(x / 800, 0.3 * i, nt) * 100;
+        ctx.lineTo(x, y + h * 0.5); // adjust for height, currently at 50% of the container
+      }
+      ctx.stroke();
+      ctx.closePath();
+    }
+  };
+
+  const render = () => {
+    if (!ctx) return;
+    ctx.fillStyle = backgroundFill || "#edf6f9";
+    ctx.globalAlpha = waveOpacity || 0.5;
+    ctx.fillRect(0, 0, w, h);
+    drawWave(5);
+    animationIdRef.current = requestAnimationFrame(render);
+  };
+
   const init = () => {
-    if (!isClient) return;
+    if (!isClient || prefersReducedMotion || isMobile) return;
     canvas = canvasRef.current;
     if (!canvas) return;
     ctx = canvas.getContext("2d");
@@ -75,49 +112,40 @@ export const OceanWavyBackground = ({
     render();
   };
 
-  const waveColors = colors ?? [
-    "#006d77", // Stormy Teal
-    "#83c5be", // Pearl Aqua
-    "#7ab5c2", // Medium teal
-    "#ffddd2", // Almond Silk
-    "#e29578", // Tangerine Dream
-  ];
-  const drawWave = (n: number) => {
-    if (!ctx) return;
-    nt += getSpeed();
-    for (i = 0; i < n; i++) {
-      ctx.beginPath();
-      ctx.lineWidth = waveWidth || 50;
-      ctx.strokeStyle = waveColors[i % waveColors.length];
-      for (x = 0; x < w; x += 5) {
-        const y = noise(x / 800, 0.3 * i, nt) * 100;
-        ctx.lineTo(x, y + h * 0.5); // adjust for height, currently at 50% of the container
-      }
-      ctx.stroke();
-      ctx.closePath();
-    }
-  };
-
-  let animationId: number;
-  const render = () => {
-    if (!ctx) return;
-    ctx.fillStyle = backgroundFill || "#edf6f9";
-    ctx.globalAlpha = waveOpacity || 0.5;
-    ctx.fillRect(0, 0, w, h);
-    drawWave(5);
-    animationId = requestAnimationFrame(render);
-  };
+  // Check for reduced motion and mobile device
+  useEffect(() => {
+    const checkMotionAndDevice = () => {
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isSmallScreen = window.innerWidth < 768;
+      
+      setPrefersReducedMotion(reducedMotion);
+      // Consider mobile if touch device OR small screen (not both required)
+      setIsMobile(isTouchDevice || isSmallScreen);
+    };
+    
+    checkMotionAndDevice();
+    
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    motionQuery.addEventListener('change', checkMotionAndDevice);
+    window.addEventListener('resize', checkMotionAndDevice);
+    
+    return () => {
+      motionQuery.removeEventListener('change', checkMotionAndDevice);
+      window.removeEventListener('resize', checkMotionAndDevice);
+    };
+  }, []);
 
   useEffect(() => {
-    if (isClient) {
+    if (isClient && !prefersReducedMotion && !isMobile) {
       init();
     }
     return () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
+      if (animationIdRef.current) {
+        cancelAnimationFrame(animationIdRef.current);
       }
     };
-  }, [isClient, blur, backgroundFill, waveOpacity, speed, waveWidth, colors]);
+  }, [isClient, prefersReducedMotion, isMobile, blur, backgroundFill, waveOpacity, speed, waveWidth, colors]);
 
   useEffect(() => {
     setIsClient(true);
@@ -127,6 +155,26 @@ export const OceanWavyBackground = ({
         !navigator.userAgent.includes("Chrome")
     );
   }, []);
+  
+  // For mobile/reduced motion, render a simple static gradient
+  if (prefersReducedMotion || isMobile) {
+    return (
+      <div
+        className={cn(
+          "relative w-full h-full flex flex-col items-center justify-center",
+          containerClassName
+        )}
+        style={{ 
+          background: `linear-gradient(135deg, ${backgroundFill} 0%, #83c5be 50%, #006d77 100%)`,
+          willChange: 'auto'
+        }}
+      >
+        <div className={cn("relative z-10", className)} {...props}>
+          {children}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
