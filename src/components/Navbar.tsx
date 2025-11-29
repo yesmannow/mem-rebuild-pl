@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, Command } from 'lucide-react';
 import InteractiveLogo from './InteractiveLogo';
-import BrandToggle from './theme/BrandToggle';
 
 interface NavbarProps {
   onOpenCommandPalette?: () => void;
@@ -70,9 +69,6 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
                 }`} />
               </Link>
             ))}
-
-            {/* Brand Toggle */}
-            <BrandToggle />
 
             {/* Cmd+K Search Button */}
             <button
