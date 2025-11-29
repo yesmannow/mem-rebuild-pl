@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import PageTransition from '../components/animations/PageTransition';
 import SEOHead from '../components/seo/SEOHead';
@@ -29,7 +29,6 @@ const SideProjectDetail = React.lazy(() => import('../pages/side-projects/SidePr
 const PrivacyPolicy = React.lazy(() => import('../pages/legal/PrivacyPolicy'));
 const TermsOfService = React.lazy(() => import('../pages/legal/TermsOfService'));
 const Testimonials = React.lazy(() => import('../pages/Testimonials'));
-const Resume = React.lazy(() => import('../pages/Resume'));
 const Contact = React.lazy(() => import('../pages/Contact'));
 const Services = React.lazy(() => import('../pages/Services'));
 const WarRoom = React.lazy(() => import('../pages/WarRoom'));
@@ -533,14 +532,7 @@ const AppRouter: React.FC = () => {
                 </PageTransition>
               }
             />
-            <Route
-              path="/resume"
-              element={
-                <PageTransition>
-                  <Resume />
-                </PageTransition>
-              }
-            />
+            <Route path="/resume" element={<Navigate to="/about" replace />} />
             <Route
               path="/contact"
               element={

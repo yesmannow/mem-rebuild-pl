@@ -1,17 +1,16 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Maximize2, Palette as PaletteIcon, X } from 'lucide-react';
 // Use browser entry to avoid the package root throwing on default import.
 import { Vibrant } from 'node-vibrant/browser';
+import type { PhotoItem } from '../utils/loadPhotography';
 
 export type GalleryMode = 'photo' | 'design';
 
-export interface GalleryItem {
-  src: string;
-  alt?: string;
+export type GalleryItem = PhotoItem & {
   title?: string;
   category?: string;
-}
+};
 
 interface SmartGalleryProps {
   mode: GalleryMode;
@@ -19,6 +18,13 @@ interface SmartGalleryProps {
 }
 
 const paletteCache: Record<string, string[]> = {};
+
+const buildMetadata = (idx: number) => {
+  const iso = 200 + ((idx % 5) + 1) * 80;
+  const aperture = (1.4 + (idx % 4) * 0.7).toFixed(1);
+  const shutter = `1/${90 + idx * 6}s`;
+  return { iso, aperture, shutter };
+};
 
 const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -68,21 +74,25 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
       items.map((item, idx) => ({
         ...item,
         idx,
+        width: item.width ?? 400,
+        height: item.height ?? 400,
       })),
     [items]
   );
 
   return (
     <>
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
+      <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4 [column-fill:_balance]">
         {masonryItems.map((item) => {
           const isHovered = hoveredIndex === item.idx;
           const palette = palettes[item.src] || paletteCache[item.src];
+          const meta = buildMetadata(item.idx);
+          const displayTitle = item.title || item.alt || 'Gallery item';
+
           return (
             <motion.div
-              key={`${mode}-${item.idx}-${item.src}`}
-              layout
-              className="mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 shadow-soft-dark transition hover:border-brand-teal/40 hover:shadow-accent"
+              key={item.key || `${mode}-${item.idx}-${item.src}`}
+              className="break-inside-avoid overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 shadow-soft-dark transition hover:border-brand-teal/40 hover:shadow-accent"
               onMouseEnter={() => {
                 setHoveredIndex(item.idx);
                 if (mode === 'design') {
@@ -95,13 +105,41 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
               <div className="relative">
                 <motion.img
                   src={item.src}
-                  alt={item.alt || item.title || 'Gallery item'}
+                  alt={displayTitle}
                   loading="lazy"
-                  className="w-full h-auto object-cover"
-                  whileHover={{ scale: 1.01 }}
-                  transition={{ duration: 0.25 }}
+                  width={item.width}
+                  height={item.height}
+                  className="w-full h-auto object-cover transition-transform duration-500 ease-out hover:scale-105"
                 />
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-slate-950/10 to-slate-950/40" />
+
+                {mode === 'photo' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 12 }}
+                    transition={{ duration: 0.35, ease: 'easeOut' }}
+                    className="pointer-events-none absolute inset-0 flex flex-col justify-end gap-3 p-4"
+                  >
+                    <div className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.2em]">
+                      <span className="rounded-full bg-white/15 px-3 py-1 backdrop-blur-md border border-white/10 text-white/90">
+                        ISO {meta.iso}
+                      </span>
+                      <span className="rounded-full bg-white/15 px-3 py-1 backdrop-blur-md border border-white/10 text-white/90">
+                        f/{meta.aperture}
+                      </span>
+                      <span className="rounded-full bg-white/15 px-3 py-1 backdrop-blur-md border border-white/10 text-white/90">
+                        {meta.shutter}
+                      </span>
+                    </div>
+                    <div className="rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 backdrop-blur-md shadow-soft-dark">
+                      <p className="text-sm font-semibold leading-tight text-white">{displayTitle}</p>
+                      <p className="text-xs text-brand-muted">
+                        {item.category || (mode === 'photo' ? 'Photography' : 'Design')}
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+
                 <div className="absolute top-3 right-3 flex items-center gap-2 text-xs text-brand-text/80">
                   <span className="rounded-full bg-slate-900/70 px-2 py-1 backdrop-blur-md border border-white/10 flex items-center gap-1">
                     <Maximize2 size={14} /> View
@@ -113,13 +151,14 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 6 }}
-                    className="absolute inset-x-3 bottom-3 rounded-lg border border-white/10 bg-slate-900/70 backdrop-blur-md p-2 shadow-soft-dark"
+                    className="absolute inset-3 rounded-xl border border-white/10 bg-slate-900/75 backdrop-blur-md p-3 shadow-soft-dark flex flex-col gap-2"
                   >
-                    <div className="flex items-center justify-between mb-2 text-[11px] uppercase tracking-[0.2em] text-brand-muted">
+                    <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-brand-muted">
                       <span className="inline-flex items-center gap-1">
                         <PaletteIcon size={12} className="text-brand-teal" />
                         Color DNA
                       </span>
+                      <span className="text-white/80 font-semibold text-xs">{displayTitle}</span>
                     </div>
                     <div className="flex gap-1">
                       {palette.slice(0, 6).map((color) => (
@@ -135,8 +174,10 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
                 )}
               </div>
               <div className="px-4 py-3">
-                <p className="text-sm text-brand-muted">{item.category || (mode === 'photo' ? 'Photography' : 'Design')}</p>
-                <p className="text-base font-semibold text-brand-text line-clamp-2">{item.title || item.alt || 'Untitled'}</p>
+                <p className="text-sm text-brand-muted">
+                  {item.category || (mode === 'photo' ? 'Photography' : 'Design')}
+                </p>
+                <p className="text-base font-semibold text-brand-text line-clamp-2">{displayTitle}</p>
               </div>
             </motion.div>
           );
@@ -162,6 +203,7 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
               <img
                 src={items[lightboxIndex].src}
                 alt={items[lightboxIndex].alt || items[lightboxIndex].title || 'Gallery item'}
+                loading="lazy"
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
               <div className="mt-4 flex items-center justify-between text-brand-text">
@@ -208,4 +250,5 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
   );
 };
 
+export { SmartGallery };
 export default SmartGallery;

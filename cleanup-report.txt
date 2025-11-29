@@ -1,0 +1,561 @@
+Cleanup run: 2025-11-29T01:35:01.616Z
+Phase 1: Moved unused code files:
+  - src\index.css -> src\_archive_unused\index.css
+  - src\app\layout.tsx -> src\_archive_unused\app\layout.tsx
+  - src\assets\logoFactory.ts -> src\_archive_unused\assets\logoFactory.ts
+  - src\config\feature-flags.ts -> src\_archive_unused\config\feature-flags.ts
+  - src\config\loadConfig.ts -> src\_archive_unused\config\loadConfig.ts
+  - src\cli\generate-logo.ts -> src\_archive_unused\cli\generate-logo.ts
+  - src\cli\preview-layout.ts -> src\_archive_unused\cli\preview-layout.ts
+  - src\cli\svg-export.ts -> src\_archive_unused\cli\svg-export.ts
+  - src\contexts\ThemeContext.tsx -> src\_archive_unused\contexts\ThemeContext.tsx
+  - src\components\AnimatedBackground.css -> src\_archive_unused\components\AnimatedBackground.css
+  - src\components\AwardsRow.tsx -> src\_archive_unused\components\AwardsRow.tsx
+  - src\components\BrandComparison.tsx -> src\_archive_unused\components\BrandComparison.tsx
+  - src\components\BrandLineageSection.tsx -> src\_archive_unused\components\BrandLineageSection.tsx
+  - src\components\BuilderShell.tsx -> src\_archive_unused\components\BuilderShell.tsx
+  - src\components\CareerTimeline.tsx -> src\_archive_unused\components\CareerTimeline.tsx
+  - src\components\CareerTimelineProgress.tsx -> src\_archive_unused\components\CareerTimelineProgress.tsx
+  - src\components\Carousel.css -> src\_archive_unused\components\Carousel.css
+  - src\components\Carousel.tsx -> src\_archive_unused\components\Carousel.tsx
+  - src\components\CaseStudy.tsx -> src\_archive_unused\components\CaseStudy.tsx
+  - src\components\CaseStudyCard.tsx -> src\_archive_unused\components\CaseStudyCard.tsx
+  - src\components\CaseStudyExplorer.tsx -> src\_archive_unused\components\CaseStudyExplorer.tsx
+  - src\components\ContactForm.css -> src\_archive_unused\components\ContactForm.css
+  - src\components\ContactForm.tsx -> src\_archive_unused\components\ContactForm.tsx
+  - src\components\CTASection.tsx -> src\_archive_unused\components\CTASection.tsx
+  - src\components\DesignPrinciplesExplorer.tsx -> src\_archive_unused\components\DesignPrinciplesExplorer.tsx
+  - src\components\EducationRoots.tsx -> src\_archive_unused\components\EducationRoots.tsx
+  - src\components\ErrorBoundary.css -> src\_archive_unused\components\ErrorBoundary.css
+  - src\components\GlyphOverlay.tsx -> src\_archive_unused\components\GlyphOverlay.tsx
+  - src\components\Hero.tsx -> src\_archive_unused\components\Hero.tsx
+  - src\components\HeroAbout.tsx -> src\_archive_unused\components\HeroAbout.tsx
+  - src\components\HeroAnimated.tsx -> src\_archive_unused\components\HeroAnimated.tsx
+  - src\components\HeroGradient.tsx -> src\_archive_unused\components\HeroGradient.tsx
+  - src\components\IdentityTile.tsx -> src\_archive_unused\components\IdentityTile.tsx
+  - src\components\InspirationExplorer.tsx -> src\_archive_unused\components\InspirationExplorer.tsx
+  - src\components\InspirationTimeline.tsx -> src\_archive_unused\components\InspirationTimeline.tsx
+  - src\components\ManualViewer.tsx -> src\_archive_unused\components\ManualViewer.tsx
+  - src\components\MoodboardModule.tsx -> src\_archive_unused\components\MoodboardModule.tsx
+  - src\components\Nav.tsx -> src\_archive_unused\components\Nav.tsx
+  - src\components\NoiseOverlay.tsx -> src\_archive_unused\components\NoiseOverlay.tsx
+  - src\components\PaletteEditor.tsx -> src\_archive_unused\components\PaletteEditor.tsx
+  - src\components\ProcessLab.tsx -> src\_archive_unused\components\ProcessLab.tsx
+  - src\components\QuickWinsAbout.tsx -> src\_archive_unused\components\QuickWinsAbout.tsx
+  - src\components\QuickWinsAnimated.tsx -> src\_archive_unused\components\QuickWinsAnimated.tsx
+  - src\components\SaveShare.tsx -> src\_archive_unused\components\SaveShare.tsx
+  - src\components\SkillGrid.tsx -> src\_archive_unused\components\SkillGrid.tsx
+  - src\components\SpecChips.tsx -> src\_archive_unused\components\SpecChips.tsx
+  - src\components\StickyCTA.tsx -> src\_archive_unused\components\StickyCTA.tsx
+  - src\components\StorySection.tsx -> src\_archive_unused\components\StorySection.tsx
+  - src\components\StorySectionAccordion.tsx -> src\_archive_unused\components\StorySectionAccordion.tsx
+  - src\components\SystemsTimeline.tsx -> src\_archive_unused\components\SystemsTimeline.tsx
+  - src\components\Testimonials.tsx -> src\_archive_unused\components\Testimonials.tsx
+  - src\components\TestimonialsCarousel.tsx -> src\_archive_unused\components\TestimonialsCarousel.tsx
+  - src\components\TimelineItem.tsx -> src\_archive_unused\components\TimelineItem.tsx
+  - src\components\TypographyModule.tsx -> src\_archive_unused\components\TypographyModule.tsx
+  - src\components\WaveDivider.tsx -> src\_archive_unused\components\WaveDivider.tsx
+  - src\design-system\tokens.ts -> src\_archive_unused\design-system\tokens.ts
+  - src\hooks\useAnimations.ts -> src\_archive_unused\hooks\useAnimations.ts
+  - src\hooks\useDominantTheme.ts -> src\_archive_unused\hooks\useDominantTheme.ts
+  - src\hooks\useMCP.ts -> src\_archive_unused\hooks\useMCP.ts
+  - src\hooks\useMediaQuery.ts -> src\_archive_unused\hooks\useMediaQuery.ts
+  - src\hooks\usePWAInstall.ts -> src\_archive_unused\hooks\usePWAInstall.ts
+  - src\lib\links.ts -> src\_archive_unused\lib\links.ts
+  - src\lib\renderOG.ts -> src\_archive_unused\lib\renderOG.ts
+  - src\lib\styleDictionary.ts -> src\_archive_unused\lib\styleDictionary.ts
+  - src\pdf\ResumePDF.tsx -> src\_archive_unused\pdf\ResumePDF.tsx
+  - src\pages\About.css -> src\_archive_unused\pages\About.css
+  - src\pages\ApplicationDetail.css -> src\_archive_unused\pages\ApplicationDetail.css
+  - src\pages\Applications.css -> src\_archive_unused\pages\Applications.css
+  - src\pages\brand-builder.tsx -> src\_archive_unused\pages\brand-builder.tsx
+  - src\pages\BrandBuilder.css -> src\_archive_unused\pages\BrandBuilder.css
+  - src\pages\CaseStudies.css -> src\_archive_unused\pages\CaseStudies.css
+  - src\pages\CaseStudiesEnhanced.css -> src\_archive_unused\pages\CaseStudiesEnhanced.css
+  - src\pages\CaseStudyDetail.css -> src\_archive_unused\pages\CaseStudyDetail.css
+  - src\pages\Contact.css -> src\_archive_unused\pages\Contact.css
+  - src\pages\Demos.tsx -> src\_archive_unused\pages\Demos.tsx
+  - src\pages\Design.css -> src\_archive_unused\pages\Design.css
+  - src\pages\DesignSystemDemo.css -> src\_archive_unused\pages\DesignSystemDemo.css
+  - src\pages\Gallery.css -> src\_archive_unused\pages\Gallery.css
+  - src\pages\Home.css -> src\_archive_unused\pages\Home.css
+  - src\pages\InspirationDetail.css -> src\_archive_unused\pages\InspirationDetail.css
+  - src\pages\InspirationPage.css -> src\_archive_unused\pages\InspirationPage.css
+  - src\pages\Photography.css -> src\_archive_unused\pages\Photography.css
+  - src\pages\ProjectDetail.css -> src\_archive_unused\pages\ProjectDetail.css
+  - src\pages\Projects.css -> src\_archive_unused\pages\Projects.css
+  - src\pages\Resume.css -> src\_archive_unused\pages\Resume.css
+  - src\pages\Resume.tsx -> src\_archive_unused\pages\Resume.tsx
+  - src\pages\SideProjects.css -> src\_archive_unused\pages\SideProjects.css
+  - src\pages\Testimonials.css -> src\_archive_unused\pages\Testimonials.css
+  - src\pages\Toolbox.css -> src\_archive_unused\pages\Toolbox.css
+  - src\router\AppRouter.css -> src\_archive_unused\router\AppRouter.css
+  - src\shims\ce-guard.js -> src\_archive_unused\shims\ce-guard.js
+  - src\store\ui.ts -> src\_archive_unused\store\ui.ts
+  - src\stories\FeaturedProjectCard.stories.tsx -> src\_archive_unused\stories\FeaturedProjectCard.stories.tsx
+  - src\stories\FeaturedProjectsGrid.stories.tsx -> src\_archive_unused\stories\FeaturedProjectsGrid.stories.tsx
+  - src\stories\HeroIntro.stories.tsx -> src\_archive_unused\stories\HeroIntro.stories.tsx
+  - src\stories\OriginTimeline.stories.tsx -> src\_archive_unused\stories\OriginTimeline.stories.tsx
+  - src\styles\bearcave-brand.css -> src\_archive_unused\styles\bearcave-brand.css
+  - src\styles\bio-cinematic.css -> src\_archive_unused\styles\bio-cinematic.css
+  - src\styles\case-study-tokens.css -> src\_archive_unused\styles\case-study-tokens.css
+  - src\styles\critical.css -> src\_archive_unused\styles\critical.css
+  - src\styles\design-system-colors.css -> src\_archive_unused\styles\design-system-colors.css
+  - src\styles\enhanced-animations.css -> src\_archive_unused\styles\enhanced-animations.css
+  - src\styles\globals.css -> src\_archive_unused\styles\globals.css
+  - src\styles\home-sections.css -> src\_archive_unused\styles\home-sections.css
+  - src\styles\mobile-optimization.css -> src\_archive_unused\styles\mobile-optimization.css
+  - src\styles\motion-tokens.js -> src\_archive_unused\styles\motion-tokens.js
+  - src\styles\skip-to-content.css -> src\_archive_unused\styles\skip-to-content.css
+  - src\styles\themes.ts -> src\_archive_unused\styles\themes.ts
+  - src\styles\tokens.css -> src\_archive_unused\styles\tokens.css
+  - src\styles\typography-system.css -> src\_archive_unused\styles\typography-system.css
+  - src\styles\typography.css -> src\_archive_unused\styles\typography.css
+  - src\types\shims.d.ts -> src\_archive_unused\types\shims.d.ts
+  - src\utils\assetPath.ts -> src\_archive_unused\utils\assetPath.ts
+  - src\utils\exportTools.js -> src\_archive_unused\utils\exportTools.js
+  - src\utils\loadBio.ts -> src\_archive_unused\utils\loadBio.ts
+  - src\utils\loadProjects.ts -> src\_archive_unused\utils\loadProjects.ts
+  - src\utils\loadSideProjects.ts -> src\_archive_unused\utils\loadSideProjects.ts
+  - src\utils\motion-helpers.ts -> src\_archive_unused\utils\motion-helpers.ts
+  - src\utils\motion-tokens-typed.ts -> src\_archive_unused\utils\motion-tokens-typed.ts
+  - src\utils\narrativeMotion.js -> src\_archive_unused\utils\narrativeMotion.js
+  - src\utils\narrativeMotion.ts -> src\_archive_unused\utils\narrativeMotion.ts
+  - src\utils\previewBuilder.ts -> src\_archive_unused\utils\previewBuilder.ts
+  - src\utils\resumeBuilder.ts -> src\_archive_unused\utils\resumeBuilder.ts
+  - src\utils\svgExporter.ts -> src\_archive_unused\utils\svgExporter.ts
+  - src\utils\svgValidator.ts -> src\_archive_unused\utils\svgValidator.ts
+  - src\config\lib\utils.ts -> src\_archive_unused\config\lib\utils.ts
+  - src\components\about\OriginTimeline.tsx -> src\_archive_unused\components\about\OriginTimeline.tsx
+  - src\components\animations\AnimatedCounter.tsx -> src\_archive_unused\components\animations\AnimatedCounter.tsx
+  - src\components\animations\BackgroundLogos.css -> src\_archive_unused\components\animations\BackgroundLogos.css
+  - src\components\animations\BackgroundLogos.tsx -> src\_archive_unused\components\animations\BackgroundLogos.tsx
+  - src\components\animations\FloatingElements.css -> src\_archive_unused\components\animations\FloatingElements.css
+  - src\components\animations\FloatingElements.tsx -> src\_archive_unused\components\animations\FloatingElements.tsx
+  - src\components\animations\index.ts -> src\_archive_unused\components\animations\index.ts
+  - src\components\animations\LogoIntro.css -> src\_archive_unused\components\animations\LogoIntro.css
+  - src\components\animations\LogoIntro.tsx -> src\_archive_unused\components\animations\LogoIntro.tsx
+  - src\components\animations\MagneticButton.css -> src\_archive_unused\components\animations\MagneticButton.css
+  - src\components\animations\MagneticButton.tsx -> src\_archive_unused\components\animations\MagneticButton.tsx
+  - src\components\animations\MorphingBlob.tsx -> src\_archive_unused\components\animations\MorphingBlob.tsx
+  - src\components\animations\ParallaxSection.css -> src\_archive_unused\components\animations\ParallaxSection.css
+  - src\components\animations\ParallaxSection.tsx -> src\_archive_unused\components\animations\ParallaxSection.tsx
+  - src\components\animations\ScrollProgress.css -> src\_archive_unused\components\animations\ScrollProgress.css
+  - src\components\animations\ScrollProgress.tsx -> src\_archive_unused\components\animations\ScrollProgress.tsx
+  - src\components\animations\ScrollReveal.css -> src\_archive_unused\components\animations\ScrollReveal.css
+  - src\components\animations\ScrollReveal.tsx -> src\_archive_unused\components\animations\ScrollReveal.tsx
+  - src\components\animations\TiltCard.css -> src\_archive_unused\components\animations\TiltCard.css
+  - src\components\automation\AIAutomationShowcase.css -> src\_archive_unused\components\automation\AIAutomationShowcase.css
+  - src\components\automation\AIAutomationShowcase.tsx -> src\_archive_unused\components\automation\AIAutomationShowcase.tsx
+  - src\components\awards\AwardCard.tsx -> src\_archive_unused\components\awards\AwardCard.tsx
+  - src\components\awards\AwardShowcase.tsx -> src\_archive_unused\components\awards\AwardShowcase.tsx
+  - src\components\branding\AnimatedLogo.css -> src\_archive_unused\components\branding\AnimatedLogo.css
+  - src\components\branding\AnimatedLogo.tsx -> src\_archive_unused\components\branding\AnimatedLogo.tsx
+  - src\components\branding\BearCaveLogo.css -> src\_archive_unused\components\branding\BearCaveLogo.css
+  - src\components\branding\BearCaveLogo.tsx -> src\_archive_unused\components\branding\BearCaveLogo.tsx
+  - src\components\branding\Logo.tsx -> src\_archive_unused\components\branding\Logo.tsx
+  - src\components\branding\LogoVariations.tsx -> src\_archive_unused\components\branding\LogoVariations.tsx
+  - src\components\branding\SplashIntro.css -> src\_archive_unused\components\branding\SplashIntro.css
+  - src\components\branding\SplashIntro.tsx -> src\_archive_unused\components\branding\SplashIntro.tsx
+  - src\components\cards\CaseStudyCard.tsx -> src\_archive_unused\components\cards\CaseStudyCard.tsx
+  - src\components\case-study\BuildSection.tsx -> src\_archive_unused\components\case-study\BuildSection.tsx
+  - src\components\case-study\CapabilitiesBadges.tsx -> src\_archive_unused\components\case-study\CapabilitiesBadges.tsx
+  - src\components\case-study\CaseStudyExplorer.tsx -> src\_archive_unused\components\case-study\CaseStudyExplorer.tsx
+  - src\components\case-study\CaseStudyLayout.tsx -> src\_archive_unused\components\case-study\CaseStudyLayout.tsx
+  - src\components\case-study\ChallengeSection.tsx -> src\_archive_unused\components\case-study\ChallengeSection.tsx
+  - src\components\case-study\CTA.tsx -> src\_archive_unused\components\case-study\CTA.tsx
+  - src\components\case-study\CTASection.css -> src\_archive_unused\components\case-study\CTASection.css
+  - src\components\case-study\CTASection.tsx -> src\_archive_unused\components\case-study\CTASection.tsx
+  - src\components\case-study\Hero.css -> src\_archive_unused\components\case-study\Hero.css
+  - src\components\case-study\Hero.tsx -> src\_archive_unused\components\case-study\Hero.tsx
+  - src\components\case-study\HeroBlock.tsx -> src\_archive_unused\components\case-study\HeroBlock.tsx
+  - src\components\case-study\HeroMedia.tsx -> src\_archive_unused\components\case-study\HeroMedia.tsx
+  - src\components\case-study\HeroSection.tsx -> src\_archive_unused\components\case-study\HeroSection.tsx
+  - src\components\case-study\MetricsVisualization.css -> src\_archive_unused\components\case-study\MetricsVisualization.css
+  - src\components\case-study\OutcomesSection.tsx -> src\_archive_unused\components\case-study\OutcomesSection.tsx
+  - src\components\case-study\Overview.tsx -> src\_archive_unused\components\case-study\Overview.tsx
+  - src\components\case-study\ProcessTimeline.tsx -> src\_archive_unused\components\case-study\ProcessTimeline.tsx
+  - src\components\case-study\PullQuote.tsx -> src\_archive_unused\components\case-study\PullQuote.tsx
+  - src\components\case-study\ResultSection.tsx -> src\_archive_unused\components\case-study\ResultSection.tsx
+  - src\components\case-study\ShowcaseGallery.tsx -> src\_archive_unused\components\case-study\ShowcaseGallery.tsx
+  - src\components\case-study\StrategySection.tsx -> src\_archive_unused\components\case-study\StrategySection.tsx
+  - src\components\Charts\ResultChart.css -> src\_archive_unused\components\Charts\ResultChart.css
+  - src\components\Charts\ResultChart.tsx -> src\_archive_unused\components\Charts\ResultChart.tsx
+  - src\components\clients\ClientLogos.css -> src\_archive_unused\components\clients\ClientLogos.css
+  - src\components\clients\ClientLogos.tsx -> src\_archive_unused\components\clients\ClientLogos.tsx
+  - src\components\command\CommandMenu.tsx -> src\_archive_unused\components\command\CommandMenu.tsx
+  - src\components\command\CommandMenuToggle.tsx -> src\_archive_unused\components\command\CommandMenuToggle.tsx
+  - src\components\common\OptimizedImage.tsx -> src\_archive_unused\components\common\OptimizedImage.tsx
+  - src\components\common\ResponsiveImage.tsx -> src\_archive_unused\components\common\ResponsiveImage.tsx
+  - src\components\dashboard\MarketingCommandCenter.css -> src\_archive_unused\components\dashboard\MarketingCommandCenter.css
+  - src\components\dashboard\MarketingCommandCenter.tsx -> src\_archive_unused\components\dashboard\MarketingCommandCenter.tsx
+  - src\components\demos\DemoCard.tsx -> src\_archive_unused\components\demos\DemoCard.tsx
+  - src\components\diagrams\ProcessDiagram.css -> src\_archive_unused\components\diagrams\ProcessDiagram.css
+  - src\components\diagrams\ProcessDiagram.tsx -> src\_archive_unused\components\diagrams\ProcessDiagram.tsx
+  - src\components\diagrams\SystemArchitecture.css -> src\_archive_unused\components\diagrams\SystemArchitecture.css
+  - src\components\diagrams\TheGapDiagram.css -> src\_archive_unused\components\diagrams\TheGapDiagram.css
+  - src\components\diagrams\TheGapDiagram.tsx -> src\_archive_unused\components\diagrams\TheGapDiagram.tsx
+  - src\components\diagrams\ToolboxEcosystem.css -> src\_archive_unused\components\diagrams\ToolboxEcosystem.css
+  - src\components\diagrams\VennDiagram.css -> src\_archive_unused\components\diagrams\VennDiagram.css
+  - src\components\diagrams\VennDiagram.tsx -> src\_archive_unused\components\diagrams\VennDiagram.tsx
+  - src\components\examples\ApiServiceExamples.tsx -> src\_archive_unused\components\examples\ApiServiceExamples.tsx
+  - src\components\examples\ExamplePage.tsx -> src\_archive_unused\components\examples\ExamplePage.tsx
+  - src\components\gallery\GalleryGrid.tsx -> src\_archive_unused\components\gallery\GalleryGrid.tsx
+  - src\components\gallery\Lightbox.css -> src\_archive_unused\components\gallery\Lightbox.css
+  - src\components\gallery\Lightbox.tsx -> src\_archive_unused\components\gallery\Lightbox.tsx
+  - src\components\gallery\TagFilter.css -> src\_archive_unused\components\gallery\TagFilter.css
+  - src\components\gallery\TagFilter.tsx -> src\_archive_unused\components\gallery\TagFilter.tsx
+  - src\components\github\GitHubStats.css -> src\_archive_unused\components\github\GitHubStats.css
+  - src\components\github\GitHubStats.tsx -> src\_archive_unused\components\github\GitHubStats.tsx
+  - src\components\gt\index.ts -> src\_archive_unused\components\gt\index.ts
+  - src\components\hero\BrandHero.tsx -> src\_archive_unused\components\hero\BrandHero.tsx
+  - src\components\hero\Hero.css -> src\_archive_unused\components\hero\Hero.css
+  - src\components\hero\Hero.tsx -> src\_archive_unused\components\hero\Hero.tsx
+  - src\components\hero\HeroRedesign.css -> src\_archive_unused\components\hero\HeroRedesign.css
+  - src\components\hero\ParticleHero.tsx -> src\_archive_unused\components\hero\ParticleHero.tsx
+  - src\components\hero\ProactiveSupportHero.css -> src\_archive_unused\components\hero\ProactiveSupportHero.css
+  - src\components\hero\ProactiveSupportHero.tsx -> src\_archive_unused\components\hero\ProactiveSupportHero.tsx
+  - src\components\icons\aboutIcon.tsx -> src\_archive_unused\components\icons\aboutIcon.tsx
+  - src\components\icons\awardsIcon.tsx -> src\_archive_unused\components\icons\awardsIcon.tsx
+  - src\components\icons\closeIcon.tsx -> src\_archive_unused\components\icons\closeIcon.tsx
+  - src\components\icons\downloadIcon.tsx -> src\_archive_unused\components\icons\downloadIcon.tsx
+  - src\components\icons\emailIcon.tsx -> src\_archive_unused\components\icons\emailIcon.tsx
+  - src\components\icons\errorIcon.tsx -> src\_archive_unused\components\icons\errorIcon.tsx
+  - src\components\icons\githubIcon.tsx -> src\_archive_unused\components\icons\githubIcon.tsx
+  - src\components\icons\Icon.tsx -> src\_archive_unused\components\icons\Icon.tsx
+  - src\components\icons\IconRegistry.tsx -> src\_archive_unused\components\icons\IconRegistry.tsx
+  - src\components\icons\index.ts -> src\_archive_unused\components\icons\index.ts
+  - src\components\icons\linkedinIcon.tsx -> src\_archive_unused\components\icons\linkedinIcon.tsx
+  - src\components\icons\menuIcon.tsx -> src\_archive_unused\components\icons\menuIcon.tsx
+  - src\components\icons\pdfIcon.tsx -> src\_archive_unused\components\icons\pdfIcon.tsx
+  - src\components\icons\projectsIcon.tsx -> src\_archive_unused\components\icons\projectsIcon.tsx
+  - src\components\icons\skillsIcon.tsx -> src\_archive_unused\components\icons\skillsIcon.tsx
+  - src\components\icons\successIcon.tsx -> src\_archive_unused\components\icons\successIcon.tsx
+  - src\components\icons\toolsIcon.tsx -> src\_archive_unused\components\icons\toolsIcon.tsx
+  - src\components\icons\twitterIcon.tsx -> src\_archive_unused\components\icons\twitterIcon.tsx
+  - src\components\icons\warningIcon.tsx -> src\_archive_unused\components\icons\warningIcon.tsx
+  - src\components\icons\xIcon.tsx -> src\_archive_unused\components\icons\xIcon.tsx
+  - src\components\home\CareerHighlights.css -> src\_archive_unused\components\home\CareerHighlights.css
+  - src\components\home\FinalCTA.css -> src\_archive_unused\components\home\FinalCTA.css
+  - src\components\home\FinalCTA.tsx -> src\_archive_unused\components\home\FinalCTA.tsx
+  - src\components\home\Hero.css -> src\_archive_unused\components\home\Hero.css
+  - src\components\home\HeroIntro.tsx -> src\_archive_unused\components\home\HeroIntro.tsx
+  - src\components\home\MySkills.css -> src\_archive_unused\components\home\MySkills.css
+  - src\components\home\MySkills.tsx -> src\_archive_unused\components\home\MySkills.tsx
+  - src\components\home\Portfolio.css -> src\_archive_unused\components\home\Portfolio.css
+  - src\components\home\SelectedWorkCard.css -> src\_archive_unused\components\home\SelectedWorkCard.css
+  - src\components\home\Testimonials.css -> src\_archive_unused\components\home\Testimonials.css
+  - src\components\home\WhoIAm.css -> src\_archive_unused\components\home\WhoIAm.css
+  - src\components\home\WhoIAm.tsx -> src\_archive_unused\components\home\WhoIAm.tsx
+  - src\components\inspiration\AdvancedFilterSystem.tsx -> src\_archive_unused\components\inspiration\AdvancedFilterSystem.tsx
+  - src\components\inspiration\AnimationTemplates.tsx -> src\_archive_unused\components\inspiration\AnimationTemplates.tsx
+  - src\components\inspiration\BrandBuilderCTA.tsx -> src\_archive_unused\components\inspiration\BrandBuilderCTA.tsx
+  - src\components\inspiration\BrandColorPalette.tsx -> src\_archive_unused\components\inspiration\BrandColorPalette.tsx
+  - src\components\inspiration\BrandDetailModal.tsx -> src\_archive_unused\components\inspiration\BrandDetailModal.tsx
+  - src\components\inspiration\ColorPaletteExtractor.tsx -> src\_archive_unused\components\inspiration\ColorPaletteExtractor.tsx
+  - src\components\inspiration\DesignChallenges.tsx -> src\_archive_unused\components\inspiration\DesignChallenges.tsx
+  - src\components\inspiration\InspirationCTASection.tsx -> src\_archive_unused\components\inspiration\InspirationCTASection.tsx
+  - src\components\inspiration\InspirationExplorer.tsx -> src\_archive_unused\components\inspiration\InspirationExplorer.tsx
+  - src\components\inspiration\InspirationTimeline.tsx -> src\_archive_unused\components\inspiration\InspirationTimeline.tsx
+  - src\components\inspiration\LearningComponents.tsx -> src\_archive_unused\components\inspiration\LearningComponents.tsx
+  - src\components\inspiration\MobileOptimizedInspiration.tsx -> src\_archive_unused\components\inspiration\MobileOptimizedInspiration.tsx
+  - src\components\inspiration\ModernInspiration.css -> src\_archive_unused\components\inspiration\ModernInspiration.css
+  - src\components\inspiration\ModernInspirationGrid.tsx -> src\_archive_unused\components\inspiration\ModernInspirationGrid.tsx
+  - src\components\inspiration\ModernInspirationHero.tsx -> src\_archive_unused\components\inspiration\ModernInspirationHero.tsx
+  - src\components\inspiration\PerformanceOptimizer.tsx -> src\_archive_unused\components\inspiration\PerformanceOptimizer.tsx
+  - src\components\inspiration\RelatedBrands.tsx -> src\_archive_unused\components\inspiration\RelatedBrands.tsx
+  - src\components\inspiration\ResponsiveInspirationWrapper.tsx -> src\_archive_unused\components\inspiration\ResponsiveInspirationWrapper.tsx
+  - src\components\inspiration\TypographyShowcase.tsx -> src\_archive_unused\components\inspiration\TypographyShowcase.tsx
+  - src\components\integration-examples\HomePageIntegration.tsx -> src\_archive_unused\components\integration-examples\HomePageIntegration.tsx
+  - src\components\interactive\AnimatedHero.css -> src\_archive_unused\components\interactive\AnimatedHero.css
+  - src\components\interactive\AnimatedHero.tsx -> src\_archive_unused\components\interactive\AnimatedHero.tsx
+  - src\components\interactive\CustomCursor.css -> src\_archive_unused\components\interactive\CustomCursor.css
+  - src\components\interactive\CustomCursor.tsx -> src\_archive_unused\components\interactive\CustomCursor.tsx
+  - src\components\interactive\InteractiveDataOverlay.tsx -> src\_archive_unused\components\interactive\InteractiveDataOverlay.tsx
+  - src\components\interactive\KineticHeadline.tsx -> src\_archive_unused\components\interactive\KineticHeadline.tsx
+  - src\components\interactive\MagneticButton.tsx -> src\_archive_unused\components\interactive\MagneticButton.tsx
+  - src\components\interactive\SplitGridSection.tsx -> src\_archive_unused\components\interactive\SplitGridSection.tsx
+  - src\components\interactive\StatCounter.css -> src\_archive_unused\components\interactive\StatCounter.css
+  - src\components\interactive\StatCounter.tsx -> src\_archive_unused\components\interactive\StatCounter.tsx
+  - src\components\interactive\TestimonialCarousel.css -> src\_archive_unused\components\interactive\TestimonialCarousel.css
+  - src\components\interactive\TestimonialCarousel.tsx -> src\_archive_unused\components\interactive\TestimonialCarousel.tsx
+  - src\components\interactive\TiltCard.tsx -> src\_archive_unused\components\interactive\TiltCard.tsx
+  - src\components\layout\Breadcrumbs.css -> src\_archive_unused\components\layout\Breadcrumbs.css
+  - src\components\layout\Footer.css -> src\_archive_unused\components\layout\Footer.css
+  - src\components\layout\Footer.tsx -> src\_archive_unused\components\layout\Footer.tsx
+  - src\components\layout\PageLayout.css -> src\_archive_unused\components\layout\PageLayout.css
+  - src\components\layout\PageLayout.tsx -> src\_archive_unused\components\layout\PageLayout.tsx
+  - src\components\mdx\Callout.tsx -> src\_archive_unused\components\mdx\Callout.tsx
+  - src\components\mdx\Gallery.tsx -> src\_archive_unused\components\mdx\Gallery.tsx
+  - src\components\mdx\mdx-components.tsx -> src\_archive_unused\components\mdx\mdx-components.tsx
+  - src\components\mdx\Metric.tsx -> src\_archive_unused\components\mdx\Metric.tsx
+  - src\components\mdx\TwoColumn.tsx -> src\_archive_unused\components\mdx\TwoColumn.tsx
+  - src\components\media\ImageLightbox.tsx -> src\_archive_unused\components\media\ImageLightbox.tsx
+  - src\components\media\OptimizedImage.tsx -> src\_archive_unused\components\media\OptimizedImage.tsx
+  - src\components\modals\AppDemoModal.css -> src\_archive_unused\components\modals\AppDemoModal.css
+  - src\components\nav\EnhancedNav.tsx -> src\_archive_unused\components\nav\EnhancedNav.tsx
+  - src\components\nav\MainNav.tsx -> src\_archive_unused\components\nav\MainNav.tsx
+  - src\components\navigation\AnchorNav.css -> src\_archive_unused\components\navigation\AnchorNav.css
+  - src\components\newsletter\NewsletterForm.css -> src\_archive_unused\components\newsletter\NewsletterForm.css
+  - src\components\newsletter\NewsletterForm.tsx -> src\_archive_unused\components\newsletter\NewsletterForm.tsx
+  - src\components\playground\PlaygroundPreview.css -> src\_archive_unused\components\playground\PlaygroundPreview.css
+  - src\components\playground\PlaygroundPreview.tsx -> src\_archive_unused\components\playground\PlaygroundPreview.tsx
+  - src\components\sections\ContactCTA.css -> src\_archive_unused\components\sections\ContactCTA.css
+  - src\components\sections\CTASection.css -> src\_archive_unused\components\sections\CTASection.css
+  - src\components\sections\CTASection.tsx -> src\_archive_unused\components\sections\CTASection.tsx
+  - src\components\sections\FeaturesSection.css -> src\_archive_unused\components\sections\FeaturesSection.css
+  - src\components\sections\FeaturesSection.tsx -> src\_archive_unused\components\sections\FeaturesSection.tsx
+  - src\components\sections\FromTheWork.tsx -> src\_archive_unused\components\sections\FromTheWork.tsx
+  - src\components\sections\HeroSection.css -> src\_archive_unused\components\sections\HeroSection.css
+  - src\components\sections\HeroSection.tsx -> src\_archive_unused\components\sections\HeroSection.tsx
+  - src\components\sections\index.ts -> src\_archive_unused\components\sections\index.ts
+  - src\components\sections\ServicesGrid.css -> src\_archive_unused\components\sections\ServicesGrid.css
+  - src\components\sections\StatsSection.css -> src\_archive_unused\components\sections\StatsSection.css
+  - src\components\sections\StatsSection.tsx -> src\_archive_unused\components\sections\StatsSection.tsx
+  - src\components\sections\TestimonialsSection.css -> src\_archive_unused\components\sections\TestimonialsSection.css
+  - src\components\sections\TestimonialsSection.tsx -> src\_archive_unused\components\sections\TestimonialsSection.tsx
+  - src\components\seo\GallerySchema.tsx -> src\_archive_unused\components\seo\GallerySchema.tsx
+  - src\components\seo\SideProjectSchema.tsx -> src\_archive_unused\components\seo\SideProjectSchema.tsx
+  - src\components\skills\SkillsRadar.css -> src\_archive_unused\components\skills\SkillsRadar.css
+  - src\components\stats\Stats.css -> src\_archive_unused\components\stats\Stats.css
+  - src\components\stats\Stats.tsx -> src\_archive_unused\components\stats\Stats.tsx
+  - src\components\testimonials\TestimonialsCarousel.css -> src\_archive_unused\components\testimonials\TestimonialsCarousel.css
+  - src\components\testimonials\TestimonialsCarousel.tsx -> src\_archive_unused\components\testimonials\TestimonialsCarousel.tsx
+  - src\components\theme\ThemeToggle.css -> src\_archive_unused\components\theme\ThemeToggle.css
+  - src\components\theme\ThemeToggle.tsx -> src\_archive_unused\components\theme\ThemeToggle.tsx
+  - src\components\timeline\ExperienceTimeline.tsx -> src\_archive_unused\components\timeline\ExperienceTimeline.tsx
+  - src\components\timeline\InteractiveTimeline.css -> src\_archive_unused\components\timeline\InteractiveTimeline.css
+  - src\components\timeline\InteractiveTimeline.tsx -> src\_archive_unused\components\timeline\InteractiveTimeline.tsx
+  - src\components\timeline\VerticalTimeline.tsx -> src\_archive_unused\components\timeline\VerticalTimeline.tsx
+  - src\components\tooltips\TechTooltip.css -> src\_archive_unused\components\tooltips\TechTooltip.css
+  - src\components\ui\AchievementUnlocks.tsx -> src\_archive_unused\components\ui\AchievementUnlocks.tsx
+  - src\components\ui\AnimatedMetricsDashboard.tsx -> src\_archive_unused\components\ui\AnimatedMetricsDashboard.tsx
+  - src\components\ui\Badges.tsx -> src\_archive_unused\components\ui\Badges.tsx
+  - src\components\ui\BeforeAfterSlider.tsx -> src\_archive_unused\components\ui\BeforeAfterSlider.tsx
+  - src\components\ui\Button.css -> src\_archive_unused\components\ui\Button.css
+  - src\components\ui\CopyToClipboard.tsx -> src\_archive_unused\components\ui\CopyToClipboard.tsx
+  - src\components\ui\dialog.tsx -> src\_archive_unused\components\ui\dialog.tsx
+  - src\components\ui\EnhancedBentoCard.tsx -> src\_archive_unused\components\ui\EnhancedBentoCard.tsx
+  - src\components\ui\GradientMesh.tsx -> src\_archive_unused\components\ui\GradientMesh.tsx
+  - src\components\ui\hover-card.tsx -> src\_archive_unused\components\ui\hover-card.tsx
+  - src\components\ui\InteractiveSkillMatrix.tsx -> src\_archive_unused\components\ui\InteractiveSkillMatrix.tsx
+  - src\components\ui\LayeredBackground.css -> src\_archive_unused\components\ui\LayeredBackground.css
+  - src\components\ui\LiveMetricsDashboard.tsx -> src\_archive_unused\components\ui\LiveMetricsDashboard.tsx
+  - src\components\ui\MagneticCard.tsx -> src\_archive_unused\components\ui\MagneticCard.tsx
+  - src\components\ui\MetricCard.tsx -> src\_archive_unused\components\ui\MetricCard.tsx
+  - src\components\ui\navigation-menu.tsx -> src\_archive_unused\components\ui\navigation-menu.tsx
+  - src\components\ui\OceanAnimatedTooltip.tsx -> src\_archive_unused\components\ui\OceanAnimatedTooltip.tsx
+  - src\components\ui\OceanMeteors.tsx -> src\_archive_unused\components\ui\OceanMeteors.tsx
+  - src\components\ui\scroll-area.tsx -> src\_archive_unused\components\ui\scroll-area.tsx
+  - src\components\ui\ScrollIndicator.tsx -> src\_archive_unused\components\ui\ScrollIndicator.tsx
+  - src\components\ui\sheet.tsx -> src\_archive_unused\components\ui\sheet.tsx
+  - src\components\ui\SocialShareButtons.tsx -> src\_archive_unused\components\ui\SocialShareButtons.tsx
+  - src\components\ui\TechStackCloud.tsx -> src\_archive_unused\components\ui\TechStackCloud.tsx
+  - src\components\ui\TestimonialWall.tsx -> src\_archive_unused\components\ui\TestimonialWall.tsx
+  - src\components\ui\tooltip.tsx -> src\_archive_unused\components\ui\tooltip.tsx
+  - src\components\utils\FloatingActionButtons.tsx -> src\_archive_unused\components\utils\FloatingActionButtons.tsx
+  - src\components\utilities\BackToTop.css -> src\_archive_unused\components\utilities\BackToTop.css
+  - src\components\_unused_components\ApplicationsPanel.tsx -> src\_archive_unused\components\_unused_components\ApplicationsPanel.tsx
+  - src\components\_unused_components\ArtifactExplorer.tsx -> src\_archive_unused\components\_unused_components\ArtifactExplorer.tsx
+  - src\components\_unused_components\ExportPanel.tsx -> src\_archive_unused\components\_unused_components\ExportPanel.tsx
+  - src\components\_unused_components\MarkSandbox.tsx -> src\_archive_unused\components\_unused_components\MarkSandbox.tsx
+  - src\pages\brand\BrandDetail.css -> src\_archive_unused\pages\brand\BrandDetail.css
+  - src\pages\side-projects\SideProjectDetail.css -> src\_archive_unused\pages\side-projects\SideProjectDetail.css
+  - src\services\api\client.ts -> src\_archive_unused\services\api\client.ts
+  - src\services\api\hooks.ts -> src\_archive_unused\services\api\hooks.ts
+  - src\config\components\ui\navigation-menu.tsx -> src\_archive_unused\config\components\ui\navigation-menu.tsx
+  - src\pages\case-studies\branding-reel\index.tsx -> src\_archive_unused\pages\case-studies\branding-reel\index.tsx
+  - src\pages\case-studies\cinematic-portfolio\index.tsx -> src\_archive_unused\pages\case-studies\cinematic-portfolio\index.tsx
+  - src\pages\case-studies\graston-dashboard\index.tsx -> src\_archive_unused\pages\case-studies\graston-dashboard\index.tsx
+  - src\components\apps\growth-engine\__tests__\GrowthEngine.test.tsx -> src\_archive_unused\components\apps\growth-engine\__tests__\GrowthEngine.test.tsx
+Phase 2: Moved unreferenced media files:
+  - public\images\profile-main-blur.json -> public\_archive_media\images\profile-main-blur.json
+  - public\images\profile-main.webp -> public\_archive_media\images\profile-main.webp
+  - public\images\applications\graston-gt1.svg -> public\_archive_media\images\applications\graston-gt1.svg
+  - public\images\artifacts\eames-kit.svg -> public\_archive_media\images\artifacts\eames-kit.svg
+  - public\images\awards\gold-key-award.avif -> public\_archive_media\images\awards\gold-key-award.avif
+  - public\images\awards\gold-key-award.png -> public\_archive_media\images\awards\gold-key-award.png
+  - public\images\awards\gold-key-award.webp -> public\_archive_media\images\awards\gold-key-award.webp
+  - public\images\awards\gold-key.svg -> public\_archive_media\images\awards\gold-key.svg
+  - public\images\bio\1732967007485.avif -> public\_archive_media\images\bio\1732967007485.avif
+  - public\images\bio\1732967007485.jpg -> public\_archive_media\images\bio\1732967007485.jpg
+  - public\images\bio\1732967007485.webp -> public\_archive_media\images\bio\1732967007485.webp
+  - public\images\bio\241311036_10117555583372059_173429180650836298_n.webp -> public\_archive_media\images\bio\241311036_10117555583372059_173429180650836298_n.webp
+  - public\images\bio\bio-photo.avif -> public\_archive_media\images\bio\bio-photo.avif
+  - public\images\bio\bio-photo.jpg -> public\_archive_media\images\bio\bio-photo.jpg
+  - public\images\bio\bio-photo.webp -> public\_archive_media\images\bio\bio-photo.webp
+  - public\images\case-studies\graston-ceu-system.svg -> public\_archive_media\images\case-studies\graston-ceu-system.svg
+  - public\images\concepts\architect.svg -> public\_archive_media\images\concepts\architect.svg
+  - public\images\concepts\audit.svg -> public\_archive_media\images\concepts\audit.svg
+  - public\images\concepts\automate.svg -> public\_archive_media\images\concepts\automate.svg
+  - public\images\concepts\content-api.svg -> public\_archive_media\images\concepts\content-api.svg
+  - public\images\concepts\data-link.svg -> public\_archive_media\images\concepts\data-link.svg
+  - public\images\concepts\growth-os.svg -> public\_archive_media\images\concepts\growth-os.svg
+  - public\images\concepts\leadership.svg -> public\_archive_media\images\concepts\leadership.svg
+  - public\images\concepts\revenue.svg -> public\_archive_media\images\concepts\revenue.svg
+  - public\images\concepts\scale.svg -> public\_archive_media\images\concepts\scale.svg
+  - public\images\concepts\strategy.svg -> public\_archive_media\images\concepts\strategy.svg
+  - public\images\concepts\terminal-user.svg -> public\_archive_media\images\concepts\terminal-user.svg
+  - public\images\education\Indiana_Hoosiers_logo.svg.avif -> public\_archive_media\images\education\Indiana_Hoosiers_logo.svg.avif
+  - public\images\education\Indiana_Hoosiers_logo.svg.png -> public\_archive_media\images\education\Indiana_Hoosiers_logo.svg.png
+  - public\images\education\indiana_hoosiers_logo.svg.webp -> public\_archive_media\images\education\indiana_hoosiers_logo.svg.webp
+  - public\images\education\iu-campus.svg -> public\_archive_media\images\education\iu-campus.svg
+  - public\images\education\iu-logo.svg -> public\_archive_media\images\education\iu-logo.svg
+  - public\images\education\samplegatesheader-desktop.avif -> public\_archive_media\images\education\samplegatesheader-desktop.avif
+  - public\images\education\samplegatesheader-desktop.jpg -> public\_archive_media\images\education\samplegatesheader-desktop.jpg
+  - public\images\education\samplegatesheader-desktop.webp -> public\_archive_media\images\education\samplegatesheader-desktop.webp
+  - public\images\inspirations\bombay-electric.svg -> public\_archive_media\images\inspirations\bombay-electric.svg
+  - public\images\inspirations\british-rail.svg -> public\_archive_media\images\inspirations\british-rail.svg
+  - public\images\inspirations\eames-kit.svg -> public\_archive_media\images\inspirations\eames-kit.svg
+  - public\images\inspirations\eat-my-shorts.svg -> public\_archive_media\images\inspirations\eat-my-shorts.svg
+  - public\images\inspirations\felony-case.svg -> public\_archive_media\images\inspirations\felony-case.svg
+  - public\images\inspirations\folklorious.svg -> public\_archive_media\images\inspirations\folklorious.svg
+  - public\images\inspirations\glorioso.svg -> public\_archive_media\images\inspirations\glorioso.svg
+  - public\images\inspirations\ibm-design.svg -> public\_archive_media\images\inspirations\ibm-design.svg
+  - public\images\inspirations\indiana-university.svg -> public\_archive_media\images\inspirations\indiana-university.svg
+  - public\images\inspirations\iu-brand.svg -> public\_archive_media\images\inspirations\iu-brand.svg
+  - public\images\inspirations\lune-croissanterie.svg -> public\_archive_media\images\inspirations\lune-croissanterie.svg
+  - public\images\inspirations\nasa-manual.svg -> public\_archive_media\images\inspirations\nasa-manual.svg
+  - public\images\inspirations\qoni.svg -> public\_archive_media\images\inspirations\qoni.svg
+  - public\images\inspirations\sutherland-press.svg -> public\_archive_media\images\inspirations\sutherland-press.svg
+  - public\images\inspirations\tenth-muse.svg -> public\_archive_media\images\inspirations\tenth-muse.svg
+  - public\images\inspirations\yellow-owl.svg -> public\_archive_media\images\inspirations\yellow-owl.svg
+  - public\images\inspirations\zonzo-estate.svg -> public\_archive_media\images\inspirations\zonzo-estate.svg
+  - public\images\design\vid_20230729_194732_603-1.mp4 -> public\_archive_media\images\design\vid_20230729_194732_603-1.mp4
+  - public\images\design\VID_20230823_194738_067.mp4 -> public\_archive_media\images\design\VID_20230823_194738_067.mp4
+  - public\images\tech-icons\express.svg -> public\_archive_media\images\tech-icons\express.svg
+  - public\images\tech-icons\github.svg -> public\_archive_media\images\tech-icons\github.svg
+  - public\images\tech-icons\hubspot.svg -> public\_archive_media\images\tech-icons\hubspot.svg
+  - public\images\tech-icons\javascript.svg -> public\_archive_media\images\tech-icons\javascript.svg
+  - public\images\tech-icons\nodejs.svg -> public\_archive_media\images\tech-icons\nodejs.svg
+  - public\images\tech-icons\python.svg -> public\_archive_media\images\tech-icons\python.svg
+  - public\images\tech-icons\react.svg -> public\_archive_media\images\tech-icons\react.svg
+  - public\images\tech-icons\tailwind-css.svg -> public\_archive_media\images\tech-icons\tailwind-css.svg
+  - public\images\tech-icons\typescript.svg -> public\_archive_media\images\tech-icons\typescript.svg
+  - public\images\tech-icons\vite.svg -> public\_archive_media\images\tech-icons\vite.svg
+  - public\images\side-projects\317-bbq.svg -> public\_archive_media\images\side-projects\317-bbq.svg
+  - public\images\side-projects\317bbqlogo_wht.avif -> public\_archive_media\images\side-projects\317bbqlogo_wht.avif
+  - public\images\side-projects\317bbqlogo_wht.png -> public\_archive_media\images\side-projects\317bbqlogo_wht.png
+  - public\images\side-projects\317bbqlogo_wht.webp -> public\_archive_media\images\side-projects\317bbqlogo_wht.webp
+  - public\images\side-projects\cbd-for-pets-and-pet-skin-care.avif -> public\_archive_media\images\side-projects\cbd-for-pets-and-pet-skin-care.avif
+  - public\images\side-projects\CBD-for-Pets-and-Pet-Skin-Care.png -> public\_archive_media\images\side-projects\CBD-for-Pets-and-Pet-Skin-Care.png
+  - public\images\side-projects\cbd-for-pets-and-pet-skin-care.webp -> public\_archive_media\images\side-projects\cbd-for-pets-and-pet-skin-care.webp
+  - public\images\side-projects\cbd-oil-for-pets.avif -> public\_archive_media\images\side-projects\cbd-oil-for-pets.avif
+  - public\images\side-projects\CBD-Oil-for-Pets.png -> public\_archive_media\images\side-projects\CBD-Oil-for-Pets.png
+  - public\images\side-projects\cbd-oil-for-pets.webp -> public\_archive_media\images\side-projects\cbd-oil-for-pets.webp
+  - public\images\side-projects\cropped-pc_logo1-1024x174.avif -> public\_archive_media\images\side-projects\cropped-pc_logo1-1024x174.avif
+  - public\images\side-projects\cropped-PC_LOGO1-1024x174.jpg -> public\_archive_media\images\side-projects\cropped-PC_LOGO1-1024x174.jpg
+  - public\images\side-projects\cropped-pc_logo1-1024x174.webp -> public\_archive_media\images\side-projects\cropped-pc_logo1-1024x174.webp
+  - public\images\side-projects\dog-dry-skin-remedy.avif -> public\_archive_media\images\side-projects\dog-dry-skin-remedy.avif
+  - public\images\side-projects\dog-dry-skin-remedy.jpg -> public\_archive_media\images\side-projects\dog-dry-skin-remedy.jpg
+  - public\images\side-projects\dog-dry-skin-remedy.webp -> public\_archive_media\images\side-projects\dog-dry-skin-remedy.webp
+  - public\images\side-projects\dot-physicals-header.avif -> public\_archive_media\images\side-projects\dot-physicals-header.avif
+  - public\images\side-projects\dot-physicals-header.jpg -> public\_archive_media\images\side-projects\dot-physicals-header.jpg
+  - public\images\side-projects\dot-physicals-header.webp -> public\_archive_media\images\side-projects\dot-physicals-header.webp
+  - public\images\side-projects\graston-dashboard.svg -> public\_archive_media\images\side-projects\graston-dashboard.svg
+  - public\images\side-projects\interior_sl.avif -> public\_archive_media\images\side-projects\interior_sl.avif
+  - public\images\side-projects\Interior_sl.jpg -> public\_archive_media\images\side-projects\Interior_sl.jpg
+  - public\images\side-projects\interior_sl.webp -> public\_archive_media\images\side-projects\interior_sl.webp
+  - public\images\side-projects\interior_w3.avif -> public\_archive_media\images\side-projects\interior_w3.avif
+  - public\images\side-projects\interior_w3.jpg -> public\_archive_media\images\side-projects\interior_w3.jpg
+  - public\images\side-projects\interior_w3.webp -> public\_archive_media\images\side-projects\interior_w3.webp
+  - public\images\side-projects\matt-z-new-logo-test.png.orig -> public\_archive_media\images\side-projects\matt-z-new-logo-test.png.orig
+  - public\images\side-projects\my-post-2.avif -> public\_archive_media\images\side-projects\my-post-2.avif
+  - public\images\side-projects\my-post-2.jpg -> public\_archive_media\images\side-projects\my-post-2.jpg
+  - public\images\side-projects\my-post-2.webp -> public\_archive_media\images\side-projects\my-post-2.webp
+  - public\images\side-projects\occ-health-header.avif -> public\_archive_media\images\side-projects\occ-health-header.avif
+  - public\images\side-projects\occ-health-header.jpg -> public\_archive_media\images\side-projects\occ-health-header.jpg
+  - public\images\side-projects\occ-health-header.webp -> public\_archive_media\images\side-projects\occ-health-header.webp
+  - public\images\side-projects\online-doctor-consultation-instagram-post.avif -> public\_archive_media\images\side-projects\online-doctor-consultation-instagram-post.avif
+  - public\images\side-projects\online-doctor-consultation-instagram-post.png -> public\_archive_media\images\side-projects\online-doctor-consultation-instagram-post.png
+  - public\images\side-projects\online-doctor-consultation-instagram-post.webp -> public\_archive_media\images\side-projects\online-doctor-consultation-instagram-post.webp
+  - public\images\side-projects\painting_illustration_01.avif -> public\_archive_media\images\side-projects\painting_illustration_01.avif
+  - public\images\side-projects\painting_illustration_01.png -> public\_archive_media\images\side-projects\painting_illustration_01.png
+  - public\images\side-projects\painting_illustration_01.webp -> public\_archive_media\images\side-projects\painting_illustration_01.webp
+  - public\images\side-projects\primarycare indy logo.avif -> public\_archive_media\images\side-projects\primarycare indy logo.avif
+  - public\images\side-projects\primarycare indy logo.png -> public\_archive_media\images\side-projects\primarycare indy logo.png
+  - public\images\side-projects\primarycare indy logo.webp -> public\_archive_media\images\side-projects\primarycare indy logo.webp
+  - public\images\side-projects\skincare-for-dogs-and-cats.avif -> public\_archive_media\images\side-projects\skincare-for-dogs-and-cats.avif
+  - public\images\side-projects\Skincare-for-Dogs-and-Cats.jpg -> public\_archive_media\images\side-projects\Skincare-for-Dogs-and-Cats.jpg
+  - public\images\side-projects\skincare-for-dogs-and-cats.webp -> public\_archive_media\images\side-projects\skincare-for-dogs-and-cats.webp
+  - public\images\side-projects\what-we-treat-1.avif -> public\_archive_media\images\side-projects\what-we-treat-1.avif
+  - public\images\side-projects\what-we-treat-1.jpg -> public\_archive_media\images\side-projects\what-we-treat-1.jpg
+  - public\images\side-projects\what-we-treat-1.webp -> public\_archive_media\images\side-projects\what-we-treat-1.webp
+  - public\images\auto-generated\awards\gold-key-award.avif -> public\_archive_media\images\auto-generated\awards\gold-key-award.avif
+  - public\images\auto-generated\awards\gold-key-award.png -> public\_archive_media\images\auto-generated\awards\gold-key-award.png
+  - public\images\auto-generated\awards\gold-key-award.webp -> public\_archive_media\images\auto-generated\awards\gold-key-award.webp
+  - public\images\auto-generated\graston-technique\placeholder.svg -> public\_archive_media\images\auto-generated\graston-technique\placeholder.svg
+  - public\images\auto-generated\pike-medical\placeholder.svg -> public\_archive_media\images\auto-generated\pike-medical\placeholder.svg
+  - public\images\auto-generated\riley-bennett-egloff\placeholder.svg -> public\_archive_media\images\auto-generated\riley-bennett-egloff\placeholder.svg
+  - public\images\case-studies\branding-reel\cover.svg -> public\_archive_media\images\case-studies\branding-reel\cover.svg
+  - public\images\case-studies\cinematic-portfolio\cover.svg -> public\_archive_media\images\case-studies\cinematic-portfolio\cover.svg
+  - public\images\case-studies\graston-dashboard\after.svg -> public\_archive_media\images\case-studies\graston-dashboard\after.svg
+  - public\images\case-studies\graston-dashboard\before.svg -> public\_archive_media\images\case-studies\graston-dashboard\before.svg
+  - public\images\case-studies\graston-dashboard\cover.svg -> public\_archive_media\images\case-studies\graston-dashboard\cover.svg
+  - public\images\case-studies\graston-dashboard\gallery-1.svg -> public\_archive_media\images\case-studies\graston-dashboard\gallery-1.svg
+  - public\images\case-studies\graston-dashboard\gallery-2.svg -> public\_archive_media\images\case-studies\graston-dashboard\gallery-2.svg
+  - public\images\projects\Perpetual Movement Fitness\Perpetual Movement Fitness - Primary Logo TM.avif -> public\_archive_media\images\projects\Perpetual Movement Fitness\Perpetual Movement Fitness - Primary Logo TM.avif
+  - public\images\projects\Perpetual Movement Fitness\Perpetual Movement Fitness - Primary Logo TM.png -> public\_archive_media\images\projects\Perpetual Movement Fitness\Perpetual Movement Fitness - Primary Logo TM.png
+  - public\images\projects\Perpetual Movement Fitness\Perpetual Movement Fitness - Primary Logo TM.webp -> public\_archive_media\images\projects\Perpetual Movement Fitness\Perpetual Movement Fitness - Primary Logo TM.webp
+  - public\images\projects\317 bbq\20231008_174703.avif -> public\_archive_media\images\projects\317 bbq\20231008_174703.avif
+  - public\images\projects\317 bbq\20231008_174703.jpg -> public\_archive_media\images\projects\317 bbq\20231008_174703.jpg
+  - public\images\projects\317 bbq\20231008_174703.webp -> public\_archive_media\images\projects\317 bbq\20231008_174703.webp
+  - public\images\projects\317 bbq\20231008_175026.avif -> public\_archive_media\images\projects\317 bbq\20231008_175026.avif
+  - public\images\projects\317 bbq\20231008_175026.jpg -> public\_archive_media\images\projects\317 bbq\20231008_175026.jpg
+  - public\images\projects\317 bbq\20231008_175026.webp -> public\_archive_media\images\projects\317 bbq\20231008_175026.webp
+  - public\images\projects\317 bbq\20231008_175109.avif -> public\_archive_media\images\projects\317 bbq\20231008_175109.avif
+  - public\images\projects\317 bbq\20231008_175109.jpg -> public\_archive_media\images\projects\317 bbq\20231008_175109.jpg
+  - public\images\projects\317 bbq\20231008_175109.webp -> public\_archive_media\images\projects\317 bbq\20231008_175109.webp
+  - public\images\projects\317 bbq\20231008_175244.avif -> public\_archive_media\images\projects\317 bbq\20231008_175244.avif
+  - public\images\projects\317 bbq\20231008_175244.jpg -> public\_archive_media\images\projects\317 bbq\20231008_175244.jpg
+  - public\images\projects\317 bbq\20231008_175244.webp -> public\_archive_media\images\projects\317 bbq\20231008_175244.webp
+  - public\images\projects\317 bbq\20231008_175510.avif -> public\_archive_media\images\projects\317 bbq\20231008_175510.avif
+  - public\images\projects\317 bbq\20231008_175510.jpg -> public\_archive_media\images\projects\317 bbq\20231008_175510.jpg
+  - public\images\projects\317 bbq\20231008_175510.webp -> public\_archive_media\images\projects\317 bbq\20231008_175510.webp
+  - public\images\projects\317 bbq\20231008_175512.avif -> public\_archive_media\images\projects\317 bbq\20231008_175512.avif
+  - public\images\projects\317 bbq\20231008_175512.jpg -> public\_archive_media\images\projects\317 bbq\20231008_175512.jpg
+  - public\images\projects\317 bbq\20231008_175512.webp -> public\_archive_media\images\projects\317 bbq\20231008_175512.webp
+  - public\images\projects\317 bbq\20231008_175650.avif -> public\_archive_media\images\projects\317 bbq\20231008_175650.avif
+  - public\images\projects\317 bbq\20231008_175650.jpg -> public\_archive_media\images\projects\317 bbq\20231008_175650.jpg
+  - public\images\projects\317 bbq\20231008_175650.webp -> public\_archive_media\images\projects\317 bbq\20231008_175650.webp
+  - public\images\projects\317 bbq\20231008_175654.avif -> public\_archive_media\images\projects\317 bbq\20231008_175654.avif
+  - public\images\projects\317 bbq\20231008_175654.jpg -> public\_archive_media\images\projects\317 bbq\20231008_175654.jpg
+  - public\images\projects\317 bbq\20231008_175654.webp -> public\_archive_media\images\projects\317 bbq\20231008_175654.webp
+  - public\images\projects\317 bbq\20231008_180910.avif -> public\_archive_media\images\projects\317 bbq\20231008_180910.avif
+  - public\images\projects\317 bbq\20231008_180910.jpg -> public\_archive_media\images\projects\317 bbq\20231008_180910.jpg
+  - public\images\projects\317 bbq\20231008_180910.webp -> public\_archive_media\images\projects\317 bbq\20231008_180910.webp
+  - public\images\projects\317 bbq\20231008_181722.avif -> public\_archive_media\images\projects\317 bbq\20231008_181722.avif
+  - public\images\projects\317 bbq\20231008_181722.jpg -> public\_archive_media\images\projects\317 bbq\20231008_181722.jpg
+  - public\images\projects\317 bbq\20231008_181722.webp -> public\_archive_media\images\projects\317 bbq\20231008_181722.webp
+  - public\images\projects\317 bbq\317BBQLogo_wht.webp -> public\_archive_media\images\projects\317 bbq\317BBQLogo_wht.webp
+  - public\images\projects\317 bbq\download.avif -> public\_archive_media\images\projects\317 bbq\download.avif
+  - public\images\projects\317 bbq\download.jpg -> public\_archive_media\images\projects\317 bbq\download.jpg
+  - public\images\projects\317 bbq\download.webp -> public\_archive_media\images\projects\317 bbq\download.webp
+  - public\images\projects\317 bbq\screen-recording-2.webm -> public\_archive_media\images\projects\317 bbq\screen-recording-2.webm
+  - public\images\projects\Primarycare Indy\Primary Care Logo with PMC.avif -> public\_archive_media\images\projects\Primarycare Indy\Primary Care Logo with PMC.avif
+  - public\images\projects\Primarycare Indy\Primary Care Logo with PMC.png -> public\_archive_media\images\projects\Primarycare Indy\Primary Care Logo with PMC.png
+  - public\images\projects\Primarycare Indy\Primary Care Logo with PMC.webp -> public\_archive_media\images\projects\Primarycare Indy\Primary Care Logo with PMC.webp
+  - public\images\projects\riley bennett egloff\attorneys.avif -> public\_archive_media\images\projects\riley bennett egloff\attorneys.avif
+  - public\images\projects\riley bennett egloff\attorneys.jpg -> public\_archive_media\images\projects\riley bennett egloff\attorneys.jpg
+  - public\images\projects\riley bennett egloff\attorneys.webp -> public\_archive_media\images\projects\riley bennett egloff\attorneys.webp
+  - public\images\projects\riley bennett egloff\download.avif -> public\_archive_media\images\projects\riley bennett egloff\download.avif
+  - public\images\projects\riley bennett egloff\download.jpg -> public\_archive_media\images\projects\riley bennett egloff\download.jpg
+  - public\images\projects\riley bennett egloff\download.webp -> public\_archive_media\images\projects\riley bennett egloff\download.webp
+  - public\images\projects\riley bennett egloff\dss.avif -> public\_archive_media\images\projects\riley bennett egloff\dss.avif
+  - public\images\projects\riley bennett egloff\dss.jpg -> public\_archive_media\images\projects\riley bennett egloff\dss.jpg
+  - public\images\projects\riley bennett egloff\dss.webp -> public\_archive_media\images\projects\riley bennett egloff\dss.webp
+  - public\images\projects\riley bennett egloff\RBE-Logo-with-®-RGB-jpg.avif -> public\_archive_media\images\projects\riley bennett egloff\RBE-Logo-with-®-RGB-jpg.avif
+  - public\images\projects\riley bennett egloff\RBE-Logo-with-®-RGB-jpg.jpg -> public\_archive_media\images\projects\riley bennett egloff\RBE-Logo-with-®-RGB-jpg.jpg
+  - public\images\projects\riley bennett egloff\RBE-Logo-with-®-RGB-jpg.webp -> public\_archive_media\images\projects\riley bennett egloff\RBE-Logo-with-®-RGB-jpg.webp
+  - public\images\projects\Taco Ninja\taco ninja logo.avif -> public\_archive_media\images\projects\Taco Ninja\taco ninja logo.avif
+  - public\images\projects\Taco Ninja\taco ninja logo.png -> public\_archive_media\images\projects\Taco Ninja\taco ninja logo.png
+  - public\images\projects\Taco Ninja\taco ninja logo.webp -> public\_archive_media\images\projects\Taco Ninja\taco ninja logo.webp
+  - public\images\projects\Russell painting\Russell Painting Company Logo.avif -> public\_archive_media\images\projects\Russell painting\Russell Painting Company Logo.avif
+  - public\images\projects\Russell painting\Russell Painting Company Logo.png -> public\_archive_media\images\projects\Russell painting\Russell Painting Company Logo.png
+  - public\images\projects\Russell painting\Russell Painting Company Logo.webp -> public\_archive_media\images\projects\Russell painting\Russell Painting Company Logo.webp
+  - public\images\projects\Russell painting\screen-recording-2.webm -> public\_archive_media\images\projects\Russell painting\screen-recording-2.webm
+  - public\images\projects\Tuohy Bailey & Moore LLP\screen-recording-2.webm -> public\_archive_media\images\projects\Tuohy Bailey & Moore LLP\screen-recording-2.webm
+  - public\images\projects\Tuohy Bailey & Moore LLP\TBM-Small-1.avif -> public\_archive_media\images\projects\Tuohy Bailey & Moore LLP\TBM-Small-1.avif
+  - public\images\projects\Tuohy Bailey & Moore LLP\TBM-Small-1.png -> public\_archive_media\images\projects\Tuohy Bailey & Moore LLP\TBM-Small-1.png
+  - public\images\projects\Tuohy Bailey & Moore LLP\TBM-Small-1.webp -> public\_archive_media\images\projects\Tuohy Bailey & Moore LLP\TBM-Small-1.webp
+Phase 3: No project asset placement recommendations.

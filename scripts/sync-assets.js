@@ -1,11 +1,12 @@
 import { readdir, writeFile } from 'fs/promises';
 import path from 'path';
 
-const IMAGE_EXTENSIONS = new Set(['.webp', '.jpg', '.jpeg', '.png', '.avif']);
+const IMAGE_EXTENSIONS = new Set(['.webp', '.jpg', '.jpeg', '.png', '.avif', '.svg']);
 
 const TARGET_DIRECTORIES = [
   path.resolve('public/images/photography'),
   path.resolve('public/images/design'),
+  path.resolve('public/images/side-projects'),
 ];
 
 async function syncDirectory(dirPath) {

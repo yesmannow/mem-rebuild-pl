@@ -1,0 +1,34 @@
+/* Inspiration Page Specific Styles */
+.inspiration-page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  background: transparent !important;
+  isolation: isolate;
+  z-index: 0;
+}
+
+/* Ensure wrapper is visible */
+.inspiration-page-wrapper {
+  display: block;
+  width: 100%;
+}
+
+.inspiration-page-wrapper > *:not(.animated-background) {
+  position: relative;
+  z-index: 10;
+}
+
+/* Ensure content is visible */
+.inspiration-page-wrapper .max-w-6xl {
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+/* Make sure header and content are visible */
+.inspiration-page-wrapper header,
+.inspiration-page-wrapper .bg-white {
+  position: relative;
+  z-index: 10;
+}
+

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+  <defs>
+    <linearGradient id="pikeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e" />
+      <stop offset="100%" stop-color="#5eead4" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" rx="32" fill="#0f172a" />
+  <rect x="56" y="56" width="688" height="368" rx="28" fill="url(#pikeGradient)" opacity="0.9" />
+  <g fill="none" stroke="#ecfdf5" stroke-width="5" stroke-linecap="round">
+    <path d="M160 220c32-80 96-120 160-120s128 40 160 120" opacity="0.5" />
+    <path d="M200 280c28-64 84-96 140-96s112 32 140 96" opacity="0.35" />
+    <path d="M240 332c24-48 72-72 120-72s96 24 120 72" opacity="0.25" />
+  </g>
+  <text x="120" y="200" fill="#ecfdf5" font-family="'Inter', sans-serif" font-size="50" font-weight="600">
+    Pike Medical Consultants
+  </text>
+  <text x="120" y="248" fill="#ccfbf1" font-family="'Inter', sans-serif" font-size="26" font-weight="500">
+    Marketing Coordinator
+  </text>
+  <text x="120" y="296" fill="#ecfdf5" font-family="'Inter', sans-serif" font-size="20" opacity="0.8">
+    Healthcare marketing • Patient journeys • Campaign strategy
+  </text>
+</svg>

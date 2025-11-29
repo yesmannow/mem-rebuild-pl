@@ -1,0 +1,84 @@
+/* ===================================================================
+   DESIGN SYSTEM COLOR TOKENS
+   Monochrome Beach Color Palette
+   Updated: 2025-11-24
+   =================================================================== */
+
+:root {
+  /* ===== MONOCHROME BEACH PALETTE ===== */
+  /* Graphite: Neutral, balanced darkness with subtle silvery reflections */
+  --color-graphite: #353535;
+  /* Stormy Teal: Dark, moody teal - Primary brand color */
+  --color-stormy-teal: #3c6e71;
+  /* White: Brilliant and absolute, reflecting endless possibility */
+  --color-white: #ffffff;
+  /* Dust Grey: Subtle, soft tone for understated sophistication */
+  --color-dust-grey: #d9d9d9;
+  /* Yale Blue: Deep and striking, radiates academic prestige */
+  --color-yale-blue: #284b63;
+
+  /* ===== PRIMARY BRAND COLORS ===== */
+  --color-primary: #3c6e71;      /* Stormy Teal - CTAs, interactive accents */
+  --color-secondary: #284b63;    /* Yale Blue - Links, highlights, hover states */
+  --color-accent: #3c6e71;       /* Stormy Teal - Chips, highlights, UI accents */
+
+  /* ===== SURFACE COLORS ===== */
+  --color-surface: #ffffff;      /* White - Cards, backgrounds */
+  --color-light: #ffffff;        /* Pure white - Backgrounds, surfaces */
+  --color-dark: #353535;         /* Graphite - Footer, dark mode backgrounds */
+
+  /* ===== NEUTRAL COLORS ===== */
+  --color-neutral-1: #353535;    /* Graphite - Headings, high-contrast text */
+  --color-neutral-2: #d9d9d9;    /* Dust Grey - Meta, secondary text */
+
+  /* ===== SEMANTIC COLORS ===== */
+  --color-success: #3c6e71;      /* Stormy Teal - Success, positive badges */
+  --color-warning: #284b63;      /* Yale Blue - Alert, warning icons */
+  --color-danger: #353535;       /* Graphite - Error state, destructive actions */
+
+  /* ===== ADDITIONAL TOKENS (for edge cases) ===== */
+  /* These are mapped from the Monochrome Beach palette */
+  --color-neutral-50: #ffffff;   /* White - Very light neutral */
+  --color-neutral-100: #f5f5f5;  /* Off-white - Light neutral */
+  --color-neutral-200: #d9d9d9;  /* Dust Grey - Light gray */
+  --color-neutral-300: #b0b0b0;  /* Medium dust grey - Medium light gray */
+  --color-neutral-400: #808080;  /* Medium grey - Medium gray */
+  --color-neutral-500: #5a5a5a;  /* Medium dark grey - Medium dark gray */
+  --color-neutral-600: #454545;  /* Dark grey - Dark gray */
+  --color-neutral-700: #353535;  /* Graphite - Very dark gray */
+  --color-neutral-800: #2a2a2a;  /* Deeper graphite - Near black */
+  --color-neutral-900: #353535;  /* Graphite - Same as neutral-1, for consistency */
+
+  /* ===== LEGACY COMPATIBILITY ===== */
+  /* Maintain backward compatibility with existing tokens */
+  --ink-900: var(--color-neutral-1);
+  --ink-700: var(--color-dark);
+  --parchment-050: var(--color-surface);
+  --signal-500: var(--color-accent);
+  --telemetry-400: var(--color-secondary);
+}
+
+/* ===== COLOR USAGE GUIDE ===== */
+/*
+ * Primary (var(--color-primary)): Use for primary CTAs, main interactive elements
+ * Secondary (var(--color-secondary)): Use for links, secondary actions, highlights
+ * Accent (var(--color-accent)): Use for chips, badges, emphasis
+ * Surface (var(--color-surface)): Use for card backgrounds, light surfaces
+ * Neutral-1 (var(--color-neutral-1)): Use for headings, primary text
+ * Neutral-2 (var(--color-neutral-2)): Use for secondary text, meta information
+ * Success (var(--color-success)): Use for success states, positive feedback
+ * Warning (var(--color-warning)): Use for warnings, alerts
+ * Danger (var(--color-danger)): Use for errors, destructive actions
+ * Light (var(--color-light)): Use for pure white backgrounds
+ * Dark (var(--color-dark)): Use for dark mode backgrounds, footers
+ */
+
+/* Migration Status:
+ * - 5 colors match exactly
+ * - 23 colors are close matches (<20 distance)
+ * - 31 colors are far matches (20-50 distance)
+ * - 39 colors mapped to closest token (may need visual review)
+ * - Total mapped: 98 unique colors from 394 total
+ *
+ * See reports/design-analysis/enhanced-color-mapping.json for complete mapping
+ */

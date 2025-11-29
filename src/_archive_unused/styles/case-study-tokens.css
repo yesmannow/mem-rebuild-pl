@@ -1,0 +1,166 @@
+/* Case Study Visual Identity Tokens */
+/* CSS Variables for dynamic theming per case study */
+
+:root {
+  /* The Launchpad Visual Identity */
+  --launchpad-primary: var(--color-secondary);
+  --launchpad-secondary: var(--color-neutral-1);
+  --launchpad-accent: var(--color-warning);
+  --launchpad-gradient: linear-gradient(135deg, var(--color-neutral-1) 0%, var(--color-neutral-1) 40%, var(--color-secondary) 100%);
+  --launchpad-glow: rgba(60, 198, 196, 0.35);
+
+  /* The Compass Visual Identity */
+  --compass-primary: var(--color-secondary);
+  --compass-secondary: var(--color-neutral-1);
+  --compass-accent: var(--color-secondary);
+  --compass-gradient: linear-gradient(135deg, var(--color-neutral-1) 0%, var(--color-dark) 100%);
+  --compass-glow: rgba(67, 189, 253, 0.45);
+
+  /* The Engine Room Visual Identity */
+  --engine-room-primary: var(--color-warning);
+  --engine-room-secondary: var(--color-neutral-1);
+  --engine-room-accent: var(--color-warning);
+  --engine-room-gradient: linear-gradient(135deg, var(--color-neutral-1) 0%, var(--color-neutral-1) 100%);
+  --engine-room-glow: rgba(255, 184, 107, 0.45);
+
+  /* The Guardian Visual Identity */
+  --guardian-primary: var(--color-success);
+  --guardian-secondary: var(--color-neutral-1);
+  --guardian-accent: var(--color-surface);
+  --guardian-gradient: linear-gradient(135deg, var(--color-neutral-1) 0%, var(--color-neutral-1) 100%);
+  --guardian-glow: rgba(121, 242, 192, 0.45);
+
+  /* The Fortress Visual Identity */
+  --fortress-primary: var(--color-accent);
+  --fortress-secondary: var(--color-neutral-1);
+  --fortress-accent: var(--color-warning);
+  --fortress-gradient: linear-gradient(135deg, var(--color-neutral-1) 0%, var(--color-neutral-1) 100%);
+  --fortress-glow: rgba(255, 190, 11, 0.45);
+
+  /* The Conductor Visual Identity */
+  --conductor-primary: var(--color-secondary);
+  --conductor-secondary: var(--color-neutral-1);
+  --conductor-accent: var(--color-secondary);
+  --conductor-gradient: linear-gradient(135deg, var(--color-neutral-1) 0%, var(--color-dark) 100%);
+  --conductor-glow: rgba(53, 224, 255, 0.45);
+
+  /* Graston CEU Visual Identity */
+  --graston-ceu-primary: var(--color-secondary);
+  --graston-ceu-secondary: var(--color-neutral-1);
+  --graston-ceu-accent: var(--color-surface);
+  --graston-ceu-gradient: linear-gradient(135deg, var(--color-neutral-1) 0%, var(--color-dark) 100%);
+  --graston-ceu-glow: rgba(43, 212, 197, 0.45);
+
+  /* RBE Law Visual Identity */
+  --rbe-law-primary: var(--color-primary);
+  --rbe-law-secondary: var(--color-neutral-1);
+  --rbe-law-accent: var(--color-warning);
+  --rbe-law-gradient: linear-gradient(135deg, var(--color-neutral-1) 0%, var(--color-dark) 100%);
+  --rbe-law-glow: rgba(61, 126, 255, 0.45);
+
+  /* Ultimate Tech ROI Visual Identity */
+  --ultimate-tech-roi-primary: var(--color-neutral-2);
+  --ultimate-tech-roi-secondary: var(--color-neutral-1);
+  --ultimate-tech-roi-accent: var(--color-secondary);
+  --ultimate-tech-roi-gradient: linear-gradient(135deg, var(--color-neutral-1) 0%, var(--color-dark) 100%);
+  --ultimate-tech-roi-glow: rgba(127, 90, 240, 0.45);
+
+  /* Default case study tokens (can be overridden per case study) */
+  --case-study-primary: var(--launchpad-primary);
+  --case-study-secondary: var(--launchpad-secondary);
+  --case-study-accent: var(--launchpad-accent);
+  --case-study-gradient: var(--launchpad-gradient);
+  --case-study-glow: var(--launchpad-glow);
+}
+
+/* Case study specific overrides */
+[data-case-study="the-launchpad"] {
+  --case-study-primary: var(--launchpad-primary);
+  --case-study-secondary: var(--launchpad-secondary);
+  --case-study-accent: var(--launchpad-accent);
+  --case-study-gradient: var(--launchpad-gradient);
+  --case-study-glow: var(--launchpad-glow);
+}
+
+[data-case-study="the-compass"] {
+  --case-study-primary: var(--compass-primary);
+  --case-study-secondary: var(--compass-secondary);
+  --case-study-accent: var(--compass-accent);
+  --case-study-gradient: var(--compass-gradient);
+  --case-study-glow: var(--compass-glow);
+}
+
+[data-case-study="the-engine-room"] {
+  --case-study-primary: var(--engine-room-primary);
+  --case-study-secondary: var(--engine-room-secondary);
+  --case-study-accent: var(--engine-room-accent);
+  --case-study-gradient: var(--engine-room-gradient);
+  --case-study-glow: var(--engine-room-glow);
+}
+
+[data-case-study="the-guardian"] {
+  --case-study-primary: var(--guardian-primary);
+  --case-study-secondary: var(--guardian-secondary);
+  --case-study-accent: var(--guardian-accent);
+  --case-study-gradient: var(--guardian-gradient);
+  --case-study-glow: var(--guardian-glow);
+}
+
+[data-case-study="the-fortress"] {
+  --case-study-primary: var(--fortress-primary);
+  --case-study-secondary: var(--fortress-secondary);
+  --case-study-accent: var(--fortress-accent);
+  --case-study-gradient: var(--fortress-gradient);
+  --case-study-glow: var(--fortress-glow);
+}
+
+[data-case-study="the-conductor"] {
+  --case-study-primary: var(--conductor-primary);
+  --case-study-secondary: var(--conductor-secondary);
+  --case-study-accent: var(--conductor-accent);
+  --case-study-gradient: var(--conductor-gradient);
+  --case-study-glow: var(--conductor-glow);
+}
+
+[data-case-study="graston-ceu-system"] {
+  --case-study-primary: var(--graston-ceu-primary);
+  --case-study-secondary: var(--graston-ceu-secondary);
+  --case-study-accent: var(--graston-ceu-accent);
+  --case-study-gradient: var(--graston-ceu-gradient);
+  --case-study-glow: var(--graston-ceu-glow);
+}
+
+[data-case-study="rbe-law-brand-and-digital"] {
+  --case-study-primary: var(--rbe-law-primary);
+  --case-study-secondary: var(--rbe-law-secondary);
+  --case-study-accent: var(--rbe-law-accent);
+  --case-study-gradient: var(--rbe-law-gradient);
+  --case-study-glow: var(--rbe-law-glow);
+}
+
+[data-case-study="ultimate-tech-roi-growth"] {
+  --case-study-primary: var(--ultimate-tech-roi-primary);
+  --case-study-secondary: var(--ultimate-tech-roi-secondary);
+  --case-study-accent: var(--ultimate-tech-roi-accent);
+  --case-study-gradient: var(--ultimate-tech-roi-gradient);
+  --case-study-glow: var(--ultimate-tech-roi-glow);
+}
+
+/* Ensure .cs-shell applies background and glow consistently */
+.cs-shell {
+  background: var(--cs-bg, var(--case-study-gradient));
+  --cs-surface: var(--cs-surface, rgba(0,0,0,0.4));
+  --cs-primary: var(--cs-primary, var(--case-study-primary));
+  --cs-accent: var(--cs-accent, var(--case-study-accent));
+  --cs-glow: var(--cs-glow, var(--case-study-glow));
+}
+
+/* Typography tokens */
+:root {
+  --case-study-display-font: 'Montserrat', system-ui, sans-serif;
+  --case-study-body-font: 'Inter', system-ui, sans-serif;
+  --case-study-display-weight: 900; /* Black */
+  --case-study-display-weight-alt: 600; /* SemiBold */
+  --case-study-body-weight: 400; /* Book */
+}
+

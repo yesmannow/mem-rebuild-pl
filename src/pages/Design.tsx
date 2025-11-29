@@ -1,39 +1,56 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import MasonryGallery from '../components/MasonryGallery';
-import { GalleryImage } from '../components/MasonryGallery';
-import designData from '../data/design.json';
+import { SmartGallery } from '../components/SmartGallery';
+import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
+import { loadDesignAssets } from '../utils/loadDesign';
+import type { PhotoItem } from '../utils/loadPhotography';
 
 const Design: React.FC = () => {
-  // Load design data from generated JSON
-  const designs: GalleryImage[] = designData as GalleryImage[];
+  const [assets, setAssets] = useState<PhotoItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let mounted = true;
+    loadDesignAssets()
+      .then((data) => {
+        if (mounted) setAssets(data);
+      })
+      .finally(() => {
+        if (mounted) setIsLoading(false);
+      });
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   return (
     <>
       <Helmet>
-        <title>Creative Direction | Jacob Darling</title>
+        <title>Creative Direction | Visual Design Gallery</title>
         <meta
           name="description"
-          content="Design is problem-solving with style. Explore my design portfolio."
+          content="Identity systems, UI layouts, and vector art — hover to analyze the color DNA behind each piece."
         />
       </Helmet>
 
-      <div className="min-h-screen bg-brand-dark pt-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-          {/* Header */}
-          <div className="mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold text-brand-text mb-4">
-              Creative Direction
-            </h1>
-            <p className="text-xl text-brand-muted max-w-2xl">
-              Design is problem-solving with style.
-            </p>
-          </div>
+      <OceanAuroraBackground>
+        <div className="min-h-screen pt-24 pb-12 px-6 bg-brand-dark/60">
+          <div className="max-w-7xl mx-auto">
+            <div className="mb-10">
+              <h1 className="text-4xl md:text-5xl font-bold text-brand-teal mb-3">Visual Engineering</h1>
+              <p className="text-brand-muted text-lg max-w-2xl">
+                A collection of identity systems, UI layouts, and vector art. Hover to analyze color DNA.
+              </p>
+            </div>
 
-          {/* Masonry Gallery */}
-          <MasonryGallery images={designs} />
+            {assets.length > 0 ? (
+              <SmartGallery items={assets} mode="design" />
+            ) : (
+              <div className="text-brand-muted animate-pulse">Initializing Design Engine...</div>
+            )}
+          </div>
         </div>
-      </div>
+      </OceanAuroraBackground>
     </>
   );
 };

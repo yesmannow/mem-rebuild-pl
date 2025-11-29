@@ -1,0 +1,41 @@
+/* Stat Counter Component Styles */
+/* Matches design system palette and typography */
+
+.stat-counter {
+  text-align: center;
+  padding: 2rem;
+}
+
+.stat-counter__value {
+  font-family: var(--font-display, 'Fraunces', serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+.stat-counter--secondary .stat-counter__value {
+  color: var(--color-secondary);
+}
+
+.stat-counter--accent .stat-counter__value {
+  color: var(--color-accent);
+}
+
+.stat-counter__label {
+  font-family: var(--font-body, 'Space Grotesk', sans-serif);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-neutral-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .stat-counter__value {
+    animation: none;
+  }
+}
+

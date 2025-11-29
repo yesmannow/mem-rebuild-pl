@@ -11,3 +11,50 @@ export interface SideProject {
   impact: string[];
   stack?: string[];
 }
+
+export type { PhotoItem } from './utils/loadPhotography';
+
+export interface Metric {
+  id: string;
+  label: string;
+  value: number;
+  prefix?: string;
+  suffix?: string;
+}
+
+export interface ExperienceItem {
+  id: string;
+  company: string;
+  role: string;
+  period: string;
+  location: string;
+  description: string;
+  achievements: string[];
+  techStack: string[];
+}
+
+export interface VolunteerItem {
+  role: string;
+  organization: string;
+  period: string;
+}
+
+export interface EducationItem {
+  school: string;
+  degree: string;
+  year: string;
+  honors?: string;
+}
+
+export interface Award {
+  title: string;
+  organization: string;
+  year: string;
+}
+
+export interface SkillCategory {
+  id: string;
+  title: string;
+  items: string[];
+  accent?: 'teal' | 'orange' | 'blue';
+}

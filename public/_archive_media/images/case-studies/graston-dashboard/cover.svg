@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="788" viewBox="0 0 1400 788">
+  <defs>
+    <linearGradient id="grastonCover" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="50%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#22c55e" />
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="788" fill="url(#grastonCover)" />
+  <text x="120" y="360" fill="#dcfce7" font-family="'Inter', sans-serif" font-size="92" font-weight="700">
+    Graston Dashboard
+  </text>
+  <text x="120" y="450" fill="#bbf7d0" font-family="'Inter', sans-serif" font-size="42">
+    Clinical intelligence and instrumentation
+  </text>
+</svg>

@@ -1,0 +1,58 @@
+.who-i-am {
+  scroll-margin-top: 80px;
+}
+
+.who-i-am__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--bc-space-3xl);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .who-i-am__grid {
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--bc-space-4xl);
+  }
+}
+
+.who-i-am__photo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.who-i-am__photo {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.who-i-am__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bc-space-xl);
+}
+
+.who-i-am__intro {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--bc-text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.who-i-am__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bc-space-sm);
+}
+
+@media (max-width: 768px) {
+  .who-i-am__photo {
+    max-width: 100%;
+  }
+}
+

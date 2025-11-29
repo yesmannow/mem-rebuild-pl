@@ -1,0 +1,1591 @@
+=== SRC STRUCTURE ===
+src/App.tsx
+src/app/
+src/assets/
+src/assets/branding/
+src/assets/branding/favicon.svg
+src/assets/branding/logo-primary.svg
+src/assets/branding/monogram-jd.svg
+src/cli/
+src/cli/cli.config.json
+src/components/
+src/components/AnimatedBackground.tsx
+src/components/Charts/
+src/components/ErrorBoundary.module.css
+src/components/ErrorBoundary.tsx
+src/components/Icon.tsx
+src/components/InspirationCard.tsx
+src/components/InteractiveLogo.tsx
+src/components/MasonryGallery.tsx
+src/components/MobileDock.tsx
+src/components/Navbar.tsx
+src/components/ProcessFlow.tsx
+src/components/SectionWrapper.tsx
+src/components/ServiceModules.tsx
+src/components/SmartGallery.tsx
+src/components/StrategicPillars.tsx
+src/components/SwipeShell.tsx
+src/components/TechProfile.tsx
+src/components/TestimonialTerminal.tsx
+src/components/_unused_components/
+src/components/about/
+src/components/animations/
+src/components/animations/AnimatedSection.tsx
+src/components/animations/PageTransition.tsx
+src/components/animations/SectionReveal.tsx
+src/components/animations/StaggerGrid.tsx
+src/components/animations/TextReveal.tsx
+src/components/animations/TiltCard.tsx
+src/components/apps/
+src/components/apps/CampaignPerformanceVisualizer.tsx
+src/components/apps/ClinicalCompass.tsx
+src/components/apps/CompetitorIntelligenceHub.tsx
+src/components/apps/GrowthEngine.tsx
+src/components/apps/LeadScoreLab.tsx
+src/components/apps/LicenseHub.tsx
+src/components/apps/LinkArchitect.tsx
+src/components/apps/SEOScanner.tsx
+src/components/apps/growth-engine/
+src/components/apps/growth-engine/AnimatedNumber.tsx
+src/components/apps/growth-engine/ROICalculator.tsx
+src/components/apps/growth-engine/SmartQuote.tsx
+src/components/apps/growth-engine/__tests__/
+src/components/automation/
+src/components/awards/
+src/components/branding/
+src/components/branding/AnimatedCaveLogo.tsx
+src/components/cards/
+src/components/case-studies/
+src/components/case-studies/DataStream.tsx
+src/components/case-studies/SystemSchematic.tsx
+src/components/case-studies/ThreatMap.tsx
+src/components/case-studies/WorkflowVisualizer.tsx
+src/components/case-study/
+src/components/case-study/InteractiveROIChart.tsx
+src/components/case-study/MetricsVisualization.tsx
+src/components/clients/
+src/components/command/
+src/components/common/
+src/components/dashboard/
+src/components/demos/
+src/components/diagrams/
+src/components/diagrams/SystemArchitecture.tsx
+src/components/diagrams/ToolboxEcosystem.tsx
+src/components/diagrams/caseStudyDiagrams.tsx
+src/components/examples/
+src/components/gallery/
+src/components/github/
+src/components/gt/
+src/components/hero/
+src/components/hero/HeroRedesign.tsx
+src/components/hero/HeroSplit.tsx
+src/components/home/
+src/components/home/CareerHighlights.tsx
+src/components/home/EnhancedSkills.tsx
+src/components/home/FeaturedProjectCard.tsx
+src/components/home/FeaturedProjectsGrid.tsx
+src/components/home/HeroCommandPanel.tsx
+src/components/home/HeroStats.tsx
+src/components/home/Portfolio.tsx
+src/components/home/ProcessMethodology.tsx
+src/components/home/QuickWins.tsx
+src/components/home/SignalTape.tsx
+src/components/home/SocialProof.tsx
+src/components/home/Testimonials.tsx
+src/components/icons/
+src/components/icons/TechIcons.tsx
+src/components/inspiration/
+src/components/integration-examples/
+src/components/interactive/
+src/components/interactive/ServiceLadder.tsx
+src/components/layout/
+src/components/layout/Breadcrumbs.tsx
+src/components/layout/EnhancedFooter.tsx
+src/components/layout/Layout.tsx
+src/components/mdx/
+src/components/media/
+src/components/media/EmbedWrapper.tsx
+src/components/modals/
+src/components/modals/AppDemoModal.tsx
+src/components/nav/
+src/components/navigation/
+src/components/navigation/AnchorNav.tsx
+src/components/newsletter/
+src/components/playground/
+src/components/sections/
+src/components/sections/ContactCTA.tsx
+src/components/sections/ServicesGrid.tsx
+src/components/seo/
+src/components/seo/JSONLD.tsx
+src/components/seo/OrganizationSchema.tsx
+src/components/seo/PersonSchema.tsx
+src/components/seo/ReviewSchema.tsx
+src/components/seo/SEOHead.tsx
+src/components/seo/ServiceSchema.tsx
+src/components/shared/
+src/components/shared/MotionVariants.ts
+src/components/skills/
+src/components/skills/SkillsRadar.tsx
+src/components/stats/
+src/components/testimonials/
+src/components/theme/
+src/components/theme/BrandToggle.tsx
+src/components/theme/ThemeProvider.tsx
+src/components/timeline/
+src/components/tooltips/
+src/components/tooltips/TechTooltip.tsx
+src/components/ui/
+src/components/ui/AnimatedCursorWrapper.tsx
+src/components/ui/AnimatedGradientText.tsx
+src/components/ui/AnimatedProgressBar.tsx
+src/components/ui/Atmosphere.tsx
+src/components/ui/AvailabilityBadge.tsx
+src/components/ui/BentoGrid.tsx
+src/components/ui/Button.tsx
+src/components/ui/CookieConsent.tsx
+src/components/ui/CustomCursor.tsx
+src/components/ui/EnhancedOceanBackground.tsx
+src/components/ui/FloatingActionButton.tsx
+src/components/ui/FloatingParticles.tsx
+src/components/ui/GlassCard.tsx
+src/components/ui/GlowEffect.tsx
+src/components/ui/InteractiveBackground.tsx
+src/components/ui/InteractiveProcessFlow.tsx
+src/components/ui/InteractiveTerminal.tsx
+src/components/ui/KeyboardShortcuts.tsx
+src/components/ui/LayeredBackground.tsx
+src/components/ui/Loader.tsx
+src/components/ui/MagneticButton.tsx
+src/components/ui/Ocean3DCard.tsx
+src/components/ui/OceanAnimatedTestimonials.tsx
+src/components/ui/OceanAuroraBackground.tsx
+src/components/ui/OceanBackgroundBeams.tsx
+src/components/ui/OceanCountingNumber.tsx
+src/components/ui/OceanGradientAnimation.tsx
+src/components/ui/OceanGradientText.tsx
+src/components/ui/OceanMarquee.tsx
+src/components/ui/OceanTextGenerateEffect.tsx
+src/components/ui/OceanWavyBackground.tsx
+src/components/ui/ParallaxSection.tsx
+src/components/ui/ProjectVault.tsx
+src/components/ui/ReadingProgressBar.tsx
+src/components/ui/ScrollProgress.tsx
+src/components/ui/SectionDivider.tsx
+src/components/ui/SkillBadge.tsx
+src/components/ui/SkillProgressBar.tsx
+src/components/ui/SkillsRadar.tsx
+src/components/ui/SystemLog.tsx
+src/components/ui/TerminalBlock.tsx
+src/components/ui/TheAtlas.tsx
+src/components/ui/ThemeTransitionEffects.tsx
+src/components/ui/Toast.tsx
+src/components/ui/TypingTerminal.tsx
+src/components/ui/shadcn-io/
+src/components/ui/shadcn-io/animated-beam/
+src/components/ui/shadcn-io/animated-beam/index.tsx
+src/components/utilities/
+src/components/utilities/BackToTop.tsx
+src/components/utils/
+src/components/utils/PerformanceMonitor.tsx
+src/components/utils/ScrollToTop.tsx
+src/config/
+src/config/components.json
+src/config/components/
+src/config/components/ui/
+src/config/lib/
+src/contexts/
+src/data/
+src/data/applications.ts
+src/data/awards.json
+src/data/backgrounds.ts
+src/data/brand-identities.json
+src/data/brands.json
+src/data/case-studies/
+src/data/case-studies/graston-ceu.ts
+src/data/case-studies/rbe-law.ts
+src/data/case-studies/the-compass.ts
+src/data/case-studies/the-conductor.ts
+src/data/case-studies/the-engine-room.ts
+src/data/case-studies/the-fortress.ts
+src/data/case-studies/the-guardian.ts
+src/data/case-studies/the-launchpad.ts
+src/data/case-studies/ultimate-tech-roi.ts
+src/data/caseStudies.json
+src/data/caseStudies.ts
+src/data/caseStudyInspirationMap.json
+src/data/config.ts
+src/data/demos.json
+src/data/design.json
+src/data/gallery.json
+src/data/icons.ts
+src/data/images.manifest.json
+src/data/inspiration-projects.json
+src/data/inspirationTimeline.json
+src/data/inspirations.json
+src/data/labData.ts
+src/data/licenseData.ts
+src/data/lightroom-gallery.json
+src/data/lineage.json
+src/data/milestones.json
+src/data/photography.json
+src/data/pricingData.ts
+src/data/process.ts
+src/data/productData.ts
+src/data/projects.ts
+src/data/protocolData.ts
+src/data/resume.json
+src/data/resume.ts
+src/data/scraped-side-projects.json
+src/data/services.ts
+src/data/side-projects-manifest.json
+src/data/side-projects-structured.json
+src/data/sideProjects.ts
+src/data/smart-gallery.json
+src/data/strategicCaseStudies.json
+src/data/techDescriptions.ts
+src/data/testimonials.json
+src/data/testimonials.ts
+src/data/toolbox.ts
+src/design-system/
+src/design-system/INTEGRATIONS.md
+src/design-system/README.md
+src/hooks/
+src/hooks/useHaptic.ts
+src/hooks/useKonami.tsx
+src/hooks/usePerformanceMetrics.ts
+src/hooks/useTypingEffect.tsx
+src/lib/
+src/lib/queryClient.ts
+src/lib/utils.ts
+src/main.tsx
+src/pages/
+src/pages/About.tsx
+src/pages/ApplicationDetail.tsx
+src/pages/Applications.tsx
+src/pages/AppsLibrary.tsx
+src/pages/BrandBuilder.tsx
+src/pages/CaseStudies.tsx
+src/pages/CaseStudyDetail.tsx
+src/pages/ComponentShowcase.tsx
+src/pages/Contact.tsx
+src/pages/Creative.tsx
+src/pages/DeploymentStatus.tsx
+src/pages/Design.tsx
+src/pages/DesignSystemDemo.tsx
+src/pages/DevOpsPortfolio.tsx
+src/pages/Gallery.tsx
+src/pages/GraphicDesign.tsx
+src/pages/Home.tsx
+src/pages/InspirationDetail.tsx
+src/pages/InspirationPage.tsx
+src/pages/Lab.tsx
+src/pages/NotFound.tsx
+src/pages/Photography.tsx
+src/pages/ProjectDetail.tsx
+src/pages/Projects.tsx
+src/pages/Services.tsx
+src/pages/SideProjects.tsx
+src/pages/Studio.tsx
+src/pages/Testimonials.tsx
+src/pages/Toolbox.tsx
+src/pages/ToolsShowcase.tsx
+src/pages/WarRoom.tsx
+src/pages/brand/
+src/pages/brand/BrandDetail.tsx
+src/pages/case-studies/
+src/pages/case-studies/brand-identity-systems/
+src/pages/case-studies/brand-identity-systems/data.json
+src/pages/case-studies/branding-reel/
+src/pages/case-studies/branding-reel/data.json
+src/pages/case-studies/cinematic-portfolio/
+src/pages/case-studies/cinematic-portfolio/data.json
+src/pages/case-studies/graston-ceu-system/
+src/pages/case-studies/graston-ceu-system/index.tsx
+src/pages/case-studies/graston-dashboard/
+src/pages/case-studies/graston-dashboard/data.json
+src/pages/case-studies/healthcare-campaign/
+src/pages/case-studies/healthcare-campaign/data.json
+src/pages/case-studies/promotional-campaigns/
+src/pages/case-studies/promotional-campaigns/data.json
+src/pages/case-studies/rbe-law/
+src/pages/case-studies/rbe-law/index.tsx
+src/pages/case-studies/the-compass/
+src/pages/case-studies/the-compass/index.tsx
+src/pages/case-studies/the-conductor/
+src/pages/case-studies/the-conductor/index.tsx
+src/pages/case-studies/the-engine-room/
+src/pages/case-studies/the-engine-room/index.tsx
+src/pages/case-studies/the-fortress/
+src/pages/case-studies/the-fortress/index.tsx
+src/pages/case-studies/the-guardian/
+src/pages/case-studies/the-guardian/index.tsx
+src/pages/case-studies/the-launchpad/
+src/pages/case-studies/the-launchpad/index.tsx
+src/pages/case-studies/ultimate-tech-roi/
+src/pages/case-studies/ultimate-tech-roi/index.tsx
+src/pages/index.tsx
+src/pages/legal/
+src/pages/legal/PrivacyPolicy.tsx
+src/pages/legal/TermsOfService.tsx
+src/pages/side-projects/
+src/pages/side-projects/SideProjectDetail.tsx
+src/pdf/
+src/router/
+src/router/AppRouter.tsx
+src/services/
+src/services/api/
+src/shim/
+src/shims/
+src/shims/ce-guard.js
+src/store/
+src/stories/
+src/styles/
+src/styles/bearcave-brand.css
+src/styles/bio-cinematic.css
+src/styles/case-study-tokens.css
+src/styles/critical.css
+src/styles/design-system-colors.css
+src/styles/enhanced-animations.css
+src/styles/globals.css
+src/styles/home-sections.css
+src/styles/mobile-optimization.css
+src/styles/motion-tokens.js
+src/styles/skip-to-content.css
+src/styles/themes.ts
+src/styles/tokens.css
+src/styles/typography-system.css
+src/styles/typography.css
+src/types.ts
+src/types/
+src/utils/
+src/utils/accessibility.ts
+src/utils/analytics.ts
+src/utils/animationVariants.ts
+src/utils/animations.ts
+src/utils/defineCustomElementGuard.ts
+src/utils/loadDesign.ts
+src/utils/loadPhotography.ts
+src/utils/motion-sync.ts
+src/utils/scroll.ts
+src/vite-env.d.ts
+
+=== PUBLIC ASSETS ===
+public/.nojekyll
+public/_headers
+public/_redirects
+public/apps/
+public/apps/graston-growth-engine-thumbnail.avif
+public/apps/graston-growth-engine-thumbnail.png
+public/apps/graston-growth-engine-thumbnail.webp
+public/demos/
+public/demos/graston-clinical-compass---clinical-reasoning-and-treatment-protocol.htm
+public/demos/graston-growth-engine.avif
+public/demos/graston-growth-engine.jpg
+public/demos/graston-growth-engine.webp
+public/demos/images of apps/
+public/demos/images of apps/screenshot-of-graston-clinical-compass---intelligent-protocol-builder.avif
+public/demos/images of apps/screenshot-of-graston-clinical-compass---intelligent-protocol-builder.jpg
+public/demos/images of apps/screenshot-of-graston-clinical-compass---intelligent-protocol-builder.webp
+public/demos/images of apps/screenshot-of-graston-technique-roi-calculator.avif
+public/demos/images of apps/screenshot-of-graston-technique-roi-calculator.jpg
+public/demos/images of apps/screenshot-of-graston-technique-roi-calculator.webp
+public/demos/images of apps/screenshot-of-graston-technique-smart-pricing-tool.avif
+public/demos/images of apps/screenshot-of-graston-technique-smart-pricing-tool.jpg
+public/demos/images of apps/screenshot-of-graston-technique-smart-pricing-tool.webp
+public/demos/images of apps/screenshot-of-practitioner-license-requirements-_-graston-technique.avif
+public/demos/images of apps/screenshot-of-practitioner-license-requirements-_-graston-technique.jpg
+public/demos/images of apps/screenshot-of-practitioner-license-requirements-_-graston-technique.webp
+public/demos/practitioner-license-requirements---tool-for-website.htm
+public/demos/roi-calculator---essential-training-large.htm
+public/documents/
+public/documents/Jacob-Darling-Interview-Toolkit.pdf
+public/header-logo.svg
+public/icons/
+public/icons/about.svg
+public/icons/awards.svg
+public/icons/close.svg
+public/icons/download.svg
+public/icons/email.svg
+public/icons/error.svg
+public/icons/github.svg
+public/icons/linkedin.svg
+public/icons/menu.svg
+public/icons/pdf.svg
+public/icons/projects.svg
+public/icons/skills.svg
+public/icons/success.svg
+public/icons/tools.svg
+public/icons/twitter.svg
+public/icons/warning.svg
+public/icons/x.svg
+public/images/
+public/images/applications/
+public/images/artifacts/
+public/images/auto-generated/
+public/images/auto-generated/awards/
+public/images/auto-generated/graston-technique/
+public/images/auto-generated/pike-medical/
+public/images/auto-generated/riley-bennett-egloff/
+public/images/awards/
+public/images/bio/
+public/images/bio/manifest.json
+public/images/case-studies/
+public/images/case-studies/branding-reel/
+public/images/case-studies/cinematic-portfolio/
+public/images/case-studies/graston-dashboard/
+public/images/concepts/
+public/images/design/
+public/images/design/2020-forty-under-40-ad.avif
+public/images/design/2020-forty-under-40-ad.webp
+public/images/design/2021-health-care-ad.avif
+public/images/design/2021-health-care-ad.webp
+public/images/design/236802803_10117457411055169_5004587858113382909_n.avif
+public/images/design/236802803_10117457411055169_5004587858113382909_n.webp
+public/images/design/25-percent-sale---spring.avif
+public/images/design/25-percent-sale---spring.webp
+public/images/design/323700270_2415730071915448_2322941324611558798_n.avif
+public/images/design/323700270_2415730071915448_2322941324611558798_n.webp
+public/images/design/521745_229161850524724_1718400251_n.avif
+public/images/design/521745_229161850524724_1718400251_n.webp
+public/images/design/AM-Logo.avif
+public/images/design/Adobe_Express_20220527_2105230.6071119382485303.avif
+public/images/design/Be free home and life logo.avif
+public/images/design/CA.avif
+public/images/design/ChoppedBrisketSandwich_LG.avif
+public/images/design/Clean Aesthetic logo.webp
+public/images/design/Hoosierboy Barber shop logo.webp
+public/images/design/IMG_20211002_204207_713.avif
+public/images/design/IMG_20211225_203321_050.avif
+public/images/design/IMG_20220402_195539_486.avif
+public/images/design/IMG_20220513_222748_444.avif
+public/images/design/IMG_20220529_193948_726.avif
+public/images/design/IMG_20220529_195734_101.avif
+public/images/design/IMG_20220606_011741_906.avif
+public/images/design/IMG_20220607_151217_860.avif
+public/images/design/IMG_20220612_010021_558.avif
+public/images/design/IMG_20220701_141651_802.avif
+public/images/design/IMG_20220709_015653_187.avif
+public/images/design/IMG_20220723_183814_569.avif
+public/images/design/IMG_20220901_174114_810.avif
+public/images/design/IMG_20220904_153503_226.avif
+public/images/design/IMG_20221023_020849_206.avif
+public/images/design/IMG_20221029_025225_059.avif
+public/images/design/IMG_20221029_031339_559.avif
+public/images/design/IMG_20230617_015647_366.avif
+public/images/design/adobe_express_20220527_2105230.6071119382485303.webp
+public/images/design/am-logo.webp
+public/images/design/back-1.avif
+public/images/design/back-1.webp
+public/images/design/bf-mogogram-final-02.webp
+public/images/design/bicentinial-design-contest logo.avif
+public/images/design/bicentinial-design-contest.webp
+public/images/design/bird.avif
+public/images/design/blue---rbe-indy-500-design.avif
+public/images/design/blue---rbe-indy-500-design.webp
+public/images/design/choppedbrisketsandwich_lg.webp
+public/images/design/design-001.webp
+public/images/design/design-002.webp
+public/images/design/design-003.webp
+public/images/design/design-004.webp
+public/images/design/design-005.webp
+public/images/design/design-01.avif
+public/images/design/design-01.webp
+public/images/design/design-02.avif
+public/images/design/design-02.webp
+public/images/design/design-03.avif
+public/images/design/design-03.webp
+public/images/design/design-04.avif
+public/images/design/design-04.webp
+public/images/design/design-05.avif
+public/images/design/design-05.webp
+public/images/design/design-06.avif
+public/images/design/design-06.webp
+public/images/design/design-07.avif
+public/images/design/design-07.webp
+public/images/design/design-08.avif
+public/images/design/design-08.webp
+public/images/design/design-09.avif
+public/images/design/design-09.webp
+public/images/design/design-10.avif
+public/images/design/design-10.webp
+public/images/design/design-11.avif
+public/images/design/design-11.webp
+public/images/design/design-12.avif
+public/images/design/design-12.webp
+public/images/design/design-13.avif
+public/images/design/design-13.webp
+public/images/design/design-14.avif
+public/images/design/design-14.webp
+public/images/design/design-15.avif
+public/images/design/design-15.webp
+public/images/design/design-16.avif
+public/images/design/design-16.webp
+public/images/design/design-17.avif
+public/images/design/design-17.webp
+public/images/design/design-18.avif
+public/images/design/design-18.webp
+public/images/design/design-19.avif
+public/images/design/design-19.webp
+public/images/design/design-20.avif
+public/images/design/design-20.webp
+public/images/design/design-21.avif
+public/images/design/design-21.webp
+public/images/design/design-22.avif
+public/images/design/design-22.webp
+public/images/design/design-23.avif
+public/images/design/design-23.webp
+public/images/design/design-24.avif
+public/images/design/design-24.webp
+public/images/design/design-25.avif
+public/images/design/design-25.webp
+public/images/design/design-26.avif
+public/images/design/design-26.webp
+public/images/design/design-27.avif
+public/images/design/design-27.webp
+public/images/design/design-28.avif
+public/images/design/design-28.webp
+public/images/design/design-29.avif
+public/images/design/design-29.webp
+public/images/design/design-30.avif
+public/images/design/design-30.webp
+public/images/design/design-31.avif
+public/images/design/design-31.webp
+public/images/design/design-32.avif
+public/images/design/design-32.webp
+public/images/design/design-33.avif
+public/images/design/design-33.webp
+public/images/design/design-34.avif
+public/images/design/design-34.webp
+public/images/design/design-35.avif
+public/images/design/design-35.webp
+public/images/design/design-36.avif
+public/images/design/design-36.webp
+public/images/design/design-37.avif
+public/images/design/design-37.webp
+public/images/design/design-38.avif
+public/images/design/design-38.webp
+public/images/design/design-39.avif
+public/images/design/design-39.webp
+public/images/design/design-40.avif
+public/images/design/design-40.webp
+public/images/design/design-41.avif
+public/images/design/design-41.webp
+public/images/design/design-42.avif
+public/images/design/design-42.webp
+public/images/design/design-43.avif
+public/images/design/design-43.webp
+public/images/design/dog-summer-sale-1.avif
+public/images/design/dog-summer-sale-1.webp
+public/images/design/file_0000000040d46230b3f420ddf8f917de.avif
+public/images/design/file_0000000040d46230b3f420ddf8f917de.webp
+public/images/design/file_000000009d0861f8a59c35ae82dde4b7-1.avif
+public/images/design/file_000000009d0861f8a59c35ae82dde4b7-1.webp
+public/images/design/file_00000000c524623091018296ba5b34a3.avif
+public/images/design/file_00000000c524623091018296ba5b34a3.webp
+public/images/design/flu-shot-2021.avif
+public/images/design/flu-shot-2021.webp
+public/images/design/font-1.avif
+public/images/design/font-1.webp
+public/images/design/front-updated.avif
+public/images/design/front-updated.webp
+public/images/design/herbs-rub-logo.avif
+public/images/design/herbs-rub-logo.webp
+public/images/design/hot-sauce-dark.webp
+public/images/design/hot-sauce-playful.webp
+public/images/design/img_20211002_204207_713.webp
+public/images/design/img_20211225_203321_050.webp
+public/images/design/img_20220402_195539_486.webp
+public/images/design/img_20220513_222748_444.webp
+public/images/design/img_20220529_193948_726.webp
+public/images/design/img_20220529_195734_101.webp
+public/images/design/img_20220606_011741_906.webp
+public/images/design/img_20220607_151217_860.webp
+public/images/design/img_20220612_010021_558.webp
+public/images/design/img_20220701_141651_802.webp
+public/images/design/img_20220709_015653_187.webp
+public/images/design/img_20220723_183814_569.webp
+public/images/design/img_20220901_174114_810.webp
+public/images/design/img_20220904_153503_226.webp
+public/images/design/img_20221023_020849_206.webp
+public/images/design/img_20221029_025225_059.webp
+public/images/design/img_20221029_031339_559.webp
+public/images/design/img_20230617_015647_366.webp
+public/images/design/jacob-brady-resized.avif
+public/images/design/jacob-brady-resized.webp
+public/images/design/koozie-design---final.avif
+public/images/design/koozie-design---final.webp
+public/images/design/logo-01.svg
+public/images/design/manifest.json
+public/images/design/my-post-2.avif
+public/images/design/my-post-2.webp
+public/images/design/online-doctor-consultation-instagram-post.avif
+public/images/design/online-doctor-consultation-instagram-post.webp
+public/images/design/taco-ninja-logo.avif
+public/images/design/taco-ninja-logo.webp
+public/images/education/
+public/images/inspirations/
+public/images/logos/
+public/images/photography/
+public/images/photography/00100dportrait_00100_burst20180224211719099_cover2.avif
+public/images/photography/00100dportrait_00100_burst20180224211719099_cover2.webp
+public/images/photography/1000000219-1.avif
+public/images/photography/1000000219-1.webp
+public/images/photography/20210903_182855-3.avif
+public/images/photography/20210903_182855-3.webp
+public/images/photography/20210905_173133.avif
+public/images/photography/20210905_173133.webp
+public/images/photography/20210907_1130072.avif
+public/images/photography/20210907_1130072.webp
+public/images/photography/20211024_0753054.avif
+public/images/photography/20211024_0753054.webp
+public/images/photography/20220226_160528-2.avif
+public/images/photography/20220226_160528-2.webp
+public/images/photography/20220604_221615-2.avif
+public/images/photography/20220604_221615-2.webp
+public/images/photography/20220605_2022142.avif
+public/images/photography/20220605_2022142.webp
+public/images/photography/20220722_053113.avif
+public/images/photography/20220722_053113.webp
+public/images/photography/20230528_1052393.avif
+public/images/photography/20230528_1052393.webp
+public/images/photography/20231008_175026.avif
+public/images/photography/20231008_175026.webp
+public/images/photography/20240512_1125413.avif
+public/images/photography/20240512_1125413.webp
+public/images/photography/20240512_1129423.avif
+public/images/photography/20240512_1129423.webp
+public/images/photography/20240607_201806.avif
+public/images/photography/20240607_201806.webp
+public/images/photography/20240628_185356.avif
+public/images/photography/20240628_185356.webp
+public/images/photography/20240628_214922.avif
+public/images/photography/20240628_214922.webp
+public/images/photography/20240628_215608-2.avif
+public/images/photography/20240628_215608-2.webp
+public/images/photography/20240629_214210.avif
+public/images/photography/20240629_214210.webp
+public/images/photography/20240629_214911.avif
+public/images/photography/20240629_214911.webp
+public/images/photography/20240704_175213.avif
+public/images/photography/20240704_175213.webp
+public/images/photography/20240704_175407_07.avif
+public/images/photography/20240704_175407_07.webp
+public/images/photography/20240704_175539.avif
+public/images/photography/20240704_175539.webp
+public/images/photography/20240704_180246.avif
+public/images/photography/20240704_180246.webp
+public/images/photography/20240704_180423.avif
+public/images/photography/20240704_180423.webp
+public/images/photography/20240704_180538.avif
+public/images/photography/20240704_180538.webp
+public/images/photography/20240712_210010.avif
+public/images/photography/20240712_210010.webp
+public/images/photography/20240713_065705.avif
+public/images/photography/20240713_065705.webp
+public/images/photography/20240713_122302.avif
+public/images/photography/20240713_122302.webp
+public/images/photography/20240713_151221.avif
+public/images/photography/20240713_151221.webp
+public/images/photography/20240803_184432.avif
+public/images/photography/20240803_184432.webp
+public/images/photography/20240803_192159.avif
+public/images/photography/20240803_192159.webp
+public/images/photography/image.avif
+public/images/photography/image.webp
+public/images/photography/img_20230604_154323_912.avif
+public/images/photography/img_20230604_154323_912.webp
+public/images/photography/img_20230707_235448_2622.avif
+public/images/photography/img_20230707_235448_2622.webp
+public/images/photography/img_20240803_210044.avif
+public/images/photography/img_20240803_210044.webp
+public/images/photography/manifest.json
+public/images/photography/photo-001.webp
+public/images/photography/photo-002.webp
+public/images/photography/photo-003.webp
+public/images/photography/photo-004.webp
+public/images/photography/photo-005.webp
+public/images/photography/photo-01.avif
+public/images/photography/photo-01.webp
+public/images/photography/photo-02.avif
+public/images/photography/photo-02.webp
+public/images/photography/photo-03.avif
+public/images/photography/photo-03.webp
+public/images/photography/photo-04.avif
+public/images/photography/photo-04.webp
+public/images/photography/photo-05.avif
+public/images/photography/photo-05.webp
+public/images/photography/photo-06.avif
+public/images/photography/photo-06.webp
+public/images/photography/photo-07.avif
+public/images/photography/photo-07.webp
+public/images/photography/photo-08.avif
+public/images/photography/photo-08.webp
+public/images/photography/photo-09.avif
+public/images/photography/photo-09.webp
+public/images/photography/photo-10.avif
+public/images/photography/photo-10.webp
+public/images/photography/photo-11.avif
+public/images/photography/photo-11.webp
+public/images/photography/photo-12.avif
+public/images/photography/photo-12.webp
+public/images/photography/photo-13.avif
+public/images/photography/photo-13.webp
+public/images/photography/photo-14.avif
+public/images/photography/photo-14.webp
+public/images/photography/photo-15.avif
+public/images/photography/photo-15.webp
+public/images/photography/photo-16.avif
+public/images/photography/photo-16.webp
+public/images/photography/photo-17.avif
+public/images/photography/photo-17.webp
+public/images/photography/photo-18.avif
+public/images/photography/photo-18.webp
+public/images/photography/photo-19.avif
+public/images/photography/photo-19.webp
+public/images/photography/photo-20.avif
+public/images/photography/photo-20.webp
+public/images/photography/photo-21.avif
+public/images/photography/photo-21.webp
+public/images/photography/photo-22.avif
+public/images/photography/photo-22.webp
+public/images/photography/photo-23.avif
+public/images/photography/photo-23.webp
+public/images/photography/photo-24.avif
+public/images/photography/photo-24.webp
+public/images/photography/photo-25.avif
+public/images/photography/photo-25.webp
+public/images/photography/photo-26.avif
+public/images/photography/photo-26.webp
+public/images/photography/photo-27.avif
+public/images/photography/photo-27.webp
+public/images/photography/photo-28.avif
+public/images/photography/photo-28.webp
+public/images/photography/photo-29.avif
+public/images/photography/photo-29.webp
+public/images/photography/psx_20240717_043437.avif
+public/images/photography/psx_20240717_043437.webp
+public/images/photography/psx_20240717_043501.avif
+public/images/photography/psx_20240717_043501.webp
+public/images/photography/psx_20240717_044925.avif
+public/images/photography/psx_20240717_044925.webp
+public/images/photography/qvzmsfl0bmlbmhvyd3jhsw.avif
+public/images/photography/qvzmsfl0bmlbmhvyd3jhsw.webp
+public/images/process/
+public/images/projects/
+public/images/projects/317 bbq/
+public/images/projects/317 bbq/20231008_174703.avif
+public/images/projects/317 bbq/20231008_174703.jpg
+public/images/projects/317 bbq/20231008_174703.webp
+public/images/projects/317 bbq/20231008_175026.avif
+public/images/projects/317 bbq/20231008_175026.jpg
+public/images/projects/317 bbq/20231008_175026.webp
+public/images/projects/317 bbq/20231008_175109.avif
+public/images/projects/317 bbq/20231008_175109.jpg
+public/images/projects/317 bbq/20231008_175109.webp
+public/images/projects/317 bbq/20231008_175244.avif
+public/images/projects/317 bbq/20231008_175244.jpg
+public/images/projects/317 bbq/20231008_175244.webp
+public/images/projects/317 bbq/20231008_175510.avif
+public/images/projects/317 bbq/20231008_175510.jpg
+public/images/projects/317 bbq/20231008_175510.webp
+public/images/projects/317 bbq/20231008_175512.avif
+public/images/projects/317 bbq/20231008_175512.jpg
+public/images/projects/317 bbq/20231008_175512.webp
+public/images/projects/317 bbq/20231008_175650.avif
+public/images/projects/317 bbq/20231008_175650.jpg
+public/images/projects/317 bbq/20231008_175650.webp
+public/images/projects/317 bbq/20231008_175654.avif
+public/images/projects/317 bbq/20231008_175654.jpg
+public/images/projects/317 bbq/20231008_175654.webp
+public/images/projects/317 bbq/20231008_180910.avif
+public/images/projects/317 bbq/20231008_180910.jpg
+public/images/projects/317 bbq/20231008_180910.webp
+public/images/projects/317 bbq/20231008_181722.avif
+public/images/projects/317 bbq/20231008_181722.jpg
+public/images/projects/317 bbq/20231008_181722.webp
+public/images/projects/317 bbq/317BBQLogo_wht.webp
+public/images/projects/317 bbq/download.avif
+public/images/projects/317 bbq/download.jpg
+public/images/projects/317 bbq/download.webp
+public/images/projects/317 bbq/screen-recording-2.webm
+public/images/projects/Perpetual Movement Fitness/
+public/images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM.avif
+public/images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM.png
+public/images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM.webp
+public/images/projects/Primarycare Indy/
+public/images/projects/Primarycare Indy/Primary Care Logo with PMC.avif
+public/images/projects/Primarycare Indy/Primary Care Logo with PMC.png
+public/images/projects/Primarycare Indy/Primary Care Logo with PMC.webp
+public/images/projects/Russell painting/
+public/images/projects/Russell painting/Russell Painting Company Logo.avif
+public/images/projects/Russell painting/Russell Painting Company Logo.png
+public/images/projects/Russell painting/Russell Painting Company Logo.webp
+public/images/projects/Russell painting/screen-recording-2.webm
+public/images/projects/Taco Ninja/
+public/images/projects/Taco Ninja/taco ninja logo.avif
+public/images/projects/Taco Ninja/taco ninja logo.png
+public/images/projects/Taco Ninja/taco ninja logo.webp
+public/images/projects/Tuohy Bailey & Moore LLP/
+public/images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1.avif
+public/images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1.png
+public/images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1.webp
+public/images/projects/Tuohy Bailey & Moore LLP/screen-recording-2.webm
+public/images/projects/riley bennett egloff/
+public/images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg.avif
+public/images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg.jpg
+public/images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg.webp
+public/images/projects/riley bennett egloff/attorneys.avif
+public/images/projects/riley bennett egloff/attorneys.jpg
+public/images/projects/riley bennett egloff/attorneys.webp
+public/images/projects/riley bennett egloff/download.avif
+public/images/projects/riley bennett egloff/download.jpg
+public/images/projects/riley bennett egloff/download.webp
+public/images/projects/riley bennett egloff/dss.avif
+public/images/projects/riley bennett egloff/dss.jpg
+public/images/projects/riley bennett egloff/dss.webp
+public/images/side-projects/
+public/images/side-projects/317-bbq.svg
+public/images/side-projects/317bbqlogo_wht.avif
+public/images/side-projects/317bbqlogo_wht.png
+public/images/side-projects/317bbqlogo_wht.webp
+public/images/side-projects/CBD-Oil-for-Pets.png
+public/images/side-projects/CBD-for-Pets-and-Pet-Skin-Care.png
+public/images/side-projects/Interior_sl.jpg
+public/images/side-projects/Skincare-for-Dogs-and-Cats.jpg
+public/images/side-projects/cbd-for-pets-and-pet-skin-care.avif
+public/images/side-projects/cbd-for-pets-and-pet-skin-care.webp
+public/images/side-projects/cbd-oil-for-pets.avif
+public/images/side-projects/cbd-oil-for-pets.webp
+public/images/side-projects/cropped-PC_LOGO1-1024x174.jpg
+public/images/side-projects/cropped-pc_logo1-1024x174.avif
+public/images/side-projects/cropped-pc_logo1-1024x174.webp
+public/images/side-projects/dog-dry-skin-remedy.avif
+public/images/side-projects/dog-dry-skin-remedy.jpg
+public/images/side-projects/dog-dry-skin-remedy.webp
+public/images/side-projects/dot-physicals-header.avif
+public/images/side-projects/dot-physicals-header.jpg
+public/images/side-projects/dot-physicals-header.webp
+public/images/side-projects/graston-dashboard.svg
+public/images/side-projects/interior_sl.avif
+public/images/side-projects/interior_sl.webp
+public/images/side-projects/interior_w3.avif
+public/images/side-projects/interior_w3.jpg
+public/images/side-projects/interior_w3.webp
+public/images/side-projects/manifest.json
+public/images/side-projects/matt-z-new-logo-test.png.orig
+public/images/side-projects/my-post-2.avif
+public/images/side-projects/my-post-2.jpg
+public/images/side-projects/my-post-2.webp
+public/images/side-projects/occ-health-header.avif
+public/images/side-projects/occ-health-header.jpg
+public/images/side-projects/occ-health-header.webp
+public/images/side-projects/online-doctor-consultation-instagram-post.avif
+public/images/side-projects/online-doctor-consultation-instagram-post.png
+public/images/side-projects/online-doctor-consultation-instagram-post.webp
+public/images/side-projects/painting_illustration_01.avif
+public/images/side-projects/painting_illustration_01.png
+public/images/side-projects/painting_illustration_01.webp
+public/images/side-projects/primarycare indy logo.avif
+public/images/side-projects/primarycare indy logo.png
+public/images/side-projects/primarycare indy logo.webp
+public/images/side-projects/skincare-for-dogs-and-cats.avif
+public/images/side-projects/skincare-for-dogs-and-cats.webp
+public/images/side-projects/what-we-treat-1.avif
+public/images/side-projects/what-we-treat-1.jpg
+public/images/side-projects/what-we-treat-1.webp
+public/images/tech-icons/
+public/inspiration.json
+public/logo-tech.svg
+public/logos/
+public/logos/cave-full.svg
+public/logos/cave-icon.svg
+public/logos/cave-lockup.svg
+public/logos/cave-monochrome.svg
+public/manifest.json
+public/moodboards/
+public/moodboards/317-bbq.json
+public/moodboards/classified.json
+public/moodboards/enhanced-moodboards.json
+public/moodboards/moodboards.json
+public/moodboards/riley-bennett-egloff.json
+public/moodboards/russell-painting.json
+public/moodboards/tuohy-bailey--moore-llp.json
+public/moodboards/tuohy-bailey-moore-llp.json
+public/og/
+public/og/case-studies.svg
+public/og/home.svg
+public/og/tools.svg
+public/redirects.json
+public/resume/
+public/resume/jacob-darling-resume-content.md
+public/resume/jacob-darling-resume.pdf
+public/resume/resume-jd-draft.docx
+public/resume/resume-jd-draft.pdf
+public/robots.txt
+public/sitemap.xml
+public/sw.js
+public/uploads/
+public/uploads/case-content-2.docx
+
+=== ARCHIVED FILES ===
+public/_archive_media/
+public/_archive_media/images/
+public/_archive_media/images/applications/
+public/_archive_media/images/applications/graston-gt1.svg
+public/_archive_media/images/artifacts/
+public/_archive_media/images/artifacts/eames-kit.svg
+public/_archive_media/images/auto-generated/
+public/_archive_media/images/auto-generated/awards/
+public/_archive_media/images/auto-generated/awards/gold-key-award.avif
+public/_archive_media/images/auto-generated/awards/gold-key-award.png
+public/_archive_media/images/auto-generated/awards/gold-key-award.webp
+public/_archive_media/images/auto-generated/graston-technique/
+public/_archive_media/images/auto-generated/graston-technique/placeholder.svg
+public/_archive_media/images/auto-generated/pike-medical/
+public/_archive_media/images/auto-generated/pike-medical/placeholder.svg
+public/_archive_media/images/auto-generated/riley-bennett-egloff/
+public/_archive_media/images/auto-generated/riley-bennett-egloff/placeholder.svg
+public/_archive_media/images/awards/
+public/_archive_media/images/awards/gold-key-award.avif
+public/_archive_media/images/awards/gold-key-award.png
+public/_archive_media/images/awards/gold-key-award.webp
+public/_archive_media/images/awards/gold-key.svg
+public/_archive_media/images/bio/
+public/_archive_media/images/bio/1732967007485.avif
+public/_archive_media/images/bio/1732967007485.jpg
+public/_archive_media/images/bio/1732967007485.webp
+public/_archive_media/images/bio/241311036_10117555583372059_173429180650836298_n.webp
+public/_archive_media/images/bio/bio-photo.avif
+public/_archive_media/images/bio/bio-photo.jpg
+public/_archive_media/images/bio/bio-photo.webp
+public/_archive_media/images/case-studies/
+public/_archive_media/images/case-studies/branding-reel/
+public/_archive_media/images/case-studies/branding-reel/cover.svg
+public/_archive_media/images/case-studies/cinematic-portfolio/
+public/_archive_media/images/case-studies/cinematic-portfolio/cover.svg
+public/_archive_media/images/case-studies/graston-ceu-system.svg
+public/_archive_media/images/case-studies/graston-dashboard/
+public/_archive_media/images/case-studies/graston-dashboard/after.svg
+public/_archive_media/images/case-studies/graston-dashboard/before.svg
+public/_archive_media/images/case-studies/graston-dashboard/cover.svg
+public/_archive_media/images/case-studies/graston-dashboard/gallery-1.svg
+public/_archive_media/images/case-studies/graston-dashboard/gallery-2.svg
+public/_archive_media/images/concepts/
+public/_archive_media/images/concepts/architect.svg
+public/_archive_media/images/concepts/audit.svg
+public/_archive_media/images/concepts/automate.svg
+public/_archive_media/images/concepts/content-api.svg
+public/_archive_media/images/concepts/data-link.svg
+public/_archive_media/images/concepts/growth-os.svg
+public/_archive_media/images/concepts/leadership.svg
+public/_archive_media/images/concepts/revenue.svg
+public/_archive_media/images/concepts/scale.svg
+public/_archive_media/images/concepts/strategy.svg
+public/_archive_media/images/concepts/terminal-user.svg
+public/_archive_media/images/design/
+public/_archive_media/images/design/VID_20230823_194738_067.mp4
+public/_archive_media/images/design/vid_20230729_194732_603-1.mp4
+public/_archive_media/images/education/
+public/_archive_media/images/education/Indiana_Hoosiers_logo.svg.avif
+public/_archive_media/images/education/Indiana_Hoosiers_logo.svg.png
+public/_archive_media/images/education/indiana_hoosiers_logo.svg.webp
+public/_archive_media/images/education/iu-campus.svg
+public/_archive_media/images/education/iu-logo.svg
+public/_archive_media/images/education/samplegatesheader-desktop.avif
+public/_archive_media/images/education/samplegatesheader-desktop.jpg
+public/_archive_media/images/education/samplegatesheader-desktop.webp
+public/_archive_media/images/inspirations/
+public/_archive_media/images/inspirations/bombay-electric.svg
+public/_archive_media/images/inspirations/british-rail.svg
+public/_archive_media/images/inspirations/eames-kit.svg
+public/_archive_media/images/inspirations/eat-my-shorts.svg
+public/_archive_media/images/inspirations/felony-case.svg
+public/_archive_media/images/inspirations/folklorious.svg
+public/_archive_media/images/inspirations/glorioso.svg
+public/_archive_media/images/inspirations/ibm-design.svg
+public/_archive_media/images/inspirations/indiana-university.svg
+public/_archive_media/images/inspirations/iu-brand.svg
+public/_archive_media/images/inspirations/lune-croissanterie.svg
+public/_archive_media/images/inspirations/nasa-manual.svg
+public/_archive_media/images/inspirations/qoni.svg
+public/_archive_media/images/inspirations/sutherland-press.svg
+public/_archive_media/images/inspirations/tenth-muse.svg
+public/_archive_media/images/inspirations/yellow-owl.svg
+public/_archive_media/images/inspirations/zonzo-estate.svg
+public/_archive_media/images/profile-main-blur.json
+public/_archive_media/images/profile-main.webp
+public/_archive_media/images/projects/
+public/_archive_media/images/projects/317 bbq/
+public/_archive_media/images/projects/317 bbq/20231008_174703.avif
+public/_archive_media/images/projects/317 bbq/20231008_174703.jpg
+public/_archive_media/images/projects/317 bbq/20231008_174703.webp
+public/_archive_media/images/projects/317 bbq/20231008_175026.avif
+public/_archive_media/images/projects/317 bbq/20231008_175026.jpg
+public/_archive_media/images/projects/317 bbq/20231008_175026.webp
+public/_archive_media/images/projects/317 bbq/20231008_175109.avif
+public/_archive_media/images/projects/317 bbq/20231008_175109.jpg
+public/_archive_media/images/projects/317 bbq/20231008_175109.webp
+public/_archive_media/images/projects/317 bbq/20231008_175244.avif
+public/_archive_media/images/projects/317 bbq/20231008_175244.jpg
+public/_archive_media/images/projects/317 bbq/20231008_175244.webp
+public/_archive_media/images/projects/317 bbq/20231008_175510.avif
+public/_archive_media/images/projects/317 bbq/20231008_175510.jpg
+public/_archive_media/images/projects/317 bbq/20231008_175510.webp
+public/_archive_media/images/projects/317 bbq/20231008_175512.avif
+public/_archive_media/images/projects/317 bbq/20231008_175512.jpg
+public/_archive_media/images/projects/317 bbq/20231008_175512.webp
+public/_archive_media/images/projects/317 bbq/20231008_175650.avif
+public/_archive_media/images/projects/317 bbq/20231008_175650.jpg
+public/_archive_media/images/projects/317 bbq/20231008_175650.webp
+public/_archive_media/images/projects/317 bbq/20231008_175654.avif
+public/_archive_media/images/projects/317 bbq/20231008_175654.jpg
+public/_archive_media/images/projects/317 bbq/20231008_175654.webp
+public/_archive_media/images/projects/317 bbq/20231008_180910.avif
+public/_archive_media/images/projects/317 bbq/20231008_180910.jpg
+public/_archive_media/images/projects/317 bbq/20231008_180910.webp
+public/_archive_media/images/projects/317 bbq/20231008_181722.avif
+public/_archive_media/images/projects/317 bbq/20231008_181722.jpg
+public/_archive_media/images/projects/317 bbq/20231008_181722.webp
+public/_archive_media/images/projects/317 bbq/317BBQLogo_wht.webp
+public/_archive_media/images/projects/317 bbq/download.avif
+public/_archive_media/images/projects/317 bbq/download.jpg
+public/_archive_media/images/projects/317 bbq/download.webp
+public/_archive_media/images/projects/317 bbq/screen-recording-2.webm
+public/_archive_media/images/projects/Perpetual Movement Fitness/
+public/_archive_media/images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM.avif
+public/_archive_media/images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM.png
+public/_archive_media/images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM.webp
+public/_archive_media/images/projects/Primarycare Indy/
+public/_archive_media/images/projects/Primarycare Indy/Primary Care Logo with PMC.avif
+public/_archive_media/images/projects/Primarycare Indy/Primary Care Logo with PMC.png
+public/_archive_media/images/projects/Primarycare Indy/Primary Care Logo with PMC.webp
+public/_archive_media/images/projects/Russell painting/
+public/_archive_media/images/projects/Russell painting/Russell Painting Company Logo.avif
+public/_archive_media/images/projects/Russell painting/Russell Painting Company Logo.png
+public/_archive_media/images/projects/Russell painting/Russell Painting Company Logo.webp
+public/_archive_media/images/projects/Russell painting/screen-recording-2.webm
+public/_archive_media/images/projects/Taco Ninja/
+public/_archive_media/images/projects/Taco Ninja/taco ninja logo.avif
+public/_archive_media/images/projects/Taco Ninja/taco ninja logo.png
+public/_archive_media/images/projects/Taco Ninja/taco ninja logo.webp
+public/_archive_media/images/projects/Tuohy Bailey & Moore LLP/
+public/_archive_media/images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1.avif
+public/_archive_media/images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1.png
+public/_archive_media/images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1.webp
+public/_archive_media/images/projects/Tuohy Bailey & Moore LLP/screen-recording-2.webm
+public/_archive_media/images/projects/riley bennett egloff/
+public/_archive_media/images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg.avif
+public/_archive_media/images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg.jpg
+public/_archive_media/images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg.webp
+public/_archive_media/images/projects/riley bennett egloff/attorneys.avif
+public/_archive_media/images/projects/riley bennett egloff/attorneys.jpg
+public/_archive_media/images/projects/riley bennett egloff/attorneys.webp
+public/_archive_media/images/projects/riley bennett egloff/download.avif
+public/_archive_media/images/projects/riley bennett egloff/download.jpg
+public/_archive_media/images/projects/riley bennett egloff/download.webp
+public/_archive_media/images/projects/riley bennett egloff/dss.avif
+public/_archive_media/images/projects/riley bennett egloff/dss.jpg
+public/_archive_media/images/projects/riley bennett egloff/dss.webp
+public/_archive_media/images/side-projects/
+public/_archive_media/images/side-projects/317-bbq.svg
+public/_archive_media/images/side-projects/317bbqlogo_wht.avif
+public/_archive_media/images/side-projects/317bbqlogo_wht.png
+public/_archive_media/images/side-projects/317bbqlogo_wht.webp
+public/_archive_media/images/side-projects/CBD-Oil-for-Pets.png
+public/_archive_media/images/side-projects/CBD-for-Pets-and-Pet-Skin-Care.png
+public/_archive_media/images/side-projects/Interior_sl.jpg
+public/_archive_media/images/side-projects/Skincare-for-Dogs-and-Cats.jpg
+public/_archive_media/images/side-projects/cbd-for-pets-and-pet-skin-care.avif
+public/_archive_media/images/side-projects/cbd-for-pets-and-pet-skin-care.webp
+public/_archive_media/images/side-projects/cbd-oil-for-pets.avif
+public/_archive_media/images/side-projects/cbd-oil-for-pets.webp
+public/_archive_media/images/side-projects/cropped-PC_LOGO1-1024x174.jpg
+public/_archive_media/images/side-projects/cropped-pc_logo1-1024x174.avif
+public/_archive_media/images/side-projects/cropped-pc_logo1-1024x174.webp
+public/_archive_media/images/side-projects/dog-dry-skin-remedy.avif
+public/_archive_media/images/side-projects/dog-dry-skin-remedy.jpg
+public/_archive_media/images/side-projects/dog-dry-skin-remedy.webp
+public/_archive_media/images/side-projects/dot-physicals-header.avif
+public/_archive_media/images/side-projects/dot-physicals-header.jpg
+public/_archive_media/images/side-projects/dot-physicals-header.webp
+public/_archive_media/images/side-projects/graston-dashboard.svg
+public/_archive_media/images/side-projects/interior_sl.avif
+public/_archive_media/images/side-projects/interior_sl.webp
+public/_archive_media/images/side-projects/interior_w3.avif
+public/_archive_media/images/side-projects/interior_w3.jpg
+public/_archive_media/images/side-projects/interior_w3.webp
+public/_archive_media/images/side-projects/matt-z-new-logo-test.png.orig
+public/_archive_media/images/side-projects/my-post-2.avif
+public/_archive_media/images/side-projects/my-post-2.jpg
+public/_archive_media/images/side-projects/my-post-2.webp
+public/_archive_media/images/side-projects/occ-health-header.avif
+public/_archive_media/images/side-projects/occ-health-header.jpg
+public/_archive_media/images/side-projects/occ-health-header.webp
+public/_archive_media/images/side-projects/online-doctor-consultation-instagram-post.avif
+public/_archive_media/images/side-projects/online-doctor-consultation-instagram-post.png
+public/_archive_media/images/side-projects/online-doctor-consultation-instagram-post.webp
+public/_archive_media/images/side-projects/painting_illustration_01.avif
+public/_archive_media/images/side-projects/painting_illustration_01.png
+public/_archive_media/images/side-projects/painting_illustration_01.webp
+public/_archive_media/images/side-projects/primarycare indy logo.avif
+public/_archive_media/images/side-projects/primarycare indy logo.png
+public/_archive_media/images/side-projects/primarycare indy logo.webp
+public/_archive_media/images/side-projects/skincare-for-dogs-and-cats.avif
+public/_archive_media/images/side-projects/skincare-for-dogs-and-cats.webp
+public/_archive_media/images/side-projects/what-we-treat-1.avif
+public/_archive_media/images/side-projects/what-we-treat-1.jpg
+public/_archive_media/images/side-projects/what-we-treat-1.webp
+public/_archive_media/images/tech-icons/
+public/_archive_media/images/tech-icons/express.svg
+public/_archive_media/images/tech-icons/github.svg
+public/_archive_media/images/tech-icons/hubspot.svg
+public/_archive_media/images/tech-icons/javascript.svg
+public/_archive_media/images/tech-icons/nodejs.svg
+public/_archive_media/images/tech-icons/python.svg
+public/_archive_media/images/tech-icons/react.svg
+public/_archive_media/images/tech-icons/tailwind-css.svg
+public/_archive_media/images/tech-icons/typescript.svg
+public/_archive_media/images/tech-icons/vite.svg
+src/_archive_unused/
+src/_archive_unused/app/
+src/_archive_unused/app/layout.tsx
+src/_archive_unused/assets/
+src/_archive_unused/assets/logoFactory.ts
+src/_archive_unused/cli/
+src/_archive_unused/cli/generate-logo.ts
+src/_archive_unused/cli/preview-layout.ts
+src/_archive_unused/cli/svg-export.ts
+src/_archive_unused/components/
+src/_archive_unused/components/AnimatedBackground.css
+src/_archive_unused/components/AwardsRow.tsx
+src/_archive_unused/components/BrandComparison.tsx
+src/_archive_unused/components/BrandLineageSection.tsx
+src/_archive_unused/components/BuilderShell.tsx
+src/_archive_unused/components/CTASection.tsx
+src/_archive_unused/components/CareerTimeline.tsx
+src/_archive_unused/components/CareerTimelineProgress.tsx
+src/_archive_unused/components/Carousel.css
+src/_archive_unused/components/Carousel.tsx
+src/_archive_unused/components/CaseStudy.tsx
+src/_archive_unused/components/CaseStudyCard.tsx
+src/_archive_unused/components/CaseStudyExplorer.tsx
+src/_archive_unused/components/Charts/
+src/_archive_unused/components/Charts/ResultChart.css
+src/_archive_unused/components/Charts/ResultChart.tsx
+src/_archive_unused/components/ContactForm.css
+src/_archive_unused/components/ContactForm.tsx
+src/_archive_unused/components/DesignPrinciplesExplorer.tsx
+src/_archive_unused/components/EducationRoots.tsx
+src/_archive_unused/components/ErrorBoundary.css
+src/_archive_unused/components/GlyphOverlay.tsx
+src/_archive_unused/components/Hero.tsx
+src/_archive_unused/components/HeroAbout.tsx
+src/_archive_unused/components/HeroAnimated.tsx
+src/_archive_unused/components/HeroGradient.tsx
+src/_archive_unused/components/IdentityTile.tsx
+src/_archive_unused/components/InspirationExplorer.tsx
+src/_archive_unused/components/InspirationTimeline.tsx
+src/_archive_unused/components/ManualViewer.tsx
+src/_archive_unused/components/MoodboardModule.tsx
+src/_archive_unused/components/Nav.tsx
+src/_archive_unused/components/NoiseOverlay.tsx
+src/_archive_unused/components/PaletteEditor.tsx
+src/_archive_unused/components/ProcessLab.tsx
+src/_archive_unused/components/QuickWinsAbout.tsx
+src/_archive_unused/components/QuickWinsAnimated.tsx
+src/_archive_unused/components/SaveShare.tsx
+src/_archive_unused/components/SkillGrid.tsx
+src/_archive_unused/components/SpecChips.tsx
+src/_archive_unused/components/StickyCTA.tsx
+src/_archive_unused/components/StorySection.tsx
+src/_archive_unused/components/StorySectionAccordion.tsx
+src/_archive_unused/components/SystemsTimeline.tsx
+src/_archive_unused/components/Testimonials.tsx
+src/_archive_unused/components/TestimonialsCarousel.tsx
+src/_archive_unused/components/TimelineItem.tsx
+src/_archive_unused/components/TypographyModule.tsx
+src/_archive_unused/components/WaveDivider.tsx
+src/_archive_unused/components/_unused_components/
+src/_archive_unused/components/_unused_components/ApplicationsPanel.tsx
+src/_archive_unused/components/_unused_components/ArtifactExplorer.tsx
+src/_archive_unused/components/_unused_components/ExportPanel.tsx
+src/_archive_unused/components/_unused_components/MarkSandbox.tsx
+src/_archive_unused/components/about/
+src/_archive_unused/components/about/OriginTimeline.tsx
+src/_archive_unused/components/animations/
+src/_archive_unused/components/animations/AnimatedCounter.tsx
+src/_archive_unused/components/animations/BackgroundLogos.css
+src/_archive_unused/components/animations/BackgroundLogos.tsx
+src/_archive_unused/components/animations/FloatingElements.css
+src/_archive_unused/components/animations/FloatingElements.tsx
+src/_archive_unused/components/animations/LogoIntro.css
+src/_archive_unused/components/animations/LogoIntro.tsx
+src/_archive_unused/components/animations/MagneticButton.css
+src/_archive_unused/components/animations/MagneticButton.tsx
+src/_archive_unused/components/animations/MorphingBlob.tsx
+src/_archive_unused/components/animations/ParallaxSection.css
+src/_archive_unused/components/animations/ParallaxSection.tsx
+src/_archive_unused/components/animations/ScrollProgress.css
+src/_archive_unused/components/animations/ScrollProgress.tsx
+src/_archive_unused/components/animations/ScrollReveal.css
+src/_archive_unused/components/animations/ScrollReveal.tsx
+src/_archive_unused/components/animations/TiltCard.css
+src/_archive_unused/components/animations/index.ts
+src/_archive_unused/components/apps/
+src/_archive_unused/components/apps/growth-engine/
+src/_archive_unused/components/apps/growth-engine/__tests__/
+src/_archive_unused/components/apps/growth-engine/__tests__/GrowthEngine.test.tsx
+src/_archive_unused/components/automation/
+src/_archive_unused/components/automation/AIAutomationShowcase.css
+src/_archive_unused/components/automation/AIAutomationShowcase.tsx
+src/_archive_unused/components/awards/
+src/_archive_unused/components/awards/AwardCard.tsx
+src/_archive_unused/components/awards/AwardShowcase.tsx
+src/_archive_unused/components/branding/
+src/_archive_unused/components/branding/AnimatedLogo.css
+src/_archive_unused/components/branding/AnimatedLogo.tsx
+src/_archive_unused/components/branding/BearCaveLogo.css
+src/_archive_unused/components/branding/BearCaveLogo.tsx
+src/_archive_unused/components/branding/Logo.tsx
+src/_archive_unused/components/branding/LogoVariations.tsx
+src/_archive_unused/components/branding/SplashIntro.css
+src/_archive_unused/components/branding/SplashIntro.tsx
+src/_archive_unused/components/cards/
+src/_archive_unused/components/cards/CaseStudyCard.tsx
+src/_archive_unused/components/case-study/
+src/_archive_unused/components/case-study/BuildSection.tsx
+src/_archive_unused/components/case-study/CTA.tsx
+src/_archive_unused/components/case-study/CTASection.css
+src/_archive_unused/components/case-study/CTASection.tsx
+src/_archive_unused/components/case-study/CapabilitiesBadges.tsx
+src/_archive_unused/components/case-study/CaseStudyExplorer.tsx
+src/_archive_unused/components/case-study/CaseStudyLayout.tsx
+src/_archive_unused/components/case-study/ChallengeSection.tsx
+src/_archive_unused/components/case-study/Hero.css
+src/_archive_unused/components/case-study/Hero.tsx
+src/_archive_unused/components/case-study/HeroBlock.tsx
+src/_archive_unused/components/case-study/HeroMedia.tsx
+src/_archive_unused/components/case-study/HeroSection.tsx
+src/_archive_unused/components/case-study/MetricsVisualization.css
+src/_archive_unused/components/case-study/OutcomesSection.tsx
+src/_archive_unused/components/case-study/Overview.tsx
+src/_archive_unused/components/case-study/ProcessTimeline.tsx
+src/_archive_unused/components/case-study/PullQuote.tsx
+src/_archive_unused/components/case-study/ResultSection.tsx
+src/_archive_unused/components/case-study/ShowcaseGallery.tsx
+src/_archive_unused/components/case-study/StrategySection.tsx
+src/_archive_unused/components/clients/
+src/_archive_unused/components/clients/ClientLogos.css
+src/_archive_unused/components/clients/ClientLogos.tsx
+src/_archive_unused/components/command/
+src/_archive_unused/components/command/CommandMenu.tsx
+src/_archive_unused/components/command/CommandMenuToggle.tsx
+src/_archive_unused/components/common/
+src/_archive_unused/components/common/OptimizedImage.tsx
+src/_archive_unused/components/common/ResponsiveImage.tsx
+src/_archive_unused/components/dashboard/
+src/_archive_unused/components/dashboard/MarketingCommandCenter.css
+src/_archive_unused/components/dashboard/MarketingCommandCenter.tsx
+src/_archive_unused/components/demos/
+src/_archive_unused/components/demos/DemoCard.tsx
+src/_archive_unused/components/diagrams/
+src/_archive_unused/components/diagrams/ProcessDiagram.css
+src/_archive_unused/components/diagrams/ProcessDiagram.tsx
+src/_archive_unused/components/diagrams/SystemArchitecture.css
+src/_archive_unused/components/diagrams/TheGapDiagram.css
+src/_archive_unused/components/diagrams/TheGapDiagram.tsx
+src/_archive_unused/components/diagrams/ToolboxEcosystem.css
+src/_archive_unused/components/diagrams/VennDiagram.css
+src/_archive_unused/components/diagrams/VennDiagram.tsx
+src/_archive_unused/components/examples/
+src/_archive_unused/components/examples/ApiServiceExamples.tsx
+src/_archive_unused/components/examples/ExamplePage.tsx
+src/_archive_unused/components/gallery/
+src/_archive_unused/components/gallery/GalleryGrid.tsx
+src/_archive_unused/components/gallery/Lightbox.css
+src/_archive_unused/components/gallery/Lightbox.tsx
+src/_archive_unused/components/gallery/TagFilter.css
+src/_archive_unused/components/gallery/TagFilter.tsx
+src/_archive_unused/components/github/
+src/_archive_unused/components/github/GitHubStats.css
+src/_archive_unused/components/github/GitHubStats.tsx
+src/_archive_unused/components/gt/
+src/_archive_unused/components/gt/index.ts
+src/_archive_unused/components/hero/
+src/_archive_unused/components/hero/BrandHero.tsx
+src/_archive_unused/components/hero/Hero.css
+src/_archive_unused/components/hero/Hero.tsx
+src/_archive_unused/components/hero/HeroRedesign.css
+src/_archive_unused/components/hero/ParticleHero.tsx
+src/_archive_unused/components/hero/ProactiveSupportHero.css
+src/_archive_unused/components/hero/ProactiveSupportHero.tsx
+src/_archive_unused/components/home/
+src/_archive_unused/components/home/CareerHighlights.css
+src/_archive_unused/components/home/FinalCTA.css
+src/_archive_unused/components/home/FinalCTA.tsx
+src/_archive_unused/components/home/Hero.css
+src/_archive_unused/components/home/HeroIntro.tsx
+src/_archive_unused/components/home/MySkills.css
+src/_archive_unused/components/home/MySkills.tsx
+src/_archive_unused/components/home/Portfolio.css
+src/_archive_unused/components/home/SelectedWorkCard.css
+src/_archive_unused/components/home/Testimonials.css
+src/_archive_unused/components/home/WhoIAm.css
+src/_archive_unused/components/home/WhoIAm.tsx
+src/_archive_unused/components/icons/
+src/_archive_unused/components/icons/Icon.tsx
+src/_archive_unused/components/icons/IconRegistry.tsx
+src/_archive_unused/components/icons/aboutIcon.tsx
+src/_archive_unused/components/icons/awardsIcon.tsx
+src/_archive_unused/components/icons/closeIcon.tsx
+src/_archive_unused/components/icons/downloadIcon.tsx
+src/_archive_unused/components/icons/emailIcon.tsx
+src/_archive_unused/components/icons/errorIcon.tsx
+src/_archive_unused/components/icons/githubIcon.tsx
+src/_archive_unused/components/icons/index.ts
+src/_archive_unused/components/icons/linkedinIcon.tsx
+src/_archive_unused/components/icons/menuIcon.tsx
+src/_archive_unused/components/icons/pdfIcon.tsx
+src/_archive_unused/components/icons/projectsIcon.tsx
+src/_archive_unused/components/icons/skillsIcon.tsx
+src/_archive_unused/components/icons/successIcon.tsx
+src/_archive_unused/components/icons/toolsIcon.tsx
+src/_archive_unused/components/icons/twitterIcon.tsx
+src/_archive_unused/components/icons/warningIcon.tsx
+src/_archive_unused/components/icons/xIcon.tsx
+src/_archive_unused/components/inspiration/
+src/_archive_unused/components/inspiration/AdvancedFilterSystem.tsx
+src/_archive_unused/components/inspiration/AnimationTemplates.tsx
+src/_archive_unused/components/inspiration/BrandBuilderCTA.tsx
+src/_archive_unused/components/inspiration/BrandColorPalette.tsx
+src/_archive_unused/components/inspiration/BrandDetailModal.tsx
+src/_archive_unused/components/inspiration/ColorPaletteExtractor.tsx
+src/_archive_unused/components/inspiration/DesignChallenges.tsx
+src/_archive_unused/components/inspiration/InspirationCTASection.tsx
+src/_archive_unused/components/inspiration/InspirationExplorer.tsx
+src/_archive_unused/components/inspiration/InspirationTimeline.tsx
+src/_archive_unused/components/inspiration/LearningComponents.tsx
+src/_archive_unused/components/inspiration/MobileOptimizedInspiration.tsx
+src/_archive_unused/components/inspiration/ModernInspiration.css
+src/_archive_unused/components/inspiration/ModernInspirationGrid.tsx
+src/_archive_unused/components/inspiration/ModernInspirationHero.tsx
+src/_archive_unused/components/inspiration/PerformanceOptimizer.tsx
+src/_archive_unused/components/inspiration/RelatedBrands.tsx
+src/_archive_unused/components/inspiration/ResponsiveInspirationWrapper.tsx
+src/_archive_unused/components/inspiration/TypographyShowcase.tsx
+src/_archive_unused/components/integration-examples/
+src/_archive_unused/components/integration-examples/HomePageIntegration.tsx
+src/_archive_unused/components/interactive/
+src/_archive_unused/components/interactive/AnimatedHero.css
+src/_archive_unused/components/interactive/AnimatedHero.tsx
+src/_archive_unused/components/interactive/CustomCursor.css
+src/_archive_unused/components/interactive/CustomCursor.tsx
+src/_archive_unused/components/interactive/InteractiveDataOverlay.tsx
+src/_archive_unused/components/interactive/KineticHeadline.tsx
+src/_archive_unused/components/interactive/MagneticButton.tsx
+src/_archive_unused/components/interactive/SplitGridSection.tsx
+src/_archive_unused/components/interactive/StatCounter.css
+src/_archive_unused/components/interactive/StatCounter.tsx
+src/_archive_unused/components/interactive/TestimonialCarousel.css
+src/_archive_unused/components/interactive/TestimonialCarousel.tsx
+src/_archive_unused/components/interactive/TiltCard.tsx
+src/_archive_unused/components/layout/
+src/_archive_unused/components/layout/Breadcrumbs.css
+src/_archive_unused/components/layout/Footer.css
+src/_archive_unused/components/layout/Footer.tsx
+src/_archive_unused/components/layout/PageLayout.css
+src/_archive_unused/components/layout/PageLayout.tsx
+src/_archive_unused/components/mdx/
+src/_archive_unused/components/mdx/Callout.tsx
+src/_archive_unused/components/mdx/Gallery.tsx
+src/_archive_unused/components/mdx/Metric.tsx
+src/_archive_unused/components/mdx/TwoColumn.tsx
+src/_archive_unused/components/mdx/mdx-components.tsx
+src/_archive_unused/components/media/
+src/_archive_unused/components/media/ImageLightbox.tsx
+src/_archive_unused/components/media/OptimizedImage.tsx
+src/_archive_unused/components/modals/
+src/_archive_unused/components/modals/AppDemoModal.css
+src/_archive_unused/components/nav/
+src/_archive_unused/components/nav/EnhancedNav.tsx
+src/_archive_unused/components/nav/MainNav.tsx
+src/_archive_unused/components/navigation/
+src/_archive_unused/components/navigation/AnchorNav.css
+src/_archive_unused/components/newsletter/
+src/_archive_unused/components/newsletter/NewsletterForm.css
+src/_archive_unused/components/newsletter/NewsletterForm.tsx
+src/_archive_unused/components/playground/
+src/_archive_unused/components/playground/PlaygroundPreview.css
+src/_archive_unused/components/playground/PlaygroundPreview.tsx
+src/_archive_unused/components/sections/
+src/_archive_unused/components/sections/CTASection.css
+src/_archive_unused/components/sections/CTASection.tsx
+src/_archive_unused/components/sections/ContactCTA.css
+src/_archive_unused/components/sections/FeaturesSection.css
+src/_archive_unused/components/sections/FeaturesSection.tsx
+src/_archive_unused/components/sections/FromTheWork.tsx
+src/_archive_unused/components/sections/HeroSection.css
+src/_archive_unused/components/sections/HeroSection.tsx
+src/_archive_unused/components/sections/ServicesGrid.css
+src/_archive_unused/components/sections/StatsSection.css
+src/_archive_unused/components/sections/StatsSection.tsx
+src/_archive_unused/components/sections/TestimonialsSection.css
+src/_archive_unused/components/sections/TestimonialsSection.tsx
+src/_archive_unused/components/sections/index.ts
+src/_archive_unused/components/seo/
+src/_archive_unused/components/seo/GallerySchema.tsx
+src/_archive_unused/components/seo/SideProjectSchema.tsx
+src/_archive_unused/components/skills/
+src/_archive_unused/components/skills/SkillsRadar.css
+src/_archive_unused/components/stats/
+src/_archive_unused/components/stats/Stats.css
+src/_archive_unused/components/stats/Stats.tsx
+src/_archive_unused/components/testimonials/
+src/_archive_unused/components/testimonials/TestimonialsCarousel.css
+src/_archive_unused/components/testimonials/TestimonialsCarousel.tsx
+src/_archive_unused/components/theme/
+src/_archive_unused/components/theme/ThemeToggle.css
+src/_archive_unused/components/theme/ThemeToggle.tsx
+src/_archive_unused/components/timeline/
+src/_archive_unused/components/timeline/ExperienceTimeline.tsx
+src/_archive_unused/components/timeline/InteractiveTimeline.css
+src/_archive_unused/components/timeline/InteractiveTimeline.tsx
+src/_archive_unused/components/timeline/VerticalTimeline.tsx
+src/_archive_unused/components/tooltips/
+src/_archive_unused/components/tooltips/TechTooltip.css
+src/_archive_unused/components/ui/
+src/_archive_unused/components/ui/AchievementUnlocks.tsx
+src/_archive_unused/components/ui/AnimatedMetricsDashboard.tsx
+src/_archive_unused/components/ui/Badges.tsx
+src/_archive_unused/components/ui/BeforeAfterSlider.tsx
+src/_archive_unused/components/ui/Button.css
+src/_archive_unused/components/ui/CopyToClipboard.tsx
+src/_archive_unused/components/ui/EnhancedBentoCard.tsx
+src/_archive_unused/components/ui/GradientMesh.tsx
+src/_archive_unused/components/ui/InteractiveSkillMatrix.tsx
+src/_archive_unused/components/ui/LayeredBackground.css
+src/_archive_unused/components/ui/LiveMetricsDashboard.tsx
+src/_archive_unused/components/ui/MagneticCard.tsx
+src/_archive_unused/components/ui/MetricCard.tsx
+src/_archive_unused/components/ui/OceanAnimatedTooltip.tsx
+src/_archive_unused/components/ui/OceanMeteors.tsx
+src/_archive_unused/components/ui/ScrollIndicator.tsx
+src/_archive_unused/components/ui/SocialShareButtons.tsx
+src/_archive_unused/components/ui/TechStackCloud.tsx
+src/_archive_unused/components/ui/TestimonialWall.tsx
+src/_archive_unused/components/ui/dialog.tsx
+src/_archive_unused/components/ui/hover-card.tsx
+src/_archive_unused/components/ui/navigation-menu.tsx
+src/_archive_unused/components/ui/scroll-area.tsx
+src/_archive_unused/components/ui/sheet.tsx
+src/_archive_unused/components/ui/tooltip.tsx
+src/_archive_unused/components/utilities/
+src/_archive_unused/components/utilities/BackToTop.css
+src/_archive_unused/components/utils/
+src/_archive_unused/components/utils/FloatingActionButtons.tsx
+src/_archive_unused/config/
+src/_archive_unused/config/components/
+src/_archive_unused/config/components/ui/
+src/_archive_unused/config/components/ui/navigation-menu.tsx
+src/_archive_unused/config/feature-flags.ts
+src/_archive_unused/config/lib/
+src/_archive_unused/config/lib/utils.ts
+src/_archive_unused/config/loadConfig.ts
+src/_archive_unused/contexts/
+src/_archive_unused/contexts/ThemeContext.tsx
+src/_archive_unused/design-system/
+src/_archive_unused/design-system/tokens.ts
+src/_archive_unused/hooks/
+src/_archive_unused/hooks/useAnimations.ts
+src/_archive_unused/hooks/useDominantTheme.ts
+src/_archive_unused/hooks/useMCP.ts
+src/_archive_unused/hooks/useMediaQuery.ts
+src/_archive_unused/hooks/usePWAInstall.ts
+src/_archive_unused/index.css
+src/_archive_unused/lib/
+src/_archive_unused/lib/links.ts
+src/_archive_unused/lib/renderOG.ts
+src/_archive_unused/lib/styleDictionary.ts
+src/_archive_unused/pages/
+src/_archive_unused/pages/About.css
+src/_archive_unused/pages/ApplicationDetail.css
+src/_archive_unused/pages/Applications.css
+src/_archive_unused/pages/BrandBuilder.css
+src/_archive_unused/pages/CaseStudies.css
+src/_archive_unused/pages/CaseStudiesEnhanced.css
+src/_archive_unused/pages/CaseStudyDetail.css
+src/_archive_unused/pages/Contact.css
+src/_archive_unused/pages/Demos.tsx
+src/_archive_unused/pages/Design.css
+src/_archive_unused/pages/DesignSystemDemo.css
+src/_archive_unused/pages/Gallery.css
+src/_archive_unused/pages/Home.css
+src/_archive_unused/pages/InspirationDetail.css
+src/_archive_unused/pages/InspirationPage.css
+src/_archive_unused/pages/Photography.css
+src/_archive_unused/pages/ProjectDetail.css
+src/_archive_unused/pages/Projects.css
+src/_archive_unused/pages/Resume.css
+src/_archive_unused/pages/Resume.tsx
+src/_archive_unused/pages/SideProjects.css
+src/_archive_unused/pages/Testimonials.css
+src/_archive_unused/pages/Toolbox.css
+src/_archive_unused/pages/brand-builder.tsx
+src/_archive_unused/pages/brand/
+src/_archive_unused/pages/brand/BrandDetail.css
+src/_archive_unused/pages/case-studies/
+src/_archive_unused/pages/case-studies/branding-reel/
+src/_archive_unused/pages/case-studies/branding-reel/index.tsx
+src/_archive_unused/pages/case-studies/cinematic-portfolio/
+src/_archive_unused/pages/case-studies/cinematic-portfolio/index.tsx
+src/_archive_unused/pages/case-studies/graston-dashboard/
+src/_archive_unused/pages/case-studies/graston-dashboard/index.tsx
+src/_archive_unused/pages/side-projects/
+src/_archive_unused/pages/side-projects/SideProjectDetail.css
+src/_archive_unused/pdf/
+src/_archive_unused/pdf/ResumePDF.tsx
+src/_archive_unused/router/
+src/_archive_unused/router/AppRouter.css
+src/_archive_unused/services/
+src/_archive_unused/services/api/
+src/_archive_unused/services/api/client.ts
+src/_archive_unused/services/api/hooks.ts
+src/_archive_unused/shims/
+src/_archive_unused/store/
+src/_archive_unused/store/ui.ts
+src/_archive_unused/stories/
+src/_archive_unused/stories/FeaturedProjectCard.stories.tsx
+src/_archive_unused/stories/FeaturedProjectsGrid.stories.tsx
+src/_archive_unused/stories/HeroIntro.stories.tsx
+src/_archive_unused/stories/OriginTimeline.stories.tsx
+src/_archive_unused/styles/
+src/_archive_unused/styles/bearcave-brand.css
+src/_archive_unused/styles/bio-cinematic.css
+src/_archive_unused/styles/case-study-tokens.css
+src/_archive_unused/styles/critical.css
+src/_archive_unused/styles/design-system-colors.css
+src/_archive_unused/styles/enhanced-animations.css
+src/_archive_unused/styles/home-sections.css
+src/_archive_unused/styles/mobile-optimization.css
+src/_archive_unused/styles/motion-tokens.js
+src/_archive_unused/styles/skip-to-content.css
+src/_archive_unused/styles/themes.ts
+src/_archive_unused/styles/tokens.css
+src/_archive_unused/styles/typography-system.css
+src/_archive_unused/styles/typography.css
+src/_archive_unused/types/
+src/_archive_unused/types/shims.d.ts
+src/_archive_unused/utils/
+src/_archive_unused/utils/assetPath.ts
+src/_archive_unused/utils/exportTools.js
+src/_archive_unused/utils/loadBio.ts
+src/_archive_unused/utils/loadProjects.ts
+src/_archive_unused/utils/loadSideProjects.ts
+src/_archive_unused/utils/motion-helpers.ts
+src/_archive_unused/utils/motion-tokens-typed.ts
+src/_archive_unused/utils/narrativeMotion.js
+src/_archive_unused/utils/narrativeMotion.ts
+src/_archive_unused/utils/previewBuilder.ts
+src/_archive_unused/utils/resumeBuilder.ts
+src/_archive_unused/utils/svgExporter.ts
+src/_archive_unused/utils/svgValidator.ts
