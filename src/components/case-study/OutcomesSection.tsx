@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { cn } from '../../lib/utils';
 
 export interface RichSection {
   paragraphs?: string[];
@@ -14,6 +15,9 @@ export interface OutcomesSectionProps {
     after: string;
   }>;
   capabilities?: string[];
+  highlights?: string[];
+  className?: string;
+  variant?: 'muted' | 'surface';
 }
 
 const renderContent = (content: string | RichSection) => {
@@ -52,10 +56,18 @@ const OutcomesSection: React.FC<OutcomesSectionProps> = ({
   outcomes,
   metrics,
   capabilities,
+  highlights,
+  className,
+  variant = 'muted',
 }) => {
   return (
     <motion.section
-      className="py-16 md:py-20 bg-gray-50 dark:bg-gray-900/50"
+      className={cn(
+        'py-16 md:py-20',
+        variant === 'muted' && 'bg-gray-50 dark:bg-gray-900/50',
+        variant === 'surface' && 'cs-panel',
+        className
+      )}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
@@ -70,6 +82,25 @@ const OutcomesSection: React.FC<OutcomesSectionProps> = ({
         <div className="text-gray-700 dark:text-gray-300 mb-12">
           {renderContent(outcomes)}
         </div>
+
+        {highlights && highlights.length > 0 && (
+          <div className="grid gap-4 mb-12 md:grid-cols-2">
+            {highlights.map((highlight, idx) => (
+              <motion.div
+                key={highlight}
+                className="rounded-2xl border border-slate-200/70 bg-white/80 px-5 py-4 shadow-sm dark:border-slate-700/50 dark:bg-slate-900/60"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05 }}
+              >
+                <p className="text-base font-semibold text-gray-900 dark:text-white">
+                  {highlight}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        )}
 
         {/* Metrics table */}
         {metrics.length > 0 && (

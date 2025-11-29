@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { cn } from '../../lib/utils';
 
 export interface CaseStudyCTAProps {
   title?: string;
@@ -16,6 +17,8 @@ export interface CaseStudyCTAProps {
   visualIdentity?: {
     accentColor?: string;
   };
+  className?: string;
+  variant?: 'dark' | 'surface';
 }
 
 const CaseStudyCTA: React.FC<CaseStudyCTAProps> = ({
@@ -27,10 +30,17 @@ const CaseStudyCTA: React.FC<CaseStudyCTAProps> = ({
   },
   secondaryAction,
   visualIdentity,
+  className,
+  variant = 'dark',
 }) => {
   return (
     <motion.section
-      className="py-20 md:py-32 bg-gray-900 dark:bg-gray-950 text-white"
+      className={cn(
+        'py-20 md:py-32',
+        variant === 'dark' && 'bg-gray-900 dark:bg-gray-950 text-white',
+        variant === 'surface' && 'cs-panel text-slate-900',
+        className
+      )}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
@@ -47,7 +57,7 @@ const CaseStudyCTA: React.FC<CaseStudyCTAProps> = ({
             className="px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105"
             style={{
               backgroundColor: visualIdentity?.accentColor || 'var(--color-warning)',
-              color: 'var(--color-light)',
+              color: variant === 'surface' ? '#0f172a' : 'var(--color-light)',
             }}
           >
             {primaryAction.label}
@@ -55,7 +65,12 @@ const CaseStudyCTA: React.FC<CaseStudyCTAProps> = ({
           {secondaryAction && (
             <Link
               to={secondaryAction.href}
-              className="px-8 py-4 rounded-lg font-bold text-lg border-2 border-white/20 text-white hover:bg-white/10 transition-all duration-300"
+              className={cn(
+                'px-8 py-4 rounded-lg font-bold text-lg border-2 transition-all duration-300',
+                variant === 'dark'
+                  ? 'border-white/20 text-white hover:bg-white/10'
+                  : 'border-slate-200 text-slate-800 hover:bg-slate-50'
+              )}
             >
               {secondaryAction.label}
             </Link>

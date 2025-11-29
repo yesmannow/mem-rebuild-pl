@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { cn } from '../../lib/utils';
 
 export interface HeroBlockProps {
   title: string;
@@ -10,6 +11,8 @@ export interface HeroBlockProps {
   };
   gradient?: string;
   emoji?: string;
+  className?: string;
+  variant?: 'plain' | 'surface';
 }
 
 const HeroBlock: React.FC<HeroBlockProps> = ({
@@ -18,9 +21,17 @@ const HeroBlock: React.FC<HeroBlockProps> = ({
   stat,
   gradient,
   emoji,
+  className,
+  variant = 'plain',
 }) => {
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden">
+    <section
+      className={cn(
+        'relative py-20 md:py-32 overflow-hidden',
+        variant === 'surface' && 'cs-panel',
+        className
+      )}
+    >
       {/* Background gradient */}
       {gradient && (
         <div

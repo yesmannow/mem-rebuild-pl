@@ -1,27 +1,38 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { theCompass } from '@data/case-studies/the-compass';
-import HeroBlock from '@components/case-study/HeroBlock';
-import ChallengeSection from '@components/case-study/ChallengeSection';
-import StrategySection from '@components/case-study/StrategySection';
-import BuildSection from '@components/case-study/BuildSection';
-import OutcomesSection from '@components/case-study/OutcomesSection';
-import PullQuote from '@components/case-study/PullQuote';
-import CapabilitiesBadges from '@components/case-study/CapabilitiesBadges';
-import CaseStudyCTA from '@components/case-study/CTA';
-import PageLayout from '@components/layout/PageLayout';
+import CaseStudyTemplate, { CaseStudyTemplateData } from '@components/case-study/CaseStudyTemplate';
+import DataStream from '@components/case-studies/DataStream';
 
 const TheCompassPage: React.FC = () => {
-  // Extract primary stat from outcomes
-  const primaryStat = theCompass.outcomes.beforeAfter[0];
-  
-  // Format strategy as paragraphs
-  const strategyContent = theCompass.strategy.map(s => `${s.title}: ${s.detail}`).join('\n\n');
-  
-  // Format build as bullets
-  const buildContent = theCompass.build.map(b => 
-    `${b.title}:\n${b.items.map(item => `  • ${item}`).join('\n')}`
-  ).join('\n\n');
+  const templateData: CaseStudyTemplateData = {
+    slug: theCompass.slug,
+    theme: theCompass.theme,
+    hero: {
+      title: theCompass.title,
+      subtitle: theCompass.subtitle,
+      emoji: theCompass.emoji,
+      stat: {
+        label: theCompass.outcomes.beforeAfter[0].metric,
+        value: theCompass.outcomes.beforeAfter[0].after,
+      },
+    },
+    challenge: theCompass.challenge.body,
+    strategy: theCompass.strategy,
+    build: theCompass.build,
+    outcomes: 'Every channel, cohort, and conversion path mapped to one truthful dashboard.',
+    highlights: theCompass.outcomes.highlights,
+    metrics: theCompass.outcomes.beforeAfter,
+    capabilities: theCompass.badges,
+    quote: theCompass.pullQuote,
+    cta: {
+      title: 'Want attribution you can trust?',
+      label: theCompass.cta.label,
+      href: theCompass.cta.href,
+      secondaryLabel: 'View More Case Studies',
+      secondaryHref: '/case-studies',
+    },
+  };
 
   return (
     <>
@@ -33,93 +44,7 @@ const TheCompassPage: React.FC = () => {
         />
       </Helmet>
 
-      <div className="cs-shell" data-case-study="the-compass" style={theCompass.theme as React.CSSProperties}>
-        <PageLayout>
-          {/* Hero Block */}
-          <HeroBlock
-            title={theCompass.title}
-            impact={theCompass.subtitle}
-            stat={{
-              label: primaryStat.metric,
-              value: primaryStat.after,
-            }}
-            gradient={theCompass.theme['--cs-bg']}
-            emoji={theCompass.emoji}
-          />
-
-          {/* Challenge Section */}
-          <ChallengeSection
-            title={theCompass.challenge.heading}
-            content={theCompass.challenge.body}
-            visualIdentity={{
-              primaryColor: theCompass.theme['--cs-primary'],
-            }}
-          />
-
-          {/* Strategy Section */}
-          <StrategySection
-            title="Strategy"
-            content={strategyContent}
-            visualIdentity={{
-              primaryColor: theCompass.theme['--cs-primary'],
-            }}
-          />
-
-          {/* What I Built Section */}
-          <BuildSection
-            title="What I Built"
-            content={buildContent}
-            visualIdentity={{
-              primaryColor: theCompass.theme['--cs-primary'],
-            }}
-          />
-
-          {/* Outcomes Section */}
-          <OutcomesSection
-            outcomes={{
-              bullets: theCompass.outcomes.highlights,
-            }}
-            metrics={theCompass.outcomes.beforeAfter.map(m => ({
-              label: m.metric,
-              before: m.before,
-              after: m.after,
-            }))}
-            capabilities={theCompass.badges}
-          />
-
-          {/* Pull Quote */}
-          <PullQuote
-            quote={theCompass.pullQuote.quote}
-            author={theCompass.pullQuote.source}
-            visualIdentity={{
-              primaryColor: theCompass.theme['--cs-primary'],
-            }}
-          />
-
-          {/* Capabilities Badges */}
-          <CapabilitiesBadges
-            capabilities={theCompass.badges}
-            visualIdentity={{
-              primaryColor: theCompass.theme['--cs-primary'],
-            }}
-          />
-
-          {/* CTA */}
-          <CaseStudyCTA
-            primaryAction={{
-              label: theCompass.cta.label,
-              href: theCompass.cta.href,
-            }}
-            secondaryAction={{
-              label: 'View More Case Studies',
-              href: '/case-studies',
-            }}
-            visualIdentity={{
-              accentColor: theCompass.theme['--cs-accent'],
-            }}
-          />
-        </PageLayout>
-      </div>
+      <CaseStudyTemplate data={templateData} interactiveSlot={<DataStream />} />
     </>
   );
 };

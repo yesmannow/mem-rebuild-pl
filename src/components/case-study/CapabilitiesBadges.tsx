@@ -1,20 +1,29 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { cn } from '../../lib/utils';
 
 export interface CapabilitiesBadgesProps {
   capabilities: string[];
   visualIdentity?: {
     primaryColor?: string;
   };
+  className?: string;
+  variant?: 'plain' | 'surface';
 }
 
 const CapabilitiesBadges: React.FC<CapabilitiesBadgesProps> = ({
   capabilities,
   visualIdentity,
+  className,
+  variant = 'plain',
 }) => {
   return (
     <motion.section
-      className="py-16 md:py-20"
+      className={cn(
+        'py-16 md:py-20',
+        variant === 'surface' && 'cs-panel',
+        className
+      )}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}

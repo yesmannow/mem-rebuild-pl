@@ -1,23 +1,48 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import HeroBlock from '@components/case-study/HeroBlock';
-import ChallengeSection from '@components/case-study/ChallengeSection';
-import StrategySection from '@components/case-study/StrategySection';
-import BuildSection from '@components/case-study/BuildSection';
-import OutcomesSection from '@components/case-study/OutcomesSection';
-import PullQuote from '@components/case-study/PullQuote';
-import CapabilitiesBadges from '@components/case-study/CapabilitiesBadges';
-import CaseStudyCTA from '@components/case-study/CTA';
-import HeroMedia from '@components/case-study/HeroMedia';
-import { useDominantTheme } from '@hooks/useDominantTheme';
+import CaseStudyTemplate, { CaseStudyTemplateData } from '@components/case-study/CaseStudyTemplate';
+import WorkflowVisualizer from '@components/case-studies/WorkflowVisualizer';
 import { theLaunchpad } from '@data/case-studies/the-launchpad';
-import PageLayout from '@components/layout/PageLayout';
+
+const theme = {
+  '--cs-bg': theLaunchpad.visualIdentity.gradient,
+  '--cs-primary': theLaunchpad.visualIdentity.primaryColor,
+  '--cs-accent': theLaunchpad.visualIdentity.accentColor,
+  '--cs-surface': 'rgba(255,255,255,0.92)',
+  '--cs-glow': 'rgba(60,198,196,0.35)',
+};
 
 const TheLaunchpadPage: React.FC = () => {
-  const { visualIdentity } = theLaunchpad;
-
-  // Use dominant theme from hero image (ensure correct filename)
-  useDominantTheme('/demos/graston-growth-engine.jpg');
+  const templateData: CaseStudyTemplateData = {
+    slug: theLaunchpad.slug,
+    theme,
+    hero: {
+      title: theLaunchpad.title,
+      subtitle: theLaunchpad.positioning,
+      emoji: theLaunchpad.visualIdentity.emoji,
+      stat: theLaunchpad.stat,
+      media: {
+        src: '/demos/graston-growth-engine.jpg',
+        alt: 'Launchpad growth engine interface',
+      },
+    },
+    challenge: theLaunchpad.challenge,
+    strategy: theLaunchpad.strategy,
+    build: theLaunchpad.whatIBuilt,
+    outcomes: theLaunchpad.outcomes,
+    metrics: theLaunchpad.metrics,
+    capabilities: theLaunchpad.capabilities,
+    quote: {
+      quote: 'Directories don’t create growth. Systems do.',
+    },
+    cta: {
+      title: 'Want to transform your practitioner ecosystem?',
+      label: 'Start a Project',
+      href: '/contact',
+      secondaryLabel: 'View More Case Studies',
+      secondaryHref: '/case-studies',
+    },
+  };
 
   return (
     <>
@@ -29,98 +54,9 @@ const TheLaunchpadPage: React.FC = () => {
         />
       </Helmet>
 
-      <div data-case-study="the-launchpad">
-        <PageLayout>
-          {/* Hero Media */}
-          <HeroMedia src="/demos/graston-growth-engine.jpg" alt="The Launchpad - Growth Engine" />
-
-          {/* Ambient glow background */}
-          <div
-            className="pointer-events-none fixed inset-x-0 top-[10vh] -z-10 h-[40vh] blur-3xl"
-            style={{
-              background: "radial-gradient(50% 60% at 50% 0%, var(--case-glow, rgba(73,195,178,.25)), transparent 70%)"
-            }}
-          />
-
-          {/* Hero Block */}
-          <HeroBlock
-            title={theLaunchpad.title}
-            impact={theLaunchpad.impact}
-            stat={theLaunchpad.stat}
-            gradient={theLaunchpad.visualIdentity.gradient}
-            emoji={theLaunchpad.visualIdentity.emoji}
-          />
-
-          {/* Challenge Section */}
-          <ChallengeSection
-            title="Challenge"
-            content={theLaunchpad.challenge}
-            visualIdentity={{
-              primaryColor: visualIdentity.primaryColor,
-            }}
-          />
-
-          {/* Strategy Section */}
-          <StrategySection
-            title="Strategy"
-            content={theLaunchpad.strategy}
-            visualIdentity={{
-              primaryColor: visualIdentity.primaryColor,
-            }}
-          />
-
-          {/* Pull Quote */}
-          <PullQuote
-            quote="Directories don't create growth. Systems do."
-            visualIdentity={{
-              primaryColor: visualIdentity.primaryColor,
-            }}
-          />
-
-          {/* What I Built Section */}
-          <BuildSection
-            title="What I Built"
-            content={theLaunchpad.whatIBuilt}
-            visualIdentity={{
-              primaryColor: visualIdentity.primaryColor,
-            }}
-          />
-
-          {/* Outcomes Section */}
-          <OutcomesSection
-            outcomes={theLaunchpad.outcomes}
-            metrics={theLaunchpad.metrics}
-            capabilities={theLaunchpad.capabilities}
-          />
-
-          {/* Capabilities Badges */}
-          <CapabilitiesBadges
-            capabilities={theLaunchpad.capabilities}
-            visualIdentity={{
-              primaryColor: visualIdentity.primaryColor,
-            }}
-          />
-
-          {/* CTA */}
-          <CaseStudyCTA
-            title="Want to transform your practitioner ecosystem?"
-            primaryAction={{
-              label: 'Start a Project',
-              href: '/contact',
-            }}
-            secondaryAction={{
-              label: 'View More Case Studies',
-              href: '/case-studies',
-            }}
-            visualIdentity={{
-              accentColor: visualIdentity.accentColor,
-            }}
-          />
-        </PageLayout>
-      </div>
+      <CaseStudyTemplate data={templateData} interactiveSlot={<WorkflowVisualizer />} />
     </>
   );
 };
 
 export default TheLaunchpadPage;
-

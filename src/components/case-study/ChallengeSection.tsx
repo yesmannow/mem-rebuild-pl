@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { cn } from '../../lib/utils';
 
 export interface RichSection {
   paragraphs?: string[];
@@ -13,6 +14,8 @@ export interface NarrativeSectionProps {
     primaryColor?: string;
     secondaryColor?: string;
   };
+  className?: string;
+  variant?: 'plain' | 'surface';
 }
 
 // ChallengeSection specific props - can accept either challenge string or full NarrativeSection props
@@ -24,6 +27,8 @@ export interface ChallengeSectionProps {
     primaryColor?: string;
     secondaryColor?: string;
   };
+  className?: string;
+  variant?: 'plain' | 'surface';
 }
 
 const renderContent = (content: string | RichSection) => {
@@ -64,10 +69,16 @@ const NarrativeSection: React.FC<NarrativeSectionProps> = ({
   title,
   content,
   visualIdentity,
+  className,
+  variant = 'plain',
 }) => {
   return (
     <motion.section
-      className="py-16 md:py-20"
+      className={cn(
+        'py-16 md:py-20',
+        variant === 'surface' && 'cs-panel',
+        className
+      )}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
@@ -93,14 +104,37 @@ const NarrativeSection: React.FC<NarrativeSectionProps> = ({
 };
 
 // ChallengeSection component that wraps NarrativeSection
-const ChallengeSection: React.FC<ChallengeSectionProps> = ({ challenge, title, content, visualIdentity }) => {
+const ChallengeSection: React.FC<ChallengeSectionProps> = ({
+  challenge,
+  title,
+  content,
+  visualIdentity,
+  className,
+  variant,
+}) => {
   // If challenge prop is provided, use it as content with default title
   if (challenge) {
-    return <NarrativeSection title="The Challenge" content={challenge} visualIdentity={visualIdentity} />;
+    return (
+      <NarrativeSection
+        title="The Challenge"
+        content={challenge}
+        visualIdentity={visualIdentity}
+        className={className}
+        variant={variant}
+      />
+    );
   }
   // Otherwise, use provided title and content (for backward compatibility)
   if (title && content) {
-    return <NarrativeSection title={title} content={content} visualIdentity={visualIdentity} />;
+    return (
+      <NarrativeSection
+        title={title}
+        content={content}
+        visualIdentity={visualIdentity}
+        className={className}
+        variant={variant}
+      />
+    );
   }
   // Fallback
   return null;

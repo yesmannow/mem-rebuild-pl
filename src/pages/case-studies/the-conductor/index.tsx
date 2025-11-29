@@ -1,23 +1,38 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { theConductor } from '@data/case-studies/the-conductor';
-import HeroBlock from '@components/case-study/HeroBlock';
-import ChallengeSection from '@components/case-study/ChallengeSection';
-import StrategySection from '@components/case-study/StrategySection';
-import BuildSection from '@components/case-study/BuildSection';
-import OutcomesSection from '@components/case-study/OutcomesSection';
-import PullQuote from '@components/case-study/PullQuote';
-import CapabilitiesBadges from '@components/case-study/CapabilitiesBadges';
-import CaseStudyCTA from '@components/case-study/CTA';
-import PageLayout from '@components/layout/PageLayout';
+import CaseStudyTemplate, { CaseStudyTemplateData } from '@components/case-study/CaseStudyTemplate';
 import SystemSchematic from '@components/case-studies/SystemSchematic';
 
 const TheConductorPage: React.FC = () => {
-  const primaryStat = theConductor.outcomes.beforeAfter[0];
-  const strategyContent = theConductor.strategy.map(s => `${s.title}: ${s.detail}`).join('\n\n');
-  const buildContent = theConductor.build.map(b =>
-    `${b.title}:\n${b.items.map(item => `  • ${item}`).join('\n')}`
-  ).join('\n\n');
+  const templateData: CaseStudyTemplateData = {
+    slug: theConductor.slug,
+    theme: theConductor.theme,
+    hero: {
+      title: theConductor.title,
+      subtitle: theConductor.subtitle,
+      emoji: theConductor.emoji,
+      stat: {
+        label: theConductor.outcomes.beforeAfter[0].metric,
+        value: theConductor.outcomes.beforeAfter[0].after,
+      },
+    },
+    challenge: theConductor.challenge.body,
+    strategy: theConductor.strategy,
+    build: theConductor.build,
+    outcomes: theConductor.subtitle,
+    highlights: theConductor.outcomes.highlights,
+    metrics: theConductor.outcomes.beforeAfter,
+    capabilities: theConductor.badges,
+    quote: theConductor.pullQuote,
+    cta: {
+      title: 'Ready to orchestrate your data stack?',
+      label: theConductor.cta.label,
+      href: theConductor.cta.href,
+      secondaryLabel: 'View More Case Studies',
+      secondaryHref: '/case-studies',
+    },
+  };
 
   return (
     <>
@@ -29,90 +44,7 @@ const TheConductorPage: React.FC = () => {
         />
       </Helmet>
 
-      <div className="cs-shell" data-case-study="the-conductor" style={theConductor.theme as React.CSSProperties}>
-        <PageLayout>
-          <HeroBlock
-            title={theConductor.title}
-            impact={theConductor.subtitle}
-            stat={{
-              label: primaryStat.metric,
-              value: primaryStat.after,
-            }}
-            gradient={theConductor.theme['--cs-bg']}
-            emoji={theConductor.emoji}
-          />
-
-          <ChallengeSection
-            title={theConductor.challenge.heading}
-            content={theConductor.challenge.body}
-            visualIdentity={{
-              primaryColor: theConductor.theme['--cs-primary'],
-            }}
-          />
-
-          <StrategySection
-            title="Strategy"
-            content={strategyContent}
-            visualIdentity={{
-              primaryColor: theConductor.theme['--cs-primary'],
-            }}
-          />
-
-          <BuildSection
-            title="What I Built"
-            content={buildContent}
-            visualIdentity={{
-              primaryColor: theConductor.theme['--cs-primary'],
-            }}
-          />
-
-          {/* System Architecture Visualization */}
-          <section className="my-16">
-            <SystemSchematic />
-          </section>
-
-          <OutcomesSection
-            outcomes={{
-              bullets: theConductor.outcomes.highlights,
-            }}
-            metrics={theConductor.outcomes.beforeAfter.map(m => ({
-              label: m.metric,
-              before: m.before,
-              after: m.after,
-            }))}
-            capabilities={theConductor.badges}
-          />
-
-          <PullQuote
-            quote={theConductor.pullQuote.quote}
-            author={theConductor.pullQuote.source}
-            visualIdentity={{
-              primaryColor: theConductor.theme['--cs-primary'],
-            }}
-          />
-
-          <CapabilitiesBadges
-            capabilities={theConductor.badges}
-            visualIdentity={{
-              primaryColor: theConductor.theme['--cs-primary'],
-            }}
-          />
-
-          <CaseStudyCTA
-            primaryAction={{
-              label: theConductor.cta.label,
-              href: theConductor.cta.href,
-            }}
-            secondaryAction={{
-              label: 'View More Case Studies',
-              href: '/case-studies',
-            }}
-            visualIdentity={{
-              accentColor: theConductor.theme['--cs-accent'],
-            }}
-          />
-        </PageLayout>
-      </div>
+      <CaseStudyTemplate data={templateData} interactiveSlot={<SystemSchematic />} />
     </>
   );
 };
