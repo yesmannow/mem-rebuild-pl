@@ -118,19 +118,19 @@
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRhQBAABXRUJQVlA4WAoAAAAQAAAAEwAABgAAQUxQSI0AAAAAADSWJQAlHAIGAgQDFSADAwIDBwFJrZesNStEMjpSTSswXj08O0U+BXWYiqFgCyEjIS0mFBMuKycwKB0Ek6kPwXUIDTVCHhUaJRkHAAEBAQBqm6CfVUYsNmw9Rz1iRA8AAQAAACyfp5cgFRcQGBgTExYcDAoNCQkAACt9IAAbJSMbGB8bFCEeHCEjHwEAVlA4IGAAAADQAwCdASoUAAcAPxFysFAsJqSisAgBgCIJbACdEf/gNlWdODvY+CAA/p8DAZBypCh3gHmU8mEqZeg1q+sj33c2FOmKzgz/Ts0zqmUK2pnwn5WEuUW34rKig58Vk3CAAAA="
   },
-  "images/projects/riley bennett egloff/download.jpg": {
-    "width": 1712,
-    "height": 2399,
-    "base": "images/projects/riley bennett egloff/download",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoUABwAPxFys1KsJiSisBgIAYAiCUAYbgIhpExx19sfrmkOVY0Hz5AgAP5b/LmOnVoT7YOUUIjV/KgiuUGXDvjmpI4Acbzof4M1yGzvvaT+On1ooa8rThu95IcLCPIPhqS4vCO0HTf6yMZAavu0HdFVEPB9zIbehvHwPwq/bFgBVPfNSfET2aTAmojKJaGfwr51v09AAAA="
-  },
   "images/projects/riley bennett egloff/dss.jpg": {
     "width": 1712,
     "height": 2410,
     "base": "images/projects/riley bennett egloff/dss",
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADwBACdASoUABwAPxF6t1MsJ6WiqAqpgCIJZQAALngBiyejzEBWxG+QSB/eSBN5/MAA/I/5WrdMXFEqpJ1esGZLrMM5QnKfCArikyvuxKwcL5dLrsjRbLtjvDu15JG+sR4bJatlenxr/2uhDoaxI/Gj/al1CgAA"
+  },
+  "images/projects/riley bennett egloff/download.jpg": {
+    "width": 1712,
+    "height": 2399,
+    "base": "images/projects/riley bennett egloff/download",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoUABwAPxFys1KsJiSisBgIAYAiCUAYbgIhpExx19sfrmkOVY0Hz5AgAP5b/LmOnVoT7YOUUIjV/KgiuUGXDvjmpI4Acbzof4M1yGzvvaT+On1ooa8rThu95IcLCPIPhqS4vCO0HTf6yMZAavu0HdFVEPB9zIbehvHwPwq/bFgBVPfNSfET2aTAmojKJaGfwr51v09AAAA="
   },
   "images/projects/riley bennett egloff/attorneys.jpg": {
     "width": 1712,
@@ -216,19 +216,19 @@
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRgIBAABXRUJQVlA4WAoAAAAQAAAAEwAABQAAQUxQSGIAAAABcBvbtqrs8wWLfoy7u7u7xeQ0QE4TNEYJVPMoIiISkG1j6Q9J4J2yw8cKCyMfpjV9fm+7xTxaTaRK1USskoBQ8/V7l9Pz/maw2DYy7fvG8xPYfjoIISFHVnUZxkhCkkDCJ1ZQOCB6AAAA8AMAnQEqFAAGAD8RdrFQrCckorAIAYAiCWoAnTlBOAAjLUZ0b0DnIAD+2GcjU2LgerAT3mrmKf1Rqpz29bPgTY9pOH//+DUmVdHau6XpDpFBCsX2Iz+TzkXawx/udPEijhBx0OopmNvy26fct4zYAB/oDYAFDcfQYAA="
   },
-  "images/side-projects/occ-health-header.jpg": {
-    "width": 1000,
-    "height": 603,
-    "base": "images/side-projects/occ-health-header",
-    "color": "rgb(168 168 168)",
-    "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJYgDE2BUpkH/mJ99rs/P+APd6ZeXCv5JNRwKHdumuYcSJ67IPaBHoT5WDySeAYaYQqcJZm9acI4eFVVtlZ10DxfL0bF0i0Wi3bUI8J3YAAA=="
-  },
   "images/side-projects/what-we-treat-1.jpg": {
     "width": 1000,
     "height": 603,
     "base": "images/side-projects/what-we-treat-1",
     "color": "rgb(136 136 136)",
     "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJQBfJAzRNMF0vYKyEgAD+6PV/2NXw0tyZpPVx0f46B0+BOowtmiOjBQxc19VQS9JUq7Gj+7jPI8LDD+MxoAAA"
+  },
+  "images/side-projects/occ-health-header.jpg": {
+    "width": 1000,
+    "height": 603,
+    "base": "images/side-projects/occ-health-header",
+    "color": "rgb(168 168 168)",
+    "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJYgDE2BUpkH/mJ99rs/P+APd6ZeXCv5JNRwKHdumuYcSJ67IPaBHoT5WDySeAYaYQqcJZm9acI4eFVVtlZ10DxfL0bF0i0Wi3bUI8J3YAAA=="
   },
   "images/side-projects/painting_illustration_01.png": {
     "width": 800,

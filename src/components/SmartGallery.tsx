@@ -19,13 +19,6 @@ interface SmartGalleryProps {
 
 const paletteCache: Record<string, string[]> = {};
 
-const buildMetadata = (idx: number) => {
-  const iso = 200 + ((idx % 5) + 1) * 80;
-  const aperture = (1.4 + (idx % 4) * 0.7).toFixed(1);
-  const shutter = `1/${90 + idx * 6}s`;
-  return { iso, aperture, shutter };
-};
-
 const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -86,7 +79,6 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
         {masonryItems.map((item) => {
           const isHovered = hoveredIndex === item.idx;
           const palette = palettes[item.src] || paletteCache[item.src];
-          const meta = buildMetadata(item.idx);
           const displayTitle = item.title || item.alt || 'Gallery item';
 
           return (
@@ -113,32 +105,7 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
                 />
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-slate-950/10 to-slate-950/40" />
 
-                {mode === 'photo' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 12 }}
-                    transition={{ duration: 0.35, ease: 'easeOut' }}
-                    className="pointer-events-none absolute inset-0 flex flex-col justify-end gap-3 p-4"
-                  >
-                    <div className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.2em]">
-                      <span className="rounded-full bg-white/15 px-3 py-1 backdrop-blur-md border border-white/10 text-white/90">
-                        ISO {meta.iso}
-                      </span>
-                      <span className="rounded-full bg-white/15 px-3 py-1 backdrop-blur-md border border-white/10 text-white/90">
-                        f/{meta.aperture}
-                      </span>
-                      <span className="rounded-full bg-white/15 px-3 py-1 backdrop-blur-md border border-white/10 text-white/90">
-                        {meta.shutter}
-                      </span>
-                    </div>
-                    <div className="rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 backdrop-blur-md shadow-soft-dark">
-                      <p className="text-sm font-semibold leading-tight text-white">{displayTitle}</p>
-                      <p className="text-xs text-brand-muted">
-                        {item.category || (mode === 'photo' ? 'Photography' : 'Design')}
-                      </p>
-                    </div>
-                  </motion.div>
-                )}
+
 
                 <div className="absolute top-3 right-3 flex items-center gap-2 text-xs text-brand-text/80">
                   <span className="rounded-full bg-slate-900/70 px-2 py-1 backdrop-blur-md border border-white/10 flex items-center gap-1">
@@ -173,12 +140,7 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
                   </motion.div>
                 )}
               </div>
-              <div className="px-4 py-3">
-                <p className="text-sm text-brand-muted">
-                  {item.category || (mode === 'photo' ? 'Photography' : 'Design')}
-                </p>
-                <p className="text-base font-semibold text-brand-text line-clamp-2">{displayTitle}</p>
-              </div>
+
             </motion.div>
           );
         })}

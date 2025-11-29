@@ -170,16 +170,6 @@
     }
   },
   {
-    "file": "images/projects/riley bennett egloff/download.jpg",
-    "meta": {
-      "width": 1712,
-      "height": 2399,
-      "base": "images/projects/riley bennett egloff/download",
-      "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoUABwAPxFys1KsJiSisBgIAYAiCUAYbgIhpExx19sfrmkOVY0Hz5AgAP5b/LmOnVoT7YOUUIjV/KgiuUGXDvjmpI4Acbzof4M1yGzvvaT+On1ooa8rThu95IcLCPIPhqS4vCO0HTf6yMZAavu0HdFVEPB9zIbehvHwPwq/bFgBVPfNSfET2aTAmojKJaGfwr51v09AAAA="
-    }
-  },
-  {
     "file": "images/projects/riley bennett egloff/dss.jpg",
     "meta": {
       "width": 1712,
@@ -187,6 +177,16 @@
       "base": "images/projects/riley bennett egloff/dss",
       "color": "rgb(248 248 248)",
       "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADwBACdASoUABwAPxF6t1MsJ6WiqAqpgCIJZQAALngBiyejzEBWxG+QSB/eSBN5/MAA/I/5WrdMXFEqpJ1esGZLrMM5QnKfCArikyvuxKwcL5dLrsjRbLtjvDu15JG+sR4bJatlenxr/2uhDoaxI/Gj/al1CgAA"
+    }
+  },
+  {
+    "file": "images/projects/riley bennett egloff/download.jpg",
+    "meta": {
+      "width": 1712,
+      "height": 2399,
+      "base": "images/projects/riley bennett egloff/download",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoUABwAPxFys1KsJiSisBgIAYAiCUAYbgIhpExx19sfrmkOVY0Hz5AgAP5b/LmOnVoT7YOUUIjV/KgiuUGXDvjmpI4Acbzof4M1yGzvvaT+On1ooa8rThu95IcLCPIPhqS4vCO0HTf6yMZAavu0HdFVEPB9zIbehvHwPwq/bFgBVPfNSfET2aTAmojKJaGfwr51v09AAAA="
     }
   },
   {
@@ -310,16 +310,6 @@
     }
   },
   {
-    "file": "images/side-projects/occ-health-header.jpg",
-    "meta": {
-      "width": 1000,
-      "height": 603,
-      "base": "images/side-projects/occ-health-header",
-      "color": "rgb(168 168 168)",
-      "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJYgDE2BUpkH/mJ99rs/P+APd6ZeXCv5JNRwKHdumuYcSJ67IPaBHoT5WDySeAYaYQqcJZm9acI4eFVVtlZ10DxfL0bF0i0Wi3bUI8J3YAAA=="
-    }
-  },
-  {
     "file": "images/side-projects/what-we-treat-1.jpg",
     "meta": {
       "width": 1000,
@@ -327,6 +317,16 @@
       "base": "images/side-projects/what-we-treat-1",
       "color": "rgb(136 136 136)",
       "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJQBfJAzRNMF0vYKyEgAD+6PV/2NXw0tyZpPVx0f46B0+BOowtmiOjBQxc19VQS9JUq7Gj+7jPI8LDD+MxoAAA"
+    }
+  },
+  {
+    "file": "images/side-projects/occ-health-header.jpg",
+    "meta": {
+      "width": 1000,
+      "height": 603,
+      "base": "images/side-projects/occ-health-header",
+      "color": "rgb(168 168 168)",
+      "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJYgDE2BUpkH/mJ99rs/P+APd6ZeXCv5JNRwKHdumuYcSJ67IPaBHoT5WDySeAYaYQqcJZm9acI4eFVVtlZ10DxfL0bF0i0Wi3bUI8J3YAAA=="
     }
   },
   {
