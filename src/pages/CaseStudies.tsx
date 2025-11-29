@@ -85,73 +85,78 @@ const CaseStudies: React.FC = () => {
 
   return (
     <div className="case-studies-page">
-      <main className="case-studies-modern">
-        <OceanGradientAnimation
-          containerClassName="case-studies-hero-wrapper"
-          className="case-studies-hero-content"
-          interactive={true}
-          size="60%"
-          blendingValue="soft-light"
-        >
-          <motion.section
-            className="case-studies-hero relative z-10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
+      {/* Hero Section - Standalone Centered */}
+      <section className="case-studies-hero-section">
+        <div className="case-studies-hero-container">
+          <OceanGradientAnimation
+            containerClassName="case-studies-hero-wrapper"
+            className="case-studies-hero-content"
+            interactive={true}
+            size="60%"
+            blendingValue="soft-light"
           >
-            <div className="hero-content-cases">
-              <motion.div
-                className="hero-badge"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                Case Study Command Center
-              </motion.div>
+            <motion.div
+              className="case-studies-hero relative z-10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+            >
+              <div className="hero-content-cases">
+                <motion.div
+                  className="hero-badge"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  Case Study Portfolio
+                </motion.div>
 
-              <motion.h1
-                className="case-studies-title"
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-              >
-                <AnimatedGradientText text="Project Deep Dives" className="text-4xl md:text-5xl lg:text-6xl font-bold" />
-              </motion.h1>
+                <motion.h1
+                  className="case-studies-title"
+                  initial={{ y: 30, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.8 }}
+                >
+                  <AnimatedGradientText text="Marketing Case Studies" className="text-4xl md:text-5xl lg:text-6xl font-bold" />
+                </motion.h1>
 
-              <motion.p
-                className="case-studies-subtitle"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-              >
-                From spark to system, every engagement includes the challenge, the build, and the
-                measurable outcomes so you can see how each marketing system comes together.
-              </motion.p>
+                <motion.p
+                  className="case-studies-subtitle"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.4, duration: 0.8 }}
+                >
+                  From strategy to execution, explore detailed case studies showcasing measurable marketing outcomes, 
+                  technical implementations, and business impact.
+                </motion.p>
 
-              <motion.div
-                className="case-stats"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-              >
-                <div className="stat-item">
-                  <div className="stat-number">{caseStudies.length}</div>
-                  <div className="stat-label">Case Studies</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-number">{featuredCount}</div>
-                  <div className="stat-label">Featured</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-number">100%</div>
-                  <div className="stat-label">Real Results</div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.section>
-        </OceanGradientAnimation>
+                <motion.div
+                  className="case-stats"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  <div className="stat-item">
+                    <div className="stat-number">{caseStudies.length}</div>
+                    <div className="stat-label">Case Studies</div>
+                  </div>
+                  <div className="stat-item">
+                    <div className="stat-number">{featuredCount}</div>
+                    <div className="stat-label">Featured</div>
+                  </div>
+                  <div className="stat-item">
+                    <div className="stat-number">100%</div>
+                    <div className="stat-label">Real Results</div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </OceanGradientAnimation>
+        </div>
+      </section>
 
-        {/* Main Content Area with Sidebar */}
+      {/* Main Content Area - Two Column Layout */}
+      <main className="case-studies-main">
         <div className="case-studies-content-wrapper">
           {/* Sidebar Filter Section */}
           <section id="filters" className="filter-section">

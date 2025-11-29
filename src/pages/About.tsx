@@ -214,7 +214,7 @@ const About: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-brand-orange uppercase tracking-[0.3em] text-xs mb-3"
             >
-              Cinematic Resume
+              Professional Experience
             </motion.p>
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
               {/* Left Side - Text Content */}
@@ -225,7 +225,7 @@ const About: React.FC = () => {
                   transition={{ delay: 0.1 }}
                   className="text-4xl md:text-5xl font-bold leading-tight mb-6"
                 >
-                  The <span className="text-brand-teal drop-shadow-neon">Architect</span> in the Marketing Room.
+                  Marketing Leader & <span className="text-brand-teal drop-shadow-neon">Systems Architect</span>
                 </motion.h1>
 
                 {/* Executive Summary */}
@@ -247,10 +247,10 @@ const About: React.FC = () => {
                   transition={{ delay: 0.3 }}
                   className="flex items-center gap-2"
                 >
-                  <span className="text-xs font-mono uppercase tracking-[0.2em] text-brand-muted">Role:</span>
-                  <span className="text-sm font-semibold text-brand-teal">Architect</span>
-                  <span className="text-brand-orange mx-2">/</span>
-                  <span className="text-sm font-semibold text-brand-orange">Strategist</span>
+                  <span className="text-xs font-mono uppercase tracking-[0.2em] text-brand-muted">Focus:</span>
+                  <span className="text-sm font-semibold text-brand-teal">Marketing Strategy</span>
+                  <span className="text-brand-orange mx-2">•</span>
+                  <span className="text-sm font-semibold text-brand-orange">Technical Leadership</span>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}

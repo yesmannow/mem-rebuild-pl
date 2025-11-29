@@ -64,9 +64,9 @@ const operatingSignals = [
 ];
 
 const aboutHighlights = [
-  '15+ years building inside scrappy startups and scaled enterprises',
-  'Known for translating C-suite goals into measurable roadmaps',
-  'Hands-on with automation, analytics, and the creative craft',
+  '15+ years of marketing leadership—from coordinator to director',
+  'Led cross-functional teams across marketing, development, and design',
+  'Proven track record: 45% patient growth, 400+ automations, $M+ campaigns managed',
 ];
 
 const finalCtaLinks = [
@@ -313,9 +313,9 @@ const Home: React.FC = () => {
           <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 items-center">
             <div className="space-y-6">
               <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">About Jacob</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-text">Marketing director meets systems architect.</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-text">15+ Years Leading Marketing & Technology Initiatives</h2>
               <p className="text-brand-muted text-lg">
-                I serve as the executive partner you call when growth is stuck. I speak creative, product, and engineering—then build the connective tissue so every team can see the same dashboard.
+                Marketing director and technology leader with a proven track record of driving revenue growth. I build the strategy, lead the team, and implement the systems—bridging marketing vision with technical execution.
               </p>
               <ul className="space-y-3 text-brand-text/80">
                 {aboutHighlights.map((highlight) => (
@@ -329,7 +329,7 @@ const Home: React.FC = () => {
                 to="/about"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-brand-teal/60 text-brand-text hover:border-brand-teal transition"
               >
-                Meet the Builder
+                View Full Experience
                 <ArrowRight size={16} />
               </Link>
             </div>
