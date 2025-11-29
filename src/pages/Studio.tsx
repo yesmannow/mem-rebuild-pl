@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { TabbedMasonryGallery } from '../components/ui/TabbedMasonryGallery';
+import { DomeGallery } from '../components/ui/DomeGallery';
 import {
   photographyItems,
   designItems,
@@ -135,7 +136,7 @@ const Studio: React.FC = () => {
                 <p className="text-slate-300 leading-relaxed mb-4">
                   This gallery showcases my visual work across photography and graphic design. Each piece represents
                   a blend of technical precision and creative vision—from brand identity systems to campaign photography.
-                  The collection is dynamically loaded from live manifests, ensuring you're seeing the most current work.
+                  The collection is dynamically loaded from live manifests, ensuring you&apos;re seeing the most current work.
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center">
                   <span className="px-3 py-1 bg-brand-teal/20 border border-brand-teal/30 rounded-full text-sm text-brand-teal">
@@ -166,7 +167,32 @@ const Studio: React.FC = () => {
               )}
             </motion.div>
 
-            {/* Gallery Section */}
+            {/* Dome Gallery Preview */}
+            {!isLoading && (photos.length > 0 || designs.length > 0) && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="mb-16"
+              >
+                <DomeGallery
+                  images={[
+                    ...photos.slice(0, 6).map(item => ({
+                      id: item.id,
+                      src: item.src,
+                      alt: item.title,
+                      title: item.title,
+                      category: item.category || item.meta,
+                    })),
+                  ]}
+                  title="Featured Photography"
+                  description="A selection of standout photography work with interactive 3D effects."
+                  maxItems={6}
+                />
+              </motion.div>
+            )}
+
+            {/* Full Gallery Section */}
             {isLoading ? (
               <div className="flex items-center justify-center py-24">
                 <div className="flex flex-col items-center gap-4">
@@ -180,7 +206,7 @@ const Studio: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
               >
                 <TabbedMasonryGallery
                   photographyItems={photos}

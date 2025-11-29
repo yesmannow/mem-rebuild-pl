@@ -126,7 +126,7 @@ const ModernFooter: React.FC = () => {
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12">
           {/* Brand Section */}
           <motion.div
             className="col-span-1 lg:col-span-4"
@@ -148,7 +148,7 @@ const ModernFooter: React.FC = () => {
               </motion.p>
 
               {/* Social Links with Animation */}
-              <div className="flex gap-3 mt-8">
+              <div className="flex gap-2 sm:gap-3 mt-6 sm:mt-8">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.name}

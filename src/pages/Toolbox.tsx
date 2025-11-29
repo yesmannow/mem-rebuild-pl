@@ -69,7 +69,7 @@ const Toolbox: React.FC = () => {
           </motion.p>
 
           <motion.div
-            className="intro-section mt-8 max-w-4xl mx-auto bg-[var(--ink-800)]/50 backdrop-blur-sm border border-[var(--ink-700)]/50 rounded-2xl p-6"
+            className="intro-section mt-6 sm:mt-8 max-w-4xl mx-auto bg-[var(--ink-800)]/50 backdrop-blur-sm border border-[var(--ink-700)]/50 rounded-xl sm:rounded-2xl p-4 sm:p-6"
             variants={fadeInUp}
           >
             <p className="text-[var(--parchment-050)]/90 leading-relaxed mb-4">

@@ -121,10 +121,10 @@ export default function KeyboardShortcuts() {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="fixed inset-0 z-[201] flex items-center justify-center p-4 pointer-events-none"
+            className="fixed inset-0 z-[201] flex items-center justify-center p-0 sm:p-4 pointer-events-none"
           >
             <div
-              className="bg-[var(--ink-900)] border border-[var(--ink-700)] rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-hidden pointer-events-auto"
+              className="bg-[var(--ink-900)] border-0 sm:border border-[var(--ink-700)] rounded-none sm:rounded-2xl shadow-2xl max-w-2xl w-full h-full sm:h-auto sm:max-h-[80vh] overflow-hidden pointer-events-auto flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}

@@ -11,6 +11,8 @@ import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import TestimonialTerminal from '../components/TestimonialTerminal';
 import { OceanRippleButton } from '../components/ui/OceanRippleButton';
 import { GALLERY_MANIFESTS } from '../data/config';
+import { DomeGallery } from '../components/ui/DomeGallery';
+import { photographyItems, designItems } from '../data/studioData';
 
 const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
 const TechProfile = React.lazy(() => import('../components/TechProfile'));
@@ -212,7 +214,7 @@ const Home: React.FC = () => {
                   <ArrowRight size={16} />
                 </OceanRippleButton>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                 {heroStats.map((stat) => (
                   <div key={stat.label} className="rounded-xl border border-white/10 bg-slate-950/60 p-4">
                     <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-muted mb-2">{stat.label}</p>
@@ -243,7 +245,7 @@ const Home: React.FC = () => {
                 Three operating modes that cover strategy, systems, and performance. Pick one or mix across engagements.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
               {snapshotItems.map((item) => (
                 <Link
                   key={item.title}
@@ -283,6 +285,36 @@ const Home: React.FC = () => {
 
         <SectionDivider />
 
+        {/* Studio Gallery Preview Section */}
+        <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-[var(--ink-900)]/50 to-transparent">
+          <div className="max-w-7xl mx-auto">
+            <DomeGallery
+              images={[
+                ...photographyItems.slice(0, 3).map(item => ({
+                  id: item.id,
+                  src: item.src,
+                  alt: item.title,
+                  title: item.title,
+                  category: item.category,
+                })),
+                ...designItems.slice(0, 3).map(item => ({
+                  id: item.id,
+                  src: item.src,
+                  alt: item.title,
+                  title: item.title,
+                  category: item.category,
+                })),
+              ]}
+              title="Visual Engineering"
+              description="A curated selection of photography and design work showcasing technical precision and creative vision."
+              linkTo="/studio"
+              linkText="Explore Full Studio Gallery"
+            />
+          </div>
+        </section>
+
+        <SectionDivider />
+
         {/* Technical Stack Preview */}
         <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
@@ -295,7 +327,7 @@ const Home: React.FC = () => {
                 From automation platforms to custom development—here's a snapshot of the tools and technologies I work with.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
               {/* Marketing Automation */}
               <Link
                 to="/toolbox"

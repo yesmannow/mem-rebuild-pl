@@ -357,13 +357,13 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
         className="fixed inset-0 z-[200] bg-slate-950/50 backdrop-blur-2xl"
         onClick={onClose}
       >
-        <div className="flex items-start justify-center pt-[15vh] min-h-screen px-4">
+        <div className="flex items-start justify-center pt-[10vh] sm:pt-[15vh] min-h-screen px-2 sm:px-4 pb-4">
           <motion.div
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ type: "spring", duration: 0.3 }}
-            className="w-full max-w-2xl bg-slate-900/60 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_20px_70px_rgba(0,0,0,0.65)] overflow-hidden"
+            className="w-full max-w-2xl bg-slate-900/60 backdrop-blur-2xl border border-white/10 rounded-xl sm:rounded-2xl shadow-[0_20px_70px_rgba(0,0,0,0.65)] overflow-hidden max-h-[90vh] flex flex-col"
             style={{
               boxShadow: '0 0 40px rgba(64, 224, 208, 0.15), 0 25px 50px -12px rgba(0, 0, 0, 0.5)'
             }}
@@ -380,7 +380,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                 placeholder="Search apps, gallery, resume, contact..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="flex-1 bg-transparent text-white placeholder-brand-muted outline-none text-lg"
+                className="flex-1 bg-transparent text-white placeholder-brand-muted outline-none text-base sm:text-lg min-w-0"
               />
               <kbd className="hidden sm:flex items-center gap-1 px-2 py-1 text-xs font-mono bg-slate-800 border border-white/10 rounded text-brand-muted">
                 esc
@@ -388,7 +388,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
             </div>
 
             {/* Results */}
-            <div className="max-h-[60vh] overflow-y-auto">
+            <div className="flex-1 overflow-y-auto max-h-[calc(90vh-120px)] sm:max-h-[60vh]">
               {filteredItems.length === 0 ? (
                 <div className="p-8 text-center">
                   <Search className="mx-auto text-brand-muted mb-3" size={24} />

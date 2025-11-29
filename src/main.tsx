@@ -8,6 +8,7 @@ import App from './App';
 import './styles/globals.css';
 import './styles/bearcave-brand.css';
 import './styles/case-study-tokens.css';
+import './styles/mobile-responsive.css';
 
 // Verify React is loaded before proceeding
 if (typeof React === 'undefined' || typeof ReactDOM === 'undefined') {

@@ -74,7 +74,7 @@ const MobileDock: React.FC = () => {
               </div>
 
               {/* Grid of menu items */}
-              <div className="grid grid-cols-2 gap-3 p-4 overflow-y-auto max-h-[calc(100vh-220px)]">
+              <div className="grid grid-cols-2 gap-2 sm:gap-3 p-4 overflow-y-auto max-h-[calc(100vh-220px)] safe-area-inset">
                 {fullMenuItems.map((item, index) => {
                   const Icon = item.icon;
                   const active = isActive(item.path);
@@ -88,7 +88,7 @@ const MobileDock: React.FC = () => {
                       <Link
                         to={item.path}
                         onClick={handleMenuItemClick}
-                        className={`flex flex-col items-center justify-center p-4 rounded-2xl border transition-all duration-300 ${
+                        className={`flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl sm:rounded-2xl border transition-all duration-300 touch-target min-h-[100px] ${
                           active
                             ? 'bg-brand-teal/20 border-brand-teal/50 text-brand-teal'
                             : 'bg-slate-800/50 border-white/10 text-white hover:bg-slate-800 hover:border-brand-teal/30'
@@ -110,11 +110,11 @@ const MobileDock: React.FC = () => {
               </div>
 
               {/* Close Button */}
-              <div className="absolute bottom-6 left-0 right-0 flex justify-center">
+              <div className="absolute bottom-4 sm:bottom-6 left-0 right-0 flex justify-center px-4 safe-area-inset">
                 <motion.button
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center gap-2 px-6 py-3 bg-slate-800 border border-white/10 rounded-full text-white font-medium"
+                  className="flex items-center gap-2 px-6 py-3 bg-slate-800 border border-white/10 rounded-full text-white font-medium touch-target w-full max-w-xs"
                 >
                   <X size={18} />
                   Close Menu
