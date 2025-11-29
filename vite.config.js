@@ -123,27 +123,7 @@ export default defineConfig({
     overlay: false,
     // Proxy API routes to mock handlers during development
     // This allows SEOScanner, DeploymentStatus and other apps to work locally
-    proxy: {
-      '/api/health': {
-        target: 'http://localhost:5173',
-        rewrite: () => '/mock-api/health.json',
-        bypass: () => {
-          // Return mock health data for local development
-          return JSON.stringify({
-            status: 'ok',
-            timestamp: new Date().toISOString(),
-            version: 'dev',
-            branch: 'local',
-            env: 'development',
-            checks: {
-              api: 'ok',
-              build: 'ok',
-              cdn: 'ok',
-            }
-          });
-        }
-      },
-    },
+    // Note: For full functionality, run `npx wrangler pages dev dist` instead
   },
   // Optimize dependencies for dev server
   optimizeDeps: {

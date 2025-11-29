@@ -61,21 +61,27 @@ const Studio: React.FC = () => {
     loadPhotography()
       .then((data) => {
         if (mounted) {
-          // Debug: Log loaded photos
-          console.log('Loaded Photos:', data);
+          // Debug: Log loaded photos (development only)
+          if (import.meta.env.DEV) {
+            console.log('Loaded Photos:', data);
+          }
           
           if (data && data.length > 0) {
             setPhotos(data);
           } else {
             // Use fallback if no photos loaded
-            console.log('No photos in manifest, using fallback images');
+            if (import.meta.env.DEV) {
+              console.log('No photos in manifest, using fallback images');
+            }
             setPhotos(FALLBACK_PHOTOS);
             setUseFallback(true);
           }
         }
       })
       .catch((error) => {
-        console.warn('Failed to load photography manifest:', error);
+        if (import.meta.env.DEV) {
+          console.warn('Failed to load photography manifest:', error);
+        }
         if (mounted) {
           setPhotos(FALLBACK_PHOTOS);
           setUseFallback(true);
