@@ -28,7 +28,7 @@ const badgeColors: Record<string, string> = {
 };
 
 const TimelineItem: React.FC<{ item: ExperienceItem; index: number }> = ({ item, index }) => {
-  const [isExpanded, setIsExpanded] = useState(index === 0); // First item expanded by default
+  const [isExpanded, setIsExpanded] = useState(false); // All items collapsed by default
 
   return (
     <motion.div
