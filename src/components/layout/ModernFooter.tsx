@@ -8,7 +8,6 @@ import {
   ArrowUp,
   Briefcase,
   FlaskConical,
-  Wrench,
   Palette,
   User,
   ExternalLink,
@@ -41,7 +40,6 @@ const ModernFooter: React.FC = () => {
       icon: Sparkles,
       links: [
         { name: 'The Lab', path: '/apps', description: 'Experimental tools' },
-        { name: 'Toolbox', path: '/toolbox', description: 'Skills & technologies' },
         { name: 'Studio', path: '/studio', description: 'Creative workspace' },
       ],
     },

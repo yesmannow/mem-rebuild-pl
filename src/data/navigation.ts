@@ -3,7 +3,6 @@ import {
   Briefcase,
   Sparkles,
   FlaskConical,
-  Wrench,
   Palette,
   Terminal,
   User,
@@ -34,12 +33,6 @@ export const mainNavigationLinks: MainNavigationLink[] = [
     path: '/apps',
     icon: FlaskConical,
     description: 'Automation tools and internal applications',
-  },
-  {
-    name: 'Toolbox',
-    path: '/toolbox',
-    icon: Wrench,
-    description: 'Technical frameworks, automations, and utilities',
   },
   {
     name: 'Studio',

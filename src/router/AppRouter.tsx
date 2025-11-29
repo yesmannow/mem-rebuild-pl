@@ -12,7 +12,7 @@ const About = React.lazy(() => import('../pages/About'));
 const CaseStudies = React.lazy(() => import('../pages/CaseStudies'));
 const CaseStudyDetail = React.lazy(() => import('../pages/CaseStudyDetail'));
 const ComponentShowcase = React.lazy(() => import('../pages/ComponentShowcase'));
-const Toolbox = React.lazy(() => import('../pages/Toolbox'));
+// Toolbox removed - content merged with Bio page
 const ToolsShowcase = React.lazy(() => import('../pages/ToolsShowcase'));
 const DevOpsPortfolio = React.lazy(() => import('../pages/DevOpsPortfolio'));
 const Projects = React.lazy(() => import('../pages/Projects'));
@@ -110,13 +110,6 @@ const AppRouter: React.FC = () => {
         description:
           'Technical and value-driven projects delivered by Jacob Darling across automation, analytics, and growth operations.',
         keywords: 'marketing projects, technical portfolio, automation',
-      };
-    } else if (path === '/toolbox') {
-      return {
-        title: 'Toolbox | Jacob Darling Portfolio',
-        description:
-          'Marketing and product systems toolkit built by Jacob Darling—frameworks, automations, and go-to templates.',
-        keywords: 'marketing toolbox, automation toolkit, systems architecture',
       };
     } else if (path === '/services') {
       return {
@@ -403,14 +396,8 @@ const AppRouter: React.FC = () => {
                 </PageTransition>
               }
             />
-            <Route
-              path="/toolbox"
-              element={
-                <PageTransition>
-                  <Toolbox />
-                </PageTransition>
-              }
-            />
+            {/* Toolbox redirects to Bio page - content merged */}
+            <Route path="/toolbox" element={<Navigate to="/about" replace />} />
             <Route
               path="/services"
               element={

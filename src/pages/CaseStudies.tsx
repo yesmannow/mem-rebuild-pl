@@ -129,30 +129,10 @@ const CaseStudies: React.FC = () => {
               </motion.p>
 
               <motion.div
-                className="case-studies-intro"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-              >
-                <p className="intro-text">
-                  This is where strategy meets execution. Each case study documents real-world marketing challenges,
-                  the technical solutions I built, and the measurable impact delivered. You&apos;ll see the full journey:
-                  problem identification, system architecture, implementation details, and quantifiable results.
-                  These aren&apos;t hypothetical scenarios—they&apos;re production systems that drove revenue, reduced costs,
-                  and scaled operations for clients across healthcare, SaaS, and e-commerce.
-                </p>
-                <div className="intro-features">
-                  <span className="feature-badge">Challenge → Strategy</span>
-                  <span className="feature-badge">Technical Architecture</span>
-                  <span className="feature-badge">Measurable Outcomes</span>
-                </div>
-              </motion.div>
-
-              <motion.div
                 className="case-stats"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
+                transition={{ delay: 0.5 }}
               >
                 <div className="stat-item">
                   <div className="stat-number">{caseStudies.length}</div>
@@ -160,7 +140,7 @@ const CaseStudies: React.FC = () => {
                 </div>
                 <div className="stat-item">
                   <div className="stat-number">{featuredCount}</div>
-                  <div className="stat-label">Featured Projects</div>
+                  <div className="stat-label">Featured</div>
                 </div>
                 <div className="stat-item">
                   <div className="stat-number">100%</div>
@@ -171,131 +151,136 @@ const CaseStudies: React.FC = () => {
           </motion.section>
         </OceanGradientAnimation>
 
-        <section id="filters" className="filter-section">
-          <motion.div
-            className="filter-controls"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-          >
-            <div className="results-meta">
-              <div>
-                <p className="results-count" aria-live="polite">
-                  Showing <span>{filteredStudies.length}</span>{' '}
-                  {filteredStudies.length === 1 ? 'case study' : 'case studies'}
-                  {activeFilter !== 'All' && <span className="results-filter"> | {activeFilter}</span>}
-                </p>
-                <p className="results-note">Search by industry, filter by focus, or toggle the layout.</p>
-              </div>
-              {hasActiveFilters && (
-                <button type="button" className="filter-reset" onClick={handleResetFilters}>
-                  Reset filters
-                </button>
-              )}
-            </div>
-
-            <div className="search-controls">
-              <div className="search-bar">
-                <input
-                  type="text"
-                  placeholder="Search by client, focus area, or metric..."
-                  value={searchTerm}
-                  onChange={e => setSearchTerm(e.target.value)}
-                  className="search-input"
-                  aria-label="Search case studies"
-                />
-                <Icon slug="search" className="search-icon h-5 w-5" />
-              </div>
-            </div>
-
-            <div className="filter-row">
-              <div className="filter-pills">
-                {categories.map((category, idx) => (
-                  <motion.button
-                    key={category}
-                    className={`filter-pill ${activeFilter === category ? 'active' : ''}`}
-                    onClick={() => setActiveFilter(category)}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.8 + idx * 0.05 }}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {category}
-                  </motion.button>
-                ))}
-              </div>
-
-              <div className="controls-group">
-                <select
-                  value={sortBy}
-                  onChange={e => setSortBy(e.target.value as 'default' | 'name' | 'recent' | 'featured')}
-                  className="sort-select"
-                  title="Sort by"
-                  aria-label="Sort case studies"
-                >
-                  <option value="default">Default</option>
-                  <option value="featured">Featured</option>
-                  <option value="name">Name</option>
-                  <option value="recent">Recent</option>
-                </select>
-
-                <div className="view-toggle" role="group" aria-label="Toggle card layout">
-                  <button
-                    type="button"
-                    className={viewMode === 'grid' ? 'active' : ''}
-                    onClick={() => setViewMode('grid')}
-                    aria-label="Grid view"
-                    title="Grid view"
-                  >
-                    <Icon slug="grid" className="h-5 w-5" />
-                  </button>
-                  <button
-                    type="button"
-                    className={viewMode === 'list' ? 'active' : ''}
-                    onClick={() => setViewMode('list')}
-                    aria-label="List view"
-                    title="List view"
-                  >
-                    <Icon slug="list" className="h-5 w-5" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </section>
-
-        <section className="cases-section">
-          <AnimatePresence mode="wait">
+        {/* Main Content Area with Sidebar */}
+        <div className="case-studies-content-wrapper">
+          {/* Sidebar Filter Section */}
+          <section id="filters" className="filter-section">
             <motion.div
-              key={activeFilter + viewMode}
-              className={`cases-${viewMode}`}
+              className="filter-controls"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
+              transition={{ delay: 0.6 }}
             >
-              {filteredStudies.map((study, index) => (
-                <TiltCaseCard
-                  key={study.slug}
-                  study={study}
-                  index={index}
-                  getTechIconSlug={getTechIconSlug}
-                />
-              ))}
-            </motion.div>
-          </AnimatePresence>
-
-          {filteredStudies.length === 0 && (
-            <motion.div className="no-results" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              <div className="no-results-icon">
-                <Icon slug="search" className="h-10 w-10" />
+              <div className="results-meta">
+                <div>
+                  <p className="results-count" aria-live="polite">
+                    Showing <span>{filteredStudies.length}</span>{' '}
+                    {filteredStudies.length === 1 ? 'case study' : 'case studies'}
+                    {activeFilter !== 'All' && <span className="results-filter"> | {activeFilter}</span>}
+                  </p>
+                  <p className="results-note">Search by industry, filter by focus, or toggle the layout.</p>
+                </div>
+                {hasActiveFilters && (
+                  <button type="button" className="filter-reset" onClick={handleResetFilters}>
+                    Reset filters
+                  </button>
+                )}
               </div>
-              <h3>No case studies found</h3>
-              <p>Update your filters or search to surface a new combination.</p>
+
+              <div className="search-controls">
+                <div className="search-bar">
+                  <input
+                    type="text"
+                    placeholder="Search case studies..."
+                    value={searchTerm}
+                    onChange={e => setSearchTerm(e.target.value)}
+                    className="search-input"
+                    aria-label="Search case studies"
+                  />
+                  <Icon slug="search" className="search-icon h-5 w-5" />
+                </div>
+              </div>
+
+              <div className="filter-row">
+                <div className="filter-pills">
+                  {categories.map((category, idx) => (
+                    <motion.button
+                      key={category}
+                      className={`filter-pill ${activeFilter === category ? 'active' : ''}`}
+                      onClick={() => setActiveFilter(category)}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.7 + idx * 0.03 }}
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                    >
+                      {category}
+                    </motion.button>
+                  ))}
+                </div>
+
+                <div className="controls-group">
+                  <select
+                    value={sortBy}
+                    onChange={e => setSortBy(e.target.value as 'default' | 'name' | 'recent' | 'featured')}
+                    className="sort-select"
+                    title="Sort by"
+                    aria-label="Sort case studies"
+                  >
+                    <option value="default">Default</option>
+                    <option value="featured">Featured</option>
+                    <option value="name">Name</option>
+                    <option value="recent">Recent</option>
+                  </select>
+
+                  <div className="view-toggle" role="group" aria-label="Toggle card layout">
+                    <button
+                      type="button"
+                      className={viewMode === 'grid' ? 'active' : ''}
+                      onClick={() => setViewMode('grid')}
+                      aria-label="Grid view"
+                      title="Grid view"
+                    >
+                      <Icon slug="grid" className="h-5 w-5" />
+                    </button>
+                    <button
+                      type="button"
+                      className={viewMode === 'list' ? 'active' : ''}
+                      onClick={() => setViewMode('list')}
+                      aria-label="List view"
+                      title="List view"
+                    >
+                      <Icon slug="list" className="h-5 w-5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
             </motion.div>
-          )}
-        </section>
+          </section>
+
+          {/* Cases Grid Section */}
+          <section className="cases-section">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeFilter + viewMode}
+                className={`cases-${viewMode}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+              >
+                {filteredStudies.map((study, index) => (
+                  <TiltCaseCard
+                    key={study.slug}
+                    study={study}
+                    index={index}
+                    getTechIconSlug={getTechIconSlug}
+                  />
+                ))}
+              </motion.div>
+            </AnimatePresence>
+
+            {filteredStudies.length === 0 && (
+              <motion.div className="no-results" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                <div className="no-results-icon">
+                  <Icon slug="search" className="h-10 w-10" />
+                </div>
+                <h3>No case studies found</h3>
+                <p>Update your filters or search to surface a new combination.</p>
+              </motion.div>
+            )}
+          </section>
+        </div>
       </main>
     </div>
   );

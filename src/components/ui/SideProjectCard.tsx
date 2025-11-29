@@ -103,8 +103,8 @@ export const SideProjectCard: React.FC<SideProjectCardProps> = ({
           />
         )}
 
-        {/* Card Container */}
-        <div className="relative h-full overflow-hidden rounded-2xl border border-[var(--ink-700)]/60 bg-[var(--ink-800)]/40 backdrop-blur-sm transition-all duration-300 hover:border-[var(--signal-500)]/60 hover:shadow-lg hover:shadow-[var(--signal-500)]/10">
+        {/* Card Container - Updated with proper colors for dark background */}
+        <div className="relative h-full overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/60 backdrop-blur-sm transition-all duration-300 hover:border-brand-teal/60 hover:shadow-lg hover:shadow-brand-teal/10">
           {/* Image Section */}
           <div className="relative aspect-[4/3] overflow-hidden bg-slate-900">
             {!imageError ? (
@@ -126,19 +126,6 @@ export const SideProjectCard: React.FC<SideProjectCardProps> = ({
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-            {/* Category Badge */}
-            {project.category && (
-              <motion.div
-                className="absolute top-4 left-4 px-3 py-1.5 bg-[var(--signal-500)]/90 backdrop-blur-sm rounded-full text-xs font-semibold text-white"
-                initial={{ opacity: 0, y: -10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 + 0.2 }}
-              >
-                {project.category}
-              </motion.div>
-            )}
-
             {/* Hover Overlay Content */}
             <motion.div
               className="absolute inset-0 flex items-center justify-center"
@@ -155,16 +142,16 @@ export const SideProjectCard: React.FC<SideProjectCardProps> = ({
             </motion.div>
           </div>
 
-          {/* Content Section */}
+          {/* Content Section - Updated with visible text colors */}
           <div className="p-5">
             {/* Title */}
-            <h3 className="text-xl font-bold text-white mb-2 line-clamp-1 group-hover:text-[var(--signal-500)] transition-colors">
+            <h3 className="text-xl font-bold text-white mb-2 line-clamp-1 group-hover:text-brand-teal transition-colors">
               {project.title}
             </h3>
 
             {/* Description */}
             {project.description && (
-              <p className="text-sm text-[var(--parchment-050)]/70 mb-4 line-clamp-2">
+              <p className="text-sm text-slate-300 mb-4 line-clamp-2">
                 {project.description}
               </p>
             )}
@@ -175,7 +162,7 @@ export const SideProjectCard: React.FC<SideProjectCardProps> = ({
                 {project.tags.slice(0, 3).map((tag, idx) => (
                   <motion.span
                     key={idx}
-                    className="inline-flex items-center gap-1 px-2 py-1 bg-[var(--ink-700)]/50 border border-[var(--ink-600)]/50 rounded-full text-xs text-[var(--parchment-050)]/80"
+                    className="inline-flex items-center gap-1 px-2 py-1 bg-slate-700/50 border border-slate-600/50 rounded-full text-xs text-slate-200"
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -186,7 +173,7 @@ export const SideProjectCard: React.FC<SideProjectCardProps> = ({
                   </motion.span>
                 ))}
                 {project.tags.length > 3 && (
-                  <span className="inline-flex items-center px-2 py-1 text-xs text-[var(--parchment-050)]/60">
+                  <span className="inline-flex items-center px-2 py-1 text-xs text-slate-400">
                     +{project.tags.length - 3}
                   </span>
                 )}
@@ -194,15 +181,15 @@ export const SideProjectCard: React.FC<SideProjectCardProps> = ({
             )}
 
             {/* Footer */}
-            <div className="flex items-center justify-between pt-4 border-t border-[var(--ink-700)]/50">
+            <div className="flex items-center justify-between pt-4 border-t border-slate-700/50">
               {project.year && (
-                <div className="flex items-center gap-1.5 text-xs text-[var(--parchment-050)]/60">
+                <div className="flex items-center gap-1.5 text-xs text-slate-400">
                   <Calendar size={12} />
                   <span>{project.year}</span>
                 </div>
               )}
               <motion.span
-                className="text-xs text-[var(--signal-500)] font-semibold flex items-center gap-1"
+                className="text-xs text-brand-teal font-semibold flex items-center gap-1"
                 whileHover={{ x: 4 }}
                 transition={{ duration: 0.2 }}
               >

@@ -6,7 +6,7 @@ import { useHaptic } from '../hooks/useHaptic';
 import { productMakerIcons } from './ui/Icons';
 import { mainNavigationLinks } from '../data/navigation';
 
-const { home: HomeIcon, projects: ProjectsIcon, lab: LabIcon, studio: StudioIcon, bio: BioIcon, contact: ContactIcon, toolbox: ToolboxIcon } =
+const { home: HomeIcon, projects: ProjectsIcon, lab: LabIcon } =
   productMakerIcons;
 
 // Full menu items for the overlay
