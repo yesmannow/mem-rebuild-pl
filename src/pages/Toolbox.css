@@ -115,6 +115,20 @@
   text-align: center;
 }
 
+@media (max-width: 639px) {
+  .toolbox-header {
+    padding: 2rem 1rem;
+  }
+
+  .toolbox-header h1 {
+    font-size: 2rem;
+  }
+
+  .toolbox-header .lead {
+    font-size: 1rem;
+  }
+}
+
 .toolbox-header h1 {
   font-size: 3rem;
   font-weight: 800;
@@ -162,6 +176,21 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+@media (max-width: 639px) {
+  .categories-list {
+    gap: 1rem;
+  }
+
+  .category-header {
+    padding: 1.25rem;
+    min-height: 44px; /* Touch target */
+  }
+
+  .technical-categories {
+    padding: 2rem 1rem;
+  }
 }
 
 .category-card {

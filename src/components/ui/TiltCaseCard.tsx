@@ -32,16 +32,31 @@ export const TiltCaseCard: React.FC<TiltCaseCardProps> = ({ study, index, getTec
     y.set(0);
   };
 
+  // Disable 3D tilt on mobile for better performance
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <motion.div
       ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
+      onMouseMove={!isMobile ? handleMouseMove : undefined}
+      onMouseLeave={!isMobile ? handleMouseLeave : undefined}
+      style={{
+        rotateX: !isMobile ? rotateX : 0,
+        rotateY: !isMobile ? rotateY : 0,
+        transformStyle: 'preserve-3d'
+      }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05, duration: 0.4 }}
-      whileHover={{ scale: 1.02, z: 50 }}
+      whileHover={!isMobile ? { scale: 1.02, z: 50 } : {}}
+      className="w-full"
     >
       <Link to={`/case-studies/${study.slug}`} className="case-card">
         <div className="case-card-inner">

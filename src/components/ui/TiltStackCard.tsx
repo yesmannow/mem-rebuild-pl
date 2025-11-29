@@ -41,14 +41,28 @@ export const TiltStackCard: React.FC<TiltStackCardProps> = ({
     y.set(0);
   };
 
+  // Disable 3D tilt on mobile for better performance
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <motion.div
       ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-      className={`rounded-xl border border-[var(--ink-700)]/60 bg-[var(--ink-800)]/40 p-5 ${className}`}
-      whileHover={{ scale: 1.05, z: 50 }}
+      onMouseMove={!isMobile ? handleMouseMove : undefined}
+      onMouseLeave={!isMobile ? handleMouseLeave : undefined}
+      style={{
+        rotateX: !isMobile ? rotateX : 0,
+        rotateY: !isMobile ? rotateY : 0,
+        transformStyle: 'preserve-3d'
+      }}
+      className={`rounded-xl border border-[var(--ink-700)]/60 bg-[var(--ink-800)]/40 p-4 sm:p-5 w-full ${className}`}
+      whileHover={!isMobile ? { scale: 1.05, z: 50 } : {}}
       transition={{ duration: 0.2 }}
     >
       {/* Glow effect on hover */}

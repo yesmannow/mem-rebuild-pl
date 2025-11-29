@@ -160,12 +160,28 @@
 }
 
 /* Responsive Design */
+@media (max-width: 639px) {
+  .app-demo-modal-overlay {
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  .app-demo-modal-container.modal-mobile {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+}
+
 @media (max-width: 768px) {
   .app-demo-modal-overlay {
     padding: 1rem;
   }
 
-  .app-demo-modal-container {
+  .app-demo-modal-container:not(.modal-mobile) {
     max-height: 90vh;
     border-radius: 16px;
   }
@@ -188,7 +204,11 @@
   }
 
   .app-demo-iframe {
-    min-height: 500px;
+    min-height: 400px;
+  }
+
+  .app-demo-modal-container.modal-mobile .app-demo-iframe {
+    min-height: calc(100vh - 180px);
   }
 
   .app-demo-modal-footer {

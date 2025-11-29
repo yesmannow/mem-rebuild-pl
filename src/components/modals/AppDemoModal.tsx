@@ -55,7 +55,7 @@ const AppDemoModal: React.FC<AppDemoModalProps> = ({ isOpen, onClose, appTitle, 
         onClick={onClose}
       >
         <motion.div
-          className="app-demo-modal-container"
+          className="app-demo-modal-container modal-mobile"
           initial={{ scale: 0.9, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.9, opacity: 0, y: 20 }}

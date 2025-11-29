@@ -408,6 +408,28 @@
   gap: 1.75rem;
 }
 
+@media (max-width: 639px) {
+  .cases-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .case-card-inner {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .case-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 1.75rem;
+  }
+
+  .case-title {
+    font-size: 1.25rem;
+  }
+}
+
 .cases-list {
   display: flex;
   flex-direction: column;

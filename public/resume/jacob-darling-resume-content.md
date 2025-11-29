@@ -1,87 +1,71 @@
-# Jacob Darling - Professional Resume
+# Jacob Darling – Marketing Strategist & Systems Architect
 
 ## Contact Information
-- **Name:** Jacob Darling
-- **Title:** Marketing Strategist & Systems Architect
 - **Location:** Indianapolis, IN
-- **LinkedIn:** https://www.linkedin.com/in/jacobdarling/
+- **Email:** jacob@jacobdarling.com
+- **LinkedIn:** https://www.linkedin.com/in/jacobdarling
+- **Portfolio:** https://jacobdarling.com
 
 ## Professional Summary
-Marketing strategist with 9+ years of experience leading comprehensive marketing strategy and technical infrastructure for global healthcare brands. Proven track record of building custom web applications, managing large-scale CRM architectures, and driving significant growth through data-driven marketing initiatives.
+Marketing strategist and systems architect with 15+ years helping healthcare and professional services brands translate complex operations into revenue-driving marketing systems. I align executive strategy, data architecture, automation, and storytelling to make programs easy to scan for hiring teams, partners, and applicant tracking systems.
+
+My playbook follows the resume format guidance: left-aligned sections, concise bullet statements, bold headers, and measurable outcomes that keep recruiters and ATS tools focused on impact.
+
+## Resume Format Strategy
+### Chronological Format
+Prioritizes a reverse timeline to show steady growth in one domain. Ideal when recent roles demonstrate leadership or depth.
+
+- Contact & summary lead.
+- Experience listed from most recent to oldest.
+- Section headers and bullet points remain consistent and ATS-friendly.
+
+### Functional Format
+Focuses on relevant skill clusters first, which helps bridge gaps or emphasize transferable strengths.
+
+- Skills summary appears above job history.
+- Achievements grouped by capability areas.
+- Work history still includes companies and dates for context.
+
+### Combination Format
+Blends skills and experience so the most important information surfaces first.
+
+- Skills summary sits beside or above experience.
+- Remaining sections keep the same order: experience, education, additional info.
+- Optional sections (volunteer, interests) are removed unless they add value.
 
 ## Professional Experience
+### Director of Marketing & Communications · Graston Technique · Indianapolis, IN · 2016 – Present
+- Directed a full brand, messaging, and digital ecosystem refresh that aligned 30,000+ practitioners with a new value framework.
+- Designed and deployed four custom marketing tools (ROI calculator, pricing navigator, automation dashboards) with JavaScript, HubSpot CMS, and Firebase so revenue teams could self-serve insights.
+- Built a multi-division HubSpot architecture with 15+ automations, scaling to 50K+ contacts while cutting manual data cleanup by 60%.
+- Managed a $500K+ marketing budget across digital, events, and partner programs while achieving a 300% increase in organic search traffic.
+- Technologies: HubSpot · WordPress · JavaScript · GA4 · ActiveCampaign · Adobe Creative Cloud
 
-### Director of Marketing & Communications
-**Graston Technique** | Indianapolis, IN | 2016 - Present
+### Senior Marketing Manager · Pike Medical Consultants · Indianapolis, IN · 2014 – 2016
+- Directed integrated campaigns for healthcare consulting clients, generating 10,000+ patient visits through the PrimaryCare Indy network.
+- Owned $100K+ Google Ads spend for multiple client accounts and optimized conversion with A/B tests and granular attribution.
+- Created cohesive identity systems, print materials, and seasonal campaigns that lifted brand recall and referral leads.
+- Technologies: Google Ads · WordPress · Email Marketing Platforms · Adobe Creative Suite · SEO tools
 
-Lead comprehensive marketing strategy and technical infrastructure for global healthcare brand serving 30,000+ practitioners.
+### Marketing Coordinator · Early Career Marketing · Indianapolis, IN · 2012 – 2014
+- Launched multi-channel campaigns on shoestring budgets by distilling complex ideas into clear visuals and measurable KPIs.
+- Improved reporting cadence with weekly dashboards, giving leadership visibility into creative, paid, and email performance.
+- Managed vendor relationships and creative production timelines while documenting processes for faster iteration.
+- Technologies: Basic CRM · Email Platforms · Social Channels · Design Tools
 
-**Key Achievements:**
-- Orchestrated complete brand transformation including new visual identity, messaging framework, and digital ecosystem
-- Built and deployed 4 custom web applications (clinical decision support, pricing tools, ROI calculators) using vanilla JavaScript
-- Designed and implemented HubSpot CRM architecture with 15+ automated workflows managing 50,000+ contacts
-- Increased organic search traffic 300% through technical SEO and content strategy
-- Reduced marketing technology costs 40% while improving functionality through consolidation and custom builds
-- Manage $500K+ annual marketing budget across digital advertising, content, events, and technology
+## Skills & Fluency
+- **Core Competencies:** Marketing Strategy & Positioning · CRM & Data Architecture · Marketing Automation · Revenue Operations Alignment · Creative Systems & Brand Guidance
+- **Technical Fluency:** HubSpot, Salesforce, Marketo · Google Analytics, Looker, Data Studio · JavaScript, React, HTML/CSS · Adobe Creative Cloud & Figma · Automation / Monitoring Scripts
 
-**Technologies Used:** HubSpot, WordPress, JavaScript, Google Analytics, ActiveCampaign, Photoshop, Canva
+## Education & Credentials
+- **Indiana University** — Bachelor of Science in Marketing (Focus: Marketing Strategy & Consumer Behavior) · 2012
+- **Certifications & Affiliations:** HubSpot Marketing Software Certified · Certified Scrum Product Owner · American Marketing Association member
 
-### Marketing Manager
-**Pike Medical Consultants** | Indianapolis, IN | 2014 - 2016
+## Impact at a Glance
+- **15+ years** building marketing & systems strategy that balances creativity with measurable outcomes.
+- **30K+ practitioners** aligned to refreshed brand experiences and communications.
+- **50K+ CRM contacts** orchestrated across automation flows, nurturing prospects and partners.
+- **4x custom marketing applications** launched to reduce manual work and connect revenue teams to insights.
 
-Led integrated marketing for healthcare consulting agency serving urgent care and primary care practices.
-
-**Key Achievements:**
-- Built and launched PrimaryCare Indy and UrgentCare Indy websites driving 10,000+ patient visits
-- Managed Google Ads campaigns with $100K+ annual budget across multiple client accounts
-- Designed print collateral, outdoor advertising, and seasonal email campaigns
-- Created brand identities and logo designs for healthcare clients
-- Coordinated marketing strategy across web, paid media, email, and traditional channels
-
-**Technologies Used:** WordPress, Google Ads, Email Marketing, Adobe Creative Suite, SEO
-
-### Marketing Coordinator
-**Early Career Marketing** | Indianapolis, IN | 2012 - 2014
-
-Launched marketing career learning to stretch budgets, design visuals, and prove ROI when few believed marketing was measurable.
-
-**Key Achievements:**
-- Executed multi-channel campaigns with limited budgets, maximizing ROI through creativity and testing
-- Developed skills in graphic design, copywriting, and analytics
-- Built foundation in data-driven decision making and performance measurement
-- Managed vendor relationships and project timelines
-
-**Technologies Used:** Basic CRM, Email Platforms, Social Media, Design Tools
-
-## Core Competencies
-
-- **Marketing Strategy:** 95%
-- **Marketing Automation:** 90%
-- **CRM Architecture:** 85%
-- **JavaScript/Web Development:** 80%
-- **SEO & Analytics:** 90%
-- **Graphic Design:** 75%
-- **Content Strategy:** 85%
-- **Project Management:** 90%
-
-## Education
-
-### Bachelor of Science in Marketing
-**Indiana University** | 2012
-Focus on Marketing Strategy and Consumer Behavior
-
-## Key Statistics
-
-- **9+ Years Experience** in marketing and systems architecture
-- **30K+ Practitioners Served** through marketing initiatives
-- **14+ Case Studies** developed and executed
-- **4+ Custom Applications** built and deployed
-
-## Professional Highlights
-
-- Successfully managed marketing budgets exceeding $500K annually
-- Developed and implemented CRM systems managing 50,000+ contacts
-- Created custom web applications using modern JavaScript frameworks
-- Achieved 300% increase in organic search traffic through strategic SEO
-- Reduced technology costs by 40% while improving functionality
-- Built comprehensive brand transformation strategies for healthcare organizations
+## Formatting Notes
+1" margins, left-aligned text, 10–12 pt fonts, bold headers, and bullet points keep this resume ATS-friendly and easy to scan. Optional sections such as volunteer work or special interests are omitted so the most relevant impact is front and center.

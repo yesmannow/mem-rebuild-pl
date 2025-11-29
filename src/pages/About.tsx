@@ -2,7 +2,6 @@ import React, { useMemo, useRef, lazy, Suspense, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { Printer, ChevronRight, ChevronDown, Briefcase, GraduationCap, Award, Heart, Sparkles } from 'lucide-react';
-import { useReactToPrint } from 'react-to-print';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import { BentoCard, BentoGrid } from '../components/ui/BentoGrid';
 import { SchematicBackground } from '../components/ui/SchematicBackground';
@@ -184,15 +183,9 @@ const printStyles = `
 
 const About: React.FC = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
-  const printRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: timelineRef,
     offset: ['start end', 'end start'],
-  });
-
-  const handlePrint = useReactToPrint({
-    contentRef: printRef,
-    documentTitle: 'Jacob Darling - Resume',
   });
 
   const heroMetrics = useMemo(() => metrics, []);
@@ -209,7 +202,7 @@ const About: React.FC = () => {
 
       <style dangerouslySetInnerHTML={{ __html: printStyles }} />
 
-      <div ref={printRef} className="min-h-screen bg-brand-dark text-brand-text relative overflow-hidden">
+      <div className="min-h-screen bg-brand-dark text-brand-text relative overflow-hidden">
         {/* Animated Schematic Background */}
         <SchematicBackground variant="default" showGrid={true} showOrbs={true} showBeams={true} />
 
@@ -265,14 +258,16 @@ const About: React.FC = () => {
                   transition={{ delay: 0.4 }}
                   className="no-print flex items-center gap-3 mt-6"
                 >
-                  <button
-                    type="button"
-                    onClick={() => handlePrint()}
-                    className="inline-flex items-center gap-2 rounded-full bg-brand-teal text-brand-dark px-4 py-2 font-semibold shadow-lg hover:shadow-brand-teal/30 transition glow-teal"
-                  >
-                    <Printer size={16} />
-                    Download Resume
-                  </button>
+                <a
+                  href="/resume/resume-jd-draft.pdf"
+                  download="Jacob-Darling-Resume.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand-teal text-brand-dark px-4 py-2 font-semibold shadow-lg hover:shadow-brand-teal/30 transition glow-teal"
+                >
+                  <Printer size={16} />
+                  Download Resume
+                </a>
                 </motion.div>
               </div>
 

@@ -20,15 +20,25 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({ children, classNam
     setMousePosition({ x, y });
   };
 
+  // Disable spotlight on mobile for better performance
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <motion.div
       ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={!isMobile ? handleMouseMove : undefined}
+      onMouseEnter={!isMobile ? () => setIsHovered(true) : undefined}
+      onMouseLeave={!isMobile ? () => setIsHovered(false) : undefined}
       onClick={onClick}
-      className={`relative overflow-hidden rounded-xl border border-[var(--ink-700)]/60 bg-[var(--ink-800)]/40 ${className}`}
-      whileHover={{ scale: 1.02, y: -4 }}
+      className={`relative overflow-hidden rounded-xl border border-[var(--ink-700)]/60 bg-[var(--ink-800)]/40 w-full ${className}`}
+      whileHover={!isMobile ? { scale: 1.02, y: -4 } : {}}
       transition={{ duration: 0.2 }}
     >
       {/* Spotlight effect */}

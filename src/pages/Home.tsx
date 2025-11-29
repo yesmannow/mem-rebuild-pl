@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect, useMemo, useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Target, Cpu, LineChart, ShieldCheck, Users, TrendingUp, Zap, CheckCircle2, Settings, Code, Database } from 'lucide-react';
+import { ArrowRight, Target, Cpu, LineChart, ShieldCheck, Users, TrendingUp, Zap, CheckCircle2, Code } from 'lucide-react';
 import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
 import ScrollProgress from '../components/ui/ScrollProgress';
 import AnimatedGradientText from '../components/ui/AnimatedGradientText';
@@ -177,7 +177,7 @@ const Home: React.FC = () => {
           <Suspense fallback={<div className="h-16" />}>
             <FloatingParticles count={24} />
           </Suspense>
-          <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start">
+          <div className="max-w-7xl mx-auto grid gap-8 sm:gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -187,19 +187,19 @@ const Home: React.FC = () => {
               <p className="text-sm font-mono uppercase tracking-[0.35em] text-brand-muted">
                 Fractional CMO & Marketing Technologist
               </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-text leading-tight">
-                Scaling companies through <AnimatedGradientText text="strategy + technology" className="text-4xl md:text-5xl lg:text-6xl font-bold" />
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-text leading-tight">
+                Scaling companies through <AnimatedGradientText text="strategy + technology" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold" />
               </h1>
-              <p className="text-lg md:text-xl text-brand-muted max-w-3xl">
+              <p className="text-base sm:text-lg md:text-xl text-brand-muted max-w-3xl">
                 I help CEOs, founders, and operators turn ambiguous growth goals into orchestrated systems.
                 You get board-ready strategy, full-stack implementation, and the optimization muscle to prove it works.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                 <OceanRippleButton
                   asLink
                   href="/contact"
                   variant="primary"
-                  className="inline-flex items-center gap-2"
+                  className="inline-flex items-center gap-2 w-full sm:w-auto justify-center touch-target"
                 >
                   Book a Consultation
                   <ArrowRight size={16} />
@@ -208,7 +208,7 @@ const Home: React.FC = () => {
                   asLink
                   href="/case-studies"
                   variant="outline"
-                  className="inline-flex items-center gap-2"
+                  className="inline-flex items-center gap-2 w-full sm:w-auto justify-center touch-target"
                 >
                   View Work
                   <ArrowRight size={16} />
@@ -236,12 +236,12 @@ const Home: React.FC = () => {
 
         <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="flex items-center justify-between flex-wrap gap-6 mb-12">
-              <div>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
+              <div className="flex-1">
                 <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Navigation snapshot</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-brand-text">Choose your entry point</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-text">Choose your entry point</h2>
               </div>
-              <p className="text-brand-muted max-w-lg">
+              <p className="text-brand-muted max-w-lg text-sm sm:text-base">
                 Three operating modes that cover strategy, systems, and performance. Pick one or mix across engagements.
               </p>
             </div>
@@ -318,13 +318,13 @@ const Home: React.FC = () => {
         {/* Technical Stack Preview */}
         <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="flex items-center justify-between flex-wrap gap-6 mb-12">
-              <div>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
+              <div className="flex-1">
                 <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Technical Expertise</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-brand-text">Full-stack marketing technology</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-text">Full-stack marketing technology</h2>
               </div>
-              <p className="text-brand-muted max-w-lg">
-                From automation platforms to custom development—here's a snapshot of the tools and technologies I work with.
+              <p className="text-brand-muted max-w-lg text-sm sm:text-base">
+                From automation platforms to custom development—here&apos;s a snapshot of the tools and technologies I work with.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
@@ -490,7 +490,7 @@ const Home: React.FC = () => {
             <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Final CTA</p>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">Ready to scale your growth?</h2>
             <p className="text-brand-muted text-lg mb-8">
-              Tell me where you want the business to go. I'll architect the plan, build the stack, and keep the entire go-to-market motion honest.
+              Tell me where you want the business to go. I&apos;ll architect the plan, build the stack, and keep the entire go-to-market motion honest.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <OceanRippleButton
@@ -535,7 +535,6 @@ const Home: React.FC = () => {
 
 const WhyFractionalSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
   const leftColumnRef = useRef<HTMLDivElement>(null);
   const rightColumnRef = useRef<HTMLDivElement>(null);
   const leftInView = useInView(leftColumnRef, { once: true, margin: '-50px' });
@@ -579,7 +578,7 @@ const WhyFractionalSection: React.FC = () => {
             className="text-brand-muted text-lg leading-relaxed"
           >
             With 15+ years of experience building marketing systems and revenue engines, I bring both strategic vision and hands-on technical execution.
-            I've architected solutions for SaaS companies, healthcare organizations, and e-commerce brands—delivering measurable impact through data-driven strategies and full-stack implementation.
+            I&apos;ve architected solutions for SaaS companies, healthcare organizations, and e-commerce brands—delivering measurable impact through data-driven strategies and full-stack implementation.
           </motion.p>
 
           <motion.ul
@@ -640,7 +639,7 @@ const WhyFractionalSection: React.FC = () => {
               size="md"
               className="inline-flex items-center gap-2"
             >
-              Let's Connect
+              Let&apos;s Connect
               <ArrowRight size={16} />
             </OceanRippleButton>
           </motion.div>

@@ -132,6 +132,14 @@ const DomeGalleryItem: React.FC<DomeGalleryItemProps> = ({
   const ref = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const springConfig = { stiffness: 150, damping: 15 };
   const x = useSpring(mouseX, springConfig);
@@ -141,7 +149,7 @@ const DomeGalleryItem: React.FC<DomeGalleryItemProps> = ({
   const rotateY = useTransform(x, [-0.5, 0.5], [-8, 8]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
+    if (!ref.current || isMobile) return;
     const rect = ref.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
@@ -150,6 +158,7 @@ const DomeGalleryItem: React.FC<DomeGalleryItemProps> = ({
   };
 
   const handleMouseLeave = () => {
+    if (isMobile) return;
     mouseX.set(0);
     mouseY.set(0);
     onLeave();
@@ -162,8 +171,8 @@ const DomeGalleryItem: React.FC<DomeGalleryItemProps> = ({
       onMouseEnter={onHover}
       onMouseLeave={handleMouseLeave}
       style={{
-        rotateX,
-        rotateY,
+        rotateX: !isMobile ? rotateX : 0,
+        rotateY: !isMobile ? rotateY : 0,
         transformStyle: 'preserve-3d',
       }}
       initial={{ opacity: 0, y: 30 }}

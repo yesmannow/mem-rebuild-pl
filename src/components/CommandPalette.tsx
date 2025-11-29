@@ -72,6 +72,15 @@ const NAVIGATION_ITEMS: NavigationItem[] = [
     type: 'navigation'
   },
   {
+    id: 'side-projects',
+    title: 'Side Projects',
+    description: 'Independent studio vault and creative experiments',
+    icon: Palette,
+    to: '/side-projects',
+    keywords: ['side', 'independent', 'studio', 'vault', 'creative', 'branding'],
+    type: 'navigation'
+  },
+  {
     id: 'lab',
     title: 'The Lab',
     description: 'Experimental applications and tools',

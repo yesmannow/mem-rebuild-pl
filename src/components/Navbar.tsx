@@ -12,6 +12,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
 
   const navLinks = [
     { name: 'Projects', path: '/case-studies' },
+    { name: 'Side Projects', path: '/side-projects' },
     { name: 'The Lab', path: '/apps' },
     { name: 'Toolbox', path: '/toolbox' },
     { name: 'Studio', path: '/studio' },
@@ -23,9 +24,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
   };
 
   return (
-    <nav className="fixed w-full z-[100] h-16 bg-slate-950/60 backdrop-blur-md border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-        <div className="flex items-center justify-between h-full">
+    <nav className="fixed w-full z-[100] h-16 bg-slate-950/60 backdrop-blur-md border-b border-white/5 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 h-full">
+        <div className="flex items-center justify-between h-full gap-2 sm:gap-4">
 
           {/* Left Section: System Status + Logo */}
           <div className="flex items-center gap-4">
@@ -39,8 +40,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
             </div>
 
             {/* BRANDING: Personal Identity - Modern Animated Logo */}
-            <Link to="/" className="flex items-center">
-              <ModernLogo size={36} showText={true} animated={true} />
+            <Link to="/" className="flex items-center min-w-0 flex-shrink-0">
+              <ModernLogo size={32} showText={false} animated={true} className="sm:hidden" />
+              <ModernLogo size={36} showText={true} animated={true} className="hidden sm:flex" />
             </Link>
           </div>
 
@@ -98,9 +100,10 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
             </button>
             <Link
               to="/contact"
-              className="bg-brand-teal text-brand-dark px-3 py-2 rounded-md font-bold text-sm hover:bg-white transition-all shadow-[0_0_15px_rgba(64,224,208,0.3)]"
+              className="bg-brand-teal text-brand-dark px-3 py-2 rounded-md font-bold text-sm hover:bg-white transition-all shadow-[0_0_15px_rgba(64,224,208,0.3)] touch-target whitespace-nowrap"
             >
-              Contact Me
+              <span className="hidden sm:inline">Contact Me</span>
+              <span className="sm:hidden">Contact</span>
             </Link>
           </div>
         </div>

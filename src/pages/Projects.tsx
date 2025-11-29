@@ -1,5 +1,7 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { Code, Palette } from 'lucide-react';
 import AnimatedSection from '../components/animations/AnimatedSection';
 import TextReveal from '../components/animations/TextReveal';
 import { fadeInUp } from '../utils/animationVariants';
@@ -7,9 +9,12 @@ import { projects } from '../data/projects';
 import FeaturedProjectsGrid from '../components/home/FeaturedProjectsGrid';
 import type { FeaturedProjectCardProps } from '../components/home/FeaturedProjectCard';
 import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
+import { SpotlightCard } from '../components/ui/SpotlightCard';
 import './Projects.css';
 
 const Projects: React.FC = () => {
+  const navigate = useNavigate();
+  const [viewMode, setViewMode] = useState<'projects' | 'side-projects'>('projects');
   // Map canonical dataset to FeaturedProjectCardProps, preferring featured items
   const featuredItems: FeaturedProjectCardProps[] = useMemo(() => {
     const featuredProjects = projects.filter(p => p.featured);
@@ -30,6 +35,45 @@ const Projects: React.FC = () => {
       <OceanBackgroundBeams className="opacity-20" />
       <AnimatedSection>
         <header className="projects-header relative z-10">
+          {/* Toggle Switch */}
+          <div className="flex justify-center mb-8">
+            <SpotlightCard className="p-1 inline-flex">
+              <div className="flex gap-1 bg-slate-800/50 rounded-lg p-1">
+                <button
+                  onClick={() => {
+                    setViewMode('projects');
+                  }}
+                  className={`px-6 py-2 rounded-md font-semibold text-sm transition-all touch-target ${
+                    viewMode === 'projects'
+                      ? 'bg-brand-teal text-brand-dark shadow-lg'
+                      : 'text-slate-300 hover:text-white'
+                  }`}
+                >
+                  <span className="flex items-center gap-2">
+                    <Code size={16} />
+                    Web Projects
+                  </span>
+                </button>
+                <button
+                  onClick={() => {
+                    setViewMode('side-projects');
+                    navigate('/side-projects');
+                  }}
+                  className={`px-6 py-2 rounded-md font-semibold text-sm transition-all touch-target ${
+                    viewMode === 'side-projects'
+                      ? 'bg-brand-orange text-black shadow-lg'
+                      : 'text-slate-300 hover:text-white'
+                  }`}
+                >
+                  <span className="flex items-center gap-2">
+                    <Palette size={16} />
+                    Side Projects
+                  </span>
+                </button>
+              </div>
+            </SpotlightCard>
+          </div>
+
           <TextReveal text="Web Development Projects" className="page-title" />
           <motion.p className="page-subtitle" variants={fadeInUp}>
             Professional websites built with WordPress, combining strategic design with technical

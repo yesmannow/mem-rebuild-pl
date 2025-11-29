@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Grip, X } from 'lucide-react';
+import { Grip, X, Palette } from 'lucide-react';
 import { useHaptic } from '../hooks/useHaptic';
 import { productMakerIcons } from './ui/Icons';
 
@@ -11,6 +11,7 @@ const { home: HomeIcon, projects: ProjectsIcon, lab: LabIcon, studio: StudioIcon
 // Full menu items for the overlay
 const fullMenuItems = [
   { icon: ProjectsIcon, label: 'Projects', path: '/case-studies', description: 'Client systems and proof' },
+  { icon: Palette, label: 'Side Projects', path: '/side-projects', description: 'Independent studio vault' },
   { icon: LabIcon, label: 'The Lab', path: '/apps', description: 'Experiments & internal tools' },
   { icon: ToolboxIcon, label: 'Toolbox', path: '/toolbox', description: 'Skills & technical expertise' },
   { icon: StudioIcon, label: 'Studio', path: '/studio', description: 'Brand & creative kits' },
