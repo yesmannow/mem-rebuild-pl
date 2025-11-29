@@ -17,24 +17,7 @@ interface Tool {
   author?: string;
 }
 
-/**
- * Map technology names to their generated icon paths
- */
-const getTechIconPath = (tech: string): string | undefined => {
-  const iconMap: Record<string, string> = {
-    'React': '/images/tech-icons/react.svg',
-    'Node.js': '/images/tech-icons/nodejs.svg',
-    'TypeScript': '/images/tech-icons/typescript.svg',
-    'Python': '/images/tech-icons/python.svg',
-    'HubSpot': '/images/tech-icons/hubspot.svg',
-    'JavaScript': '/images/tech-icons/javascript.svg',
-    'Express': '/images/tech-icons/express.svg',
-    'Vite': '/images/tech-icons/vite.svg',
-    'Tailwind CSS': '/images/tech-icons/tailwind-css.svg',
-    'GitHub': '/images/tech-icons/github.svg',
-  };
-  return iconMap[tech];
-};
+import { getTechIconPath } from '../utils/techIcons';
 
 const tools: Tool[] = [
   {

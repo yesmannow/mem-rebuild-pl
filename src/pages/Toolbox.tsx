@@ -21,6 +21,7 @@ import Icon from '../components/Icon';
 import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations';
 import { technicalCategories, technologyStacks } from '../data/toolbox';
 import { getTechDescription } from '../data/techDescriptions';
+import { getTechIconSlug } from '../utils/techIcons';
 
 const Toolbox: React.FC = () => {
   const [expandedCategory, setExpandedCategory] = useState<number | null>(null);
@@ -28,29 +29,6 @@ const Toolbox: React.FC = () => {
 
   const toggleCategory = (index: number) => {
     setExpandedCategory(expandedCategory === index ? null : index);
-  };
-
-  // Map technology names to icon slugs
-  const getTechIconSlug = (techName: string): string => {
-    const techMap: { [key: string]: string } = {
-      React: 'react',
-      'Node.js': 'node',
-      TypeScript: 'typescript',
-      'Tailwind CSS': 'tailwind',
-      Vite: 'vite',
-      'Git/GitHub': 'github',
-      Python: 'python',
-      Flask: 'flask',
-      FastAPI: 'fastapi',
-      Docker: 'docker',
-      AWS: 'aws',
-      Azure: 'azure',
-      PostgreSQL: 'postgres',
-      MySQL: 'mysql',
-      Redis: 'redis',
-      GraphQL: 'graphql',
-    };
-    return techMap[techName] || 'react'; // fallback to react icon
   };
 
   const getIconForCategory = (title: string) => {

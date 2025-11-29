@@ -1,0 +1,141 @@
+{
+  "generatedAt": "2025-11-29T10:48:39.401Z",
+  "downloaded": [
+    {
+      "tech": "React",
+      "filename": "react.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Next.js",
+      "filename": "nextjs.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "TypeScript",
+      "filename": "typescript.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Node.js",
+      "filename": "nodejs.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "JavaScript",
+      "filename": "javascript.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Tailwind CSS",
+      "filename": "tailwindcss.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Vite",
+      "filename": "vite.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Express",
+      "filename": "express.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Python",
+      "filename": "python.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "PostgreSQL",
+      "filename": "postgresql.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "MySQL",
+      "filename": "mysql.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "MongoDB",
+      "filename": "mongodb.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Redis",
+      "filename": "redis.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Docker",
+      "filename": "docker.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Kubernetes",
+      "filename": "kubernetes.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "GraphQL",
+      "filename": "graphql.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "GitHub",
+      "filename": "github.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Git",
+      "filename": "git.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Framer Motion",
+      "filename": "framer.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Supabase",
+      "filename": "supabase.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Cloudflare Workers",
+      "filename": "cloudflare.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Cheerio",
+      "filename": "cheerio.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Sharp",
+      "filename": "sharp.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Zod",
+      "filename": "zod.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "Figma",
+      "filename": "figma.svg",
+      "source": "simpleicons.org"
+    },
+    {
+      "tech": "HubSpot",
+      "filename": "hubspot.svg",
+      "source": "simpleicons.org"
+    }
+  ],
+  "failed": [
+    "AWS",
+    "Azure",
+    "Zustand",
+    "Recharts"
+  ]
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, Command } from 'lucide-react';
-import InteractiveLogo from './InteractiveLogo';
+import EnhancedLogo from './EnhancedLogo';
 
 interface NavbarProps {
   onOpenCommandPalette?: () => void;
@@ -37,9 +37,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
               <span className="text-xs text-brand-teal font-mono">System: Online</span>
             </div>
 
-            {/* BRANDING: Personal Identity - Living Logo */}
+            {/* BRANDING: Personal Identity - Enhanced Logo */}
             <Link to="/" className="flex items-center">
-              <InteractiveLogo size={36} showText={true} />
+              <EnhancedLogo size={36} showText={true} />
             </Link>
           </div>
 
@@ -50,8 +50,8 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
                 key={link.name}
                 to={link.path}
                 className={`relative ${
-                  isActive(link.path) 
-                    ? 'text-brand-teal' 
+                  isActive(link.path)
+                    ? 'text-brand-teal'
                     : 'text-brand-muted hover:text-brand-teal'
                 } transition-all duration-300 font-medium text-sm uppercase tracking-wide group`}
               >
