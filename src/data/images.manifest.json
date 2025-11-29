@@ -34,13 +34,6 @@
     "color": "rgb(72 56 40)",
     "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
   },
-  "images/projects/317 bbq/20231008_175512.jpg": {
-    "width": 900,
-    "height": 420,
-    "base": "images/projects/317 bbq/20231008_175512",
-    "color": "rgb(248 232 216)",
-    "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAAkAPxF2sVAsJ6SisAgBgCIJagCdMoADCfg0bkLzbAAA4lFuh8CYLfqGmh7m1dbp+F14MI4iK7jkPSxt3lW2LQ+FMIW9YtjjQ47h3ATNevQPbfgcYOJujwBU44D5DO4q3CmJzRpbQF4nfAQaBSR8AwAAAA=="
-  },
   "images/projects/317 bbq/20231008_180910.jpg": {
     "width": 900,
     "height": 420,
@@ -48,12 +41,12 @@
     "color": "rgb(24 24 8)",
     "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACwAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCdABMEZDQPXXrSAAD+o1U6P/byUraqBSlkZmUsOLVnOmwcuxrYjy+9xA65i1geDXnbSpXW/8z31ymBp6oKKo9O9OBNJXMm/ACUvLFcT0BsHpR9gAAA"
   },
-  "images/projects/317 bbq/20231008_175654.jpg": {
+  "images/projects/317 bbq/20231008_175512.jpg": {
     "width": 900,
     "height": 420,
-    "base": "images/projects/317 bbq/20231008_175654",
-    "color": "rgb(184 168 136)",
-    "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCw7BxB0MO+ILhgAAD8XIxCQo0/6tMhwRxQFKVcAybTxiCi1eRVa5LTy9RT2ECMVbL4ESzYgAp9hCJp1h+10ZRuSDQY/Zbzjo5gAAA="
+    "base": "images/projects/317 bbq/20231008_175512",
+    "color": "rgb(248 232 216)",
+    "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAAkAPxF2sVAsJ6SisAgBgCIJagCdMoADCfg0bkLzbAAA4lFuh8CYLfqGmh7m1dbp+F14MI4iK7jkPSxt3lW2LQ+FMIW9YtjjQ47h3ATNevQPbfgcYOJujwBU44D5DO4q3CmJzRpbQF4nfAQaBSR8AwAAAA=="
   },
   "images/projects/317 bbq/20231008_175650.jpg": {
     "width": 900,
@@ -69,6 +62,13 @@
     "color": "rgb(40 40 40)",
     "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCdAB8v/m1YUUmtzwAA8p4y7OwR2Iaa9y9xrKc+PK59c6SL0EtMf74PvhMZfgYmDJRKb0wVhDJAsafWjyFzU3gAAA=="
   },
+  "images/projects/317 bbq/20231008_175654.jpg": {
+    "width": 900,
+    "height": 420,
+    "base": "images/projects/317 bbq/20231008_175654",
+    "color": "rgb(184 168 136)",
+    "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCw7BxB0MO+ILhgAAD8XIxCQo0/6tMhwRxQFKVcAybTxiCi1eRVa5LTy9RT2ECMVbL4ESzYgAp9hCJp1h+10ZRuSDQY/Zbzjo5gAAA="
+  },
   "images/projects/Behr pet essentials/Behr pet essentials logo.png": {
     "width": 1578,
     "height": 1036,
@@ -83,19 +83,19 @@
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRqYBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSFoBAAABkCvbtmlbfc11bdu2bdu2nm3btm37RbZCM2Xo92Kd+xERMQEAojD2jk8KsQJhcMG2b9WKmVMXr54ZjlYGmszdQ70VCpviraPFQKjZ7oZSCgWMXapBSN1p4jtjild+r1/HqCpGTUcw2RbOzQfPT/T8aRty470l6zKgbjKcKl921/hLI5uvQcIKmB+LMPn3NOPvtbybjmapt9USK4goe7hf/yh1+Z2MMWPzXZejeDZk/j3T77mtn43R9Da4Lke4febWZeMfeSfOoo3obbBaYgXdr48m5h4OnLDdFc24fOblhrlueTIu6N3V6JWrDjoleizzomZWmPvex8ujnt7I2nLxil9G5VIw3hpCenuQRVu5mduQKmFNOkLKdn8LDJXCwn7CNAShentJtLUWI2Xpl7hggQYQMjfPrsiKdAupHLFxhFYGaGxbVy1bsWDx6omhyGCIQrzjkkPNQQAAVlA4ICYAAADQAgCdASoUABQAPxGCuVWsKKWjKAgBgCIJaQAAPaOgAP7wCfsAAA=="
   },
-  "images/projects/317 bbq/download.jpg": {
-    "width": 1712,
-    "height": 3022,
-    "base": "images/projects/317 bbq/download",
-    "color": "rgb(8 8 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAACQBQCdASoUACMAPxFwsVAsJiSjMBVdUYAiCWcAz6AuCtdYtYIkkzLsoZlNgmZ3dAn14jkxIAD+9CUEhG0w429uF+pYBOsfshR1+i7xPolCB/4nHLhpPQHivlnJR1urIg4rBivWxN11HQFqdtFJ4ffrbZlxW6cFbTFEHh9Z4wFgmHEKd15oCuqVrqKtgK7ikGoUsW4fnh3gq/O6HmoD3dQcaaegAA=="
-  },
   "images/projects/Clean Aesthetic/Clean Aesthetic CA Logo - Primary (full color).png": {
     "width": 5700,
     "height": 3445,
     "base": "images/projects/Clean Aesthetic/Clean Aesthetic CA Logo - Primary (full color)",
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRjoBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSK0AAAABgGTbtmlnn3u/7f9j22bNtm2zZhdtO2mBk06kSb7/tSEiJgD/iQCACFIJSrlverwGJIGY66iwMGRqPQTMDUP2+cfiA8PduTuCbn9nZPYr3zJwFgISgNAxNv/5XVdasTgNLmKIvNh6Xo5aG6l4lENMkJUVdTf0PqbhuhlcxAFw77VaIGdDBwYQrHYPj6BgXZJ3gH+4Nd7BAUCnd1gcgb5+dk9bgMrHSv+Eah2kAgBWUDggZgAAABADAJ0BKhQADAA/EXKwUCwmpKKwCAGAIglAAHxXIrEiAADMGqEdPqIAbLo3SRq0FBiJXzqJ7z2DNNz+Ce8PlMGW67404iDk0igfUcTkgCpJvqsW//9BU0ODuuHvsKkS8dsMlAAAAA=="
+  },
+  "images/projects/317 bbq/download.jpg": {
+    "width": 1712,
+    "height": 3022,
+    "base": "images/projects/317 bbq/download",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAACQBQCdASoUACMAPxFwsVAsJiSjMBVdUYAiCWcAz6AuCtdYtYIkkzLsoZlNgmZ3dAn14jkxIAD+9CUEhG0w429uF+pYBOsfshR1+i7xPolCB/4nHLhpPQHivlnJR1urIg4rBivWxN11HQFqdtFJ4ffrbZlxW6cFbTFEHh9Z4wFgmHEKd15oCuqVrqKtgK7ikGoUsW4fnh3gq/O6HmoD3dQcaaegAA=="
   },
   "images/projects/Black Letter/Black Letter - Full Logo.png": {
     "width": 9911,
@@ -153,12 +153,12 @@
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAABwBACdASoUABQAPxF8s1QsJ6QjKAqpgCIJQBA8LJzTh0QMbNW92W7TIz1dZAD+7T+EL9xLrt9czIWEn18VeGjEVvL3N8Wi/Zb/0vTQiMGLo7kgi8ZtuD0Fo2U4EkH02s2V0kOqHvu0/64XAZdfutxKQi0CbidZd1/z4ww3IyjxVlWkkxeRcGqkxJAQNgECbPRj2GFmoxxyDfjroAAAAA=="
   },
-  "images/projects/ResQ Organics/Skincare-for-Dogs-and-Cats.jpg": {
-    "width": 1000,
-    "height": 1000,
-    "base": "images/projects/ResQ Organics/Skincare-for-Dogs-and-Cats",
+  "images/projects/ResQ Organics/CBD-for-Pets-and-Pet-Skin-Care.png": {
+    "width": 831,
+    "height": 519,
+    "base": "images/projects/ResQ Organics/CBD-for-Pets-and-Pet-Skin-Care",
     "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAACwBACdASoUABQAPxGAuFWsKCUjKAgBgCIJYwDKAA3mM6N8UBTGze0Wd0UJpcPgAP7oX7pA/9sbaWAE6t2B9OlOGoXVxcoS/7l1WVXsu6CBLI0LYRamOfTjDqehi9enMPFDb+AA85qu5fvVdfbTvIhoOeuXzgIc9ZlRfxXW87zkDye7EvqUgplB+4Vu2djcCOguxLFhVU/GIcelwEAYsJ1nAAA="
+    "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
   },
   "images/projects/ResQ Organics/ResQ Organics for Pets.png": {
     "width": 831,
@@ -167,12 +167,12 @@
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
   },
-  "images/projects/ResQ Organics/CBD-for-Pets-and-Pet-Skin-Care.png": {
-    "width": 831,
-    "height": 519,
-    "base": "images/projects/ResQ Organics/CBD-for-Pets-and-Pet-Skin-Care",
+  "images/projects/ResQ Organics/Skincare-for-Dogs-and-Cats.jpg": {
+    "width": 1000,
+    "height": 1000,
+    "base": "images/projects/ResQ Organics/Skincare-for-Dogs-and-Cats",
     "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
+    "blurDataURL": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAACwBACdASoUABQAPxGAuFWsKCUjKAgBgCIJYwDKAA3mM6N8UBTGze0Wd0UJpcPgAP7oX7pA/9sbaWAE6t2B9OlOGoXVxcoS/7l1WVXsu6CBLI0LYRamOfTjDqehi9enMPFDb+AA85qu5fvVdfbTvIhoOeuXzgIc9ZlRfxXW87zkDye7EvqUgplB+4Vu2djcCOguxLFhVU/GIcelwEAYsJ1nAAA="
   },
   "images/projects/Russell painting/Interior_sl.jpg": {
     "width": 620,
@@ -181,19 +181,19 @@
     "color": "rgb(136 104 56)",
     "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADQAwCdASoUAAsAPxFysFAsJqSisAgBgCIJZACdMoR4GBY1Mng1aAAA4ndxP+UaJXY0DmVvtV9X+PTDXWCwHkm4V1gSHwwBuxWidn4lfODhlgDVNVqoSxw4uhJEHqt2LqoAAA=="
   },
-  "images/projects/Russell painting/painting_illustration_01.png": {
-    "width": 800,
-    "height": 952,
-    "base": "images/projects/Russell painting/painting_illustration_01",
-    "color": "rgb(72 104 72)",
-    "blurDataURL": "data:image/webp;base64,UklGRk4CAABXRUJQVlA4WAoAAAAQAAAAEwAAFwAAQUxQSC4BAAABkLRtmyG7+p+qnnNObNt2VubW2Nq2veLKzsrJ0rZt27aT7q436DoRMQEYzNFdGDAGb+lSpM5qOAXHlcV43jwoVHFm+LViFW3CerZr1anvx3SQBRpEkFTuZfxE9z9o37lfn+sQJNBNkXPOSaEOZ2D+s2xQ5KQ4VqQZ2KTST+SUGGk0KYCAzj6nL/WxwMrl832KdCwfBibrszIZagYBmB36lQmnr/Wwlsqv5Xz6pbkEBPRS7Iv1oQoWLJsUeX5cUBeC/1pFcpJcqO3574cNACxzFEmKI3Wjj64XBQy5ryt2+nBHZ/JySKsBLG1DF2l4lW/aSLOfv/4jYLq+/WjEYmkqzUYlQI721R+/q1joheJ2WI8JGK6rWYZKa0j3pch5SSPY8q411gOWOg8HkpEFAFZQOCD6AAAAEAYAnQEqFAAYAD8RfrZVrCekoygIAYAiCWoAvmGgCGc6RLOU+xh0pM0wk4bAMdhBKzEGGFiYkYCAAP2mKzykfsm4gB7MEzEZJNZlMtRgwCtgfkIk5cBF+Va4DVweZiHbAzL/TErdZNn2QR8fnKSfmIL2Ned1JOLfbSjPMRhzcUCWLIJfVx/2CzFMP/BQlJL7UO24EjJAwh2puzklDkRuwzLNwbKBcADXGe6+YR0zZUJsgLN0OvJdF1pLLFgIxJwiJcpx1VTbOfk8OBYEh+oEpy2S8CKC5PTJ4VMCY1Gfov+eIHv8HH89qdKqXIblkEC69F1mLV6Df1GQAA=="
-  },
   "images/projects/ResQ Organics/dog-dry-skin-remedy.jpg": {
     "width": 1005,
     "height": 1000,
     "base": "images/projects/ResQ Organics/dog-dry-skin-remedy",
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABQBACdASoUABQAPxF0sFAsJySisBgMAYAiCWoAAC52WJzbx18DX9Y1OTgAAP7rJ1gYcIY5Ktp24XDkQA7lkT5QyP/yb5wAnFxOepCxRVrTO0hdh3HHRKmr0EGcw5f8iAAAAA=="
+  },
+  "images/projects/Russell painting/painting_illustration_01.png": {
+    "width": 800,
+    "height": 952,
+    "base": "images/projects/Russell painting/painting_illustration_01",
+    "color": "rgb(72 104 72)",
+    "blurDataURL": "data:image/webp;base64,UklGRk4CAABXRUJQVlA4WAoAAAAQAAAAEwAAFwAAQUxQSC4BAAABkLRtmyG7+p+qnnNObNt2VubW2Nq2veLKzsrJ0rZt27aT7q436DoRMQEYzNFdGDAGb+lSpM5qOAXHlcV43jwoVHFm+LViFW3CerZr1anvx3SQBRpEkFTuZfxE9z9o37lfn+sQJNBNkXPOSaEOZ2D+s2xQ5KQ4VqQZ2KTST+SUGGk0KYCAzj6nL/WxwMrl832KdCwfBibrszIZagYBmB36lQmnr/Wwlsqv5Xz6pbkEBPRS7Iv1oQoWLJsUeX5cUBeC/1pFcpJcqO3574cNACxzFEmKI3Wjj64XBQy5ryt2+nBHZ/JySKsBLG1DF2l4lW/aSLOfv/4jYLq+/WjEYmkqzUYlQI721R+/q1joheJ2WI8JGK6rWYZKa0j3pch5SSPY8q411gOWOg8HkpEFAFZQOCD6AAAAEAYAnQEqFAAYAD8RfrZVrCekoygIAYAiCWoAvmGgCGc6RLOU+xh0pM0wk4bAMdhBKzEGGFiYkYCAAP2mKzykfsm4gB7MEzEZJNZlMtRgwCtgfkIk5cBF+Va4DVweZiHbAzL/TErdZNn2QR8fnKSfmIL2Ned1JOLfbSjPMRhzcUCWLIJfVx/2CzFMP/BQlJL7UO24EjJAwh2puzklDkRuwzLNwbKBcADXGe6+YR0zZUJsgLN0OvJdF1pLLFgIxJwiJcpx1VTbOfk8OBYEh+oEpy2S8CKC5PTJ4VMCY1Gfov+eIHv8HH89qdKqXIblkEC69F1mLV6Df1GQAA=="
   },
   "images/projects/Russell painting/interior_w3.jpg": {
     "width": 1632,
@@ -209,19 +209,19 @@
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRoABAABXRUJQVlA4WAoAAAAQAAAAEwAADQAAQUxQSOEAAAANkGvb2rFXe3+xbdturdrGTditnTJdarZ2i862bX5PdM41RMQEAAQEFAoBKJ/NbhnQkE8AAoEAIOw197TqrFtX9J71n/Uf6Z58tbfydhHx7uxxW/q6kDSYMlZYu6igCigxOJ7PGQ85Ua3P9BdNXT60jAAE9e746s4l9STPRB7FDTmrAYDC/YCPlxc/wzlj82eLq0+TQ0BmXx71Hw0fDbyeHx7E6t0IqvJObQ2hUKhoQhRRVVXzQMH/EqBovXbN/hcA0djsRtE/BAABqq7+Bh8kQIAgAAI01l0SIeSXUACArwYAVlA4IHgAAAAwBACdASoUAA4APxFysFAsJqSisAgBgCIJbACxC8GJ/gPIG+kFGReQAaAA/u8SXOqVn/8felr7zeYwQwDk8LXsZ0YdM9+4l3YFCPLRDsXwaLoyVZnHZqL1MSfX+Sh1HGjn3Ox1bzXzNhnix7oMFzkPlTeS6EgQAAA="
   },
-  "images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg.jpg": {
-    "width": 270,
-    "height": 104,
-    "base": "images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABwAwCdASoUAAgAPxFysFAsJqSisAgBgCIJZwAAW8ZludsVIwAA/rO3C1ID+3BzzKIigFBWu1yOfvxNhsr2LnEEKzs63Qhrktp/zHA5QeAAAA=="
-  },
   "images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1.png": {
     "width": 400,
     "height": 132,
     "base": "images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1",
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRhQBAABXRUJQVlA4WAoAAAAQAAAAEwAABgAAQUxQSI0AAAAAADSWJQAlHAIGAgQDFSADAwIDBwFJrZesNStEMjpSTSswXj08O0U+BXWYiqFgCyEjIS0mFBMuKycwKB0Ek6kPwXUIDTVCHhUaJRkHAAEBAQBqm6CfVUYsNmw9Rz1iRA8AAQAAACyfp5cgFRcQGBgTExYcDAoNCQkAACt9IAAbJSMbGB8bFCEeHCEjHwEAVlA4IGAAAADQAwCdASoUAAcAPxFysFAsJqSisAgBgCIJbACdEf/gNlWdODvY+CAA/p8DAZBypCh3gHmU8mEqZeg1q+sj33c2FOmKzgz/Ts0zqmUK2pnwn5WEuUW34rKig58Vk3CAAAA="
+  },
+  "images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg.jpg": {
+    "width": 270,
+    "height": 104,
+    "base": "images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABwAwCdASoUAAgAPxFysFAsJqSisAgBgCIJZwAAW8ZludsVIwAA/rO3C1ID+3BzzKIigFBWu1yOfvxNhsr2LnEEKzs63Qhrktp/zHA5QeAAAA=="
   },
   "images/projects/circle  city kicks/circle  city kicks logo.png": {
     "width": 1463,
@@ -265,19 +265,19 @@
     "color": "rgb(56 104 184)",
     "blurDataURL": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAACQBACdASoUABQAPxF4sFKsJyQiqA1RgCIJQBhQAUZB0fW+I8uufY3f6Bo5fgAA/hWjAvYyrip1RdKFI7TqAXryM7/u/PyLWY5vVLUocOfAgLSYv0KdVyjAeYer6mqyVwM8315OR4l82Hpm7xndPuGZGsHHB8wi4LIAdQbrVOXM4AAA"
   },
-  "images/projects/riley bennett egloff/download.jpg": {
-    "width": 1712,
-    "height": 2399,
-    "base": "images/projects/riley bennett egloff/download",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoUABwAPxFys1KsJiSisBgIAYAiCUAYbgIhpExx19sfrmkOVY0Hz5AgAP5b/LmOnVoT7YOUUIjV/KgiuUGXDvjmpI4Acbzof4M1yGzvvaT+On1ooa8rThu95IcLCPIPhqS4vCO0HTf6yMZAavu0HdFVEPB9zIbehvHwPwq/bFgBVPfNSfET2aTAmojKJaGfwr51v09AAAA="
-  },
   "images/projects/riley bennett egloff/dss.jpg": {
     "width": 1712,
     "height": 2410,
     "base": "images/projects/riley bennett egloff/dss",
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADwBACdASoUABwAPxF6t1MsJ6WiqAqpgCIJZQAALngBiyejzEBWxG+QSB/eSBN5/MAA/I/5WrdMXFEqpJ1esGZLrMM5QnKfCArikyvuxKwcL5dLrsjRbLtjvDu15JG+sR4bJatlenxr/2uhDoaxI/Gj/al1CgAA"
+  },
+  "images/projects/riley bennett egloff/download.jpg": {
+    "width": 1712,
+    "height": 2399,
+    "base": "images/projects/riley bennett egloff/download",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoUABwAPxFys1KsJiSisBgIAYAiCUAYbgIhpExx19sfrmkOVY0Hz5AgAP5b/LmOnVoT7YOUUIjV/KgiuUGXDvjmpI4Acbzof4M1yGzvvaT+On1ooa8rThu95IcLCPIPhqS4vCO0HTf6yMZAavu0HdFVEPB9zIbehvHwPwq/bFgBVPfNSfET2aTAmojKJaGfwr51v09AAAA="
   },
   "images/projects/urgent care indy/urgent care indy logo.png": {
     "width": 863,
