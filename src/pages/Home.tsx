@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useMemo, useState, useRef } from 'react';
+import React, { Suspense, useMemo, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Target, Cpu, LineChart, ShieldCheck, Users, TrendingUp, Zap, CheckCircle2, Code } from 'lucide-react';
@@ -10,17 +10,9 @@ import TerminalBlock from '../components/ui/TerminalBlock';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import TestimonialTerminal from '../components/TestimonialTerminal';
 import { OceanRippleButton } from '../components/ui/OceanRippleButton';
-import { GALLERY_MANIFESTS } from '../data/config';
-import { DomeGallery } from '../components/ui/DomeGallery';
-import { photographyItems, designItems } from '../data/studioData';
 
 const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
 const TechProfile = React.lazy(() => import('../components/TechProfile'));
-
-interface AssetCounts {
-  photo?: number;
-  design?: number;
-}
 
 const heroStats = [
   { label: 'Revenue influenced', prefix: '$', number: 85, suffix: 'M+', detail: 'Across SaaS, eCommerce, and services' },
@@ -113,48 +105,9 @@ const finalCtaLinks = [
 ];
 
 const Home: React.FC = () => {
-  const [counts, setCounts] = useState<AssetCounts>({});
-
-  useEffect(() => {
-    const fetchCount = async (url: string): Promise<number | undefined> => {
-      try {
-        const res = await fetch(url);
-        if (!res.ok) return undefined;
-        const data = await res.json();
-        if (Array.isArray(data?.files)) return data.files.length;
-        return undefined;
-      } catch {
-        return undefined;
-      }
-    };
-
-    const hydrate = async () => {
-      const [photo, design] = await Promise.all([
-        fetchCount(GALLERY_MANIFESTS.photography),
-        fetchCount(GALLERY_MANIFESTS.design),
-      ]);
-      setCounts({ photo, design });
-    };
-
-    void hydrate();
-  }, []);
-
   const HeroRightColumn = useMemo(
     () => (
       <div className="space-y-6">
-        <div className="rounded-2xl border border-brand-teal/30 bg-slate-900/70 backdrop-blur p-6 shadow-soft-dark">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <p className="text-xs font-mono uppercase tracking-[0.25em] text-brand-muted">System Status</p>
-              <p className="text-brand-text font-semibold">Command Console</p>
-            </div>
-            <span className="inline-flex items-center text-xs text-brand-muted gap-2">
-              <span className="h-2 w-2 rounded-full bg-brand-teal animate-pulse" /> online
-            </span>
-          </div>
-          <SystemTerminal counts={counts} />
-        </div>
-
         <div className="rounded-2xl border border-white/5 bg-slate-950/60 backdrop-blur p-6">
           <div className="flex items-center justify-between mb-4">
             <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-muted">Operator Profile</p>
@@ -166,7 +119,7 @@ const Home: React.FC = () => {
         </div>
       </div>
     ),
-    [counts]
+    []
   );
 
   return (
@@ -282,36 +235,6 @@ const Home: React.FC = () => {
         <SectionDivider />
 
         <WhyFractionalSection />
-
-        <SectionDivider />
-
-        {/* Studio Gallery Preview Section */}
-        <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-[var(--ink-900)]/50 to-transparent">
-          <div className="max-w-7xl mx-auto">
-            <DomeGallery
-              images={[
-                ...photographyItems.slice(0, 3).map(item => ({
-                  id: item.id,
-                  src: item.src,
-                  alt: item.title,
-                  title: item.title,
-                  category: item.category,
-                })),
-                ...designItems.slice(0, 3).map(item => ({
-                  id: item.id,
-                  src: item.src,
-                  alt: item.title,
-                  title: item.title,
-                  category: item.category,
-                })),
-              ]}
-              title="Visual Engineering"
-              description="A curated selection of photography and design work showcasing technical precision and creative vision."
-              linkTo="/studio"
-              linkText="Explore Full Studio Gallery"
-            />
-          </div>
-        </section>
 
         <SectionDivider />
 
@@ -745,64 +668,6 @@ const WhyFractionalSection: React.FC = () => {
         </motion.div>
       </div>
     </section>
-  );
-};
-
-interface SystemTerminalProps {
-  counts: AssetCounts;
-}
-
-const SystemTerminal: React.FC<SystemTerminalProps> = ({ counts }) => {
-  const [lines, setLines] = useState<string[]>([]);
-
-  const photoCount = useMemo(
-    () => counts.photo ?? Math.floor(Math.random() * 20) + 12,
-    [counts.photo]
-  );
-
-  useEffect(() => {
-    const seq = [
-      '> CONNECTING TO SATELLITE... [OK]',
-      '> SYNCING MARKETING METRICS...',
-      '> ANALYZING CAMPAIGN PERFORMANCE...',
-      '> SYNCING LIGHTROOM ASSETS...',
-      `> FOUND ${photoCount} NEW PHOTOS.`,
-      '> OPTIMIZING VITE BUILD... [DONE]',
-      '> SYSTEM READY. WELCOME, USER.',
-    ];
-
-    const timers: NodeJS.Timeout[] = [];
-    setLines([]);
-    seq.forEach((line, idx) => {
-      timers.push(
-        setTimeout(() => {
-          setLines((prev) => [...prev, line]);
-        }, idx * 700 + (idx === 1 ? 800 : 0))
-      );
-    });
-
-    return () => timers.forEach((t) => clearTimeout(t));
-  }, [photoCount]);
-
-  return (
-    <TerminalBlock title="Command Center">
-      <div className="space-y-1 font-mono text-sm text-brand-text">
-        <AnimatePresence>
-          {lines.map((line) => (
-            <motion.div
-              key={line}
-              initial={{ opacity: 0, x: -6 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 6 }}
-              transition={{ duration: 0.25 }}
-              className="whitespace-pre"
-            >
-              {line}
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </div>
-    </TerminalBlock>
   );
 };
 
