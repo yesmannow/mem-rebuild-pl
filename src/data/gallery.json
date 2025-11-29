@@ -10,13 +10,13 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_175244.jpg",
+    "file": "images/projects/317 bbq/20231008_175510.jpg",
     "meta": {
       "width": 900,
       "height": 420,
-      "base": "images/projects/317 bbq/20231008_175244",
-      "color": "rgb(24 24 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOiP/wEpc6Rl8L4HlgA/klMNCEzPtLFh+4XOVt58sG0LoR3GwW15SbT3HMFBicxKsV1lrUQjL9l3mHsI/4hq+wvoDw5svUHT4MR9vpuAAAA"
+      "base": "images/projects/317 bbq/20231008_175510",
+      "color": "rgb(72 56 40)",
+      "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
     }
   },
   {
@@ -40,13 +40,23 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_175510.jpg",
+    "file": "images/projects/317 bbq/20231008_175244.jpg",
     "meta": {
       "width": 900,
       "height": 420,
-      "base": "images/projects/317 bbq/20231008_175510",
-      "color": "rgb(72 56 40)",
-      "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
+      "base": "images/projects/317 bbq/20231008_175244",
+      "color": "rgb(24 24 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOiP/wEpc6Rl8L4HlgA/klMNCEzPtLFh+4XOVt58sG0LoR3GwW15SbT3HMFBicxKsV1lrUQjL9l3mHsI/4hq+wvoDw5svUHT4MR9vpuAAAA"
+    }
+  },
+  {
+    "file": "images/projects/317 bbq/20231008_175654.jpg",
+    "meta": {
+      "width": 900,
+      "height": 420,
+      "base": "images/projects/317 bbq/20231008_175654",
+      "color": "rgb(184 168 136)",
+      "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCw7BxB0MO+ILhgAAD8XIxCQo0/6tMhwRxQFKVcAybTxiCi1eRVa5LTy9RT2ECMVbL4ESzYgAp9hCJp1h+10ZRuSDQY/Zbzjo5gAAA="
     }
   },
   {
@@ -60,16 +70,6 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_175512.jpg",
-    "meta": {
-      "width": 900,
-      "height": 420,
-      "base": "images/projects/317 bbq/20231008_175512",
-      "color": "rgb(248 232 216)",
-      "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAAkAPxF2sVAsJ6SisAgBgCIJagCdMoADCfg0bkLzbAAA4lFuh8CYLfqGmh7m1dbp+F14MI4iK7jkPSxt3lW2LQ+FMIW9YtjjQ47h3ATNevQPbfgcYOJujwBU44D5DO4q3CmJzRpbQF4nfAQaBSR8AwAAAA=="
-    }
-  },
-  {
     "file": "images/projects/317 bbq/20231008_175650.jpg",
     "meta": {
       "width": 900,
@@ -80,6 +80,16 @@
     }
   },
   {
+    "file": "images/projects/317 bbq/20231008_175512.jpg",
+    "meta": {
+      "width": 900,
+      "height": 420,
+      "base": "images/projects/317 bbq/20231008_175512",
+      "color": "rgb(248 232 216)",
+      "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAAkAPxF2sVAsJ6SisAgBgCIJagCdMoADCfg0bkLzbAAA4lFuh8CYLfqGmh7m1dbp+F14MI4iK7jkPSxt3lW2LQ+FMIW9YtjjQ47h3ATNevQPbfgcYOJujwBU44D5DO4q3CmJzRpbQF4nfAQaBSR8AwAAAA=="
+    }
+  },
+  {
     "file": "images/projects/317 bbq/20231008_181722.jpg",
     "meta": {
       "width": 900,
@@ -87,16 +97,6 @@
       "base": "images/projects/317 bbq/20231008_181722",
       "color": "rgb(40 40 40)",
       "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCdAB8v/m1YUUmtzwAA8p4y7OwR2Iaa9y9xrKc+PK59c6SL0EtMf74PvhMZfgYmDJRKb0wVhDJAsafWjyFzU3gAAA=="
-    }
-  },
-  {
-    "file": "images/projects/317 bbq/20231008_175654.jpg",
-    "meta": {
-      "width": 900,
-      "height": 420,
-      "base": "images/projects/317 bbq/20231008_175654",
-      "color": "rgb(184 168 136)",
-      "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCw7BxB0MO+ILhgAAD8XIxCQo0/6tMhwRxQFKVcAybTxiCi1eRVa5LTy9RT2ECMVbL4ESzYgAp9hCJp1h+10ZRuSDQY/Zbzjo5gAAA="
     }
   },
   {
@@ -120,16 +120,6 @@
     }
   },
   {
-    "file": "images/projects/Clean Aesthetic/Clean Aesthetic CA Logo - Primary (full color).png",
-    "meta": {
-      "width": 5700,
-      "height": 3445,
-      "base": "images/projects/Clean Aesthetic/Clean Aesthetic CA Logo - Primary (full color)",
-      "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRjoBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSK0AAAABgGTbtmlnn3u/7f9j22bNtm2zZhdtO2mBk06kSb7/tSEiJgD/iQCACFIJSrlverwGJIGY66iwMGRqPQTMDUP2+cfiA8PduTuCbn9nZPYr3zJwFgISgNAxNv/5XVdasTgNLmKIvNh6Xo5aG6l4lENMkJUVdTf0PqbhuhlcxAFw77VaIGdDBwYQrHYPj6BgXZJ3gH+4Nd7BAUCnd1gcgb5+dk9bgMrHSv+Eah2kAgBWUDggZgAAABADAJ0BKhQADAA/EXKwUCwmpKKwCAGAIglAAHxXIrEiAADMGqEdPqIAbLo3SRq0FBiJXzqJ7z2DNNz+Ce8PlMGW67404iDk0igfUcTkgCpJvqsW//9BU0ODuuHvsKkS8dsMlAAAAA=="
-    }
-  },
-  {
     "file": "images/projects/317 bbq/download.jpg",
     "meta": {
       "width": 1712,
@@ -137,6 +127,16 @@
       "base": "images/projects/317 bbq/download",
       "color": "rgb(8 8 8)",
       "blurDataURL": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAACQBQCdASoUACMAPxFwsVAsJiSjMBVdUYAiCWcAz6AuCtdYtYIkkzLsoZlNgmZ3dAn14jkxIAD+9CUEhG0w429uF+pYBOsfshR1+i7xPolCB/4nHLhpPQHivlnJR1urIg4rBivWxN11HQFqdtFJ4ffrbZlxW6cFbTFEHh9Z4wFgmHEKd15oCuqVrqKtgK7ikGoUsW4fnh3gq/O6HmoD3dQcaaegAA=="
+    }
+  },
+  {
+    "file": "images/projects/Clean Aesthetic/Clean Aesthetic CA Logo - Primary (full color).png",
+    "meta": {
+      "width": 5700,
+      "height": 3445,
+      "base": "images/projects/Clean Aesthetic/Clean Aesthetic CA Logo - Primary (full color)",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRjoBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSK0AAAABgGTbtmlnn3u/7f9j22bNtm2zZhdtO2mBk06kSb7/tSEiJgD/iQCACFIJSrlverwGJIGY66iwMGRqPQTMDUP2+cfiA8PduTuCbn9nZPYr3zJwFgISgNAxNv/5XVdasTgNLmKIvNh6Xo5aG6l4lENMkJUVdTf0PqbhuhlcxAFw77VaIGdDBwYQrHYPj6BgXZJ3gH+4Nd7BAUCnd1gcgb5+dk9bgMrHSv+Eah2kAgBWUDggZgAAABADAJ0BKhQADAA/EXKwUCwmpKKwCAGAIglAAHxXIrEiAADMGqEdPqIAbLo3SRq0FBiJXzqJ7z2DNNz+Ce8PlMGW67404iDk0igfUcTkgCpJvqsW//9BU0ODuuHvsKkS8dsMlAAAAA=="
     }
   },
   {
@@ -410,16 +410,6 @@
     }
   },
   {
-    "file": "images/projects/urgent care indy/occ-health-header.jpg",
-    "meta": {
-      "width": 1000,
-      "height": 603,
-      "base": "images/projects/urgent care indy/occ-health-header",
-      "color": "rgb(168 168 168)",
-      "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJYgDE2BUpkH/mJ99rs/P+APd6ZeXCv5JNRwKHdumuYcSJ67IPaBHoT5WDySeAYaYQqcJZm9acI4eFVVtlZ10DxfL0bF0i0Wi3bUI8J3YAAA=="
-    }
-  },
-  {
     "file": "images/projects/urgent care indy/what-we-treat-1.jpg",
     "meta": {
       "width": 1000,
@@ -427,6 +417,16 @@
       "base": "images/projects/urgent care indy/what-we-treat-1",
       "color": "rgb(136 136 136)",
       "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJQBfJAzRNMF0vYKyEgAD+6PV/2NXw0tyZpPVx0f46B0+BOowtmiOjBQxc19VQS9JUq7Gj+7jPI8LDD+MxoAAA"
+    }
+  },
+  {
+    "file": "images/projects/urgent care indy/occ-health-header.jpg",
+    "meta": {
+      "width": 1000,
+      "height": 603,
+      "base": "images/projects/urgent care indy/occ-health-header",
+      "color": "rgb(168 168 168)",
+      "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJYgDE2BUpkH/mJ99rs/P+APd6ZeXCv5JNRwKHdumuYcSJ67IPaBHoT5WDySeAYaYQqcJZm9acI4eFVVtlZ10DxfL0bF0i0Wi3bUI8J3YAAA=="
     }
   }
 ]

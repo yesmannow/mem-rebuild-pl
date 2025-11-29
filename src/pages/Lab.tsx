@@ -216,16 +216,16 @@ const Lab: React.FC = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4 }}
-                      className="rounded-3xl border border-[#40E0D0]/30 bg-slate-900/60 p-6 shadow-[0_15px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl"
+                      className="rounded-3xl border border-brand-teal/30 bg-slate-900/60 p-6 shadow-[0_15px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl"
                     >
-                      <p className="text-[10px] uppercase tracking-[0.4em] text-[#FFA500]/70">{card.label}</p>
+                      <p className="text-[10px] uppercase tracking-[0.4em] text-brand-orange/70">{card.label}</p>
                       <div className="mt-3">
                         <AnimatedCounter
                           value={card.value}
                           prefix=""
                           suffix={card.suffix}
                           decimals={card.decimals}
-                          className="text-4xl md:text-5xl text-[#40E0D0]"
+                          className="text-4xl md:text-5xl text-brand-teal"
                         />
                       </div>
                       <p className="mt-3 text-sm text-white/60">{card.description}</p>
@@ -235,12 +235,12 @@ const Lab: React.FC = () => {
 
                 {/* Terminal and Globe Grid */}
                 <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-                  <TerminalBlock title="Boot Sequence" className="min-h-[360px] border-[#40E0D0]/30 bg-slate-900/80">
+                  <TerminalBlock title="Boot Sequence" className="min-h-[360px] border-brand-teal/30 bg-slate-900/80">
                     <div className="space-y-3 text-sm font-mono text-white/80">
                       {bootSequence.map((line) => (
                         <p key={line} className="leading-relaxed">
-                          <span className="text-[#FFA500]">{line}</span>
-                          <span className="ml-2 text-[#40E0D0]/70">[OK]</span>
+                          <span className="text-brand-orange">{line}</span>
+                          <span className="ml-2 text-brand-teal/70">[OK]</span>
                         </p>
                       ))}
                     </div>
@@ -248,7 +248,7 @@ const Lab: React.FC = () => {
 
                   <Suspense
                     fallback={
-                      <div className="flex h-full min-h-[360px] items-center justify-center rounded-3xl border border-[#40E0D0]/30 bg-slate-900/60 text-sm text-[#40E0D0]/80">
+                      <div className="flex h-full min-h-[360px] items-center justify-center rounded-3xl border border-brand-teal/30 bg-slate-900/60 text-sm text-brand-teal/80">
                         Streaming telemetry...
                       </div>
                     }
