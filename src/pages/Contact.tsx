@@ -25,7 +25,6 @@ import { OceanRippleButton } from '../components/ui/OceanRippleButton';
 import TerminalBlock from '../components/ui/TerminalBlock';
 import TechProfile from '../components/TechProfile';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
-import AnimatedGradientText from '../components/ui/AnimatedGradientText';
 import { AvailabilityBadge } from '../components/ui/AvailabilityBadge';
 import './Contact.css';
 
@@ -247,25 +246,21 @@ const Contact: React.FC = () => {
               {/* Intro Text */}
               <motion.div variants={fadeInUp} className="text-center md:text-left">
                 <p className="text-sm font-mono uppercase tracking-[0.35em] text-brand-muted mb-4">
-                  Let's Connect
+                  Get in Touch
                 </p>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-brand-text">
-                  Let's Create What{' '}
-                  <AnimatedGradientText text="Doesn't Exist Yet" className="text-4xl md:text-5xl lg:text-6xl font-bold" />
-                </h1>
                 <p className="text-lg md:text-xl text-brand-muted leading-relaxed mb-4">
-                  I'm currently open to new opportunities in marketing leadership and tech integration.
-                  Feel free to reach out for interviews, collaborations, or any questions—I'd love to connect!
+                  Available for marketing leadership roles, strategic consulting, and technology integration projects.
+                  I respond to all inquiries within 24 hours.
                 </p>
                 <div className="flex flex-wrap gap-2 mt-4 justify-center md:justify-start">
                   <span className="px-3 py-1 bg-brand-teal/20 border border-brand-teal/30 rounded-full text-xs text-brand-teal font-medium">
-                    Job Opportunities
+                    Leadership Roles
                   </span>
                   <span className="px-3 py-1 bg-ocean-tangerine-dream/20 border border-ocean-tangerine-dream/30 rounded-full text-xs text-ocean-tangerine-dream font-medium">
-                    Consulting Projects
+                    Consulting
                   </span>
                   <span className="px-3 py-1 bg-ocean-pearl-aqua/20 border border-ocean-pearl-aqua/30 rounded-full text-xs text-ocean-pearl-aqua font-medium">
-                    General Questions
+                    Inquiries
                   </span>
                 </div>
               </motion.div>
@@ -704,28 +699,28 @@ const Contact: React.FC = () => {
                   <div className="p-2 rounded-lg bg-ocean-tangerine-dream/15 text-ocean-tangerine-dream">
                     <Coffee size={20} />
                   </div>
-                  <h3 className="text-xl font-bold text-brand-text">What to Expect</h3>
+                  <h3 className="text-xl font-bold text-brand-text">Process Overview</h3>
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal text-xs font-bold">1</div>
                     <div>
-                      <p className="text-brand-text font-medium text-sm">Discovery Call</p>
-                      <p className="text-brand-muted text-xs">15-30 min to understand your needs</p>
+                      <p className="text-brand-text font-medium text-sm">Initial Discussion</p>
+                      <p className="text-brand-muted text-xs">Brief call to understand requirements</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal text-xs font-bold">2</div>
                     <div>
-                      <p className="text-brand-text font-medium text-sm">Strategic Assessment</p>
-                      <p className="text-brand-muted text-xs">I'll analyze your challenges & goals</p>
+                      <p className="text-brand-text font-medium text-sm">Scope Review</p>
+                      <p className="text-brand-muted text-xs">Assess objectives and deliverables</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal text-xs font-bold">3</div>
                     <div>
-                      <p className="text-brand-text font-medium text-sm">Custom Proposal</p>
-                      <p className="text-brand-muted text-xs">Tailored solutions & timeline</p>
+                      <p className="text-brand-text font-medium text-sm">Proposal</p>
+                      <p className="text-brand-muted text-xs">Timeline and engagement details</p>
                     </div>
                   </div>
                 </div>
@@ -784,10 +779,10 @@ const Contact: React.FC = () => {
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
               >
-                <TerminalBlock title="Philosophy">
+                <TerminalBlock title="Approach">
                   <div className="space-y-2 text-sm text-brand-text">
-                    <p>&gt; Systems create freedom</p>
-                    <p>&gt; Let's design one that works for you</p>
+                    <p>&gt; Strategy-first, execution-focused</p>
+                    <p>&gt; Data-driven decisions</p>
                     <p className="text-brand-teal animate-pulse">&gt; _</p>
                   </div>
                 </TerminalBlock>
@@ -803,9 +798,9 @@ const Contact: React.FC = () => {
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
               >
-                <h3 className="text-xl font-bold mb-2 text-brand-text">Want to see my work?</h3>
+                <h3 className="text-xl font-bold mb-2 text-brand-text">View Portfolio</h3>
                 <p className="text-brand-muted mb-4">
-                  Explore my case studies to see how I solve real business challenges.
+                  Review case studies and project outcomes.
                 </p>
                 <OceanRippleButton
                   asLink
@@ -815,7 +810,7 @@ const Contact: React.FC = () => {
                   className="inline-flex items-center gap-2"
                   aria-label="View case studies"
                 >
-                  View Case Studies
+                  Case Studies
                   <ArrowRight size={16} />
                 </OceanRippleButton>
               </motion.div>

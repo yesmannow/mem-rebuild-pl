@@ -7,17 +7,10 @@ import ScrollProgress from '../components/ui/ScrollProgress';
 import AnimatedGradientText from '../components/ui/AnimatedGradientText';
 import SectionDivider from '../components/ui/SectionDivider';
 import TerminalBlock from '../components/ui/TerminalBlock';
-import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import { OceanRippleButton } from '../components/ui/OceanRippleButton';
 
 const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
 const TechProfile = React.lazy(() => import('../components/TechProfile'));
-
-const heroStats = [
-  { label: 'Revenue influenced', prefix: '$', number: 85, suffix: 'M+', detail: 'Across SaaS, eCommerce, and services' },
-  { label: 'Systems shipped', number: 72, suffix: '+ builds', detail: 'CRM, MarTech, and acquisition stacks' },
-  { label: 'Avg. sprint launch', number: 6, suffix: ' weeks', detail: 'From discovery to deployed programs' },
-];
 
 const snapshotItems = [
   {
@@ -156,19 +149,6 @@ const Home: React.FC = () => {
                   View Work
                   <ArrowRight size={16} />
                 </OceanRippleButton>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-                {heroStats.map((stat) => (
-                  <div key={stat.label} className="rounded-xl border border-white/10 bg-slate-950/60 p-4">
-                    <p className="text-xs font-mono uppercase tracking-[0.3em] text-brand-muted mb-2">{stat.label}</p>
-                    <div className="text-2xl font-semibold text-brand-text">
-                      {stat.prefix}
-                      <OceanCountingNumber number={stat.number} />
-                      {stat.suffix}
-                    </div>
-                    <p className="text-sm text-brand-muted mt-1">{stat.detail}</p>
-                  </div>
-                ))}
               </div>
             </motion.div>
             {HeroRightColumn}
