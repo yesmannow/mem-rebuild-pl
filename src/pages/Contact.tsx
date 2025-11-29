@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Mail,
@@ -13,13 +13,23 @@ import {
   CheckCircle2,
   AlertCircle,
   Loader2,
+  ArrowRight,
+  Clock,
+  Star,
+  Coffee,
 } from 'lucide-react';
-import SectionWrapper from '../components/SectionWrapper';
 import { trackPortfolioEngagement } from '../utils/analytics';
 import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations';
-import { OceanGradientAnimation } from '../components/ui/OceanGradientAnimation';
+import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
 import { OceanRippleButton } from '../components/ui/OceanRippleButton';
+import TerminalBlock from '../components/ui/TerminalBlock';
+import TechProfile from '../components/TechProfile';
+import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
+import AnimatedGradientText from '../components/ui/AnimatedGradientText';
+import { AvailabilityBadge } from '../components/ui/AvailabilityBadge';
 import './Contact.css';
+
+const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
 
 interface FormData {
   name: string;
@@ -204,62 +214,125 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <OceanGradientAnimation
-      containerClassName="contact-page-wrapper"
-      className="contact-page-content"
-      interactive={false}
-      size="50%"
-      blendingValue="soft-light"
-    >
-      <main className="contact-page relative z-10">
-        <SectionWrapper bg="bg-white/95 backdrop-blur-sm" animate={true}>
-        <motion.div variants={staggerContainer} initial="hidden" animate="visible">
-          <motion.div className="contact-header" variants={fadeInUp}>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Let's Create What Doesn't Exist Yet.
-            </h1>
+    <OceanAuroraBackground className="bg-brand-dark" style={{ minHeight: '100vh', height: 'auto' }}>
+      <main className="contact-page relative z-10 w-full min-h-screen flex flex-col">
+        {/* Floating Particles */}
+        <Suspense fallback={<div className="h-16" />}>
+          <FloatingParticles count={32} />
+        </Suspense>
+
+        {/* Hero Section with Bio Photo */}
+        <section className="relative pt-28 pb-12 px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            variants={staggerContainer} 
+            initial="hidden" 
+            animate="visible"
+            className="max-w-5xl mx-auto"
+          >
+            {/* Profile and Intro Grid */}
+            <div className="grid md:grid-cols-[auto_1fr] gap-8 items-center mb-10">
+              {/* Bio Photo */}
+              <motion.div
+                variants={fadeInUp}
+                className="flex flex-col items-center"
+              >
+                <TechProfile size="lg" className="mb-4" />
+                <AvailabilityBadge 
+                  available={true} 
+                  text="Open to Opportunities" 
+                  size="md" 
+                />
+              </motion.div>
+              
+              {/* Intro Text */}
+              <motion.div variants={fadeInUp} className="text-center md:text-left">
+                <p className="text-sm font-mono uppercase tracking-[0.35em] text-brand-muted mb-4">
+                  Let's Connect
+                </p>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-brand-text">
+                  Let's Create What{' '}
+                  <AnimatedGradientText text="Doesn't Exist Yet" className="text-4xl md:text-5xl lg:text-6xl font-bold" />
+                </h1>
+                <p className="text-lg md:text-xl text-brand-muted leading-relaxed mb-4">
+                  I'm currently open to new opportunities in marketing leadership and tech integration.
+                  Feel free to reach out for interviews, collaborations, or any questions—I'd love to connect!
+                </p>
+                <div className="flex flex-wrap gap-2 mt-4 justify-center md:justify-start">
+                  <span className="px-3 py-1 bg-brand-teal/20 border border-brand-teal/30 rounded-full text-xs text-brand-teal font-medium">
+                    Job Opportunities
+                  </span>
+                  <span className="px-3 py-1 bg-ocean-tangerine-dream/20 border border-ocean-tangerine-dream/30 rounded-full text-xs text-ocean-tangerine-dream font-medium">
+                    Consulting Projects
+                  </span>
+                  <span className="px-3 py-1 bg-ocean-pearl-aqua/20 border border-ocean-pearl-aqua/30 rounded-full text-xs text-ocean-pearl-aqua font-medium">
+                    General Questions
+                  </span>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Stats Row */}
             <motion.div
-              className="intro-section max-w-3xl mx-auto mb-8 bg-gradient-to-br from-blue-50 to-teal-50 border border-blue-200/50 rounded-2xl p-6"
               variants={fadeInUp}
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8"
             >
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
-                I'm currently open to new opportunities in marketing leadership and tech integration.
-                Feel free to reach out for interviews, collaborations, or any questions—I'd love to connect!
-              </p>
-              <p className="text-base text-gray-600 leading-relaxed mb-4">
-                Have a challenge that needs solving? A system that needs building? An idea that needs shaping?
-              </p>
-              <p className="text-lg font-semibold text-gray-900">
-                Let's talk.
-              </p>
-              <div className="flex flex-wrap gap-2 mt-4">
-                <span className="px-3 py-1 bg-blue-100 border border-blue-200 rounded-full text-xs text-blue-700 font-medium">
-                  Job Opportunities
-                </span>
-                <span className="px-3 py-1 bg-teal-100 border border-teal-200 rounded-full text-xs text-teal-700 font-medium">
-                  Consulting Projects
-                </span>
-                <span className="px-3 py-1 bg-gray-100 border border-gray-200 rounded-full text-xs text-gray-700 font-medium">
-                  General Questions
-                </span>
+              <div className="rounded-xl border border-white/10 bg-slate-950/70 backdrop-blur p-4 text-center">
+                <OceanCountingNumber 
+                  number={15} 
+                  suffix="+" 
+                  inView 
+                  className="text-3xl md:text-4xl text-brand-teal block mb-1" 
+                />
+                <span className="text-xs md:text-sm text-brand-muted">Years Experience</span>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-slate-950/70 backdrop-blur p-4 text-center">
+                <OceanCountingNumber 
+                  number={72} 
+                  suffix="+" 
+                  inView 
+                  className="text-3xl md:text-4xl text-ocean-tangerine-dream block mb-1" 
+                />
+                <span className="text-xs md:text-sm text-brand-muted">Projects Delivered</span>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-slate-950/70 backdrop-blur p-4 text-center">
+                <OceanCountingNumber 
+                  number={24} 
+                  inView 
+                  className="text-3xl md:text-4xl text-ocean-pearl-aqua block mb-1" 
+                />
+                <span className="text-xs md:text-sm text-brand-muted">Hour Response</span>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-slate-950/70 backdrop-blur p-4 text-center">
+                <OceanCountingNumber 
+                  number={100} 
+                  suffix="%" 
+                  inView 
+                  className="text-3xl md:text-4xl text-green-400 block mb-1" 
+                />
+                <span className="text-xs md:text-sm text-brand-muted">Client Satisfaction</span>
               </div>
             </motion.div>
           </motion.div>
-        </motion.div>
-      </SectionWrapper>
+        </section>
 
-      <SectionWrapper bg="bg-gray-50" animate={true}>
-        <div className="contact-content">
-          <div className="contact-grid">
+        {/* Main Content */}
+        <section className="relative z-10 py-8 px-4 sm:px-6 lg:px-8 flex-1">
+          <div className="contact-content max-w-6xl mx-auto">
+            <div className="contact-grid">
             {/* Contact Form Card */}
             <motion.div
-              className="form-card"
+              className="form-card rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 md:p-8"
               variants={staggerItem}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             >
-              <h2 className="text-2xl font-bold mb-6 text-gray-900">Send a Message</h2>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
+                  <Send size={20} />
+                </div>
+                <h2 className="text-2xl font-bold text-brand-text">Send a Message</h2>
+              </div>
 
               <AnimatePresence mode="wait">
                 {submitted ? (
@@ -268,31 +341,30 @@ const Contact: React.FC = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
-                    className="success-card"
+                    className="success-card text-center py-8"
                   >
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                      className="success-icon-wrapper"
+                      className="w-20 h-20 mx-auto mb-6 bg-brand-teal/20 rounded-full flex items-center justify-center"
                     >
-                      <CheckCircle2 size={48} className="text-green-500" />
+                      <CheckCircle2 size={48} className="text-brand-teal" />
                     </motion.div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Received!</h3>
-                    <p className="text-gray-600 mb-6">I'll be in touch within 24 hours.</p>
-                    <motion.button
+                    <h3 className="text-2xl font-bold text-brand-text mb-2">Message Received!</h3>
+                    <p className="text-brand-muted mb-6">I'll be in touch within 24 hours.</p>
+                    <OceanRippleButton
                       onClick={() => {
                         setSubmitted(false);
                         setFormData({ name: '', email: '', message: '', reason: '', company: '', phone: '' });
                         setFormErrors({});
                         setTouchedFields(new Set());
                       }}
-                      className="btn-secondary"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      variant="outline"
+                      size="md"
                     >
                       Send Another Message
-                    </motion.button>
+                    </OceanRippleButton>
                   </motion.div>
                 ) : (
                   <motion.form
@@ -548,7 +620,7 @@ const Contact: React.FC = () => {
             <div className="info-column">
               {/* Get In Touch Card */}
               <motion.div
-                className="info-card"
+                className="rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/40 transition-all duration-300"
                 variants={staggerItem}
                 initial="hidden"
                 whileInView="visible"
@@ -556,25 +628,25 @@ const Contact: React.FC = () => {
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
               >
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Get In Touch</h3>
-                <p className="text-gray-600 mb-6">Prefer to reach out directly? Use any of these options:</p>
+                <h3 className="text-xl font-bold mb-4 text-brand-text">Get In Touch</h3>
+                <p className="text-brand-muted mb-6">Prefer to reach out directly? Use any of these options:</p>
 
                 {/* Contact Methods */}
-                <div className="contact-methods">
+                <div className="space-y-3">
                   <motion.a
                     href="mailto:hoosierdarling@gmail.com"
-                    className="contact-method"
+                    className="flex items-center gap-4 p-4 rounded-xl bg-slate-900/50 border border-white/5 hover:border-brand-teal/40 transition-all group"
                     whileHover={{ x: 4, scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ duration: 0.2 }}
                     aria-label="Send email to hoosierdarling@gmail.com"
                   >
-                    <div className="contact-icon">
+                    <div className="w-12 h-12 flex items-center justify-center bg-brand-teal/15 rounded-xl text-brand-teal group-hover:bg-brand-teal group-hover:text-slate-900 transition-all">
                       <Mail size={24} />
                     </div>
                     <div>
-                      <strong>Email</strong>
-                      <p>hoosierdarling@gmail.com</p>
+                      <strong className="text-brand-text block">Email</strong>
+                      <p className="text-brand-muted text-sm">hoosierdarling@gmail.com</p>
                     </div>
                   </motion.a>
 
@@ -582,18 +654,18 @@ const Contact: React.FC = () => {
                     href="https://linkedin.com/in/jacobdarling"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="contact-method"
+                    className="flex items-center gap-4 p-4 rounded-xl bg-slate-900/50 border border-white/5 hover:border-brand-teal/40 transition-all group"
                     whileHover={{ x: 4, scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ duration: 0.2 }}
                     aria-label="Connect on LinkedIn"
                   >
-                    <div className="contact-icon">
+                    <div className="w-12 h-12 flex items-center justify-center bg-brand-teal/15 rounded-xl text-brand-teal group-hover:bg-brand-teal group-hover:text-slate-900 transition-all">
                       <Linkedin size={24} />
                     </div>
                     <div>
-                      <strong>LinkedIn</strong>
-                      <p>Connect professionally</p>
+                      <strong className="text-brand-text block">LinkedIn</strong>
+                      <p className="text-brand-muted text-sm">Connect professionally</p>
                     </div>
                   </motion.a>
 
@@ -601,26 +673,26 @@ const Contact: React.FC = () => {
                     href="https://github.com/JdarlingGT"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="contact-method"
+                    className="flex items-center gap-4 p-4 rounded-xl bg-slate-900/50 border border-white/5 hover:border-brand-teal/40 transition-all group"
                     whileHover={{ x: 4, scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ duration: 0.2 }}
                     aria-label="View GitHub profile"
                   >
-                    <div className="contact-icon">
+                    <div className="w-12 h-12 flex items-center justify-center bg-brand-teal/15 rounded-xl text-brand-teal group-hover:bg-brand-teal group-hover:text-slate-900 transition-all">
                       <Github size={24} />
                     </div>
                     <div>
-                      <strong>GitHub</strong>
-                      <p>View my code</p>
+                      <strong className="text-brand-text block">GitHub</strong>
+                      <p className="text-brand-muted text-sm">View my code</p>
                     </div>
                   </motion.a>
                 </div>
               </motion.div>
 
-              {/* Quote Card */}
+              {/* What to Expect Card */}
               <motion.div
-                className="quote-card"
+                className="rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-ocean-tangerine-dream/40 transition-all duration-300"
                 variants={staggerItem}
                 initial="hidden"
                 whileInView="visible"
@@ -628,14 +700,102 @@ const Contact: React.FC = () => {
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
               >
-                <blockquote className="text-lg italic text-gray-700">
-                  "Systems create freedom — let's design one that works for you."
-                </blockquote>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded-lg bg-ocean-tangerine-dream/15 text-ocean-tangerine-dream">
+                    <Coffee size={20} />
+                  </div>
+                  <h3 className="text-xl font-bold text-brand-text">What to Expect</h3>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal text-xs font-bold">1</div>
+                    <div>
+                      <p className="text-brand-text font-medium text-sm">Discovery Call</p>
+                      <p className="text-brand-muted text-xs">15-30 min to understand your needs</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal text-xs font-bold">2</div>
+                    <div>
+                      <p className="text-brand-text font-medium text-sm">Strategic Assessment</p>
+                      <p className="text-brand-muted text-xs">I'll analyze your challenges & goals</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal text-xs font-bold">3</div>
+                    <div>
+                      <p className="text-brand-text font-medium text-sm">Custom Proposal</p>
+                      <p className="text-brand-muted text-xs">Tailored solutions & timeline</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Response Time & Preferred Contact */}
+              <motion.div
+                className="rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-ocean-pearl-aqua/40 transition-all duration-300"
+                variants={staggerItem}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded-lg bg-ocean-pearl-aqua/15 text-ocean-pearl-aqua">
+                    <Clock size={20} />
+                  </div>
+                  <h3 className="text-xl font-bold text-brand-text">Response Info</h3>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-3 rounded-lg bg-slate-900/50 border border-white/5">
+                    <span className="text-brand-muted text-sm">Avg. Response Time</span>
+                    <span className="text-brand-teal font-bold">Under 24 hours</span>
+                  </div>
+                  <div>
+                    <p className="text-brand-muted text-xs mb-2 uppercase tracking-wide">Preferred Contact Methods</p>
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <Star size={14} className="text-ocean-tangerine-dream" />
+                        <span className="text-brand-text text-sm">This Contact Form</span>
+                        <span className="ml-auto text-xs text-brand-muted">#1 Preferred</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Star size={14} className="text-brand-muted" />
+                        <span className="text-brand-text text-sm">LinkedIn Message</span>
+                        <span className="ml-auto text-xs text-brand-muted">#2</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Star size={14} className="text-brand-muted" />
+                        <span className="text-brand-text text-sm">Email Directly</span>
+                        <span className="ml-auto text-xs text-brand-muted">#3</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Terminal Quote Card */}
+              <motion.div
+                variants={staggerItem}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.2 }}
+              >
+                <TerminalBlock title="Philosophy">
+                  <div className="space-y-2 text-sm text-brand-text">
+                    <p>&gt; Systems create freedom</p>
+                    <p>&gt; Let's design one that works for you</p>
+                    <p className="text-brand-teal animate-pulse">&gt; _</p>
+                  </div>
+                </TerminalBlock>
               </motion.div>
 
               {/* CTA Card */}
               <motion.div
-                className="cta-card"
+                className="rounded-2xl border border-brand-teal/30 bg-gradient-to-br from-brand-teal/10 to-brand-teal/5 backdrop-blur p-6 text-center hover:border-brand-teal/50 transition-all duration-300"
                 variants={staggerItem}
                 initial="hidden"
                 whileInView="visible"
@@ -643,8 +803,8 @@ const Contact: React.FC = () => {
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
               >
-                <h3 className="text-xl font-bold mb-2 text-gray-900">Want to see my work?</h3>
-                <p className="text-gray-600 mb-4">
+                <h3 className="text-xl font-bold mb-2 text-brand-text">Want to see my work?</h3>
+                <p className="text-brand-muted mb-4">
                   Explore my case studies to see how I solve real business challenges.
                 </p>
                 <OceanRippleButton
@@ -652,18 +812,19 @@ const Contact: React.FC = () => {
                   href="/case-studies"
                   variant="outline"
                   size="md"
-                  className="btn-secondary"
+                  className="inline-flex items-center gap-2"
                   aria-label="View case studies"
                 >
-                  View Case Studies →
+                  View Case Studies
+                  <ArrowRight size={16} />
                 </OceanRippleButton>
               </motion.div>
             </div>
           </div>
         </div>
-      </SectionWrapper>
+        </section>
       </main>
-    </OceanGradientAnimation>
+    </OceanAuroraBackground>
   );
 };
 
