@@ -39,6 +39,33 @@ export const OceanGradientAnimation = ({
   const [curY, setCurY] = useState(0);
   const [tgX, setTgX] = useState(0);
   const [tgY, setTgY] = useState(0);
+  const [isSafari, setIsSafari] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    // Check for reduced motion and mobile device
+    const checkMotionAndDevice = () => {
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isSmallScreen = window.innerWidth < 768;
+      
+      setPrefersReducedMotion(reducedMotion);
+      setIsMobile(isTouchDevice && isSmallScreen);
+    };
+    
+    checkMotionAndDevice();
+    
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    motionQuery.addEventListener('change', checkMotionAndDevice);
+    window.addEventListener('resize', checkMotionAndDevice);
+    
+    return () => {
+      motionQuery.removeEventListener('change', checkMotionAndDevice);
+      window.removeEventListener('resize', checkMotionAndDevice);
+    };
+  }, []);
+  
   useEffect(() => {
     document.body.style.setProperty(
       "--gradient-background-start",
@@ -59,6 +86,9 @@ export const OceanGradientAnimation = ({
   }, []);
 
   useEffect(() => {
+    // Skip cursor tracking on mobile or reduced motion
+    if (prefersReducedMotion || isMobile) return;
+    
     function move() {
       if (!interactiveRef.current) {
         return;
@@ -71,9 +101,12 @@ export const OceanGradientAnimation = ({
     }
 
     move();
-  }, [tgX, tgY]);
+  }, [tgX, tgY, prefersReducedMotion, isMobile]);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    // Skip on mobile or reduced motion
+    if (prefersReducedMotion || isMobile) return;
+    
     if (interactiveRef.current) {
       const rect = interactiveRef.current.getBoundingClientRect();
       setTgX(event.clientX - rect.left);
@@ -81,10 +114,24 @@ export const OceanGradientAnimation = ({
     }
   };
 
-  const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
     setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
   }, []);
+  
+  // For mobile/reduced motion, render a simplified static gradient
+  if (prefersReducedMotion || isMobile) {
+    return (
+      <div
+        className={cn(
+          "h-screen w-screen relative overflow-hidden top-0 left-0 bg-gradient-to-br from-[#edf6f9] via-[#83c5be] to-[#006d77]",
+          containerClassName
+        )}
+        style={{ willChange: 'auto' }}
+      >
+        <div className={cn("relative z-10", className)}>{children}</div>
+      </div>
+    );
+  }
 
   return (
     <div

@@ -1,6 +1,6 @@
 'use client';
 
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { cn } from "../../lib/utils"
 
@@ -10,6 +10,52 @@ export interface OceanBackgroundBeamsProps {
 
 export const OceanBackgroundBeams = React.memo(
   ({ className }: OceanBackgroundBeamsProps) => {
+    const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+      const checkMotionAndDevice = () => {
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        const isSmallScreen = window.innerWidth < 768;
+        
+        setPrefersReducedMotion(reducedMotion);
+        setIsMobile(isTouchDevice && isSmallScreen);
+      };
+      
+      checkMotionAndDevice();
+      
+      const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      motionQuery.addEventListener('change', checkMotionAndDevice);
+      window.addEventListener('resize', checkMotionAndDevice);
+      
+      return () => {
+        motionQuery.removeEventListener('change', checkMotionAndDevice);
+        window.removeEventListener('resize', checkMotionAndDevice);
+      };
+    }, []);
+    
+    // For mobile/reduced motion, render a static simplified version
+    if (prefersReducedMotion || isMobile) {
+      return (
+        <div
+          className={cn(
+            "absolute h-full w-full inset-0 flex items-center justify-center",
+            className,
+          )}
+          style={{ willChange: 'auto' }}
+        >
+          {/* Static gradient overlay instead of animated beams */}
+          <div 
+            className="absolute inset-0 opacity-10"
+            style={{
+              background: 'radial-gradient(ellipse at center, rgba(131, 197, 190, 0.3) 0%, transparent 70%)'
+            }}
+          />
+        </div>
+      );
+    }
+    
     const paths = [
       "M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875",
       "M-373 -197C-373 -197 -305 208 159 335C623 462 691 867 691 867",

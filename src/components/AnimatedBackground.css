@@ -50,6 +50,22 @@
   .animated-shape,
   .bg-image-layer {
     animation: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Disable heavy animations on mobile for performance */
+@media (max-width: 768px) and (hover: none) {
+  .animated-shape,
+  .bg-image-layer {
+    animation: none !important;
+    transform: none !important;
+  }
+  
+  .animated-background {
+    /* Use simpler gradient on mobile */
+    background: linear-gradient(135deg, #edf6f9 0%, #d4e8ed 50%, #b8d9e1 100%);
   }
 }
 
