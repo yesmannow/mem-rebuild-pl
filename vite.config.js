@@ -121,6 +121,29 @@ export default defineConfig({
     // Overlay is disabled - errors are caught and handled by our error handlers in index.html
     // Set to true if you want to see Vite's error overlay for debugging
     overlay: false,
+    // Proxy API routes to mock handlers during development
+    // This allows SEOScanner, DeploymentStatus and other apps to work locally
+    proxy: {
+      '/api/health': {
+        target: 'http://localhost:5173',
+        rewrite: () => '/mock-api/health.json',
+        bypass: () => {
+          // Return mock health data for local development
+          return JSON.stringify({
+            status: 'ok',
+            timestamp: new Date().toISOString(),
+            version: 'dev',
+            branch: 'local',
+            env: 'development',
+            checks: {
+              api: 'ok',
+              build: 'ok',
+              cdn: 'ok',
+            }
+          });
+        }
+      },
+    },
   },
   // Optimize dependencies for dev server
   optimizeDeps: {

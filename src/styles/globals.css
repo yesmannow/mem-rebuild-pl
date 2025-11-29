@@ -180,3 +180,24 @@
 .modal-backdrop {
   @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-40;
 }
+
+/* Ocean Pearl Neon Glow Effects */
+.drop-shadow-neon {
+  filter: drop-shadow(0 0 5px rgba(64, 224, 208, 0.5));
+}
+
+.drop-shadow-neon-strong {
+  filter: drop-shadow(0 0 10px rgba(64, 224, 208, 0.7)) drop-shadow(0 0 20px rgba(64, 224, 208, 0.4));
+}
+
+.drop-shadow-neon-orange {
+  filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.5));
+}
+
+.glow-teal {
+  box-shadow: 0 0 10px rgba(64, 224, 208, 0.3), 0 0 20px rgba(64, 224, 208, 0.15);
+}
+
+.glow-orange {
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.3), 0 0 20px rgba(255, 165, 0, 0.15);
+}

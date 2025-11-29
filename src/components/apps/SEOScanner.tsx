@@ -95,8 +95,17 @@ const SeoScanner: React.FC = () => {
     try {
       const response = await fetch(`/api/audit-url?url=${encodeURIComponent(normalizedUrl)}`);
       if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || 'Could not scan target');
+        // Check if the response has JSON content
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          const data = await response.json();
+          throw new Error(data.error || 'Could not scan target');
+        }
+        // If running locally without the API, provide helpful message
+        if (import.meta.env.DEV) {
+          throw new Error('SEO Scanner requires Cloudflare Pages Functions. Deploy to Cloudflare or run `npx wrangler pages dev dist` locally.');
+        }
+        throw new Error(`HTTP ${response.status}: Could not scan target`);
       }
       const data: AuditResult = await response.json();
       setResult(data);
