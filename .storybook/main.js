@@ -9,9 +9,6 @@ const config = {
     name: '@storybook/react-vite',
     options: {},
   },
-  core: {
-    builder: '@storybook/builder-vite',
-  },
   typescript: {
     check: false,
     reactDocgen: 'react-docgen-typescript',
