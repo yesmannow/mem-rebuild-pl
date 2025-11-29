@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Mail, Linkedin, Github, ArrowUp } from 'lucide-react';
-import AnimatedCaveLogo from '../branding/AnimatedCaveLogo';
+import ModernLogo from '../branding/ModernLogo';
 import SignalTape from '../home/SignalTape';
 import SystemLog from '../ui/SystemLog';
 import { usePerformanceMetrics } from '../../hooks/usePerformanceMetrics';
@@ -49,7 +49,7 @@ const EnhancedFooter: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <AnimatedCaveLogo variant="lockup" size={48} animated={true} />
+              <ModernLogo size={48} showText={true} animated={true} />
               <p className="text-[var(--parchment-050)]/60 text-sm mt-6 font-body leading-relaxed max-w-sm">
                 Marketing systems that drive measurable growth. From hypothesis to pipeline.
               </p>

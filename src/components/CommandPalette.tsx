@@ -108,6 +108,15 @@ const NAVIGATION_ITEMS: NavigationItem[] = [
     type: 'navigation'
   },
   {
+    id: 'toolbox',
+    title: 'Toolbox',
+    description: 'Skills, tools, and technical expertise',
+    icon: Settings,
+    to: '/toolbox',
+    keywords: ['skills', 'tools', 'technical', 'expertise', 'stack', 'technologies'],
+    type: 'navigation'
+  },
+  {
     id: 'services',
     title: 'Services',
     description: 'What I offer',

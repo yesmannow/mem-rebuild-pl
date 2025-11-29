@@ -5,13 +5,14 @@ import { Grip, X } from 'lucide-react';
 import { useHaptic } from '../hooks/useHaptic';
 import { productMakerIcons } from './ui/Icons';
 
-const { home: HomeIcon, projects: ProjectsIcon, lab: LabIcon, studio: StudioIcon, bio: BioIcon, contact: ContactIcon } =
+const { home: HomeIcon, projects: ProjectsIcon, lab: LabIcon, studio: StudioIcon, bio: BioIcon, contact: ContactIcon, toolbox: ToolboxIcon } =
   productMakerIcons;
 
 // Full menu items for the overlay
 const fullMenuItems = [
   { icon: ProjectsIcon, label: 'Projects', path: '/case-studies', description: 'Client systems and proof' },
   { icon: LabIcon, label: 'The Lab', path: '/apps', description: 'Experiments & internal tools' },
+  { icon: ToolboxIcon, label: 'Toolbox', path: '/toolbox', description: 'Skills & technical expertise' },
   { icon: StudioIcon, label: 'Studio', path: '/studio', description: 'Brand & creative kits' },
   { icon: BioIcon, label: 'Bio', path: '/about', description: 'Meet Jacob' },
   { icon: ContactIcon, label: 'Contact', path: '/contact', description: 'Book a consultation' },
@@ -93,8 +94,8 @@ const MobileDock: React.FC = () => {
                             : 'bg-slate-800/50 border-white/10 text-white hover:bg-slate-800 hover:border-brand-teal/30'
                         }`}
                       >
-                        <Icon 
-                          size={28} 
+                        <Icon
+                          size={28}
                           className={active ? 'text-brand-teal' : 'text-brand-muted'}
                           style={{
                             filter: active ? 'drop-shadow(0 0 8px rgba(64, 224, 208, 0.6))' : 'none',

@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import AnimatedSection from '../components/animations/AnimatedSection';
 import SkillsRadar from '../components/skills/SkillsRadar';
 import ToolboxEcosystem from '../components/diagrams/ToolboxEcosystem';
 import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
 import { SkillProgressBar } from '../components/ui/SkillProgressBar';
 import { OceanRippleButton } from '../components/ui/OceanRippleButton';
+import { SpotlightCard } from '../components/ui/SpotlightCard';
+import { TiltStackCard } from '../components/ui/TiltStackCard';
+import AnimatedGradientText from '../components/ui/AnimatedGradientText';
+import { Search } from 'lucide-react';
 import {
   ZapIcon,
   ShieldIcon,
@@ -27,6 +31,7 @@ import { getTechIconSlug } from '../utils/techIcons';
 const Toolbox: React.FC = () => {
   const [expandedCategory, setExpandedCategory] = useState<number | null>(null);
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const toggleCategory = (index: number) => {
     setExpandedCategory(expandedCategory === index ? null : index);
@@ -51,7 +56,9 @@ const Toolbox: React.FC = () => {
       <OceanBackgroundBeams className="opacity-25" />
       <AnimatedSection>
         <section className="toolbox-header container mx-auto px-6 py-12 relative z-10">
-          <motion.h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight" variants={fadeInUp}>Skills & Tools</motion.h1>
+          <motion.h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight" variants={fadeInUp}>
+            <AnimatedGradientText text="Skills & Tools" className="text-4xl md:text-5xl font-display font-bold" />
+          </motion.h1>
           <motion.p className="lead mt-3 text-lg md:text-xl text-[var(--parchment-050)]/70 max-w-4xl" variants={fadeInUp}>
             A unique combination of marketing and technical skills. I'm proficient in marketing
             automation platforms (HubSpot, Marketo, Salesforce CRM), analytics tools (Google
@@ -211,24 +218,52 @@ const Toolbox: React.FC = () => {
         <section className="technical-categories container mx-auto px-6 py-12">
           <div className="section-intro mb-6">
             <h2 className="text-2xl md:text-3xl font-semibold">Core Technical Categories</h2>
-            <p className="text-[var(--parchment-050)]/70">Specialized expertise organized by technical discipline</p>
+            <p className="text-[var(--parchment-050)]/70 mb-4">Specialized expertise organized by technical discipline</p>
+
+            {/* Search Bar */}
+            <div className="relative max-w-md mx-auto">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--parchment-050)]/40" />
+              <input
+                type="text"
+                placeholder="Search categories or skills..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-2.5 bg-[var(--ink-800)]/50 border border-[var(--ink-700)]/60 rounded-lg text-[var(--parchment-050)] placeholder:text-[var(--parchment-050)]/40 focus:outline-none focus:ring-2 focus:ring-[var(--signal-500)]/50 focus:border-[var(--signal-500)]/50 transition-all"
+              />
+            </div>
           </div>
 
           <div className="categories-list grid gap-6">
-            {technicalCategories.map((category, index) => {
-              const isExpanded = expandedCategory === index;
+            {technicalCategories
+              .map((category, originalIndex) => ({
+                category,
+                originalIndex,
+              }))
+              .filter(({ category }) => {
+                if (!searchQuery) return true;
+                const query = searchQuery.toLowerCase();
+                return (
+                  category.title.toLowerCase().includes(query) ||
+                  category.description.toLowerCase().includes(query) ||
+                  category.skills.some((skill) => skill.toLowerCase().includes(query))
+                );
+              })
+              .map(({ category, originalIndex }, filteredIndex) => {
+              const isExpanded = expandedCategory === originalIndex;
               return (
-                <motion.div
-                  key={index}
-                  className={`category-card ${isExpanded ? 'expanded' : ''} border border-[var(--ink-700)]/60 rounded-xl overflow-hidden bg-[var(--ink-800)]/40`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                <SpotlightCard
+                  key={originalIndex}
+                  className={`category-card ${isExpanded ? 'expanded' : ''} overflow-hidden`}
                 >
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: filteredIndex * 0.1 }}
+                  >
                   <button
                     className="category-header w-full flex items-center justify-between gap-4 px-4 py-3"
-                    onClick={() => toggleCategory(index)}
+                    onClick={() => toggleCategory(originalIndex)}
                     {...(isExpanded ? { 'aria-expanded': "true" } : { 'aria-expanded': "false" })}
                   >
                     <div className="header-content flex items-start gap-3 text-left">
@@ -239,7 +274,7 @@ const Toolbox: React.FC = () => {
                       </div>
                     </div>
                     <ChevronDownIcon
-                      className={`chevron ${expandedCategory === index ? 'rotated' : ''} transition-transform`}
+                      className={`chevron ${expandedCategory === originalIndex ? 'rotated' : ''} transition-transform`}
                     />
                   </button>
 
@@ -257,12 +292,16 @@ const Toolbox: React.FC = () => {
                             {category.skills.map((skill, skillIndex) => (
                               <motion.div
                                 key={skillIndex}
-                                className="skill-item flex items-center gap-2 text-[var(--parchment-050)]/80"
+                                className="skill-item flex items-center gap-2 text-[var(--parchment-050)]/80 hover:text-[var(--signal-500)] transition-colors cursor-default"
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: skillIndex * 0.03 }}
+                                whileHover={{ scale: 1.05, x: 4 }}
                               >
-                                <div className="skill-dot size-2 rounded-full bg-[var(--signal-500)]"></div>
+                                <motion.div
+                                  className="skill-dot size-2 rounded-full bg-[var(--signal-500)]"
+                                  whileHover={{ scale: 1.5 }}
+                                />
                                 <span>{skill}</span>
                               </motion.div>
                             ))}
@@ -271,7 +310,8 @@ const Toolbox: React.FC = () => {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </motion.div>
+                  </motion.div>
+                </SpotlightCard>
               );
             })}
           </div>
@@ -295,28 +335,28 @@ const Toolbox: React.FC = () => {
             viewport={{ once: true }}
           >
             {technologyStacks.map((stack, index) => (
-              <motion.div
+              <TiltStackCard
                 key={index}
-                className="stack-card rounded-xl border border-[var(--ink-700)]/60 bg-[var(--ink-800)]/40 p-5"
-                variants={staggerItem}
-                whileHover={{ scale: 1.05, translateY: -5 }}
-                transition={{ duration: 0.2 }}
+                icon={<span>{stack.icon}</span>}
+                title={stack.category}
+                technologies={stack.technologies}
+                className="relative"
               >
-                <div className="stack-header flex items-center gap-2 mb-3">
-                  <span className="stack-icon text-[var(--signal-500)]">{stack.icon}</span>
-                  <h3 className="font-semibold">{stack.category}</h3>
-                </div>
                 <div className="stack-technologies grid sm:grid-cols-2 gap-2">
                   {stack.technologies.map((tech, techIndex) => {
                     const techInfo = getTechDescription(tech);
                     return (
-                      <div
+                      <motion.div
                         key={techIndex}
-                        className="tech-item flex items-center gap-2 text-[var(--parchment-050)]/80"
+                        className="tech-item flex items-center gap-2 text-[var(--parchment-050)]/80 hover:text-[var(--signal-500)] transition-colors cursor-help"
                         onMouseEnter={() => setHoveredTech(`${stack.category}-${techIndex}`)}
                         onMouseLeave={() => setHoveredTech(null)}
+                        whileHover={{ scale: 1.05, x: 4 }}
+                        transition={{ duration: 0.2 }}
                       >
-                        <Icon slug={getTechIconSlug(tech)} className="tech-icon w-4 h-4" />
+                        <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
+                          <Icon slug={getTechIconSlug(tech)} className="tech-icon w-4 h-4" />
+                        </motion.div>
                         <span>{tech}</span>
                         {techInfo && (
                           <TechTooltip
@@ -327,11 +367,11 @@ const Toolbox: React.FC = () => {
                             position="top"
                           />
                         )}
-                      </div>
+                      </motion.div>
                     );
                   })}
                 </div>
-              </motion.div>
+              </TiltStackCard>
             ))}
           </motion.div>
         </section>

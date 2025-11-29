@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect, useMemo, useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Target, Cpu, LineChart, ShieldCheck, Users, TrendingUp, Zap, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Target, Cpu, LineChart, ShieldCheck, Users, TrendingUp, Zap, CheckCircle2, Settings, Code, Database } from 'lucide-react';
 import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
 import ScrollProgress from '../components/ui/ScrollProgress';
 import AnimatedGradientText from '../components/ui/AnimatedGradientText';
@@ -280,6 +280,107 @@ const Home: React.FC = () => {
         <SectionDivider />
 
         <WhyFractionalSection />
+
+        <SectionDivider />
+
+        {/* Technical Stack Preview */}
+        <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center justify-between flex-wrap gap-6 mb-12">
+              <div>
+                <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Technical Expertise</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-brand-text">Full-stack marketing technology</h2>
+              </div>
+              <p className="text-brand-muted max-w-lg">
+                From automation platforms to custom development—here's a snapshot of the tools and technologies I work with.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              {/* Marketing Automation */}
+              <Link
+                to="/toolbox"
+                className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
+                    <Cpu size={20} />
+                  </div>
+                  <h3 className="text-lg font-semibold text-brand-text">Marketing Automation</h3>
+                </div>
+                <p className="text-sm text-brand-muted mb-4">CRM architecture and workflow automation</p>
+                <div className="flex flex-wrap gap-2">
+                  {['HubSpot', 'Marketo', 'Salesforce', 'FluentCRM'].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </Link>
+
+              {/* Analytics & Tracking */}
+              <Link
+                to="/toolbox"
+                className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
+                    <LineChart size={20} />
+                  </div>
+                  <h3 className="text-lg font-semibold text-brand-text">Analytics & Tracking</h3>
+                </div>
+                <p className="text-sm text-brand-muted mb-4">Data-driven insights and conversion optimization</p>
+                <div className="flex flex-wrap gap-2">
+                  {['GA4', 'GTM', 'Google Ads', 'Meta Ads'].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </Link>
+
+              {/* Development Stack */}
+              <Link
+                to="/toolbox"
+                className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
+                    <Code size={20} />
+                  </div>
+                  <h3 className="text-lg font-semibold text-brand-text">Development Stack</h3>
+                </div>
+                <p className="text-sm text-brand-muted mb-4">Full-stack web development and infrastructure</p>
+                <div className="flex flex-wrap gap-2">
+                  {['React', 'TypeScript', 'WordPress', 'Node.js'].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </Link>
+            </div>
+            <div className="text-center">
+              <OceanRippleButton
+                asLink
+                href="/toolbox"
+                variant="outline"
+                className="inline-flex items-center gap-2"
+              >
+                Explore Full Technical Stack
+                <ArrowRight size={16} />
+              </OceanRippleButton>
+            </div>
+          </div>
+        </section>
 
         <SectionDivider />
 

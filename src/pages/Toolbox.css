@@ -20,6 +20,57 @@
   opacity: 0.03;
   z-index: 0;
   animation: rotateGearSlow 80s linear infinite;
+  pointer-events: none;
+}
+
+/* Blockchain for data/automation */
+.toolbox-page::after {
+  content: '';
+  position: fixed;
+  bottom: -10%;
+  right: -5%;
+  width: 800px;
+  height: 800px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.025;
+  z-index: 0;
+  animation: floatSlow 35s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes rotateGearSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-20px, 20px);
+  }
+}
+
+/* Gear wheel for tools/systems */
+.toolbox-page::before {
+  content: '';
+  position: fixed;
+  top: 5%;
+  left: -5%;
+  width: 700px;
+  height: 700px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.03;
+  z-index: 0;
+  animation: rotateGearSlow 80s linear infinite;
 }
 
 /* Blockchain for data/automation */

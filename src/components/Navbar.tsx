@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, Command } from 'lucide-react';
-import EnhancedLogo from './EnhancedLogo';
+import ModernLogo from './branding/ModernLogo';
 
 interface NavbarProps {
   onOpenCommandPalette?: () => void;
@@ -13,6 +13,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
   const navLinks = [
     { name: 'Projects', path: '/case-studies' },
     { name: 'The Lab', path: '/apps' },
+    { name: 'Toolbox', path: '/toolbox' },
     { name: 'Studio', path: '/studio' },
     { name: 'Bio', path: '/about' },
   ] as const;
@@ -37,9 +38,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
               <span className="text-xs text-brand-teal font-mono">System: Online</span>
             </div>
 
-            {/* BRANDING: Personal Identity - Enhanced Logo */}
+            {/* BRANDING: Personal Identity - Modern Animated Logo */}
             <Link to="/" className="flex items-center">
-              <EnhancedLogo size={36} showText={true} />
+              <ModernLogo size={36} showText={true} animated={true} />
             </Link>
           </div>
 

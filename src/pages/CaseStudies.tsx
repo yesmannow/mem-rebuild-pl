@@ -1,9 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { caseStudies, getCategories } from '../data/caseStudies';
 import Icon from '../components/Icon';
 import { OceanGradientAnimation } from '../components/ui/OceanGradientAnimation';
+import AnimatedGradientText from '../components/ui/AnimatedGradientText';
+import { TiltCaseCard } from '../components/ui/TiltCaseCard';
 import './CaseStudies.css';
 import './CaseStudiesEnhanced.css';
 
@@ -114,7 +115,7 @@ const CaseStudies: React.FC = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
               >
-                Project Deep Dives
+                <AnimatedGradientText text="Project Deep Dives" className="text-4xl md:text-5xl lg:text-6xl font-bold" />
               </motion.h1>
 
               <motion.p
@@ -135,9 +136,9 @@ const CaseStudies: React.FC = () => {
               >
                 <p className="intro-text">
                   This is where strategy meets execution. Each case study documents real-world marketing challenges,
-                  the technical solutions I built, and the measurable impact delivered. You'll see the full journey:
+                  the technical solutions I built, and the measurable impact delivered. You&apos;ll see the full journey:
                   problem identification, system architecture, implementation details, and quantifiable results.
-                  These aren't hypothetical scenarios—they're production systems that drove revenue, reduced costs,
+                  These aren&apos;t hypothetical scenarios—they&apos;re production systems that drove revenue, reduced costs,
                   and scaled operations for clients across healthcare, SaaS, and e-commerce.
                 </p>
                 <div className="intro-features">
@@ -228,7 +229,7 @@ const CaseStudies: React.FC = () => {
               <div className="controls-group">
                 <select
                   value={sortBy}
-                  onChange={e => setSortBy(e.target.value as any)}
+                  onChange={e => setSortBy(e.target.value as 'default' | 'name' | 'recent' | 'featured')}
                   className="sort-select"
                   title="Sort by"
                   aria-label="Sort case studies"
@@ -275,96 +276,12 @@ const CaseStudies: React.FC = () => {
               transition={{ duration: 0.4 }}
             >
               {filteredStudies.map((study, index) => (
-                <motion.div
+                <TiltCaseCard
                   key={study.slug}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05, duration: 0.4 }}
-                >
-                  <Link to={`/case-studies/${study.slug}`} className="case-card">
-                    <div className="case-card-inner">
-                      <div className="case-icon" data-color={study.color}>
-                        <span className="icon-emoji" data-color={study.color}>
-                          {study.icon}
-                        </span>
-                      </div>
-
-                      <div className="case-content">
-                        <div className="case-header">
-                          <h3 className="case-title">{study.title}</h3>
-                          <p className="case-tagline">{study.tagline}</p>
-                        </div>
-
-                        <div className="case-categories">
-                          {study.category.map(cat => (
-                            <span key={cat} className="category-tag" data-color={study.color}>
-                              {cat}
-                            </span>
-                          ))}
-                        </div>
-
-                        {study.technologies && study.technologies.length > 0 && (
-                          <div className="case-tech-stack">
-                            <div className="tech-stack-icons">
-                              {study.technologies.slice(0, 4).map(tech => (
-                                <Icon
-                                  key={tech}
-                                  slug={getTechIconSlug(tech)}
-                                  className="tech-stack-icon h-4 w-4"
-                                  title={tech}
-                                />
-                              ))}
-                              {study.technologies.length > 4 && (
-                                <span className="tech-stack-more">+{study.technologies.length - 4}</span>
-                              )}
-                            </div>
-                          </div>
-                        )}
-
-                        <div className="case-preview">
-                          <p className="preview-label">Challenge</p>
-                          <p className="preview-text">{study.challenge}</p>
-                        </div>
-
-                        <div className="case-metrics">
-                          {study.metrics.slice(0, 2).map((metric, idx) => (
-                            <div key={idx} className="metric-item">
-                              <div className="metric-icon" aria-hidden="true">
-                                ↗
-                              </div>
-                              <div className="metric-content">
-                                <div className="metric-label">{metric.label}</div>
-                                <div className="metric-value" data-color={study.color}>
-                                  {metric.value}
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-
-                        <div className="case-tech-tags">
-                          {study.tags.slice(0, 3).map(tag => (
-                            <span key={tag} className="tech-tag">
-                              <span>{tag}</span>
-                            </span>
-                          ))}
-                          {study.tags.length > 3 && (
-                            <span className="tech-tag-more">+{study.tags.length - 3}</span>
-                          )}
-                        </div>
-                      </div>
-
-                      <div className="case-footer">
-                        <span className="view-case">
-                          View case study
-                          <Icon slug="chevron-right" className="h-4 w-4" />
-                        </span>
-                      </div>
-
-                      <div className="case-gradient-overlay" data-color={study.color} />
-                    </div>
-                  </Link>
-                </motion.div>
+                  study={study}
+                  index={index}
+                  getTechIconSlug={getTechIconSlug}
+                />
               ))}
             </motion.div>
           </AnimatePresence>
