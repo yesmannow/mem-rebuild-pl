@@ -1,6 +1,6 @@
 /**
  * TabbedMasonryGallery - Visual Engineering Gallery Component
- * 
+ *
  * A high-performance tabbed masonry gallery with context-aware overlays.
  * - Photography Mode: Shows descriptive metadata on hover
  * - Design Mode: Shows color palette (Hex codes) on hover via "HUD" overlay
@@ -20,6 +20,8 @@ interface TabbedMasonryGalleryProps {
   photographyItems: StudioItem[];
   designItems: StudioItem[];
   initialTab?: GalleryTab;
+  activeTab?: GalleryTab;
+  onTabChange?: (tab: GalleryTab) => void;
 }
 
 const paletteCache: Record<string, string[]> = {};
@@ -28,22 +30,32 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
   photographyItems,
   designItems,
   initialTab = 'photography',
+  activeTab: controlledActiveTab,
+  onTabChange,
 }) => {
-  const [activeTab, setActiveTab] = useState<GalleryTab>(initialTab);
+  const [internalActiveTab, setInternalActiveTab] = useState<GalleryTab>(initialTab);
+  const activeTab = controlledActiveTab ?? internalActiveTab;
+  const setActiveTab = (tab: GalleryTab) => {
+    if (onTabChange) {
+      onTabChange(tab);
+    } else {
+      setInternalActiveTab(tab);
+    }
+  };
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [palettes, setPalettes] = useState<Record<string, string[]>>({});
 
   const tabs: { id: GalleryTab; label: string; icon: React.ReactNode; color: string }[] = [
-    { 
-      id: 'photography', 
-      label: 'Photography', 
+    {
+      id: 'photography',
+      label: 'Photography',
       icon: <Camera size={16} />,
       color: '#FFA500' // Orange for photography
     },
-    { 
-      id: 'design', 
-      label: 'Graphic Design', 
+    {
+      id: 'design',
+      label: 'Graphic Design',
       icon: <PaletteIcon size={16} />,
       color: '#40E0D0' // Teal for design
     },
@@ -121,13 +133,13 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
   };
 
   const itemVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 20,
       scale: 0.95,
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       scale: 1,
       transition: {
@@ -168,7 +180,7 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
               <span>{tab.label}</span>
             </button>
           ))}
-          
+
           {/* Animated Background Pill */}
           <motion.div
             layoutId="tabIndicator"
@@ -226,7 +238,7 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
                     height={item.height}
                     className="w-full h-auto object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                   />
-                  
+
                   {/* Base Gradient Overlay */}
                   <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-slate-950/10 to-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -251,7 +263,7 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
                         <div className="rounded-xl border border-white/10 bg-slate-900/85 backdrop-blur-xl p-3 shadow-xl">
                           {/* Header Row */}
                           <div className="flex items-center justify-between mb-2">
-                            <span 
+                            <span
                               className="text-[10px] uppercase tracking-[0.2em] font-medium flex items-center gap-1.5"
                               style={{ color: activeTabConfig?.color }}
                             >
@@ -349,11 +361,11 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
                 loading="lazy"
                 className="w-full h-auto rounded-2xl shadow-2xl max-h-[80vh] object-contain"
               />
-              
+
               {/* Lightbox Footer */}
               <div className="mt-4 flex items-center justify-between text-white">
                 <div>
-                  <p 
+                  <p
                     className="text-xs uppercase tracking-[0.2em] mb-1"
                     style={{ color: activeTabConfig?.color }}
                   >
@@ -366,7 +378,7 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
                     {currentItems[lightboxIndex].meta}
                   </p>
                 </div>
-                
+
                 <div className="flex items-center gap-2">
                   <span className="text-sm text-slate-500 mr-2">
                     {lightboxIndex + 1} / {currentItems.length}

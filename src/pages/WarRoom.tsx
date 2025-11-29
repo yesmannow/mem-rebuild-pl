@@ -1,304 +1,139 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Server, Activity, Shield, Cpu, Database } from 'lucide-react';
-import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
-import AnimatedProgressBar from '../components/ui/AnimatedProgressBar';
-import TypingTerminal from '../components/ui/TypingTerminal';
-import InteractiveTerminal from '../components/ui/InteractiveTerminal';
-import FloatingParticles from '../components/ui/FloatingParticles';
-import GlowEffect from '../components/ui/GlowEffect';
-import { AnimatedBeam } from '../components/ui/shadcn-io/animated-beam';
+import React, { Suspense } from 'react';
+import { motion } from 'framer-motion';
+import TerminalBlock from '../components/ui/TerminalBlock';
+import AnimatedCounter from '../components/ui/AnimatedCounter';
+
+const LatencyGlobe = React.lazy(() => import('../components/ui/LatencyGlobe'));
+const CodeVelocity = React.lazy(() => import('../components/ui/CodeVelocity'));
+
+const bootSequence = [
+  '> INITIALIZING KERNEL MODULES...',
+  '> PROVISIONING CLOUDFLARE EDGE ADAPTERS...',
+  '> VALIDATING TLS CIRCUITS...',
+  '> WARMING CACHE LAYERS: CLEAR SIGNAL RECEIVED',
+  '> SCHEDULING HYPER-CRON TASKS...',
+  '> ATTACHING HEARTBEAT MONITOR (SOURCE: /dev/pulse)',
+];
+
+const statCards = [
+  {
+    label: 'Uptime',
+    value: 99.9,
+    suffix: '%',
+    description: 'Real-time nodes maintaining 99.9% availability for the last sliding window.',
+    decimals: 1,
+  },
+  {
+    label: 'Requests / sec',
+    value: 1284,
+    suffix: ' r/s',
+    description: 'Average throughput across Asia, Europe, and the Americas.',
+    decimals: 0,
+  },
+  {
+    label: 'Global latency',
+    value: 24,
+    suffix: ' ms',
+    description: 'Median RTT after edge caching and LiteSpeed tuning.',
+    decimals: 0,
+  },
+];
 
 const WarRoom = () => {
-  const headerRef = useRef<HTMLDivElement>(null);
-  const isHeaderInView = useInView(headerRef, { once: true });
-  const strategyRef = useRef<HTMLDivElement>(null);
-  const terminalRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const terminalCommands = [
-    {
-      command: 'wp option list --autoload=yes | grep "legacy_"',
-      output: 'Found 342 orphaned rows. Deleting... Done.',
-      delay: 2000,
-    },
-    {
-      command: 'sudo service apache2 stop',
-      output: 'Stopping Apache Web Server... Done.',
-      delay: 2000,
-    },
-    {
-      command: 'apt-get install open-litespeed',
-      output: 'Reading package lists... Done.',
-      delay: 2000,
-    },
-    {
-      command: 'redis-cli ping',
-      output: 'PONG',
-      delay: 1000,
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-brand-dark pt-24 pb-20 relative overflow-hidden">
-      <FloatingParticles count={30} />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header Section */}
+    <div className="min-h-screen bg-[#0f172a] text-[#40E0D0] pt-24 pb-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <motion.div
-          ref={headerRef}
           initial={{ opacity: 0, y: 20 }}
-          animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-16 border-b border-brand-teal/10 pb-8"
+          className="space-y-4"
         >
-          <div className="flex items-center space-x-3 mb-4 text-brand-teal">
-            <Activity className="animate-pulse" size={24} />
-            <span className="font-mono text-sm tracking-widest uppercase">System Status: Operational</span>
+          <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.4em] text-[#40E0D0]/70">
+            <span className="inline-flex h-3 w-3 animate-pulse rounded-full bg-[#40E0D0]" />
+            ALL SYSTEMS OPERATIONAL
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-brand-text mb-6">
-            The War Room
+          <h1 className="text-4xl md:text-5xl font-bold text-white">
+            War Room / Command Center
           </h1>
-          <p className="text-xl text-brand-muted max-w-3xl leading-relaxed">
-            A transparent, real-time look at how we executed a multi-week site optimization project, transforming performance, security, and reliability from the server to the browser.
+          <p className="max-w-3xl text-lg text-white/70">
+            Live telemetry for the marketing infrastructure. Everything is monitored like a mission control bridge
+            — no fluff, just the critical telemetry verbs and actions flowing through the stack.
           </p>
         </motion.div>
 
-        {/* Metrics Dashboard (Netdata Style) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-brand-surface/50 border border-brand-teal/20 p-6 rounded-xl backdrop-blur-sm relative overflow-hidden group hover:border-brand-teal/40 transition-all"
-          >
-            <GlowEffect intensity="low" color="teal" />
-            <div className="relative z-10">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <div className="text-brand-muted text-sm uppercase tracking-wider">Server Load</div>
-                  <div className="text-3xl font-mono font-bold text-brand-teal">
-                    <OceanCountingNumber
-                      number={-40}
-                      suffix="%"
-                      className="text-brand-teal"
-                      transition={{ stiffness: 100, damping: 30 }}
-                    />
-                  </div>
-                </div>
-                <motion.div
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                >
-                  <Cpu className="text-brand-teal/50" />
-                </motion.div>
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {statCards.map((card) => (
+            <motion.article
+              key={card.label}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="rounded-3xl border border-[#40E0D0]/30 bg-[#0b1220]/60 p-6 shadow-[0_15px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl"
+            >
+              <p className="text-[10px] uppercase tracking-[0.4em] text-[#FFA500]/70">{card.label}</p>
+              <div className="mt-3">
+                <AnimatedCounter
+                  value={card.value}
+                  prefix=""
+                  suffix={card.suffix}
+                  decimals={card.decimals}
+                  className="text-4xl md:text-5xl text-[#40E0D0]"
+                />
               </div>
-              <AnimatedProgressBar
-                value={60}
-                delay={0.3}
-                barClassName="bg-gradient-to-r from-brand-teal to-brand-orange"
-              />
-              <p className="text-xs text-brand-muted mt-3">Reduced peak CPU usage by replacing WP-Cron with server-side cron.</p>
-            </div>
-          </motion.div>
+              <p className="mt-3 text-sm text-white/60">{card.description}</p>
+            </motion.article>
+          ))}
+        </section>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-brand-surface/50 border border-brand-teal/20 p-6 rounded-xl backdrop-blur-sm relative overflow-hidden group hover:border-brand-teal/40 transition-all"
-          >
-            <GlowEffect intensity="low" color="teal" />
-            <div className="relative z-10">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <div className="text-brand-muted text-sm uppercase tracking-wider">Page Speed</div>
-                  <div className="text-3xl font-mono font-bold text-brand-teal">
-                    <OceanCountingNumber
-                      number={30}
-                      suffix="% Faster"
-                      className="text-brand-teal"
-                      transition={{ stiffness: 100, damping: 30 }}
-                    />
-                  </div>
-                </div>
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 2 }}
-                >
-                  <Activity className="text-brand-teal/50" />
-                </motion.div>
+        <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <TerminalBlock title="Boot Sequence" className="min-h-[360px] border-[#40E0D0]/30 bg-[#0f172a]/80">
+            <div className="space-y-3 text-sm font-mono text-white/80">
+              {bootSequence.map((line) => (
+                <p key={line} className="leading-relaxed">
+                  <span className="text-[#FFA500]">{line}</span>
+                  <span className="ml-2 text-[#40E0D0]/70">[OK]</span>
+                </p>
+              ))}
+            </div>
+          </TerminalBlock>
+
+          <Suspense
+            fallback={
+              <div className="flex h-full min-h-[360px] items-center justify-center rounded-3xl border border-[#40E0D0]/30 bg-[#0f172a]/60 text-sm text-[#40E0D0]/80">
+                Streaming telemetry...
               </div>
-              <AnimatedProgressBar
-                value={85}
-                delay={0.4}
-                barClassName="bg-gradient-to-r from-brand-teal to-brand-orange"
-              />
-              <p className="text-xs text-brand-muted mt-3">Achieved via LiteSpeed, Redis, and Cloudflare Tiered Caching.</p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="bg-brand-surface/50 border border-brand-teal/20 p-6 rounded-xl backdrop-blur-sm relative overflow-hidden group hover:border-brand-teal/40 transition-all"
+            }
           >
-            <GlowEffect intensity="low" color="teal" />
-            <div className="relative z-10">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <div className="text-brand-muted text-sm uppercase tracking-wider">Threats Blocked</div>
-                  <div className="text-3xl font-mono font-bold text-brand-teal">
-                    <OceanCountingNumber
-                      number={85}
-                      suffix="k/mo"
-                      className="text-brand-teal"
-                      transition={{ stiffness: 100, damping: 30 }}
-                    />
-                  </div>
-                </div>
-                <motion.div
-                  animate={{ rotate: [0, -15, 15, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 2.5 }}
-                >
-                  <Shield className="text-brand-teal/50" />
-                </motion.div>
+            <LatencyGlobe />
+          </Suspense>
+        </section>
+
+        <section className="space-y-4">
+          <Suspense
+            fallback={
+              <div className="flex min-h-[360px] items-center justify-center rounded-3xl border border-[#40E0D0]/30 bg-[#0f172a]/60 text-sm text-[#40E0D0]/80">
+                Loading velocity heatmap...
               </div>
-              <AnimatedProgressBar
-                value={92}
-                delay={0.5}
-                barClassName="bg-gradient-to-r from-brand-teal to-brand-orange"
-              />
-              <p className="text-xs text-brand-muted mt-3">Neutralized via Cloudflare Super Bot Fight Mode at the edge.</p>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Terminal / Engine Room Log */}
-        <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start relative">
-          <motion.div
-            ref={strategyRef}
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6 }}
-            className="space-y-8"
+            }
           >
-            <h2 className="text-3xl font-bold text-brand-text">The Strategy: Defense in Depth</h2>
-            <div className="space-y-6 relative">
-              <motion.div
-                ref={strategyRef}
-                className="flex gap-4 relative"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <motion.div
-                  className="mt-1"
-                  whileHover={{ scale: 1.2, rotate: 15 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <Shield className="text-brand-orange" />
-                </motion.div>
-                <div>
-                  <h3 className="text-xl font-bold text-brand-text mb-2">1. Secure the Edge</h3>
-                  <p className="text-brand-muted">Harden the site at the DNS and CDN level with Cloudflare to stop threats before they reach the origin.</p>
-                </div>
-              </motion.div>
+            <CodeVelocity />
+          </Suspense>
+        </section>
 
-              <motion.div
-                className="flex gap-4 relative"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <motion.div
-                  className="mt-1"
-                  whileHover={{ scale: 1.2, rotate: -15 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <Server className="text-brand-orange" />
-                </motion.div>
-                <div>
-                  <h3 className="text-xl font-bold text-brand-text mb-2">2. Optimize the Server</h3>
-                  <p className="text-brand-muted">Migrate from Apache to LiteSpeed, tune PHP-FPM, and implement Redis object caching.</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="flex gap-4 relative"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <motion.div
-                  className="mt-1"
-                  whileHover={{ scale: 1.2, rotate: 15 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <Database className="text-brand-orange" />
-                </motion.div>
-                <div>
-                  <h3 className="text-xl font-bold text-brand-text mb-2">3. Database Hygiene</h3>
-                  <p className="text-brand-muted">Removed ~805 KB of dead autoloaded options using WP-CLI to streamline queries.</p>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* The Terminal Component with Typing Animation */}
-          <motion.div
-            ref={terminalRef}
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <TypingTerminal commands={terminalCommands} />
-          </motion.div>
-
-          {/* Animated Beam Connections */}
-          {containerRef.current && strategyRef.current && terminalRef.current && (
-            <>
-              <AnimatedBeam
-                containerRef={containerRef}
-                fromRef={strategyRef}
-                toRef={terminalRef}
-                curvature={-75}
-                duration={3}
-                delay={0.5}
-                pathColor="#40E0D0"
-                pathWidth={2}
-                pathOpacity={0.3}
-                gradientStartColor="#40E0D0"
-                gradientStopColor="#FF6B35"
-              />
-            </>
-          )}
-        </div>
-
-        {/* Interactive Terminal Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16"
-        >
-          <div className="mb-6">
-            <h2 className="text-3xl font-bold text-brand-text mb-2">Interactive Terminal</h2>
-            <p className="text-brand-muted">
-              Try typing commands: <code className="text-brand-teal">help</code>, <code className="text-brand-teal">status</code>, <code className="text-brand-teal">version</code>
-            </p>
+        <section className="flex flex-col gap-2 border-t border-[#40E0D0]/20 pt-6">
+          <div className="flex items-center gap-3">
+            <span className="inline-flex h-3 w-3 rounded-full bg-[#40E0D0] animate-ping" />
+            <span className="text-xs uppercase tracking-[0.4em] text-[#40E0D0]/70">
+              ALL SYSTEMS OPERATIONAL
+            </span>
           </div>
-          <InteractiveTerminal />
-        </motion.div>
+          <p className="text-sm text-white/60">
+            Edge telemetry, cache health, and incident counters are green. Drive-by anomalies get escalated to
+            War Room channels instantly.
+          </p>
+        </section>
       </div>
     </div>
   );

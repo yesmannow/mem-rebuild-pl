@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { sideProjects } from '../data/sideProjects';
 import { SideProjectCard, SideProjectCardData } from '../components/ui/SideProjectCard';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
-import { AnimatedGradientText } from '../components/ui/AnimatedGradientText';
+import AnimatedGradientText from '../components/ui/AnimatedGradientText';
 import SectionDivider from '../components/ui/SectionDivider';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 

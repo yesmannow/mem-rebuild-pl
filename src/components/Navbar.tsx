@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, Command } from 'lucide-react';
 import ModernLogo from './branding/ModernLogo';
+import { mainNavigationLinks } from '../data/navigation';
 
 interface NavbarProps {
   onOpenCommandPalette?: () => void;
@@ -10,14 +11,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
   const location = useLocation();
 
-  const navLinks = [
-    { name: 'Projects', path: '/case-studies' },
-    { name: 'Side Projects', path: '/side-projects' },
-    { name: 'The Lab', path: '/apps' },
-    { name: 'Toolbox', path: '/toolbox' },
-    { name: 'Studio', path: '/studio' },
-    { name: 'Bio', path: '/about' },
-  ] as const;
+  const navLinks = mainNavigationLinks;
 
   const isActive = (path: string) => {
     return location.pathname.startsWith(path);

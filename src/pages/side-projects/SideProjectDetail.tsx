@@ -6,7 +6,7 @@ import { ArrowLeft, ExternalLink, Tag, Sparkles, Calendar, Palette, Code, Trendi
 import { sideProjects } from '../../data/sideProjects';
 import { DomeGallery, DomeGalleryImage } from '../../components/ui/DomeGallery';
 import { SpotlightCard } from '../../components/ui/SpotlightCard';
-import { AnimatedGradientText } from '../../components/ui/AnimatedGradientText';
+import AnimatedGradientText from '../../components/ui/AnimatedGradientText';
 import SectionDivider from '../../components/ui/SectionDivider';
 import { OceanCountingNumber } from '../../components/ui/OceanCountingNumber';
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
-import { TabbedMasonryGallery } from '../components/ui/TabbedMasonryGallery';
-import { DomeGallery } from '../components/ui/DomeGallery';
+import { motion, AnimatePresence } from 'framer-motion';
+import { TabbedMasonryGallery, type GalleryTab } from '../components/ui/TabbedMasonryGallery';
+import { Camera, Palette } from 'lucide-react';
 import {
   photographyItems,
   designItems,
@@ -26,6 +26,7 @@ const Studio: React.FC = () => {
   const [designs, setDesigns] = useState<StudioItem[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [useFallback, setUseFallback] = useState<boolean>(false);
+  const [activeTab, setActiveTab] = useState<GalleryTab>('photography');
 
   useEffect(() => {
     let mounted = true;
@@ -167,28 +168,109 @@ const Studio: React.FC = () => {
               )}
             </motion.div>
 
-            {/* Dome Gallery Preview */}
+            {/* Hero Intro Section - Context Aware */}
             {!isLoading && (photos.length > 0 || designs.length > 0) && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
                 className="mb-16"
               >
-                <DomeGallery
-                  images={[
-                    ...photos.slice(0, 6).map(item => ({
-                      id: item.id,
-                      src: item.src,
-                      alt: item.title,
-                      title: item.title,
-                      category: item.category || item.meta,
-                    })),
-                  ]}
-                  title="Featured Photography"
-                  description="A selection of standout photography work with interactive 3D effects."
-                  maxItems={6}
-                />
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeTab}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4 }}
+                    className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-800/80 via-slate-900/80 to-slate-950/80 backdrop-blur-xl p-8 md:p-12 shadow-2xl"
+                  >
+                    {/* Background gradient based on tab */}
+                    <div
+                      className="absolute inset-0 opacity-10 transition-opacity duration-500"
+                      style={{
+                        background: activeTab === 'photography'
+                          ? 'radial-gradient(circle at 30% 50%, rgba(255,165,0,0.3), transparent 70%)'
+                          : 'radial-gradient(circle at 30% 50%, rgba(64,224,208,0.3), transparent 70%)',
+                      }}
+                    />
+
+                    <div className="relative z-10">
+                      {/* Icon and Title */}
+                      <div className="flex items-center gap-4 mb-6">
+                        <div
+                          className="p-4 rounded-2xl backdrop-blur-md border transition-all duration-300"
+                          style={{
+                            backgroundColor: activeTab === 'photography' ? 'rgba(255,165,0,0.15)' : 'rgba(64,224,208,0.15)',
+                            borderColor: activeTab === 'photography' ? 'rgba(255,165,0,0.3)' : 'rgba(64,224,208,0.3)',
+                          }}
+                        >
+                          {activeTab === 'photography' ? (
+                            <Camera size={32} className="text-brand-orange" />
+                          ) : (
+                            <Palette size={32} className="text-brand-teal" />
+                          )}
+                        </div>
+                        <div>
+                          <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                            {activeTab === 'photography' ? 'Photography' : 'Graphic Design'}
+                          </h2>
+                          <div
+                            className="h-1 w-20 rounded-full transition-all duration-300"
+                            style={{
+                              backgroundColor: activeTab === 'photography' ? '#FFA500' : '#40E0D0',
+                            }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      {activeTab === 'photography' ? (
+                        <div className="space-y-4">
+                          <p className="text-lg text-slate-300 leading-relaxed">
+                            Capturing moments through the lens with a focus on composition, lighting, and storytelling.
+                            My photography work spans commercial campaigns, brand documentation, and creative portraiture.
+                          </p>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4">
+                              <h3 className="text-brand-orange font-semibold mb-2 text-sm uppercase tracking-wider">Commercial</h3>
+                              <p className="text-slate-400 text-sm">Product photography, brand campaigns, and marketing visuals that tell your story.</p>
+                            </div>
+                            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4">
+                              <h3 className="text-brand-orange font-semibold mb-2 text-sm uppercase tracking-wider">Portraiture</h3>
+                              <p className="text-slate-400 text-sm">Professional headshots and character-driven portraits that capture personality.</p>
+                            </div>
+                            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4">
+                              <h3 className="text-brand-orange font-semibold mb-2 text-sm uppercase tracking-wider">Documentation</h3>
+                              <p className="text-slate-400 text-sm">Event coverage, behind-the-scenes, and brand documentation photography.</p>
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="space-y-4">
+                          <p className="text-lg text-slate-300 leading-relaxed">
+                            Crafting visual identities and design systems that communicate brand values and engage audiences.
+                            From logo design to complete brand systems, I create cohesive visual experiences.
+                          </p>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4">
+                              <h3 className="text-brand-teal font-semibold mb-2 text-sm uppercase tracking-wider">Brand Identity</h3>
+                              <p className="text-slate-400 text-sm">Complete brand systems including logos, color palettes, typography, and style guides.</p>
+                            </div>
+                            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4">
+                              <h3 className="text-brand-teal font-semibold mb-2 text-sm uppercase tracking-wider">Visual Design</h3>
+                              <p className="text-slate-400 text-sm">Marketing materials, social media graphics, and digital assets that drive engagement.</p>
+                            </div>
+                            <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4">
+                              <h3 className="text-brand-teal font-semibold mb-2 text-sm uppercase tracking-wider">Color Systems</h3>
+                              <p className="text-slate-400 text-sm">Strategic color palette development and implementation across all brand touchpoints.</p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
               </motion.div>
             )}
 
@@ -212,6 +294,8 @@ const Studio: React.FC = () => {
                   photographyItems={photos}
                   designItems={designs}
                   initialTab="photography"
+                  activeTab={activeTab}
+                  onTabChange={setActiveTab}
                 />
               </motion.div>
             ) : (

@@ -129,7 +129,6 @@
     "mcp:report": "ts-node scripts/cleanup-automation.ts report",
     "audit:duplicates": "node scripts/find-duplicates.js",
     "audit:unused": "node scripts/find-unused-assets.js",
-    "cleanup:unused": "node scripts/cleanup-unused-files.js",
     "cleanup:unused:dry": "node scripts/cleanup-unused-files.js --dry-run",
     "cleanup:unused:interactive": "node scripts/cleanup-unused-files.js --interactive",
     "analyze:images": "node scripts/analyze-image-organization.js",
@@ -174,7 +173,7 @@
     "design:all": "npm run design:analyze && npm run design:generate && npm run design:optimize",
     "logo:generate": "node scripts/generate-logo-variations.js",
     "content:audit": "node scripts/content-audit-tool.js",
-    "magic:assets": "npm run mcp:cli -- generate-tech-icons && npm run mcp:cli -- generate-social-images && npm run mcp:cli -- generate-cybernetic-logo && node scripts/generate-brand-logos.mjs && npm run mcp:cli -- generate-inspiration && npm run mcp:cli -- process-bio-assets && npm run scrape:lightroom:all && npm run optimize"
+    "magic:assets": "npm run mcp:cli -- generate-tech-icons && npm run mcp:cli -- generate-social-images && npm run mcp:cli -- generate-cybernetic-logo && node scripts/generate-brand-logos.mjs && npm run mcp:cli -- process-bio-assets && npm run scrape:lightroom:all && npm run optimize"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
@@ -197,9 +196,11 @@
     "lucide-react": "^0.545.0",
     "openai": "^6.3.0",
     "react": "^18.3.1",
+    "react-activity-calendar": "^3.0.1",
     "react-countup": "^6.5.3",
     "react-dom": "^18.3.1",
     "react-dropzone": "^14.3.8",
+    "react-globe.gl": "^2.37.0",
     "react-helmet-async": "^2.0.5",
     "react-hook-form": "^7.66.0",
     "react-icons": "^5.5.0",

@@ -23,6 +23,7 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [palettes, setPalettes] = useState<Record<string, string[]>>({});
+  const hasItems = items && items.length > 0;
 
   const showLightbox = (idx: number) => setLightboxIndex(idx);
   const closeLightbox = () => setLightboxIndex(null);
@@ -61,6 +62,23 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
       // swallow palette errors to keep UI responsive
     }
   };
+
+  if (!hasItems) {
+    return (
+      <div className="flex justify-center">
+        <div className="w-full max-w-2xl rounded-3xl border border-[#40E0D0]/60 bg-slate-950/60 p-10 text-center shadow-[0_0_30px_rgba(64,224,208,0.3)]">
+          <p className="text-xs uppercase tracking-[0.4em] text-[#40E0D0] mb-2">Classified</p>
+          <h3 className="text-2xl font-semibold text-brand-text mb-4">Restricted Access</h3>
+          <p className="text-sm text-brand-muted">
+            No visual assets are available right now. Check back after the next deploy or run the gallery scraper to restore data.
+          </p>
+          <p className="mt-4 text-[10px] uppercase tracking-[0.4em] text-[#FFA500]/80">
+            DARK NETWORK / WAR ROOM
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   const masonryItems = useMemo(
     () =>
