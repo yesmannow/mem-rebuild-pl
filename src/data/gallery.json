@@ -10,13 +10,13 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_175244.jpg",
+    "file": "images/projects/317 bbq/20231008_175510.jpg",
     "meta": {
       "width": 900,
       "height": 420,
-      "base": "images/projects/317 bbq/20231008_175244",
-      "color": "rgb(24 24 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOiP/wEpc6Rl8L4HlgA/klMNCEzPtLFh+4XOVt58sG0LoR3GwW15SbT3HMFBicxKsV1lrUQjL9l3mHsI/4hq+wvoDw5svUHT4MR9vpuAAAA"
+      "base": "images/projects/317 bbq/20231008_175510",
+      "color": "rgb(72 56 40)",
+      "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
     }
   },
   {
@@ -40,13 +40,13 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_175510.jpg",
+    "file": "images/projects/317 bbq/20231008_175244.jpg",
     "meta": {
       "width": 900,
       "height": 420,
-      "base": "images/projects/317 bbq/20231008_175510",
-      "color": "rgb(72 56 40)",
-      "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
+      "base": "images/projects/317 bbq/20231008_175244",
+      "color": "rgb(24 24 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOiP/wEpc6Rl8L4HlgA/klMNCEzPtLFh+4XOVt58sG0LoR3GwW15SbT3HMFBicxKsV1lrUQjL9l3mHsI/4hq+wvoDw5svUHT4MR9vpuAAAA"
     }
   },
   {
@@ -60,16 +60,6 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_181722.jpg",
-    "meta": {
-      "width": 900,
-      "height": 420,
-      "base": "images/projects/317 bbq/20231008_181722",
-      "color": "rgb(40 40 40)",
-      "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCdAB8v/m1YUUmtzwAA8p4y7OwR2Iaa9y9xrKc+PK59c6SL0EtMf74PvhMZfgYmDJRKb0wVhDJAsafWjyFzU3gAAA=="
-    }
-  },
-  {
     "file": "images/projects/317 bbq/20231008_175512.jpg",
     "meta": {
       "width": 900,
@@ -77,6 +67,16 @@
       "base": "images/projects/317 bbq/20231008_175512",
       "color": "rgb(248 232 216)",
       "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAAkAPxF2sVAsJ6SisAgBgCIJagCdMoADCfg0bkLzbAAA4lFuh8CYLfqGmh7m1dbp+F14MI4iK7jkPSxt3lW2LQ+FMIW9YtjjQ47h3ATNevQPbfgcYOJujwBU44D5DO4q3CmJzRpbQF4nfAQaBSR8AwAAAA=="
+    }
+  },
+  {
+    "file": "images/projects/317 bbq/20231008_181722.jpg",
+    "meta": {
+      "width": 900,
+      "height": 420,
+      "base": "images/projects/317 bbq/20231008_181722",
+      "color": "rgb(40 40 40)",
+      "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCdAB8v/m1YUUmtzwAA8p4y7OwR2Iaa9y9xrKc+PK59c6SL0EtMf74PvhMZfgYmDJRKb0wVhDJAsafWjyFzU3gAAA=="
     }
   },
   {
