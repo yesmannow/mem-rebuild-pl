@@ -53,10 +53,10 @@ const AppsLibrary: React.FC = () => {
     {
       id: 'growth-engine',
       title: 'The Growth Engine',
-      description: 'ROI modeling & quote generation tools for sales enablement',
+      description: 'Executive dashboard & revenue intelligence platform with real-time metrics and campaign performance',
       link: '/apps/growth-engine',
       icon: '📈',
-      features: ['ROI Calculator', 'Smart Quoter', 'Live Calculations', 'Email Integration'],
+      features: ['Real-Time Metrics', 'Revenue Intelligence', 'Campaign Performance', 'Executive Dashboards'],
       color: 'from-brand-orange to-brand-teal',
     },
     {
@@ -82,7 +82,7 @@ const AppsLibrary: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="The Lab | BearCave Marketing"
+        title="The Lab | Jacob Darling Portfolio"
         description="Interactive tools built for scale and compliance. Modern React applications ported from legacy HTML."
         keywords="interactive tools, React applications, business software, portfolio showcase"
       />

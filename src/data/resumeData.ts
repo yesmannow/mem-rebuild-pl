@@ -1,6 +1,6 @@
 /**
  * ATS-Optimized Resume Data
- * 
+ *
  * Structured for "Dual-Threat" narrative: Marketing Strategy + Technical Execution
  * Optimized for Applicant Tracking Systems (ATS) with clear, parseable content
  */
@@ -54,8 +54,8 @@ export const resumeData = {
       ]
     },
     {
-      company: "BearCave Marketing (Consultancy)",
-      role: "Founder & Lead Architect",
+      company: "Independent Consultant & Systems Architect",
+      role: "Marketing Strategist & Full-Stack Developer",
       period: "2008 – 2023",
       location: "Remote",
       stack: "Tech Stack: LAMP Stack, React, Shopify, WooCommerce, Python",

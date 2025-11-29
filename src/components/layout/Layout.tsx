@@ -84,7 +84,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           fallback={
             <footer className="container-px py-12" role="contentinfo">
               <div className="mx-auto max-w-6xl text-sm opacity-70">
-                © {new Date().getFullYear()} Jacob Darling — BearCave Marketing
+                © {new Date().getFullYear()} Jacob Darling — Marketing Strategist & Systems Architect
               </div>
             </footer>
           }

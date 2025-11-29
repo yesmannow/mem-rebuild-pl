@@ -13,6 +13,7 @@ import {
 import { cn } from '../../lib/utils';
 import { LabItem } from '../../types';
 import TerminalBlock from './TerminalBlock';
+import AppPreviewModal from './AppPreviewModal';
 
 // Helper function to create a valid TypeScript identifier from a title
 const toValidIdentifier = (title: string): string => {
@@ -31,12 +32,15 @@ const SystemCard: React.FC<SystemCardProps> = ({ item, index = 0 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
   const [showTypewriter, setShowTypewriter] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const isApp = item.type === 'app';
   const launchUrl = item.liveUrl ?? item.link;
   const hasSeparateBuildLink =
     Boolean(item.liveUrl && item.link && item.liveUrl !== item.link);
   const isExternalLaunch = Boolean(launchUrl && launchUrl.startsWith('http'));
+  // Don't show "View Build" for growth-engine
+  const shouldShowViewBuild = hasSeparateBuildLink && item.id !== 'growth-engine';
   const borderColor = isApp ? 'border-[#FFA500]' : 'border-[#40E0D0]';
   const glowColor = isApp ? 'shadow-[0_0_30px_rgba(255,165,0,0.15)]' : 'shadow-[0_0_30px_rgba(64,224,208,0.15)]';
   const accentColor = isApp ? 'text-[#FFA500]' : 'text-[#40E0D0]';
@@ -52,10 +56,27 @@ const SystemCard: React.FC<SystemCardProps> = ({ item, index = 0 }) => {
     'bg-slate-800/70 hover:bg-slate-700/70 border border-slate-700 hover:border-slate-600 text-brand-text'
   );
 
-  const handleExpand = () => {
+  const handleExpand = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
     setIsExpanded(!isExpanded);
     if (!isExpanded && item.command) {
       setShowTypewriter(true);
+    }
+  };
+
+  const handleCardClick = () => {
+    if (!isExpanded) {
+      setIsExpanded(true);
+      if (item.command) {
+        setShowTypewriter(true);
+      }
+    }
+  };
+
+  const handleLaunchClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (isExternalLaunch) {
+      setShowModal(true);
     }
   };
 
@@ -82,12 +103,14 @@ const SystemCard: React.FC<SystemCardProps> = ({ item, index = 0 }) => {
             'hover:translate-y-[-4px] hover:shadow-xl',
             borderColor,
             glowColor,
-            isFlipped && 'invisible'
+            isFlipped && 'invisible',
+            'cursor-pointer'
           )}
           style={{
             backfaceVisibility: 'hidden',
             backgroundImage: 'linear-gradient(135deg, rgba(15,23,42,0.8) 0%, rgba(30,41,59,0.8) 100%)',
           }}
+          onClick={handleCardClick}
         >
           {/* Hover Grid Pattern */}
           <div
@@ -180,23 +203,21 @@ const SystemCard: React.FC<SystemCardProps> = ({ item, index = 0 }) => {
 
             {launchUrl && (
               isExternalLaunch ? (
-                <a
-                  href={launchUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={handleLaunchClick}
                   className={launchButtonClasses}
                 >
                   Launch <ExternalLink size={14} />
-                </a>
+                </button>
               ) : (
-                <Link to={launchUrl} className={launchButtonClasses}>
+                <Link to={launchUrl} className={launchButtonClasses} onClick={(e) => e.stopPropagation()}>
                   Launch <ExternalLink size={14} />
                 </Link>
               )
             )}
 
-            {hasSeparateBuildLink && item.link && (
-              <Link to={item.link} className={internalButtonClasses}>
+            {shouldShowViewBuild && item.link && (
+              <Link to={item.link} className={internalButtonClasses} onClick={(e) => e.stopPropagation()}>
                 View Build
               </Link>
             )}
@@ -332,11 +353,11 @@ const SystemCard: React.FC<SystemCardProps> = ({ item, index = 0 }) => {
   id: '${item.id}';
   type: '${item.type}';
   category: '${item.category}';
-  
+
   techStack: [
 ${item.techStack.map((t) => `    { name: '${t.name}' }`).join(',\n')}
   ];
-  
+
   context: {
     problem: string;
     solution: string;
@@ -344,13 +365,22 @@ ${item.techStack.map((t) => `    { name: '${t.name}' }`).join(',\n')}
     target: string;
     usage: string;
   };
-  
+
   ${item.link ? `link: '${item.link}';` : `command: '${item.command}';`}
 }`}
             </code>
           </pre>
         </div>
       </motion.div>
+
+      {/* Pop-out Modal for External Links */}
+      {showModal && isExternalLaunch && launchUrl && (
+        <AppPreviewModal
+          url={launchUrl}
+          title={item.title}
+          onClose={() => setShowModal(false)}
+        />
+      )}
     </motion.div>
   );
 };

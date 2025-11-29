@@ -78,21 +78,21 @@ const AppRouter: React.FC = () => {
 
     if (path === '/') {
       return {
-        title: 'BearCave Marketing — Jacob Darling',
-        description: 'I build marketing systems that turn brands into revenue engines.',
+        title: 'Jacob Darling — Marketing Strategist & Systems Architect',
+        description: 'I build marketing systems that turn brands into revenue engines. Portfolio showcasing 15+ years of experience in marketing strategy, automation, and full-stack implementation.',
         keywords:
-          'marketing strategist, marketing technologist, marketing automation, CRM campaigns',
+          'marketing strategist, marketing technologist, marketing automation, CRM campaigns, systems architect, portfolio',
       };
     } else if (path === '/about') {
       return {
-        title: 'About | BearCave Marketing',
+        title: 'About | Jacob Darling',
         description:
-          'Meet Jacob Darling, the solo operator behind BearCave Marketing—marketing automation, analytics, and growth systems architect.',
-        keywords: 'Jacob Darling, marketing strategist, marketing technologist, automation',
+          'Meet Jacob Darling—marketing automation, analytics, and growth systems architect with 15+ years of experience building revenue engines for SaaS, healthcare, and e-commerce brands.',
+        keywords: 'Jacob Darling, marketing strategist, marketing technologist, automation, systems architect',
       };
     } else if (path === '/applications') {
       return {
-        title: 'Developer Tools | BearCave Marketing',
+        title: 'Developer Tools | Jacob Darling Portfolio',
         description:
           'Custom tools and applications engineered by Jacob Darling showcasing marketing automation, analytics, and product systems.',
         keywords:
@@ -100,55 +100,55 @@ const AppRouter: React.FC = () => {
       };
     } else if (path.startsWith('/applications/')) {
       return {
-        title: 'Developer Tool | BearCave Marketing',
+        title: 'Developer Tool | Jacob Darling Portfolio',
         description:
           'Deep dive into a custom tool or application engineered by Jacob Darling to solve real marketing, sales, and operations challenges.',
       };
     } else if (path === '/projects') {
       return {
-        title: 'Projects | BearCave Marketing',
+        title: 'Projects | Jacob Darling Portfolio',
         description:
           'Technical and value-driven projects delivered by Jacob Darling across automation, analytics, and growth operations.',
         keywords: 'marketing projects, technical portfolio, automation',
       };
     } else if (path === '/toolbox') {
       return {
-        title: 'Toolbox | BearCave Marketing',
+        title: 'Toolbox | Jacob Darling Portfolio',
         description:
           'Marketing and product systems toolkit built by Jacob Darling—frameworks, automations, and go-to templates.',
         keywords: 'marketing toolbox, automation toolkit, systems architecture',
       };
     } else if (path === '/services') {
       return {
-        title: 'Services | BearCave Marketing',
+        title: 'Services | Jacob Darling Portfolio',
         description:
           'Deployable marketing systems. Audit, architect, automate, and scale your marketing operations with proven frameworks and pre-built modules.',
         keywords: 'marketing automation, marketing systems, growth operations, marketing technology, CRM automation',
       };
     } else if (path === '/tools') {
       return {
-        title: 'CLI Tools & MCP Servers | BearCave Marketing',
+        title: 'CLI Tools & MCP Servers | Jacob Darling Portfolio',
         description:
           'Command-line utilities, automation scripts, and MCP servers for portfolio development, content generation, and design system management.',
         keywords: 'CLI tools, MCP servers, automation, build tools, content generation, developer tools',
       };
     } else if (path === '/devops') {
       return {
-        title: 'DevOps & Deployment | BearCave Marketing',
+        title: 'DevOps & Deployment | Jacob Darling Portfolio',
         description:
           'Deep dive into deployment architecture, dual base path configuration, custom element guards, and bundle optimization strategies.',
         keywords: 'devops, deployment, vite, github pages, cloudflare pages, build optimization, CI/CD',
       };
     } else if (path === '/war-room') {
       return {
-        title: 'The War Room | BearCave Marketing',
+        title: 'The War Room | Jacob Darling Portfolio',
         description:
           'A transparent, real-time look at how we executed a multi-week site optimization project, transforming performance, security, and reliability from the server to the browser.',
         keywords: 'devops, system optimization, performance tuning, server administration, cloudflare, litespeed, redis',
       };
     } else if (path === '/resume') {
       return {
-        title: 'Resume | BearCave Marketing',
+        title: 'Resume | Jacob Darling Portfolio',
         description:
           'Professional resume and experience of Jacob Darling - Marketing Strategist & Systems Architect with 16+ years experience',
         keywords: 'resume, CV, marketing director, systems architect, marketing automation',
@@ -162,26 +162,26 @@ const AppRouter: React.FC = () => {
       };
     } else if (path === '/case-studies') {
       return {
-        title: 'Case Studies | BearCave Marketing',
+        title: 'Case Studies | Jacob Darling Portfolio',
         description:
           'Detailed case studies showing problem-solving approach and measurable results in marketing automation and systems architecture',
         keywords: 'marketing case studies, project portfolio, marketing automation examples',
       };
     } else if (path.startsWith('/case-studies/')) {
       return {
-        title: 'Case Study | BearCave Marketing',
+        title: 'Case Study | Jacob Darling Portfolio',
         description: 'Detailed case study showing problem-solving approach and measurable results',
       };
     } else if (path === '/contact') {
       return {
-        title: 'Contact | BearCave Marketing',
+        title: 'Contact | Jacob Darling Portfolio',
         description:
           'Get in touch with Jacob Darling for job opportunities, collaborations, or consulting inquiries',
         keywords: 'contact, hire, job opportunity, marketing consultant',
       };
     } else if (path === '/design') {
       return {
-        title: 'Design Portfolio | BearCave Marketing',
+        title: 'Design Portfolio | Jacob Darling Portfolio',
         description:
           'Explore a curated collection of design work including branding, digital design, print campaigns, and creative concepts',
         keywords:
@@ -189,7 +189,7 @@ const AppRouter: React.FC = () => {
       };
     } else if (path === '/graphic-design') {
       return {
-        title: 'Graphic Design Portfolio | BearCave Marketing',
+        title: 'Graphic Design Portfolio | Jacob Darling Portfolio',
         description:
           'Explore a curated collection of graphic design work including branding, digital layouts, album artwork, and creative direction',
         keywords:
@@ -197,7 +197,7 @@ const AppRouter: React.FC = () => {
       };
     } else if (path === '/photography') {
       return {
-        title: 'Photography Portfolio | BearCave Marketing',
+        title: 'Photography Portfolio | Jacob Darling Portfolio',
         description:
           'Explore a curated collection of photography work capturing moments that inspire and connect',
         keywords:
@@ -205,7 +205,7 @@ const AppRouter: React.FC = () => {
       };
     } else if (path === '/creative') {
       return {
-        title: 'Creative Work | BearCave Marketing',
+        title: 'Creative Work | Jacob Darling Portfolio',
         description:
           'Explore creative work across photography, graphic design, branding systems, web builds, and motion design',
         keywords:
@@ -227,7 +227,7 @@ const AppRouter: React.FC = () => {
     //   };
     } else if (path === '/gallery') {
       return {
-        title: 'Brand Gallery | BearCave Marketing',
+        title: 'Brand Gallery | Jacob Darling Portfolio',
         description:
           'Explore curated brand identity systems and design systems created with the Brand Builder',
         keywords: 'brand gallery, brand boards, design systems, brand identity',
@@ -242,48 +242,48 @@ const AppRouter: React.FC = () => {
     //   };
     } else if (path === '/showcase') {
       return {
-        title: 'Component Showcase | BearCave Marketing',
+        title: 'Component Showcase | Jacob Darling Portfolio',
         description:
           'Interactive showcase of modern UI components featuring particle effects, glassmorphism, and smooth animations',
         keywords: 'component showcase, UI components, interactive demos, particle effects, glassmorphism',
       };
     } else if (path === '/design-system') {
       return {
-        title: 'Design System Demo | BearCave Marketing',
+        title: 'Design System Demo | Jacob Darling Portfolio',
         description:
           'Interactive demo of the new design system featuring design tokens, typography, and accessible components',
         keywords: 'design system, design tokens, typography, accessibility, UI components',
       };
     } else if (path.startsWith('/brand/')) {
       return {
-        title: 'Brand Board | BearCave Marketing',
+        title: 'Brand Board | Jacob Darling Portfolio',
         description: 'Explore this brand identity system and design tokens',
       };
     } else if (path === '/apps') {
       return {
-        title: 'The Lab | BearCave Marketing',
+        title: 'The Lab | Jacob Darling Portfolio',
         description:
           'Interactive tools built for scale and compliance. Modern React applications ported from legacy HTML.',
         keywords: 'interactive tools, React applications, business software, portfolio showcase',
       };
     } else if (path === '/apps/growth-engine') {
       return {
-        title: 'Growth Engine | BearCave Marketing',
+        title: 'Growth Engine | Jacob Darling Portfolio',
         description: 'ROI modeling & quote generation tools for sales enablement',
       };
     } else if (path === '/apps/seo-scanner') {
       return {
-        title: 'SEO Scanner | BearCave Marketing',
+        title: 'SEO Scanner | Jacob Darling Portfolio',
         description: 'Edge HTMLRewriter audit for titles, meta descriptions, H1, and og:image.',
       };
     } else if (path === '/apps/license-hub') {
       return {
-        title: 'License Hub | BearCave Marketing',
+        title: 'License Hub | Jacob Darling Portfolio',
         description: '50-state compliance database for continuing education requirements',
       };
     } else if (path === '/apps/clinical-compass') {
       return {
-        title: 'Clinical Compass | BearCave Marketing',
+        title: 'Clinical Compass | Jacob Darling Portfolio',
         description: 'Logic-based treatment protocols and clinical reasoning tool',
       };
     }

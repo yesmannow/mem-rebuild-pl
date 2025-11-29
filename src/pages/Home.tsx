@@ -418,7 +418,7 @@ const WhyFractionalSection: React.FC = () => {
             animate={leftInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1, duration: 0.5 }}
           >
-            <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Why fractional?</p>
+            <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Why work with me?</p>
           </motion.div>
 
           <motion.h2
@@ -427,7 +427,7 @@ const WhyFractionalSection: React.FC = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-3xl md:text-4xl font-bold text-brand-text"
           >
-            Cost-efficient leadership. Full-stack execution.
+            Board-ready strategy. Full-stack implementation. Measurable results.
           </motion.h2>
 
           <motion.p
@@ -436,8 +436,8 @@ const WhyFractionalSection: React.FC = () => {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="text-brand-muted text-lg leading-relaxed"
           >
-            By pairing senior marketing leadership with hands-on technical execution, I eliminate the lag between strategy and results.
-            I embed with your team, stand up data visibility, and engineer automations that keep revenue programs accountable.
+            With 15+ years of experience building marketing systems and revenue engines, I bring both strategic vision and hands-on technical execution.
+            I've architected solutions for SaaS companies, healthcare organizations, and e-commerce brands—delivering measurable impact through data-driven strategies and full-stack implementation.
           </motion.p>
 
           <motion.ul
@@ -453,7 +453,7 @@ const WhyFractionalSection: React.FC = () => {
               className="flex gap-3 group"
             >
               <ShieldCheck size={20} className="text-brand-teal mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-              <span>Board-ready operating rhythm with clear KPIs and accountability.</span>
+              <span>Board-ready strategy with clear KPIs, accountability frameworks, and executive-level reporting.</span>
             </motion.li>
             <motion.li
               initial={{ opacity: 0, x: -20 }}
@@ -462,7 +462,7 @@ const WhyFractionalSection: React.FC = () => {
               className="flex gap-3 group"
             >
               <Users size={20} className="text-brand-teal mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-              <span>Collaborate directly with product, sales, and RevOps—no agency telephone game.</span>
+              <span>Direct collaboration with cross-functional teams—product, sales, RevOps, and engineering—no middle layers.</span>
             </motion.li>
             <motion.li
               initial={{ opacity: 0, x: -20 }}
@@ -471,7 +471,7 @@ const WhyFractionalSection: React.FC = () => {
               className="flex gap-3 group"
             >
               <Cpu size={20} className="text-brand-teal mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-              <span>Technology decisions rooted in what your stack already has, not shiny objects.</span>
+              <span>Full-stack implementation expertise—from strategy to code to deployment—optimizing your existing tech stack.</span>
             </motion.li>
           </motion.ul>
 
@@ -482,17 +482,17 @@ const WhyFractionalSection: React.FC = () => {
             className="flex flex-wrap gap-4 pt-2"
           >
             <Link
-              to="/services"
+              to="/case-studies"
               className="group inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-brand-teal/60 text-brand-text hover:border-brand-teal hover:bg-brand-teal/10 transition-all duration-300"
             >
-              View Service Models
+              View Case Studies
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/contact"
               className="group inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-brand-teal text-slate-900 font-semibold shadow-cta hover:brightness-110 hover:shadow-[0_0_25px_rgba(64,224,208,0.5)] transition-all duration-300"
             >
-              Talk Through Your Roadmap
+              Let's Connect
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
