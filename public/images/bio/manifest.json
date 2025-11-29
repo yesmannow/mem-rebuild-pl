@@ -3,55 +3,51 @@
     {
       "src": "/images/bio/bio-photo.jpg",
       "variant": "hero",
-      "alt": "Jacob Darling - Professional portrait in cinematic lighting",
-      "useIn": ["Hero", "About"],
+      "alt": "Jacob Darling - Professional portrait",
+      "useIn": ["Hero", "About", "Slideshow"],
       "size": "962KB",
-      "description": "Main professional headshot with excellent lighting and composition"
+      "description": "Main professional headshot - build process generates optimized WebP/AVIF"
     },
     {
-      "src": "/images/bio/241311036_10117555583372059_173429180650836298_n.webp",
-      "variant": "casual",
-      "alt": "Jacob Darling - Casual outdoor portrait",
-      "useIn": ["About", "Footer"],
-      "size": "247KB",
-      "description": "Relaxed outdoor portrait, already optimized as WebP"
-    },
-    {
-      "src": "/images/bio/Adobe Express 2025-10-12 09.58.18.PNG",
-      "variant": "artistic",
-      "alt": "Jacob Darling - Colorful artistic portrait with creative effects",
-      "useIn": ["Hero", "Overlay"],
+      "src": "/images/bio/bio pic 2.png",
+      "variant": "portrait",
+      "alt": "Jacob Darling - Portrait 2",
+      "useIn": ["Hero", "Slideshow"],
       "size": "5.3MB",
-      "description": "Vibrant artistic portrait with color effects, needs optimization"
+      "description": "Portrait photo - build process generates optimized WebP/AVIF"
     },
     {
-      "src": "/images/bio/Untitled-1 (Custom).png",
-      "variant": "monochrome",
-      "alt": "Jacob Darling - Black and white portrait",
-      "useIn": ["About"],
-      "size": "117KB",
-      "description": "Monochrome portrait with professional styling"
+      "src": "/images/bio/bio pic 3.png",
+      "variant": "portrait",
+      "alt": "Jacob Darling - Portrait 3",
+      "useIn": ["Hero", "Slideshow"],
+      "size": "4.4MB",
+      "description": "Portrait photo - build process generates optimized WebP/AVIF"
     },
     {
-      "src": "/images/bio/1732967007485.jpg",
-      "variant": "candid",
-      "alt": "Jacob Darling - Candid moment portrait",
-      "useIn": ["About", "Gallery"],
-      "size": "201KB",
-      "description": "Natural candid portrait, good for rotation gallery"
+      "src": "/images/bio/IMG_20230617_015647_366.jpg",
+      "variant": "casual",
+      "alt": "Jacob Darling - Portrait",
+      "useIn": ["Slideshow", "About"],
+      "size": "2MB",
+      "description": "Landscape portrait - build process generates optimized WebP/AVIF"
+    },
+    {
+      "src": "/images/bio/QVZlSmkxeURiak5tajdscg.jpeg",
+      "variant": "square",
+      "alt": "Jacob Darling - Portrait",
+      "useIn": ["Slideshow", "About"],
+      "size": "97KB",
+      "description": "Square portrait, already optimized"
     }
   ],
+  "slideshowConfig": {
+    "interval": 4500,
+    "transition": "crossfade",
+    "duration": 800
+  },
   "metadata": {
     "totalImages": 5,
-    "optimizationNeeded": ["Adobe Express 2025-10-12 09.58.18.PNG"],
-    "webpReady": ["241311036_10117555583372059_173429180650836298_n.webp"],
-    "renamingNeeded": [
-      "Adobe Express 2025-10-12 09.58.18.PNG",
-      "Untitled-1 (Custom).png",
-      "1732967007485.jpg"
-    ],
-    "primaryHero": "/images/bio/Adobe Express 2025-10-12 09.58.18.PNG",
-    "primaryAbout": "/images/bio/bio-photo.jpg",
-    "primaryFooter": "/images/bio/241311036_10117555583372059_173429180650836298_n.webp"
+    "note": "Source images are jpg/png; build process auto-generates WebP/AVIF versions"
   }
 }

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import BioPhotoSlideshow from './BioPhotoSlideshow';
 
 interface TechProfileProps {
   className?: string;
@@ -145,19 +146,16 @@ const TechProfile: React.FC<TechProfileProps> = ({
               />
             )}
 
-            {/* Main Image */}
-            <motion.img
-              src="/images/design/jacob-brady-resized.webp"
-              alt="Jacob Darling - Marketing Technologist"
-              className="absolute inset-0 w-full h-full object-cover"
+            {/* Bio Photo Slideshow */}
+            <div
+              className="absolute inset-0 w-full h-full"
               style={{
                 filter: (isHovered || isTouchDevice) ? 'grayscale(0%)' : 'grayscale(100%)',
                 transition: 'filter 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
               }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            />
+            >
+              <BioPhotoSlideshow interval={4500} />
+            </div>
 
             {/* Scanner Line Effect */}
             <motion.div
