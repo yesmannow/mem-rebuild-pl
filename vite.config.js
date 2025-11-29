@@ -68,8 +68,11 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,woff2}'],
-        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MiB - allows larger portfolio images
+        // Only precache essential files - images will be cached on-demand
+        globPatterns: ['**/*.{js,css,html,ico,woff2}'],
+        // Exclude large images from precaching
+        globIgnores: ['**/images/**', '**/photography/**', '**/design/**'],
+        maximumFileSizeToCacheInBytes: 2 * 1024 * 1024, // 2 MiB - reduced for faster initial load
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -82,6 +85,18 @@ export default defineConfig({
               },
               cacheableResponse: {
                 statuses: [0, 200],
+              },
+            },
+          },
+          // Cache images on-demand with StaleWhileRevalidate
+          {
+            urlPattern: /\.(png|jpg|jpeg|webp|gif|svg)$/i,
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'images-cache',
+              expiration: {
+                maxEntries: 100,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
               },
             },
           },
@@ -156,10 +171,47 @@ export default defineConfig({
           }
           return 'assets/[name]-[hash][extname]';
         },
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-animation': ['framer-motion'],
-          'vendor-utils': ['clsx', 'tailwind-merge'],
+        manualChunks: (id) => {
+          // React core - frequently cached
+          if (id.includes('node_modules/react/') || 
+              id.includes('node_modules/react-dom/') || 
+              id.includes('node_modules/react-router-dom/') ||
+              id.includes('node_modules/scheduler/')) {
+            return 'vendor-react';
+          }
+          // Animation libraries - large but cacheable
+          if (id.includes('node_modules/framer-motion/')) {
+            return 'vendor-animation';
+          }
+          // Recharts - very large, only used on Services page
+          if (id.includes('node_modules/recharts/') || 
+              id.includes('node_modules/d3-') ||
+              id.includes('node_modules/victory-')) {
+            return 'vendor-charts';
+          }
+          // GSAP and smooth scroll - heavy animation
+          if (id.includes('node_modules/gsap/') || 
+              id.includes('node_modules/lenis/')) {
+            return 'vendor-scroll';
+          }
+          // React PDF - only used on Resume page
+          if (id.includes('node_modules/@react-pdf/')) {
+            return 'vendor-pdf';
+          }
+          // Utility libraries - small, shared
+          if (id.includes('node_modules/clsx/') || 
+              id.includes('node_modules/tailwind-merge/') ||
+              id.includes('node_modules/class-variance-authority/')) {
+            return 'vendor-utils';
+          }
+          // Radix UI components - shared UI primitives
+          if (id.includes('node_modules/@radix-ui/')) {
+            return 'vendor-radix';
+          }
+          // Lucide icons - many icons used across the app
+          if (id.includes('node_modules/lucide-react/')) {
+            return 'vendor-icons';
+          }
         },
       }
     },

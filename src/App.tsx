@@ -41,30 +41,35 @@ const AppContent: React.FC = () => {
     document.documentElement.style.overflow = 'auto';
     document.body.style.overflow = 'auto';
 
-    // Initialize global Lenis instance (with error handling)
-    // initLenis() has a guard to prevent multiple initializations
-    try {
-      const lenis = initLenis();
-      if (lenis) {
-        // Only log once per actual initialization (guard prevents duplicate logs)
-        if (process.env.NODE_ENV === 'development') {
-          console.log('✅ App: Lenis ready');
+    // Defer Lenis initialization to after first paint to reduce main thread blocking
+    // This allows the page to be interactive faster while smooth scrolling loads in background
+    const initScrolling = () => {
+      try {
+        const lenis = initLenis();
+        if (lenis) {
+          if (process.env.NODE_ENV === 'development') {
+            console.log('✅ App: Lenis ready');
+          }
+        } else {
+          if (process.env.NODE_ENV === 'development') {
+            console.warn('⚠️ App: Lenis not initialized, using native scroll');
+          }
         }
-      } else {
-        if (process.env.NODE_ENV === 'development') {
-          console.warn('⚠️ App: Lenis not initialized, using native scroll');
-        }
+      } catch (error) {
+        console.error('❌ App: Lenis initialization error:', error);
       }
-    } catch (error) {
-      console.error('❌ App: Lenis initialization error:', error);
+    };
+
+    // Use requestIdleCallback to defer initialization, or setTimeout as fallback
+    if ('requestIdleCallback' in window) {
+      (window as any).requestIdleCallback(initScrolling, { timeout: 2000 });
+    } else {
+      // Fallback for Safari and older browsers - defer by 100ms after first paint
+      setTimeout(initScrolling, 100);
     }
 
     // Cleanup on unmount
-    // Note: In React StrictMode (dev), effects run twice, but we shouldn't
-    // destroy Lenis between these runs. Only destroy on actual unmount.
     return () => {
-      // Only destroy on actual app unmount, not during StrictMode remounts
-      // This prevents duplicate initialization during dev mode
       if (process.env.NODE_ENV === 'production') {
         try {
           destroyLenis();

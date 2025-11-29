@@ -1,11 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useRef, Suspense, lazy } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useInView } from 'framer-motion';
 import { Briefcase, Code, Palette, TrendingUp, DollarSign, Target, Zap, Database, Globe, Type, Image, Video } from 'lucide-react';
-import SkillsRadar from '../components/ui/SkillsRadar';
-import TheAtlas from '../components/ui/TheAtlas';
-import ServiceModules from '../components/ServiceModules';
-import InteractiveProcessFlow from '../components/ui/InteractiveProcessFlow';
+
+// Lazy load heavy components to reduce initial bundle size
+const SkillsRadar = lazy(() => import('../components/ui/SkillsRadar'));
+const TheAtlas = lazy(() => import('../components/ui/TheAtlas'));
+const ServiceModules = lazy(() => import('../components/ServiceModules'));
+const InteractiveProcessFlow = lazy(() => import('../components/ui/InteractiveProcessFlow'));
+
+// Loading fallback component
+const SectionLoader = () => (
+  <div className="h-64 animate-pulse bg-brand-surface/30 rounded-2xl flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-brand-teal/30 border-t-brand-teal rounded-full animate-spin" />
+  </div>
+);
 
 const Services: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -173,28 +182,36 @@ const Services: React.FC = () => {
                 This is why you're a "Unicorn" hire. Full-spectrum coverage across Strategy, Analytics, Engineering, Creative, Leadership, and Automation.
               </p>
             </motion.div>
-            <SkillsRadar />
+            <Suspense fallback={<SectionLoader />}>
+              <SkillsRadar />
+            </Suspense>
           </div>
         </section>
 
         {/* Process Flow */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <InteractiveProcessFlow />
+            <Suspense fallback={<SectionLoader />}>
+              <InteractiveProcessFlow />
+            </Suspense>
           </div>
         </section>
 
         {/* Service Modules - Productized Services */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-dark/50">
           <div className="max-w-7xl mx-auto">
-            <ServiceModules />
+            <Suspense fallback={<SectionLoader />}>
+              <ServiceModules />
+            </Suspense>
           </div>
         </section>
 
         {/* The Atlas - Data Visualization */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <TheAtlas />
+            <Suspense fallback={<SectionLoader />}>
+              <TheAtlas />
+            </Suspense>
           </div>
         </section>
 
