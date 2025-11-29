@@ -11,18 +11,13 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
   const location = useLocation();
 
   const navLinks = [
-    { name: 'Work', path: '/case-studies' },
-    { name: 'Services', path: '/services' },
+    { name: 'Projects', path: '/case-studies' },
     { name: 'The Lab', path: '/apps' },
-    { name: 'The Studio', path: '/studio' },
-    { name: 'Ventures', path: '/side-projects' },
+    { name: 'Studio', path: '/studio' },
     { name: 'Bio', path: '/about' },
-  ];
+  ] as const;
 
   const isActive = (path: string) => {
-    if (path === '/') {
-      return location.pathname === '/';
-    }
     return location.pathname.startsWith(path);
   };
 
@@ -82,12 +77,12 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
               </kbd>
             </button>
 
-            <a
-              href="mailto:hoosierdarling@gmail.com"
+            <Link
+              to="/contact"
               className="bg-brand-teal text-brand-dark px-4 py-2 rounded-md font-bold text-sm hover:bg-white transition-all shadow-[0_0_15px_rgba(64,224,208,0.3)] hover:shadow-[0_0_25px_rgba(64,224,208,0.5)]"
             >
-              Start Project
-            </a>
+              Contact Me
+            </Link>
           </div>
 
           {/* MOBILE: Only "Start Project" Button (No Hamburger Menu) */}
@@ -100,12 +95,12 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
             >
               <Search size={18} />
             </button>
-            <a
-              href="mailto:hoosierdarling@gmail.com"
+            <Link
+              to="/contact"
               className="bg-brand-teal text-brand-dark px-3 py-2 rounded-md font-bold text-sm hover:bg-white transition-all shadow-[0_0_15px_rgba(64,224,208,0.3)]"
             >
-              Start Project
-            </a>
+              Contact Me
+            </Link>
           </div>
         </div>
       </div>

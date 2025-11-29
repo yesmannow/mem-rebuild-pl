@@ -1,33 +1,20 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Home, 
-  Briefcase, 
-  FlaskConical, 
-  Grip, 
-  X,
-  Palette,
-  Swords,
-  Lock,
-  FileText,
-  Wrench,
-  User,
-  Mail,
-  Rocket
-} from 'lucide-react';
+import { Grip, X } from 'lucide-react';
 import { useHaptic } from '../hooks/useHaptic';
+import { productMakerIcons } from './ui/Icons';
+
+const { home: HomeIcon, projects: ProjectsIcon, lab: LabIcon, studio: StudioIcon, bio: BioIcon, contact: ContactIcon } =
+  productMakerIcons;
 
 // Full menu items for the overlay
 const fullMenuItems = [
-  { icon: Palette, label: 'The Studio', path: '/studio', description: 'Creative workspace' },
-  { icon: Swords, label: 'War Room', path: '/war-room', description: 'Strategic operations' },
-  { icon: Lock, label: 'The Vault', path: '/gallery', description: 'Project archive' },
-  { icon: FileText, label: 'Resume', path: '/resume', description: 'Professional experience' },
-  { icon: Wrench, label: 'Services', path: '/services', description: 'What I offer' },
-  { icon: Rocket, label: 'Ventures', path: '/side-projects', description: 'Side projects' },
-  { icon: User, label: 'Bio', path: '/about', description: 'About me' },
-  { icon: Mail, label: 'Contact', path: '/contact', description: 'Get in touch' },
+  { icon: ProjectsIcon, label: 'Projects', path: '/case-studies', description: 'Client systems and proof' },
+  { icon: LabIcon, label: 'The Lab', path: '/apps', description: 'Experiments & internal tools' },
+  { icon: StudioIcon, label: 'Studio', path: '/studio', description: 'Brand & creative kits' },
+  { icon: BioIcon, label: 'Bio', path: '/about', description: 'Meet Jacob' },
+  { icon: ContactIcon, label: 'Contact', path: '/contact', description: 'Book a consultation' },
 ];
 
 const MobileDock: React.FC = () => {
@@ -36,9 +23,9 @@ const MobileDock: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const dockItems = [
-    { icon: Home, label: 'Home', path: '/', ariaLabel: 'Navigate to home' },
-    { icon: Briefcase, label: 'Work', path: '/case-studies', ariaLabel: 'View case studies' },
-    { icon: FlaskConical, label: 'Lab', path: '/apps', ariaLabel: 'View the lab' },
+    { icon: HomeIcon, label: 'Home', path: '/', ariaLabel: 'Navigate to home' },
+    { icon: ProjectsIcon, label: 'Projects', path: '/case-studies', ariaLabel: 'View flagship projects' },
+    { icon: LabIcon, label: 'The Lab', path: '/apps', ariaLabel: 'View the lab' },
   ];
 
   const isActive = (path: string) => {
