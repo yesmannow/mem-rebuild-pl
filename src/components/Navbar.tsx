@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Search, Command } from 'lucide-react';
 import InteractiveLogo from './InteractiveLogo';
 import BrandToggle from './theme/BrandToggle';
 
-const Navbar = () => {
+interface NavbarProps {
+  onOpenCommandPalette?: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
   const location = useLocation();
 
   const navLinks = [
@@ -23,45 +28,85 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full z-[100] bg-brand-dark/90 backdrop-blur-xl border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+    <nav className="fixed w-full z-[100] h-16 bg-slate-950/60 backdrop-blur-md border-b border-white/5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex items-center justify-between h-full">
 
-          {/* BRANDING: Personal Identity - Living Logo */}
-          <Link to="/" className="flex items-center">
-            <InteractiveLogo size={40} showText={true} />
-          </Link>
+          {/* Left Section: System Status + Logo */}
+          <div className="flex items-center gap-4">
+            {/* System Status Indicator - Desktop only */}
+            <div className="hidden lg:flex items-center gap-2 pr-4 border-r border-white/10">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-teal opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-teal"></span>
+              </span>
+              <span className="text-xs text-brand-teal font-mono">System: Online</span>
+            </div>
+
+            {/* BRANDING: Personal Identity - Living Logo */}
+            <Link to="/" className="flex items-center">
+              <InteractiveLogo size={36} showText={true} />
+            </Link>
+          </div>
 
           {/* DESKTOP NAV */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-5">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`${
-                  isActive(link.path) ? 'text-brand-teal' : 'text-brand-muted'
-                } hover:text-brand-teal transition-colors font-medium text-sm uppercase tracking-wide`}
+                className={`relative ${
+                  isActive(link.path) 
+                    ? 'text-brand-teal' 
+                    : 'text-brand-muted hover:text-brand-teal'
+                } transition-all duration-300 font-medium text-sm uppercase tracking-wide group`}
               >
                 {link.name}
+                {/* Hover glow effect */}
+                <span className={`absolute -bottom-1 left-0 w-full h-px transition-all duration-300 ${
+                  isActive(link.path)
+                    ? 'bg-brand-teal shadow-[0_0_8px_rgba(64,224,208,0.5)]'
+                    : 'bg-transparent group-hover:bg-brand-teal/50'
+                }`} />
               </Link>
             ))}
 
             {/* Brand Toggle */}
             <BrandToggle />
 
+            {/* Cmd+K Search Button */}
+            <button
+              onClick={onOpenCommandPalette}
+              className="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 border border-white/10 rounded-lg text-brand-muted hover:text-brand-teal hover:border-brand-teal/30 transition-all duration-300 group"
+              aria-label="Open command palette"
+            >
+              <Search size={14} className="group-hover:text-brand-teal transition-colors" />
+              <kbd className="hidden lg:flex items-center gap-0.5 text-xs font-mono">
+                <Command size={10} />K
+              </kbd>
+            </button>
+
             <a
               href="mailto:hoosierdarling@gmail.com"
-              className="bg-brand-teal text-brand-dark px-5 py-2.5 rounded-md font-bold hover:bg-white transition-all shadow-[0_0_15px_rgba(64,224,208,0.3)] hover:shadow-[0_0_25px_rgba(64,224,208,0.5)]"
+              className="bg-brand-teal text-brand-dark px-4 py-2 rounded-md font-bold text-sm hover:bg-white transition-all shadow-[0_0_15px_rgba(64,224,208,0.3)] hover:shadow-[0_0_25px_rgba(64,224,208,0.5)]"
             >
               Start Project
             </a>
           </div>
 
           {/* MOBILE: Only "Start Project" Button (No Hamburger Menu) */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            {/* Mobile Cmd+K trigger */}
+            <button
+              onClick={onOpenCommandPalette}
+              className="p-2 bg-slate-800/50 border border-white/10 rounded-lg text-brand-muted hover:text-brand-teal transition-all"
+              aria-label="Open search"
+            >
+              <Search size={18} />
+            </button>
             <a
               href="mailto:hoosierdarling@gmail.com"
-              className="bg-brand-teal text-brand-dark px-4 py-2 rounded-md font-bold text-sm hover:bg-white transition-all shadow-[0_0_15px_rgba(64,224,208,0.3)]"
+              className="bg-brand-teal text-brand-dark px-3 py-2 rounded-md font-bold text-sm hover:bg-white transition-all shadow-[0_0_15px_rgba(64,224,208,0.3)]"
             >
               Start Project
             </a>

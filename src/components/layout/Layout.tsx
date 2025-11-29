@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, ReactNode } from 'react';
+import React, { lazy, Suspense, ReactNode, useState, useEffect, useCallback } from 'react';
 import Loader from '../ui/Loader';
 import ReadingProgressBar from '../ui/ReadingProgressBar';
 import KeyboardShortcuts from '../ui/KeyboardShortcuts';
@@ -9,12 +9,36 @@ const EnhancedFooter = lazy(() => import('./EnhancedFooter'));
 const ScrollToTop = lazy(() => import('../utils/ScrollToTop'));
 const BackToTop = lazy(() => import('../utilities/BackToTop'));
 const MobileDock = lazy(() => import('../MobileDock'));
+const CommandPalette = lazy(() => import('../CommandPalette'));
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+
+  // Global keyboard shortcut for Cmd+K / Ctrl+K
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      setIsCommandPaletteOpen(prev => !prev);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [handleKeyDown]);
+
+  const openCommandPalette = useCallback(() => {
+    setIsCommandPaletteOpen(true);
+  }, []);
+
+  const closeCommandPalette = useCallback(() => {
+    setIsCommandPaletteOpen(false);
+  }, []);
+
   return (
     <>
       {/* Skip to content link */}
@@ -39,7 +63,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </nav>
           }
         >
-          <Navbar />
+          <Navbar onOpenCommandPalette={openCommandPalette} />
         </Suspense>
 
         {/* Scroll utilities */}
@@ -71,6 +95,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {/* Mobile Navigation Dock */}
         <Suspense fallback={null}>
           <MobileDock />
+        </Suspense>
+
+        {/* Command Palette (Cmd+K) */}
+        <Suspense fallback={null}>
+          <CommandPalette isOpen={isCommandPaletteOpen} onClose={closeCommandPalette} />
         </Suspense>
 
         {/* Keyboard Shortcuts Overlay */}
