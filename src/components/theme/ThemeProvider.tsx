@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 type Theme = 'light' | 'dark' | 'system';
-type Brand = 'cmo' | 'dev' | 'default';
+type Brand = 'default';
 
 type ThemeContextType = {
   theme: Theme;
@@ -26,15 +26,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const getInitialBrand = (): Brand => {
-    try {
-      const stored = localStorage.getItem('brand') as Brand;
-      return stored && ['cmo', 'dev', 'default'].includes(stored) ? stored : 'default';
-    } catch {
-      return 'default';
-    }
-  };
-
   const getInitialBrandAccent = (): string | undefined => {
     try {
       const stored = localStorage.getItem('brandAccent');
@@ -45,7 +36,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   };
 
   const [theme, setThemeState] = useState<Theme>(getInitialTheme);
-  const [brand, setBrandState] = useState<Brand>(getInitialBrand);
+  const brand: Brand = 'default'; // Always use hybrid/default brand
   const [brandAccent, setBrandAccentState] = useState<string | undefined>(getInitialBrandAccent);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
@@ -63,21 +54,17 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
   }, []);
 
-  const apply = React.useCallback((t: Theme, b: Brand, accent?: string) => {
+  const apply = React.useCallback((t: Theme, accent?: string) => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const isDark = t === 'dark' || (t === 'system' && prefersDark);
 
     document.documentElement.classList.toggle('dark', isDark);
-    document.documentElement.setAttribute('data-brand', b);
+    document.documentElement.setAttribute('data-brand', 'default');
 
-    // Apply brand-specific font family
-    const fontFamilies = {
-      cmo: "'Newsreader', 'Merriweather', Georgia, serif",
-      dev: "'JetBrains Mono', 'Fira Code', 'Consolas', monospace",
-      default: "'Montserrat', system-ui, sans-serif"
-    };
-    document.documentElement.style.setProperty('--brand-font-family', fontFamilies[b]);
-    document.body.style.fontFamily = fontFamilies[b];
+    // Apply default (hybrid) font family
+    const fontFamily = "'Montserrat', system-ui, sans-serif";
+    document.documentElement.style.setProperty('--brand-font-family', fontFamily);
+    document.body.style.fontFamily = fontFamily;
 
     if (accent) {
       document.documentElement.style.setProperty('--brand-accent-override', accent);
@@ -90,7 +77,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [updateThemeColor]);
 
   useEffect(() => {
-    apply(theme, brand, brandAccent);
+    apply(theme, brandAccent);
 
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(motionQuery.matches);
@@ -104,17 +91,17 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.classList.toggle('reduce-motion', motionQuery.matches);
 
     return () => motionQuery.removeEventListener('change', handleMotionChange);
-  }, [apply, theme, brand, brandAccent]);
+  }, [apply, theme, brandAccent]);
 
   useEffect(() => {
     if (theme !== 'system') return;
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = () => apply('system', brand, brandAccent);
+    const handleChange = () => apply('system', brandAccent);
 
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
-  }, [apply, theme, brand, brandAccent]);
+  }, [apply, theme, brandAccent]);
 
 
 
@@ -129,15 +116,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const setTheme = (t: Theme) => {
     setThemeState(t);
     localStorage.setItem('theme', t);
-    apply(t, brand, brandAccent);
+    apply(t, brandAccent);
     trackEvent('theme_change', { theme: t });
   };
 
-  const setBrand = (b: Brand) => {
-    setBrandState(b);
-    localStorage.setItem('brand', b);
-    apply(theme, b, brandAccent);
-    trackEvent('brand_change', { brand: b });
+  // setBrand is a no-op now since we only use 'default' brand
+  const setBrand = (_b: Brand) => {
+    // No-op: brand is always 'default'
   };
 
   const setBrandAccent = (color?: string) => {
@@ -147,7 +132,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     } else {
       localStorage.removeItem('brandAccent');
     }
-    apply(theme, brand, color);
+    apply(theme, color);
     trackEvent('brand_accent_change', { color: color || 'none' });
   };
 

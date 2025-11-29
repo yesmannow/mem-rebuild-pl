@@ -6,12 +6,10 @@ import AnimatedCaveLogo from '../branding/AnimatedCaveLogo';
 import SignalTape from '../home/SignalTape';
 import SystemLog from '../ui/SystemLog';
 import { usePerformanceMetrics } from '../../hooks/usePerformanceMetrics';
-import { useTheme } from '../theme/ThemeProvider';
 
 const EnhancedFooter: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const metrics = usePerformanceMetrics();
-  const { brand } = useTheme();
 
   const footerLinks = {
     About: [
@@ -216,54 +214,18 @@ const EnhancedFooter: React.FC = () => {
 
                 <span className="text-[var(--parchment-050)]/40">|</span>
 
-                {/* Live FPS (Dev Mode) or Business Metrics (CMO Mode) */}
-                {brand === 'dev' ? (
+                {/* Performance Metrics */}
+                <div className="flex items-center gap-1">
+                  <span>⚡</span>
+                  <span>Latency: {metrics.latency}ms</span>
+                </div>
+                {metrics.memory && (
                   <>
-                    <div className="flex items-center gap-1">
-                      <span>🎮</span>
-                      <span className={metrics.fps >= 55 ? 'text-green-400' : metrics.fps >= 30 ? 'text-yellow-400' : 'text-red-400'}>
-                        {metrics.fps} FPS
-                      </span>
-                    </div>
-                    {metrics.memory && (
-                      <>
-                        <span className="text-[var(--parchment-050)]/40">|</span>
-                        <div className="flex items-center gap-1">
-                          <span>💾</span>
-                          <span className={metrics.memory.percentage < 70 ? 'text-green-400' : metrics.memory.percentage < 90 ? 'text-yellow-400' : 'text-red-400'}>
-                            {metrics.memory.used}MB
-                          </span>
-                        </div>
-                      </>
-                    )}
-                  </>
-                ) : brand === 'cmo' ? (
-                  <>
-                    <div className="flex items-center gap-1">
-                      <span>📊</span>
-                      <span>ROI: +{Math.round(Math.random() * 50 + 150)}%</span>
-                    </div>
                     <span className="text-[var(--parchment-050)]/40">|</span>
                     <div className="flex items-center gap-1">
-                      <span>📈</span>
-                      <span>Growth: {Math.round(Math.random() * 20 + 30)}%</span>
+                      <span>💾</span>
+                      <span>{metrics.memory.used}MB</span>
                     </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="flex items-center gap-1">
-                      <span>⚡</span>
-                      <span>Latency: {metrics.latency}ms</span>
-                    </div>
-                    {metrics.memory && (
-                      <>
-                        <span className="text-[var(--parchment-050)]/40">|</span>
-                        <div className="flex items-center gap-1">
-                          <span>💾</span>
-                          <span>{metrics.memory.used}MB</span>
-                        </div>
-                      </>
-                    )}
                   </>
                 )}
 
