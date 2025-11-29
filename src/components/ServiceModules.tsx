@@ -176,7 +176,7 @@ const ServiceModules: React.FC = () => {
           Need a custom solution? Let's build something specific to your needs.
         </p>
         <a
-          href="mailto:jacob@jacobdarling.com"
+          href="mailto:hoosierdarling@gmail.com"
           className="inline-flex items-center gap-2 bg-brand-teal text-brand-dark px-6 py-3 rounded-lg font-bold hover:bg-white transition-all shadow-[0_0_15px_rgba(64,224,208,0.3)] hover:shadow-[0_0_25px_rgba(64,224,208,0.5)]"
         >
           Start a Conversation

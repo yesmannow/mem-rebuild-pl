@@ -7,6 +7,7 @@ import { ToastProvider } from './components/ui/Toast';
 import Layout from './components/layout/Layout';
 import SwipeShell from './components/SwipeShell';
 import { EnhancedOceanBackground } from './components/ui/EnhancedOceanBackground';
+import CookieConsent from './components/ui/CookieConsent';
 import { queryClient } from './lib/queryClient';
 import { initLenis, destroyLenis } from './utils/motion-sync';
 import { initAnalytics } from './utils/analytics';
@@ -98,6 +99,7 @@ const AppContent: React.FC = () => {
                   <AppRouter />
                 </SwipeShell>
               </Layout>
+              <CookieConsent />
 
               {/* Konami Code Debug Overlay */}
               <DebugOverlay

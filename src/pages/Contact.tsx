@@ -160,7 +160,7 @@ const Contact: React.FC = () => {
 
       if (!web3formsKey) {
         setError(
-          'Form submission is not configured. Please contact me directly at jacob@jacobdarling.com'
+          'Form submission is not configured. Please contact me directly at hoosierdarling@gmail.com'
         );
         setIsSubmitting(false);
         return;
@@ -198,7 +198,7 @@ const Contact: React.FC = () => {
         trackPortfolioEngagement.contactFormError(result.message || 'Unknown error');
       }
     } catch (err) {
-      setError('An error occurred. Please try emailing directly at jacob@jacobdarling.com');
+      setError('An error occurred. Please try emailing directly at hoosierdarling@gmail.com');
       trackPortfolioEngagement.contactFormError(err instanceof Error ? err.message : 'Network error');
     } finally {
       setIsSubmitting(false);
@@ -500,9 +500,9 @@ const Contact: React.FC = () => {
                             <strong>Error sending message</strong>
                             <p>{error}</p>
                             <a
-                              href="mailto:jacob@jacobdarling.com"
+                              href="mailto:hoosierdarling@gmail.com"
                               className="error-link"
-                              aria-label="Send email directly to jacob@jacobdarling.com"
+                              aria-label="Send email directly to hoosierdarling@gmail.com"
                             >
                               Email directly instead →
                             </a>
@@ -577,19 +577,19 @@ const Contact: React.FC = () => {
                 {/* Contact Methods */}
                 <div className="contact-methods">
                   <motion.a
-                    href="mailto:jacob@jacobdarling.com"
+                    href="mailto:hoosierdarling@gmail.com"
                     className="contact-method"
                     whileHover={{ x: 4, scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ duration: 0.2 }}
-                    aria-label="Send email to jacob@jacobdarling.com"
+                    aria-label="Send email to hoosierdarling@gmail.com"
                   >
                     <div className="contact-icon">
                       <Mail size={24} />
                     </div>
                     <div>
                       <strong>Email</strong>
-                      <p>jacob@jacobdarling.com</p>
+                      <p>hoosierdarling@gmail.com</p>
                     </div>
                   </motion.a>
 

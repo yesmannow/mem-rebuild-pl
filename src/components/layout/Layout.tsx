@@ -2,6 +2,7 @@ import React, { lazy, Suspense, ReactNode } from 'react';
 import Loader from '../ui/Loader';
 import ReadingProgressBar from '../ui/ReadingProgressBar';
 import KeyboardShortcuts from '../ui/KeyboardShortcuts';
+import Atmosphere from '../ui/Atmosphere';
 
 const Navbar = lazy(() => import('../Navbar'));
 const EnhancedFooter = lazy(() => import('./EnhancedFooter'));
@@ -25,7 +26,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         Skip to content
       </a>
 
-      <div className="app min-h-dvh flex flex-col bg-[var(--ink-900)] text-[var(--parchment-050)]">
+      <div className="app min-h-dvh flex flex-col bg-[var(--ink-900)] text-[var(--parchment-050)] relative overflow-hidden">
+        <Atmosphere />
         {/* Reading Progress Bar */}
         <ReadingProgressBar />
 

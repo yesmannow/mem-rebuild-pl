@@ -185,6 +185,14 @@ const EnhancedFooter: React.FC = () => {
               {/* Left: Copyright */}
               <div className="text-[var(--parchment-050)]/60">
                 © {currentYear} Jacob Darling
+                <span className="text-[var(--parchment-050)]/40">|</span>
+                <Link to="/privacy" className="hover:text-[var(--signal-500)] transition-colors">
+                  Privacy
+                </Link>
+                <span className="text-[var(--parchment-050)]/40">|</span>
+                <Link to="/terms" className="hover:text-[var(--signal-500)] transition-colors">
+                  Terms
+                </Link>
               </div>
 
               {/* Right: System Status with Live Metrics */}

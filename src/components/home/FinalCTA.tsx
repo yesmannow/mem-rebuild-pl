@@ -23,13 +23,13 @@ const FinalCTA: React.FC = () => {
         </p>
         <div className="final-cta__info">
           <span className="final-cta__location">📍 Indianapolis, IN (Remote/On-Site Available)</span>
-          <a href="mailto:jacob@jacobdarling.com" className="final-cta__email">
-            ✉️ jacob@jacobdarling.com
+          <a href="mailto:hoosierdarling@gmail.com" className="final-cta__email">
+            ✉️ hoosierdarling@gmail.com
           </a>
         </div>
         <div className="final-cta__buttons">
           <a
-            href="mailto:jacob@jacobdarling.com"
+            href="mailto:hoosierdarling@gmail.com"
             className="final-cta__button final-cta__button--primary"
             onClick={() => trackCTA('contact_email', 'final_cta')}
           >

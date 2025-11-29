@@ -19,7 +19,7 @@ const OrganizationSchema: React.FC = () => {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'jacob@jacobdarling.com',
+      email: 'hoosierdarling@gmail.com',
       url: `${BASE_URL}/contact`,
       areaServed: 'US',
       availableLanguage: 'English',

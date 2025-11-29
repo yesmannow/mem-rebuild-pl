@@ -1,10 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Maximize2, Palette as PaletteIcon, X } from 'lucide-react';
-// node-vibrant types are not ESM-friendly in this toolchain; rely on runtime API.
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import Vibrant from 'node-vibrant';
+// Use browser entry to avoid the package root throwing on default import.
+import { Vibrant } from 'node-vibrant/browser';
 
 export type GalleryMode = 'photo' | 'design';
 
@@ -54,7 +52,7 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
   const ensurePalette = async (src: string) => {
     if (paletteCache[src] || palettes[src]) return;
     try {
-      const palette = await (Vibrant as any).from(src).getPalette();
+      const palette = await Vibrant.from(src).getPalette();
       const colors = Object.values(palette)
         .filter((swatch: any) => swatch && typeof swatch.getHex === 'function')
         .map((swatch: any) => swatch.getHex()) as string[];

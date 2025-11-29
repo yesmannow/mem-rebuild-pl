@@ -26,6 +26,8 @@ const Studio = React.lazy(() => import('../pages/Studio'));
 const Creative = React.lazy(() => import('../pages/Creative'));
 const SideProjects = React.lazy(() => import('../pages/SideProjects'));
 const SideProjectDetail = React.lazy(() => import('../pages/side-projects/SideProjectDetail'));
+const PrivacyPolicy = React.lazy(() => import('../pages/legal/PrivacyPolicy'));
+const TermsOfService = React.lazy(() => import('../pages/legal/TermsOfService'));
 const Testimonials = React.lazy(() => import('../pages/Testimonials'));
 const Resume = React.lazy(() => import('../pages/Resume'));
 const Contact = React.lazy(() => import('../pages/Contact'));
@@ -516,7 +518,7 @@ const AppRouter: React.FC = () => {
               }
             />
             <Route
-              path="/side-projects/:slug"
+              path="/side-projects/:id"
               element={
                 <PageTransition>
                   <SideProjectDetail />
@@ -544,6 +546,22 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <Contact />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/privacy"
+              element={
+                <PageTransition>
+                  <PrivacyPolicy />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/terms"
+              element={
+                <PageTransition>
+                  <TermsOfService />
                 </PageTransition>
               }
             />

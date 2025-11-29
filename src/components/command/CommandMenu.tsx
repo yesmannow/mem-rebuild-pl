@@ -275,7 +275,7 @@ export default function CommandMenu({ open, onClose }: CommandMenuProps) {
   const { theme, setTheme } = useTheme();
 
   // Email address
-  const EMAIL = 'jacob@jacobdarling.com';
+  const EMAIL = 'hoosierdarling@gmail.com';
 
   // Determine current effective theme (handle 'system')
   const effectiveTheme = theme === 'system'

@@ -3,9 +3,8 @@
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { DndContext, closestCenter, useDroppable, useDraggable } from '@dnd-kit/core';
-// TODO: node-vibrant default export issue - using dynamic import workaround
-// @ts-ignore - node-vibrant has incorrect default export types
-import Vibrant from 'node-vibrant';
+// Use browser build to avoid the package root throwing on default import.
+import { Vibrant } from 'node-vibrant/browser';
 
 // --- Types ---
 type MoodboardImage = {

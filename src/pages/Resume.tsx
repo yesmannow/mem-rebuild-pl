@@ -1,339 +1,283 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Download, ExternalLink, ArrowRight } from 'lucide-react';
+import {
+  Download,
+  ExternalLink,
+  ArrowRight,
+  Building2,
+  MapPin,
+  Cpu,
+  BarChart,
+  Cloud,
+  Palette,
+} from 'lucide-react';
 import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
 import TechProfile from '../components/TechProfile';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
-import SkillsRadar from '../components/ui/SkillsRadar';
-import AnimatedCounter from '../components/animations/AnimatedCounter';
-import InteractiveSkillMatrix from '../components/ui/InteractiveSkillMatrix';
-import AchievementUnlocks from '../components/ui/AchievementUnlocks';
-import LiveMetricsDashboard from '../components/ui/LiveMetricsDashboard';
+import { resume as resumeData } from '../data/resume';
 
-// Resume data structure
-interface ExperienceItem {
-  company: string;
-  role: string;
-  dates: string;
-  location: string;
-  summary: string;
-  achievements: string[];
-  relatedCaseStudyId?: string;
-}
-
-const experience: ExperienceItem[] = [
+const skills = [
   {
-    company: 'Graston Technique®',
-    role: 'Marketing Director & System Architect',
-    dates: '2023 – Present',
-    location: 'Indianapolis, IN',
-    summary:
-      'Full-stack marketing leadership. Led a complete digital transformation, reducing support tickets by 70% via AI and increasing conversions by 40% through checkout innovation.',
-    achievements: [
-      'Reduced support tickets 70% via AI-powered assistant',
-      'Built 400+ CRM automations connecting LearnDash, WooCommerce, and FluentCRM',
-      'Architected provider directory with automated onboarding and revenue engine',
-      'Optimized site performance with Cloudflare, LiteSpeed, and server-level tuning',
-    ],
-    relatedCaseStudyId: 'the-launchpad',
+    title: 'Automation & Systems',
+    icon: Cpu,
+    items: ['400+ automations built', 'Lifecycle orchestration', 'AI copilots & assistants'],
   },
   {
-    company: 'Ultimate Technologies Group',
-    role: 'Interim Director of Marketing',
-    dates: '2023',
-    location: 'Fishers, IN',
-    summary:
-      'Stabilized operations during transition. Streamlined lead generation workflows resulting in a 40% improvement in campaign production timelines.',
-    achievements: [
-      'Stabilized marketing operations during organizational transition',
-      '40% faster campaign production through workflow optimization',
-      'Improved Google Ads performance and lead quality',
-      'Maintained brand consistency across all channels',
-    ],
-    relatedCaseStudyId: 'the-compass',
+    title: 'Analytics & Growth',
+    icon: BarChart,
+    items: ['Attribution & dashboards', 'CRO & funnel testing', 'Campaign performance tuning'],
   },
   {
-    company: 'Riley Bennett Egloff, LLP',
-    role: 'Marketing Manager',
-    dates: '2015 – 2023',
-    location: 'Indianapolis, IN',
-    summary:
-      'Managed digital rebrand and SEO overhaul leading to a 35% increase in qualified client inquiries.',
-    achievements: [
-      '35% increase in qualified inquiries via SEO overhaul',
-      'Led complete digital rebrand and website redesign',
-      'Implemented marketing automation and CRM integration',
-      'Managed content strategy and social media presence',
-    ],
-    relatedCaseStudyId: 'the-fortress',
+    title: 'Web & Cloud',
+    icon: Cloud,
+    items: ['WordPress + React builds', 'Cloudflare edge security', 'Serverless & API design'],
   },
-];
-
-const education = [
   {
-    degree: 'B.S. Business Administration',
-    institution: 'Indiana University',
-    year: '2009',
+    title: 'Creative & UX',
+    icon: Palette,
+    items: ['Brand storytelling', 'Interactive UX flows', 'Content & SEO systems'],
   },
 ];
 
 const Resume: React.FC = () => {
-  const [hoveredRole, setHoveredRole] = useState<string | null>(null);
-
   const handleDownloadPDF = () => {
-    // Open PDF in new tab or trigger download
     window.open('/resume.pdf', '_blank');
   };
+
+  const headlineMetrics = [
+    { label: 'Years Experience', value: '15+' },
+    { label: 'Users Served', value: '30K+' },
+    { label: 'Automations', value: '400+' },
+    { label: 'Support Tickets Reduced', value: '-70%' },
+  ];
 
   return (
     <>
       <Helmet>
-        <title>Jacob Darling - Resume | BearCave Marketing</title>
+        <title>Jacob Darling - Cinematic Resume | BearCave Marketing</title>
         <meta
           name="description"
-          content="Marketing Director & System Architect with 15+ years of experience building revenue-driving marketing infrastructure."
+          content="Dual-Threat Marketing Director & Systems Architect. Cinematic, interactive career timeline for Jacob Darling."
         />
       </Helmet>
 
       <OceanAuroraBackground>
         <main className="min-h-screen relative z-10">
-          {/* Holographic Header */}
-          <section className="relative min-h-[60vh] flex flex-col items-center justify-center pt-24 pb-12 px-4">
+          {/* Hero */}
+          <section className="relative min-h-[60vh] flex flex-col items-center justify-center pt-24 pb-16 px-4 text-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="mb-8"
+              transition={{ duration: 0.6 }}
+              className="mb-6"
             >
               <TechProfile size="lg" />
             </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-5xl md:text-6xl font-bold text-brand-text text-center mb-4"
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="text-5xl md:text-6xl font-bold text-brand-text mb-3"
             >
-              Jacob Darling
+              {resumeData.name}
             </motion.h1>
-
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-xl md:text-2xl text-brand-muted text-center mb-12"
+              transition={{ delay: 0.15, duration: 0.6 }}
+              className="text-xl md:text-2xl text-brand-muted max-w-3xl"
             >
-              Marketing Director & System Architect
+              {resumeData.tagline}
             </motion.p>
 
-            {/* Live Stats */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="flex flex-wrap justify-center gap-8 md:gap-12"
+              transition={{ delay: 0.25, duration: 0.6 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 w-full max-w-5xl"
             >
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-brand-teal mb-2">
-                  <AnimatedCounter to={15} suffix="+" />
-                </div>
-                <div className="text-sm text-brand-muted uppercase tracking-wide">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-brand-teal mb-2">
-                  <AnimatedCounter to={30} suffix="k+" />
-                </div>
-                <div className="text-sm text-brand-muted uppercase tracking-wide">Users Served</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-brand-teal mb-2">
-                  <AnimatedCounter to={400} suffix="+" />
-                </div>
-                <div className="text-sm text-brand-muted uppercase tracking-wide">Automations</div>
-              </div>
-            </motion.div>
-          </section>
-
-          {/* Evidence-Based Timeline */}
-          <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl font-bold text-brand-text mb-12 text-center"
-            >
-              Career Journey
-            </motion.h2>
-
-            <div className="space-y-12 border-l-2 border-brand-teal/20 pl-8 ml-4">
-              {experience.map((exp, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  className="relative"
-                  onMouseEnter={() => setHoveredRole(exp.company)}
-                  onMouseLeave={() => setHoveredRole(null)}
+              {headlineMetrics.map((metric) => (
+                <div
+                  key={metric.label}
+                  className="bg-brand-surface/60 border border-brand-teal/20 rounded-2xl px-4 py-6 backdrop-blur-md shadow-soft-dark"
                 >
-                  {/* Timeline dot */}
-                  <motion.span
-                    className={`absolute -left-[41px] top-2 w-5 h-5 rounded-full border-4 border-brand-dark ${
-                      index === 0 ? 'bg-brand-teal' : 'bg-brand-surface'
-                    }`}
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 + 0.2, type: 'spring' }}
-                  />
-
-                  <motion.div
-                    className={`bg-brand-surface/50 border border-brand-teal/20 rounded-xl p-6 backdrop-blur-sm transition-all duration-300 ${
-                      hoveredRole === exp.company ? 'scale-105 border-brand-teal/40 shadow-lg' : ''
-                    }`}
-                  >
-                    <div className="mb-4">
-                      <div className="font-mono text-sm text-brand-teal mb-2">{exp.dates}</div>
-                      <h3 className="text-2xl font-bold text-brand-text mb-1">{exp.role}</h3>
-                      <div className="text-lg font-medium text-brand-orange mb-2">{exp.company}</div>
-                      <div className="text-sm text-brand-muted">{exp.location}</div>
-                    </div>
-
-                    <p className="text-brand-muted mb-4">{exp.summary}</p>
-
-                    <ul className="space-y-2 mb-4">
-                      {exp.achievements.map((achievement, idx) => {
-                        // Check if achievement mentions a case study
-                        const hasCaseStudy = exp.relatedCaseStudyId && idx === 0;
-
-                        return (
-                          <li key={idx} className="text-brand-muted flex items-start gap-2">
-                            <span className="text-brand-teal mt-1">▸</span>
-                            <span>
-                              {achievement}
-                              {hasCaseStudy && (
-                                <Link
-                                  to={`/case-studies/${exp.relatedCaseStudyId}`}
-                                  className="ml-2 inline-flex items-center gap-1 px-2 py-1 bg-brand-teal/10 border border-brand-teal/30 rounded text-brand-teal text-xs font-medium hover:bg-brand-teal/20 transition-all"
-                                >
-                                  View Proof
-                                  <ExternalLink size={12} />
-                                </Link>
-                              )}
-                            </span>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </motion.div>
-                </motion.div>
+                  <div className="text-3xl font-bold text-brand-teal mb-1">
+                    <OceanCountingNumber to={parseFloat(metric.value)} suffix={metric.value.replace(/[0-9.-]/g, '')} />
+                  </div>
+                  <div className="text-sm uppercase tracking-[0.2em] text-brand-muted">{metric.label}</div>
+                </div>
               ))}
+            </motion.div>
+          </section>
+
+          {/* Cinematic Career Timeline */}
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-text">Cinematic Career Timeline</h2>
+              <p className="text-brand-muted mt-3">Interactive journey — tap a role to expand impact metrics.</p>
+            </div>
+
+            <div className="relative">
+              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-brand-teal/0 via-brand-teal/70 to-brand-teal/0" />
+              <div className="space-y-12">
+                {resumeData.experience.map((exp, index) => {
+                  const isLeft = index % 2 === 0;
+                  const Icon = Building2;
+                  const alignmentClasses = isLeft ? 'md:pr-10 md:text-right' : 'md:pl-10 md:text-left';
+                  const cardOffset = isLeft ? 'md:ml-0 md:mr-12' : 'md:mr-0 md:ml-12';
+                  const connectorStyle = isLeft ? { right: '-34px' } : { left: '-34px' };
+                  return (
+                    <motion.div
+                      key={exp.company}
+                      initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      transition={{ duration: 0.6 }}
+                      className={`relative flex flex-col md:flex-row ${
+                        isLeft ? 'md:justify-start' : 'md:justify-end'
+                      }`}
+                    >
+                      <div className={`md:w-1/2 ${alignmentClasses}`}>
+                        <div
+                          className={`relative bg-brand-surface/60 border border-brand-teal/25 rounded-2xl p-6 shadow-soft-dark backdrop-blur-md ${cardOffset}`}
+                        >
+                          <div className="flex items-start gap-3 mb-4">
+                            <div className="w-12 h-12 rounded-full bg-brand-teal/10 border border-brand-teal/30 flex items-center justify-center">
+                              <Icon className="text-brand-teal" size={22} />
+                            </div>
+                            <div className="text-left">
+                              <div className="text-xs uppercase tracking-[0.2em] text-brand-muted">{exp.dates}</div>
+                              <h3 className="text-2xl font-bold text-brand-text">{exp.role}</h3>
+                              <div className="text-brand-teal font-semibold">{exp.company}</div>
+                              {exp.location && (
+                                <div className="text-brand-muted text-sm flex items-center gap-1">
+                                  <MapPin size={14} /> {exp.location}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+
+                          <p className="text-brand-muted leading-relaxed mb-4">{exp.summary}</p>
+
+                          <details className="achievements-details group">
+                            <summary className="achievements-summary flex items-center gap-2">
+                              Impact Metrics
+                            </summary>
+                            <ul className="achievements-list list-disc pl-5">
+                              {exp.metrics.map((metric) => (
+                                <li key={`${exp.company}-${metric.label}`}>
+                                  <strong className="text-brand-text">{metric.value}</strong> — {metric.label}
+                                </li>
+                              ))}
+                            </ul>
+                          </details>
+
+                          <div className="mt-4">
+                            <div className="text-xs uppercase tracking-[0.2em] text-brand-muted mb-2">Tech</div>
+                            <div className="flex flex-wrap gap-2">
+                              {exp.technologies.map((tech) => (
+                                <span
+                                  key={tech}
+                                  className="px-3 py-1 rounded-full text-xs bg-brand-teal/10 text-brand-text border border-brand-teal/20"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+
+                          {exp.link && (
+                            <div className="mt-4">
+                              <Link
+                                to={exp.link}
+                                className="inline-flex items-center gap-2 text-brand-teal hover:text-brand-light transition"
+                              >
+                                View related case study
+                                <ExternalLink size={16} />
+                              </Link>
+                            </div>
+                          )}
+
+                          <span
+                            className="hidden md:block absolute top-6 w-4 h-4 rounded-full bg-brand-teal shadow-lg shadow-brand-teal/40"
+                            style={connectorStyle}
+                          />
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
           </section>
 
-          {/* Skills Visualization */}
-          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-24">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-6">
-                  Hybrid Skillset
-                </h2>
-                <p className="text-brand-muted text-lg mb-6">
-                  The radar chart below visualizes my unique combination of strategic CMO-level thinking
-                  and hands-on technical execution. This hybrid approach is what makes me a "Unicorn"
-                  hire—able to bridge the gap between creative vision and technical implementation.
-                </p>
-                <p className="text-brand-muted">
-                  Unlike traditional marketers who rely on agencies, or developers who lack business
-                  acumen, I operate across all six dimensions: Strategy, Analytics, Engineering,
-                  Creative, Leadership, and Automation.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <SkillsRadar showLegend={true} showTooltip={true} />
-              </motion.div>
+          {/* Skills */}
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-text">Skills Snapshot</h2>
+              <p className="text-brand-muted mt-3">Icon-driven view of the hybrid toolkit.</p>
             </div>
-
-            {/* Interactive Skill Matrix */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mb-24"
-            >
-              <InteractiveSkillMatrix />
-            </motion.div>
-
-            {/* Achievement Unlocks */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mb-24"
-            >
-              <AchievementUnlocks />
-            </motion.div>
-
-            {/* Live Metrics Dashboard */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <LiveMetricsDashboard />
-            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {skills.map((category) => {
+                const Icon = category.icon;
+                return (
+                  <motion.div
+                    key={category.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="bg-brand-surface/60 border border-brand-teal/20 rounded-2xl p-6 backdrop-blur-md shadow-soft-dark"
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-full bg-brand-teal/10 border border-brand-teal/30 flex items-center justify-center">
+                        <Icon className="text-brand-teal" size={20} />
+                      </div>
+                      <h3 className="text-xl font-semibold text-brand-text">{category.title}</h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {category.items.map((item) => (
+                        <span
+                          key={item}
+                          className="px-3 py-1 rounded-full text-xs bg-brand-teal/10 text-brand-text border border-brand-teal/20"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </section>
 
           {/* Education */}
-          <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl font-bold text-brand-text mb-12 text-center"
-            >
-              Education
-            </motion.h2>
-
+          <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-text">Education</h2>
+            </div>
             <div className="space-y-6">
-              {education.map((edu, index) => (
+              {resumeData.education.map((edu) => (
                 <motion.div
-                  key={index}
+                  key={edu.institution}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-brand-surface/50 border border-brand-teal/20 rounded-xl p-6 backdrop-blur-sm"
+                  transition={{ duration: 0.5 }}
+                  className="bg-brand-surface/60 border border-brand-teal/20 rounded-2xl p-6 backdrop-blur-md shadow-soft-dark"
                 >
-                  <h3 className="text-xl font-bold text-brand-text mb-2">{edu.degree}</h3>
-                  <div className="text-brand-orange font-medium mb-1">{edu.institution}</div>
-                  <div className="text-brand-muted">{edu.year}</div>
+                  <h3 className="text-xl font-bold text-brand-text">{edu.institution}</h3>
+                  <p className="text-brand-teal font-semibold">{edu.degree}</p>
+                  <p className="text-brand-muted text-sm">{edu.year}</p>
                 </motion.div>
               ))}
             </div>
           </section>
 
           {/* CTA Section */}
-          <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -341,9 +285,7 @@ const Resume: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="bg-brand-surface/50 border border-brand-teal/20 rounded-2xl p-12 text-center backdrop-blur-sm"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">
-                Let's Build Your Growth Engine
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">Let's Build Your Growth Engine</h2>
               <p className="text-brand-muted text-lg mb-8">
                 Ready to transform your marketing systems? Let's discuss how I can help.
               </p>
@@ -366,7 +308,6 @@ const Resume: React.FC = () => {
           </section>
         </main>
 
-        {/* Floating Download PDF Button */}
         <motion.button
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
