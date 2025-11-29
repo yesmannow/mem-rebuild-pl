@@ -28,32 +28,50 @@ const BioPhotoSlideshow: React.FC<BioPhotoSlideshowProps> = ({
   photos = defaultPhotos,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isLoaded, setIsLoaded] = useState<boolean[]>([]);
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+  const [failedImages, setFailedImages] = useState<Set<number>>(new Set());
 
-  // Preload images
+  // Preload images with error handling
   useEffect(() => {
-    const loadedState = new Array(photos.length).fill(false);
     photos.forEach((photo, index) => {
       const img = new Image();
       img.onload = () => {
-        loadedState[index] = true;
-        setIsLoaded([...loadedState]);
+        setLoadedImages(prev => new Set(prev).add(index));
+      };
+      img.onerror = () => {
+        setFailedImages(prev => new Set(prev).add(index));
       };
       img.src = photo.src;
     });
   }, [photos]);
 
+  // Filter out failed images for slideshow
+  const validPhotos = photos.filter((_, index) => !failedImages.has(index));
+  const validIndices = photos.map((_, i) => i).filter(i => !failedImages.has(i));
+
   // Auto-advance slideshow
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % photos.length);
-  }, [photos.length]);
+    if (validPhotos.length === 0) return;
+    setCurrentIndex((prev) => {
+      const currentValidIndex = validIndices.indexOf(prev);
+      const nextValidIndex = (currentValidIndex + 1) % validIndices.length;
+      return validIndices[nextValidIndex];
+    });
+  }, [validPhotos.length, validIndices]);
 
   useEffect(() => {
+    if (validPhotos.length === 0) return;
     const timer = setInterval(nextSlide, interval);
     return () => clearInterval(timer);
-  }, [interval, nextSlide]);
+  }, [interval, nextSlide, validPhotos.length]);
+
+  // If no valid photos, show nothing
+  if (validPhotos.length === 0) {
+    return null;
+  }
 
   const currentPhoto = photos[currentIndex];
+  const isCurrentImageLoaded = loadedImages.has(currentIndex);
 
   return (
     <div className={`relative w-full h-full overflow-hidden ${className}`}>
@@ -64,7 +82,7 @@ const BioPhotoSlideshow: React.FC<BioPhotoSlideshowProps> = ({
           alt={currentPhoto.alt}
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: isCurrentImageLoaded ? 1 : 0.5, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{
             opacity: { duration: 0.8, ease: 'easeInOut' },
@@ -73,21 +91,23 @@ const BioPhotoSlideshow: React.FC<BioPhotoSlideshowProps> = ({
         />
       </AnimatePresence>
 
-      {/* Slide indicators */}
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-        {photos.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-              index === currentIndex
-                ? 'bg-brand-teal w-4'
-                : 'bg-white/40 hover:bg-white/60'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
+      {/* Slide indicators - only show for valid images */}
+      {validPhotos.length > 1 && (
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+          {validIndices.map((originalIndex) => (
+            <button
+              key={originalIndex}
+              onClick={() => setCurrentIndex(originalIndex)}
+              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                originalIndex === currentIndex
+                  ? 'bg-brand-teal w-4'
+                  : 'bg-white/40 hover:bg-white/60'
+              }`}
+              aria-label={`Go to slide ${validIndices.indexOf(originalIndex) + 1}`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
