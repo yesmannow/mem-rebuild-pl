@@ -8,7 +8,6 @@ import AnimatedGradientText from '../components/ui/AnimatedGradientText';
 import SectionDivider from '../components/ui/SectionDivider';
 import TerminalBlock from '../components/ui/TerminalBlock';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
-import TestimonialTerminal from '../components/TestimonialTerminal';
 import { OceanRippleButton } from '../components/ui/OceanRippleButton';
 
 const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
@@ -69,15 +68,6 @@ const operatingSignals = [
   'DONE-WITH-YOU IMPLEMENTATION',
   'EXECUTIVE ALIGNMENT + TEAM ENABLEMENT',
   'PLAYBOOKS THAT OUTLIVE THE ENGAGEMENT',
-];
-
-const trustLogos = [
-  'Venture-backed SaaS',
-  'Global eCommerce',
-  'B2B Services',
-  'Healthcare Startups',
-  'Manufacturing',
-  'Creative Agencies',
 ];
 
 const aboutHighlights = [
@@ -333,37 +323,6 @@ const Home: React.FC = () => {
                 Explore Full Technical Stack
                 <ArrowRight size={16} />
               </OceanRippleButton>
-            </div>
-          </div>
-        </section>
-
-        <SectionDivider />
-
-        <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="rounded-3xl border border-white/10 bg-slate-950/70 p-8">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
-                <div>
-                  <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Trusted by teams who build</p>
-                  <h2 className="text-3xl font-bold text-brand-text">Proof instead of promises</h2>
-                </div>
-                <p className="text-brand-muted max-w-xl">
-                  From Series A startups to global product launches, I partner with leaders who need strategic lift and executional horsepower.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-                {trustLogos.map((logo) => (
-                  <div
-                    key={logo}
-                    className="h-20 rounded-2xl border border-white/5 bg-slate-900/60 flex items-center justify-center text-center text-sm text-brand-muted"
-                  >
-                    {logo}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="mt-12 max-w-4xl mx-auto">
-              <TestimonialTerminal useFeatured autoPlay interval={8000} />
             </div>
           </div>
         </section>
