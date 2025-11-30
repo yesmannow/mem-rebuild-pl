@@ -2,14 +2,12 @@ import React, { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getCaseStudyBySlug } from '../data/caseStudies';
-import { staggerContainer, staggerItem } from '../utils/animations';
 import AnimatedSection from '../components/animations/AnimatedSection';
 import { getCaseStudyDiagrams } from '../components/diagrams/caseStudyDiagrams';
 import { trackPortfolioEngagement, createTimeTracker } from '../utils/analytics';
 import MetricsVisualization from '../components/case-study/MetricsVisualization';
 import InteractiveROIChart from '../components/case-study/InteractiveROIChart';
 import Breadcrumbs from '../components/layout/Breadcrumbs';
-import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
 import caseStudyInspirationMap from '../data/caseStudyInspirationMap.json';
 import inspirationsData from '../data/inspirations.json';
 import DataStream from '../components/case-studies/DataStream';
@@ -133,7 +131,6 @@ const CaseStudyDetail: React.FC = () => {
   };
 
   return (
-    <OceanAuroraBackground>
       <main className="case-study-detail-modern">
       {/* Hero Section */}
       <motion.section
@@ -347,7 +344,6 @@ const CaseStudyDetail: React.FC = () => {
         </section>
       </AnimatedSection>
     </main>
-    </OceanAuroraBackground>
   );
 };
 
