@@ -1,8 +1,8 @@
 /* Case Study Detail Page - Modern Styling */
 .case-study-detail-modern {
   min-height: 100vh;
-  background: linear-gradient(180deg, var(--color-neutral-1) 0%, #0d0d0d 30%, var(--color-neutral-1) 70%, #0d0d0d 100%);
-  color: var(--color-light);
+  background: linear-gradient(180deg, #1a1a2e 0%, #0d0d0d 30%, #1a1a2e 70%, #0d0d0d 100%);
+  color: #ffffff;
   padding-bottom: 4rem;
 }
 
