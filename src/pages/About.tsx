@@ -192,7 +192,7 @@ const SkillsGrid: React.FC<{ categories: SkillCategoryType[] }> = ({ categories 
             <motion.div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               style={{
-                background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(64, 224, 208, 0.06), transparent 40%)`,
+                background: `radial-gradient(600px circle at 50% 50%, rgba(64, 224, 208, 0.06), transparent 40%)`,
               }}
             />
             

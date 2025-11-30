@@ -195,7 +195,7 @@ const Applications: React.FC = () => {
         </section>
       </AnimatedSection>
 
-      <section className="applications-grid-section">
+      <section id="tools-panel" role="tabpanel" className="applications-grid-section">
         {/* Results Info */}
         <div className="results-info">
           <span className="results-count">
