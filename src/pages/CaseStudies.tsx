@@ -5,6 +5,7 @@ import Icon from '../components/Icon';
 import { OceanGradientAnimation } from '../components/ui/OceanGradientAnimation';
 import AnimatedGradientText from '../components/ui/AnimatedGradientText';
 import { TiltCaseCard } from '../components/ui/TiltCaseCard';
+import { Sparkles, TrendingUp, Award } from 'lucide-react';
 import './CaseStudies.css';
 import './CaseStudiesEnhanced.css';
 
@@ -85,7 +86,7 @@ const CaseStudies: React.FC = () => {
 
   return (
     <div className="case-studies-page">
-      {/* Hero Section - Standalone Centered */}
+      {/* Hero Section - Dark Ocean Theme */}
       <section className="case-studies-hero-section">
         <div className="case-studies-hero-container">
           <OceanGradientAnimation
@@ -102,52 +103,104 @@ const CaseStudies: React.FC = () => {
               transition={{ duration: 1 }}
             >
               <div className="hero-content-cases">
+                {/* Animated badge with pulse effect */}
                 <motion.div
                   className="hero-badge"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
                 >
-                  Case Study Portfolio
+                  <motion.span
+                    className="badge-pulse"
+                    animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
+                  <Sparkles size={14} className="badge-icon" />
+                  <span>Case Study Portfolio</span>
                 </motion.div>
 
+                {/* Animated title with stagger effect */}
                 <motion.h1
                   className="case-studies-title"
-                  initial={{ y: 30, opacity: 0 }}
+                  initial={{ y: 40, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3, duration: 0.8 }}
+                  transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
                 >
-                  <AnimatedGradientText text="Marketing Case Studies" className="text-4xl md:text-5xl lg:text-6xl font-bold" />
+                  <span className="title-line">Proven Results.</span>
+                  <AnimatedGradientText text="Real Impact." className="text-4xl md:text-5xl lg:text-6xl font-bold title-gradient" />
                 </motion.h1>
 
                 <motion.p
                   className="case-studies-subtitle"
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.4, duration: 0.8 }}
+                  transition={{ delay: 0.5, duration: 0.8 }}
                 >
-                  From strategy to execution, explore detailed case studies showcasing measurable marketing outcomes, 
-                  technical implementations, and business impact.
+                  Explore detailed case studies showcasing measurable marketing outcomes,
+                  technical implementations, and transformative business impact.
                 </motion.p>
 
+                {/* Interactive Stats with hover effects */}
                 <motion.div
                   className="case-stats"
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
+                  transition={{ delay: 0.6, duration: 0.6 }}
                 >
-                  <div className="stat-item">
-                    <div className="stat-number">{caseStudies.length}</div>
+                  <motion.div 
+                    className="stat-item stat-interactive"
+                    whileHover={{ scale: 1.05, y: -4 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <div className="stat-icon-wrapper">
+                      <TrendingUp size={18} className="stat-icon" />
+                    </div>
+                    <motion.div 
+                      className="stat-number"
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.8, type: 'spring', stiffness: 200 }}
+                    >
+                      {caseStudies.length}
+                    </motion.div>
                     <div className="stat-label">Case Studies</div>
-                  </div>
-                  <div className="stat-item">
-                    <div className="stat-number">{featuredCount}</div>
+                  </motion.div>
+                  <motion.div 
+                    className="stat-item stat-interactive stat-featured"
+                    whileHover={{ scale: 1.05, y: -4 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <div className="stat-icon-wrapper">
+                      <Award size={18} className="stat-icon" />
+                    </div>
+                    <motion.div 
+                      className="stat-number"
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.9, type: 'spring', stiffness: 200 }}
+                    >
+                      {featuredCount}
+                    </motion.div>
                     <div className="stat-label">Featured</div>
-                  </div>
-                  <div className="stat-item">
-                    <div className="stat-number">100%</div>
+                  </motion.div>
+                  <motion.div 
+                    className="stat-item stat-interactive stat-results"
+                    whileHover={{ scale: 1.05, y: -4 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <div className="stat-icon-wrapper">
+                      <Sparkles size={18} className="stat-icon" />
+                    </div>
+                    <motion.div 
+                      className="stat-number"
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 1.0, type: 'spring', stiffness: 200 }}
+                    >
+                      100%
+                    </motion.div>
                     <div className="stat-label">Real Results</div>
-                  </div>
+                  </motion.div>
                 </motion.div>
               </div>
             </motion.div>
