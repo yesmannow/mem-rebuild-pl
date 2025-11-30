@@ -46,7 +46,7 @@ export const OceanAuroraBackground = ({
       <main>
         <div
           className={cn(
-            "relative flex min-h-screen flex-col bg-gradient-to-br from-[#edf6f9] via-[#83c5be] to-[#006d77] text-[#006d77] dark:text-[#edf6f9] dark:from-[#005a63] dark:via-[#006d77] dark:to-[#003d44]",
+            "relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-[#edf6f9] via-[#83c5be] to-[#006d77] text-[#006d77] dark:text-[#edf6f9] dark:from-[#005a63] dark:via-[#006d77] dark:to-[#003d44]",
             className,
           )}
           style={{ willChange: 'auto' }}
@@ -62,7 +62,7 @@ export const OceanAuroraBackground = ({
     <main>
       <div
         className={cn(
-          "transition-bg relative flex min-h-screen flex-col bg-[#edf6f9] text-[#006d77] dark:bg-[#005a63]",
+          "transition-bg relative flex min-h-screen flex-col items-center justify-center bg-[#edf6f9] text-[#006d77] dark:bg-[#005a63]",
           className,
         )}
         {...props}
