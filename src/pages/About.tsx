@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, lazy, Suspense, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
-import { Printer, ChevronRight, ChevronDown, Briefcase, GraduationCap, Award, Heart, Sparkles } from 'lucide-react';
+import { Printer, ChevronRight, ChevronDown, Briefcase, GraduationCap, Award, Heart, Sparkles, Code, Zap, BarChart3, Settings, Users } from 'lucide-react';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import { BentoCard, BentoGrid } from '../components/ui/BentoGrid';
 import { SchematicBackground } from '../components/ui/SchematicBackground';
@@ -138,38 +138,167 @@ const TimelineItem: React.FC<{ item: ExperienceItem; index: number }> = ({ item,
   );
 };
 
-const SkillsGrid: React.FC<{ categories: SkillCategoryType[] }> = ({ categories }) => (
-  <BentoGrid className="mt-8">
-    {categories.map((cat) => (
-      <BentoCard
-        key={cat.id}
-        span="2"
-        className="bg-slate-900/50 backdrop-blur border border-white/5 shadow-soft-dark hover:border-brand-teal/30 transition-all"
-      >
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-brand-text">{cat.title}</h3>
-          <div
-            className={`text-xs font-semibold uppercase tracking-[0.2em] px-3 py-1 rounded-full border ${
-              badgeColors[cat.accent || 'teal']
-            }`}
+// Tech icon mapping for tools & platforms
+const techIconMap: Record<string, { icon: string; color: string }> = {
+  'WordPress': { icon: '🌐', color: '#21759b' },
+  'JavaScript': { icon: '⚡', color: '#f7df1e' },
+  'React': { icon: '⚛️', color: '#61dafb' },
+  'HubSpot': { icon: '🔶', color: '#ff7a59' },
+  'FluentCRM': { icon: '📧', color: '#4f46e5' },
+  'WP Fusion': { icon: '🔗', color: '#2ecc71' },
+  'LearnDash': { icon: '🎓', color: '#1d2327' },
+  'WooCommerce': { icon: '🛒', color: '#96588a' },
+  'Google Analytics': { icon: '📊', color: '#e37400' },
+  'Google Tag Manager': { icon: '🏷️', color: '#4285f4' },
+  'Mapbox': { icon: '🗺️', color: '#000000' },
+  'Cloudflare Workers': { icon: '☁️', color: '#f38020' },
+  'Cloudflare CDN': { icon: '🌩️', color: '#f38020' },
+  'WP Rocket': { icon: '🚀', color: '#f56640' },
+  'LiteSpeed': { icon: '💨', color: '#009944' },
+  'ACF Pro': { icon: '🔧', color: '#00e4bc' },
+  'FacetWP': { icon: '🔍', color: '#0073aa' },
+  'Figma': { icon: '🎨', color: '#f24e1e' },
+  'Adobe Creative Suite': { icon: '🎭', color: '#ff0000' },
+  'Canva': { icon: '🖼️', color: '#00c4cc' },
+  'Photoshop': { icon: '📸', color: '#31a8ff' },
+};
+
+// Category icon mapping
+const categoryIconMap: Record<string, React.ElementType> = {
+  'leadership': Users,
+  'strategy': BarChart3,
+  'automation': Zap,
+  'analytics': BarChart3,
+  'development': Code,
+  'tools': Settings,
+};
+
+const SkillsGrid: React.FC<{ categories: SkillCategoryType[] }> = ({ categories }) => {
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  
+  return (
+    <BentoGrid className="mt-8">
+      {categories.map((cat, catIndex) => {
+        const CategoryIcon = categoryIconMap[cat.id] || Settings;
+        const isToolsCategory = cat.id === 'tools';
+        
+        return (
+          <BentoCard
+            key={cat.id}
+            span="2"
+            className="group bg-slate-900/50 backdrop-blur border border-white/5 shadow-soft-dark hover:border-brand-teal/30 transition-all duration-300 overflow-hidden"
           >
-            {cat.id === 'tools' ? 'Stack' : 'Skills'}
-          </div>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {cat.items.map((skill) => (
-            <span
-              key={skill}
-              className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-brand-text/90 hover:border-brand-teal/30 hover:bg-brand-teal/5 transition-all"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-      </BentoCard>
-    ))}
-  </BentoGrid>
-);
+            {/* Animated background gradient on hover */}
+            <motion.div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style={{
+                background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(64, 224, 208, 0.06), transparent 40%)`,
+              }}
+            />
+            
+            <div className="relative z-10">
+              <motion.div 
+                className="flex items-center justify-between mb-5"
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: catIndex * 0.1 }}
+              >
+                <div className="flex items-center gap-3">
+                  <motion.div
+                    className={`p-2 rounded-lg ${
+                      cat.accent === 'teal' ? 'bg-brand-teal/20 text-brand-teal' :
+                      cat.accent === 'orange' ? 'bg-brand-orange/20 text-brand-orange' :
+                      'bg-sky-400/20 text-sky-300'
+                    }`}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <CategoryIcon size={20} />
+                  </motion.div>
+                  <h3 className="text-lg font-semibold text-brand-text">{cat.title}</h3>
+                </div>
+                <motion.div
+                  className={`text-xs font-semibold uppercase tracking-[0.2em] px-3 py-1 rounded-full border ${
+                    badgeColors[cat.accent || 'teal']
+                  }`}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {isToolsCategory ? 'Stack' : 'Skills'}
+                </motion.div>
+              </motion.div>
+              
+              <div className="flex flex-wrap gap-2">
+                {cat.items.map((skill, skillIndex) => {
+                  const techInfo = isToolsCategory ? techIconMap[skill] : null;
+                  const isHovered = hoveredSkill === `${cat.id}-${skill}`;
+                  
+                  return (
+                    <motion.span
+                      key={skill}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: catIndex * 0.05 + skillIndex * 0.02 }}
+                      onMouseEnter={() => setHoveredSkill(`${cat.id}-${skill}`)}
+                      onMouseLeave={() => setHoveredSkill(null)}
+                      whileHover={{ 
+                        scale: 1.05, 
+                        y: -2,
+                        transition: { type: 'spring', stiffness: 400 }
+                      }}
+                      className={`relative rounded-lg border px-3 py-2 text-sm cursor-default transition-all duration-200 ${
+                        isHovered 
+                          ? 'border-brand-teal/50 bg-brand-teal/10 text-brand-text shadow-lg shadow-brand-teal/10' 
+                          : 'border-white/10 bg-white/5 text-brand-text/90 hover:border-brand-teal/30 hover:bg-brand-teal/5'
+                      }`}
+                      style={techInfo && isHovered ? {
+                        borderColor: `${techInfo.color}40`,
+                        boxShadow: `0 4px 12px ${techInfo.color}20`,
+                      } : undefined}
+                    >
+                      <span className="flex items-center gap-2">
+                        {techInfo && (
+                          <motion.span 
+                            className="text-base"
+                            animate={isHovered ? { rotate: [0, -10, 10, 0] } : {}}
+                            transition={{ duration: 0.3 }}
+                          >
+                            {techInfo.icon}
+                          </motion.span>
+                        )}
+                        <span>{skill}</span>
+                      </span>
+                      
+                      {/* Shimmer effect on hover */}
+                      <AnimatePresence>
+                        {isHovered && (
+                          <motion.div
+                            className="absolute inset-0 rounded-lg overflow-hidden pointer-events-none"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                          >
+                            <motion.div
+                              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                              initial={{ x: '-100%' }}
+                              animate={{ x: '100%' }}
+                              transition={{ duration: 0.6, ease: 'linear' }}
+                            />
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.span>
+                  );
+                })}
+              </div>
+            </div>
+          </BentoCard>
+        );
+      })}
+    </BentoGrid>
+  );
+};
 
 const printStyles = `
 @media print {

@@ -346,6 +346,58 @@
   gap: 1.5rem;
 }
 
+/* Command Center Category Toggle */
+.category-command-center {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.command-center-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+.command-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #43e97b;
+  box-shadow: 0 0 8px rgba(67, 233, 123, 0.6);
+  animation: pulse-indicator 2s ease-in-out infinite;
+}
+
+@keyframes pulse-indicator {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(67, 233, 123, 0.6);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 12px rgba(67, 233, 123, 0.8);
+  }
+}
+
+.command-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.filter-toggle-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+  background: rgba(13, 13, 13, 0.4);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .filter-buttons {
   display: flex;
   gap: 0.75rem;
@@ -367,6 +419,28 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 0.95rem;
   backdrop-filter: blur(10px);
+}
+
+.filter-btn.filter-toggle {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.filter-btn.filter-toggle .toggle-indicator {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.filter-btn.filter-toggle.active .toggle-indicator {
+  background: var(--color-light);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
 }
 
 .filter-btn:hover {

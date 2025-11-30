@@ -114,24 +114,34 @@ const Applications: React.FC = () => {
 
           {/* Filters & Controls */}
           <div className="controls-group">
-            {/* Category Filter */}
-            <div className="filter-buttons">
-              {categories.map(category => (
-                <motion.button
-                  key={category}
-                  className={`filter-btn ${activeFilter === category ? 'active' : ''}`}
-                  onClick={() => setActiveFilter(category)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {category}
-                  {category !== 'All' && activeFilter === category && (
-                    <span className="filter-count">
-                      {applications.filter(app => app.category.includes(category)).length}
-                    </span>
-                  )}
-                </motion.button>
-              ))}
+            {/* Command Center Style Category Toggle */}
+            <div className="category-command-center">
+              <div className="command-center-header">
+                <span className="command-indicator"></span>
+                <span className="command-label">Select Category</span>
+              </div>
+              <div className="filter-buttons filter-toggle-group" role="tablist" aria-label="Filter by category">
+                {categories.map(category => (
+                  <motion.button
+                    key={category}
+                    role="tab"
+                    aria-selected={activeFilter === category}
+                    aria-controls="tools-panel"
+                    className={`filter-btn filter-toggle ${activeFilter === category ? 'active' : ''}`}
+                    onClick={() => setActiveFilter(category)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <span className="toggle-indicator"></span>
+                    {category}
+                    {category !== 'All' && activeFilter === category && (
+                      <span className="filter-count">
+                        {applications.filter(app => app.category.includes(category)).length}
+                      </span>
+                    )}
+                  </motion.button>
+                ))}
+              </div>
             </div>
 
             {/* Sort & View Controls */}
