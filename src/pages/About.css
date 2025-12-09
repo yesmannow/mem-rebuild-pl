@@ -3,8 +3,8 @@
   padding-top: 2rem;
   position: relative;
   overflow-x: hidden;
-  background: linear-gradient(180deg, var(--color-neutral-1) 0%, #0d0d0d 30%, var(--color-neutral-1) 70%, #0d0d0d 100%);
-  color: var(--color-light);
+  background: #0f172a;
+  color: #f8fafc;
 }
 
 /* Background Pattern */
@@ -43,15 +43,11 @@
 }
 
 .about-intro h1 {
-  font-family: var(--font-primary);
+  font-family: var(--brand-font-family, 'Montserrat', system-ui, sans-serif);
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 900;
   margin-bottom: 2rem;
-  color: var(--color-text-primary);
-  background: linear-gradient(135deg, var(--color-primary-blue) 0%, var(--color-light-gray) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #f8fafc;
   letter-spacing: -0.02em;
 }
 
