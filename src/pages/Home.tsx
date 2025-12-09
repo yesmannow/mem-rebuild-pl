@@ -7,6 +7,8 @@ import ScrollProgress from '../components/ui/ScrollProgress';
 import SectionDivider from '../components/ui/SectionDivider';
 import TerminalBlock from '../components/ui/TerminalBlock';
 import { OceanRippleButton } from '../components/ui/OceanRippleButton';
+import MagneticCursor from '../components/ui/MagneticCursor';
+import TiltCard from '../components/ui/TiltCard';
 
 const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
 const TechProfile = React.lazy(() => import('../components/TechProfile'));
@@ -65,6 +67,7 @@ const Home: React.FC = () => {
 
   return (
     <OceanAuroraBackground className="bg-brand-dark" style={{ minHeight: '100vh', height: 'auto' }}>
+      <MagneticCursor color="#40E0D0" enabled={true} />
       <ScrollProgress />
       <div className="relative z-10 w-full min-h-screen flex flex-col">
         <section className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -127,34 +130,42 @@ const Home: React.FC = () => {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
-              {snapshotItems.map((item) => (
-                <Link
+              {snapshotItems.map((item, index) => (
+                <TiltCard
                   key={item.title}
-                  to={item.href}
-                  className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 flex flex-col justify-between hover:border-brand-teal/60 transition shadow-soft-dark"
+                  maxTilt={10}
+                  scale={1.02}
+                  glareEnable={true}
+                  glareMaxOpacity={0.2}
+                  className="h-full"
                 >
-                  <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="p-3 rounded-full bg-brand-teal/15 text-brand-teal">
-                        <item.icon size={20} />
-                      </span>
-                      <h3 className="text-xl font-semibold text-brand-text">{item.title}</h3>
+                  <Link
+                    to={item.href}
+                    className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 flex flex-col justify-between hover:border-brand-teal/60 transition shadow-soft-dark h-full"
+                  >
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="p-3 rounded-full bg-brand-teal/15 text-brand-teal">
+                          <item.icon size={20} />
+                        </span>
+                        <h3 className="text-xl font-semibold text-brand-text">{item.title}</h3>
+                      </div>
+                      <p className="text-brand-muted mb-5">{item.description}</p>
+                      <ul className="space-y-2 text-sm text-brand-muted">
+                        {item.bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-start gap-2">
+                            <span className="text-brand-teal mt-1">-</span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <p className="text-brand-muted mb-5">{item.description}</p>
-                    <ul className="space-y-2 text-sm text-brand-muted">
-                      {item.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-start gap-2">
-                          <span className="text-brand-teal mt-1">-</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="mt-6 inline-flex items-center gap-2 text-brand-teal font-semibold">
-                    {item.cta}
-                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                  </div>
-                </Link>
+                    <div className="mt-6 inline-flex items-center gap-2 text-brand-teal font-semibold">
+                      {item.cta}
+                      <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                    </div>
+                  </Link>
+                </TiltCard>
               ))}
             </div>
           </div>
@@ -180,76 +191,82 @@ const Home: React.FC = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
               {/* Marketing Automation */}
-              <Link
-                to="/toolbox"
-                className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
-                    <Cpu size={20} />
+              <TiltCard maxTilt={10} scale={1.02} glareEnable={true} className="h-full">
+                <Link
+                  to="/toolbox"
+                  className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark h-full block"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
+                      <Cpu size={20} />
+                    </div>
+                    <h3 className="text-lg font-semibold text-brand-text">Marketing Automation</h3>
                   </div>
-                  <h3 className="text-lg font-semibold text-brand-text">Marketing Automation</h3>
-                </div>
-                <p className="text-sm text-brand-muted mb-4">CRM architecture and workflow automation</p>
-                <div className="flex flex-wrap gap-2">
-                  {['HubSpot', 'Marketo', 'Salesforce', 'FluentCRM'].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </Link>
+                  <p className="text-sm text-brand-muted mb-4">CRM architecture and workflow automation</p>
+                  <div className="flex flex-wrap gap-2">
+                    {['HubSpot', 'Marketo', 'Salesforce', 'FluentCRM'].map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </Link>
+              </TiltCard>
 
               {/* Analytics & Tracking */}
-              <Link
-                to="/toolbox"
-                className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
-                    <LineChart size={20} />
+              <TiltCard maxTilt={10} scale={1.02} glareEnable={true} className="h-full">
+                <Link
+                  to="/toolbox"
+                  className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark h-full block"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
+                      <LineChart size={20} />
+                    </div>
+                    <h3 className="text-lg font-semibold text-brand-text">Analytics & Tracking</h3>
                   </div>
-                  <h3 className="text-lg font-semibold text-brand-text">Analytics & Tracking</h3>
-                </div>
-                <p className="text-sm text-brand-muted mb-4">Data-driven insights and conversion optimization</p>
-                <div className="flex flex-wrap gap-2">
-                  {['GA4', 'GTM', 'Google Ads', 'Meta Ads'].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </Link>
+                  <p className="text-sm text-brand-muted mb-4">Data-driven insights and conversion optimization</p>
+                  <div className="flex flex-wrap gap-2">
+                    {['GA4', 'GTM', 'Google Ads', 'Meta Ads'].map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </Link>
+              </TiltCard>
 
               {/* Development Stack */}
-              <Link
-                to="/toolbox"
-                className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
-                    <Code size={20} />
+              <TiltCard maxTilt={10} scale={1.02} glareEnable={true} className="h-full">
+                <Link
+                  to="/toolbox"
+                  className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark h-full block"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
+                      <Code size={20} />
+                    </div>
+                    <h3 className="text-lg font-semibold text-brand-text">Development Stack</h3>
                   </div>
-                  <h3 className="text-lg font-semibold text-brand-text">Development Stack</h3>
-                </div>
-                <p className="text-sm text-brand-muted mb-4">Full-stack web development and infrastructure</p>
-                <div className="flex flex-wrap gap-2">
-                  {['React', 'TypeScript', 'WordPress', 'Node.js'].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </Link>
+                  <p className="text-sm text-brand-muted mb-4">Full-stack web development and infrastructure</p>
+                  <div className="flex flex-wrap gap-2">
+                    {['React', 'TypeScript', 'WordPress', 'Node.js'].map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </Link>
+              </TiltCard>
             </div>
             <div className="text-center">
               <OceanRippleButton

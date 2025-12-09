@@ -62,7 +62,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const isDark = t === 'dark' || (t === 'system' && prefersDark);
 
     document.documentElement.classList.toggle('dark', isDark);
+    document.documentElement.classList.toggle('light', !isDark);
     document.documentElement.setAttribute('data-brand', 'default');
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
 
     // Apply default (hybrid) font family
     const fontFamily = "'Montserrat', system-ui, sans-serif";

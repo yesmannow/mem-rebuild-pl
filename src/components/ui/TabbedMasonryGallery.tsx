@@ -52,8 +52,7 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [palettes, setPalettes] = useState<Record<string, string[]>>({});
   
-  // Enhanced filtering and sorting state
-  const [activeCategory, setActiveCategory] = useState<string>('all');
+  // Enhanced filtering and sorting state (category filtering removed)
   const [sortBy, setSortBy] = useState<SortOption>('default');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [shuffleKey, setShuffleKey] = useState<number>(0);
@@ -164,23 +163,9 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
     }
   };
 
-  // Get unique categories for current tab
-  const categories = useMemo(() => {
-    const cats = new Set<string>();
-    currentItems.forEach(item => {
-      if (item.category) cats.add(item.category);
-    });
-    return Array.from(cats).sort();
-  }, [currentItems]);
-
-  // Filter, sort, and shuffle items
+  // Filter, sort, and shuffle items (category filtering removed)
   const masonryItems = useMemo(() => {
     let filtered = currentItems;
-
-    // Apply category filter
-    if (activeCategory !== 'all') {
-      filtered = filtered.filter(item => item.category === activeCategory);
-    }
 
     // Apply search filter
     if (searchQuery) {
@@ -197,9 +182,6 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
     switch (sortBy) {
       case 'title':
         sorted.sort((a, b) => a.title.localeCompare(b.title));
-        break;
-      case 'category':
-        sorted.sort((a, b) => (a.category || '').localeCompare(b.category || ''));
         break;
       case 'date':
         // Reverse order for "recently added" (assumes items are in chronological order)
@@ -221,7 +203,7 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
       width: item.width ?? 400,
       height: item.height ?? (idx % 3 === 0 ? 600 : 400),
     }));
-  }, [currentItems, activeCategory, searchQuery, sortBy, shuffleKey]);
+  }, [currentItems, searchQuery, sortBy, shuffleKey]);
 
   // Shuffle handler
   const handleShuffle = () => {
@@ -230,7 +212,6 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
 
   // Reset filters when changing tabs
   useEffect(() => {
-    setActiveCategory('all');
     setSearchQuery('');
     setSortBy('default');
     setShuffleKey(0);
@@ -323,11 +304,8 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
         </div>
       </div>
 
-      {/* Filter Bar */}
+      {/* Filter Bar (category filtering removed) */}
       <StudioFilterBar
-        activeCategory={activeCategory}
-        categories={categories}
-        onCategoryChange={setActiveCategory}
         sortBy={sortBy}
         onSortChange={setSortBy}
         onShuffle={handleShuffle}
@@ -344,7 +322,7 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
           className="mb-4 text-sm text-slate-400"
         >
           Showing <span className="text-white font-semibold">{masonryItems.length}</span> {masonryItems.length === 1 ? 'item' : 'items'}
-          {(activeCategory !== 'all' || searchQuery) && (
+          {searchQuery && (
             <span className="ml-1">
               of <span className="text-white font-semibold">{currentItems.length}</span> total
             </span>
@@ -356,7 +334,7 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
       <AnimatePresence mode="wait">
         {masonryItems.length > 0 ? (
           <motion.div
-            key={`${activeTab}-${activeCategory}-${sortBy}-${shuffleKey}`}
+            key={`${activeTab}-${sortBy}-${shuffleKey}`}
             variants={containerVariants}
             initial="hidden"
             animate="visible"

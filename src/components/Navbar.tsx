@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Search, Command } from 'lucide-react';
 import ModernLogo from './branding/ModernLogo';
 import { mainNavigationLinks } from '../data/navigation';
+import ThemeToggle from './ui/ThemeToggle';
 
 interface NavbarProps {
   onOpenCommandPalette?: () => void;
@@ -62,6 +63,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
               </Link>
             ))}
 
+            {/* Theme Toggle */}
+            <ThemeToggle variant="compact" />
+
             {/* Cmd+K Search Button */}
             <button
               onClick={onOpenCommandPalette}
@@ -75,8 +79,11 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
             </button>
           </div>
 
-          {/* MOBILE: Only search button (navigation handled by MobileDock) */}
+          {/* MOBILE: Theme toggle and search button (navigation handled by MobileDock) */}
           <div className="md:hidden flex items-center gap-2">
+            {/* Mobile Theme Toggle */}
+            <ThemeToggle variant="compact" />
+            
             {/* Mobile Cmd+K trigger */}
             <button
               onClick={onOpenCommandPalette}
