@@ -1,18 +1,24 @@
 /**
- * TabbedMasonryGallery - Visual Engineering Gallery Component
+ * TabbedMasonryGallery - Enhanced Visual Engineering Gallery Component
  *
- * A high-performance tabbed masonry gallery with context-aware overlays.
+ * A high-performance tabbed masonry gallery with cutting-edge interactions:
  * - Photography Mode: Shows descriptive metadata on hover
  * - Design Mode: Shows color palette (Hex codes) on hover via "HUD" overlay
  * - Glassmorphic tab navigation with animated indicator
  * - CSS Masonry layout with break-inside-avoid
+ * - Advanced filtering, sorting, and shuffling
+ * - 3D tilt effects and magnetic cursor interactions
+ * - Smooth parallax scrolling
+ * - Enhanced lightbox with swipe gestures
  */
 
-import React, { useEffect, useMemo, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Camera, Maximize2, Palette as PaletteIcon, X } from 'lucide-react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
+import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion';
+import { ArrowLeft, ArrowRight, Camera, Maximize2, Palette as PaletteIcon, X, ZoomIn, ZoomOut } from 'lucide-react';
 import { Vibrant } from 'node-vibrant/browser';
 import type { StudioItem } from '../../data/studioData';
+import StudioFilterBar, { type SortOption } from './StudioFilterBar';
+import EnhancedGalleryCard from './EnhancedGalleryCard';
 
 export type GalleryTab = 'photography' | 'design';
 
@@ -45,6 +51,22 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [palettes, setPalettes] = useState<Record<string, string[]>>({});
+  
+  // Enhanced filtering and sorting state
+  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [sortBy, setSortBy] = useState<SortOption>('default');
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [shuffleKey, setShuffleKey] = useState<number>(0);
+  
+  // Lightbox zoom state
+  const [lightboxZoom, setLightboxZoom] = useState<number>(1);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStartX = useRef<number>(0);
+  
+  // Magnetic cursor effect
+  const cursorX = useMotionValue(0);
+  const cursorY = useMotionValue(0);
+  const cursorScale = useSpring(1, { stiffness: 400, damping: 30 });
 
   const tabs: { id: GalleryTab; label: string; icon: React.ReactNode; color: string }[] = [
     {
@@ -80,13 +102,53 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (lightboxIndex === null) return;
-      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'Escape') {
+        closeLightbox();
+        setLightboxZoom(1);
+      }
       if (e.key === 'ArrowRight') goNext();
       if (e.key === 'ArrowLeft') goPrev();
+      // Zoom controls
+      if (e.key === '+' || e.key === '=') {
+        e.preventDefault();
+        setLightboxZoom(prev => Math.min(prev + 0.25, 3));
+      }
+      if (e.key === '-' || e.key === '_') {
+        e.preventDefault();
+        setLightboxZoom(prev => Math.max(prev - 0.25, 0.5));
+      }
+      if (e.key === '0') {
+        e.preventDefault();
+        setLightboxZoom(1);
+      }
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [lightboxIndex, currentItems.length]);
+
+  // Swipe gesture handlers for lightbox
+  const handleDragStart = (e: React.MouseEvent | React.TouchEvent) => {
+    setIsDragging(true);
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    dragStartX.current = clientX;
+  };
+
+  const handleDragEnd = (e: React.MouseEvent | React.TouchEvent) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    
+    const clientX = 'changedTouches' in e ? e.changedTouches[0].clientX : e.clientX;
+    const diff = clientX - dragStartX.current;
+    
+    // Swipe threshold: 50px
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        goPrev();
+      } else {
+        goNext();
+      }
+    }
+  };
 
   const ensurePalette = async (src: string) => {
     if (paletteCache[src] || palettes[src]) return;
@@ -102,16 +164,77 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
     }
   };
 
-  const masonryItems = useMemo(
-    () =>
-      currentItems.map((item, idx) => ({
-        ...item,
-        idx,
-        width: item.width ?? 400,
-        height: item.height ?? (idx % 3 === 0 ? 600 : 400),
-      })),
-    [currentItems]
-  );
+  // Get unique categories for current tab
+  const categories = useMemo(() => {
+    const cats = new Set<string>();
+    currentItems.forEach(item => {
+      if (item.category) cats.add(item.category);
+    });
+    return Array.from(cats).sort();
+  }, [currentItems]);
+
+  // Filter, sort, and shuffle items
+  const masonryItems = useMemo(() => {
+    let filtered = currentItems;
+
+    // Apply category filter
+    if (activeCategory !== 'all') {
+      filtered = filtered.filter(item => item.category === activeCategory);
+    }
+
+    // Apply search filter
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(item =>
+        item.title.toLowerCase().includes(query) ||
+        item.meta.toLowerCase().includes(query) ||
+        (item.category && item.category.toLowerCase().includes(query))
+      );
+    }
+
+    // Apply sorting
+    let sorted = [...filtered];
+    switch (sortBy) {
+      case 'title':
+        sorted.sort((a, b) => a.title.localeCompare(b.title));
+        break;
+      case 'category':
+        sorted.sort((a, b) => (a.category || '').localeCompare(b.category || ''));
+        break;
+      case 'date':
+        // Reverse order for "recently added" (assumes items are in chronological order)
+        sorted.reverse();
+        break;
+      default:
+        // Keep default order
+        break;
+    }
+
+    // Apply shuffle if triggered
+    if (shuffleKey > 0) {
+      sorted = [...sorted].sort(() => Math.random() - 0.5);
+    }
+
+    return sorted.map((item, idx) => ({
+      ...item,
+      idx,
+      width: item.width ?? 400,
+      height: item.height ?? (idx % 3 === 0 ? 600 : 400),
+    }));
+  }, [currentItems, activeCategory, searchQuery, sortBy, shuffleKey]);
+
+  // Shuffle handler
+  const handleShuffle = () => {
+    setShuffleKey(prev => prev + 1);
+  };
+
+  // Reset filters when changing tabs
+  useEffect(() => {
+    setActiveCategory('all');
+    setSearchQuery('');
+    setSortBy('default');
+    setShuffleKey(0);
+  }, [activeTab]);
 
   // Animation variants for staggered entrance
   const containerVariants = {
@@ -200,215 +323,253 @@ const TabbedMasonryGallery: React.FC<TabbedMasonryGalleryProps> = ({
         </div>
       </div>
 
+      {/* Filter Bar */}
+      <StudioFilterBar
+        activeCategory={activeCategory}
+        categories={categories}
+        onCategoryChange={setActiveCategory}
+        sortBy={sortBy}
+        onSortChange={setSortBy}
+        onShuffle={handleShuffle}
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+        accentColor={activeTabConfig?.color || '#40E0D0'}
+      />
+
+      {/* Results Count */}
+      {masonryItems.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="mb-4 text-sm text-slate-400"
+        >
+          Showing <span className="text-white font-semibold">{masonryItems.length}</span> {masonryItems.length === 1 ? 'item' : 'items'}
+          {(activeCategory !== 'all' || searchQuery) && (
+            <span className="ml-1">
+              of <span className="text-white font-semibold">{currentItems.length}</span> total
+            </span>
+          )}
+        </motion.div>
+      )}
+
       {/* Masonry Grid */}
       <AnimatePresence mode="wait">
-        <motion.div
-          key={activeTab}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 [column-fill:_balance]"
-        >
-          {masonryItems.map((item) => {
-            const isHovered = hoveredIndex === item.idx;
-            const palette = palettes[item.src] || paletteCache[item.src];
+        {masonryItems.length > 0 ? (
+          <motion.div
+            key={`${activeTab}-${activeCategory}-${sortBy}-${shuffleKey}`}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 [column-fill:_balance]"
+          >
+            {masonryItems.map((item, displayIndex) => {
+              const isHovered = hoveredIndex === item.idx;
+              const palette = palettes[item.src] || paletteCache[item.src];
 
-            return (
-              <motion.div
-                key={item.id}
-                variants={itemVariants}
-                className="break-inside-avoid overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 shadow-soft-dark transition-all duration-300 hover:border-brand-teal/40 hover:shadow-[0_8px_30px_rgba(64,224,208,0.25)] cursor-pointer group"
-                onMouseEnter={() => {
-                  setHoveredIndex(item.idx);
-                  if (activeTab === 'design') {
-                    void ensurePalette(item.src);
-                  }
-                }}
-                onMouseLeave={() => setHoveredIndex(null)}
-                onClick={() => showLightbox(item.idx)}
-              >
-                <div className="relative">
-                  {/* Image */}
-                  <img
-                    src={item.src}
-                    alt={item.title}
-                    loading="lazy"
-                    width={item.width}
-                    height={item.height}
-                    className="w-full h-auto object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                  />
-
-                  {/* Base Gradient Overlay */}
-                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-slate-950/10 to-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                  {/* View Button */}
-                  <div className="absolute top-3 right-3 flex items-center gap-2 text-xs text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="rounded-full bg-slate-900/80 px-3 py-1.5 backdrop-blur-md border border-white/10 flex items-center gap-1.5 shadow-lg">
-                      <Maximize2 size={14} />
-                      View
-                    </span>
-                  </div>
-
-                  {/* HUD Overlay - Context Aware */}
-                  <AnimatePresence>
-                    {isHovered && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute bottom-0 left-0 right-0 p-4"
-                      >
-                        <div className="rounded-xl border border-white/10 bg-slate-900/85 backdrop-blur-xl p-3 shadow-xl">
-                          {/* Header Row */}
-                          <div className="flex items-center justify-between mb-2">
-                            <span
-                              className="text-[10px] uppercase tracking-[0.2em] font-medium flex items-center gap-1.5"
-                              style={{ color: activeTabConfig?.color }}
-                            >
-                              {activeTab === 'photography' ? (
-                                <>
-                                  <Camera size={12} />
-                                  Lens Mode
-                                </>
-                              ) : (
-                                <>
-                                  <PaletteIcon size={12} />
-                                  Color DNA
-                                </>
-                              )}
-                            </span>
-                            {item.category && (
-                              <span className="text-[10px] uppercase tracking-wider text-slate-500">
-                                {item.category}
-                              </span>
-                            )}
-                          </div>
-
-                          {/* Title */}
-                          <h3 className="text-white font-semibold text-sm mb-2 truncate">
-                            {item.title}
-                          </h3>
-
-                          {/* Meta Info - Context Aware */}
-                          {activeTab === 'design' && palette ? (
-                            // Design Mode: Show extracted color palette
-                            <div className="flex gap-1">
-                              {palette.slice(0, 6).map((color, i) => (
-                                <div
-                                  key={`${color}-${i}`}
-                                  className="flex-1 flex flex-col items-center gap-1"
-                                >
-                                  <div
-                                    className="w-full h-6 rounded border border-white/10"
-                                    style={{ backgroundColor: color }}
-                                    title={color}
-                                  />
-                                  <span className="text-[9px] font-mono text-slate-400 uppercase">
-                                    {color}
-                                  </span>
-                                </div>
-                              ))}
-                            </div>
-                          ) : activeTab === 'design' ? (
-                            // Design Mode: Show preset hex codes from meta
-                            <div className="flex items-center gap-2">
-                              <code className="font-mono text-xs px-2 py-1 rounded bg-slate-800 text-brand-teal border border-brand-teal/20">
-                                {item.meta}
-                              </code>
-                            </div>
-                          ) : (
-                            // Photography Mode: Show descriptive meta
-                            <div className="flex items-center gap-2">
-                              <span className="font-mono text-xs px-2 py-1 rounded bg-slate-800 text-brand-orange border border-brand-orange/20">
-                                {item.meta}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Lightbox */}
-      <AnimatePresence>
-        {lightboxIndex !== null && currentItems[lightboxIndex] && (
+              return (
+                <EnhancedGalleryCard
+                  key={item.id}
+                  item={item}
+                  index={displayIndex}
+                  onClick={() => showLightbox(item.idx)}
+                  onMouseEnter={() => {
+                    setHoveredIndex(item.idx);
+                    if (activeTab === 'design') {
+                      void ensurePalette(item.src);
+                    }
+                  }}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  isHovered={isHovered}
+                  activeTab={activeTab}
+                  activeTabColor={activeTabConfig?.color || '#40E0D0'}
+                  palette={palette}
+                />
+              );
+            })}
+          </motion.div>
+        ) : (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-2xl flex items-center justify-center px-4"
-            onClick={closeLightbox}
+            className="py-24 text-center"
+          >
+            <p className="text-lg text-slate-400 mb-2">No items found</p>
+            <p className="text-sm text-slate-500">
+              Try adjusting your filters or search query
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Enhanced Lightbox with Zoom & Swipe */}
+      <AnimatePresence>
+        {lightboxIndex !== null && masonryItems.find(item => item.idx === lightboxIndex) && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-2xl flex items-center justify-center px-4"
+            onClick={() => {
+              closeLightbox();
+              setLightboxZoom(1);
+            }}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-              className="relative max-w-5xl w-full"
+              className="relative max-w-6xl w-full"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={currentItems[lightboxIndex].src}
-                alt={currentItems[lightboxIndex].title}
-                loading="lazy"
-                className="w-full h-auto rounded-2xl shadow-2xl max-h-[80vh] object-contain"
-              />
+              {/* Image Container with Zoom */}
+              <div 
+                className="relative overflow-hidden rounded-2xl mb-4 touch-none select-none"
+                onMouseDown={handleDragStart}
+                onMouseUp={handleDragEnd}
+                onTouchStart={handleDragStart}
+                onTouchEnd={handleDragEnd}
+              >
+                <motion.img
+                  src={masonryItems.find(item => item.idx === lightboxIndex)!.src}
+                  alt={masonryItems.find(item => item.idx === lightboxIndex)!.title}
+                  loading="lazy"
+                  className="w-full h-auto shadow-2xl max-h-[75vh] object-contain mx-auto"
+                  style={{
+                    scale: lightboxZoom,
+                    cursor: isDragging ? 'grabbing' : lightboxZoom > 1 ? 'grab' : 'default',
+                  }}
+                  transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                />
+                
+                {/* Swipe indicator */}
+                {isDragging && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.5 }}
+                    className="absolute inset-0 pointer-events-none flex items-center justify-center"
+                  >
+                    <div className="text-white text-sm font-mono bg-slate-900/80 px-4 py-2 rounded-lg backdrop-blur-sm">
+                      Swipe to navigate
+                    </div>
+                  </motion.div>
+                )}
+              </div>
 
-              {/* Lightbox Footer */}
-              <div className="mt-4 flex items-center justify-between text-white">
-                <div>
+              {/* Controls Row */}
+              <div className="flex items-center justify-between gap-4">
+                {/* Info Section */}
+                <div className="flex-1 min-w-0">
                   <p
                     className="text-xs uppercase tracking-[0.2em] mb-1"
                     style={{ color: activeTabConfig?.color }}
                   >
                     {activeTab === 'photography' ? 'Lens Mode' : 'Color DNA'}
                   </p>
-                  <p className="text-xl font-semibold">
-                    {currentItems[lightboxIndex].title}
+                  <p className="text-xl font-semibold text-white truncate">
+                    {masonryItems.find(item => item.idx === lightboxIndex)!.title}
                   </p>
                   <p className="text-sm text-slate-400 font-mono mt-1">
-                    {currentItems[lightboxIndex].meta}
+                    {masonryItems.find(item => item.idx === lightboxIndex)!.meta}
                   </p>
+                  {masonryItems.find(item => item.idx === lightboxIndex)!.category && (
+                    <span className="inline-block mt-2 px-2 py-1 text-xs rounded-full bg-slate-800/50 text-slate-300 border border-slate-700/50 capitalize">
+                      {masonryItems.find(item => item.idx === lightboxIndex)!.category}
+                    </span>
+                  )}
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-slate-500 mr-2">
-                    {lightboxIndex + 1} / {currentItems.length}
+                {/* Action Buttons */}
+                <div className="flex items-center gap-2 flex-shrink-0">
+                  {/* Counter */}
+                  <span className="text-sm text-slate-500 mr-2 font-mono">
+                    {masonryItems.findIndex(item => item.idx === lightboxIndex) + 1} / {masonryItems.length}
                   </span>
+
+                  {/* Zoom Controls */}
                   <button
                     type="button"
-                    className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition border border-white/10"
+                    className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition border border-white/10 text-white"
+                    onClick={() => setLightboxZoom(prev => Math.max(prev - 0.25, 0.5))}
+                    aria-label="Zoom out"
+                    title="Zoom out (-)"
+                  >
+                    <ZoomOut size={18} />
+                  </button>
+                  <button
+                    type="button"
+                    className="px-3 py-2 rounded-full bg-white/10 hover:bg-white/20 transition border border-white/10 text-white text-xs font-mono"
+                    onClick={() => setLightboxZoom(1)}
+                    aria-label="Reset zoom"
+                    title="Reset zoom (0)"
+                  >
+                    {Math.round(lightboxZoom * 100)}%
+                  </button>
+                  <button
+                    type="button"
+                    className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition border border-white/10 text-white"
+                    onClick={() => setLightboxZoom(prev => Math.min(prev + 0.25, 3))}
+                    aria-label="Zoom in"
+                    title="Zoom in (+)"
+                  >
+                    <ZoomIn size={18} />
+                  </button>
+
+                  {/* Navigation */}
+                  <div className="w-px h-8 bg-slate-700/50 mx-1" />
+                  
+                  <button
+                    type="button"
+                    className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition border border-white/10 text-white"
                     onClick={goPrev}
                     aria-label="Previous"
+                    title="Previous (←)"
                   >
                     <ArrowLeft size={18} />
                   </button>
                   <button
                     type="button"
-                    className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition border border-white/10"
+                    className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition border border-white/10 text-white"
                     onClick={goNext}
                     aria-label="Next"
+                    title="Next (→)"
                   >
                     <ArrowRight size={18} />
                   </button>
                   <button
                     type="button"
-                    className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition border border-white/10"
-                    onClick={closeLightbox}
+                    className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition border border-white/10 text-white"
+                    onClick={() => {
+                      closeLightbox();
+                      setLightboxZoom(1);
+                    }}
                     aria-label="Close"
+                    title="Close (Esc)"
                   >
                     <X size={18} />
                   </button>
                 </div>
               </div>
+
+              {/* Keyboard Shortcuts Helper */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="mt-4 text-center text-xs text-slate-500 font-mono"
+              >
+                <span className="hidden md:inline">
+                  Keyboard: <kbd className="px-1.5 py-0.5 bg-slate-800 rounded">←</kbd> / <kbd className="px-1.5 py-0.5 bg-slate-800 rounded">→</kbd> navigate • 
+                  <kbd className="px-1.5 py-0.5 bg-slate-800 rounded mx-1">+</kbd> / <kbd className="px-1.5 py-0.5 bg-slate-800 rounded">-</kbd> zoom • 
+                  <kbd className="px-1.5 py-0.5 bg-slate-800 rounded mx-1">0</kbd> reset • 
+                  <kbd className="px-1.5 py-0.5 bg-slate-800 rounded mx-1">Esc</kbd> close
+                </span>
+                <span className="md:hidden">
+                  Swipe left/right to navigate
+                </span>
+              </motion.div>
             </motion.div>
           </motion.div>
         )}

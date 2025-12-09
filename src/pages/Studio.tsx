@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { TabbedMasonryGallery, type GalleryTab } from '../components/ui/TabbedMasonryGallery';
-import { Camera, Palette } from 'lucide-react';
+import MagneticCursor from '../components/ui/MagneticCursor';
+import { Camera, Palette, Sparkles } from 'lucide-react';
 import {
   photographyItems,
   designItems,
@@ -27,6 +28,12 @@ const Studio: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [useFallback, setUseFallback] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<GalleryTab>('photography');
+
+  // Parallax scroll effects
+  const { scrollY } = useScroll();
+  const headerY = useTransform(scrollY, [0, 300], [0, -50]);
+  const headerOpacity = useTransform(scrollY, [0, 200], [1, 0]);
+  const cursorColor = activeTab === 'photography' ? '#FFA500' : '#40E0D0';
 
   useEffect(() => {
     let mounted = true;
@@ -94,37 +101,87 @@ const Studio: React.FC = () => {
         <title>Visual Engineering | Studio</title>
         <meta
           name="description"
-          content="Visual Engineering - A data-driven showcase of photography and graphic design work. Featuring context-aware overlays and color palette analysis."
+          content="Visual Engineering - A cutting-edge showcase of photography and graphic design work. Featuring advanced filtering, 3D interactions, and intelligent color palette analysis."
         />
       </Helmet>
 
+      {/* Magnetic Cursor Effect */}
+      <MagneticCursor color={cursorColor} enabled={true} />
+
       {/* Deep Slate Background - War Room ecosystem integration */}
-      <div className="min-h-screen bg-slate-900 relative">
-        {/* Subtle gradient overlay for depth */}
+      <div className="min-h-screen bg-slate-900 relative overflow-hidden">
+        {/* Animated gradient overlay for depth */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 pointer-events-none" />
+        
+        {/* Animated background particles */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-10"
+            style={{
+              background: activeTab === 'photography' 
+                ? 'radial-gradient(circle, rgba(255,165,0,0.4) 0%, transparent 70%)'
+                : 'radial-gradient(circle, rgba(64,224,208,0.4) 0%, transparent 70%)',
+            }}
+            animate={{
+              scale: [1, 1.2, 1],
+              x: [0, 50, 0],
+              y: [0, 30, 0],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl opacity-10"
+            style={{
+              background: activeTab === 'photography' 
+                ? 'radial-gradient(circle, rgba(64,224,208,0.4) 0%, transparent 70%)'
+                : 'radial-gradient(circle, rgba(255,165,0,0.4) 0%, transparent 70%)',
+            }}
+            animate={{
+              scale: [1, 1.3, 1],
+              x: [0, -50, 0],
+              y: [0, -30, 0],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+        </div>
 
         {/* Main Content */}
         <main className="relative z-10 pt-24 pb-32 px-6">
           <section className="max-w-6xl mx-auto">
-            {/* Header Section */}
+            {/* Header Section with Parallax */}
             <motion.div
               className="mb-12 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              style={{ y: headerY, opacity: headerOpacity }}
             >
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight">
-                Visual <span className="text-brand-teal">Engineering</span>
-              </h1>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center justify-center gap-3 mb-4"
+              >
+                <Sparkles className="text-brand-teal" size={32} />
+                <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
+                  Visual <span className="text-brand-teal">Engineering</span>
+                </h1>
+                <Sparkles className="text-brand-orange" size={32} />
+              </motion.div>
               <motion.p
                 className="text-lg text-slate-400 max-w-2xl mx-auto mb-6"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
               >
-                Photography and design work powered by live manifests.
-                <span className="block mt-1 text-slate-500 text-sm font-mono">
-                  Hover for technical data overlays.
+                An interactive showcase featuring advanced filtering, 3D tilt effects, and intelligent sorting.
+                <span className="block mt-2 text-slate-500 text-sm font-mono">
+                  🎨 Filter by category • 🔄 Shuffle • 🔍 Search • ↕️ Sort • 🖱️ 3D interactions
                 </span>
               </motion.p>
 
@@ -135,16 +192,23 @@ const Studio: React.FC = () => {
                 transition={{ delay: 0.3, duration: 0.6 }}
               >
                 <p className="text-slate-300 leading-relaxed mb-4">
-                  This gallery showcases my visual work across photography and graphic design. Each piece represents
-                  a blend of technical precision and creative vision—from brand identity systems to campaign photography.
-                  The collection is dynamically loaded from live manifests, ensuring you&apos;re seeing the most current work.
+                  This gallery showcases my visual work with cutting-edge interactions. Experience <strong>3D tilt effects</strong> on hover,
+                  intelligent <strong>category filtering</strong>, and smooth <strong>parallax scrolling</strong>. Each piece is dynamically loaded
+                  and features context-aware overlays showing technical metadata and color palettes. Use the advanced filtering controls to
+                  explore by category, sort by different criteria, or shuffle for inspiration.
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center">
-                  <span className="px-3 py-1 bg-brand-teal/20 border border-brand-teal/30 rounded-full text-sm text-brand-teal">
-                    Photography
+                  <span className="px-3 py-1 bg-brand-teal/20 border border-brand-teal/30 rounded-full text-sm text-brand-teal flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-brand-teal animate-pulse" />
+                    3D Interactions
                   </span>
-                  <span className="px-3 py-1 bg-brand-orange/20 border border-brand-orange/30 rounded-full text-sm text-brand-orange">
-                    Design Systems
+                  <span className="px-3 py-1 bg-brand-orange/20 border border-brand-orange/30 rounded-full text-sm text-brand-orange flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+                    Smart Filtering
+                  </span>
+                  <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+                    Parallax Scroll
                   </span>
                   <span className="px-3 py-1 bg-slate-700/50 border border-slate-600/50 rounded-full text-sm text-slate-300">
                     Live Data
