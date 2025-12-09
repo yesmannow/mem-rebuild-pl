@@ -1,6 +1,7 @@
 /* Import design system tokens and typography first */
 @import './tokens.css';
 @import './typography-system.css';
+@import './style-guide.css';
 
 /* Import Montserrat font from Google Fonts for brand refresh */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
