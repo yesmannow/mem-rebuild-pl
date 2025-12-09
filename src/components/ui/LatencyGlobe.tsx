@@ -58,10 +58,9 @@ const LatencyGlobe: React.FC = () => {
           height={420}
           backgroundColor="rgba(0, 0, 0, 0)"
           globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-          globeTransparent
           showAtmosphere={false}
           arcsData={arcsData}
-          arcColor={(d) => d.color}
+          arcColor={(d: any) => (d as ArcEntry).color}
           arcDashLength={0.4}
           arcDashGap={0.8}
           arcDashAnimateTime={2000}

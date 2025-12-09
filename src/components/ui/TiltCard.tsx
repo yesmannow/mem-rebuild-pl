@@ -19,7 +19,7 @@ interface TiltCardProps {
   glareEnable?: boolean;
   glareMaxOpacity?: number;
   onClick?: () => void;
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
 }
 
 const TiltCard: React.FC<TiltCardProps> = ({

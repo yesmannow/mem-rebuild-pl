@@ -41,12 +41,12 @@
     "color": "rgb(24 24 24)",
     "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAwCdASoUAAkAPxFysVCsJqSisAgBgCIJYwAAYdidW24azZazawAA/t2e4m2bCJyiwDovqYuLuE1SCeKhHJpj4HJ2VswLfeDr3EAGQbOsb7fZUE563mymAAA="
   },
-  "images/projects/317 bbq/20231008_175510.jpg": {
+  "images/projects/317 bbq/20231008_175244.jpg": {
     "width": 900,
     "height": 420,
-    "base": "images/projects/317 bbq/20231008_175510",
-    "color": "rgb(72 56 40)",
-    "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
+    "base": "images/projects/317 bbq/20231008_175244",
+    "color": "rgb(24 24 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOiP/wEpc6Rl8L4HlgA/klMNCEzPtLFh+4XOVt58sG0LoR3GwW15SbT3HMFBicxKsV1lrUQjL9l3mHsI/4hq+wvoDw5svUHT4MR9vpuAAAA"
   },
   "images/projects/317 bbq/20231008_175026.jpg": {
     "width": 900,
@@ -62,40 +62,12 @@
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOgBFlLY89kZ27RSgAAzZaJumFbRSUgNFE4xP+4T9HCU8pxz0jLA/BzVoMi3xloaQQgNXWLQP/rX4vc0XfX3q1Yt+V3F/y/8j2Ed6WqeS65AAA="
   },
-  "images/projects/317 bbq/20231008_175244.jpg": {
+  "images/projects/317 bbq/20231008_175510.jpg": {
     "width": 900,
     "height": 420,
-    "base": "images/projects/317 bbq/20231008_175244",
-    "color": "rgb(24 24 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJQBOiP/wEpc6Rl8L4HlgA/klMNCEzPtLFh+4XOVt58sG0LoR3GwW15SbT3HMFBicxKsV1lrUQjL9l3mHsI/4hq+wvoDw5svUHT4MR9vpuAAAA"
-  },
-  "images/projects/317 bbq/20231008_175650.jpg": {
-    "width": 900,
-    "height": 420,
-    "base": "images/projects/317 bbq/20231008_175650",
-    "color": "rgb(24 24 24)",
-    "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoUAAkAPxFysFAsJqSisAgBgCIJZACdMoACxGdBHE/ZSu/VMSAA4dkn27ihdVbw/g8ed/njRaG4zEDUDLKlbxnyxSkrKEY7wx0SHztHTGZdAhOAMJ+5zVERfXo40Uonc7GNAAAA"
-  },
-  "images/projects/317 bbq/20231008_181722.jpg": {
-    "width": 900,
-    "height": 420,
-    "base": "images/projects/317 bbq/20231008_181722",
-    "color": "rgb(40 40 40)",
-    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCdAB8v/m1YUUmtzwAA8p4y7OwR2Iaa9y9xrKc+PK59c6SL0EtMf74PvhMZfgYmDJRKb0wVhDJAsafWjyFzU3gAAA=="
-  },
-  "images/projects/317 bbq/20231008_180910.jpg": {
-    "width": 900,
-    "height": 420,
-    "base": "images/projects/317 bbq/20231008_180910",
-    "color": "rgb(24 24 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACwAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCdABMEZDQPXXrSAAD+o1U6P/byUraqBSlkZmUsOLVnOmwcuxrYjy+9xA65i1geDXnbSpXW/8z31ymBp6oKKo9O9OBNJXMm/ACUvLFcT0BsHpR9gAAA"
-  },
-  "images/projects/317 bbq/20231008_175512.jpg": {
-    "width": 900,
-    "height": 420,
-    "base": "images/projects/317 bbq/20231008_175512",
-    "color": "rgb(248 232 216)",
-    "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAAkAPxF2sVAsJ6SisAgBgCIJagCdMoADCfg0bkLzbAAA4lFuh8CYLfqGmh7m1dbp+F14MI4iK7jkPSxt3lW2LQ+FMIW9YtjjQ47h3ATNevQPbfgcYOJujwBU44D5DO4q3CmJzRpbQF4nfAQaBSR8AwAAAA=="
+    "base": "images/projects/317 bbq/20231008_175510",
+    "color": "rgb(72 56 40)",
+    "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
   },
   "images/projects/317 bbq/20231008_175654.jpg": {
     "width": 900,
@@ -104,12 +76,33 @@
     "color": "rgb(184 168 136)",
     "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCw7BxB0MO+ILhgAAD8XIxCQo0/6tMhwRxQFKVcAybTxiCi1eRVa5LTy9RT2ECMVbL4ESzYgAp9hCJp1h+10ZRuSDQY/Zbzjo5gAAA="
   },
-  "images/projects/Behr pet essentials/Behr pet essentials logo.png": {
-    "width": 1578,
-    "height": 1036,
-    "base": "images/projects/Behr pet essentials/Behr pet essentials logo",
-    "color": "rgb(8 8 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRp4BAABXRUJQVlA4WAoAAAAQAAAAEwAADAAAQUxQSOMAAAANgLJt2/lX9f23bXu2rWhU1x3ri4vq+wZMTP8+Jdu27b3vO0fEBOBXkciTp57fXnjHP3mvBc17t6HDJPgfRqtweBnj98wsc+lvHNL4TJyTiy33t6sMv3KoqAroHe/gPVvPyG9AIMUmOoFC9/SAPznMntVwh5QQMmEFj/zgUE4wa7JvwHHW5ROC4CfjmjXtK52FTfXJBouCXTyCC3/ozauqfy1JbH7xcQ/PhPdvlL8/8fL88Hzuq7SKDxcoANQOWV9PYkV7Jw+z2yKl0WPajFiXla2wj2l55eiDJvVDcH354ThQAABWUDgglAAAABAEAJ0BKhQADQA/EXKwUCwmpKKwCAGAIglsAJ0vXR8zIhwW8QbNJ53AAMIHFpVVP4AY9LfUPilYpz/QfP6nGAh6TZn7nlKAlBfiMstg8wUsscffd27G0WxdjvHpv7kOR9WaBaYnjLZQFRWAPEuecA49Zm/7y+XkCv6BTv9ZbEtZxJuWTub3Dflej5i101t+gH8/AAA="
+  "images/projects/317 bbq/20231008_180910.jpg": {
+    "width": 900,
+    "height": 420,
+    "base": "images/projects/317 bbq/20231008_180910",
+    "color": "rgb(24 24 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACwAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCdABMEZDQPXXrSAAD+o1U6P/byUraqBSlkZmUsOLVnOmwcuxrYjy+9xA65i1geDXnbSpXW/8z31ymBp6oKKo9O9OBNJXMm/ACUvLFcT0BsHpR9gAAA"
+  },
+  "images/projects/317 bbq/20231008_175650.jpg": {
+    "width": 900,
+    "height": 420,
+    "base": "images/projects/317 bbq/20231008_175650",
+    "color": "rgb(24 24 24)",
+    "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoUAAkAPxFysFAsJqSisAgBgCIJZACdMoACxGdBHE/ZSu/VMSAA4dkn27ihdVbw/g8ed/njRaG4zEDUDLKlbxnyxSkrKEY7wx0SHztHTGZdAhOAMJ+5zVERfXo40Uonc7GNAAAA"
+  },
+  "images/projects/317 bbq/20231008_175512.jpg": {
+    "width": 900,
+    "height": 420,
+    "base": "images/projects/317 bbq/20231008_175512",
+    "color": "rgb(248 232 216)",
+    "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAAkAPxF2sVAsJ6SisAgBgCIJagCdMoADCfg0bkLzbAAA4lFuh8CYLfqGmh7m1dbp+F14MI4iK7jkPSxt3lW2LQ+FMIW9YtjjQ47h3ATNevQPbfgcYOJujwBU44D5DO4q3CmJzRpbQF4nfAQaBSR8AwAAAA=="
+  },
+  "images/projects/317 bbq/20231008_181722.jpg": {
+    "width": 900,
+    "height": 420,
+    "base": "images/projects/317 bbq/20231008_181722",
+    "color": "rgb(40 40 40)",
+    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoUAAkAPxFysFAsJqSisAgBgCIJZgCdAB8v/m1YUUmtzwAA8p4y7OwR2Iaa9y9xrKc+PK59c6SL0EtMf74PvhMZfgYmDJRKb0wVhDJAsafWjyFzU3gAAA=="
   },
   "images/projects/317 bbq/317bbqlogo_wht.png": {
     "width": 1500,
@@ -117,6 +110,13 @@
     "base": "images/projects/317 bbq/317bbqlogo_wht",
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRqYBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSFoBAAABkCvbtmlbfc11bdu2bdu2nm3btm37RbZCM2Xo92Kd+xERMQEAojD2jk8KsQJhcMG2b9WKmVMXr54ZjlYGmszdQ70VCpviraPFQKjZ7oZSCgWMXapBSN1p4jtjild+r1/HqCpGTUcw2RbOzQfPT/T8aRty470l6zKgbjKcKl921/hLI5uvQcIKmB+LMPn3NOPvtbybjmapt9USK4goe7hf/yh1+Z2MMWPzXZejeDZk/j3T77mtn43R9Da4Lke4febWZeMfeSfOoo3obbBaYgXdr48m5h4OnLDdFc24fOblhrlueTIu6N3V6JWrDjoleizzomZWmPvex8ujnt7I2nLxil9G5VIw3hpCenuQRVu5mduQKmFNOkLKdn8LDJXCwn7CNAShentJtLUWI2Xpl7hggQYQMjfPrsiKdAupHLFxhFYGaGxbVy1bsWDx6omhyGCIQrzjkkPNQQAAVlA4ICYAAADQAgCdASoUABQAPxGCuVWsKKWjKAgBgCIJaQAAPaOgAP7wCfsAAA=="
+  },
+  "images/projects/Behr pet essentials/Behr pet essentials logo.png": {
+    "width": 1578,
+    "height": 1036,
+    "base": "images/projects/Behr pet essentials/Behr pet essentials logo",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRp4BAABXRUJQVlA4WAoAAAAQAAAAEwAADAAAQUxQSOMAAAANgLJt2/lX9f23bXu2rWhU1x3ri4vq+wZMTP8+Jdu27b3vO0fEBOBXkciTp57fXnjHP3mvBc17t6HDJPgfRqtweBnj98wsc+lvHNL4TJyTiy33t6sMv3KoqAroHe/gPVvPyG9AIMUmOoFC9/SAPznMntVwh5QQMmEFj/zgUE4wa7JvwHHW5ROC4CfjmjXtK52FTfXJBouCXTyCC3/ozauqfy1JbH7xcQ/PhPdvlL8/8fL88Hzuq7SKDxcoANQOWV9PYkV7Jw+z2yKl0WPajFiXla2wj2l55eiDJvVDcH354ThQAABWUDgglAAAABAEAJ0BKhQADQA/EXKwUCwmpKKwCAGAIglsAJ0vXR8zIhwW8QbNJ53AAMIHFpVVP4AY9LfUPilYpz/QfP6nGAh6TZn7nlKAlBfiMstg8wUsscffd27G0WxdjvHpv7kOR9WaBaYnjLZQFRWAPEuecA49Zm/7y+XkCv6BTv9ZbEtZxJuWTub3Dflej5i101t+gH8/AAA="
   },
   "images/projects/317 bbq/download.jpg": {
     "width": 1712,
@@ -160,19 +160,19 @@
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4WAoAAAAQAAAAEwAAAwAAQUxQSFEAAAAAPYZtYVmBaUJ1UIt5UFxqa2NffDoUGDZLRDs5SE8nLTk9OjQ2NUBDGwUSFB4eHxUDDAkHBAIGHyEWTWkkGCorKiorFwIVCxcWExQpJxg3dSIAVlA4IGAAAAAwBACdASoUAAQAPxFwsFAsJiSisAgBgCIJZgCdMoHgA5/8B5IAzJrbYQAA/s4FJYxWXCMmBAQRGGrQ4wU/VgPa/SEz/s+9hwO5AIaL30z9pTcxxAWAU4lyjoxhbCu30AA="
   },
-  "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post.png": {
-    "width": 1080,
-    "height": 1080,
-    "base": "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoUABQAPvVip1AqpaOit+gBUB6JbADE2DJPZbuJ/qkcHr+olAAA/u3XsrFq6dO6rbFJLw1uomVtwRhjDDzU/HQEGD3ZQIaTNTwVmPQcD1gs34Eij4s5H1E6wcXgN1v+0/QqRiM/scuTApYBMFirqiKzk3NI0BXGYcWI9br0UkYAAA=="
-  },
   "images/projects/Primarycare Indy/Primary Care Logo with PMC.png": {
     "width": 2356,
     "height": 604,
     "base": "images/projects/Primarycare Indy/Primary Care Logo with PMC",
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRvwAAABXRUJQVlA4WAoAAAAQAAAAEwAABAAAQUxQSGUAAAAAIBciKzkrAAAAAAEBAAAAAAEAAAAwC7GAGSwxLQQHBQUGBhEmCgMGAia61smzCkA5Rzw7MkMsLTAWOEsgDzymxC8BDBcrIy4jICIbJyAmLA8BAFlbAAECGR0ZIRkVGCEcFRkYBQBWUDggcAAAAPADAJ0BKhQABQA/EXKxUCwmpKKwCAGAIglsAJ0yga+2Av39sRsJucAA+PvsMpiC/ocfP7bhiDUp83PLNkYjMKy0vKY9TxJd0o7HQX4zYETv8PdtA9WPiGtn9DfMSXFXCczWBBKJ8Ss0Gug6TRz+QAA="
+  },
+  "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post.png": {
+    "width": 1080,
+    "height": 1080,
+    "base": "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoUABQAPvVip1AqpaOit+gBUB6JbADE2DJPZbuJ/qkcHr+olAAA/u3XsrFq6dO6rbFJLw1uomVtwRhjDDzU/HQEGD3ZQIaTNTwVmPQcD1gs34Eij4s5H1E6wcXgN1v+0/QqRiM/scuTApYBMFirqiKzk3NI0BXGYcWI9br0UkYAAA=="
   },
   "images/projects/Primarycare Indy/primarycare indy logo.png": {
     "width": 700,
@@ -244,19 +244,19 @@
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRoABAABXRUJQVlA4WAoAAAAQAAAAEwAADQAAQUxQSOEAAAANkGvb2rFXe3+xbdturdrGTditnTJdarZ2i862bX5PdM41RMQEAAQEFAoBKJ/NbhnQkE8AAoEAIOw197TqrFtX9J71n/Uf6Z58tbfydhHx7uxxW/q6kDSYMlZYu6igCigxOJ7PGQ85Ua3P9BdNXT60jAAE9e746s4l9STPRB7FDTmrAYDC/YCPlxc/wzlj82eLq0+TQ0BmXx71Hw0fDbyeHx7E6t0IqvJObQ2hUKhoQhRRVVXzQMH/EqBovXbN/hcA0djsRtE/BAABqq7+Bh8kQIAgAAI01l0SIeSXUACArwYAVlA4IHgAAAAwBACdASoUAA4APxFysFAsJqSisAgBgCIJbACxC8GJ/gPIG+kFGReQAaAA/u8SXOqVn/8felr7zeYwQwDk8LXsZ0YdM9+4l3YFCPLRDsXwaLoyVZnHZqL1MSfX+Sh1HGjn3Ox1bzXzNhnix7oMFzkPlTeS6EgQAAA="
   },
-  "images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1.png": {
-    "width": 400,
-    "height": 132,
-    "base": "images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1",
-    "color": "rgb(8 8 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRhQBAABXRUJQVlA4WAoAAAAQAAAAEwAABgAAQUxQSI0AAAAAADSWJQAlHAIGAgQDFSADAwIDBwFJrZesNStEMjpSTSswXj08O0U+BXWYiqFgCyEjIS0mFBMuKycwKB0Ek6kPwXUIDTVCHhUaJRkHAAEBAQBqm6CfVUYsNmw9Rz1iRA8AAQAAACyfp5cgFRcQGBgTExYcDAoNCQkAACt9IAAbJSMbGB8bFCEeHCEjHwEAVlA4IGAAAADQAwCdASoUAAcAPxFysFAsJqSisAgBgCIJbACdEf/gNlWdODvY+CAA/p8DAZBypCh3gHmU8mEqZeg1q+sj33c2FOmKzgz/Ts0zqmUK2pnwn5WEuUW34rKig58Vk3CAAAA="
-  },
   "images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg.jpg": {
     "width": 270,
     "height": 104,
     "base": "images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg",
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABwAwCdASoUAAgAPxFysFAsJqSisAgBgCIJZwAAW8ZludsVIwAA/rO3C1ID+3BzzKIigFBWu1yOfvxNhsr2LnEEKzs63Qhrktp/zHA5QeAAAA=="
+  },
+  "images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1.png": {
+    "width": 400,
+    "height": 132,
+    "base": "images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRhQBAABXRUJQVlA4WAoAAAAQAAAAEwAABgAAQUxQSI0AAAAAADSWJQAlHAIGAgQDFSADAwIDBwFJrZesNStEMjpSTSswXj08O0U+BXWYiqFgCyEjIS0mFBMuKycwKB0Ek6kPwXUIDTVCHhUaJRkHAAEBAQBqm6CfVUYsNmw9Rz1iRA8AAQAAACyfp5cgFRcQGBgTExYcDAoNCQkAACt9IAAbJSMbGB8bFCEeHCEjHwEAVlA4IGAAAADQAwCdASoUAAcAPxFysFAsJqSisAgBgCIJbACdEf/gNlWdODvY+CAA/p8DAZBypCh3gHmU8mEqZeg1q+sj33c2FOmKzgz/Ts0zqmUK2pnwn5WEuUW34rKig58Vk3CAAAA="
   },
   "images/projects/circle  city kicks/circle  city kicks logo.png": {
     "width": 1463,
