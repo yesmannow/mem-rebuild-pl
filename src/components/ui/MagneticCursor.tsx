@@ -30,18 +30,18 @@ const MagneticCursor: React.FC<MagneticCursorProps> = ({
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
-  // Detect mobile devices and disable cursor
+  // Detect mobile devices and disable cursor - use matchMedia for better performance
   useEffect(() => {
+    const mobileQuery = window.matchMedia('(max-width: 768px)');
+    const touchQuery = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
     const checkMobile = () => {
-      const mobile = window.innerWidth < 768 || 
-                     'ontouchstart' in window || 
-                     navigator.maxTouchPoints > 0;
-      setIsMobile(mobile);
+      setIsMobile(mobileQuery.matches || touchQuery);
     };
     
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    mobileQuery.addEventListener('change', checkMobile);
+    return () => mobileQuery.removeEventListener('change', checkMobile);
   }, []);
 
   useEffect(() => {

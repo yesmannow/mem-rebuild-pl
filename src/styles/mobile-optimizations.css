@@ -188,8 +188,8 @@ a,
   -webkit-transform: translateZ(0);
 }
 
-/* Container queries optimization */
-@container (max-width: 768px) {
+/* Container queries optimization - Fallback to media query for better support */
+@media (max-width: 768px) {
   .container-adaptive {
     animation-duration: 0.2s !important;
   }

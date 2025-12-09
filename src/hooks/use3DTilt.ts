@@ -32,14 +32,15 @@ export function use3DTilt(config: TiltConfig = {}) {
   const [isHovering, setIsHovering] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Detect mobile devices
+  // Detect mobile devices - use matchMedia for better performance
   useEffect(() => {
+    const mobileQuery = window.matchMedia('(max-width: 768px)');
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+      setIsMobile(mobileQuery.matches || 'ontouchstart' in window);
     };
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    mobileQuery.addEventListener('change', checkMobile);
+    return () => mobileQuery.removeEventListener('change', checkMobile);
   }, []);
 
   // Spring animations for smooth, natural motion
