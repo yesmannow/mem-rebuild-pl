@@ -111,7 +111,10 @@
   font-weight: 900;
   margin: 1.5rem 0 1rem;
   line-height: 1.1;
-  color: #f8fafc;
+  background: linear-gradient(135deg, #f8fafc 0%, #40E0D0 50%, #f8fafc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-family: var(--brand-font-family, 'Montserrat', system-ui, sans-serif);
 }
 
