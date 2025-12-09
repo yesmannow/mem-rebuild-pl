@@ -1,6 +1,7 @@
 /* Import design system tokens and typography first */
 @import './tokens.css';
 @import './typography-system.css';
+@import './style-guide.css';
 
 /* Import Montserrat font from Google Fonts for brand refresh */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
@@ -72,15 +73,31 @@
     --chart-5: 188 100% 23%; /* Stormy Teal */
   }
 
-  /* Hybrid Mode (default) - Ocean Pearl */
-  [data-brand="default"] {
+  /* Wow Factor Portfolio - Unified Brand System */
+  [data-brand="default"],
+  :root {
     --brand-font-family: 'Montserrat', system-ui, sans-serif;
-    --brand-primary: #40E0D0; /* Teal */
-    --brand-accent: #FFA500; /* Orange */
-    --brand-bg: #0f172a; /* Brand Dark */
-    --brand-text: #f8fafc; /* Brand Text */
-    --brand-border-radius: 0.75rem; /* Standard */
+    
+    /* Primary Brand Colors */
+    --brand-primary: #40E0D0;        /* Turquoise - primary accent */
+    --brand-primary-dark: #0F766E;   /* Darker turquoise for contrast */
+    --brand-accent: #FFA500;         /* Creamsicle - secondary accent */
+    --brand-accent-light: #FFB380;   /* Light creamsicle */
+    --brand-accent-dark: #E68A48;    /* Dark creamsicle */
+    --brand-neutral: #B3CDE0;        /* Light blue-gray for backgrounds */
+    
+    /* Foundation Colors */
+    --brand-bg: #0f172a;             /* Main dark background */
+    --brand-surface: #1e293b;        /* Card/surface background */
+    --brand-text: #f8fafc;           /* Main text color */
+    --brand-text-muted: #94A3B8;     /* Secondary text color */
+    --brand-border: rgba(64, 224, 208, 0.2); /* Subtle turquoise border */
+    
+    /* Design System */
+    --brand-border-radius: 0.75rem;
     --brand-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    --brand-shadow-accent: 0 4px 20px rgba(64, 224, 208, 0.3);
+    --brand-shadow-warm: 0 4px 20px rgba(255, 165, 0, 0.3);
   }
 }
 

@@ -250,17 +250,37 @@ mem-rebuild-pl/
 
 ## 🎨 Design System
 
-### Color Palette (Ocean Pearl Theme)
+The portfolio uses a comprehensive, unified design system for consistency and maintainability.
 
-- **Turquoise**: `#40E0D0` - Primary accent, CTAs, highlights
-- **Creamsicle**: `#FFA500` / `#FFB347` - Secondary accent, warm touches
-- **Light Blue-Gray**: `#B0C4DE` - Backgrounds, subtle elements
-- **Slate**: Neutral grays for text and UI components
+### Color Palette (Wow Factor Portfolio Theme)
+
+- **Turquoise**: `#40E0D0` - Primary accent for links, highlights, and interactive elements
+- **Creamsicle**: `#FFA500` - Secondary accent for warm touches and CTAs
+- **Light Blue-Gray**: `#B3CDE0` - Backgrounds and subtle elements
+- **Dark Slate**: `#0f172a` - Main background
+- **Surface**: `#1e293b` - Card backgrounds
 
 ### Typography
 
-- **Font Family**: Montserrat (headings and body)
-- **Weights**: 400 (normal), 500 (medium), 600 (semibold), 700 (bold)
+- **Font Family**: Montserrat (all text - unified across the site)
+- **Weights**: 300 (light), 400 (normal), 500 (medium), 600 (semibold), 700 (bold), 800 (extra bold)
+- **Monospace**: Fira Code (code blocks only)
+
+### Component Library
+
+The site includes a comprehensive style guide with pre-built utilities:
+- Card components (primary, secondary, glass)
+- Button styles (primary, secondary, accent)
+- Badge and tag components
+- Form elements
+- Metric displays
+- Timeline components
+- Icon wrappers
+- Loading states
+- Hover effects
+- Accessibility utilities
+
+📖 See [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) for complete documentation and usage examples.
 
 ## 🚢 Deployment
 

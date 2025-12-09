@@ -1,0 +1,341 @@
+/* ===================================================================
+   WOW FACTOR PORTFOLIO - STYLE GUIDE
+   Unified design system for consistent styling across all pages
+   =================================================================== */
+
+/* ===== UTILITY CLASSES FOR CONSISTENT STYLING ===== */
+
+/* Card Components */
+.card-primary {
+  @apply rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur-lg p-6;
+  @apply shadow-soft-dark transition-all duration-300;
+  @apply hover:border-brand-teal/30 hover:shadow-brand-shadow-accent;
+}
+
+.card-secondary {
+  @apply rounded-xl border border-white/5 bg-slate-900/50 backdrop-blur p-5;
+  @apply transition-all duration-300;
+}
+
+.card-glass {
+  @apply rounded-2xl border border-white/5 bg-slate-950/60 backdrop-blur-md p-6;
+  @apply shadow-soft-dark;
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2;
+  @apply px-6 py-3 rounded-lg font-semibold;
+  @apply bg-brand-turquoise text-white;
+  @apply hover:bg-brand-turquoise-dark hover:shadow-brand-shadow-accent;
+  @apply transition-all duration-300;
+  @apply focus:outline-none focus:ring-2 focus:ring-brand-turquoise/50;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2;
+  @apply px-6 py-3 rounded-lg font-semibold;
+  @apply bg-transparent border-2 border-brand-turquoise text-brand-turquoise;
+  @apply hover:bg-brand-turquoise/10 hover:shadow-brand-shadow-accent;
+  @apply transition-all duration-300;
+  @apply focus:outline-none focus:ring-2 focus:ring-brand-turquoise/50;
+}
+
+.btn-accent {
+  @apply inline-flex items-center justify-center gap-2;
+  @apply px-6 py-3 rounded-lg font-semibold;
+  @apply bg-brand-creamsicle text-white;
+  @apply hover:bg-brand-creamsicle-dark hover:shadow-brand-shadow-warm;
+  @apply transition-all duration-300;
+  @apply focus:outline-none focus:ring-2 focus:ring-brand-creamsicle/50;
+}
+
+/* Section Headers */
+.section-header {
+  @apply mb-12;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold text-brand-text;
+  @apply mb-4;
+}
+
+.section-subtitle {
+  @apply text-lg text-brand-muted max-w-3xl;
+}
+
+.section-label {
+  @apply text-sm font-mono uppercase tracking-[0.3em] text-brand-muted;
+  @apply mb-3;
+}
+
+/* Content Containers */
+.content-wrapper {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.content-section {
+  @apply py-20;
+}
+
+.content-narrow {
+  @apply max-w-4xl mx-auto;
+}
+
+.content-wide {
+  @apply max-w-screen-2xl mx-auto;
+}
+
+/* Grid Layouts */
+.grid-cards {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.grid-auto-fit {
+  @apply grid gap-6;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-2-col {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
+}
+
+/* Badge Components */
+.badge-primary {
+  @apply inline-flex items-center gap-1.5 px-3 py-1;
+  @apply rounded-full border;
+  @apply bg-brand-turquoise/15 border-brand-turquoise/30 text-brand-turquoise;
+  @apply text-sm font-medium;
+}
+
+.badge-secondary {
+  @apply inline-flex items-center gap-1.5 px-3 py-1;
+  @apply rounded-full border;
+  @apply bg-brand-creamsicle/15 border-brand-creamsicle/30 text-brand-creamsicle;
+  @apply text-sm font-medium;
+}
+
+.badge-neutral {
+  @apply inline-flex items-center gap-1.5 px-3 py-1;
+  @apply rounded-full border;
+  @apply bg-slate-800/50 border-white/10 text-brand-muted;
+  @apply text-sm;
+}
+
+/* Tech Stack Tags */
+.tech-tag {
+  @apply px-3 py-1.5 text-xs rounded-md;
+  @apply bg-slate-900/50 border border-white/5 text-brand-muted;
+  @apply hover:border-brand-turquoise/30 hover:text-brand-turquoise;
+  @apply transition-all duration-300;
+}
+
+/* Metric Display */
+.metric-card {
+  @apply text-center p-6 rounded-xl;
+  @apply bg-slate-900/50 border border-white/5;
+}
+
+.metric-value {
+  @apply text-4xl md:text-5xl font-bold text-brand-turquoise;
+  @apply mb-2;
+}
+
+.metric-label {
+  @apply text-sm text-brand-muted uppercase tracking-wide;
+}
+
+/* Link Styles */
+.link-primary {
+  @apply text-brand-turquoise hover:text-brand-text;
+  @apply transition-colors duration-300;
+  @apply underline decoration-brand-turquoise/30 hover:decoration-brand-turquoise;
+  @apply underline-offset-4;
+}
+
+.link-nav {
+  @apply text-brand-muted hover:text-brand-turquoise;
+  @apply transition-all duration-300;
+  @apply font-medium;
+}
+
+/* Icon Containers */
+.icon-wrapper {
+  @apply p-3 rounded-lg;
+  @apply bg-brand-turquoise/15 text-brand-turquoise;
+}
+
+.icon-wrapper-accent {
+  @apply p-3 rounded-lg;
+  @apply bg-brand-creamsicle/15 text-brand-creamsicle;
+}
+
+/* Timeline Components */
+.timeline-dot {
+  @apply h-4 w-4 rounded-full bg-brand-turquoise;
+  box-shadow: 0 0 0 6px rgba(64, 224, 208, 0.1);
+}
+
+.timeline-line {
+  @apply absolute left-2 top-8 bottom-0 w-px;
+  @apply bg-gradient-to-b from-brand-turquoise/50 to-transparent;
+}
+
+/* Form Elements */
+.form-input {
+  @apply w-full px-4 py-3 rounded-lg;
+  @apply bg-slate-900/50 border border-white/10;
+  @apply text-brand-text placeholder:text-brand-muted;
+  @apply focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20;
+  @apply transition-all duration-300;
+  @apply focus:outline-none;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-brand-text mb-2;
+}
+
+.form-textarea {
+  @apply w-full px-4 py-3 rounded-lg;
+  @apply bg-slate-900/50 border border-white/10;
+  @apply text-brand-text placeholder:text-brand-muted;
+  @apply focus:border-brand-turquoise focus:ring-2 focus:ring-brand-turquoise/20;
+  @apply transition-all duration-300;
+  @apply focus:outline-none;
+  @apply min-h-[120px] resize-y;
+}
+
+/* Status Indicators */
+.status-online {
+  @apply relative inline-flex h-2 w-2;
+}
+
+.status-online::before {
+  @apply absolute inline-flex h-full w-full rounded-full;
+  @apply bg-brand-turquoise opacity-75;
+  @apply animate-ping;
+  content: '';
+}
+
+.status-online::after {
+  @apply relative inline-flex rounded-full h-2 w-2 bg-brand-turquoise;
+  content: '';
+}
+
+/* Hover Effects */
+.hover-lift {
+  @apply transition-transform duration-300;
+  @apply hover:-translate-y-1 hover:shadow-lg;
+}
+
+.hover-glow {
+  @apply transition-all duration-300;
+  @apply hover:shadow-brand-shadow-accent;
+}
+
+.hover-border {
+  @apply transition-all duration-300;
+  @apply hover:border-brand-turquoise/50;
+}
+
+/* Loading States */
+.skeleton {
+  @apply animate-pulse bg-slate-800/50 rounded;
+}
+
+.loading-spinner {
+  @apply inline-block h-4 w-4 animate-spin rounded-full;
+  @apply border-2 border-solid border-current border-r-transparent;
+}
+
+/* Focus States */
+.focus-visible-primary {
+  @apply focus-visible:outline-none focus-visible:ring-2;
+  @apply focus-visible:ring-brand-turquoise focus-visible:ring-offset-2;
+  @apply focus-visible:ring-offset-slate-950;
+}
+
+/* Accessibility */
+.sr-only {
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden;
+  @apply whitespace-nowrap border-0;
+  clip: rect(0, 0, 0, 0);
+}
+
+.touch-target {
+  @apply min-h-[44px] min-w-[44px];
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.scale-in {
+  animation: scaleIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .section-title {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  .content-section {
+    @apply py-12;
+  }
+  
+  .grid-cards {
+    @apply gap-4;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    @apply hidden;
+  }
+  
+  .print-break-after {
+    page-break-after: always;
+  }
+  
+  .print-break-before {
+    page-break-before: always;
+  }
+}
