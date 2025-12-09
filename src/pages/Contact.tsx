@@ -26,6 +26,7 @@ import TerminalBlock from '../components/ui/TerminalBlock';
 import TechProfile from '../components/TechProfile';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import { AvailabilityBadge } from '../components/ui/AvailabilityBadge';
+import MagneticCursor from '../components/ui/MagneticCursor';
 import './Contact.css';
 
 const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
@@ -214,6 +215,7 @@ const Contact: React.FC = () => {
 
   return (
     <OceanAuroraBackground className="bg-brand-dark" style={{ minHeight: '100vh', height: 'auto' }}>
+      <MagneticCursor color="#40E0D0" enabled={true} />
       <main className="contact-page relative z-10 w-full min-h-screen flex flex-col">
         {/* Floating Particles */}
         <Suspense fallback={<div className="h-16" />}>

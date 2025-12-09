@@ -10,6 +10,7 @@ import FeaturedProjectsGrid from '../components/home/FeaturedProjectsGrid';
 import type { FeaturedProjectCardProps } from '../components/home/FeaturedProjectCard';
 import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
+import MagneticCursor from '../components/ui/MagneticCursor';
 import './Projects.css';
 
 const Projects: React.FC = () => {
@@ -32,6 +33,7 @@ const Projects: React.FC = () => {
 
   return (
     <main className="projects-page relative">
+      <MagneticCursor color="#40E0D0" enabled={true} />
       <OceanBackgroundBeams className="opacity-20" />
       <AnimatedSection>
         <header className="projects-header relative z-10">
