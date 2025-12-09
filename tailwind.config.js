@@ -166,6 +166,8 @@ export default {
   			accent: '0 4px 20px rgba(131, 197, 190, 0.3)', // Pearl Aqua glow
   			cta: '0 8px 25px rgba(226, 149, 120, 0.4)', // Tangerine Dream glow
   			'case-study-glow': '0px 0px 40px var(--case-study-glow)',
+  			'brand-shadow-accent': '0 8px 25px rgba(64, 224, 208, 0.3)', // Turquoise accent shadow
+  			'brand-shadow-warm': '0 8px 25px rgba(255, 165, 0, 0.3)', // Creamsicle warm shadow
   		},
   		backgroundImage: {
   			'case-study-gradient': 'var(--case-study-gradient)',
