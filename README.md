@@ -304,9 +304,36 @@ Deploy to root domain like `https://yourdomain.com/`
 # Build with root base path (default)
 npm run build
 
+# Verify Cloudflare configuration
+npm run verify:cloudflare
+
 # Output in dist/ is ready for Cloudflare Pages
 # Connect your repo in Cloudflare dashboard
 ```
+
+#### Setting Up Custom Domain
+
+If you're experiencing **Error 522** or connection issues with your custom domain:
+
+1. **Add Custom Domain in Cloudflare Pages Dashboard:**
+   - Go to Cloudflare Dashboard → Workers & Pages → Your Project
+   - Click "Custom domains" tab
+   - Add both apex domain (`example.com`) and www subdomain (`www.example.com`)
+
+2. **Configure DNS Records:**
+   ```
+   Type    Name              Target                      Proxied
+   CNAME   example.com       your-project.pages.dev     Yes ☁️
+   CNAME   www.example.com   example.com                Yes ☁️
+   ```
+
+3. **Verify SSL/TLS Settings:**
+   - Go to Cloudflare Dashboard → SSL/TLS
+   - Set encryption mode to **Full** or **Full (strict)**
+
+4. **Wait for DNS Propagation** (5-60 minutes)
+
+📖 **For detailed troubleshooting, see [docs/CLOUDFLARE_CUSTOM_DOMAIN_SETUP.md](./docs/CLOUDFLARE_CUSTOM_DOMAIN_SETUP.md)**
 
 ### Base Path Logic
 
