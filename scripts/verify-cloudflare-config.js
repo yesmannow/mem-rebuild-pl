@@ -167,8 +167,8 @@ function provideDiagnosticInfo() {
   log('4. Wait 5-60 minutes for DNS propagation', 'cyan');
   
   log('\nTest your DNS configuration:', 'yellow');
-  log('  nslookup www.bearcavemarketing.com', 'cyan');
-  log('  curl -I https://www.bearcavemarketing.com/', 'cyan');
+  log('  nslookup www.yourdomain.com', 'cyan');
+  log('  curl -I https://www.yourdomain.com/', 'cyan');
   
   log('\nFor detailed instructions, see:', 'yellow');
   log('  docs/CLOUDFLARE_CUSTOM_DOMAIN_SETUP.md', 'cyan');
