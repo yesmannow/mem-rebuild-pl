@@ -1,0 +1,196 @@
+/**
+ * Mobile Performance Optimizations
+ * Fixes flickering and ensures smooth 60fps animations on mobile
+ */
+
+/* Force GPU acceleration on all animated elements */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize transforms for mobile */
+[class*="motion-"],
+[class*="animate-"],
+.framer-motion-element {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  will-change: auto; /* Let browser decide, prevent overuse */
+}
+
+/* Optimize animations on active elements only */
+:hover,
+:active,
+:focus-visible {
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after animation completes */
+*:not(:hover):not(:active):not(:focus-visible) {
+  will-change: auto;
+}
+
+/* Smooth transitions without flickering */
+.transition-colors,
+.transition-all,
+.transition-opacity,
+.transition-transform {
+  -webkit-transition-property: var(--tw-transition-property);
+  transition-property: var(--tw-transition-property);
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: var(--tw-transition-duration, 150ms);
+  transition-duration: var(--tw-transition-duration, 150ms);
+}
+
+/* Optimize magnetic cursor for mobile */
+@media (max-width: 768px) {
+  [class*="cursor-"],
+  .cursor-none,
+  .magnetic-cursor {
+    display: none !important;
+  }
+  
+  /* Disable complex 3D effects on mobile for better performance */
+  .tilt-card {
+    transform: none !important;
+  }
+  
+  /* Simplify animations on mobile */
+  .framer-motion-element {
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+  }
+}
+
+/* Fix iOS Safari flickering */
+@supports (-webkit-touch-callout: none) {
+  * {
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+  }
+  
+  /* Prevent elastic scrolling issues */
+  body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Android Chrome optimizations */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select,
+  textarea,
+  input {
+    font-size: 16px; /* Prevent zoom on focus */
+  }
+}
+
+/* Optimize backdrop blur on mobile */
+@media (max-width: 768px) {
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+/* Prevent layout shift during animations */
+img,
+video,
+picture {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Optimize parallax on mobile */
+@media (max-width: 768px) {
+  [data-parallax],
+  [class*="parallax"] {
+    transform: none !important;
+  }
+}
+
+/* Smooth page transitions without flicker */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px) translateZ(0);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0) translateZ(0);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0) translateZ(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px) translateZ(0);
+  transition: opacity 200ms ease-in, transform 200ms ease-in;
+}
+
+/* Optimize touch interactions */
+button,
+a,
+[role="button"] {
+  -webkit-tap-highlight-color: rgba(64, 224, 208, 0.1);
+  touch-action: manipulation;
+}
+
+/* Prevent text selection during animations */
+.animating {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Optimize gradient backgrounds on mobile */
+@media (max-width: 768px) {
+  .bg-gradient-to-r,
+  .bg-gradient-to-b,
+  .bg-gradient-to-br {
+    background-attachment: scroll; /* Better performance than fixed */
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Fix z-index issues that cause flickering */
+.stacking-context {
+  isolation: isolate;
+}
+
+/* Optimize fixed positioned elements */
+.fixed,
+[class*="fixed"] {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Container queries optimization */
+@container (max-width: 768px) {
+  .container-adaptive {
+    animation-duration: 0.2s !important;
+  }
+}

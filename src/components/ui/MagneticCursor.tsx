@@ -24,10 +24,25 @@ const MagneticCursor: React.FC<MagneticCursorProps> = ({
   const cursorY = useMotionValue(0);
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const springConfig = { damping: 25, stiffness: 200 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
+
+  // Detect mobile devices and disable cursor
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768 || 
+                     'ontouchstart' in window || 
+                     navigator.maxTouchPoints > 0;
+      setIsMobile(mobile);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     if (!enabled) return;
@@ -65,7 +80,8 @@ const MagneticCursor: React.FC<MagneticCursorProps> = ({
     };
   }, [enabled, cursorX, cursorY]);
 
-  if (!enabled || !isVisible) return null;
+  // Don't render on mobile devices
+  if (!enabled || !isVisible || isMobile) return null;
 
   return (
     <>

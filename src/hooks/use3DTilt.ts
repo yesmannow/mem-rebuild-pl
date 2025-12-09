@@ -5,7 +5,7 @@
  * with spring-based animation for natural motion
  */
 
-import { useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback, useEffect } from 'react';
 import { useSpring } from 'framer-motion';
 
 interface TiltConfig {
@@ -30,6 +30,17 @@ export function use3DTilt(config: TiltConfig = {}) {
   const options = { ...defaultConfig, ...config };
   const elementRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Spring animations for smooth, natural motion
   const rotateX = useSpring(0, { stiffness: options.speed, damping: 30 });
@@ -41,7 +52,8 @@ export function use3DTilt(config: TiltConfig = {}) {
 
   const handleMouseMove = useCallback(
     (event: React.MouseEvent<HTMLDivElement>) => {
-      if (!elementRef.current) return;
+      // Disable 3D tilt on mobile
+      if (isMobile || !elementRef.current) return;
 
       const rect = elementRef.current.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
@@ -66,7 +78,7 @@ export function use3DTilt(config: TiltConfig = {}) {
         glareY.set(50 + percentY * 50);
       }
     },
-    [options, rotateX, rotateY, scale, glareOpacity, glareX, glareY]
+    [isMobile, options, rotateX, rotateY, scale, glareOpacity, glareX, glareY]
   );
 
   const handleMouseEnter = useCallback(() => {
@@ -85,11 +97,17 @@ export function use3DTilt(config: TiltConfig = {}) {
 
   return {
     ref: elementRef,
-    style: {
-      transform: `perspective(${options.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(${scale}, ${scale}, ${scale})`,
-      transformStyle: 'preserve-3d' as const,
-    },
-    glareStyle: options.glareEnable
+    style: isMobile
+      ? {
+          // Simplified transform for mobile
+          transform: `scale(${isHovering ? 1.02 : 1})`,
+          transition: 'transform 200ms ease-out',
+        }
+      : {
+          transform: `perspective(${options.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(${scale}, ${scale}, ${scale})`,
+          transformStyle: 'preserve-3d' as const,
+        },
+    glareStyle: options.glareEnable && !isMobile
       ? {
           position: 'absolute' as const,
           top: 0,
