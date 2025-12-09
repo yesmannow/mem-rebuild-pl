@@ -6,7 +6,6 @@ import { ArrowLeft, ExternalLink, Tag, Sparkles, Calendar, Palette, Code, Trendi
 import { sideProjects } from '../../data/sideProjects';
 import { DomeGallery, DomeGalleryImage } from '../../components/ui/DomeGallery';
 import { SpotlightCard } from '../../components/ui/SpotlightCard';
-import AnimatedGradientText from '../../components/ui/AnimatedGradientText';
 import SectionDivider from '../../components/ui/SectionDivider';
 import { OceanCountingNumber } from '../../components/ui/OceanCountingNumber';
 
@@ -186,7 +185,7 @@ const SideProjectDetail: React.FC = () => {
                   </div>
 
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-                    <AnimatedGradientText text={project.title} className="text-4xl md:text-5xl lg:text-6xl font-bold" />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-turquoise to-brand-creamsicle">{project.title}</span>
                   </h1>
 
                   <p className="text-lg text-slate-300 mb-6 max-w-3xl">{project.description}</p>

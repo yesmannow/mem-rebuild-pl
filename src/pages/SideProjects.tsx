@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { sideProjects } from '../data/sideProjects';
 import { SideProjectCard, SideProjectCardData } from '../components/ui/SideProjectCard';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
-import AnimatedGradientText from '../components/ui/AnimatedGradientText';
 import SectionDivider from '../components/ui/SectionDivider';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 
@@ -158,7 +157,7 @@ const SideProjects: React.FC = () => {
               </div>
 
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight">
-                <AnimatedGradientText text="Side Projects" className="text-5xl md:text-6xl font-bold" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-turquoise to-brand-creamsicle">Side Projects</span>
               </h1>
               <motion.p
                 className="text-lg text-slate-400 max-w-2xl mx-auto mb-6"

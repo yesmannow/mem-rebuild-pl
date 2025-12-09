@@ -7,7 +7,6 @@ import {
   ArrowRight, Filter, Grid3X3, List, ExternalLink
 } from 'lucide-react';
 import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
-import AnimatedGradientText from '../components/ui/AnimatedGradientText';
 import { OceanRippleButton } from '../components/ui/OceanRippleButton';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import { BentoCard, BentoGrid } from '../components/ui/BentoGrid';
@@ -153,10 +152,9 @@ const Toolbox: React.FC = () => {
               className="text-center max-w-4xl mx-auto mb-8"
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                <AnimatedGradientText 
-                  text="Skills & Toolbox" 
-                  className="text-4xl sm:text-5xl lg:text-6xl font-bold"
-                />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-turquoise to-brand-creamsicle">
+                  Skills & Toolbox
+                </span>
               </h1>
               <p className="text-lg sm:text-xl text-brand-muted leading-relaxed max-w-3xl mx-auto">
                 A unique fusion of <span className="text-brand-teal font-semibold">marketing strategy</span> and{' '}

@@ -2,8 +2,6 @@ import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { caseStudies, getCategories } from '../data/caseStudies';
 import Icon from '../components/Icon';
-import { OceanGradientAnimation } from '../components/ui/OceanGradientAnimation';
-import AnimatedGradientText from '../components/ui/AnimatedGradientText';
 import { TiltCaseCard } from '../components/ui/TiltCaseCard';
 import { Sparkles, TrendingUp, Award } from 'lucide-react';
 import './CaseStudies.css';
@@ -86,49 +84,44 @@ const CaseStudies: React.FC = () => {
 
   return (
     <div className="case-studies-page">
-      {/* Hero Section - Dark Ocean Theme */}
+      {/* Hero Section - Dark Theme */}
       <section className="case-studies-hero-section">
         <div className="case-studies-hero-container">
-          <OceanGradientAnimation
-            containerClassName="case-studies-hero-wrapper"
-            className="case-studies-hero-content"
-            interactive={true}
-            size="60%"
-            blendingValue="soft-light"
-          >
-            <motion.div
-              className="case-studies-hero relative z-10"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-            >
-              <div className="hero-content-cases">
-                {/* Animated badge with pulse effect */}
-                <motion.div
-                  className="hero-badge"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                >
-                  <motion.span
-                    className="badge-pulse"
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
-                  <Sparkles size={14} className="badge-icon" />
-                  <span>Case Study Portfolio</span>
-                </motion.div>
+          <div className="case-studies-hero-wrapper">
+            <div className="case-studies-hero-content">
+              <motion.div
+                className="case-studies-hero relative z-10"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+              >
+                <div className="hero-content-cases">
+                  {/* Animated badge with pulse effect */}
+                  <motion.div
+                    className="hero-badge"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+                  >
+                    <motion.span
+                      className="badge-pulse"
+                      animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
+                    <Sparkles size={14} className="badge-icon" />
+                    <span>Case Study Portfolio</span>
+                  </motion.div>
 
-                {/* Animated title with stagger effect */}
-                <motion.h1
-                  className="case-studies-title"
-                  initial={{ y: 40, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-                >
-                  <span className="title-line">Proven Results.</span>
-                  <AnimatedGradientText text="Real Impact." className="text-4xl md:text-5xl lg:text-6xl font-bold title-gradient" />
-                </motion.h1>
+                  {/* Animated title with stagger effect */}
+                  <motion.h1
+                    className="case-studies-title"
+                    initial={{ y: 40, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                  >
+                    <span className="title-line">Proven Results. </span>
+                    <span className="title-line">Real Impact.</span>
+                  </motion.h1>
 
                 <motion.p
                   className="case-studies-subtitle"
@@ -204,8 +197,9 @@ const CaseStudies: React.FC = () => {
                 </motion.div>
               </div>
             </motion.div>
-          </OceanGradientAnimation>
+          </div>
         </div>
+      </div>
       </section>
 
       {/* Main Content Area - Two Column Layout */}

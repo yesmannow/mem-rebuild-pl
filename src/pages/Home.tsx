@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Target, Cpu, LineChart, ShieldCheck, Users, CheckCircle2, Code } from 'lucide-react';
 import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
 import ScrollProgress from '../components/ui/ScrollProgress';
-import AnimatedGradientText from '../components/ui/AnimatedGradientText';
 import SectionDivider from '../components/ui/SectionDivider';
 import TerminalBlock from '../components/ui/TerminalBlock';
 import { OceanRippleButton } from '../components/ui/OceanRippleButton';
@@ -83,7 +82,7 @@ const Home: React.FC = () => {
                 Fractional CMO & Marketing Technologist
               </p>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-text leading-tight">
-                Scaling companies through <AnimatedGradientText text="strategy + technology" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold" />
+                Scaling companies through <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-turquoise to-brand-creamsicle">strategy + technology</span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-brand-muted max-w-3xl">
                 I help CEOs, founders, and operators turn ambiguous growth goals into orchestrated systems.
