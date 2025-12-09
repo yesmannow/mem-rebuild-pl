@@ -7,6 +7,10 @@ import ScrollProgress from '../components/ui/ScrollProgress';
 import SectionDivider from '../components/ui/SectionDivider';
 import TerminalBlock from '../components/ui/TerminalBlock';
 import { OceanRippleButton } from '../components/ui/OceanRippleButton';
+import ScrollReveal from '../components/animations/ScrollReveal';
+import StaggerChildren, { StaggerItem } from '../components/animations/StaggerChildren';
+import MagneticCursor from '../components/ui/MagneticCursor';
+import TiltCard from '../components/ui/TiltCard';
 
 const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
 const TechProfile = React.lazy(() => import('../components/TechProfile'));
@@ -65,6 +69,7 @@ const Home: React.FC = () => {
 
   return (
     <OceanAuroraBackground className="bg-brand-dark" style={{ minHeight: '100vh', height: 'auto' }}>
+      <MagneticCursor color="#40E0D0" enabled={true} />
       <ScrollProgress />
       <div className="relative z-10 w-full min-h-screen flex flex-col">
         <section className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -117,46 +122,57 @@ const Home: React.FC = () => {
 
         <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
-              <div className="flex-1">
-                <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Navigation snapshot</p>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-text">Choose your entry point</h2>
+            <ScrollReveal direction="up">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
+                <div className="flex-1">
+                  <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Navigation snapshot</p>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-text">Choose your entry point</h2>
+                </div>
+                <p className="text-brand-muted max-w-lg text-sm sm:text-base">
+                  Three operating modes that cover strategy, systems, and performance. Pick one or mix across engagements.
+                </p>
               </div>
-              <p className="text-brand-muted max-w-lg text-sm sm:text-base">
-                Three operating modes that cover strategy, systems, and performance. Pick one or mix across engagements.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
-              {snapshotItems.map((item) => (
-                <Link
-                  key={item.title}
-                  to={item.href}
-                  className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 flex flex-col justify-between hover:border-brand-teal/60 transition shadow-soft-dark"
-                >
-                  <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="p-3 rounded-full bg-brand-teal/15 text-brand-teal">
-                        <item.icon size={20} />
-                      </span>
-                      <h3 className="text-xl font-semibold text-brand-text">{item.title}</h3>
-                    </div>
-                    <p className="text-brand-muted mb-5">{item.description}</p>
-                    <ul className="space-y-2 text-sm text-brand-muted">
-                      {item.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-start gap-2">
-                          <span className="text-brand-teal mt-1">-</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="mt-6 inline-flex items-center gap-2 text-brand-teal font-semibold">
-                    {item.cta}
-                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                  </div>
-                </Link>
+            </ScrollReveal>
+            <StaggerChildren staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
+              {snapshotItems.map((item, index) => (
+                <StaggerItem key={item.title}>
+                  <TiltCard
+                    maxTilt={10}
+                    scale={1.02}
+                    glareEnable={true}
+                    glareMaxOpacity={0.2}
+                    className="h-full"
+                  >
+                    <Link
+                      to={item.href}
+                      className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 flex flex-col justify-between hover:border-brand-teal/60 transition shadow-soft-dark h-full"
+                    >
+                      <div>
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="p-3 rounded-full bg-brand-teal/15 text-brand-teal">
+                            <item.icon size={20} />
+                          </span>
+                          <h3 className="text-xl font-semibold text-brand-text">{item.title}</h3>
+                        </div>
+                        <p className="text-brand-muted mb-5">{item.description}</p>
+                        <ul className="space-y-2 text-sm text-brand-muted">
+                          {item.bullets.map((bullet) => (
+                            <li key={bullet} className="flex items-start gap-2">
+                              <span className="text-brand-teal mt-1">-</span>
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="mt-6 inline-flex items-center gap-2 text-brand-teal font-semibold">
+                        {item.cta}
+                        <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                      </div>
+                    </Link>
+                  </TiltCard>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerChildren>
           </div>
         </section>
 
@@ -169,88 +185,102 @@ const Home: React.FC = () => {
         {/* Technical Stack Preview */}
         <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
-              <div className="flex-1">
-                <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Technical Expertise</p>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-text">Full-stack marketing technology</h2>
+            <ScrollReveal direction="up">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
+                <div className="flex-1">
+                  <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Technical Expertise</p>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-text">Full-stack marketing technology</h2>
+                </div>
+                <p className="text-brand-muted max-w-lg text-sm sm:text-base">
+                  From automation platforms to custom development—here&apos;s a snapshot of the tools and technologies I work with.
+                </p>
               </div>
-              <p className="text-brand-muted max-w-lg text-sm sm:text-base">
-                From automation platforms to custom development—here&apos;s a snapshot of the tools and technologies I work with.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+            </ScrollReveal>
+            <StaggerChildren staggerDelay={0.12} className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
               {/* Marketing Automation */}
-              <Link
-                to="/toolbox"
-                className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
-                    <Cpu size={20} />
-                  </div>
-                  <h3 className="text-lg font-semibold text-brand-text">Marketing Automation</h3>
-                </div>
-                <p className="text-sm text-brand-muted mb-4">CRM architecture and workflow automation</p>
-                <div className="flex flex-wrap gap-2">
-                  {['HubSpot', 'Marketo', 'Salesforce', 'FluentCRM'].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </Link>
+              <StaggerItem>
+                <TiltCard maxTilt={10} scale={1.02} glareEnable={true} className="h-full">
+                  <Link
+                    to="/toolbox"
+                    className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark h-full block"
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
+                        <Cpu size={20} />
+                      </div>
+                      <h3 className="text-lg font-semibold text-brand-text">Marketing Automation</h3>
+                    </div>
+                    <p className="text-sm text-brand-muted mb-4">CRM architecture and workflow automation</p>
+                    <div className="flex flex-wrap gap-2">
+                      {['HubSpot', 'Marketo', 'Salesforce', 'FluentCRM'].map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </Link>
+                </TiltCard>
+              </StaggerItem>
 
               {/* Analytics & Tracking */}
-              <Link
-                to="/toolbox"
-                className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
-                    <LineChart size={20} />
-                  </div>
-                  <h3 className="text-lg font-semibold text-brand-text">Analytics & Tracking</h3>
-                </div>
-                <p className="text-sm text-brand-muted mb-4">Data-driven insights and conversion optimization</p>
-                <div className="flex flex-wrap gap-2">
-                  {['GA4', 'GTM', 'Google Ads', 'Meta Ads'].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </Link>
+              <StaggerItem>
+                <TiltCard maxTilt={10} scale={1.02} glareEnable={true} className="h-full">
+                  <Link
+                    to="/toolbox"
+                    className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark h-full block"
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
+                        <LineChart size={20} />
+                      </div>
+                      <h3 className="text-lg font-semibold text-brand-text">Analytics & Tracking</h3>
+                    </div>
+                    <p className="text-sm text-brand-muted mb-4">Data-driven insights and conversion optimization</p>
+                    <div className="flex flex-wrap gap-2">
+                      {['GA4', 'GTM', 'Google Ads', 'Meta Ads'].map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </Link>
+                </TiltCard>
+              </StaggerItem>
 
               {/* Development Stack */}
-              <Link
-                to="/toolbox"
-                className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
-                    <Code size={20} />
-                  </div>
-                  <h3 className="text-lg font-semibold text-brand-text">Development Stack</h3>
-                </div>
-                <p className="text-sm text-brand-muted mb-4">Full-stack web development and infrastructure</p>
-                <div className="flex flex-wrap gap-2">
-                  {['React', 'TypeScript', 'WordPress', 'Node.js'].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </Link>
-            </div>
+              <StaggerItem>
+                <TiltCard maxTilt={10} scale={1.02} glareEnable={true} className="h-full">
+                  <Link
+                    to="/toolbox"
+                    className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark h-full block"
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
+                        <Code size={20} />
+                      </div>
+                      <h3 className="text-lg font-semibold text-brand-text">Development Stack</h3>
+                    </div>
+                    <p className="text-sm text-brand-muted mb-4">Full-stack web development and infrastructure</p>
+                    <div className="flex flex-wrap gap-2">
+                      {['React', 'TypeScript', 'WordPress', 'Node.js'].map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </Link>
+                </TiltCard>
+              </StaggerItem>
+            </StaggerChildren>
             <div className="text-center">
               <OceanRippleButton
                 asLink
@@ -268,13 +298,14 @@ const Home: React.FC = () => {
         <SectionDivider />
 
         <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto text-center">
-            <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Final CTA</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">Ready to scale your growth?</h2>
-            <p className="text-brand-muted text-lg mb-8">
-              Tell me where you want the business to go. I&apos;ll architect the plan, build the stack, and keep the entire go-to-market motion honest.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+          <ScrollReveal direction="up" delay={0.2}>
+            <div className="max-w-5xl mx-auto text-center">
+              <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Final CTA</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">Ready to scale your growth?</h2>
+              <p className="text-brand-muted text-lg mb-8">
+                Tell me where you want the business to go. I&apos;ll architect the plan, build the stack, and keep the entire go-to-market motion honest.
+              </p>
+              <div className="flex flex-wrap gap-4 justify-center">
               <OceanRippleButton
                 asLink
                 href="/contact"
@@ -293,8 +324,9 @@ const Home: React.FC = () => {
                 Review Services
                 <ArrowRight size={16} />
               </OceanRippleButton>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
       </div>
     </OceanAuroraBackground>

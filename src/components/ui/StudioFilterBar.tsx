@@ -2,22 +2,19 @@
  * StudioFilterBar - Advanced filtering component for Studio gallery
  * 
  * Features:
- * - Category filtering with animated pills
  * - Sort controls with smooth transitions
  * - Shuffle functionality
  * - Search capability
+ * Note: Category filtering removed as categories aren't properly organized
  */
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shuffle, Search, X, ChevronDown } from 'lucide-react';
 
-export type SortOption = 'default' | 'title' | 'category' | 'date';
+export type SortOption = 'default' | 'title' | 'date';
 
 interface StudioFilterBarProps {
-  activeCategory: string;
-  categories: string[];
-  onCategoryChange: (category: string) => void;
   sortBy: SortOption;
   onSortChange: (sort: SortOption) => void;
   onShuffle: () => void;
@@ -27,9 +24,6 @@ interface StudioFilterBarProps {
 }
 
 const StudioFilterBar: React.FC<StudioFilterBarProps> = ({
-  activeCategory,
-  categories,
-  onCategoryChange,
   sortBy,
   onSortChange,
   onShuffle,
@@ -42,7 +36,6 @@ const StudioFilterBar: React.FC<StudioFilterBarProps> = ({
   const sortOptions: { value: SortOption; label: string }[] = [
     { value: 'default', label: 'Default Order' },
     { value: 'title', label: 'Title (A-Z)' },
-    { value: 'category', label: 'Category' },
     { value: 'date', label: 'Recently Added' },
   ];
 
@@ -139,57 +132,8 @@ const StudioFilterBar: React.FC<StudioFilterBarProps> = ({
         </motion.button>
       </div>
 
-      {/* Category Pills */}
-      <div className="flex flex-wrap gap-2">
-        <motion.button
-          key="all"
-          onClick={() => onCategoryChange('all')}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all ${
-            activeCategory === 'all'
-              ? 'text-slate-900'
-              : 'text-slate-400 hover:text-white bg-slate-800/30 border border-slate-700/50'
-          }`}
-          style={
-            activeCategory === 'all'
-              ? {
-                  backgroundColor: accentColor,
-                  boxShadow: `0 4px 20px ${accentColor}40`,
-                }
-              : {}
-          }
-        >
-          All
-        </motion.button>
-
-        {categories.map((category) => (
-          <motion.button
-            key={category}
-            onClick={() => onCategoryChange(category)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all capitalize ${
-              activeCategory === category
-                ? 'text-slate-900'
-                : 'text-slate-400 hover:text-white bg-slate-800/30 border border-slate-700/50'
-            }`}
-            style={
-              activeCategory === category
-                ? {
-                    backgroundColor: accentColor,
-                    boxShadow: `0 4px 20px ${accentColor}40`,
-                  }
-                : {}
-            }
-          >
-            {category}
-          </motion.button>
-        ))}
-      </div>
-
       {/* Active Filters Display */}
-      {(activeCategory !== 'all' || searchQuery || sortBy !== 'default') && (
+      {(searchQuery || sortBy !== 'default') && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
@@ -197,9 +141,6 @@ const StudioFilterBar: React.FC<StudioFilterBarProps> = ({
           className="flex items-center gap-2 text-xs text-slate-400"
         >
           <span>Active filters:</span>
-          {activeCategory !== 'all' && (
-            <span className="px-2 py-1 bg-slate-800/50 rounded-full">{activeCategory}</span>
-          )}
           {searchQuery && (
             <span className="px-2 py-1 bg-slate-800/50 rounded-full">Search: &quot;{searchQuery}&quot;</span>
           )}
@@ -210,7 +151,6 @@ const StudioFilterBar: React.FC<StudioFilterBarProps> = ({
           )}
           <button
             onClick={() => {
-              onCategoryChange('all');
               onSearchChange('');
               onSortChange('default');
             }}

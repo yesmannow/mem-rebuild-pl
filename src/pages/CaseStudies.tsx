@@ -4,6 +4,7 @@ import { caseStudies, getCategories } from '../data/caseStudies';
 import Icon from '../components/Icon';
 import { TiltCaseCard } from '../components/ui/TiltCaseCard';
 import { Sparkles, TrendingUp, Award } from 'lucide-react';
+import MagneticCursor from '../components/ui/MagneticCursor';
 import './CaseStudies.css';
 import './CaseStudiesEnhanced.css';
 
@@ -84,6 +85,7 @@ const CaseStudies: React.FC = () => {
 
   return (
     <div className="case-studies-page">
+      <MagneticCursor color="#40E0D0" enabled={true} />
       {/* Hero Section - Dark Theme */}
       <section className="case-studies-hero-section">
         <div className="case-studies-hero-container">
