@@ -14,53 +14,66 @@ export default {
         mono: ['"Fira Code"', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
 		colors: {
-			// Ocean Pearl Brand Palette (Primary)
+			// Ocean Pearl Brand Palette - Unified System
 			brand: {
-				teal: '#0F766E',    // Teal-700 for stronger contrast
-				orange: '#C2410C',  // Orange-700 for stronger contrast
-				dark: '#111827',    // Subtle lift for background contrast
-				surface: '#1e293b', // Lighter card backgrounds
-				text: '#F8FAFC',    // Main text high contrast
-				muted: '#94A3B8',   // Secondary text (Slate-400)
+				// Primary brand colors (Wow Factor Portfolio Theme)
+				turquoise: '#40E0D0',     // Primary accent - bright, modern teal
+				'turquoise-dark': '#0F766E', // Darker variant for contrast
+				creamsicle: '#FFA500',    // Secondary accent - warm orange
+				'creamsicle-light': '#FFB380', // Lighter variant
+				'creamsicle-dark': '#E68A48',  // Darker variant
+				'blue-gray': '#B3CDE0',   // Background/subtle elements
+				
+				// Foundation colors
+				dark: '#0f172a',          // Main background
+				surface: '#1e293b',       // Card backgrounds
+				text: '#F8FAFC',          // Main text high contrast
+				muted: '#94A3B8',         // Secondary text (Slate-400)
+				
+				// Ocean Pearl Delight Extended Palette
+				teal: '#0F766E',          // Professional teal for links/buttons
+				orange: '#C2410C',        // Professional orange for emphasis
 			},
-			// Ocean Pearl Delight Palette (Legacy support)
-			'ocean': {
+			// Legacy Ocean Pearl Delight (for backward compatibility)
+			ocean: {
 				'stormy-teal': '#006d77',
 				'pearl-aqua': '#83c5be',
 				'alice-blue': '#edf6f9',
 				'almond-silk': '#ffddd2',
 				'tangerine-dream': '#e29578',
 			},
+			// Semantic aliases for consistency
 			ink: {
-				900: '#006d77', // Stormy Teal
-				700: '#005a63', // Darker Stormy Teal
+				900: '#0f172a',  // Match brand.dark
+				700: '#1e293b',  // Match brand.surface
 			},
 			parchment: {
-				50: '#edf6f9', // Alice Blue
+				50: '#edf6f9',   // Light surface
 			},
 			signal: {
-				500: '#e29578', // Tangerine Dream
+				500: '#FFA500', // Match brand.creamsicle
 			},
 			telemetry: {
-				400: '#83c5be', // Pearl Aqua
+				400: '#40E0D0', // Match brand.turquoise
 			},
 			neutral: {
-				muted: '#94a3b8'
+				muted: '#94a3b8' // Match brand.muted
 			},
   			cave: {
   				bg: '#0D0D0F',
   				text: '#E6E6E6',
   				white: '#FFFFFF',
-  				ember: '#FF7A3D',
-  				mist: '#4EC5B8',
+  				ember: '#FFA500',  // Updated to match creamsicle
+  				mist: '#40E0D0',   // Updated to match turquoise
   				border: '#1E1E22'
   			},
-  			turquoise: '#00B8D9',
-  			creamsicle: '#FFB380',
+  			// Direct color utilities (maintained for compatibility)
+  			turquoise: '#40E0D0',
+  			creamsicle: '#FFA500',
   			'creamsicle-dark': '#E68A48',
   			'light-blue-gray': '#B3CDE0',
-  			'montserrat-blue': '#00B8D9',
-  			'montserrat-orange': '#FFB380',
+  			'montserrat-blue': '#40E0D0',   // Updated to turquoise
+  			'montserrat-orange': '#FFA500', // Updated to creamsicle
   			'montserrat-gray': '#B3CDE0',
   			'case-study': {
   				primary: 'var(--case-study-primary)',

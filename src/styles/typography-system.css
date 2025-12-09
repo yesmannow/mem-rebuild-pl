@@ -1,21 +1,21 @@
 /**
- * Typography System
+ * Typography System - Wow Factor Portfolio
  * 
- * Custom fonts with optimized loading and fallbacks
- * - Playfair Display: Expressive serif for headings
- * - Karla: Humanist sans-serif for body text
+ * Unified font system using Montserrat for brand consistency
+ * - Montserrat: Modern, professional sans-serif for all text
+ * - Fira Code: Monospace for code blocks
  */
 
 /* ===================================================================
    FONT FACE DECLARATIONS
    =================================================================== */
 
-/* Playfair Display - Headings (Self-hosted with font-display: swap) */
-/* Using Google Fonts CDN for better caching and performance */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+/* Montserrat - Primary Brand Font */
+/* Already imported in globals.css, but included here for redundancy */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
-/* Karla - Body Text (Self-hosted with font-display: swap) */
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&display=swap');
+/* Fira Code - Monospace for code */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
 
 /* Alternative: If self-hosting is required, uncomment below and add font files to public/fonts
 @font-face {
