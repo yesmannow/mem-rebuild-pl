@@ -135,6 +135,17 @@ export function OceanRippleButton({
     );
   }
 
+  // Filter out HTML event handlers that conflict with Framer Motion
+  const { 
+    onAnimationStart, 
+    onAnimationEnd, 
+    onAnimationIteration,
+    onDragStart,
+    onDrag,
+    onDragEnd,
+    ...restProps 
+  } = props;
+
   return (
     <motion.button
       ref={buttonRef as any}
@@ -142,7 +153,7 @@ export function OceanRippleButton({
       whileTap={{ scale: 0.95 }}
       whileHover={{ scale: 1.05 }}
       className={baseClasses}
-      {...props}
+      {...restProps}
     >
       {buttonContent}
     </motion.button>

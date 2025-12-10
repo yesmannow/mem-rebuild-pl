@@ -7,7 +7,7 @@ interface GodModeProps {
 
 const GodMode: React.FC<GodModeProps> = ({ active }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number>(0);
   const dropsRef = useRef<number[]>([]);
 
   useEffect(() => {

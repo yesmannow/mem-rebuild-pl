@@ -5,9 +5,10 @@ interface SpotlightCardProps {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  spotlightColor?: string;
 }
 
-export const SpotlightCard: React.FC<SpotlightCardProps> = ({ children, className = '', onClick }) => {
+export const SpotlightCard: React.FC<SpotlightCardProps> = ({ children, className = '', onClick, spotlightColor = 'rgba(64, 224, 208, 0.3)' }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
@@ -47,7 +48,7 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({ children, classNam
           className="pointer-events-none absolute inset-0 opacity-0"
           animate={{ opacity: 0.3 }}
           style={{
-            background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(64, 224, 208, 0.15), transparent 40%)`,
+            background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, ${spotlightColor}, transparent 40%)`,
           }}
         />
       )}
@@ -58,7 +59,7 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({ children, classNam
           className="absolute inset-0 rounded-xl opacity-0"
           animate={{ opacity: 1 }}
           style={{
-            boxShadow: '0 0 20px rgba(64, 224, 208, 0.3), inset 0 0 20px rgba(64, 224, 208, 0.1)',
+            boxShadow: `0 0 20px ${spotlightColor}, inset 0 0 20px ${spotlightColor}`,
           }}
         />
       )}

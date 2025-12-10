@@ -11,6 +11,7 @@ import PullQuote from './PullQuote';
 import CapabilitiesBadges from './CapabilitiesBadges';
 import CaseStudyCTA from './CTA';
 import './CaseStudyTemplate.css';
+import './CaseStudyTemplateEnhanced.css';
 
 interface StrategyCard {
   title: string;

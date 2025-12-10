@@ -126,7 +126,8 @@ const Toolbox: React.FC = () => {
 
       <main className="min-h-screen bg-brand-dark text-brand-text relative overflow-hidden">
         {/* Aurora Background */}
-        <OceanAuroraBackground className="opacity-30" />
+        <OceanAuroraBackground className="opacity-30">
+          <>
         
         {/* Hero Section */}
         <section className="relative pt-24 pb-16 md:pt-32 md:pb-24">
@@ -180,7 +181,7 @@ const Toolbox: React.FC = () => {
                   <div className="relative bg-slate-900/50 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-6 text-center hover:border-brand-teal/40 transition-all duration-300">
                     <stat.icon className="w-6 h-6 mx-auto mb-2 text-brand-teal" />
                     <div className="text-2xl sm:text-3xl font-bold text-brand-text">
-                      <OceanCountingNumber end={stat.number} suffix={stat.suffix} duration={2} />
+                      <OceanCountingNumber number={stat.number} suffix={stat.suffix} />
                     </div>
                     <div className="text-xs sm:text-sm text-brand-muted mt-1">{stat.label}</div>
                   </div>
@@ -563,6 +564,8 @@ const Toolbox: React.FC = () => {
             </motion.div>
           </div>
         </section>
+        </>
+        </OceanAuroraBackground>
       </main>
     </>
   );

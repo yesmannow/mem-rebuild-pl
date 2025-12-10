@@ -17,7 +17,7 @@ const timelineVariants = {
   visible: (index: number) => ({
     opacity: 1,
     x: 0,
-    transition: { delay: 0.08 * index, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { delay: 0.08 * index, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] },
   }),
 };
 

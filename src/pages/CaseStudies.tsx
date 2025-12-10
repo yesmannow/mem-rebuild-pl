@@ -7,6 +7,7 @@ import { Sparkles, TrendingUp, Award } from 'lucide-react';
 import MagneticCursor from '../components/ui/MagneticCursor';
 import './CaseStudies.css';
 import './CaseStudiesEnhanced.css';
+import './CaseStudiesLandingEnhanced.css';
 
 const CaseStudies: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('All');

@@ -28,14 +28,13 @@ const featuredCaseStudies = caseStudies
     return {
       slug: cs.slug,
       title: cs.title,
-      microtagline: cs.tagline,
-      emoji: typeof cs.icon === 'string' ? cs.icon : '🚀',
+      tagline: cs.tagline,
+      image: cs.image?.replace(/^\//, ''),
+      icon: typeof cs.icon === 'string' ? cs.icon : '🚀',
       statLine,
-      badges: cs.tags.slice(0, 3),
+      tags: cs.tags.slice(0, 3),
       gradient,
       hoverGlow,
-      thumbnail: cs.image?.replace(/^\//, ''),
-      impactValue: 0.7, // Default impact value
     };
   });
 
