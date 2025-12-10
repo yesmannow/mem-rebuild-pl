@@ -87,20 +87,19 @@ const Home: React.FC = () => {
                 Fractional CMO & Marketing Technologist
               </p>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-text leading-tight">
-                Scaling companies through <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-turquoise to-brand-creamsicle">strategy + technology</span>
+                Transforming marketing challenges into <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-turquoise to-brand-creamsicle">measurable business results</span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-brand-muted max-w-3xl">
-                I help CEOs, founders, and operators turn ambiguous growth goals into orchestrated systems.
-                You get board-ready strategy, full-stack implementation, and the optimization muscle to prove it works.
+                Marketing strategist and systems architect with 15+ years of experience building revenue-driving marketing infrastructure for global healthcare brands. Proven track record of transforming complex marketing challenges into measurable business results through strategic thinking, technical execution, and data-driven decision making. I bridge the gap between creative marketing vision and technical implementation, delivering systems that scale while driving measurable ROI. My expertise spans marketing automation, CRM architecture, web development, and revenue operations—positioning me uniquely to lead growth initiatives from strategy through execution.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                 <OceanRippleButton
                   asLink
-                  href="/contact"
+                  href="/about"
                   variant="primary"
                   className="inline-flex items-center gap-2 w-full sm:w-auto justify-center touch-target"
                 >
-                  Book a Consultation
+                  View Resume
                   <ArrowRight size={16} />
                 </OceanRippleButton>
                 <OceanRippleButton
