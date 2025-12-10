@@ -82,14 +82,21 @@ const AppRouter: React.FC = () => {
         keywords:
           'marketing strategist, marketing technologist, marketing automation, CRM campaigns, systems architect, portfolio',
       };
-    } else if (path === '/about') {
+    } else if (path === '/resume') {
       return {
-        title: 'About | Jacob Darling',
+        title: 'Resume | Jacob Darling',
         description:
           'Meet Jacob Darling—marketing automation, analytics, and growth systems architect with 15+ years of experience building revenue engines for SaaS, healthcare, and e-commerce brands.',
         keywords: 'Jacob Darling, marketing strategist, marketing technologist, automation, systems architect',
       };
-    } else if (path === '/applications') {
+    } else if (path === '/about') {
+      return {
+        title: 'Resume | Jacob Darling',
+        description:
+          'Meet Jacob Darling—marketing automation, analytics, and growth systems architect with 15+ years of experience building revenue engines for SaaS, healthcare, and e-commerce brands.',
+        keywords: 'Jacob Darling, marketing strategist, marketing technologist, automation, systems architect',
+      };
+    }else if (path === '/applications') {
       return {
         title: 'Developer Tools | Jacob Darling Portfolio',
         description:
@@ -300,13 +307,14 @@ const AppRouter: React.FC = () => {
               }
             />
             <Route
-              path="/about"
+              path="/resume"
               element={
                 <PageTransition>
                   <About />
                 </PageTransition>
               }
             />
+            <Route path="/about" element={<Navigate to="/resume" replace />} />
             <Route
               path="/case-studies"
               element={
@@ -396,7 +404,7 @@ const AppRouter: React.FC = () => {
               }
             />
             {/* Toolbox redirects to Bio page - content merged */}
-            <Route path="/toolbox" element={<Navigate to="/about" replace />} />
+            <Route path="/toolbox" element={<Navigate to="/resume" replace />} />
             <Route
               path="/services"
               element={
@@ -522,7 +530,7 @@ const AppRouter: React.FC = () => {
                 </PageTransition>
               }
             />
-            <Route path="/resume" element={<Navigate to="/about" replace />} />
+
             <Route
               path="/resume-print"
               element={

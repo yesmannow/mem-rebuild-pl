@@ -188,6 +188,46 @@
   }
 }
 
+/* ===== LIGHT MODE THEME ===== */
+:root.light,
+html.light {
+  /* Light mode color overrides */
+  --color-bg: #ffffff;
+  --color-surface: #f8fafc;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  
+  /* Update brand colors for better contrast in light mode */
+  --ink-900: #ffffff;
+  --ink-700: #f8fafc;
+  --parchment-050: #0f172a;
+  
+  --color-neutral-1: #ffffff;
+  --color-neutral-2: #475569;
+  --color-dark: #f8fafc;
+  
+  /* Adjust shadows for light mode */
+  --shadow-signal: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  --shadow-brand: 0 10px 30px rgba(0, 109, 119, 0.15), 0 5px 15px rgba(131, 197, 190, 0.08);
+  
+  /* Glassmorphism adjustments for light mode */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-dark-bg: rgba(248, 250, 252, 0.8);
+  --glass-dark-border: rgba(0, 0, 0, 0.05);
+  
+  /* Border colors */
+  --color-border: rgba(15, 23, 42, 0.1);
+  --color-border-hover: var(--color-primary);
+  --color-bg-card: #f8fafc;
+  --color-bg-card-hover: #f1f5f9;
+}
+
 /* ===== UTILITY CLASSES ===== */
 /* Removed gradient-text - use signal-text instead */
 .signal-text {
