@@ -41,8 +41,8 @@ export const mainNavigationLinks: MainNavigationLink[] = [
     description: 'Creative direction, brand, and visual systems',
   },
   {
-    name: 'Bio',
-    path: '/about',
+    name: 'Resume',
+    path: '/resume',
     icon: User,
     description: 'Professional background and systems architect story',
   },

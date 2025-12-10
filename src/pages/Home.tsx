@@ -95,7 +95,7 @@ const Home: React.FC = () => {
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                 <OceanRippleButton
                   asLink
-                  href="/about"
+                  href="/resume"
                   variant="primary"
                   className="inline-flex items-center gap-2 w-full sm:w-auto justify-center touch-target"
                 >
