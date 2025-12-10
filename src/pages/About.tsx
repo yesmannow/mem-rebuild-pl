@@ -6,6 +6,7 @@ import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import { BentoCard, BentoGrid } from '../components/ui/BentoGrid';
 import { SchematicBackground } from '../components/ui/SchematicBackground';
 import { OceanRippleButton } from '../components/ui/OceanRippleButton';
+import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
 import { experience, education, volunteering, awards, metrics, skillCategories, executiveSummary } from '../data/resume';
 import type { ExperienceItem, SkillCategory as SkillCategoryType } from '../types';
 
@@ -176,11 +177,22 @@ const categoryIconMap: Record<string, React.ElementType> = {
 const SkillsGrid: React.FC<{ categories: SkillCategoryType[] }> = ({ categories }) => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
   
+  // Map category themes for background images
+  const categoryThemes: Record<string, string> = {
+    'leadership': 'team,collaboration,leadership',
+    'strategy': 'analytics,data,charts',
+    'automation': 'technology,code,automation',
+    'analytics': 'data,visualization,metrics',
+    'development': 'coding,programming,developer',
+    'tools': 'workspace,tools,software',
+  };
+  
   return (
     <BentoGrid className="mt-8">
       {categories.map((cat, catIndex) => {
         const CategoryIcon = categoryIconMap[cat.id] || Settings;
         const isToolsCategory = cat.id === 'tools';
+        const bgTheme = categoryThemes[cat.id] || 'technology';
         
         return (
           <BentoCard
@@ -188,6 +200,15 @@ const SkillsGrid: React.FC<{ categories: SkillCategoryType[] }> = ({ categories 
             span="2"
             className="group bg-slate-900/50 backdrop-blur border border-white/5 shadow-soft-dark hover:border-brand-teal/30 transition-all duration-300 overflow-hidden"
           >
+            {/* Subtle API background image for each category */}
+            <ApiBackgroundImage
+              theme={bgTheme}
+              overlayColor="dark"
+              overlayOpacity={0.92}
+              className="opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+              lazy={true}
+            />
+            
             {/* Animated background gradient on hover */}
             <motion.div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -334,6 +355,15 @@ const About: React.FC = () => {
       <div className="min-h-screen bg-brand-dark text-brand-text relative overflow-hidden">
         {/* Animated Schematic Background */}
         <SchematicBackground variant="default" showGrid={true} showOrbs={true} showBeams={true} />
+        
+        {/* Hero Background Image - Subtle tech/workspace theme */}
+        <ApiBackgroundImage
+          theme="technology,workspace,minimal"
+          overlayColor="dark"
+          overlayOpacity={0.85}
+          priority={true}
+          className="opacity-30"
+        />
 
         <main className="relative z-10 pt-24 pb-16 px-6">
           {/* Hero Header */}
@@ -550,34 +580,45 @@ const About: React.FC = () => {
           </section>
 
           {/* Volunteer Experience */}
-          <section className="max-w-6xl mx-auto mb-16">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="h-10 w-10 rounded-full bg-pink-500/20 border border-pink-500/50 flex items-center justify-center text-pink-400">
-                <Heart size={18} />
+          <section className="max-w-6xl mx-auto mb-16 relative">
+            {/* Subtle background image for volunteer section */}
+            <ApiBackgroundImage
+              theme="community,people,volunteer"
+              overlayColor="dark"
+              overlayOpacity={0.9}
+              className="opacity-15 rounded-3xl"
+              lazy={true}
+            />
+            
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-10 w-10 rounded-full bg-pink-500/20 border border-pink-500/50 flex items-center justify-center text-pink-400">
+                  <Heart size={18} />
+                </div>
+                <div>
+                  <p className="text-sm uppercase tracking-[0.2em] text-brand-muted">Volunteer Experience</p>
+                  <h2 className="text-3xl font-bold text-brand-text">Giving Back</h2>
+                </div>
               </div>
-              <div>
-                <p className="text-sm uppercase tracking-[0.2em] text-brand-muted">Volunteer Experience</p>
-                <h2 className="text-3xl font-bold text-brand-text">Giving Back</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {volunteering.map((vol, idx) => (
+                  <motion.div
+                    key={`${vol.role}-${vol.organization}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="rounded-xl border border-white/5 bg-slate-900/40 backdrop-blur p-4 hover:border-brand-teal/30 transition-all"
+                  >
+                    <p className="text-brand-text font-semibold">{vol.role}</p>
+                    <p className="text-brand-teal text-sm">{vol.organization}</p>
+                    <p className="text-brand-muted text-xs mt-1">{vol.period}</p>
+                    {vol.description && (
+                      <p className="text-brand-muted/70 text-xs mt-2 line-clamp-2">{vol.description}</p>
+                    )}
+                  </motion.div>
+                ))}
               </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {volunteering.map((vol, idx) => (
-                <motion.div
-                  key={`${vol.role}-${vol.organization}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.05 }}
-                  className="rounded-xl border border-white/5 bg-slate-900/40 backdrop-blur p-4 hover:border-brand-teal/30 transition-all"
-                >
-                  <p className="text-brand-text font-semibold">{vol.role}</p>
-                  <p className="text-brand-teal text-sm">{vol.organization}</p>
-                  <p className="text-brand-muted text-xs mt-1">{vol.period}</p>
-                  {vol.description && (
-                    <p className="text-brand-muted/70 text-xs mt-2 line-clamp-2">{vol.description}</p>
-                  )}
-                </motion.div>
-              ))}
             </div>
           </section>
 
