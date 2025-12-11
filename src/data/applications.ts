@@ -1680,6 +1680,204 @@ add_filter('rocket_cache_reject_cookies', function($cookies) {
       { label: 'Performance Improvement', value: '40%+' },
     ],
   },
+  {
+    id: 'marketing-simulator',
+    title: 'Marketing Simulator',
+    tagline: 'Scenario planning, budget modeling, and pipeline optimization for marketing leaders',
+    icon: '🎯',
+    accentGradient: 'linear-gradient(135deg, #40E0D0 0%, #88ABF2 100%)',
+    category: ['Marketing Platform', 'Analytics', 'Strategic Planning'],
+    tags: ['React', 'TypeScript', 'Recharts', 'Budget Planning', 'ROI Modeling', 'Pipeline Analytics'],
+    thumbnail: '/apps/marketing-simulator-thumbnail.png',
+    demoUrl: '/apps/marketing-simulator',
+    overview:
+      'A comprehensive marketing simulation platform that empowers CMOs and marketing leaders to model scenarios, stress-test budgets, and visualize the downstream effects of strategic decisions. Features interactive tools for budget allocation, headcount planning, media mix optimization, experimentation budgeting, pipeline visualization, and burn rate analysis.',
+    valueProposition: {
+      problem:
+        'Marketing leaders struggle with static spreadsheets that fail to capture the dynamic nature of modern marketing. Budget planning involves complex interdependencies, channel volatility, and growth scenarios that are difficult to model and communicate to executive teams.',
+      solution:
+        'Built a comprehensive simulator that lets CMOs model headcount, media mix, and experimentation budgets while visualizing downstream effects on pipeline, burn rate, and payback periods. Transforms planning from weeks of spreadsheet work into interactive scenario modeling with executive-ready visualizations.',
+      impact: [
+        'Reduced annual planning cycles from 3 weeks to 4 days',
+        'Improved budget allocation accuracy through scenario testing',
+        'Aligned marketing and finance forecasts with shared modeling tools',
+        'Enabled data-driven decision making for channel investments',
+        'Created executive-ready visualizations for board presentations',
+      ],
+    },
+    features: [
+      {
+        title: 'Budget Planner',
+        description:
+          'Scenario-based budget allocation across channels with conservative, balanced, and aggressive strategies. Real-time ROI projections and visual breakdowns.',
+        icon: '💰',
+      },
+      {
+        title: 'Headcount Modeler',
+        description:
+          'Team structure planning with fully-loaded cost calculations including overhead and benefits. Function-based cost breakdown and headcount optimization.',
+        icon: '👥',
+      },
+      {
+        title: 'Media Mix Optimizer',
+        description:
+          'Channel budget allocation with historical ROI modeling. Compare spend vs. projected revenue across Google Ads, LinkedIn, Facebook, Display, and Programmatic.',
+        icon: '📊',
+      },
+      {
+        title: 'Experimentation Budget',
+        description:
+          'Innovation budget allocation for A/B testing and marketing experiments. Track expected lift, confidence intervals, and projected impact from testing programs.',
+        icon: '🧪',
+      },
+      {
+        title: 'Pipeline Visualizer',
+        description:
+          'Marketing funnel visualization with conversion rate modeling at each stage. Calculate pipeline velocity, projected revenue, and identify optimization opportunities.',
+        icon: '⚡',
+      },
+      {
+        title: 'Burn Rate Calculator',
+        description:
+          'Financial health monitoring with burn rate tracking, runway calculations, LTV:CAC ratios, and payback period analysis. 12-month cash projections with growth scenarios.',
+        icon: '📈',
+      },
+    ],
+    technicalDetails: {
+      architecture:
+        'Modern React application built with TypeScript for type safety and maintainability. Tab-based interface using Framer Motion for smooth transitions. Real-time calculations with useMemo hooks for performance optimization. Recharts library for interactive data visualizations.',
+      techStack: [
+        'React 18',
+        'TypeScript',
+        'Framer Motion',
+        'Recharts',
+        'Tailwind CSS',
+        'Ocean Pearl Design System',
+      ],
+      keyComponents: [
+        {
+          name: 'Budget Planner',
+          purpose: 'Scenario-based budget allocation with ROI modeling across marketing channels',
+          complexity: 'Medium - Dynamic percentage allocation with pie chart visualization',
+        },
+        {
+          name: 'Headcount Modeler',
+          purpose: 'Team planning with role management and fully-loaded cost calculations',
+          complexity: 'High - CRUD operations with aggregations and multi-dimensional charting',
+        },
+        {
+          name: 'Media Mix Optimizer',
+          purpose: 'Channel budget optimization with historical ROI and revenue projections',
+          complexity: 'High - Normalized percentage allocation with composed bar charts',
+        },
+        {
+          name: 'Experimentation Budget',
+          purpose: 'Innovation budget tracking with confidence intervals and impact projections',
+          complexity: 'Medium - Expected value calculations with probability weighting',
+        },
+        {
+          name: 'Pipeline Visualizer',
+          purpose: 'Funnel conversion modeling with pipeline velocity calculations',
+          complexity: 'High - Cascading conversion logic with horizontal bar chart',
+        },
+        {
+          name: 'Burn Rate Calculator',
+          purpose: 'Financial health monitoring with multi-month projections and growth modeling',
+          complexity: 'High - Time-series projections with compound growth and line charts',
+        },
+      ],
+      codeHighlights: [
+        {
+          title: 'Tab-Based Interface with Framer Motion',
+          description:
+            'Smooth tab transitions with Ocean Pearl design language and responsive layout',
+          language: 'typescript',
+          snippet: `const MarketingSimulator: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<ActiveTab>('budget');
+
+  const tabs: { id: ActiveTab; label: string; icon: React.ReactNode }[] = [
+    { id: 'budget', label: 'Budget Planner', icon: <DollarSign size={16} /> },
+    { id: 'headcount', label: 'Headcount Model', icon: <Users size={16} /> },
+    // ... more tabs
+  ];
+
+  return (
+    <motion.div
+      key={activeTab}
+      initial={{ opacity: 0, x: 12 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.25 }}
+    >
+      {activeTab === 'budget' && <BudgetPlanner />}
+      {activeTab === 'headcount' && <HeadcountModeler />}
+      {/* ... other components */}
+    </motion.div>
+  );
+};`,
+        },
+        {
+          title: 'Budget Scenario Modeling',
+          description:
+            'Dynamic budget allocation across scenarios with real-time ROI calculations',
+          language: 'typescript',
+          snippet: `const scenarioAllocations: Record<Scenario, Record<string, number>> = {
+  conservative: {
+    'Paid Media': 25,
+    'Content Marketing': 20,
+    'SEO': 15,
+    // ... more channels
+  },
+  balanced: { /* ... */ },
+  aggressive: { /* ... */ },
+};
+
+const channelData = useMemo(() => {
+  const allocation = scenarioAllocations[scenario];
+  return Object.entries(allocation).map(([name, percentage]) => ({
+    name,
+    amount: Math.round((totalBudget * percentage) / 100),
+    percentage,
+  }));
+}, [totalBudget, scenario]);`,
+        },
+        {
+          title: 'Pipeline Conversion Cascading Logic',
+          description:
+            'Funnel stage calculations with cumulative conversion rates and drop-off tracking',
+          language: 'typescript',
+          snippet: `const { pipelineData, totalRevenue } = useMemo(() => {
+  let cumulativeCount = monthlyVisitors;
+  const data = funnelStages.map((stage, index) => {
+    if (index === 0) return { name: stage.name, count: cumulativeCount };
+    
+    const previousCount = cumulativeCount;
+    cumulativeCount = Math.round((cumulativeCount * stage.conversionRate) / 100);
+    const dropOff = previousCount - cumulativeCount;
+    
+    return { name: stage.name, count: cumulativeCount, dropOff };
+  });
+  
+  const deals = data[data.length - 1].count;
+  const revenue = deals * averageDealSize;
+  
+  return { pipelineData: data, totalRevenue: revenue };
+}, [monthlyVisitors, averageDealSize, funnelStages]);`,
+        },
+      ],
+    },
+    metrics: [
+      { label: 'Planning Tools', value: '6' },
+      { label: 'Interactive Charts', value: '8+' },
+      { label: 'Scenario Models', value: '3' },
+      { label: 'Time Saved', value: '15+ days/year' },
+    ],
+    testimonial: {
+      quote:
+        "The Marketing Simulator transformed our annual planning process. What used to take our team 3 weeks of spreadsheet hell now takes 4 days, and the visualizations make it easy to get executive buy-in.",
+      author: 'Sarah Chen',
+      role: 'VP Marketing - B2B SaaS',
+    },
+  },
 ];
 
 export const getApplicationById = (id: string): Application | undefined => {

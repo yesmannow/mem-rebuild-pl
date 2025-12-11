@@ -59,6 +59,7 @@ const LinkArchitect = React.lazy(() => import('../components/apps/LinkArchitect'
 const SEOScanner = React.lazy(() => import('../components/apps/SEOScanner'));
 const CampaignPerformanceVisualizer = React.lazy(() => import('../components/apps/CampaignPerformanceVisualizer'));
 const CompetitorIntelligenceHub = React.lazy(() => import('../components/apps/CompetitorIntelligenceHub'));
+const MarketingSimulator = React.lazy(() => import('../components/apps/MarketingSimulator'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
 
 // Loading component with accessible Loader
@@ -664,6 +665,14 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <ClinicalCompass />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps/marketing-simulator"
+              element={
+                <PageTransition>
+                  <MarketingSimulator />
                 </PageTransition>
               }
             />
