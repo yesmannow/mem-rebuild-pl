@@ -11,6 +11,7 @@ A modern, interactive portfolio showcasing expertise in marketing automation, fu
 - **Filterable case study library** — six narrative deep dives with rich metrics and tag search
 - **Interactive applications hub** — live demos, sort/search, grid & list layouts, and metric cards
 - **Modern About experience** — rotating portrait gallery, accordion timeline, and community work showcase
+- **Dynamic API Imagery** — Photography APIs (Unsplash, Lorem Picsum) enhance resume page with themed backgrounds
 - **Assistant-ready data model** — case studies and applications defined in TypeScript for quick updates
 
 ## 🛠️ Tech Stack
@@ -53,6 +54,28 @@ Six narrative projects showing problem → strategy → impact:
 1. Append a new application object in `src/data/applications.ts`. Provide an `icon` emoji, optional `accentGradient`, and ensure `thumbnail` points to an asset in `public/apps/`.
 2. Populate the `valueProposition`, `features`, and `technicalDetails` arrays so the detail view renders the Overview, Technical Deep Dive, and Live Demo tabs.
 3. Supply metrics and optional testimonial data to surface impact on both the listing card and detail page.
+
+## 📸 API Photography Integration
+
+The resume page (`/resume`) features dynamic photography from public APIs to create engaging visual backgrounds while maintaining performance and accessibility.
+
+### Integrated APIs
+- **Unsplash API**: High-quality professional photography with themed backgrounds
+- **Lorem Picsum**: Placeholder service for testing and fallback imagery
+
+### Key Features
+- **Lazy Loading**: Images load only when visible to optimize performance
+- **Themed Backgrounds**: Each section uses contextual imagery (tech, workspace, community, etc.)
+- **Brand Color Overlays**: Maintains turquoise/orange theme with configurable opacity
+- **Accessibility**: Full WCAG AA compliance with proper alt text and contrast
+- **Error Handling**: Graceful fallbacks for failed image loads
+
+### Components
+- `EnhancedImage`: Sophisticated image component with blur-up placeholders
+- `ApiBackgroundImage`: Purpose-built for section backgrounds
+- `SectionWithApiBackground`: Wrapper component for themed sections
+
+See [`docs/API_ENHANCEMENTS.md`](docs/API_ENHANCEMENTS.md) for detailed documentation.
 
 ## 🎨 Brand Identity
 
