@@ -60,6 +60,9 @@ const SEOScanner = React.lazy(() => import('../components/apps/SEOScanner'));
 const CampaignPerformanceVisualizer = React.lazy(() => import('../components/apps/CampaignPerformanceVisualizer'));
 const CompetitorIntelligenceHub = React.lazy(() => import('../components/apps/CompetitorIntelligenceHub'));
 const MarketingSimulator = React.lazy(() => import('../components/apps/MarketingSimulator'));
+const BrandBuilder = React.lazy(() => import('../components/apps/BrandBuilder'));
+const EmailMarketingSimulator = React.lazy(() => import('../components/apps/EmailMarketingSimulator'));
+const SocialMediaSimulator = React.lazy(() => import('../components/apps/SocialMediaSimulator'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
 
 // Loading component with accessible Loader
@@ -673,6 +676,30 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <MarketingSimulator />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps/brand-builder"
+              element={
+                <PageTransition>
+                  <BrandBuilder />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps/email-marketing-simulator"
+              element={
+                <PageTransition>
+                  <EmailMarketingSimulator />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps/social-media-simulator"
+              element={
+                <PageTransition>
+                  <SocialMediaSimulator />
                 </PageTransition>
               }
             />
