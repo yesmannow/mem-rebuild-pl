@@ -6,6 +6,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recha
 interface ChannelBudget {
   name: string;
   amount: number;
+  percentage?: number;
   color: string;
 }
 

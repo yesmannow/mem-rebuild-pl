@@ -6,6 +6,8 @@ import { staggerContainer, staggerItem } from '../utils/animations';
 import AnimatedSection from '../components/animations/AnimatedSection';
 import AppDemoModal from '../components/modals/AppDemoModal';
 import { OceanGradientAnimation } from '../components/ui/OceanGradientAnimation';
+import GlassCard from '../components/ui/GlassCard';
+import { useSwipe } from '../hooks/useGestures';
 import './Applications.css';
 
 const Applications: React.FC = () => {
@@ -16,6 +18,23 @@ const Applications: React.FC = () => {
   const [modalApp, setModalApp] = useState<{ title: string; url: string } | null>(null);
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
   const categories = ['All', ...getAllCategories()];
+
+  // Add swipe gesture support for mobile tab navigation
+  const swipeRef = useSwipe({
+    onSwipeLeft: () => {
+      const currentIndex = categories.indexOf(activeFilter);
+      if (currentIndex < categories.length - 1) {
+        setActiveFilter(categories[currentIndex + 1]);
+      }
+    },
+    onSwipeRight: () => {
+      const currentIndex = categories.indexOf(activeFilter);
+      if (currentIndex > 0) {
+        setActiveFilter(categories[currentIndex - 1]);
+      }
+    },
+    threshold: 50,
+  });
 
   const filteredApplications = useMemo(() => {
     let filtered = applications;
@@ -57,7 +76,7 @@ const Applications: React.FC = () => {
       size="70%"
       blendingValue="soft-light"
     >
-      <main className="applications-page relative z-10">
+      <main className="applications-page relative z-10" ref={swipeRef}>
         <AnimatedSection>
           <section className="applications-header">
           <div className="header-badge">
