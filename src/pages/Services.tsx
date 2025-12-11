@@ -3,6 +3,9 @@ import { Helmet } from 'react-helmet-async';
 import { motion, useInView } from 'framer-motion';
 import { Briefcase, Code, Palette, TrendingUp, DollarSign, Target, Zap, Database, Globe, Type, Image, Video } from 'lucide-react';
 import { SectionWithApiBackground } from '../components/layout/PageWithApiBackground';
+import { AppSection } from '../ui/AppSection';
+import { AppCard } from '../ui/AppCard';
+import { Illustration } from '../components/Illustration';
 
 // Lazy load heavy components to reduce initial bundle size
 const SkillsRadar = lazy(() => import('../components/ui/SkillsRadar'));
@@ -174,8 +177,8 @@ const Services: React.FC = () => {
         </SectionWithApiBackground>
 
         {/* Skills Radar - The "Unicorn" Visualization */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-dark/30">
-          <div className="max-w-7xl mx-auto">
+        <AppSection padding="lg" variant="feature" container={false}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -194,38 +197,38 @@ const Services: React.FC = () => {
               <SkillsRadar />
             </Suspense>
           </div>
-        </section>
+        </AppSection>
 
         {/* Process Flow */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
+        <AppSection padding="lg" container={false}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Suspense fallback={<SectionLoader />}>
               <InteractiveProcessFlow />
             </Suspense>
           </div>
-        </section>
+        </AppSection>
 
         {/* Service Modules - Productized Services */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-dark/50">
-          <div className="max-w-7xl mx-auto">
+        <AppSection padding="lg" variant="feature" container={false}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Suspense fallback={<SectionLoader />}>
               <ServiceModules />
             </Suspense>
           </div>
-        </section>
+        </AppSection>
 
         {/* The Atlas - Data Visualization */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
+        <AppSection padding="lg" container={false}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Suspense fallback={<SectionLoader />}>
               <TheAtlas />
             </Suspense>
           </div>
-        </section>
+        </AppSection>
 
         {/* Section 1: Director Strategy */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
+        <AppSection padding="lg" container={false}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -251,34 +254,39 @@ const Services: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-brand-surface/50 border border-brand-muted/20 rounded-xl p-8 hover:border-brand-teal/40 transition-all duration-300 relative overflow-hidden group"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/0 via-brand-teal/0 to-brand-orange/0 group-hover:via-brand-teal/10 group-hover:to-brand-orange/10 transition-all duration-500 rounded-xl" />
-                    <div className="relative z-10">
-                      <div className="w-16 h-16 rounded-lg bg-brand-teal/20 flex items-center justify-center mb-6 group-hover:bg-brand-teal/30 transition-colors">
-                        <Icon className="w-8 h-8 text-brand-teal" />
+                    <AppCard
+                      variant="glass"
+                      padding="lg"
+                      className="h-full group relative overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/0 via-brand-teal/0 to-brand-orange/0 group-hover:via-brand-teal/10 group-hover:to-brand-orange/10 transition-all duration-500 rounded-xl" />
+                      <div className="relative z-10">
+                        <div className="w-16 h-16 rounded-lg bg-brand-teal/20 flex items-center justify-center mb-6 group-hover:bg-brand-teal/30 transition-colors">
+                          <Icon className="w-8 h-8 text-brand-teal" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-brand-text mb-3">{service.title}</h3>
+                        <p className="text-brand-muted mb-6 leading-relaxed">{service.description}</p>
+                        <ul className="space-y-2">
+                          {service.details.map((detail, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-sm text-brand-muted">
+                              <span className="text-brand-teal mt-1">•</span>
+                              <span>{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <h3 className="text-2xl font-bold text-brand-text mb-3">{service.title}</h3>
-                      <p className="text-brand-muted mb-6 leading-relaxed">{service.description}</p>
-                      <ul className="space-y-2">
-                        {service.details.map((detail, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-brand-muted">
-                            <span className="text-brand-teal mt-1">•</span>
-                            <span>{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    </AppCard>
                   </motion.div>
                 );
               })}
             </div>
           </div>
-        </section>
+        </AppSection>
 
         {/* Section 2: Technologist Execution */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-dark/50">
-          <div className="max-w-7xl mx-auto">
+        <AppSection padding="lg" variant="feature" container={false}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -304,34 +312,39 @@ const Services: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-brand-surface/50 border border-brand-muted/20 rounded-xl p-8 hover:border-brand-teal/40 transition-all duration-300 relative overflow-hidden group"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/0 via-brand-teal/0 to-brand-orange/0 group-hover:via-brand-teal/10 group-hover:to-brand-orange/10 transition-all duration-500 rounded-xl" />
-                    <div className="relative z-10">
-                      <div className="w-16 h-16 rounded-lg bg-brand-teal/20 flex items-center justify-center mb-6 group-hover:bg-brand-teal/30 transition-colors">
-                        <Icon className="w-8 h-8 text-brand-teal" />
+                    <AppCard
+                      variant="glass"
+                      padding="lg"
+                      className="h-full group relative overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/0 via-brand-teal/0 to-brand-orange/0 group-hover:via-brand-teal/10 group-hover:to-brand-orange/10 transition-all duration-500 rounded-xl" />
+                      <div className="relative z-10">
+                        <div className="w-16 h-16 rounded-lg bg-brand-teal/20 flex items-center justify-center mb-6 group-hover:bg-brand-teal/30 transition-colors">
+                          <Icon className="w-8 h-8 text-brand-teal" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-brand-text mb-3">{service.title}</h3>
+                        <p className="text-brand-muted mb-6 leading-relaxed">{service.description}</p>
+                        <ul className="space-y-2">
+                          {service.details.map((detail, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-sm text-brand-muted">
+                              <span className="text-brand-teal mt-1">•</span>
+                              <span>{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <h3 className="text-2xl font-bold text-brand-text mb-3">{service.title}</h3>
-                      <p className="text-brand-muted mb-6 leading-relaxed">{service.description}</p>
-                      <ul className="space-y-2">
-                        {service.details.map((detail, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-brand-muted">
-                            <span className="text-brand-teal mt-1">•</span>
-                            <span>{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    </AppCard>
                   </motion.div>
                 );
               })}
             </div>
           </div>
-        </section>
+        </AppSection>
 
         {/* Section 3: Creative Direction */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
+        <AppSection padding="lg" container={false}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -357,30 +370,35 @@ const Services: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-brand-surface/50 border border-brand-muted/20 rounded-xl p-8 hover:border-brand-teal/40 transition-all duration-300 relative overflow-hidden group"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/0 via-brand-teal/0 to-brand-orange/0 group-hover:via-brand-teal/10 group-hover:to-brand-orange/10 transition-all duration-500 rounded-xl" />
-                    <div className="relative z-10">
-                      <div className="w-16 h-16 rounded-lg bg-brand-teal/20 flex items-center justify-center mb-6 group-hover:bg-brand-teal/30 transition-colors">
-                        <Icon className="w-8 h-8 text-brand-teal" />
+                    <AppCard
+                      variant="glass"
+                      padding="lg"
+                      className="h-full group relative overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/0 via-brand-teal/0 to-brand-orange/0 group-hover:via-brand-teal/10 group-hover:to-brand-orange/10 transition-all duration-500 rounded-xl" />
+                      <div className="relative z-10">
+                        <div className="w-16 h-16 rounded-lg bg-brand-teal/20 flex items-center justify-center mb-6 group-hover:bg-brand-teal/30 transition-colors">
+                          <Icon className="w-8 h-8 text-brand-teal" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-brand-text mb-3">{service.title}</h3>
+                        <p className="text-brand-muted mb-6 leading-relaxed">{service.description}</p>
+                        <ul className="space-y-2">
+                          {service.details.map((detail, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-sm text-brand-muted">
+                              <span className="text-brand-teal mt-1">•</span>
+                              <span>{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <h3 className="text-2xl font-bold text-brand-text mb-3">{service.title}</h3>
-                      <p className="text-brand-muted mb-6 leading-relaxed">{service.description}</p>
-                      <ul className="space-y-2">
-                        {service.details.map((detail, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-brand-muted">
-                            <span className="text-brand-teal mt-1">•</span>
-                            <span>{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    </AppCard>
                   </motion.div>
                 );
               })}
             </div>
           </div>
-        </section>
+        </AppSection>
       </div>
     </>
   );
