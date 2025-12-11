@@ -101,16 +101,16 @@ export const sideProjects: SideProject[] = [
   // --- TIER 3: PRODUCT & COMMUNITY ---
   {
     id: 'resq-organic',
-    title: 'ResQ Organic',
+    title: 'resq-organic – Product Branding & Packaging Design',
     category: 'Product',
-    tags: ['Packaging', 'Regulatory', 'Trust'],
-    description: 'Trustworthy branding for CBD pet care products.',
+    tags: ['CBD Packaging Design', 'Pet Product Branding', 'Regulatory Compliance Design', 'E-commerce Design', 'Wellness Branding', 'Supplement Packaging', 'Clinical Design'],
+    description: 'Product branding and packaging design for CBD pet care products. Client: CBD Pet Care Co. | Timeline: 3 months (2023) | Role: Lead Product Designer | Services: Brand Identity, Packaging Design, E-commerce UI/UX, Compliance Design',
     image: '/images/projects/ResQ Organics/ResQ Organics for Pets.png',
     year: '2023',
-    challenge: 'Build trust in a skeptical market while adhering to strict FDA/advertising regulations.',
-    solution: "Developed a 'Clinical meets Comfort' aesthetic with clear dosage labeling and calming colors.",
-    impact: ['100% Regulatory Compliance', 'High Consumer Trust'],
-    stack: ['Packaging Design', 'Compliance'],
+    challenge: 'Launching a CBD product for pets involves navigating a unique set of hurdles: deep consumer skepticism and strict regulatory oversight. The challenge was to design a brand identity that felt clinically safe without feeling cold or sterile. We needed to bridge the gap between "medical efficacy" and "beloved family pet," reassuring anxious owners that the product was legitimate, safe, and formulated with care.',
+    solution: 'The design strategy centered on transparency and calm. In a market often cluttered with "recreational" aesthetics or confusing claims, we pivoted toward a "Scientific-Wellness" visual language. Packaging Architecture: I prioritized information hierarchy to ensure instant clarity. Dosage instructions, ingredients, and benefits are presented in a clean, grid-based layout that demystifies the product for hesitant buyers. Visual Tone: Aesthetic: Clean, minimalist, and premium. The design avoids cluttered graphics in favor of white space and structured typography to signal purity. Color Strategy: We utilized soft, calming tones to evoke natural healing and anxiety relief—mirroring the product\'s intended effect on the animal. Educational Design: Beyond the logo, I designed educational inserts and e-commerce assets that visually explain the benefits of CBD, essentially turning the packaging into a customer service tool.',
+    impact: ['Consumer Confidence: Clinical-lite aesthetic successfully alleviated safety concerns', '100% Regulatory Compliance: Met all legal standards while maintaining sleek, attractive shelf presence', 'Market Differentiation: Carved out a distinct niche for serious pet owners seeking genuine therapeutic solutions'],
+    stack: ['Packaging Design', 'Compliance', 'Brand Identity', 'E-commerce UI/UX'],
   },
   {
     id: 'behr-pet-essentials',
