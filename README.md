@@ -11,7 +11,10 @@ A modern, interactive portfolio showcasing expertise in marketing automation, fu
 - **Filterable case study library** — six narrative deep dives with rich metrics and tag search
 - **Interactive applications hub** — live demos, sort/search, grid & list layouts, and metric cards
 - **Modern About experience** — rotating portrait gallery, accordion timeline, and community work showcase
-- **Dynamic API Imagery** — Photography APIs (Unsplash, Lorem Picsum) enhance resume page with themed backgrounds
+- **AI-Powered Case Study Explainer** — Generate persona-specific explanations (Founder, CMO, Developer, General) using OpenAI/Gemini
+- **Live Screenshot Previews** — Dynamic case study thumbnails from live websites via screenshot API
+- **Dynamic API Imagery** — Photography APIs (Unsplash, Lorem Picsum) enhance all pages with themed backgrounds
+- **Design System** — Shadcn/ui style components (Card, Badge, TechIcon) for consistent UX
 - **Assistant-ready data model** — case studies and applications defined in TypeScript for quick updates
 
 ## 🛠️ Tech Stack
@@ -55,27 +58,80 @@ Six narrative projects showing problem → strategy → impact:
 2. Populate the `valueProposition`, `features`, and `technicalDetails` arrays so the detail view renders the Overview, Technical Deep Dive, and Live Demo tabs.
 3. Supply metrics and optional testimonial data to surface impact on both the listing card and detail page.
 
-## 📸 API Photography Integration
+## 📸 Professional API Integrations
 
-The resume page (`/resume`) features dynamic photography from public APIs to create engaging visual backgrounds while maintaining performance and accessibility.
+This portfolio features enterprise-grade API integrations that showcase technical expertise and create engaging user experiences.
 
-### Integrated APIs
-- **Unsplash API**: High-quality professional photography with themed backgrounds
-- **Lorem Picsum**: Placeholder service for testing and fallback imagery
+### 🤖 AI-Powered Case Study Explainer
 
-### Key Features
-- **Lazy Loading**: Images load only when visible to optimize performance
-- **Themed Backgrounds**: Each section uses contextual imagery (tech, workspace, community, etc.)
-- **Brand Color Overlays**: Maintains turquoise/orange theme with configurable opacity
-- **Accessibility**: Full WCAG AA compliance with proper alt text and contrast
-- **Error Handling**: Graceful fallbacks for failed image loads
+**Location**: Case study detail pages (`/case-study/[slug]`)
 
-### Components
-- `EnhancedImage`: Sophisticated image component with blur-up placeholders
-- `ApiBackgroundImage`: Purpose-built for section backgrounds
-- `SectionWithApiBackground`: Wrapper component for themed sections
+Generate persona-specific explanations of case studies using OpenAI GPT-4 or Google Gemini AI:
 
-See [`docs/API_ENHANCEMENTS.md`](docs/API_ENHANCEMENTS.md) for detailed documentation.
+- **Personas**: Founder/CEO, CMO, Developer, General
+- **Features**: 
+  - Interactive persona selection with animations
+  - Real-time AI-generated explanations
+  - Automatic fallback from OpenAI to Gemini
+  - Professional, concise output (2-3 paragraphs)
+- **Implementation**: 
+  - Cloudflare Pages Function: `/functions/api/explain-case-study.ts`
+  - React Component: `/src/components/case-study/CaseStudyExplainer.tsx`
+
+### 📸 Live Screenshot API
+
+**Location**: Case studies listing page
+
+Dynamically generate screenshots of live case study websites:
+
+- **Features**:
+  - Live website thumbnails
+  - Lazy loading and 24-hour caching
+  - Graceful fallback to gradient backgrounds
+  - Hover effects and external links
+- **Implementation**:
+  - Cloudflare Pages Function: `/functions/api/screenshot.ts`
+  - React Component: `/src/components/case-study/CaseStudyScreenshotCard.tsx`
+
+### 🎨 Dynamic Background Imagery
+
+**Location**: All major pages
+
+Themed background images from Unsplash API enhance visual appeal:
+
+- **Page Themes**: Pre-configured for Home, Portfolio, Services, Tools, DevOps, etc.
+- **Features**:
+  - Lazy loading for performance
+  - Brand-consistent overlays
+  - WCAG AA contrast compliance
+  - Section-level and page-level backgrounds
+- **Implementation**:
+  - Service: `/src/services/pageBackgroundService.ts`
+  - Components: `/src/components/layout/PageWithApiBackground.tsx`
+
+### 🎨 Design System Components
+
+Professional UI components following Shadcn/ui principles:
+
+- **Card**: Composable card system with 4 variants (default, glass, gradient, outlined)
+- **Badge**: 8 variants with icons and removable functionality
+- **TechIcon**: Unified tech stack icon system with 50+ pre-mapped technologies
+
+See [`docs/PROFESSIONAL_API_ENHANCEMENTS.md`](docs/PROFESSIONAL_API_ENHANCEMENTS.md) for complete documentation.
+
+### Environment Variables
+
+Required for Cloudflare Pages deployment:
+
+```env
+# AI APIs (at least one required)
+OPENAI_API_KEY=sk-...
+GEMINI_API_KEY=...
+
+# Database
+SUPABASE_URL=...
+SUPABASE_ANON_KEY=...
+```
 
 ## 🎨 Brand Identity
 
