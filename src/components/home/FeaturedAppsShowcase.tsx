@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, Zap, TrendingUp, Palette, Mail, Share2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { applications } from '../../data/applications';
 import ScrollReveal from '../animations/ScrollReveal';
-import GlassCard from '../components/ui/GlassCard';
+import GlassCard from '../ui/GlassCard';
 
 /**
  * Featured Apps Showcase - Homepage Section
