@@ -15,6 +15,7 @@ import { AppCard } from '../ui/AppCard';
 import { AppSection } from '../ui/AppSection';
 import { AppButton } from '../ui/AppButton';
 import { PageParticleBackground } from '../components/PageParticleBackground';
+import { FeaturedAppsShowcase } from '../components/home/FeaturedAppsShowcase';
 
 const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
 const TechProfile = React.lazy(() => import('../components/TechProfile'));
@@ -197,6 +198,11 @@ const Home: React.FC = () => {
             </StaggerChildren>
           </div>
         </AppSection>
+
+        <SectionDivider />
+
+        {/* Featured Apps Showcase */}
+        <FeaturedAppsShowcase />
 
         <SectionDivider />
 

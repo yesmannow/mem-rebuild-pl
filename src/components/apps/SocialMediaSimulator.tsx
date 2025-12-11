@@ -644,7 +644,7 @@ const SocialMediaSimulator: React.FC = () => {
                         {[
                           { label: 'Estimated Impressions', value: '150,000', icon: <Eye size={16} /> },
                           { label: 'Engagement Rate', value: '4.2%', icon: <Heart size={16} /> },
-                          { label: 'Click-Through Rate', value: '1.8%', icon: <MousePointer size={16} /> },
+                          { label: 'Click-Through Rate', value: '1.8%', icon: <MousePointerClick size={16} /> },
                           { label: 'Estimated Conversions', value: '45', icon: <TrendingUp size={16} /> },
                         ].map((item, index) => (
                           <div key={index} className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
