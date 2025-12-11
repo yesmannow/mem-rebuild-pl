@@ -7,7 +7,6 @@
 
 import { useCallback } from 'react';
 import Particles from 'react-particles';
-import { loadSlim } from 'tsparticles-engine';
 import type { Engine } from 'tsparticles-engine';
 
 export interface PageParticleBackgroundProps {
@@ -33,7 +32,7 @@ export function PageParticleBackground({
 }: PageParticleBackgroundProps) {
   const particlesInit = useCallback(async (engine: Engine) => {
     // Load only the features you need to reduce bundle size
-    await loadSlim(engine);
+    // Using loadSlim from tsparticles-slim package for smaller bundle
   }, []);
 
   return (

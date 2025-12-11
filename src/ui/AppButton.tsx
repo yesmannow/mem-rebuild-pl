@@ -77,7 +77,7 @@ export function AppButton({
           Loading...
         </span>
       ) : (
-        children
+        <>{children}</>
       )}
       {Icon && iconPosition === 'right' && !isLoading && <Icon size={size === 'sm' ? 16 : size === 'xl' ? 24 : 20} />}
     </motion.button>
