@@ -194,3 +194,116 @@ All API integrations use environment variables (configured in Cloudflare Pages):
 3. Refactor existing components to use `src/ui` primitives
 4. Add fallback backgrounds for API failures
 5. Test across different viewport sizes and devices
+
+---
+
+## Phase 2 Implementation (Completed)
+
+### Pages Refactored with Brand UI Components
+
+#### Home Page (`src/pages/Home.tsx`)
+- ✅ Integrated `PageParticleBackground` in hero section
+- ✅ Replaced raw Tailwind cards with `AppCard` (glass variant)
+- ✅ Wrapped major sections with `AppSection`
+- ✅ Maintained existing `TiltCard` animations for enhanced UX
+- ✅ Preserved `OceanRippleButton` for CTAs (already brand-aligned)
+
+**Key Changes**:
+```tsx
+// Hero particles
+<PageParticleBackground 
+  particleCount={40}
+  particleColor="#40E0D0"
+  opacity={0.08}
+  speed={0.4}
+/>
+
+// Navigation snapshot cards
+<AppSection padding="lg" container={false}>
+  <AppCard variant="glass" padding="lg" hover={false}>
+    {/* Card content */}
+  </AppCard>
+</AppSection>
+```
+
+#### Services Page (`src/pages/Services.tsx`)
+- ✅ Converted all service sections to `AppSection` with appropriate variants
+- ✅ Replaced service cards with `AppCard` (glass variant)
+- ✅ Maintained gradient hover effects and animations
+- ✅ Used `variant="feature"` for alternating section backgrounds
+- ✅ Preserved existing lazy-loaded components (SkillsRadar, TheAtlas, etc.)
+
+**Key Changes**:
+```tsx
+// Director Strategy section
+<AppSection padding="lg" container={false}>
+  <AppCard variant="glass" padding="lg" className="h-full group">
+    {/* Service content */}
+  </AppCard>
+</AppSection>
+
+// Alternating backgrounds
+<AppSection padding="lg" variant="feature" container={false}>
+  {/* Technologist Execution content */}
+</AppSection>
+```
+
+#### Case Studies Page (`src/pages/CaseStudies.tsx`)
+- ✅ Wrapped hero section with `HeroWithApiBackground` 
+- ✅ Added API background with theme: "portfolio,design,creative,work"
+- ✅ Maintained existing `TiltCaseCard` component for case study cards
+- ✅ Added `AppBadge` import for future tag enhancements
+
+**Key Changes**:
+```tsx
+<HeroWithApiBackground theme="portfolio,design,creative,work" height="auto">
+  <section className="case-studies-hero-section">
+    {/* Hero content */}
+  </section>
+</HeroWithApiBackground>
+```
+
+#### Case Study Data Enhancement
+- ✅ Added `siteUrl` field to `CaseStudy` interface
+- ✅ Prepared for CaseStudyScreenshotCard integration
+- ✅ Maintained backward compatibility
+
+**Interface Update**:
+```typescript
+export interface CaseStudy {
+  // ... existing fields
+  siteUrl?: string; // Live site URL for screenshot API
+  // ... rest of fields
+}
+```
+
+### Accessibility & Performance
+
+- ✅ TypeScript compilation passes with no errors
+- ✅ All brand UI components maintain existing animations
+- ✅ Particle effects respect `prefers-reduced-motion`
+- ✅ Glass morphism effects use backdrop-blur for modern browsers
+- ✅ Maintained responsive grid layouts
+- ✅ Preserved existing lazy loading strategies
+
+### Design Consistency
+
+- **Brand Colors Applied**:
+  - Primary: Turquoise (#40E0D0)
+  - Secondary: Creamsicle (#FFA500)
+  - Glass effects with white/10 opacity borders
+  
+- **Component Hierarchy**:
+  1. `AppSection` - Page-level sections with consistent padding
+  2. `AppCard` - Content containers with glass/gradient variants
+  3. `AppButton` - CTAs (preserved OceanRippleButton where appropriate)
+  4. `AppBadge` - Tags and labels (prepared for future use)
+
+### Remaining Phase 2 Tasks
+
+- [ ] Add siteUrl to existing case studies in data
+- [ ] Integrate CaseStudyScreenshotCard in detail pages
+- [ ] Test AI Explainer UX across personas
+- [ ] Add illustrations to Services page hero sections
+- [ ] Final accessibility audit (ARIA, contrast, alt text)
+- [ ] Update WOW_FACTOR_IMPLEMENTATION_SUMMARY.md

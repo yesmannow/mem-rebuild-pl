@@ -5,6 +5,8 @@ import Icon from '../components/Icon';
 import { TiltCaseCard } from '../components/ui/TiltCaseCard';
 import { Sparkles, TrendingUp, Award } from 'lucide-react';
 import MagneticCursor from '../components/ui/MagneticCursor';
+import { HeroWithApiBackground } from '../components/layout/PageWithApiBackground';
+import { AppBadge } from '../ui/AppBadge';
 import './CaseStudies.css';
 import './CaseStudiesEnhanced.css';
 import './CaseStudiesLandingEnhanced.css';
@@ -87,11 +89,12 @@ const CaseStudies: React.FC = () => {
   return (
     <div className="case-studies-page">
       <MagneticCursor color="#40E0D0" enabled={true} />
-      {/* Hero Section - Dark Theme */}
-      <section className="case-studies-hero-section">
-        <div className="case-studies-hero-container">
-          <div className="case-studies-hero-wrapper">
-            <div className="case-studies-hero-content">
+      {/* Hero Section - Dark Theme with API Background */}
+      <HeroWithApiBackground theme="portfolio,design,creative,work" height="auto">
+        <section className="case-studies-hero-section">
+          <div className="case-studies-hero-container">
+            <div className="case-studies-hero-wrapper">
+              <div className="case-studies-hero-content">
               <motion.div
                 className="case-studies-hero relative z-10"
                 initial={{ opacity: 0 }}
@@ -204,6 +207,7 @@ const CaseStudies: React.FC = () => {
         </div>
       </div>
       </section>
+      </HeroWithApiBackground>
 
       {/* Main Content Area - Two Column Layout */}
       <main className="case-studies-main">

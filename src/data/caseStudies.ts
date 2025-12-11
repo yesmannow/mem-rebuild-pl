@@ -51,6 +51,7 @@ export interface CaseStudy {
   category: string[];
   tags: string[];
   technologies?: string[];
+  siteUrl?: string; // Live site URL for screenshot API
   metrics: {
     label: string;
     value: string;

@@ -11,6 +11,10 @@ import ScrollReveal from '../components/animations/ScrollReveal';
 import StaggerChildren, { StaggerItem } from '../components/animations/StaggerChildren';
 import MagneticCursor from '../components/ui/MagneticCursor';
 import TiltCard from '../components/ui/TiltCard';
+import { AppCard } from '../ui/AppCard';
+import { AppSection } from '../ui/AppSection';
+import { AppButton } from '../ui/AppButton';
+import { PageParticleBackground } from '../components/PageParticleBackground';
 
 const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
 const TechProfile = React.lazy(() => import('../components/TechProfile'));
@@ -73,6 +77,12 @@ const Home: React.FC = () => {
       <ScrollProgress />
       <div className="relative z-10 w-full min-h-screen flex flex-col">
         <section className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+          <PageParticleBackground 
+            particleCount={40}
+            particleColor="#40E0D0"
+            opacity={0.08}
+            speed={0.4}
+          />
           <Suspense fallback={<div className="h-16" />}>
             <FloatingParticles count={24} />
           </Suspense>
@@ -124,8 +134,8 @@ const Home: React.FC = () => {
 
         <SectionDivider />
 
-        <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
+        <AppSection padding="lg" container={false}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollReveal direction="up">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
                 <div className="flex-1">
@@ -147,38 +157,46 @@ const Home: React.FC = () => {
                     glareMaxOpacity={0.2}
                     className="h-full"
                   >
-                    <Link
-                      to={item.href}
-                      className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 flex flex-col justify-between hover:border-brand-teal/60 transition shadow-soft-dark h-full"
+                    <AppCard
+                      variant="glass"
+                      padding="lg"
+                      hover={false}
+                      className="h-full group"
+                      whileHover={{ y: 0 }}
                     >
-                      <div>
-                        <div className="flex items-center gap-3 mb-4">
-                          <span className="p-3 rounded-full bg-brand-teal/15 text-brand-teal">
-                            <item.icon size={20} />
-                          </span>
-                          <h3 className="text-xl font-semibold text-brand-text">{item.title}</h3>
+                      <Link
+                        to={item.href}
+                        className="flex flex-col justify-between h-full hover:border-brand-teal/60 transition"
+                      >
+                        <div>
+                          <div className="flex items-center gap-3 mb-4">
+                            <span className="p-3 rounded-full bg-brand-teal/15 text-brand-teal">
+                              <item.icon size={20} />
+                            </span>
+                            <h3 className="text-xl font-semibold text-brand-text">{item.title}</h3>
+                          </div>
+                          <p className="text-brand-muted mb-5">{item.description}</p>
+                          <ul className="space-y-2 text-sm text-brand-muted">
+                            {item.bullets.map((bullet) => (
+                              <li key={bullet} className="flex items-start gap-2">
+                                <span className="text-brand-teal mt-1">-</span>
+                                <span>{bullet}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
-                        <p className="text-brand-muted mb-5">{item.description}</p>
-                        <ul className="space-y-2 text-sm text-brand-muted">
-                          {item.bullets.map((bullet) => (
-                            <li key={bullet} className="flex items-start gap-2">
-                              <span className="text-brand-teal mt-1">-</span>
-                              <span>{bullet}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="mt-6 inline-flex items-center gap-2 text-brand-teal font-semibold">
-                        {item.cta}
-                        <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                      </div>
-                    </Link>
+                        <div className="mt-6 inline-flex items-center gap-2 text-brand-teal font-semibold">
+                          {item.cta}
+                          <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                        </div>
+                      </Link>
+                    </AppCard>
                   </TiltCard>
                 </StaggerItem>
               ))}
             </StaggerChildren>
           </div>
-        </section>
+        </AppSection>
 
         <SectionDivider />
 
@@ -187,8 +205,8 @@ const Home: React.FC = () => {
         <SectionDivider />
 
         {/* Technical Stack Preview */}
-        <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
+        <AppSection padding="lg" container={false}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollReveal direction="up">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
                 <div className="flex-1">
@@ -204,84 +222,90 @@ const Home: React.FC = () => {
               {/* Marketing Automation */}
               <StaggerItem>
                 <TiltCard maxTilt={10} scale={1.02} glareEnable={true} className="h-full">
-                  <Link
-                    to="/toolbox"
-                    className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark h-full block"
-                  >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
-                        <Cpu size={20} />
+                  <AppCard variant="glass" padding="lg" hover={false} className="h-full" whileHover={{ y: 0 }}>
+                    <Link
+                      to="/toolbox"
+                      className="group block h-full"
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
+                          <Cpu size={20} />
+                        </div>
+                        <h3 className="text-lg font-semibold text-brand-text">Marketing Automation</h3>
                       </div>
-                      <h3 className="text-lg font-semibold text-brand-text">Marketing Automation</h3>
-                    </div>
-                    <p className="text-sm text-brand-muted mb-4">CRM architecture and workflow automation</p>
-                    <div className="flex flex-wrap gap-2">
-                      {['HubSpot', 'Marketo', 'Salesforce', 'FluentCRM'].map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </Link>
+                      <p className="text-sm text-brand-muted mb-4">CRM architecture and workflow automation</p>
+                      <div className="flex flex-wrap gap-2">
+                        {['HubSpot', 'Marketo', 'Salesforce', 'FluentCRM'].map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </Link>
+                  </AppCard>
                 </TiltCard>
               </StaggerItem>
 
               {/* Analytics & Tracking */}
               <StaggerItem>
                 <TiltCard maxTilt={10} scale={1.02} glareEnable={true} className="h-full">
-                  <Link
-                    to="/toolbox"
-                    className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark h-full block"
-                  >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
-                        <LineChart size={20} />
+                  <AppCard variant="glass" padding="lg" hover={false} className="h-full" whileHover={{ y: 0 }}>
+                    <Link
+                      to="/toolbox"
+                      className="group block h-full"
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
+                          <LineChart size={20} />
+                        </div>
+                        <h3 className="text-lg font-semibold text-brand-text">Analytics & Tracking</h3>
                       </div>
-                      <h3 className="text-lg font-semibold text-brand-text">Analytics & Tracking</h3>
-                    </div>
-                    <p className="text-sm text-brand-muted mb-4">Data-driven insights and conversion optimization</p>
-                    <div className="flex flex-wrap gap-2">
-                      {['GA4', 'GTM', 'Google Ads', 'Meta Ads'].map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </Link>
+                      <p className="text-sm text-brand-muted mb-4">Data-driven insights and conversion optimization</p>
+                      <div className="flex flex-wrap gap-2">
+                        {['GA4', 'GTM', 'Google Ads', 'Meta Ads'].map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </Link>
+                  </AppCard>
                 </TiltCard>
               </StaggerItem>
 
               {/* Development Stack */}
               <StaggerItem>
                 <TiltCard maxTilt={10} scale={1.02} glareEnable={true} className="h-full">
-                  <Link
-                    to="/toolbox"
-                    className="group rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/60 transition shadow-soft-dark h-full block"
-                  >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
-                        <Code size={20} />
+                  <AppCard variant="glass" padding="lg" hover={false} className="h-full" whileHover={{ y: 0 }}>
+                    <Link
+                      to="/toolbox"
+                      className="group block h-full"
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
+                          <Code size={20} />
+                        </div>
+                        <h3 className="text-lg font-semibold text-brand-text">Development Stack</h3>
                       </div>
-                      <h3 className="text-lg font-semibold text-brand-text">Development Stack</h3>
-                    </div>
-                    <p className="text-sm text-brand-muted mb-4">Full-stack web development and infrastructure</p>
-                    <div className="flex flex-wrap gap-2">
-                      {['React', 'TypeScript', 'WordPress', 'Node.js'].map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </Link>
+                      <p className="text-sm text-brand-muted mb-4">Full-stack web development and infrastructure</p>
+                      <div className="flex flex-wrap gap-2">
+                        {['React', 'TypeScript', 'WordPress', 'Node.js'].map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-1 text-xs rounded-md bg-slate-900/50 border border-white/5 text-brand-muted"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </Link>
+                  </AppCard>
                 </TiltCard>
               </StaggerItem>
             </StaggerChildren>
@@ -297,41 +321,43 @@ const Home: React.FC = () => {
               </OceanRippleButton>
             </div>
           </div>
-        </section>
+        </AppSection>
 
         <SectionDivider />
 
-        <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
-          <ScrollReveal direction="up" delay={0.2}>
-            <div className="max-w-5xl mx-auto text-center">
-              <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Final CTA</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">Ready to scale your growth?</h2>
-              <p className="text-brand-muted text-lg mb-8">
-                Tell me where you want the business to go. I&apos;ll architect the plan, build the stack, and keep the entire go-to-market motion honest.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-              <OceanRippleButton
-                asLink
-                href="/contact"
-                variant="primary"
-                className="inline-flex items-center gap-2"
-              >
-                Start the Conversation
-                <ArrowRight size={16} />
-              </OceanRippleButton>
-              <OceanRippleButton
-                asLink
-                href="/services"
-                variant="outline"
-                className="inline-flex items-center gap-2"
-              >
-                Review Services
-                <ArrowRight size={16} />
-              </OceanRippleButton>
+        <AppSection padding="lg" container={false}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ScrollReveal direction="up" delay={0.2}>
+              <div className="max-w-5xl mx-auto text-center">
+                <p className="text-sm font-mono uppercase tracking-[0.3em] text-brand-muted">Final CTA</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">Ready to scale your growth?</h2>
+                <p className="text-brand-muted text-lg mb-8">
+                  Tell me where you want the business to go. I&apos;ll architect the plan, build the stack, and keep the entire go-to-market motion honest.
+                </p>
+                <div className="flex flex-wrap gap-4 justify-center">
+                <OceanRippleButton
+                  asLink
+                  href="/contact"
+                  variant="primary"
+                  className="inline-flex items-center gap-2"
+                >
+                  Start the Conversation
+                  <ArrowRight size={16} />
+                </OceanRippleButton>
+                <OceanRippleButton
+                  asLink
+                  href="/services"
+                  variant="outline"
+                  className="inline-flex items-center gap-2"
+                >
+                  Review Services
+                  <ArrowRight size={16} />
+                </OceanRippleButton>
+                </div>
               </div>
-            </div>
-          </ScrollReveal>
-        </section>
+            </ScrollReveal>
+          </div>
+        </AppSection>
       </div>
     </OceanAuroraBackground>
   );
