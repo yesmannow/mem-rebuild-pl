@@ -149,7 +149,7 @@ export const sideProjects: SideProject[] = [
     image: '/images/projects/Primary Colours/cropped-PC_LOGO1-1024x174.jpg',
     year: '2018-2019',
     challenge: 'Lead marketing and strategic development for a non-profit arts organization to increase community engagement, artist participation, and fundraising for Installation Nation 2018—a major outdoor art exhibition.',
-    solution: 'Developed comprehensive marketing and sponsorship strategy for 23-day exhibition on 9.5-acre ArtsPark. Created multi-tier sponsorship program ($500-$5,000 levels), redesigned website for better artist connections, and executed integrated marketing campaigns. Led marketing strategy for Installation Nation 2018 with 13 artists/artist groups creating site-specific installations. Developed professional sponsorship packages, redesigned primarycolours.org website, created social media campaigns, and built community partnerships with major arts institutions.',
+    solution: 'Developed comprehensive marketing and sponsorship strategy for 23-day exhibition on 9.5-acre ArtsPark featuring 13 artists/artist groups. Created multi-tier sponsorship program ($500-$5,000 levels), redesigned primarycolours.org website for better artist connections, and executed integrated campaigns across social media and community partnerships with major arts institutions.',
     impact: ['$46,000+ funds raised', '200+ artists participation', '10,000+ people audience reach', '23 days exhibition duration'],
     stack: ['Event Marketing', 'Website Development', 'Sponsorship Strategy', 'Brand Development'],
   },
