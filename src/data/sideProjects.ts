@@ -73,16 +73,16 @@ export const sideProjects: SideProject[] = [
   },
   {
     id: 'perpetual-fitness',
-    title: 'Perpetual Movement',
+    title: 'Perpetual Movement Fitness',
     category: 'Branding',
-    tags: ['Fitness', 'Motion', 'Identity'],
-    description: 'Kinetic brand identity for a high-energy fitness studio.',
+    tags: ['Fitness Branding', 'Gym Logo Design', 'Activewear Branding', 'Kinetic Typography', 'Health & Wellness Identity', 'Lifestyle Brand', 'Sports Marketing'],
+    description: 'Brand Identity & Art Direction – Dynamic visual system capturing perpetual motion and transformation.',
     image: '/images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM.png', // UPDATED
     year: '2023',
-    challenge: "Visually communicate 'continuous movement' and transformation.",
-    solution: 'Designed a dynamic logo system with flowing typography and kinetic visual elements.',
-    impact: ['92% Member Retention', '+200% Social Engagement'],
-    stack: ['Brand Strategy', 'Social Media'],
+    challenge: "In a saturated health and wellness market, Perpetual Movement Fitness needed a brand identity that stood for more than just a place to sweat. The goal was to visualize a philosophy: that fitness is not a destination, but a continuous cycle of progress and personal transformation. The challenge was to capture this kinetic energy in a static visual mark, creating an identity that felt alive, motivating, and distinct from the aggressive, hyper-masculine aesthetics often found in gym branding.",
+    solution: 'The resulting identity is a study in visual momentum. I developed a dynamic design system that utilizes flowing typography and kinetic visual elements to suggest forward motion even when the logo is stationary. Visual Strategy: The logo system captures the essence of "perpetual motion" through directional geometry and fluid lines, symbolizing the non-stop journey of self-improvement. Color Palette: A bold, high-energy color scheme was selected to evoke vitality and strength. These colors were chosen specifically to stand out in high-paced environments, ensuring visibility on activewear and inside the studio. Holistic Application: The brand was designed to be worn. I developed the identity with apparel and merchandise in mind, turning members into brand ambassadors. The visual language scales seamlessly from heavy gym equipment to social media avatars.',
+    impact: ['92% Member Retention', '+200% Social Engagement', 'High Local Brand Visibility'],
+    stack: ['Logo Design', 'Visual Identity System', 'Apparel & Merchandising', 'Marketing Collateral'],
   },
   {
     id: 'tbm-strategy',
