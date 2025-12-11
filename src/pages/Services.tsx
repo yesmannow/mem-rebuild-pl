@@ -2,6 +2,7 @@ import React, { useRef, Suspense, lazy } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useInView } from 'framer-motion';
 import { Briefcase, Code, Palette, TrendingUp, DollarSign, Target, Zap, Database, Globe, Type, Image, Video } from 'lucide-react';
+import { SectionWithApiBackground } from '../components/layout/PageWithApiBackground';
 
 // Lazy load heavy components to reduce initial bundle size
 const SkillsRadar = lazy(() => import('../components/ui/SkillsRadar'));
@@ -143,27 +144,34 @@ const Services: React.FC = () => {
       </Helmet>
 
       <div className="min-h-screen bg-brand-dark pt-24 pb-20">
-        {/* Hero Section */}
-        <section ref={heroRef} className="relative py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="text-5xl md:text-6xl font-bold text-brand-text mb-6"
-            >
-              Deployable Marketing Systems
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-brand-muted max-w-3xl mx-auto leading-relaxed"
-            >
-              From strategic leadership to technical execution, I build marketing systems that compound value. Each capability is production-tested and ready to deploy.
-            </motion.p>
-          </div>
-        </section>
+        {/* Hero Section with API Background */}
+        <SectionWithApiBackground 
+          theme="strategy,consulting,planning,business"
+          overlayColor="dark"
+          overlayOpacity={0.85}
+          minHeight="60vh"
+        >
+          <section ref={heroRef} className="relative py-20 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto text-center">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={heroInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6 }}
+                className="text-5xl md:text-6xl font-bold text-brand-text mb-6"
+              >
+                Deployable Marketing Systems
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={heroInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-xl text-brand-muted max-w-3xl mx-auto leading-relaxed"
+              >
+                From strategic leadership to technical execution, I build marketing systems that compound value. Each capability is production-tested and ready to deploy.
+              </motion.p>
+            </div>
+          </section>
+        </SectionWithApiBackground>
 
         {/* Skills Radar - The "Unicorn" Visualization */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-dark/30">

@@ -14,6 +14,7 @@ import DataStream from '../components/case-studies/DataStream';
 import ThreatMap from '../components/case-studies/ThreatMap';
 import WorkflowVisualizer from '../components/case-studies/WorkflowVisualizer';
 import SystemSchematic from '../components/case-studies/SystemSchematic';
+import { CaseStudyExplainer } from '../components/case-study/CaseStudyExplainer';
 import './CaseStudyDetail.css';
 
 const renderInlineText = (text: string, keyPrefix: string) => {
@@ -303,6 +304,18 @@ const CaseStudyDetail: React.FC = () => {
             <div className="section-content">
               {renderRichSection(caseStudy.fullContent?.impact ?? caseStudy.impact)}
             </div>
+          </section>
+        </AnimatedSection>
+
+        {/* AI Explainer Section */}
+        <AnimatedSection delay={0.5}>
+          <section className="content-section ai-explainer-section" style={{ marginTop: '3rem' }}>
+            <CaseStudyExplainer
+              title={caseStudy.title}
+              problem={caseStudy.challenge}
+              solution={caseStudy.strategy}
+              results={caseStudy.impact}
+            />
           </section>
         </AnimatedSection>
 
