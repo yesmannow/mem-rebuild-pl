@@ -15,6 +15,7 @@ import ThreatMap from '../components/case-studies/ThreatMap';
 import WorkflowVisualizer from '../components/case-studies/WorkflowVisualizer';
 import SystemSchematic from '../components/case-studies/SystemSchematic';
 import { CaseStudyExplainer } from '../components/case-study/CaseStudyExplainer';
+import { AppSection } from '../ui/AppSection';
 import './CaseStudyDetail.css';
 
 const renderInlineText = (text: string, keyPrefix: string) => {
@@ -306,6 +307,63 @@ const CaseStudyDetail: React.FC = () => {
             </div>
           </section>
         </AnimatedSection>
+
+        {/* Live Site Preview - if siteUrl exists */}
+        {caseStudy.siteUrl && (
+          <AnimatedSection delay={0.52}>
+            <AppSection padding="md" container={false}>
+              <div className="max-w-4xl mx-auto">
+                <div className="text-center mb-6">
+                  <h2 className="text-2xl md:text-3xl font-bold text-brand-text mb-2">
+                    <span className="section-icon">🌐</span> Live Site
+                  </h2>
+                  <p className="text-brand-muted">
+                    Visit the live implementation to see the results in action
+                  </p>
+                </div>
+                <motion.div
+                  className="relative rounded-2xl overflow-hidden border border-brand-turquoise/20 bg-slate-950/40 backdrop-blur-sm p-8"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <div className="flex flex-col items-center gap-6">
+                    <div className="text-center">
+                      <p className="text-brand-text font-semibold mb-2">
+                        {caseStudy.title}
+                      </p>
+                      <a
+                        href={caseStudy.siteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-brand-turquoise hover:text-brand-turquoise-dark transition-colors inline-flex items-center gap-2"
+                      >
+                        <span className="text-sm break-all">{caseStudy.siteUrl}</span>
+                        <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    </div>
+                    <motion.a
+                      href={caseStudy.siteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-turquoise text-white font-semibold hover:bg-brand-turquoise-dark transition-all duration-200 shadow-lg hover:shadow-xl"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <span>Visit Live Site</span>
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </motion.a>
+                  </div>
+                </motion.div>
+              </div>
+            </AppSection>
+          </AnimatedSection>
+        )}
 
         {/* AI Explainer Section */}
         <AnimatedSection delay={0.5}>
