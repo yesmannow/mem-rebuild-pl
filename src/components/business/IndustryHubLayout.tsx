@@ -16,7 +16,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, ArrowRight, Calendar, Clock } from 'lucide-react';
-import { Industry, getIndustryBySlug } from '../../data/industries';
+import { getIndustryBySlug } from '../../data/industries';
 import { Attorney, filterByIndustry as filterAttorneysByIndustry, getAttorneyById } from '../../data/attorneys';
 import { NewsArticle, filterByIndustry as filterNewsByIndustry } from '../../data/newsArticles';
 
