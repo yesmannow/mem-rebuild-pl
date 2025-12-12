@@ -64,6 +64,7 @@ const MarketingSimulatorGame = React.lazy(() => import('../components/apps/Marke
 const BrandBuilder = React.lazy(() => import('../components/apps/BrandBuilder'));
 const EmailMarketingSimulator = React.lazy(() => import('../components/apps/EmailMarketingSimulator'));
 const SocialMediaSimulator = React.lazy(() => import('../components/apps/SocialMediaSimulator'));
+const BusinessDevelopmentDemo = React.lazy(() => import('../pages/BusinessDevelopmentDemo'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
 
 // Loading component with accessible Loader
@@ -289,6 +290,12 @@ const AppRouter: React.FC = () => {
       return {
         title: 'Clinical Compass | Jacob Darling Portfolio',
         description: 'Logic-based treatment protocols and clinical reasoning tool',
+      };
+    } else if (path === '/business-development-demo') {
+      return {
+        title: 'Law Firm Business Development Components | Jacob Darling Portfolio',
+        description: 'Demo of enterprise-grade law firm components including Representative Matters Grid, Industry Hub Layouts, and DEI Statistics - built for Fortune 100 corporate clients.',
+        keywords: 'law firm components, legal marketing, business development, corporate legal, representative matters, industry microsites, DEI statistics',
       };
     }
 
@@ -709,6 +716,14 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <SocialMediaSimulator />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/business-development-demo"
+              element={
+                <PageTransition>
+                  <BusinessDevelopmentDemo />
                 </PageTransition>
               }
             />
