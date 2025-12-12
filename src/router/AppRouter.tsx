@@ -60,6 +60,7 @@ const SEOScanner = React.lazy(() => import('../components/apps/SEOScanner'));
 const CampaignPerformanceVisualizer = React.lazy(() => import('../components/apps/CampaignPerformanceVisualizer'));
 const CompetitorIntelligenceHub = React.lazy(() => import('../components/apps/CompetitorIntelligenceHub'));
 const MarketingSimulator = React.lazy(() => import('../components/apps/MarketingSimulator'));
+const MarketingSimulatorGame = React.lazy(() => import('../components/apps/MarketingSimulatorGame'));
 const BrandBuilder = React.lazy(() => import('../components/apps/BrandBuilder'));
 const EmailMarketingSimulator = React.lazy(() => import('../components/apps/EmailMarketingSimulator'));
 const SocialMediaSimulator = React.lazy(() => import('../components/apps/SocialMediaSimulator'));
@@ -676,6 +677,14 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <MarketingSimulator />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps/marketing-simulator-game"
+              element={
+                <PageTransition>
+                  <MarketingSimulatorGame />
                 </PageTransition>
               }
             />
