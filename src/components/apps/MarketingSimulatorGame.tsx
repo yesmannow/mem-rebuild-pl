@@ -45,7 +45,7 @@ const MarketingSimulatorGame: React.FC = () => {
     const previousQuarter = gameState.quarters[quarterIndex - 1];
 
     // Get random wildcard event
-    const wildcardEvent = getRandomWildcardEvent(companySetup.industry);
+    const wildcardEvent = getRandomWildcardEvent(currentQuarter, companySetup.industry);
 
     // Calculate results
     const results = calculateQuarterResults(

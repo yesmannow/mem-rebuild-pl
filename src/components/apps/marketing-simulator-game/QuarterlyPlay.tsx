@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { CompanySetup, Quarter, SelectedTactic, Tactic, WildcardEvent } from '@/lib/marketing-simulator/types';
-import { tactics } from '@/lib/marketing-simulator/tacticsLibrary';
+import { MARKETING_TACTICS } from '@/lib/marketing-simulator/tacticsLibrary';
 import { Target, DollarSign, Clock, TrendingUp, Zap } from 'lucide-react';
 
 interface Props {
@@ -18,7 +18,7 @@ const QuarterlyPlay: React.FC<Props> = ({ quarter, companySetup, previousResults
 
   // Filter tactics based on industry and view mode
   const filteredTactics = useMemo(() => {
-    let filtered = tactics.filter(t => {
+    let filtered = MARKETING_TACTICS.filter(t => {
       const multiplier = t.industryMultipliers[companySetup.industry];
       return multiplier > 0.5; // Only show tactics that are somewhat effective for this industry
     });
