@@ -28,8 +28,9 @@ const MarketTicker: React.FC = () => {
       setMarketData(prev => prev.map(item => {
         const randomChange = (Math.random() - 0.5) * 2;
         const newValue = item.value + randomChange;
+        const previousValue = newValue - randomChange;
         const newChange = item.change + (Math.random() - 0.5) * 0.5;
-        const newPercentChange = (newChange / newValue) * 100;
+        const newPercentChange = (randomChange / previousValue) * 100;
         
         return {
           ...item,
@@ -43,7 +44,8 @@ const MarketTicker: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const tickerItems = [...marketData, rbeLawMessage, ...marketData];
+  // Duplicate the ticker items for seamless infinite scroll
+  const tickerItems = [...marketData, rbeLawMessage, ...marketData, rbeLawMessage];
 
   return (
     <div className="w-full bg-[#0a1a3a] border-y border-[#3d7eff]/20 overflow-hidden relative">
@@ -51,13 +53,13 @@ const MarketTicker: React.FC = () => {
         <motion.div
           className="flex items-center gap-8 whitespace-nowrap"
           animate={{
-            x: [0, -1920],
+            x: ['0%', '-50%'],
           }}
           transition={{
             x: {
               repeat: Infinity,
               repeatType: 'loop',
-              duration: 60,
+              duration: 40,
               ease: 'linear',
             },
           }}

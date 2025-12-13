@@ -123,7 +123,9 @@ const ConciergeWidget: React.FC<ConciergeWidgetProps> = ({ className = '' }) => 
     setMessages(prev => [...prev, botMessage]);
     setIsTyping(false);
 
-    if (messages.filter(m => m.type === 'user').length >= 2 && !showLeadForm) {
+    // Count user messages including the current one
+    const userMessageCount = messages.filter(m => m.type === 'user').length + 1;
+    if (userMessageCount >= 2 && !showLeadForm) {
       setTimeout(() => {
         const leadFormMessage: Message = {
           id: (Date.now() + 2).toString(),
