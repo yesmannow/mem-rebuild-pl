@@ -10,10 +10,10 @@ import {
 } from '@/lib/marketing-simulator/types';
 import { calculateQuarterResults, calculateFinalScore } from '@/lib/marketing-simulator/scoringEngine';
 import { getRandomWildcardEvent } from '@/lib/marketing-simulator/wildcardEvents';
-import CompanySetup from './CompanySetup';
-import QuarterlyPlay from './QuarterlyPlay';
-import QuarterResults from './QuarterResults';
-import FinalDebrief from './FinalDebrief';
+import CompanySetup from './marketing-simulator-game/CompanySetup';
+import QuarterlyPlay from './marketing-simulator-game/QuarterlyPlay';
+import QuarterResults from './marketing-simulator-game/QuarterResults';
+import FinalDebrief from './marketing-simulator-game/FinalDebrief';
 import { Gamepad2, TrendingUp } from 'lucide-react';
 
 const MarketingSimulatorGame: React.FC = () => {
