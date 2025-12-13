@@ -70,7 +70,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
           <MegaMenuCard
             title="The Launchpad"
             description="Website redesign for increased engagement"
-            image="/images/case-studies/launchpad-thumb.jpg"
             link="/case-study/the-launchpad"
             stats={[
               { label: 'Engagement', value: '+180%' },
@@ -81,7 +80,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
           <MegaMenuCard
             title="The Conductor"
             description="Marketing automation platform"
-            image="/images/case-studies/conductor-thumb.jpg"
             link="/case-study/the-conductor"
             stats={[
               { label: 'Efficiency', value: '+250%' },
@@ -92,7 +90,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
           <MegaMenuCard
             title="The Fortress"
             description="Cybersecurity infrastructure overhaul"
-            image="/images/case-studies/fortress-thumb.jpg"
             link="/case-study/the-fortress"
             stats={[
               { label: 'Security Score', value: '98/100' },
@@ -102,7 +99,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
           <MegaMenuCard
             title="RBE Law"
             description="Law firm digital transformation"
-            image="/images/case-studies/rbe-law-thumb.jpg"
             link="/case-study/rbe-law"
             stats={[
               { label: 'Client Acquisition', value: '+145%' },
@@ -357,20 +353,20 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
           <ContactMethod
             icon="📧"
             title="Email"
-            value="contact@portfolio.com"
-            link="mailto:contact@portfolio.com"
+            value="hoosierdarling@gmail.com"
+            link="mailto:hoosierdarling@gmail.com"
           />
           <ContactMethod
             icon="💼"
             title="LinkedIn"
             value="Connect on LinkedIn"
-            link="https://linkedin.com"
+            link="https://linkedin.com/in/jacobdarling"
           />
           <ContactMethod
             icon="🐙"
             title="GitHub"
             value="View repositories"
-            link="https://github.com"
+            link="https://github.com/JdarlingGT"
           />
         </div>
         
