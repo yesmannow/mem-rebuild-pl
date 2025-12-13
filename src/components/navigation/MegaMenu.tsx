@@ -42,6 +42,15 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   const handleMouseEnter = (name: string) => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -155,7 +164,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
           <MegaMenuCard
             title="317 BBQ"
             description="Modern restaurant website with online ordering"
-            image="/images/projects/317 bbq/Screenshot of 317 BBQ _ Really Good BBQ.jpg"
+            image="/images/projects/317 bbq/20231008_174703.jpg"
             link="/side-projects/317-bbq"
             tag="Featured"
             tags={['Web Dev', 'E-Commerce']}
@@ -163,7 +172,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
           <MegaMenuCard
             title="Russell Painting Co."
             description="Service business portfolio & quotes"
-            image="/images/projects/Russell painting/Screenshot of Power Washing _ Russell Painting Company, Inc.jpg"
+            image="/images/projects/Russell painting/Interior_sl.jpg"
             link="/side-projects/russell-painting"
             tags={['Portfolio', 'Forms']}
           />

@@ -4,6 +4,9 @@ node_modules/
 # Build output
 dist/
 
+# Test results
+test-results/
+
 # Auto-generated images
 public/images/**/*.avif
 public/images/**/*.webp
