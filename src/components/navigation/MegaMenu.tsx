@@ -15,9 +15,8 @@ interface MegaMenuContent {
 
 const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -48,13 +47,11 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
       clearTimeout(timeoutRef.current);
     }
     setActiveMenu(name);
-    setHoveredItem(name);
   };
 
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setActiveMenu(null);
-      setHoveredItem(null);
     }, 150);
   };
 
@@ -351,7 +348,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
       <div className="grid grid-cols-2 gap-6">
         <div className="space-y-4">
           <div>
-            <h4 className="text-white font-semibold mb-3">Let's Connect</h4>
+            <h4 className="text-white font-semibold mb-3">Let&apos;s Connect</h4>
             <p className="text-sm text-brand-muted mb-4">
               Available for consulting, collaboration, and new opportunities.
             </p>
@@ -577,7 +574,7 @@ const MegaMenuCard: React.FC<MegaMenuCardProps> = ({
 );
 
 interface QuickLinkProps {
-  icon: any;
+  icon: React.ComponentType<{ size?: number }>;
   title: string;
   description: string;
   link: string;
