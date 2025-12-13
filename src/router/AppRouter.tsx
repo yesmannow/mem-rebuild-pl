@@ -65,6 +65,10 @@ const BrandBuilder = React.lazy(() => import('../components/apps/BrandBuilder'))
 const EmailMarketingSimulator = React.lazy(() => import('../components/apps/EmailMarketingSimulator'));
 const SocialMediaSimulator = React.lazy(() => import('../components/apps/SocialMediaSimulator'));
 const BusinessDevelopmentDemo = React.lazy(() => import('../pages/BusinessDevelopmentDemo'));
+const WorkersCompensationPage = React.lazy(() => import('../pages/legal/WorkersCompensationPage'));
+const LitigationPage = React.lazy(() => import('../pages/legal/LitigationPage'));
+const BusinessLawPage = React.lazy(() => import('../pages/legal/BusinessLawPage'));
+const FinanceIndustryPage = React.lazy(() => import('../pages/legal/FinanceIndustryPage'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
 
 // Loading component with accessible Loader
@@ -296,6 +300,30 @@ const AppRouter: React.FC = () => {
         title: 'Law Firm Business Development Components | Jacob Darling Portfolio',
         description: 'Demo of enterprise-grade law firm components including Representative Matters Grid, Industry Hub Layouts, and DEI Statistics - built for Fortune 100 corporate clients.',
         keywords: 'law firm components, legal marketing, business development, corporate legal, representative matters, industry microsites, DEI statistics',
+      };
+    } else if (path === '/legal/workers-compensation') {
+      return {
+        title: 'Workers\' Compensation Law Demo | Jacob Darling Portfolio',
+        description: 'Interactive demo showcasing AI legal concierge and Indiana district map for workers\' compensation practice.',
+        keywords: 'workers compensation, legal tech, interactive map, AI chatbot, Indiana law',
+      };
+    } else if (path === '/legal/litigation') {
+      return {
+        title: 'Litigation Practice Demo | Jacob Darling Portfolio',
+        description: 'Interactive litigation practice demo with district court mapping and AI legal assistant.',
+        keywords: 'litigation, trial practice, legal tech, court mapping, AI assistant',
+      };
+    } else if (path === '/legal/business-law') {
+      return {
+        title: 'Business & Corporate Law Demo | Jacob Darling Portfolio',
+        description: 'Business law demo featuring real-time market ticker and AI legal concierge for corporate clients.',
+        keywords: 'business law, corporate law, M&A, legal tech, market data',
+      };
+    } else if (path === '/legal/finance-industry') {
+      return {
+        title: 'Financial Services Law Demo | Jacob Darling Portfolio',
+        description: 'Financial services legal demo with market data integration and regulatory compliance tools.',
+        keywords: 'financial services, banking law, securities, regulatory compliance, legal tech',
       };
     }
 
@@ -724,6 +752,38 @@ const AppRouter: React.FC = () => {
               element={
                 <PageTransition>
                   <BusinessDevelopmentDemo />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/legal/workers-compensation"
+              element={
+                <PageTransition>
+                  <WorkersCompensationPage />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/legal/litigation"
+              element={
+                <PageTransition>
+                  <LitigationPage />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/legal/business-law"
+              element={
+                <PageTransition>
+                  <BusinessLawPage />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/legal/finance-industry"
+              element={
+                <PageTransition>
+                  <FinanceIndustryPage />
                 </PageTransition>
               }
             />
