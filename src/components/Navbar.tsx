@@ -4,6 +4,7 @@ import { Search, Command } from 'lucide-react';
 import ModernLogo from './branding/ModernLogo';
 import { mainNavigationLinks } from '../data/navigation';
 import ThemeToggle from './ui/ThemeToggle';
+import MegaMenu from './navigation/MegaMenu';
 
 interface NavbarProps {
   onOpenCommandPalette?: () => void;
@@ -19,7 +20,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
   };
 
   return (
-    <nav className="fixed w-full z-[100] h-16 bg-slate-950/60 backdrop-blur-md border-b border-white/5 overflow-hidden">
+    <nav className="fixed w-full z-[100] h-16 bg-slate-950/60 backdrop-blur-md border-b border-white/5">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 h-full">
         <div className="flex items-center justify-between h-full gap-2 sm:gap-4">
 
@@ -41,43 +42,25 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
             </Link>
           </div>
 
-          {/* DESKTOP NAV */}
-          <div className="hidden md:flex items-center space-x-5">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={`relative ${
-                  isActive(link.path)
-                    ? 'text-white scale-110'
-                    : 'text-brand-muted hover:text-brand-teal'
-                } transition-all duration-300 font-medium text-sm uppercase tracking-wide group`}
-              >
-                {link.name}
-                {/* Hover glow effect */}
-                <span className={`absolute -bottom-1 left-0 w-full h-px transition-all duration-300 ${
-                  isActive(link.path)
-                    ? 'bg-white shadow-[0_0_8px_rgba(255,255,255,0.5)]'
-                    : 'bg-transparent group-hover:bg-brand-teal/50'
-                }`} />
-              </Link>
-            ))}
-
-            {/* Theme Toggle */}
+          {/* DESKTOP NAV - Mega Menu */}
+          <MegaMenu navLinks={navLinks} isActive={isActive} />
+          
+          {/* Theme Toggle - Desktop */}
+          <div className="hidden md:block">
             <ThemeToggle variant="compact" />
-
-            {/* Cmd+K Search Button */}
-            <button
-              onClick={onOpenCommandPalette}
-              className="flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 border border-white/10 rounded-lg text-brand-muted hover:text-brand-teal hover:border-brand-teal/30 transition-all duration-300 group"
-              aria-label="Open command palette"
-            >
-              <Search size={14} className="group-hover:text-brand-teal transition-colors" />
-              <kbd className="hidden lg:flex items-center gap-0.5 text-xs font-mono">
-                <Command size={10} />K
-              </kbd>
-            </button>
           </div>
+
+          {/* Cmd+K Search Button - Desktop */}
+          <button
+            onClick={onOpenCommandPalette}
+            className="hidden md:flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 border border-white/10 rounded-lg text-brand-muted hover:text-brand-teal hover:border-brand-teal/30 transition-all duration-300 group"
+            aria-label="Open command palette"
+          >
+            <Search size={14} className="group-hover:text-brand-teal transition-colors" />
+            <kbd className="hidden lg:flex items-center gap-0.5 text-xs font-mono">
+              <Command size={10} />K
+            </kbd>
+          </button>
 
           {/* MOBILE: Theme toggle and search button (navigation handled by MobileDock) */}
           <div className="md:hidden flex items-center gap-2">
