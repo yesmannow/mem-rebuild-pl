@@ -195,6 +195,115 @@ npm run preview
 - **/about** - About page with bio, timeline, and community work
 - **/contact** - Contact form with scheduling integration
 
+### 🎯 Wow Factor Portfolio Pages
+
+#### 🧰 Tools Showcase (`/tools`)
+
+**Location**: `src/pages/ToolsShowcase.tsx`
+
+A comprehensive showcase of CLI tools, MCP servers, and automation scripts that power this portfolio's development workflow.
+
+**Features**:
+- **12 documented tools** across 6 categories (CLI, MCP Server, Build Tools, Content Generation, Automation, Deployment)
+- **Search & filter** functionality to find tools by name, technology, or description
+- **Code snippets** with copy-to-clipboard for immediate use
+- **Tech stack badges** showing Node.js, Python, React, TypeScript, etc.
+- **Outcomes tracking** for each tool's benefits and results
+
+**Documented Tools**:
+1. **MCP Server** - Express-based Model Context Protocol server with health monitoring
+2. **Scrape & Generate CLI** - Gemini AI content pipeline with image optimization
+3. **MCP CLI Wrapper** - Unified command-line interface for all MCP operations
+4. **Design Asset Scraper** - Python/MCP integration for extracting images from websites
+5. **Icon Component Generator** - Auto-generates React components from SVG icons
+6. **Color Refactoring Tool** - Design system migration for color tokens
+7. **Enhanced Moodboard Generator** - AI-powered brand inspiration boards
+8. **Image Build Pipeline** - Sharp integration for optimization and format conversion
+9. **Bundle Analyzer** - Rollup visualizer for production build optimization
+10. **Image Optimizer** - Batch compression and modern format conversion
+11. **Unused Image Auditor** - Identifies unreferenced images for cleanup
+12. **Deployment Pipeline** - Multi-platform deployment configuration
+
+**Usage Examples**:
+```bash
+# Start MCP server
+npm run mcp:start
+
+# Generate content
+npm run generate:content
+
+# Optimize images
+npm run optimize-images
+
+# Analyze bundle
+ANALYZE=true npm run build
+```
+
+#### ⚙️ DevOps Portfolio (`/devops`)
+
+**Location**: `src/pages/DevOpsPortfolio.tsx`
+
+A deep dive into the deployment architecture, build optimizations, and custom element guards that power this portfolio.
+
+**Tabs**:
+1. **Architecture** - Vite configuration, framework stack, and path aliases
+2. **Deployment** - CI/CD pipeline, platform comparison (GitHub Pages vs Cloudflare)
+3. **Element Guards** - `defineCustomElementIfNeeded` pattern for HMR compatibility
+4. **Bundle Metrics** - Code splitting strategy, lazy loading, and performance targets
+
+**Key Topics**:
+- **Dual Base Path Logic**: Automatic switching between `/mem-rebuild-pl/` (GitHub Pages) and `/` (Cloudflare/Vercel)
+- **Custom Element Guards**: Preventing duplicate registration errors in development
+- **Bundle Optimization**: Intelligent code splitting and chunk organization
+- **Platform Comparison**: GitHub Pages vs Cloudflare Pages feature matrix
+
+**Code Examples**:
+```javascript
+// vite.config.js - Dual deployment support
+export default defineConfig({
+  base: process.env.GITHUB_PAGES === 'true'
+    ? `/${process.env.GITHUB_REPOSITORY?.split('/')[1] || 'mem-rebuild-pl'}/`
+    : '/',
+  // ... rest of config
+});
+
+// Custom Element Guard
+import { defineCustomElementIfNeeded } from '@/utils/defineCustomElementGuard';
+defineCustomElementIfNeeded('mce-autosize-textarea', AutosizeTextarea);
+```
+
+#### 📚 Case Study Deep Dives
+
+Individual case study pages with comprehensive metrics, challenges, solutions, and outcomes:
+- `/case-study/the-launchpad` - 212% increase in qualified leads
+- `/case-study/the-guardian` - 68% reduction in compliance tickets
+- `/case-study/the-compass` - Analytics rebuild for precise ROI tracking
+- `/case-study/the-fortress` - Edge security blocking 85K+ malicious hits/month
+- `/case-study/the-conductor` - Unified data pipeline across 4+ platforms
+- `/case-study/the-engine-room` - Server optimization (5.8s → 1.2s load time)
+
+### 🎨 Brand Identity (Wow Factor Edition)
+
+The portfolio uses a modern, vibrant color palette designed to stand out:
+
+**Color Palette**:
+- **Primary: Turquoise** (#40E0D0) - Bright, modern accent for CTAs and highlights
+- **Secondary: Creamsicle** (#FFA500) - Warm, energetic for secondary emphasis
+- **Tertiary: Light Blue-Gray** (#B3CDE0) - Sophisticated backgrounds and subtle elements
+- **Dark: Slate** (#0f172a) - Deep backgrounds for dark mode
+- **Text: High contrast** (#F8FAFC) - Accessibility-first text color
+
+**Typography**:
+- **Primary Font**: Montserrat (300-800 weights) - Modern, clean, professional
+- **Monospace Font**: Fira Code - For code snippets and technical content
+- **Loading**: `font-display: swap` for optimal performance
+
+**Features**:
+- ✅ WCAG AA contrast compliance
+- ✅ Dark mode with system preference detection
+- ✅ Zero-FOUC (Flash of Unstyled Content) implementation
+- ✅ Smooth theme transitions
+
 ## 🛠️ CLI Tools & Automation
 
 ### Build & Deploy Commands
@@ -310,20 +419,23 @@ mem-rebuild-pl/
 │   ├── router/             # React Router configuration
 │   └── styles/             # CSS and style files
 ├── public/
-│   ├── images/             # Static images (649 files, optimize >1MB)
+│   ├── images/             # Static images (optimized, 44MB from 64MB)
 │   ├── resume/             # PDF resumes
 │   └── ...
 ├── scripts/                # Build and automation scripts
-│   ├── optimize-images.js
-│   ├── listUnusedImages.ts
-│   ├── mcp-cli.js
+│   ├── optimize-large-images.mjs  # Image optimization with Sharp
+│   ├── listUnusedImages.ts        # Unused image auditor
+│   ├── mcp-cli.js                 # MCP CLI wrapper
 │   └── ...
 ├── mcp/                    # MCP server implementation
-│   └── server.js
-├── docs/                   # Documentation files
-│   └── *.md                # Various documentation and guides
+│   └── server.js           # Express-based MCP server
+├── archive/                # Non-production files (archived)
+│   ├── docs/               # Historical documentation (640KB)
+│   ├── cli-workflow/       # CLI tool source files (40KB)
+│   └── README.md           # Archive documentation
 ├── vite.config.js          # Vite configuration with base path logic
 ├── package.json            # Dependencies and scripts
+├── WOW_PORTFOLIO_STATUS.md # Comprehensive status report
 └── README.md               # This file
 ```
 
