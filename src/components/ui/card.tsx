@@ -5,7 +5,7 @@
  */
 
 import * as React from 'react';
-import { motion, HTMLMotionProps } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { cn } from '../../lib/utils';
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -15,7 +15,7 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant = 'default', animated = false, hover = false, children, ...props }, ref) => {
+  ({ className, variant = 'default', animated = false, hover = false, children, onClick, onMouseEnter, onMouseLeave, ...restProps }, ref) => {
     const baseStyles = 'rounded-2xl border transition-all duration-300';
     
     const variants = {
@@ -29,21 +29,37 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       ? 'hover:border-brand-turquoise/50 hover:shadow-brand-shadow-accent hover:-translate-y-1'
       : '';
 
-    const Component = animated ? motion.div : 'div';
+    const classNames = cn(baseStyles, variants[variant], hoverStyles, className);
+
+    if (animated) {
+      return (
+        <motion.div
+          ref={ref}
+          className={classNames}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          onClick={onClick as any}
+          onMouseEnter={onMouseEnter as any}
+          onMouseLeave={onMouseLeave as any}
+          {...(restProps as any)}
+        >
+          {children}
+        </motion.div>
+      );
+    }
 
     return (
-      <Component
+      <div
         ref={ref}
-        className={cn(baseStyles, variants[variant], hoverStyles, className)}
-        {...(animated ? {
-          initial: { opacity: 0, y: 20 },
-          animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.3 },
-        } : {})}
-        {...props}
+        className={classNames}
+        onClick={onClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        {...restProps}
       >
         {children}
-      </Component>
+      </div>
     );
   }
 );

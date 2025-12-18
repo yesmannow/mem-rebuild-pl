@@ -59,7 +59,7 @@ const MarketingSimulatorGame: React.FC = () => {
     const newQuarterState: QuarterState = {
       quarter: currentQuarter,
       selectedTactics,
-      wildcardEvent,
+      wildcardEvent: wildcardEvent || undefined,
       wildcardResponse: undefined, // Would be set if player responds to event
       talentHired: [],
       bigBet: undefined,

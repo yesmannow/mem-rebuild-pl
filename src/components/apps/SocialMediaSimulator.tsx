@@ -11,6 +11,7 @@ import {
   DollarSign,
   Clock,
   Zap,
+  MousePointerClick,
 } from 'lucide-react';
 import {
   BarChart,
