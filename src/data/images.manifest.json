@@ -188,19 +188,19 @@
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAABwAwCdASoUAAsAPxF0sVCsJqSisAgBgCIJaQAAW+zGQ+aD1oAA/u1IWa8fdGFgDs4EyLGTi9UJwqAqEI754Keefa4+jswIUAAAAA=="
   },
-  "images/projects/Piko Fg Music/piko-logo.png": {
-    "width": 523,
-    "height": 794,
-    "base": "images/projects/Piko Fg Music/piko-logo",
-    "color": "rgb(8 8 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRkgDAABXRUJQVlA4WAoAAAAQAAAAEwAAHQAAQUxQSPMBAAABkHDb1hm4wm+Sjm3btm3bqm3btm3btm27Y9uevFHbiJgAgAWEVCXAMGAl4NYfLMDCYH1mW6Yv9B0RJLv7BRiwGN7adG5x+z2svgGZRTkHwAEz6eLYMThbuPrPGDX/d/TUCvCnEzh3HL/PD89ML59/4G7beRlcLlCXbR8wpWXhrKLcKR5ln+5leaBwP0bQ88IDZzbSCnw/lnmFgrF3DZ43n7M9tuluywHPn0Nzw0K0RdA3hY5Aofx3adr3Q5k1M6AaqtsHiykBspcjhnCul1ePnXlvx9H9YJ/c13AcPm3BwQf3tprtoZzVH2fB/uqSOp6Ip5zHm45S86hDq6UwNjHwWw7tCTASkThK3wfZyIBFsiIkbtL8gTIC1+l7yoozW5QhqCh2JL+ZpxyPZVSadIFaaQzAwvszrfKTTKK2ibHPeL7KsQf7plwTIu+oObuV+IZgsGBhTQcBR54KPne00B5wAIdU6gdGfOO5MT+ptTgF6BFVrgiGhc0f+vJxhZgAABZR68CwcMnla561jQPXyxBbcNArbl4x+DEt7YVDkgoEsTyvIAXSw3TBAGBgL8YJ2i+bsMMJMBdG74IszObIOmvLAjYif2EAfXG46UgICmoI/qUnBycdGXEJfeF/YVjYGqhJqwhx/wIGZooyotJg/kNPCH8HAFZQOCAuAQAAUAYAnQEqFAAeAD8RcK9QLCYkIrAIAYAiCWwAxQaVuMBNLJEPiUW3s4GQTEG/mtL3T4Z87pPGR1faUAAA/ujzNcyjHoz7Jjb/r34ujXnjFdf6+PP86DkHSKQZBahTQue+7X4CyjnFk2w0cMMAMXyByFp5+i3nLtpYYTM/KAWqev+bMSIZzwyJuk/nrfdbxUeFRUsI0Hg6ns8t4Sn+afFJNksj4IpZCHXTRHG9LwIpI0x/32kmm4DWlnvodJN8r/P/P9oXNUgT7+N/ycmVUBhGYgL4poPqpgY2+7z4Q6XkrGBn2g928lYQlgVfy3jJH1sAbTl28kJGZDrtZ9YOjYtdSOK2uHCykOYNTjWln5GwNTaTeihn98fofw8fzH3VqQ5qGK59w3oZKMlszOePgAA="
-  },
   "images/projects/Piko Fg Music/Site Images/hero-bw.jpg": {
     "width": 1440,
     "height": 810,
     "base": "images/projects/Piko Fg Music/Site Images/hero-bw",
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAwCdASoUAAsAPxFysFAsJqSisAgBgCIJaQAAUrhwfIJbpevN7YAA/oHSWqpl7JT9ghzbBnt3hhekB64yt63jK5fjlTg9qWs0E7H3wZJESgLVHVYwFGxjd3Hl9JyDPmLggAAA"
+  },
+  "images/projects/Piko Fg Music/piko-logo.png": {
+    "width": 523,
+    "height": 794,
+    "base": "images/projects/Piko Fg Music/piko-logo",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRkgDAABXRUJQVlA4WAoAAAAQAAAAEwAAHQAAQUxQSPMBAAABkHDb1hm4wm+Sjm3btm3bqm3btm3btm27Y9uevFHbiJgAgAWEVCXAMGAl4NYfLMDCYH1mW6Yv9B0RJLv7BRiwGN7adG5x+z2svgGZRTkHwAEz6eLYMThbuPrPGDX/d/TUCvCnEzh3HL/PD89ML59/4G7beRlcLlCXbR8wpWXhrKLcKR5ln+5leaBwP0bQ88IDZzbSCnw/lnmFgrF3DZ43n7M9tuluywHPn0Nzw0K0RdA3hY5Aofx3adr3Q5k1M6AaqtsHiykBspcjhnCul1ePnXlvx9H9YJ/c13AcPm3BwQf3tprtoZzVH2fB/uqSOp6Ip5zHm45S86hDq6UwNjHwWw7tCTASkThK3wfZyIBFsiIkbtL8gTIC1+l7yoozW5QhqCh2JL+ZpxyPZVSadIFaaQzAwvszrfKTTKK2ibHPeL7KsQf7plwTIu+oObuV+IZgsGBhTQcBR54KPne00B5wAIdU6gdGfOO5MT+ptTgF6BFVrgiGhc0f+vJxhZgAABZR68CwcMnla561jQPXyxBbcNArbl4x+DEt7YVDkgoEsTyvIAXSw3TBAGBgL8YJ2i+bsMMJMBdG74IszObIOmvLAjYif2EAfXG46UgICmoI/qUnBycdGXEJfeF/YVjYGqhJqwhx/wIGZooyotJg/kNPCH8HAFZQOCAuAQAAUAYAnQEqFAAeAD8RcK9QLCYkIrAIAYAiCWwAxQaVuMBNLJEPiUW3s4GQTEG/mtL3T4Z87pPGR1faUAAA/ujzNcyjHoz7Jjb/r34ujXnjFdf6+PP86DkHSKQZBahTQue+7X4CyjnFk2w0cMMAMXyByFp5+i3nLtpYYTM/KAWqev+bMSIZzwyJuk/nrfdbxUeFRUsI0Hg6ns8t4Sn+afFJNksj4IpZCHXTRHG9LwIpI0x/32kmm4DWlnvodJN8r/P/P9oXNUgT7+N/ycmVUBhGYgL4poPqpgY2+7z4Q6XkrGBn2g928lYQlgVfy3jJH1sAbTl28kJGZDrtZ9YOjYtdSOK2uHCykOYNTjWln5GwNTaTeihn98fofw8fzH3VqQ5qGK59w3oZKMlszOePgAA="
   },
   "images/projects/Piko Fg Music/Site Images/grunge-window.jpg": {
     "width": 1280,
@@ -363,19 +363,19 @@
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQAwCdASoUAAwAPxFysFAsJqSisAgBgCIJQBhQAVEz0pUakAD+nvWP4vzgB5zRyvT/rnc9LIoUpEurSRPWRWuElwunDFdc0agkJAanq0mBlyi16gp2QGSuQAA="
   },
-  "images/projects/urgent care indy/occ-health-header.jpg": {
-    "width": 1000,
-    "height": 603,
-    "base": "images/projects/urgent care indy/occ-health-header",
-    "color": "rgb(168 168 168)",
-    "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJYgDE2BUpkH/mJ99rs/P+APd6ZeXCv5JNRwKHdumuYcSJ67IPaBHoT5WDySeAYaYQqcJZm9acI4eFVVtlZ10DxfL0bF0i0Wi3bUI8J3YAAA=="
-  },
   "images/projects/urgent care indy/what-we-treat-1.jpg": {
     "width": 1000,
     "height": 603,
     "base": "images/projects/urgent care indy/what-we-treat-1",
     "color": "rgb(136 136 136)",
     "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJQBfJAzRNMF0vYKyEgAD+6PV/2NXw0tyZpPVx0f46B0+BOowtmiOjBQxc19VQS9JUq7Gj+7jPI8LDD+MxoAAA"
+  },
+  "images/projects/urgent care indy/occ-health-header.jpg": {
+    "width": 1000,
+    "height": 603,
+    "base": "images/projects/urgent care indy/occ-health-header",
+    "color": "rgb(168 168 168)",
+    "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAAwAPxFysFAsJqSisAgBgCIJYgDE2BUpkH/mJ99rs/P+APd6ZeXCv5JNRwKHdumuYcSJ67IPaBHoT5WDySeAYaYQqcJZm9acI4eFVVtlZ10DxfL0bF0i0Wi3bUI8J3YAAA=="
   },
   "images/projects/urgent care indy/my-post-2.jpg": {
     "width": 1080,
