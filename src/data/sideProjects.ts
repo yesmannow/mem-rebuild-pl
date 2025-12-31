@@ -206,4 +206,22 @@ export const sideProjects: SideProject[] = [
     impact: ['Enhanced Shelf Appeal', 'Strong Brand Personality'],
     stack: ['Illustration', 'Packaging'],
   },
+  {
+    id: 'piko-fg-music',
+    title: 'Piko Fg Music',
+    category: 'Web Design',
+    tags: ['Next.js', 'WASM', 'Three.js', 'Audio Engineering', 'Industrial Design'],
+    description: 'High-end industrial web experience with WASM-powered audio processing and real-time DJ tools.',
+    image: '/images/projects/Piko Fg Music/Site Images/Screenshot of Piko Artist Studio.jpg',
+    year: '2024',
+    challenge: 'Legacy "gaming" UI lacked professional artist authority. Needed to transform the experience into a high-stakes tactical command center for producers.',
+    solution: 'Built a WASM-powered "Neural Signal Cracker" for real-time stem isolation with zero-latency audio processing. Integrated professional DJ crossfader logic using cosine/sine curves (Constant-Power) and holographic deck visualizers reactive to bass frequencies using Three.js.',
+    impact: [
+      'Zero-Latency Audio Processing',
+      'Professional DJ Authority',
+      'Real-Time Stem Isolation',
+      'High-Stakes Industrial UX'
+    ],
+    stack: ['Next.js', 'WebAssembly', 'Three.js', 'Web Audio API', 'TypeScript'],
+  },
 ];
