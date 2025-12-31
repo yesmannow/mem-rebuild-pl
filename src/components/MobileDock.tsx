@@ -124,9 +124,7 @@ const MobileDock: React.FC = () => {
                               }}
                             />
                           </div>
-                          <span className={`font-semibold text-base mb-1 text-center ${
-                            active ? 'text-white' : 'text-white'
-                          }`}>
+                          <span className="font-semibold text-base mb-1 text-center text-white">
                             {item.label}
                           </span>
                           <span className="text-xs text-brand-muted text-center leading-tight px-2">
