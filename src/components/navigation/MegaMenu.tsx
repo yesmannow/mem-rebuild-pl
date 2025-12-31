@@ -419,7 +419,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
   };
 
   return (
-    <div ref={menuRef} className="hidden md:flex items-center space-x-5">
+    <div ref={menuRef} className="hidden md:flex items-center space-x-8">
       {navLinks.map((link) => {
         const Icon = link.icon;
         const hasContent = megaMenuContent[link.name];
@@ -433,7 +433,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
           >
             <Link
               to={link.path}
-              className={`relative flex items-center gap-1.5 ${
+              className={`relative flex items-center gap-2 ${
                 isActive(link.path)
                   ? 'text-white scale-105'
                   : 'text-brand-muted hover:text-brand-turquoise'
@@ -441,11 +441,11 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
               aria-expanded={activeMenu === link.name}
               aria-haspopup={hasContent ? 'true' : 'false'}
             >
-              <Icon size={16} className="opacity-70" />
+              <Icon size={18} className="opacity-70" />
               <span>{link.name}</span>
               {hasContent && (
                 <ChevronDown
-                  size={14}
+                  size={16}
                   className={`transition-transform duration-200 ${
                     activeMenu === link.name ? 'rotate-180' : ''
                   }`}

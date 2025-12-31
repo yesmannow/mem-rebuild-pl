@@ -75,57 +75,68 @@ const MobileDock: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
-                <h2 className="text-lg font-semibold text-white">Navigation</h2>
-                <span className="text-xs text-brand-teal font-mono">System Menu</span>
+              <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
+                <div>
+                  <h2 className="text-xl font-bold text-white mb-1">Navigation</h2>
+                  <p className="text-xs text-brand-muted">Explore the portfolio</p>
+                </div>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="p-2.5 rounded-xl bg-slate-800/50 border border-white/10 hover:border-brand-teal/30 text-brand-muted hover:text-brand-teal transition-all"
+                  aria-label="Close menu"
+                >
+                  <X size={20} />
+                </button>
               </div>
 
               {/* Grid of menu items */}
-              <div className="grid grid-cols-2 gap-2 sm:gap-3 p-4 overflow-y-auto max-h-[calc(100vh-220px)] safe-area-inset">
-                {fullMenuItems.map((item, index) => {
-                  const Icon = item.icon;
-                  const active = isActive(item.path);
-                  return (
-                    <motion.div
-                      key={item.path}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                    >
-                      <Link
-                        to={item.path}
-                        onClick={handleMenuItemClick}
-                        className={`flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl sm:rounded-2xl border transition-all duration-300 touch-target min-h-[100px] ${
-                          active
-                            ? 'bg-brand-teal/20 border-brand-teal/50 text-brand-teal'
-                            : 'bg-slate-800/50 border-white/10 text-white hover:bg-slate-800 hover:border-brand-teal/30'
-                        }`}
+              <div className="p-5 overflow-y-auto max-h-[calc(100vh-200px)]">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                  {fullMenuItems.map((item, index) => {
+                    const Icon = item.icon;
+                    const active = isActive(item.path);
+                    return (
+                      <motion.div
+                        key={item.path}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.05 }}
                       >
-                        <Icon
-                          size={28}
-                          className={active ? 'text-brand-teal' : 'text-brand-muted'}
-                          style={{
-                            filter: active ? 'drop-shadow(0 0 8px rgba(64, 224, 208, 0.6))' : 'none',
-                          }}
-                        />
-                        <span className="mt-2 font-medium text-sm">{item.label}</span>
-                        <span className="text-[10px] text-brand-muted mt-0.5">{item.description}</span>
-                      </Link>
-                    </motion.div>
-                  );
-                })}
-              </div>
-
-              {/* Close Button */}
-              <div className="absolute bottom-4 sm:bottom-6 left-0 right-0 flex justify-center px-4 safe-area-inset">
-                <motion.button
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center gap-2 px-6 py-3 bg-slate-800 border border-white/10 rounded-full text-white font-medium touch-target w-full max-w-xs"
-                >
-                  <X size={18} />
-                  Close Menu
-                </motion.button>
+                        <Link
+                          to={item.path}
+                          onClick={handleMenuItemClick}
+                          className={`flex flex-col items-center justify-center p-4 sm:p-5 rounded-2xl border transition-all duration-300 min-h-[120px] ${
+                            active
+                              ? 'bg-gradient-to-br from-brand-teal/20 to-brand-turquoise/10 border-brand-teal/50 shadow-lg shadow-brand-teal/20'
+                              : 'bg-slate-800/40 border-white/10 hover:bg-slate-800/60 hover:border-brand-teal/30 active:scale-95'
+                          }`}
+                        >
+                          <div className={`mb-3 p-3 rounded-xl ${
+                            active 
+                              ? 'bg-brand-teal/20' 
+                              : 'bg-slate-700/50'
+                          }`}>
+                            <Icon
+                              size={28}
+                              className={active ? 'text-brand-teal' : 'text-brand-muted'}
+                              style={{
+                                filter: active ? 'drop-shadow(0 0 8px rgba(64, 224, 208, 0.6))' : 'none',
+                              }}
+                            />
+                          </div>
+                          <span className={`font-semibold text-base mb-1 text-center ${
+                            active ? 'text-white' : 'text-white'
+                          }`}>
+                            {item.label}
+                          </span>
+                          <span className="text-xs text-brand-muted text-center leading-tight px-2">
+                            {item.description}
+                          </span>
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
+                </div>
               </div>
             </motion.div>
           </motion.div>
@@ -141,16 +152,16 @@ const MobileDock: React.FC = () => {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4, ease: [0.25, 0.35, 0, 1] }}
-          className="relative bg-slate-900/85 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl"
+          className="relative bg-slate-900/90 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl"
           style={{
             boxShadow:
-              '0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(64, 224, 208, 0.1), 0 -2px 20px rgba(64, 224, 208, 0.2)',
+              '0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(64, 224, 208, 0.15), 0 -2px 24px rgba(64, 224, 208, 0.25)',
           }}
         >
           {/* Teal accent line at top */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-brand-teal/60 to-transparent" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-transparent via-brand-teal to-transparent rounded-full" />
 
-          <div className="flex items-center justify-evenly px-2 py-2">
+          <div className="flex items-center justify-evenly px-3 py-3">
             {/* Core Navigation Items */}
             {dockItems.map((item) => {
               const Icon = item.icon;
@@ -161,12 +172,12 @@ const MobileDock: React.FC = () => {
                   to={item.path}
                   onClick={handleTap}
                   aria-label={item.ariaLabel}
-                  className="relative flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 group"
+                  className="relative flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 group min-w-[72px]"
                 >
                   {active && (
                     <motion.div
                       layoutId="activeDockItem"
-                      className="absolute inset-0 rounded-xl bg-brand-teal/20"
+                      className="absolute inset-0 rounded-xl bg-gradient-to-b from-brand-teal/20 to-brand-teal/10 border border-brand-teal/30"
                       initial={false}
                       transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                     />
@@ -178,7 +189,7 @@ const MobileDock: React.FC = () => {
                     animate={active ? { scale: 1.1 } : { scale: 1 }}
                   >
                     <Icon
-                      size={22}
+                      size={24}
                       className={`transition-all duration-300 ${
                         active ? 'text-brand-teal' : 'text-brand-muted group-hover:text-brand-teal/70'
                       }`}
@@ -189,8 +200,8 @@ const MobileDock: React.FC = () => {
                   </motion.div>
 
                   <span
-                    className={`text-[10px] whitespace-nowrap mt-1 font-medium transition-colors duration-300 ${
-                      active ? 'text-brand-teal' : 'text-brand-muted/60'
+                    className={`text-[11px] whitespace-nowrap mt-1.5 font-semibold transition-colors duration-300 ${
+                      active ? 'text-brand-teal' : 'text-brand-muted/70'
                     }`}
                   >
                     {item.label}
@@ -204,12 +215,12 @@ const MobileDock: React.FC = () => {
               whileTap={{ scale: 0.85 }}
               onClick={handleMenuToggle}
               aria-label="Open full menu"
-              className={`relative flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 ${
-                isMenuOpen ? 'bg-brand-teal/20' : ''
+              className={`relative flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 min-w-[72px] ${
+                isMenuOpen ? 'bg-gradient-to-b from-brand-teal/20 to-brand-teal/10 border border-brand-teal/30' : ''
               }`}
             >
               <Grip
-                size={22}
+                size={24}
                 className={`transition-all duration-300 ${
                   isMenuOpen ? 'text-brand-teal' : 'text-brand-muted'
                 }`}
@@ -218,8 +229,8 @@ const MobileDock: React.FC = () => {
                 }}
               />
               <span
-                className={`text-[10px] whitespace-nowrap mt-1 font-medium transition-colors duration-300 ${
-                  isMenuOpen ? 'text-brand-teal' : 'text-brand-muted/60'
+                className={`text-[11px] whitespace-nowrap mt-1.5 font-semibold transition-colors duration-300 ${
+                  isMenuOpen ? 'text-brand-teal' : 'text-brand-muted/70'
                 }`}
               >
                 More
