@@ -282,7 +282,7 @@ const SideProjectDetail: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <SpotlightCard className="p-8 md:p-12 bg-[#050505] border-2 border-[#FFD700]" style={{ borderRadius: '0px' }}>
+                <SpotlightCard className="p-8 md:p-12 bg-[#050505] border-2 border-[#FFD700] rounded-none">
                   {/* Title with Industrial Styling */}
                   <div className="mb-8 text-center">
                     <motion.h2
