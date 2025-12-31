@@ -42,6 +42,7 @@ const SideProjectDetail: React.FC = () => {
     'clean-aesthetic': 'Clean Aesthetic',
     'hoosier-boy': 'Hoosierboy Barbershop',
     'urgent-care-indy': 'urgent care indy',
+    'piko-fg-music': 'Piko Fg Music',
   };
 
   useEffect(() => {
@@ -79,6 +80,15 @@ const SideProjectDetail: React.FC = () => {
         '/images/projects/ResQ Organics/cbd-oil-for-pets.webp',
         '/images/projects/ResQ Organics/dog-dry-skin-remedy.webp',
         '/images/projects/ResQ Organics/skincare-for-dogs-and-cats.webp',
+      ],
+      'piko-fg-music': [
+        '/images/projects/Piko Fg Music/Site Images/Screenshot of Piko Artist Studio.jpg',
+        '/images/projects/Piko Fg Music/Site Images/Screenshot of PIKO _ Pro DJ Console.jpg',
+        '/images/projects/Piko Fg Music/Site Images/hero-bw.jpg',
+        '/images/projects/Piko Fg Music/Site Images/hero-white.jpg',
+        '/images/projects/Piko Fg Music/Site Images/graffiti-wall-2.jpg',
+        '/images/projects/Piko Fg Music/Site Images/grunge-window.jpg',
+        '/images/projects/Piko Fg Music/piko-logo.png',
       ],
     };
 
@@ -258,6 +268,187 @@ const SideProjectDetail: React.FC = () => {
                     </SpotlightCard>
                   ))}
                 </div>
+              </motion.section>
+            )}
+
+            <SectionDivider />
+
+            {/* Piko Fg Music - Syndicate Dispatch: Real-Time Telemetry Logic */}
+            {project.id === 'piko-fg-music' && (
+              <motion.section
+                className="mb-16"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <SpotlightCard className="p-8 md:p-12 bg-[#050505] border-2 border-[#FFD700]" style={{ borderRadius: '0px' }}>
+                  {/* Title with Industrial Styling */}
+                  <div className="mb-8 text-center">
+                    <motion.h2
+                      className="text-3xl md:text-4xl font-black italic text-[#FFD700] mb-3 uppercase tracking-wider"
+                      style={{
+                        transform: 'skew(-12deg)',
+                        fontFamily: '"Lexend", sans-serif',
+                        textShadow: '3px 3px 6px rgba(0, 0, 0, 0.9)',
+                      }}
+                    >
+                      SYNDICATE DISPATCH
+                    </motion.h2>
+                    <p 
+                      className="text-xs text-gray-400 font-mono uppercase tracking-widest"
+                      style={{ fontFamily: '"JetBrains Mono", monospace' }}
+                    >
+                      REAL-TIME TELEMETRY LOGIC
+                    </p>
+                  </div>
+
+                  {/* Main Content */}
+                  <div className="space-y-6 text-gray-300">
+                    <div>
+                      <p className="leading-relaxed mb-4">
+                        The <span className="text-[#FFD700] font-semibold">Syndicate Dispatch</span> is the technical heart of the Studio Engine V3, 
+                        manifested through the <span className="font-mono text-brand-teal">StudioMonitor</span> component. It serves as a real-time 
+                        telemetry readout, providing producers with mission-critical feedback as they "crack" signals and command the mix.
+                      </p>
+                    </div>
+
+                    {/* Tactical Communication Protocol */}
+                    <div className="border-l-2 border-[#FFD700] pl-6">
+                      <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                        <Code size={20} className="text-[#FFD700]" />
+                        Tactical Communication Protocol
+                      </h3>
+                      <p className="text-sm leading-relaxed mb-4">
+                        The <span className="font-mono text-brand-teal">StudioMonitor</span> utilizes a specialized linguistic dictionary to reinforce 
+                        the project's industrial narrative. Standard web interactions are translated into high-stakes tactical commands:
+                      </p>
+                      
+                      <ul className="space-y-3 text-sm">
+                        <li className="flex gap-3">
+                          <span className="text-[#FFD700] font-mono shrink-0">→</span>
+                          <div>
+                            <span className="font-semibold text-white">Signal Acquisition:</span> Loading a track is logged as{' '}
+                            <code className="px-2 py-0.5 bg-black/50 border border-[#FFD700]/30 text-[#FFD700] font-mono text-xs" style={{ borderRadius: '0px' }}>
+                              SIGNAL_ACQUIRED
+                            </code> or{' '}
+                            <code className="px-2 py-0.5 bg-black/50 border border-[#FFD700]/30 text-[#FFD700] font-mono text-xs" style={{ borderRadius: '0px' }}>
+                              DECK_A_LOADED
+                            </code>, transitioning the interface from idle to active unit tracking.
+                          </div>
+                        </li>
+                        
+                        <li className="flex gap-3">
+                          <span className="text-[#FFD700] font-mono shrink-0">→</span>
+                          <div>
+                            <span className="font-semibold text-white">Decryption Narrative:</span> Instead of standard progress bars, the monitor 
+                            outputs a sequence of "decryption" logs—such as{' '}
+                            <code className="px-2 py-0.5 bg-black/50 border border-[#FFD700]/30 text-[#FFD700] font-mono text-xs" style={{ borderRadius: '0px' }}>
+                              PREPARING_MASTER_STEMS
+                            </code> and{' '}
+                            <code className="px-2 py-0.5 bg-black/50 border border-[#FFD700]/30 text-[#FFD700] font-mono text-xs" style={{ borderRadius: '0px' }}>
+                              DECRYPTING_SIGNAL_CHAIN
+                            </code>—to simulate the technical effort required to isolate audio frequencies.
+                          </div>
+                        </li>
+                        
+                        <li className="flex gap-3">
+                          <span className="text-[#FFD700] font-mono shrink-0">→</span>
+                          <div>
+                            <span className="font-semibold text-white">System Status:</span> The boot sequence provides a choreographed rollout, 
+                            logging{' '}
+                            <code className="px-2 py-0.5 bg-black/50 border border-[#FFD700]/30 text-[#FFD700] font-mono text-xs" style={{ borderRadius: '0px' }}>
+                              SESSION_INITIALIZED
+                            </code>,{' '}
+                            <code className="px-2 py-0.5 bg-black/50 border border-[#FFD700]/30 text-[#FFD700] font-mono text-xs" style={{ borderRadius: '0px' }}>
+                              NEURAL STEMS ONLINE
+                            </code>, and{' '}
+                            <code className="px-2 py-0.5 bg-black/50 border border-[#FFD700]/30 text-[#FFD700] font-mono text-xs" style={{ borderRadius: '0px' }}>
+                              COMMAND THE MIX
+                            </code> to ensure users feel they are entering a high-security vault.
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Signal Cracking Telemetry */}
+                    <div className="border-l-2 border-brand-teal pl-6">
+                      <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                        <TrendingUp size={20} className="text-brand-teal" />
+                        "Signal Cracking" Telemetry
+                      </h3>
+                      <p className="text-sm leading-relaxed mb-4">
+                        When a producer imports an "Unverified Signal" (user-uploaded file), the telemetry logic initiates a timed 
+                        "cracking" sequence to build anticipation and simulate complex AI processing:
+                      </p>
+                      
+                      <div className="space-y-2 text-sm font-mono bg-black/30 p-4" style={{ borderRadius: '0px', border: '1px solid #333' }}>
+                        <div className="flex gap-3">
+                          <span className="text-[#FFD700]">0.0s:</span>
+                          <span>Immediate feedback with <span className="text-brand-teal">PREPARING_MASTER_STEMS</span> for the specific filename.</span>
+                        </div>
+                        <div className="flex gap-3">
+                          <span className="text-[#FFD700]">1.2s:</span>
+                          <span>Announcement of specific frequency isolation: <span className="text-brand-teal">VOCALS | INSTRUMENTAL | BASS</span>.</span>
+                        </div>
+                        <div className="flex gap-3">
+                          <span className="text-[#FFD700]">2.5s:</span>
+                          <span>Confirmation that audio processing pipeline is active with <span className="text-brand-teal">COMPRESSION_CHAIN_LIVE</span>.</span>
+                        </div>
+                        <div className="flex gap-3">
+                          <span className="text-[#FFD700]">3.5s:</span>
+                          <span>Final session authorization: <span className="text-brand-teal">SESSION_READY</span>.</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Technical Architecture */}
+                    <div className="border-l-2 border-brand-orange pl-6">
+                      <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                        <Palette size={20} className="text-brand-orange" />
+                        Technical Architecture
+                      </h3>
+                      <p className="text-sm leading-relaxed">
+                        Built on a custom hook-based system, the <span className="font-mono text-brand-teal">useStudioMonitor</span> manages 
+                        a persistent log stack that interfaces directly with the Audio Engine. This allows the monitor to react dynamically 
+                        to audio events, such as logging{' '}
+                        <code className="px-2 py-0.5 bg-black/50 border border-brand-teal/30 text-brand-teal font-mono text-xs" style={{ borderRadius: '0px' }}>
+                          STUDIO_CORE: DECELERATING
+                        </code> when a turntable-style tape stop effect is triggered, or confirming successful render completions with{' '}
+                        <code className="px-2 py-0.5 bg-black/50 border border-brand-teal/30 text-brand-teal font-mono text-xs" style={{ borderRadius: '0px' }}>
+                          MIX_RENDERED: DOWNLOAD_COMPLETE
+                        </code>. The visual presentation remains strictly brutalist, featuring a{' '}
+                        <span className="text-[#FFD700] font-semibold">Safety Yellow</span> and{' '}
+                        <span className="text-gray-400 font-semibold">Industrial Chrome</span> palette that mirrors the aesthetic 
+                        of professional field equipment.
+                      </p>
+                    </div>
+
+                    {/* External Links */}
+                    <div className="flex flex-wrap gap-4 pt-6 border-t border-[#FFD700]/20">
+                      <a
+                        href="https://piko-artist-website.vercel.app/studio"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#FFD700] text-black font-bold uppercase tracking-wider hover:bg-white transition-colors"
+                        style={{ borderRadius: '0px' }}
+                      >
+                        EXPERIENCE LIVE SITE
+                        <ExternalLink size={18} />
+                      </a>
+                      <a
+                        href="https://github.com/yesmannow/piko-artist-website-v3"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#FFD700] text-[#FFD700] font-bold uppercase tracking-wider hover:bg-[#FFD700] hover:text-black transition-colors"
+                        style={{ borderRadius: '0px' }}
+                      >
+                        VIEW REPOSITORY
+                        <Code size={18} />
+                      </a>
+                    </div>
+                  </div>
+                </SpotlightCard>
               </motion.section>
             )}
 
