@@ -5,6 +5,7 @@ import { Filter, Sparkles, Palette, Compass, Layers, LineChart, Tag as TagIcon, 
 import { Link } from 'react-router-dom';
 import { sideProjects } from '../data/sideProjects';
 import { SideProjectCard, SideProjectCardData } from '../components/ui/SideProjectCard';
+import { PikoProjectCard } from '../components/ui/PikoProjectCard';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import SectionDivider from '../components/ui/SectionDivider';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
@@ -342,9 +343,13 @@ const SideProjects: React.FC = () => {
                 </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredProjects.map((project, index) => (
-                  <SideProjectCard key={project.id} project={project} index={index} />
-                ))}
+                {filteredProjects.map((project, index) => {
+                  // Use specialized card for Piko Fg Music
+                  if (project.id === 'piko-fg-music') {
+                    return <PikoProjectCard key={project.id} project={project} index={index} />;
+                  }
+                  return <SideProjectCard key={project.id} project={project} index={index} />;
+                })}
               </div>
             </motion.section>
 
