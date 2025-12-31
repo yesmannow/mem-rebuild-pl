@@ -16,6 +16,8 @@ import { AppSection } from '../ui/AppSection';
 import { AppButton } from '../ui/AppButton';
 import { PageParticleBackground } from '../components/PageParticleBackground';
 import { FeaturedAppsShowcase } from '../components/home/FeaturedAppsShowcase';
+import { LivePortfolioMetrics } from '../components/ui/LivePortfolioMetrics';
+import { TypewriterEffect } from '../components/ui/TypewriterEffect';
 
 const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
 const TechProfile = React.lazy(() => import('../components/TechProfile'));
@@ -95,7 +97,10 @@ const Home: React.FC = () => {
               className="space-y-8"
             >
               <p className="text-sm font-mono uppercase tracking-[0.35em] text-brand-muted">
-                Fractional CMO & Marketing Technologist
+                Fractional CMO & <TypewriterEffect 
+                  words={['Marketing Technologist', 'Systems Architect', 'Growth Strategist', 'Revenue Engineer']} 
+                  className="text-brand-teal"
+                />
               </p>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-text leading-tight">
                 Transforming marketing challenges into <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-turquoise to-brand-creamsicle">measurable business results</span>
@@ -203,6 +208,13 @@ const Home: React.FC = () => {
 
         {/* Featured Apps Showcase */}
         <FeaturedAppsShowcase />
+
+        <SectionDivider />
+
+        {/* Live Portfolio Metrics Dashboard */}
+        <AppSection padding="lg" container={true}>
+          <LivePortfolioMetrics className="py-8" />
+        </AppSection>
 
         <SectionDivider />
 
