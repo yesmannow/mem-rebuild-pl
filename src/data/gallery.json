@@ -10,26 +10,6 @@
     }
   },
   {
-    "file": "images/bio/IMG_20230617_015647_366.jpg",
-    "meta": {
-      "width": 1867,
-      "height": 1536,
-      "base": "images/bio/IMG_20230617_015647_366",
-      "color": "rgb(8 8 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAABwBACdASoUABAAPxFwsFAsJiSisAgBgCIJbAC7L11s/xa3KIth+KFwsdUypAD+oNce8hNZaqdS2I/Rrm88T0vUPA3Mza6XiYcxGPUQv/ztH5/MB625rNXvIEXX/yAzIKXOlbGakCr3G/LBkwuXFxydEd7M+XKJw/GjbgS3mMI33fE3vr3gZvpPhV6NXyrPFS+XR1/+EhtlYPI162+wMQEuQbbrKNDm1+q2cWX6gAAAAA=="
-    }
-  },
-  {
-    "file": "images/bio/bio pic 3.png",
-    "meta": {
-      "width": 1678,
-      "height": 1550,
-      "base": "images/bio/bio pic 3",
-      "color": "rgb(152 152 152)",
-      "blurDataURL": "data:image/webp;base64,UklGRg4BAABXRUJQVlA4WAoAAAAQAAAAEwAAEQAAQUxQSIoAAAABgB3Ztmkr/xAuF65t/tm2bT7bOMggIiaA5NZJAUoUxVp3x4Si1LFPp4LFKMMvjYCWBbE2+vT5+WAGYerJ58f7dV7FQognj5+f840dBGHl7ePj88Yigi6fn+8BNQsC8yx3u9UjCYeAorswknDkqD6/sLAwIqvFe7CQaBPeVNQsBiE51KEYIo2KfgNWUDggXgAAANADAJ0BKhQAEgA/EXq2U6wnpSgoCqmAIgljAMb0CsJeSMHsrwDeSAD8seD6qOv3v7ZNlKZguacXn6DsT+1ivdzMSit4XqVnBhAqZcerMRFyECSALt27oYlZMIyAAAA="
-    }
-  },
-  {
     "file": "images/bio/bio-photo.jpg",
     "meta": {
       "width": 2048,
@@ -37,6 +17,16 @@
       "base": "images/bio/bio-photo",
       "color": "rgb(8 8 8)",
       "blurDataURL": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABwBACdASoUAA0APxFysFAsJqSisAgBgCIJZACdIMggthCahY0hNku2UJ9XQAD8itaB4nJA0F+sjhZnfEEdf39ujbPsKWEzrvFMSqZh/UoH0EwtOTqdfZsDZ9/gst1v0A1NbpNmqSyBzLvo+N3zSgdb2l1KmYRHZAtk8Cojmk31ahB6C1S5CvCUAAA="
+    }
+  },
+  {
+    "file": "images/bio/IMG_20230617_015647_366.jpg",
+    "meta": {
+      "width": 1867,
+      "height": 1536,
+      "base": "images/bio/IMG_20230617_015647_366",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAABwBACdASoUABAAPxFwsFAsJiSisAgBgCIJbAC7L11s/xa3KIth+KFwsdUypAD+oNce8hNZaqdS2I/Rrm88T0vUPA3Mza6XiYcxGPUQv/ztH5/MB625rNXvIEXX/yAzIKXOlbGakCr3G/LBkwuXFxydEd7M+XKJw/GjbgS3mMI33fE3vr3gZvpPhV6NXyrPFS+XR1/+EhtlYPI162+wMQEuQbbrKNDm1+q2cWX6gAAAAA=="
     }
   },
   {
@@ -50,6 +40,16 @@
     }
   },
   {
+    "file": "images/bio/bio pic 3.png",
+    "meta": {
+      "width": 1678,
+      "height": 1550,
+      "base": "images/bio/bio pic 3",
+      "color": "rgb(152 152 152)",
+      "blurDataURL": "data:image/webp;base64,UklGRg4BAABXRUJQVlA4WAoAAAAQAAAAEwAAEQAAQUxQSIoAAAABgB3Ztmkr/xAuF65t/tm2bT7bOMggIiaA5NZJAUoUxVp3x4Si1LFPp4LFKMMvjYCWBbE2+vT5+WAGYerJ58f7dV7FQognj5+f840dBGHl7ePj88Yigi6fn+8BNQsC8yx3u9UjCYeAorswknDkqD6/sLAwIqvFe7CQaBPeVNQsBiE51KEYIo2KfgNWUDggXgAAANADAJ0BKhQAEgA/EXq2U6wnpSgoCqmAIgljAMb0CsJeSMHsrwDeSAD8seD6qOv3v7ZNlKZguacXn6DsT+1ivdzMSit4XqVnBhAqZcerMRFyECSALt27oYlZMIyAAAA="
+    }
+  },
+  {
     "file": "images/projects/317 bbq/20231008_174703.jpg",
     "meta": {
       "width": 900,
@@ -57,16 +57,6 @@
       "base": "images/projects/317 bbq/20231008_174703",
       "color": "rgb(24 24 24)",
       "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAwCdASoUAAkAPxFysVCsJqSisAgBgCIJYwAAYdidW24azZazawAA/t2e4m2bCJyiwDovqYuLuE1SCeKhHJpj4HJ2VswLfeDr3EAGQbOsb7fZUE563mymAAA="
-    }
-  },
-  {
-    "file": "images/projects/317 bbq/20231008_175510.jpg",
-    "meta": {
-      "width": 900,
-      "height": 420,
-      "base": "images/projects/317 bbq/20231008_175510",
-      "color": "rgb(72 56 40)",
-      "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
     }
   },
   {
@@ -100,6 +90,16 @@
     }
   },
   {
+    "file": "images/projects/317 bbq/20231008_175510.jpg",
+    "meta": {
+      "width": 900,
+      "height": 420,
+      "base": "images/projects/317 bbq/20231008_175510",
+      "color": "rgb(72 56 40)",
+      "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAAkAPxFysFAsJqSisAgBgCIJQBWCP/wIDHfE5K7Rb3XAAAD77BlGoIfppFK8wNvun5hJlKsFT+0QfRUVfY6+9MJXUVpOD3Xu/AlwwefyBo2bZ+SXLCWv3/yJQMBAkCg7gJkQNnAcAA=="
+    }
+  },
+  {
     "file": "images/projects/317 bbq/20231008_175654.jpg",
     "meta": {
       "width": 900,
@@ -120,16 +120,6 @@
     }
   },
   {
-    "file": "images/projects/317 bbq/20231008_175512.jpg",
-    "meta": {
-      "width": 900,
-      "height": 420,
-      "base": "images/projects/317 bbq/20231008_175512",
-      "color": "rgb(248 232 216)",
-      "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAAkAPxF2sVAsJ6SisAgBgCIJagCdMoADCfg0bkLzbAAA4lFuh8CYLfqGmh7m1dbp+F14MI4iK7jkPSxt3lW2LQ+FMIW9YtjjQ47h3ATNevQPbfgcYOJujwBU44D5DO4q3CmJzRpbQF4nfAQaBSR8AwAAAA=="
-    }
-  },
-  {
     "file": "images/projects/317 bbq/20231008_175650.jpg",
     "meta": {
       "width": 900,
@@ -137,6 +127,16 @@
       "base": "images/projects/317 bbq/20231008_175650",
       "color": "rgb(24 24 24)",
       "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoUAAkAPxFysFAsJqSisAgBgCIJZACdMoACxGdBHE/ZSu/VMSAA4dkn27ihdVbw/g8ed/njRaG4zEDUDLKlbxnyxSkrKEY7wx0SHztHTGZdAhOAMJ+5zVERfXo40Uonc7GNAAAA"
+    }
+  },
+  {
+    "file": "images/projects/317 bbq/20231008_175512.jpg",
+    "meta": {
+      "width": 900,
+      "height": 420,
+      "base": "images/projects/317 bbq/20231008_175512",
+      "color": "rgb(248 232 216)",
+      "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAAkAPxF2sVAsJ6SisAgBgCIJagCdMoADCfg0bkLzbAAA4lFuh8CYLfqGmh7m1dbp+F14MI4iK7jkPSxt3lW2LQ+FMIW9YtjjQ47h3ATNevQPbfgcYOJujwBU44D5DO4q3CmJzRpbQF4nfAQaBSR8AwAAAA=="
     }
   },
   {
@@ -230,16 +230,6 @@
     }
   },
   {
-    "file": "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post.png",
-    "meta": {
-      "width": 1080,
-      "height": 1080,
-      "base": "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post",
-      "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoUABQAPvVip1AqpaOit+gBUB6JbADE2DJPZbuJ/qkcHr+olAAA/u3XsrFq6dO6rbFJLw1uomVtwRhjDDzU/HQEGD3ZQIaTNTwVmPQcD1gs34Eij4s5H1E6wcXgN1v+0/QqRiM/scuTApYBMFirqiKzk3NI0BXGYcWI9br0UkYAAA=="
-    }
-  },
-  {
     "file": "images/projects/Primarycare Indy/Primary Care Logo with PMC.png",
     "meta": {
       "width": 2356,
@@ -247,6 +237,16 @@
       "base": "images/projects/Primarycare Indy/Primary Care Logo with PMC",
       "color": "rgb(248 248 248)",
       "blurDataURL": "data:image/webp;base64,UklGRvwAAABXRUJQVlA4WAoAAAAQAAAAEwAABAAAQUxQSGUAAAAAIBciKzkrAAAAAAEBAAAAAAEAAAAwC7GAGSwxLQQHBQUGBhEmCgMGAia61smzCkA5Rzw7MkMsLTAWOEsgDzymxC8BDBcrIy4jICIbJyAmLA8BAFlbAAECGR0ZIRkVGCEcFRkYBQBWUDggcAAAAPADAJ0BKhQABQA/EXKxUCwmpKKwCAGAIglsAJ0yga+2Av39sRsJucAA+PvsMpiC/ocfP7bhiDUp83PLNkYjMKy0vKY9TxJd0o7HQX4zYETv8PdtA9WPiGtn9DfMSXFXCczWBBKJ8Ss0Gug6TRz+QAA="
+    }
+  },
+  {
+    "file": "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post.png",
+    "meta": {
+      "width": 1080,
+      "height": 1080,
+      "base": "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoUABQAPvVip1AqpaOit+gBUB6JbADE2DJPZbuJ/qkcHr+olAAA/u3XsrFq6dO6rbFJLw1uomVtwRhjDDzU/HQEGD3ZQIaTNTwVmPQcD1gs34Eij4s5H1E6wcXgN1v+0/QqRiM/scuTApYBMFirqiKzk3NI0BXGYcWI9br0UkYAAA=="
     }
   },
   {
@@ -270,13 +270,13 @@
     }
   },
   {
-    "file": "images/projects/ResQ Organics/Skincare-for-Dogs-and-Cats.jpg",
+    "file": "images/projects/ResQ Organics/ResQ Organics for Pets.png",
     "meta": {
-      "width": 1000,
-      "height": 1000,
-      "base": "images/projects/ResQ Organics/Skincare-for-Dogs-and-Cats",
+      "width": 831,
+      "height": 519,
+      "base": "images/projects/ResQ Organics/ResQ Organics for Pets",
       "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAACwBACdASoUABQAPxGAuFWsKCUjKAgBgCIJYwDKAA3mM6N8UBTGze0Wd0UJpcPgAP7oX7pA/9sbaWAE6t2B9OlOGoXVxcoS/7l1WVXsu6CBLI0LYRamOfTjDqehi9enMPFDb+AA85qu5fvVdfbTvIhoOeuXzgIc9ZlRfxXW87zkDye7EvqUgplB+4Vu2djcCOguxLFhVU/GIcelwEAYsJ1nAAA="
+      "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
     }
   },
   {
@@ -290,13 +290,13 @@
     }
   },
   {
-    "file": "images/projects/ResQ Organics/ResQ Organics for Pets.png",
+    "file": "images/projects/ResQ Organics/Skincare-for-Dogs-and-Cats.jpg",
     "meta": {
-      "width": 831,
-      "height": 519,
-      "base": "images/projects/ResQ Organics/ResQ Organics for Pets",
+      "width": 1000,
+      "height": 1000,
+      "base": "images/projects/ResQ Organics/Skincare-for-Dogs-and-Cats",
       "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
+      "blurDataURL": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAACwBACdASoUABQAPxGAuFWsKCUjKAgBgCIJYwDKAA3mM6N8UBTGze0Wd0UJpcPgAP7oX7pA/9sbaWAE6t2B9OlOGoXVxcoS/7l1WVXsu6CBLI0LYRamOfTjDqehi9enMPFDb+AA85qu5fvVdfbTvIhoOeuXzgIc9ZlRfxXW87zkDye7EvqUgplB+4Vu2djcCOguxLFhVU/GIcelwEAYsJ1nAAA="
     }
   },
   {
