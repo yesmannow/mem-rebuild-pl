@@ -5,112 +5,199 @@ export const sideProjects: SideProject[] = [
   {
     id: 'primary-care-indy',
     title: 'Primary Care Indy',
+    year: '2022–Present',
     category: 'Web Design',
-    tags: ['Healthcare', 'SEO', 'Trust'],
-    description: 'Modernized visual identity increasing patient inquiries by 45%.',
-    image: '/images/projects/Primarycare Indy/Primary Care Logo with PMC.png', // UPDATED
-    year: '2023',
-    challenge: 'Modernize a family practice brand to build trust and accessibility while maintaining warmth.',
+    description:
+      'A comprehensive brand and digital buildout for a growing family medicine clinic in Indianapolis—identity, WordPress build, local SEO, Google Business optimization, and a HIPAA-safe Mailchimp communication system.',
+    challenge:
+      'Build a modern, accessible healthcare brand and launch a conversion-focused, mobile-optimized website that improves local discovery, drives appointment bookings through Google Search/Maps, and supports ongoing patient communication and trust.',
     solution:
-      'Created a clean, professional identity system and a conversion-focused WordPress site. Implemented local SEO strategies.',
-    impact: ['+120% Online Engagement', '+45% New Patient Inquiries', '4.9/5 Patient Satisfaction'],
-    stack: ['WordPress', 'Google Maps API', 'Mailchimp'],
+      'Designed an approachable identity (person + cross icon) with calming professional tones and a scalable logo system. Built a WordPress site with a custom theme, optimized load times, clear appointment CTAs, integrated Google Maps, and HIPAA-safe form routing, plus schema markup for medical services. Executed a local SEO strategy (technical SEO, on-page optimization, internal linking, and long-tail blog content), and implemented an ongoing Google Business + review workflow. Developed and maintained a HIPAA-compliant Mailchimp system with responsive templates, seasonal campaigns, and performance testing.',
+    impact: [
+      '300% increase in organic traffic over 12 months.',
+      'Ranked on page 1 for high-intent local search terms.',
+      '70% of inbound appointments attributed to Google Search + Maps.',
+      '5-star Google rating maintained with 50+ reviews.'
+    ],
+    stack: [
+      'Brand Identity & Logo Design',
+      'WordPress Web Design & Development (custom theme)',
+      'SEO + Schema Markup',
+      'Google Business Profile + Review Strategy',
+      'Google Maps + Conversion CTAs',
+      'Mailchimp Email Campaigns (HIPAA-safe routing)',
+      'Analytics Reporting + CRO Testing',
+      'Long-term Maintenance + Growth Support'
+    ],
+    tags: ['Healthcare', 'Branding', 'WordPress', 'Local SEO', 'Email Marketing', 'Analytics'],
+    image: '/images/projects/Primarycare Indy/primarycare indy logo.png'
   },
   {
     id: 'urgent-care-indy',
     title: 'Urgent Care Indy',
+    year: '2022–Present',
     category: 'Web Design',
-    tags: ['Healthcare', 'Ads', 'Conversion'],
-    description: 'Digital transformation driving patient growth for a top walk-in clinic.',
-    image: '/images/projects/urgent care indy/UCI Logo.png',
-    year: '2022',
-    challenge: 'Rebrand a clinic to signal speed and compassion while reducing cost-per-acquisition.',
-    solution: "Developed an 'Urgency meets Trust' logo system and a mobile-first website optimized for speed.",
-    impact: ['Consistent Traffic Growth', 'Reduced Cost-Per-Acquisition', 'High Patient Satisfaction'],
-    stack: ['Google Ads', 'Analytics', 'Mobile-First UI'],
+    description:
+      'A modern rebrand and digital transformation for an Indianapolis walk-in clinic—logo design, WordPress website, SEO, Google Ads management, and ongoing Mailchimp email marketing built to drive patient growth.',
+    challenge:
+      'Design a clean, trustworthy urgent care brand and build a fast, mobile-optimized website with clear conversion paths—then increase new patient appointments through SEO and paid search while maintaining consistent communications via email.',
+    solution:
+      'Created a logo concept of "urgency meets trust," integrating a modernized medical cross with forward-motion elements and calming blue/green tones. Built a WordPress site (custom theme) with lightning-fast mobile-first UX, clear CTAs (Book Now, Contact, Location, Services), SEO-optimized service/location pages, Google Maps integration, contact forms, and medical disclaimers. Launched and actively managed high-performing local Google Ads campaigns using geo-targeting, device optimization, custom landing pages, monthly reporting, keyword tuning, and A/B testing. Designed and sent ongoing Mailchimp newsletters and service updates using mobile-optimized templates and analytics tracking.',
+    impact: [
+      'Consistent increase in patient traffic via organic and paid search.',
+      'Improved patient experience from first click to appointment.',
+      'Stronger brand recognition in the local healthcare space.',
+      'Reduced cost-per-acquisition through ongoing campaign optimization.'
+    ],
+    stack: [
+      'Brand Identity & Logo Design',
+      'WordPress Web Design & Development (custom theme)',
+      'Local SEO + Keyword Targeting',
+      'Google Ads Strategy & Management',
+      'Landing Page Testing + CRO',
+      'Mailchimp Email Marketing',
+      'Analytics Reporting',
+      'Hosting, Security, Maintenance Support'
+    ],
+    tags: ['Healthcare', 'Branding', 'WordPress', 'SEO', 'Google Ads', 'Email Marketing'],
+    image: '/images/projects/urgent care indy/urgent care indy logo.png'
   },
   {
     id: 'hoosier-boy',
     title: 'Hoosier Boy Barbershop',
-    category: 'Branding',
-    tags: ['Local Business', 'Identity', 'Americana'],
-    description: 'Bold, state-pride branding for a community staple.',
-    image: '/images/projects/Hoosierboy Barbershop/Hoosierboy Barbershop logo 1 (1).png',
     year: '2023',
-    challenge: 'Build a brand grounded in local pride (The Cardinal) that feels classic yet fresh.',
-    solution: 'Designed a logo system blending Indiana iconography with traditional barber stripes. Launched a booking-integrated website.',
-    impact: ['Immediate Local Buzz', 'Increased Foot Traffic', 'High Visibility Signage'],
-    stack: ['Illustrator', 'Local SEO', 'Booking System'],
+    category: 'Branding',
+    description:
+      'A bold barbershop brand built from scratch—custom cardinal + barber pole mark, Americana palette, and a mobile-first website optimized for local SEO, bookings, and fast conversion.',
+    challenge:
+      'Create a brand that feels familiar but fresh—grounded in Indiana pride and barbershop heritage—then launch a responsive website that drives foot traffic and online bookings while reinforcing the visual identity.',
+    solution:
+      'Designed a custom-illustrated cardinal (Indiana state bird) gripping a barber pole, paired with a bold red/white/blue palette and a strong, signage-first type system. Developed multiple lockups for vertical/horizontal/mono use and built assets to scale from window decals to print. Built a companion website with mobile-first UX, SEO-optimized service/location pages, booking link + Google Maps integration, authentic photography, and scannable content layout with clear CTAs.',
+    impact: [
+      'Local buzz generated within days of launch.',
+      'Increased storefront foot traffic and walk-ins due to high-visibility signage.',
+      'Recognizable brand system across physical and digital touchpoints.',
+      'Foundation for future merch, events, and service expansion.'
+    ],
+    stack: [
+      'Brand Discovery & Strategy',
+      'Logo Design + Visual Identity System',
+      'Custom Illustration',
+      'Color + Typography Selection',
+      'Responsive Website Design',
+      'Website Build & Launch',
+      'Local SEO Best Practices',
+      'Launch Support + Asset Delivery'
+    ],
+    tags: ['Service Business', 'Branding', 'Web Design', 'Local SEO', 'Illustration'],
+    image: '/images/projects/Hoosierboy Barbershop/Hoosierboy Barbershop logo 1 (1).png'
   },
 
   // --- TIER 2: BRANDING & IDENTITY ---
   {
     id: '317-bbq',
     title: '317 BBQ',
-    category: 'Branding',
-    tags: ['Hospitality', 'Print', 'Identity'],
-    description: 'Authentic Texas smoke identity for a saturated market.',
-    image: '/images/projects/317 bbq/317bbqlogo_wht.avif',
     year: '2023',
-    challenge: 'Create a memorable identity for a new BBQ joint that captures the smoky essence of traditional cooking.',
+    category: 'Branding',
+    description:
+      'Bold BBQ restaurant identity designed to capture authentic smoky tradition while appealing to modern diners—logo system, warm palette, and launch-ready collateral.',
+    challenge:
+      'Create a bold, memorable brand identity for a new BBQ restaurant that captures the authentic, smoky essence of traditional barbecue while appealing to modern diners.',
     solution:
-      "Developed a rustic, typography-driven visual identity with a custom pig icon and warm 'fire-cooked' color palette.",
-    impact: ['85% Brand Recognition', 'Local Market Leader'],
-    stack: ['Illustrator', 'Print Design'],
+      'Developed a rustic yet refined visual identity combining classic BBQ cues with contemporary typography. Designed a logo featuring bold, flame-inspired elements to evoke heat and cooking passion, supported by a warm palette of deep reds, charcoal blacks, and golden yellows. Delivered comprehensive brand materials including logo variations, business cards, signage concepts, and marketing collateral.',
+    impact: [
+      '85% brand recognition.',
+      '4.8/5 customer satisfaction.',
+      'Local leader market penetration.',
+      'Instantly recognizable mark contributing to strong recall and loyalty.'
+    ],
+    stack: ['Brand Identity', 'Logo Design System', 'Marketing Materials', 'Signage Concepts', 'Launch Collateral'],
+    tags: ['Restaurant', 'Branding', 'Logo', 'Collateral', 'Local Business'],
+    image: '/images/projects/317 bbq/20231008_174703.avif'
   },
   {
     id: 'taco-ninja',
-    title: 'TacoNinja',
-    category: 'Logo Design',
-    tags: ['Character Design', 'Food', 'Playful'],
-    description: "Character-driven identity combining 'Taco' and 'Ninja'.",
-    image: '/images/projects/Taco Ninja/taco ninja logo.png', // UPDATED
+    title: 'Taconinja',
     year: '2024',
-    challenge: 'Create a mascot that appeals to younger demographics without looking generic.',
-    solution: 'Designed a minimalist, high-energy ninja character using a taco shell as the mask.',
-    impact: ['High Social Engagement', 'Strong Merch Potential'],
-    stack: ['Vector Art', 'Character Design'],
+    category: 'Logo Design',
+    description:
+      'Character-based food brand identity combining taco + ninja into one cohesive mark—built for menus, packaging, merch, and social-first launch.',
+    challenge:
+      'Create a playful, memorable logo that cleverly combines two distinct concepts (taco and ninja) into a cohesive, marketable brand identity that appeals to younger demographics and stands out in a competitive food market.',
+    solution:
+      'Developed a humorous character logo using a taco shell as the primary shape and a ninja headband as the defining cue, with minimalist facial features for a friendly personality. Balanced playfulness with clean execution for broad usability. Built bold "TACONINJA" typography for clarity and selected a warm, appetite-forward palette (orange-yellow taco + golden-brown headband). Designed variations to maintain recognition across full-color and monochrome uses.',
+    impact: [
+      'High concept recognition and brand memorability.',
+      'Strong social engagement and brand recognition.',
+      'Versatile logo system for menu, packaging, and digital applications.',
+      'Supported a successful brand launch with consistent visuals.'
+    ],
+    stack: ['Logo Design', 'Brand Identity', 'Character Design', 'Typography System', 'Color Strategy', 'Logo Variations for Food Service Applications'],
+    tags: ['Food', 'Branding', 'Logo', 'Character Design', 'Identity System'],
+    image: '/images/projects/Taco Ninja/taco ninja logo.png'
   },
   {
     id: 'perpetual-fitness',
     title: 'Perpetual Movement Fitness',
-    category: 'Branding',
-    tags: ['Fitness Branding', 'Gym Logo Design', 'Activewear Branding', 'Kinetic Typography', 'Health & Wellness Identity', 'Lifestyle Brand', 'Sports Marketing'],
-    description: 'Brand Identity & Art Direction – Dynamic visual system capturing perpetual motion and transformation.',
-    image: '/images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM.png', // UPDATED
     year: '2023',
-    challenge: "In a saturated health and wellness market, Perpetual Movement Fitness needed a brand identity that stood for more than just a place to sweat. The goal was to visualize a philosophy: that fitness is not a destination, but a continuous cycle of progress and personal transformation. The challenge was to capture this kinetic energy in a static visual mark, creating an identity that felt alive, motivating, and distinct from the aggressive, hyper-masculine aesthetics often found in gym branding.",
-    solution: 'The resulting identity is a study in visual momentum. I developed a dynamic design system that utilizes flowing typography and kinetic visual elements to suggest forward motion even when the logo is stationary. Visual Strategy: The logo system captures the essence of "perpetual motion" through directional geometry and fluid lines, symbolizing the non-stop journey of self-improvement. Color Palette: A bold, high-energy color scheme was selected to evoke vitality and strength. These colors were chosen specifically to stand out in high-paced environments, ensuring visibility on activewear and inside the studio. Holistic Application: The brand was designed to be worn. I developed the identity with apparel and merchandise in mind, turning members into brand ambassadors. The visual language scales seamlessly from heavy gym equipment to social media avatars.',
-    impact: ['92% Member Retention', '+200% Social Engagement', 'High Local Brand Visibility'],
-    stack: ['Logo Design', 'Visual Identity System', 'Apparel & Merchandising', 'Marketing Collateral'],
+    category: 'Branding',
+    description:
+      'Energetic identity for a fitness studio emphasizing continuous progress—dynamic logo system, bold color strategy, and marketing materials designed to inspire action.',
+    challenge:
+      'Create an energetic, motivational brand identity for a fitness studio that emphasizes continuous movement, progress, and personal transformation.',
+    solution:
+      'Designed a dynamic logo system capturing perpetual motion through flowing typography and kinetic visual elements. Developed logo variations and a bold color strategy to convey strength and vitality. Delivered brand applications for equipment, apparel, and digital platforms plus marketing materials designed to motivate commitment to fitness goals.',
+    impact: [
+      '92% member retention.',
+      '+200% social engagement.',
+      'Stronger brand recognition and local awareness.',
+      'Identity communicates a clear "continuous improvement" philosophy.'
+    ],
+    stack: ['Logo Design', 'Brand Identity', 'Marketing Materials', 'Brand Applications (equipment, apparel, digital)', 'Logo Variations + Usage Support'],
+    tags: ['Fitness', 'Branding', 'Logo', 'Identity System', 'Marketing'],
+    image: '/images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM.png'
   },
   {
     id: 'tbm-strategy',
-    title: 'TBM Strategy',
-    category: 'Strategy',
-    tags: ['Corporate', 'Guidelines', 'B2B'],
-    description: 'Comprehensive brand playbook and visual system.',
-    image: '/images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1.png', // UPDATED
+    title: 'TBM Brand Strategy',
     year: '2022',
-    challenge: 'Unify a growing business under a single, cohesive visual strategy.',
-    solution: 'Delivered a complete Brand Playbook (Voice, Tone, Typography) to align internal teams.',
-    impact: ['95% Brand Consistency', 'Improved Team Alignment'],
-    stack: ['Documentation', 'Strategy'],
+    category: 'Strategy',
+    description:
+      'A comprehensive brand strategy and visual identity system for Tuohy Bailey & Moore—built to standardize messaging, increase consistency, and scale execution across digital and print touchpoints.',
+    challenge:
+      'Develop a comprehensive brand strategy and visual identity system for a law firm that strengthens brand consistency, improves communication clarity, and increases recognition across all channels.',
+    solution:
+      'Created a structured brand strategy playbook with positioning, tone-of-voice guidance, visual standards, logo usage rules, and practical application examples. Delivered a scalable identity system designed to work across web, print, and marketing assets while aligning internal teams around consistent execution.',
+    impact: [
+      '95% brand consistency across all marketing assets.',
+      'Improved clarity and internal alignment for messaging.',
+      'Stronger market positioning and recognition for the firm.'
+    ],
+    stack: ['Brand Strategy', 'Brand Guidelines', 'Visual Identity System', 'Documentation'],
+    tags: ['Brand Strategy', 'Guidelines', 'Legal', 'Identity System', 'Documentation'],
+    image: '/images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1.png'
   },
 
   // --- TIER 3: PRODUCT & COMMUNITY ---
   {
     id: 'resq-organic',
-    title: 'resq-organic – Product Branding & Packaging Design',
+    title: 'ResQ Organics',
+    year: '2022',
     category: 'Product',
-    tags: ['CBD Packaging Design', 'Pet Product Branding', 'Regulatory Compliance Design', 'E-commerce Design', 'Wellness Branding', 'Supplement Packaging', 'Clinical Design'],
-    description: 'Product branding and packaging design for CBD pet care products. Client: CBD Pet Care Co. | Timeline: 3 months (2023) | Role: Lead Product Designer | Services: Brand Identity, Packaging Design, E-commerce UI/UX, Compliance Design',
-    image: '/images/projects/ResQ Organics/ResQ Organics for Pets.png',
-    year: '2023',
-    challenge: 'Launching a CBD product for pets involves navigating a unique set of hurdles: deep consumer skepticism and strict regulatory oversight. The challenge was to design a brand identity that felt clinically safe without feeling cold or sterile. We needed to bridge the gap between "medical efficacy" and "beloved family pet," reassuring anxious owners that the product was legitimate, safe, and formulated with care.',
-    solution: 'The design strategy centered on transparency and calm. In a market often cluttered with "recreational" aesthetics or confusing claims, we pivoted toward a "Scientific-Wellness" visual language. Packaging Architecture: I prioritized information hierarchy to ensure instant clarity. Dosage instructions, ingredients, and benefits are presented in a clean, grid-based layout that demystifies the product for hesitant buyers. Visual Tone: Aesthetic: Clean, minimalist, and premium. The design avoids cluttered graphics in favor of white space and structured typography to signal purity. Color Strategy: We utilized soft, calming tones to evoke natural healing and anxiety relief—mirroring the product\'s intended effect on the animal. Educational Design: Beyond the logo, I designed educational inserts and e-commerce assets that visually explain the benefits of CBD, essentially turning the packaging into a customer service tool.',
-    impact: ['Consumer Confidence: Clinical-lite aesthetic successfully alleviated safety concerns', '100% Regulatory Compliance: Met all legal standards while maintaining sleek, attractive shelf presence', 'Market Differentiation: Carved out a distinct niche for serious pet owners seeking genuine therapeutic solutions'],
-    stack: ['Packaging Design', 'Compliance', 'Brand Identity', 'E-commerce UI/UX'],
+    description:
+      'Product branding and packaging system for a CBD pet care line—designed to build trust in a regulated category with clear hierarchy, compliant labeling, and shelf-ready visuals.',
+    challenge:
+      'Create a trustworthy, professional product identity for CBD pet care that communicates safety and quality, differentiates from low-credibility competitors, and supports compliant packaging and marketing.',
+    solution:
+      'Developed a clean, science-forward identity and packaging framework with clear labeling hierarchy and brand consistency across SKUs. Designed supporting marketing visuals and product storytelling elements to educate customers and reinforce trust while maintaining compliance.',
+    impact: [
+      'Improved consumer trust and brand credibility in a crowded category.',
+      'Clear, consistent packaging system designed for scale.',
+      'Compliance-ready labeling structure to support regulated sales channels.'
+    ],
+    stack: ['Product Branding', 'Packaging Design', 'Visual System', 'Compliance-Aware Layout', 'Marketing Asset Design'],
+    tags: ['CBD', 'Pet Care', 'Product Branding', 'Packaging', 'Regulated Market'],
+    image: '/images/projects/ResQ Organics/ResQ Organics for Pets.png'
   },
   {
     id: 'behr-pet-essentials',
@@ -129,55 +216,86 @@ export const sideProjects: SideProject[] = [
   },
   {
     id: 'black-letter',
-    title: 'Black Letter Legal Consulting',
-    category: 'Legal Branding',
-    tags: ['Corporate Identity', 'Legal Services', 'Professional Branding'],
-    description: 'Brand identity & art direction for legal research and trial prep consultancy.',
-    image: '/images/projects/Black Letter/Black Letter - Full Logo.png',
+    title: 'Black Letter',
     year: '2022',
-    challenge: 'Black Letter required a sophisticated brand identity to launch their legal consultancy. Operating in a high-stakes industry focused on "Black Letter Law"—undisputed legal principles—the brand needed to communicate absolute authority, precision, and reliability.',
-    solution: 'The resulting identity is a study in typographic balance and professional confidence. The centerpiece is a custom monogram where the serif orange "L" forms the structural spine of the sans-serif black "B." This interplay symbolizes the core mission: providing the foundational support (the "Letter") that strengthens the legal case (the "Black").',
-    impact: ['Premium Positioning', 'High Recognition', 'Versatile Application'],
-    stack: ['Brand Identity System', 'Stationery & Collateral', 'Art Direction'],
+    category: 'Legal Branding',
+    description:
+      'A sophisticated, typography-forward brand identity designed for a premium positioning—built to feel confident, editorial, and timeless across digital and print.',
+    challenge:
+      'Create a sophisticated brand identity that communicates premium quality, craftsmanship, and trust—while standing out in a competitive market.',
+    solution:
+      'Developed an elegant, typography-focused identity system emphasizing clarity, hierarchy, and restraint. Built a versatile logo suite and supporting brand elements designed to translate cleanly across applications, maintaining recognition and consistency.',
+    impact: [
+      'Stronger brand recognition and premium positioning.',
+      'Improved cohesion across marketing touchpoints.',
+      'A scalable identity system ready for long-term growth.'
+    ],
+    stack: ['Logo Design', 'Brand Identity', 'Typography System', 'Brand Applications'],
+    tags: ['Branding', 'Typography', 'Logo Design', 'Identity System'],
+    image: '/images/projects/Black Letter/Black Letter - Full Logo.png'
   },
   {
     id: 'primary-colours',
-    title: 'Primary Colours',
+    title: 'Primary Colours – Installation Nation',
+    year: '2018',
     category: 'Non-Profit Marketing',
-    tags: ['non-profit', 'arts', 'event marketing', 'sponsorship', 'community engagement'],
-    description: 'Board leadership and marketing strategy for Installation Nation 2018, raising $46,000+ and reaching 10,000+ attendees across a 23-day outdoor art exhibition.',
-    image: '/images/projects/Primary Colours/cropped-PC_LOGO1-1024x174.jpg',
-    year: '2018-2019',
-    challenge: 'Lead marketing and strategic development for a non-profit arts organization to increase community engagement, artist participation, and fundraising for Installation Nation 2018—a major outdoor art exhibition.',
-    solution: 'Developed comprehensive marketing and sponsorship strategy for 23-day exhibition on 9.5-acre ArtsPark featuring 13 artists/artist groups. Created multi-tier sponsorship program ($500-$5,000 levels), redesigned primarycolours.org website for better artist connections, and executed integrated campaigns across social media and community partnerships with major arts institutions.',
-    impact: ['$46,000+ funds raised', '200+ artists participation', '10,000+ people audience reach', '23 days exhibition duration'],
-    stack: ['Event Marketing', 'Website Development', 'Sponsorship Strategy', 'Brand Development'],
+    description:
+      'Marketing strategy and execution for a large-scale outdoor public art exhibition—web build, sponsorship strategy, event marketing, and fundraising designed to drive attendance and community visibility.',
+    challenge:
+      'Increase awareness, attendance, sponsorship participation, and fundraising for a multi-week outdoor art exhibition while coordinating messaging across artists, sponsors, community partners, and event touchpoints.',
+    solution:
+      'Built event marketing assets and digital presence including web updates, sponsor messaging, promotional campaigns, and content that highlighted artists and installations. Developed sponsorship positioning and outreach strategy, plus coordinated communications to support fundraising and attendance.',
+    impact: [
+      '$46,000 in funds raised.',
+      '200+ artists featured.',
+      '10,000+ people attended.',
+      '23-day exhibition with sustained community engagement.'
+    ],
+    stack: ['Event Marketing', 'Web Development', 'Sponsorship Strategy', 'Content & Promotions', 'Fundraising Support'],
+    tags: ['Non-Profit', 'Event Marketing', 'Sponsorship', 'Web', 'Community'],
+    image: '/images/projects/Primary Colours/cropped-PC_LOGO1-1024x174.jpg'
   },
   {
     id: 'circle-city',
     title: 'Circle City Kicks',
-    category: 'Retail',
-    tags: ['Streetwear', 'Urban', 'Retail'],
-    description: 'City-pride branding for a sneaker boutique.',
-    image: '/images/projects/circle  city kicks/circle  city kicks logo.png',
     year: '2023',
-    challenge: 'Capture the energy of sneaker culture while establishing local credibility.',
-    solution: 'Designed a dynamic logo featuring high-tops suspended over the Indy skyline.',
-    impact: ['Successful Launch', 'Strong Social Growth'],
-    stack: ['Apparel Design', 'Social Media'],
+    category: 'Branding',
+    description:
+      'Urban sneaker buy/sell/trade identity connecting Indy pride with streetwear culture—custom high-top illustration, cityscape tie-in, and dynamic typography built for versatile brand use.',
+    challenge:
+      'Design a bold, urban logo for a sneaker buy-sell-trade business that captures the energy of streetwear culture while establishing credibility in the competitive sneaker resale market.',
+    solution:
+      'Developed a dynamic logo featuring iconic high-top sneakers suspended in an urban setting. Incorporated Indianapolis "Circle City" identity via a cityscape backdrop, pairing local pride with sneaker culture authenticity. Built bold typography with angular placement to create motion/energy, and delivered a flexible logo system designed for consistent use across digital, print, signage, and merchandise.',
+    impact: [
+      'Strong local presence and brand recognition.',
+      'Resonated with sneaker culture enthusiasts and target demographics.',
+      'Enhanced storefront + social media presence.',
+      'Created a strong foundation for launch success.'
+    ],
+    stack: ['Logo Design', 'Brand Identity', 'Custom Illustration', 'Typography System', 'Logo Variations for Multi-use Applications'],
+    tags: ['Retail', 'Branding', 'Logo', 'Streetwear', 'Illustration'],
+    image: '/images/projects/circle  city kicks/circle  city kicks logo.png'
   },
   {
     id: 'be-free',
     title: 'Be Free Home & Life',
-    category: 'Brand Identity',
-    tags: ['Lifestyle Branding', 'Geometric Logo Design', 'Home Goods Identity', 'Modern Minimalist Design', 'Color Psychology', 'Monogram Design', 'Brand Strategy'],
-    description: 'Visual identity system balancing domestic structure and personal freedom for a lifestyle brand targeting a broad demographic.',
-    image: '/images/design/Be free home and life logo.avif',
     year: '2023',
-    challenge: '"Be Free Home & Life" required a visual identity that could navigate the delicate balance between domestic structure and personal freedom. As a lifestyle brand targeting a broad demographic, the challenge was to create a mark that felt "approachable yet sophisticated"—avoiding the coldness of minimalism while maintaining a modern, uncluttered aesthetic. The goal was to visualize harmony in a way that could easily translate across diverse home goods and digital platforms.',
-    solution: 'The solution is a geometric study in balance. Moving away from literal iconography (like houses or leaves), I focused on a structured abstract form that conveys the feeling of a well-ordered life. The core of the identity is a custom \'BF\' monogram enclosed within a divided square. This container represents the "home," while the clean internal geometry suggests organization and stability. A split-color strategy was used to represent the duality of the brand name: Vibrant Blue represents clarity, calm, and stability; Golden Yellow represents energy, optimism, and warmth. The pairing creates a high-contrast, energetic visual that remains grounded by the geometric frame. We utilized a modern, clean sans-serif typeface to ensure maximum legibility. The simplicity of the type allows the colorful icon to take center stage without visual competition.',
-    impact: ['Brand Clarity: Geometric system replaced abstract concepts with tangible symbol', 'High Adaptability: Versatile "divided square" concept for varied merchandising', 'Broad Appeal: Gender-neutral, optimistic palette resonated with diverse audience'],
-    stack: ['Logo Design', 'Visual Identity System', 'Color Strategy', 'Typography', 'Brand Guidelines'],
+    category: 'Brand Identity',
+    description:
+      'Modern geometric BF monogram built for a lifestyle brand focused on home + life freedom—balanced, clean, and adaptable across diverse touchpoints.',
+    challenge:
+      'Design a modern, balanced logo for a lifestyle brand focused on home and life freedom that conveys simplicity, harmony, and approachable sophistication to diverse audiences.',
+    solution:
+      'Created a geometric monogram "BF" within a divided square frame using vibrant blue and golden yellow to represent balance and energy. Paired the mark with clean sans-serif typography for clarity and versatility, and built logo variations that remain recognizable in full-color and monochrome applications across print, digital, signage, and merchandise.',
+    impact: [
+      'Enhanced brand clarity and consistency.',
+      'High adaptability across platforms and formats.',
+      'Broad demographic target appeal.',
+      'Versatile logo system that supports long-term brand growth.'
+    ],
+    stack: ['Logo Design', 'Brand Identity System', 'Color + Typography Strategy', 'Logo Variations (full-color + mono)', 'Application/Usage Guidelines'],
+    tags: ['Lifestyle', 'Branding', 'Logo', 'Identity System', 'Geometric'],
+    image: '/images/design/bf-mogogram-final-02.webp'
   },
   {
     id: 'clean-aesthetic',
@@ -195,16 +313,24 @@ export const sideProjects: SideProject[] = [
   },
   {
     id: 'herbs-rub',
-    title: "Herb's Rub",
-    category: 'Product',
-    tags: ['Food', 'Illustration', 'Packaging'],
-    description: 'Personality-driven branding for artisanal spices.',
-    image: '/images/design/herbs-rub-logo.webp',
+    title: 'Herb\'s Rub',
     year: '2023',
-    challenge: 'Stand out on the shelf with a personal story.',
-    solution: "Developed a playful, cartoon-style mascot logo with 'Top Secret' stamp elements.",
-    impact: ['Enhanced Shelf Appeal', 'Strong Brand Personality'],
-    stack: ['Illustration', 'Packaging'],
+    category: 'Product',
+    description:
+      'Personality-driven spice rub branding—founder portrait, distressed typography, flame cues, and a "Top Secret Confidential" stamp built for shelf impact and storytelling.',
+    challenge:
+      'Create a distinctive, personality-driven logo for a specialty food product (spice rub) that conveys both the founder\'s personal story and the product\'s flavor profile for food enthusiasts seeking authentic, artisanal ingredients.',
+    solution:
+      'Developed a playful character-driven logo featuring the founder\'s portrait in a friendly cartoon style, paired with bold distressed typography for rustic authenticity. Incorporated flame graphics to signal spice/heat and added a "Top Secret Confidential" stamp to create intrigue and exclusivity. Built a palette (green, orange, red) that evokes freshness and flavor intensity and designed the system to work across labels, merch, and digital.',
+    impact: [
+      'Strong character brand personality and memorability.',
+      'Enhanced shelf appeal and recognition.',
+      'Clear founder-story connection that builds trust.',
+      'Versatile identity system for launch and future expansion.'
+    ],
+    stack: ['Logo Design', 'Product Branding', 'Custom Illustration', 'Typography + Texture System', 'Logo Variations for Packaging + Digital'],
+    tags: ['Product Branding', 'Logo', 'Illustration', 'Food', 'Packaging'],
+    image: '/images/design/herbs-rub-logo.webp'
   },
   {
     id: 'piko-fg-music',

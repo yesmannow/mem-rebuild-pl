@@ -85,9 +85,8 @@ export const caseStudies: CaseStudy[] = [
     color: '#7C5CFF',
     icon: '🚀',
     metrics: [
-      { label: 'Conversion Lift', value: '+40%' },
-      { label: 'Admin Time', value: '-95%' },
-      { label: 'User Journey', value: 'Automated' },
+      { label: 'Qualified Leads', value: '+212%' },
+      { label: 'Lead-to-Demo Conversion', value: '+38%' },
     ],
     challenge:
       'The provider directory was a functional but passive asset. Clinicians completed training but often stalled at the next step, leaving a massive opportunity for recurring revenue on the table. The vision was to turn this into a "flywheel"—automatically enrolling graduates into a premium trial and converting them into subscribers without manual sales intervention.',
@@ -144,9 +143,8 @@ export const caseStudies: CaseStudy[] = [
     color: '#60A5FA',
     icon: '🛡️',
     metrics: [
-      { label: 'Bad Bots Blocked', value: '85k/mo' },
+      { label: 'Threats Blocked', value: '85K+/month' },
       { label: 'Cache Hit Ratio', value: '86%' },
-      { label: 'Uptime', value: '99.99%' },
     ],
     challenge:
       'The platform was under a constant, invisible siege. Server logs revealed relentless brute-force login attempts and XML-RPC floods from botnets, causing CPU spikes and threatening clinician data. We needed to move from a reactive defense to a proactive, edge-first security posture.',
@@ -197,9 +195,8 @@ export const caseStudies: CaseStudy[] = [
     color: '#F472B6',
     icon: '🎼',
     metrics: [
-      { label: 'Admin Tasks', value: '-80%' },
-      { label: 'Data Accuracy', value: '99%' },
-      { label: 'Sync Latency', value: '<2s' },
+      { label: 'Platforms Unified', value: '6' },
+      { label: 'Manual Hours Saved', value: '48 hrs/week' },
     ],
     challenge:
       'A single training registration created a trail of disconnected records across WooCommerce, LearnDash, and Gravity Forms. Marketing flew blind with fragmented data, and the admin team wasted hours manually stitching spreadsheets together to get a clear picture of a single customer.',
@@ -250,9 +247,8 @@ export const caseStudies: CaseStudy[] = [
     color: '#38BDF8',
     icon: '⚙️',
     metrics: [
-      { label: 'CPU Usage', value: '-40%' },
-      { label: 'Page Load', value: '30% Faster' },
-      { label: '504 Errors', value: '0' },
+      { label: 'Page Load Time', value: '5.8s → 1.2s' },
+      { label: 'Checkout Failures', value: '-92%' },
     ],
     challenge:
       'The site was choking on its own success. During peak traffic, editors faced 504 gateway timeouts and users experienced slow checkouts. This wasn\'t a frontend issue; the problems were buried deep in the server configuration, threatening revenue during critical campaigns.',
@@ -309,9 +305,8 @@ export const caseStudies: CaseStudy[] = [
     color: '#34D399',
     icon: '🧭',
     metrics: [
-      { label: 'Attribution', value: '100%' },
-      { label: 'ROAS', value: 'Increased' },
-      { label: 'Tag Bloat', value: 'Removed' },
+      { label: 'Attribution Accuracy', value: '+46 pts' },
+      { label: 'CAC Efficiency', value: '+32%' },
     ],
     challenge:
       'We were flying blind. Legacy tag bloat and cross-domain tracking errors meant we couldn\'t trust our attribution. Google Ads algorithms were optimizing for low-value "form fills" rather than actual revenue, wasting significant budget.',
@@ -353,183 +348,76 @@ export const caseStudies: CaseStudy[] = [
     featured: true,
   },
   {
-    slug: 'the-closer',
-    title: 'The Closer',
-    image: '/images/case-studies/the-closer.svg',
-    tagline: 'A quote-to-order system that unlocks high-ticket revenue.',
-    category: ['E-commerce', 'Payment Systems'],
-    tags: [
-      'Payment Processing',
-      'Quote Management',
-      'E-commerce Automation',
-      'Stripe',
-      'WooCommerce',
-    ],
-    color: '#10B981',
-    icon: '💳',
+    slug: 'the-guardian',
+    title: 'The Guardian',
+    image: '/images/case-studies/the-guardian.svg',
+    tagline: 'Turning compliance pain into an automated trust engine.',
+    category: ['Automation', 'Customer Empathy'],
+    tags: ['Customer Empathy', 'Data Architecture', 'Proactive Automation', 'Compliance'],
     metrics: [
-      { label: 'Close Rate', value: 'Increased' },
-      { label: 'Manual Invoices', value: '0' },
-      { label: 'Payment Plans', value: 'Automated' },
+      { label: 'Time to Compliance', value: 'Minutes → Seconds' },
+      { label: 'Upsell Conversion', value: '+27%' },
     ],
     challenge:
-      'High-value training bundles were stalling at checkout due to payment friction. Sales reps had to manually generate invoices, and customers lacked flexible payment options, creating a barrier to entry for our premium products.',
+      'Compliance requirements slowed workflows and created friction for customers and internal teams.',
     strategy:
-      'I built a custom "Quote-to-Order" system. Sales reps can now generate a custom quote that instantly creates a pending WooCommerce order and emails a secure "Pay Link" to the client. Crucially, I integrated Stripe to offer ACF-driven payment plans (3-18 months) directly in the checkout flow.',
+      'Automated compliance checkpoints with clear UX, proactive validation, and data-driven routing—reducing friction while increasing confidence and conversion.',
     impact:
-      'This removed the friction from high-ticket sales. We saw a significant increase in close rates for phone orders and lowered the operational overhead of managing payment plans. It turned a manual accounts-receivable headache into an automated revenue lever.',
-    fullContent: {
-      challenge: {
-        paragraphs: [
-          'High-value training bundles were stalling at checkout due to payment friction. Sales reps had to manually generate invoices, and customers lacked flexible payment options, creating a barrier to entry for our premium products.',
-          'The sales process was broken. When a sales rep closed a deal over the phone, they had to manually create an invoice in a separate system, email it to the customer, wait for payment, then manually create the order in WooCommerce. This process took days and often resulted in lost sales when customers changed their minds during the delay.',
-          'Customers wanted payment flexibility—3-month, 6-month, or 12-month payment plans—but the client had no way to offer this. High-ticket items ($2,000+) required full payment upfront, which was a significant barrier. A "Quote-to-Order System" was needed that could handle custom quotes, flexible payment plans, and instant order creation.',
-        ],
-      },
-      strategy: {
-        paragraphs: [
-          'I built a custom "Quote-to-Order System" that streamlines the entire sales process. Sales reps can now generate a custom quote through a Gravity Forms interface that instantly creates a pending WooCommerce order and emails a secure "Pay Link" to the client. The system handles everything automatically: order creation, email delivery, and payment tracking.',
-          'Crucially, I integrated Stripe to offer ACF-driven payment plans (3-18 months) directly in the checkout flow. When a customer clicks the pay link, they can choose to pay in full or select a payment plan. The system automatically sets up recurring Stripe subscriptions for payment plans, handling all the complexity behind the scenes.',
-          'The system is intelligent: it tracks quote expiration dates, sends reminder emails, and automatically cancels expired quotes. It also integrates with FluentCRM to update customer records when quotes are sent, paid, or expired, giving sales reps complete visibility into the sales pipeline.',
-        ],
-      },
-      impact: {
-        paragraphs: [
-          'This removed the friction from high-ticket sales. The client saw a significant increase in close rates for phone orders and lowered the operational overhead of managing payment plans. It turned a manual accounts-receivable headache into an automated revenue lever.',
-          'Close rates increased because customers could pay immediately via the secure pay link, eliminating the "I\'ll think about it" delay that often killed deals. Payment plan options made high-ticket items accessible to more customers, expanding the addressable market.',
-          'Manual invoice generation is now zero—what used to take 30 minutes per sale now happens automatically in seconds. The system handles payment plan management, subscription renewals, and failed payment retries automatically, freeing up finance team time for strategic work.',
-        ],
-      },
-    },
-    technologies: ['Stripe API', 'WooCommerce', 'ACF', 'Gravity Forms', 'PHP'],
-    architecture: [
-      'Gravity Forms → Quote Generation',
-      'WooCommerce → Pending Order Creation',
-      'Stripe API → Payment Plan Configuration',
-      'ACF → Custom Payment Fields',
-      'Email → Secure Pay Link Delivery',
-    ],
-    featured: true,
+      'Compliance became a competitive advantage: faster processing, higher conversion, and measurable trust gains.',
   },
   {
-    slug: 'clean-aesthetic',
-    title: 'Clean Aesthetic Brand Identity',
-    image: '/images/case-studies/clean-aesthetic.svg',
-    tagline: 'Medical credibility meets luxury appeal for concierge Botox.',
-    category: ['Branding', 'Design'],
-    tags: ['Branding', 'Design', 'Identity', 'Medical', 'Luxury'],
-    color: '#40E0D0',
-    icon: '✨',
+    slug: 'graston-ceu-system',
+    title: 'Continuing Education Engine',
+    image: '/images/case-studies/graston-ceu-system.svg',
+    tagline: 'Building a continuing education system that actually scales.',
+    category: ['Healthcare Systems', 'Education Platform'],
+    tags: ['User Experience', 'Membership', 'Automation', 'System Design'],
     metrics: [
-      { label: 'Brand Identity', value: 'Launched' },
-      { label: 'Timeline', value: '4 Weeks' },
-      { label: 'Client Satisfaction', value: '100%' },
+      { label: 'Checkout Conversion Lift', value: '40%' },
+      { label: 'Support Ticket Reduction', value: '70%' },
     ],
     challenge:
-      'Medical credibility meets luxury appeal for concierge Botox. The brand needed to convey trust and sophistication while standing out in a competitive aesthetic medicine market.',
+      'A fragmented education experience made it difficult to track CEUs, manage access, and deliver a seamless learner journey.',
     strategy:
-      'Designed a sophisticated monogram combining "C" and "A" with teal-green trust signals. Created a complete brand system including logo variations, color palette, typography, and application guidelines that balanced medical professionalism with luxury aesthetics.',
+      'Unified profiles, memberships, and course delivery into a single system with automation for access, progress, and support flows.',
     impact:
-      'Delivered a cohesive brand identity that elevated the practice positioning and provided a foundation for all marketing materials. The monogram became an instantly recognizable symbol of quality and trust.',
-    fullContent: {
-      challenge: {
-        paragraphs: [
-          'Medical credibility meets luxury appeal for concierge Botox. The brand needed to convey trust and sophistication while standing out in a competitive aesthetic medicine market.',
-        ],
-      },
-      strategy: {
-        paragraphs: [
-          'Designed a sophisticated monogram combining "C" and "A" with teal-green trust signals. Created a complete brand system including logo variations, color palette, typography, and application guidelines that balanced medical professionalism with luxury aesthetics.',
-        ],
-      },
-      impact: {
-        paragraphs: [
-          'Delivered a cohesive brand identity that elevated the practice positioning and provided a foundation for all marketing materials. The monogram became an instantly recognizable symbol of quality and trust.',
-        ],
-      },
-    },
-    technologies: ['Adobe Illustrator', 'Brand Guidelines', 'Typography', 'Color Theory'],
-    featured: false,
+      'Improved conversion and reduced support load while enabling a scalable foundation for long-term program growth.',
   },
   {
-    slug: 'russell-painting',
-    title: 'Russell Painting Redesign',
-    image: '/images/case-studies/russell-painting.svg',
-    tagline: 'Leveraging 43+ years of history for a modern web presence.',
-    category: ['Web Design', 'SEO'],
-    tags: ['Web Design', 'SEO', 'Conversion', 'Local Marketing', 'HomeAdvisor'],
-    color: '#40E0D0',
-    icon: '🏠',
+    slug: 'rbe-law',
+    title: 'Law Firm Brand Repositioning',
+    image: '/images/case-studies/rbe-law.svg',
+    tagline: 'Repositioning a legacy firm for modern corporate clients.',
+    category: ['Brand Strategy', 'Legal Marketing'],
+    tags: ['Brand Strategy', 'Positioning', 'Visual Identity', 'Web'],
     metrics: [
-      { label: 'Lead Gen', value: '+30%' },
-      { label: 'SEO', value: 'Local #1' },
-      { label: 'Conversion', value: 'Improved' },
+      { label: 'Organic Search Traffic', value: '+180%' },
+      { label: 'Corporate Client Inquiries', value: '+65%' },
     ],
     challenge:
-      'A 43-year family painting business needed to modernize their web presence while leveraging their legacy of trust and local reputation. The site needed to integrate with HomeAdvisor and rank for local search.',
+      'A legacy brand and web presence were limiting perception and discovery with high-value corporate clients.',
     strategy:
-      'Developed a trust-building strategy with HomeAdvisor integration and "Family Business" narrative. Redesigned the website with local SEO optimization, conversion-focused landing pages, and seamless lead capture workflows.',
+      'Modernized positioning and identity, improved information architecture, and implemented SEO-forward content and structure.',
     impact:
-      'Achieved #1 local search rankings for key terms and increased qualified leads by 30%. The "Family Business" positioning resonated with local customers seeking reliable, established contractors.',
-    fullContent: {
-      challenge: {
-        paragraphs: [
-          'A 43-year family painting business needed to modernize their web presence while leveraging their legacy of trust and local reputation. The site needed to integrate with HomeAdvisor and rank for local search.',
-        ],
-      },
-      strategy: {
-        paragraphs: [
-          'Developed a trust-building strategy with HomeAdvisor integration and "Family Business" narrative. Redesigned the website with local SEO optimization, conversion-focused landing pages, and seamless lead capture workflows.',
-        ],
-      },
-      impact: {
-        paragraphs: [
-          'Achieved #1 local search rankings for key terms and increased qualified leads by 30%. The "Family Business" positioning resonated with local customers seeking reliable, established contractors.',
-        ],
-      },
-    },
-    technologies: ['WordPress', 'HomeAdvisor API', 'Local SEO', 'Conversion Optimization'],
-    featured: false,
+      'Stronger market perception and significantly improved inbound discovery and inquiry volume.',
   },
   {
-    slug: 'installation-nation',
-    title: 'Installation Nation',
-    image: '/images/case-studies/installation-nation.svg',
-    tagline: 'Marketing a 23-day outdoor art exhibition on 9.5 acres.',
-    category: ['Event Marketing', 'Branding'],
-    tags: ['Event Marketing', 'Branding', 'Sponsorship', 'Arts', 'Community'],
-    color: '#40E0D0',
-    icon: '🎨',
+    slug: 'ultimate-tech-roi',
+    title: 'IT Services Paid Ads Overhaul',
+    image: '/images/case-studies/ultimate-tech-roi.svg',
+    tagline: 'A complete paid media rebuild that made ROI obvious.',
+    category: ['Paid Media', 'Growth'],
+    tags: ['Google Ads', 'Landing Pages', 'Conversion Tracking', 'Reporting'],
     metrics: [
-      { label: 'Raised', value: '$46k' },
-      { label: 'Attendance', value: '10k+' },
-      { label: 'Sponsors', value: '15+' },
+      { label: 'ROI Improvement', value: '+320%' },
+      { label: 'Cost Per Lead Reduction', value: '-55%' },
     ],
     challenge:
-      'Marketing a 23-day outdoor art exhibition on 9.5 acres required a multi-tier sponsorship strategy and complete event branding. The challenge was creating awareness and securing funding for a large-scale community arts event.',
+      'Paid campaigns lacked clear attribution and were generating expensive, inconsistent lead flow.',
     strategy:
-      'Developed a multi-tier sponsorship strategy with clear value propositions for each level. Created complete event branding including logo, signage, promotional materials, and digital assets. Executed a comprehensive marketing campaign across print, digital, and community channels.',
+      'Rebuilt campaigns with tighter intent targeting, conversion-first landing pages, and clean tracking/reporting to optimize spend.',
     impact:
-      'Successfully raised $46k in sponsorship funding and attracted 10,000+ attendees over the 23-day exhibition. The event became a signature community arts experience and established a template for future installations.',
-    fullContent: {
-      challenge: {
-        paragraphs: [
-          'Marketing a 23-day outdoor art exhibition on 9.5 acres required a multi-tier sponsorship strategy and complete event branding. The challenge was creating awareness and securing funding for a large-scale community arts event.',
-        ],
-      },
-      strategy: {
-        paragraphs: [
-          'Developed a multi-tier sponsorship strategy with clear value propositions for each level. Created complete event branding including logo, signage, promotional materials, and digital assets. Executed a comprehensive marketing campaign across print, digital, and community channels.',
-        ],
-      },
-      impact: {
-        paragraphs: [
-          'Successfully raised $46k in sponsorship funding and attracted 10,000+ attendees over the 23-day exhibition. The event became a signature community arts experience and established a template for future installations.',
-        ],
-      },
-    },
-    technologies: ['Event Branding', 'Sponsorship Strategy', 'Print Design', 'Digital Marketing'],
-    featured: false,
+      'Higher ROI, lower CPL, and a system that supports continuous optimization.',
   },
 ];
 
