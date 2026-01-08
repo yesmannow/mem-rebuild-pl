@@ -22,7 +22,7 @@ const TheLaunchpadPage: React.FC = () => {
       emoji: theLaunchpad.visualIdentity.emoji,
       stat: theLaunchpad.stat,
       media: {
-        src: '/demos/graston-growth-engine.jpg',
+        src: '/demos/graston-growth-engine.webp',
         alt: 'Launchpad growth engine interface',
       },
     },

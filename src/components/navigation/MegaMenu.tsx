@@ -164,7 +164,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
           <MegaMenuCard
             title="317 BBQ"
             description="Modern restaurant website with online ordering"
-            image="/images/projects/317 bbq/20231008_174703.jpg"
+            image="/images/projects/317 bbq/20231008_174703.webp"
             link="/side-projects/317-bbq"
             tag="Featured"
             tags={['Web Dev', 'E-Commerce']}

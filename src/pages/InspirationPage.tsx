@@ -65,7 +65,7 @@ const InspirationPage: React.FC = () => {
   // Background images for animated background
   const backgroundImages = [
     '/images/design/Back 1.png',
-    '/images/design/IMG_20220606_011741_906.jpg',
+    '/images/design/IMG_20220606_011741_906.webp',
     '/images/design/Adobe_Express_20220527_2105230.6071119382485303.png'
   ];
 

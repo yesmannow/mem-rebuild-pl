@@ -15,11 +15,16 @@
 
 import fs from 'fs/promises';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
+import dotenv from 'dotenv';
+import { optimizeImages } from '../optimize-images.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '../..');
+ 
+dotenv.config({ path: path.join(ROOT, '.env.local') });
+dotenv.config();
 
 /**
  * Unsplash API Client
@@ -154,6 +159,141 @@ class UnsplashClient {
 }
 
 /**
+ * Pexels API Client
+ */
+class PexelsClient {
+  constructor(apiKey) {
+    this.apiKey = apiKey;
+    this.baseUrl = 'https://api.pexels.com/v1';
+  }
+ 
+  async searchPhotos(query, options = {}) {
+    const {
+      page = 1,
+      perPage = 10,
+      orientation = 'landscape',
+    } = options;
+
+    if (!this.apiKey) {
+      throw new Error('Pexels API key required. Set PEXELS_API_KEY environment variable.');
+    }
+
+    const params = new URLSearchParams({
+      query,
+      page: page.toString(),
+      per_page: perPage.toString(),
+      orientation,
+    });
+
+    const url = `${this.baseUrl}/search?${params}`;
+
+    try {
+      const response = await fetch(url, {
+        headers: {
+          Authorization: this.apiKey,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Pexels API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      return (data.photos || []).map(photo => ({
+        id: String(photo.id),
+        description: photo.alt,
+        urls: {
+          raw: photo.src.original,
+          full: photo.src.original,
+          regular: photo.src.large,
+          small: photo.src.medium,
+          thumb: photo.src.tiny,
+        },
+        width: photo.width,
+        height: photo.height,
+        color: undefined,
+        author: {
+          name: photo.photographer,
+          username: photo.photographer_url?.split('/')?.pop() || 'pexels',
+          link: photo.photographer_url,
+        },
+        downloadUrl: photo.src.original,
+      }));
+    } catch (error) {
+      console.error('Pexels search error:', error.message);
+      return [];
+    }
+  }
+}
+
+/**
+ * Pixabay API Client
+ */
+class PixabayClient {
+  constructor(apiKey) {
+    this.apiKey = apiKey;
+    this.baseUrl = 'https://pixabay.com/api/';
+  }
+ 
+  async searchPhotos(query, options = {}) {
+    const {
+      page = 1,
+      perPage = 10,
+    } = options;
+
+    if (!this.apiKey) {
+      throw new Error('Pixabay API key required. Set PIXABAY_API_KEY environment variable.');
+    }
+
+    const params = new URLSearchParams({
+      key: this.apiKey,
+      q: query,
+      page: page.toString(),
+      per_page: perPage.toString(),
+      orientation: 'horizontal',
+      image_type: 'photo',
+      safesearch: 'true',
+    });
+
+    const url = `${this.baseUrl}?${params}`;
+
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Pixabay API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      return (data.hits || []).map(img => ({
+        id: String(img.id),
+        description: img.tags,
+        urls: {
+          raw: img.largeImageURL,
+          full: img.largeImageURL,
+          regular: img.webformatURL,
+          small: img.previewURL,
+          thumb: img.previewURL,
+        },
+        width: img.imageWidth,
+        height: img.imageHeight,
+        color: undefined,
+        author: {
+          name: img.user,
+          username: img.user,
+          link: `https://pixabay.com/users/${img.user}-${img.id}/`,
+        },
+        downloadUrl: img.largeImageURL,
+      }));
+    } catch (error) {
+      console.error('Pixabay search error:', error.message);
+      return [];
+    }
+  }
+}
+
+/**
  * Lorem Picsum Client
  */
 class LoremPicsumClient {
@@ -265,6 +405,10 @@ class ImageProvider {
   constructor(config = {}) {
     this.unsplash = config.unsplashApiKey ? 
       new UnsplashClient(config.unsplashApiKey) : null;
+    this.pexels = config.pexelsApiKey ?
+      new PexelsClient(config.pexelsApiKey) : null;
+    this.pixabay = config.pixabayApiKey ?
+      new PixabayClient(config.pixabayApiKey) : null;
     this.loremPicsum = new LoremPicsumClient();
     this.placeholder = new PlaceholderClient();
   }
@@ -273,12 +417,36 @@ class ImageProvider {
    * Search for high-quality images
    */
   async searchImages(query, options = {}) {
-    if (!this.unsplash) {
-      console.warn('Unsplash not configured, using placeholders');
-      return this.getPlaceholders(options.count || 10, options);
+    const { provider = 'auto' } = options;
+    const perPage = options.perPage || options.count || 10;
+    const orientation = options.orientation;
+
+    const order = [];
+    if (provider === 'pexels' || provider === 'auto') order.push('pexels');
+    if (provider === 'unsplash' || provider === 'auto') order.push('unsplash');
+    if (provider === 'pixabay' || provider === 'auto') order.push('pixabay');
+
+    for (const p of order) {
+      try {
+        if (p === 'pexels' && this.pexels) {
+          const res = await this.pexels.searchPhotos(query, { perPage, orientation });
+          if (res && res.length) return res;
+        }
+        if (p === 'unsplash' && this.unsplash) {
+          const res = await this.unsplash.searchPhotos(query, { perPage, orientation });
+          if (res && res.length) return res;
+        }
+        if (p === 'pixabay' && this.pixabay) {
+          const res = await this.pixabay.searchPhotos(query, { perPage, orientation });
+          if (res && res.length) return res;
+        }
+      } catch (err) {
+        console.warn(`${p} provider failed:`, err?.message || err);
+      }
     }
 
-    return await this.unsplash.searchPhotos(query, options);
+    console.warn('No provider configured or no results found, using placeholders');
+    return this.getPlaceholders(options.count || 10, options);
   }
 
   /**
@@ -336,7 +504,9 @@ async function main() {
   const command = args[0];
 
   const config = {
-    unsplashApiKey: process.env.UNSPLASH_API_KEY,
+    unsplashApiKey: process.env.UNSPLASH_API_KEY || process.env.VITE_UNSPLASH_ACCESS_KEY,
+    pexelsApiKey: process.env.PEXELS_API_KEY || process.env.VITE_PEXELS_API_KEY,
+    pixabayApiKey: process.env.PIXABAY_API_KEY || process.env.VITE_PIXABAY_API_KEY,
   };
 
   const provider = new ImageProvider(config);
@@ -346,7 +516,7 @@ async function main() {
 📸 Image Provider Service
 
 Commands:
-  search <query>           Search Unsplash for images
+  search <query>           Search images (Unsplash, Pexels, Pixabay)
   random [query]           Get random image(s) from Unsplash
   placeholder <w> <h>      Get Lorem Picsum placeholder
   list                     List available Lorem Picsum images
@@ -355,18 +525,22 @@ Options:
   --count=<n>              Number of images (default: 10)
   --orientation=<type>     landscape, portrait, or squarish
   --page=<n>               Page number for search
-  --output=<dir>           Output directory for downloads
+  --provider=<name>        auto | unsplash | pexels | pixabay (default: auto)
+  --output=<dir>           Output directory (default: public/images/_src)
   --download               Download images to output directory
+  --optimize               Optimize downloaded images (WebP/AVIF, resize)
 
 Environment:
-  UNSPLASH_API_KEY         Your Unsplash API access key (optional)
-                          Get one at: https://unsplash.com/developers
+  UNSPLASH_API_KEY         Unsplash API access key (or VITE_UNSPLASH_ACCESS_KEY)
+  PEXELS_API_KEY           Pexels API key (or VITE_PEXELS_API_KEY)
+  PIXABAY_API_KEY          Pixabay API key (or VITE_PIXABAY_API_KEY)
+                          Get keys at providers' developer portals
 
 Examples:
-  node image-provider.js search "technology" --count=5
+  node image-provider.js search "technology" --provider=pexels --count=5 --download --optimize
   node image-provider.js random --orientation=landscape
   node image-provider.js placeholder 800 600
-  node image-provider.js search "business" --download --output=./images
+  node image-provider.js search "business" --download --output=public/images/_src
     `);
     process.exit(0);
   }
@@ -382,13 +556,20 @@ Examples:
 
         const count = parseInt(args.find(a => a.startsWith('--count='))?.split('=')[1]) || 10;
         const orientation = args.find(a => a.startsWith('--orientation='))?.split('=')[1];
-        const shouldDownload = args.includes('--download');
-        const outputDir = args.find(a => a.startsWith('--output='))?.split('=')[1] || './images';
+        const providerName = (args.find(a => a.startsWith('--provider='))?.split('=')[1] || 'auto').toLowerCase();
+        let shouldDownload = args.includes('--download');
+        const shouldOptimize = args.includes('--optimize');
+        const outputDir = args.find(a => a.startsWith('--output='))?.split('=')[1] || 'public/images/_src';
+
+        if (shouldOptimize && !shouldDownload) {
+          shouldDownload = true;
+        }
 
         console.log(`🔍 Searching for "${query}"...\n`);
         const results = await provider.searchImages(query, {
           perPage: count,
           orientation,
+          provider: providerName,
         });
 
         console.log(`Found ${results.length} images:\n`);
@@ -407,6 +588,16 @@ Examples:
             const result = await provider.downloadImage(img.urls.regular, outputDir, filename);
             if (result) {
               console.log(`  ✅ Downloaded: ${filename}`);
+            }
+          }
+
+          if (shouldOptimize) {
+            console.log(`\n✨ Optimizing images in ${outputDir}...`);
+            try {
+              await optimizeImages(outputDir);
+              console.log('✅ Optimization complete.');
+            } catch (optErr) {
+              console.error('❌ Optimization failed:', optErr?.message || optErr);
             }
           }
         }
@@ -460,13 +651,10 @@ Examples:
   }
 }
 
-// Run if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-  main().catch(error => {
-    console.error('❌ Fatal error:', error);
-    process.exit(1);
-  });
-}
+main().catch(error => {
+  console.error('❌ Fatal error:', error);
+  process.exit(1);
+});
 
 export {
   UnsplashClient,

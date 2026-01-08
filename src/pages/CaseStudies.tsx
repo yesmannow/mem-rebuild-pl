@@ -90,7 +90,7 @@ const CaseStudies: React.FC = () => {
     <div className="case-studies-page">
       <MagneticCursor color="#40E0D0" enabled={true} />
       {/* Hero Section - Dark Theme with API Background */}
-      <HeroWithApiBackground theme="portfolio,design,creative,work" height="auto">
+      <HeroWithApiBackground theme="portfolio,design,creative,work" height="auto" imageSrc="/images/_src/creative-agency-office-7.webp">
         <section className="case-studies-hero-section">
           <div className="case-studies-hero-container">
             <div className="case-studies-hero-wrapper">

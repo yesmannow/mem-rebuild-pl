@@ -12,6 +12,7 @@ import {
   type StudioItem,
 } from '../data/studioData';
 import { manifestToStudioItems } from '../utils/studioManifest';
+import { EnhancedImage } from '../components/ui/EnhancedImage';
 
 /**
  * Studio Page - Visual Engineering
@@ -110,6 +111,14 @@ const Studio: React.FC = () => {
 
       {/* Deep Slate Background - War Room ecosystem integration */}
       <div className="min-h-screen bg-slate-900 relative overflow-hidden">
+        <EnhancedImage
+          src="/images/_src/creative-agency-office-3.webp"
+          alt="Studio header"
+          overlayColor="dark"
+          overlayOpacity={0.6}
+          priority={true}
+          className="absolute inset-0 z-0"
+        />
         {/* Animated gradient overlay for depth */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 pointer-events-none" />
         

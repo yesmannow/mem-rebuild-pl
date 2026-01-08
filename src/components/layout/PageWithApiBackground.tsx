@@ -8,6 +8,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ApiBackgroundImage } from '../ui/ApiBackgroundImage';
+import { EnhancedImage } from '../ui/EnhancedImage';
 import { pageBackgroundService } from '../../services/pageBackgroundService';
 
 interface PageWithApiBackgroundProps {
@@ -63,6 +64,7 @@ interface SectionWithApiBackgroundProps {
   overlayColor?: 'turquoise' | 'orange' | 'dark' | 'none';
   overlayOpacity?: number;
   minHeight?: string;
+  imageSrc?: string;
 }
 
 export const SectionWithApiBackground: React.FC<SectionWithApiBackgroundProps> = ({
@@ -72,15 +74,27 @@ export const SectionWithApiBackground: React.FC<SectionWithApiBackgroundProps> =
   overlayColor = 'dark',
   overlayOpacity = 0.85,
   minHeight = 'auto',
+  imageSrc,
 }) => {
   return (
     <section className={`relative overflow-hidden ${className}`} style={{ minHeight }}>
-      <ApiBackgroundImage
-        theme={theme}
-        overlayColor={overlayColor}
-        overlayOpacity={overlayOpacity}
-        className="absolute inset-0 z-0"
-      />
+      {imageSrc ? (
+        <EnhancedImage
+          src={imageSrc}
+          alt={`${theme} background`}
+          overlayColor={overlayColor}
+          overlayOpacity={overlayOpacity}
+          className="absolute inset-0 z-0"
+          priority
+        />
+      ) : (
+        <ApiBackgroundImage
+          theme={theme}
+          overlayColor={overlayColor}
+          overlayOpacity={overlayOpacity}
+          className="absolute inset-0 z-0"
+        />
+      )}
       <div className="relative z-10">
         {children}
       </div>
@@ -98,6 +112,7 @@ interface HeroWithApiBackgroundProps {
   children: React.ReactNode;
   className?: string;
   height?: string;
+  imageSrc?: string;
 }
 
 export const HeroWithApiBackground: React.FC<HeroWithApiBackgroundProps> = ({
@@ -105,6 +120,7 @@ export const HeroWithApiBackground: React.FC<HeroWithApiBackgroundProps> = ({
   children,
   className = '',
   height = 'min-h-screen',
+  imageSrc,
 }) => {
   return (
     <motion.section
@@ -113,13 +129,24 @@ export const HeroWithApiBackground: React.FC<HeroWithApiBackgroundProps> = ({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <ApiBackgroundImage
-        theme={theme}
-        overlayColor="dark"
-        overlayOpacity={0.85}
-        priority={true}
-        className="absolute inset-0 z-0"
-      />
+      {imageSrc ? (
+        <EnhancedImage
+          src={imageSrc}
+          alt={`${theme} background`}
+          overlayColor="dark"
+          overlayOpacity={0.85}
+          priority={true}
+          className="absolute inset-0 z-0"
+        />
+      ) : (
+        <ApiBackgroundImage
+          theme={theme}
+          overlayColor="dark"
+          overlayOpacity={0.85}
+          priority={true}
+          className="absolute inset-0 z-0"
+        />
+      )}
       
       {/* Gradient overlay for depth */}
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-brand-dark/40 via-transparent to-brand-dark" />

@@ -23,7 +23,7 @@ export const projects: Project[] = [
     image: '/images/projects/317 bbq/Screenshot of 317 BBQ _ Really Good BBQ.jpg',
     gallery: [
       '/images/projects/317 bbq/Screenshot of 317 BBQ _ Really Good BBQ.jpg',
-      '/images/projects/317 bbq/download.jpg',
+      '/images/projects/317 bbq/download.webp',
       '/images/projects/317 bbq/download (1).jpg',
       '/images/projects/317 bbq/317BBQLogo_wht.webp',
     ],
@@ -73,11 +73,11 @@ export const projects: Project[] = [
       'Law firm website showcasing legal expertise with attorney profiles and practice areas.',
     longDescription:
       'Built a comprehensive website for Riley Bennett Egloff LLP featuring detailed attorney profiles, practice area information, and client resources. The design emphasizes professionalism while maintaining accessibility and user-friendly navigation.',
-    image: '/images/projects/riley bennett egloff/attorneys.jpg',
+    image: '/images/projects/riley bennett egloff/attorneys.webp',
     gallery: [
-      '/images/projects/riley bennett egloff/attorneys.jpg',
-      '/images/projects/riley bennett egloff/download.jpg',
-      '/images/projects/riley bennett egloff/dss.jpg',
+      '/images/projects/riley bennett egloff/attorneys.webp',
+      '/images/projects/riley bennett egloff/download.webp',
+      '/images/projects/riley bennett egloff/dss.webp',
       '/images/projects/riley bennett egloff/RBE-Logo-with-®-RGB-jpg.jpg',
     ],
     tags: ['Web Development', 'Legal Services', 'Attorney Profiles', 'Professional Design'],

@@ -6,6 +6,7 @@ import { SectionWithApiBackground } from '../components/layout/PageWithApiBackgr
 import { AppSection } from '../ui/AppSection';
 import { AppCard } from '../ui/AppCard';
 import { Illustration } from '../components/Illustration';
+import { EnhancedImage } from '../components/ui/EnhancedImage';
 
 // Lazy load heavy components to reduce initial bundle size
 const SkillsRadar = lazy(() => import('../components/ui/SkillsRadar'));

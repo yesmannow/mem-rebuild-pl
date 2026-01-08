@@ -1,7 +1,7 @@
 {
   "photography": [
     {
-      "src": "/images/photography/20240628_215608-2.jpg",
+      "src": "/images/photography/20240628_215608-2.webp",
       "alt": "Cinematic landscape photography with dramatic lighting",
       "title": "Dramatic Landscape",
       "category": "landscape",
@@ -16,7 +16,7 @@
       }
     },
     {
-      "src": "/images/photography/20240628_214922.jpg",
+      "src": "/images/photography/20240628_214922.webp",
       "alt": "Golden hour nature photography with warm tones",
       "title": "Golden Hour",
       "category": "nature",
@@ -76,7 +76,7 @@
       }
     },
     {
-      "src": "/images/photography/20210905_173133.jpg",
+      "src": "/images/photography/20210905_173133.webp",
       "alt": "Afternoon photography with natural depth of field",
       "title": "Afternoon Depth",
       "category": "outdoor",
@@ -91,7 +91,7 @@
       }
     },
     {
-      "src": "/images/photography/20240629_214210.jpg",
+      "src": "/images/photography/20240629_214210.webp",
       "alt": "Evening photography with moody atmosphere",
       "title": "Moody Evening",
       "category": "landscape",
@@ -106,7 +106,7 @@
       }
     },
     {
-      "src": "/images/photography/20220722_053113.jpg",
+      "src": "/images/photography/20220722_053113.webp",
       "alt": "Early morning photography with soft lighting",
       "title": "Dawn Light",
       "category": "nature",
@@ -174,7 +174,7 @@
       "colors": ["#000000", "#FF0000", "#FFFF00", "#0000FF", "#FFFFFF"]
     },
     {
-      "src": "/images/design/IMG_20220529_193948_726.jpg",
+      "src": "/images/design/IMG_20220529_193948_726.webp",
       "alt": "Creative poster design with artistic typography",
       "title": "Poster Design",
       "category": "Print Design",
@@ -183,7 +183,7 @@
       "colors": ["#2C3E50", "#E74C3C", "#F39C12", "#3498DB", "#ECF0F1"]
     },
     {
-      "src": "/images/design/IMG_20220513_222748_444.jpg",
+      "src": "/images/design/IMG_20220513_222748_444.webp",
       "alt": "Professional marketing design with strategic layout",
       "title": "Marketing Design",
       "category": "Marketing",
@@ -192,7 +192,7 @@
       "colors": ["#1E293B", "#40E0D0", "#FFA500", "#F8FAFC", "#94A3B8"]
     },
     {
-      "src": "/images/design/IMG_20230617_015647_366.jpg",
+      "src": "/images/design/IMG_20230617_015647_366.webp",
       "alt": "Brand identity design with cohesive visual system",
       "title": "Visual System",
       "category": "Branding",

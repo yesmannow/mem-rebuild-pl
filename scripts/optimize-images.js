@@ -131,7 +131,7 @@ function getFileSize(filePath) {
 /**
  * Main optimization function
  */
-async function optimizeImages(directory = 'public/images') {
+async function optimizeImages(directory = 'public/images', options = {}) {
   console.log('🖼️  Image Optimization Script');
   console.log('==============================\n');
 
@@ -153,6 +153,7 @@ async function optimizeImages(directory = 'public/images') {
   let processed = 0;
   let skipped = 0;
   let errors = 0;
+  let deleted = 0;
   const recommendations = [];
 
   for (const imagePath of imageFiles) {
@@ -160,6 +161,7 @@ async function optimizeImages(directory = 'public/images') {
     const dir = path.dirname(imagePath);
     const basename = path.basename(imagePath, ext);
     const webpPath = path.join(dir, `${basename}.webp`);
+    const avifPath = path.join(dir, `${basename}.avif`);
 
     const originalSize = getFileSize(imagePath);
 
@@ -184,7 +186,6 @@ async function optimizeImages(directory = 'public/images') {
 
       // Convert to AVIF
       if (OUTPUT_FORMATS.avif) {
-        const avifPath = path.join(dir, `${basename}.avif`);
         if (!fs.existsSync(avifPath)) {
           const success = await convertToAVIF(imagePath, avifPath);
           if (success) {
@@ -198,6 +199,23 @@ async function optimizeImages(directory = 'public/images') {
         } else {
           console.log(`⏭️  ${basename}.avif already exists`);
           skipped++;
+        }
+      }
+
+      if (options.deleteOriginals) {
+        const requireAvif = OUTPUT_FORMATS.avif;
+        const webpExists = fs.existsSync(webpPath);
+        const avifExists = !requireAvif || fs.existsSync(avifPath);
+        const extLower = ext.toLowerCase();
+        const isJpeg = extLower === '.jpg' || extLower === '.jpeg';
+        if (webpExists && avifExists && isJpeg) {
+          if (options.dryRun) {
+            console.log(`🗑️  Would delete ${path.basename(imagePath)}`);
+          } else {
+            fs.unlinkSync(imagePath);
+            console.log(`🗑️  Deleted ${path.basename(imagePath)}`);
+            deleted++;
+          }
         }
       }
     } else {
@@ -214,6 +232,7 @@ async function optimizeImages(directory = 'public/images') {
   console.log('==========');
   console.log(`Processed: ${processed}`);
   console.log(`Skipped: ${skipped}`);
+  console.log(`Deleted: ${deleted}`);
   console.log(`Errors: ${errors}`);
 
   if (recommendations.length > 0) {
@@ -232,8 +251,14 @@ async function optimizeImages(directory = 'public/images') {
 // Run if called directly
 const isMainModule = import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]);
 if (isMainModule || process.argv[1]?.endsWith('optimize-images.js')) {
-  const directory = process.argv[2] || 'public/images';
-  optimizeImages(directory).catch(error => {
+  const args = process.argv.slice(2);
+  const dirArg = args.find(a => !a.startsWith('-'));
+  const directory = dirArg || 'public/images';
+  const options = {
+    deleteOriginals: args.includes('--delete-originals') || args.includes('--delete'),
+    dryRun: args.includes('--dry-run') || args.includes('-n'),
+  };
+  optimizeImages(directory, options).catch(error => {
     console.error('❌ Fatal error:', error);
     process.exit(1);
   });

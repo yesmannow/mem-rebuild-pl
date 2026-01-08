@@ -9,6 +9,7 @@ import { PikoProjectCard } from '../components/ui/PikoProjectCard';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import SectionDivider from '../components/ui/SectionDivider';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
+import { EnhancedImage } from '../components/ui/EnhancedImage';
 
 /**
  * Side Projects Page - Independent Studio Vault
@@ -139,6 +140,14 @@ const SideProjects: React.FC = () => {
 
       {/* Deep Slate Background - Matching Studio page */}
       <div className="min-h-screen bg-slate-900 relative">
+        <EnhancedImage
+          src="/images/_src/modern-workspace-6.webp"
+          alt="Side Projects header"
+          overlayColor="dark"
+          overlayOpacity={0.65}
+          priority={true}
+          className="absolute inset-0 z-0"
+        />
         {/* Subtle gradient overlay for depth */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 pointer-events-none" />
 
