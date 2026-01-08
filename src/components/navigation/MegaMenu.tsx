@@ -437,7 +437,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
                 isActive(link.path)
                   ? 'text-white scale-105'
                   : 'text-brand-muted hover:text-brand-turquoise'
-              } transition-all duration-300 font-medium text-sm uppercase tracking-wide group py-2`}
+              } transition-all duration-300 font-medium text-sm uppercase tracking-wide group py-2 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-turquoise focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-md`}
               aria-expanded={activeMenu === link.name}
               aria-haspopup={hasContent ? 'true' : 'false'}
             >

@@ -206,7 +206,7 @@ const MobileDock: React.FC = () => {
                   to={item.path}
                   onClick={handleTap}
                   aria-label={item.ariaLabel}
-                  className="relative flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 group min-w-[72px]"
+                  className="relative flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 group min-w-[72px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
                 >
                   {active && (
                     <motion.div
@@ -249,7 +249,7 @@ const MobileDock: React.FC = () => {
               whileTap={{ scale: 0.85 }}
               onClick={handleMenuToggle}
               aria-label="Open full menu"
-              className={`relative flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 min-w-[72px] ${
+              className={`relative flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 min-w-[72px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
                 isMenuOpen ? 'bg-gradient-to-b from-brand-teal/20 to-brand-teal/10 border border-brand-teal/30' : ''
               }`}
             >

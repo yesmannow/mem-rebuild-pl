@@ -44,7 +44,7 @@ const ModernLogo: React.FC<ModernLogoProps> = ({
   return (
     <div
       ref={containerRef}
-      className={`relative inline-flex items-center ${className}`}
+      className={`relative inline-flex items-center flex-shrink-0 ${className}`}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
@@ -275,7 +275,7 @@ const ModernLogo: React.FC<ModernLogoProps> = ({
       {/* Text Label with Gradient Animation */}
       {showText && (
         <motion.span
-          className="ml-3 font-bold text-lg tracking-tight relative"
+          className="ml-2.5 font-bold text-lg tracking-tight relative whitespace-nowrap"
           animate={{
             color: isHovered ? undefined : undefined,
           }}
