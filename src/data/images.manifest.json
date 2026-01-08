@@ -13,19 +13,19 @@
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRqYBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSFoBAAABkCvbtmlbfc11bdu2bdu2nm3btm37RbZCM2Xo92Kd+xERMQEAojD2jk8KsQJhcMG2b9WKmVMXr54ZjlYGmszdQ70VCpviraPFQKjZ7oZSCgWMXapBSN1p4jtjild+r1/HqCpGTUcw2RbOzQfPT/T8aRty470l6zKgbjKcKl921/hLI5uvQcIKmB+LMPn3NOPvtbybjmapt9USK4goe7hf/yh1+Z2MMWPzXZejeDZk/j3T77mtn43R9Da4Lke4febWZeMfeSfOoo3obbBaYgXdr48m5h4OnLDdFc24fOblhrlueTIu6N3V6JWrDjoleizzomZWmPvex8ujnt7I2nLxil9G5VIw3hpCenuQRVu5mduQKmFNOkLKdn8LDJXCwn7CNAShentJtLUWI2Xpl7hggQYQMjfPrsiKdAupHLFxhFYGaGxbVy1bsWDx6omhyGCIQrzjkkPNQQAAVlA4ICYAAADQAgCdASoUABQAPxGCuVWsKKWjKAgBgCIJaQAAPaOgAP7wCfsAAA=="
   },
-  "images/bio/bio pic 2.png": {
-    "width": 948,
-    "height": 1080,
-    "base": "images/bio/bio pic 2",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAAAQBQCdASoUABcAPxF+tlWsJ6SjKAgBgCIJYgCdMySulCUN+NfgrM+AdxA7nscASq2AAP2zBN3BX7zO2gLZVQYZbL5BDmWuqGTQWLYrlH/qefsDHI1dr6RSYjawiadO9XD9aQ7IalVuFlDWv9Q4UdQaan/MN/zb3z8R+VMaEgWjAUwd99ikVkCRA64BPNVkN6VpZpTOkc9JKqcks8W0iUPugAAAAA=="
-  },
   "images/projects/Piko Fg Music/piko-logo.png": {
     "width": 523,
     "height": 794,
     "base": "images/projects/Piko Fg Music/piko-logo",
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRkgDAABXRUJQVlA4WAoAAAAQAAAAEwAAHQAAQUxQSPMBAAABkHDb1hm4wm+Sjm3btm3bqm3btm3btm27Y9uevFHbiJgAgAWEVCXAMGAl4NYfLMDCYH1mW6Yv9B0RJLv7BRiwGN7adG5x+z2svgGZRTkHwAEz6eLYMThbuPrPGDX/d/TUCvCnEzh3HL/PD89ML59/4G7beRlcLlCXbR8wpWXhrKLcKR5ln+5leaBwP0bQ88IDZzbSCnw/lnmFgrF3DZ43n7M9tuluywHPn0Nzw0K0RdA3hY5Aofx3adr3Q5k1M6AaqtsHiykBspcjhnCul1ePnXlvx9H9YJ/c13AcPm3BwQf3tprtoZzVH2fB/uqSOp6Ip5zHm45S86hDq6UwNjHwWw7tCTASkThK3wfZyIBFsiIkbtL8gTIC1+l7yoozW5QhqCh2JL+ZpxyPZVSadIFaaQzAwvszrfKTTKK2ibHPeL7KsQf7plwTIu+oObuV+IZgsGBhTQcBR54KPne00B5wAIdU6gdGfOO5MT+ptTgF6BFVrgiGhc0f+vJxhZgAABZR68CwcMnla561jQPXyxBbcNArbl4x+DEt7YVDkgoEsTyvIAXSw3TBAGBgL8YJ2i+bsMMJMBdG74IszObIOmvLAjYif2EAfXG46UgICmoI/qUnBycdGXEJfeF/YVjYGqhJqwhx/wIGZooyotJg/kNPCH8HAFZQOCAuAQAAUAYAnQEqFAAeAD8RcK9QLCYkIrAIAYAiCWwAxQaVuMBNLJEPiUW3s4GQTEG/mtL3T4Z87pPGR1faUAAA/ujzNcyjHoz7Jjb/r34ujXnjFdf6+PP86DkHSKQZBahTQue+7X4CyjnFk2w0cMMAMXyByFp5+i3nLtpYYTM/KAWqev+bMSIZzwyJuk/nrfdbxUeFRUsI0Hg6ns8t4Sn+afFJNksj4IpZCHXTRHG9LwIpI0x/32kmm4DWlnvodJN8r/P/P9oXNUgT7+N/ycmVUBhGYgL4poPqpgY2+7z4Q6XkrGBn2g928lYQlgVfy3jJH1sAbTl28kJGZDrtZ9YOjYtdSOK2uHCykOYNTjWln5GwNTaTeihn98fofw8fzH3VqQ5qGK59w3oZKMlszOePgAA="
+  },
+  "images/bio/bio pic 2.png": {
+    "width": 948,
+    "height": 1080,
+    "base": "images/bio/bio pic 2",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAAAQBQCdASoUABcAPxF+tlWsJ6SjKAgBgCIJYgCdMySulCUN+NfgrM+AdxA7nscASq2AAP2zBN3BX7zO2gLZVQYZbL5BDmWuqGTQWLYrlH/qefsDHI1dr6RSYjawiadO9XD9aQ7IalVuFlDWv9Q4UdQaan/MN/zb3z8R+VMaEgWjAUwd99ikVkCRA64BPNVkN6VpZpTOkc9JKqcks8W0iUPugAAAAA=="
   },
   "images/bio/bio pic 3.png": {
     "width": 1169,
