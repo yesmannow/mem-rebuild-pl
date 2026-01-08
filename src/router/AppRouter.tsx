@@ -155,13 +155,6 @@ const AppRouter: React.FC = () => {
           'A transparent, real-time look at how we executed a multi-week site optimization project, transforming performance, security, and reliability from the server to the browser.',
         keywords: 'devops, system optimization, performance tuning, server administration, cloudflare, litespeed, redis',
       };
-    } else if (path === '/resume') {
-      return {
-        title: 'Resume | Jacob Darling Portfolio',
-        description:
-          'Professional resume and experience of Jacob Darling - Marketing Strategist & Systems Architect with 16+ years experience',
-        keywords: 'resume, CV, marketing director, systems architect, marketing automation',
-      };
     } else if (path === '/resume-print') {
       return {
         title: 'Resume - Jacob Darling | Marketing Director & Systems Architect',

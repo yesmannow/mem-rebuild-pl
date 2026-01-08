@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
 interface CircuitDividerProps {
   className?: string;
@@ -16,14 +16,13 @@ export const CircuitDivider: React.FC<CircuitDividerProps> = ({
   className = '',
   animated = true,
 }) => {
-  const pathVariants = {
+  const pathVariants: Variants = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: {
       pathLength: 1,
       opacity: 1,
       transition: {
-        pathLength: { duration: 2, ease: "easeInOut" },
-        opacity: { duration: 0.5 }
+        duration: 2
       }
     }
   };
