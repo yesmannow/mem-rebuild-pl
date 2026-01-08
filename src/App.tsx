@@ -21,7 +21,6 @@ import './styles/skip-to-content.css';
 const PersonSchema = lazy(() => import('./components/seo/PersonSchema'));
 const PerformanceMonitor = lazy(() => import('./components/utils/PerformanceMonitor'));
 const AppRouter = lazy(() => import('./router/AppRouter'));
-const QuickContactFAB = lazy(() => import('./components/ui/QuickContactFAB'));
 
 const AppContent: React.FC = () => {
   const isGodMode = useKonamiCode();
@@ -82,10 +81,6 @@ const AppContent: React.FC = () => {
                 </SwipeShell>
               </Layout>
               <CookieConsent />
-
-              <Suspense fallback={null}>
-                <QuickContactFAB />
-              </Suspense>
 
               <GodMode active={isGodMode} />
             </ToastProvider>
