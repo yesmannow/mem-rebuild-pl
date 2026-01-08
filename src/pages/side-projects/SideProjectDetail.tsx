@@ -26,7 +26,13 @@ const SideProjectDetail: React.FC = () => {
   const [isLoadingImages, setIsLoadingImages] = useState(true);
 
   const project = sideProjects.find((p) => p.id === id);
-
+  const displayImage = project
+    ? (project.id === 'piko-fg-music'
+        ? '/images/projects/Piko Fg Music/Site Images/Screenshot of PIKO _ Pro DJ Console.webp'
+        : (project.id === 'primary-colours'
+            ? '/images/projects/Primary Colours/primary colours logo.webp'
+            : project.image))
+    : '';
   // Map project IDs to folder names
   const folderMap: Record<string, string> = {
     'primary-care-indy': 'Primarycare Indy',
@@ -81,13 +87,20 @@ const SideProjectDetail: React.FC = () => {
         '/images/projects/ResQ Organics/dog-dry-skin-remedy.webp',
         '/images/projects/ResQ Organics/skincare-for-dogs-and-cats.webp',
       ],
+      'primary-colours': [
+        '/images/projects/Primary Colours/primary colours logo.webp',
+        '/images/projects/Primary Colours/art v art.webp',
+        '/images/projects/Primary Colours/Broad Ripple Village Association.webp',
+        '/images/projects/Primary Colours/installation nation .webp',
+        '/images/projects/Primary Colours/installation nation 2.webp',
+      ],
       'piko-fg-music': [
-        '/images/projects/Piko Fg Music/Site Images/Screenshot of Piko Artist Studio.jpg',
-        '/images/projects/Piko Fg Music/Site Images/Screenshot of PIKO _ Pro DJ Console.jpg',
-        '/images/projects/Piko Fg Music/Site Images/hero-bw.jpg',
-        '/images/projects/Piko Fg Music/Site Images/hero-white.jpg',
-        '/images/projects/Piko Fg Music/Site Images/graffiti-wall-2.jpg',
-        '/images/projects/Piko Fg Music/Site Images/grunge-window.jpg',
+        '/images/projects/Piko Fg Music/Site Images/Screenshot of Piko Artist Studio.webp',
+        '/images/projects/Piko Fg Music/Site Images/Screenshot of PIKO _ Pro DJ Console.webp',
+        '/images/projects/Piko Fg Music/Site Images/hero-bw.webp',
+        '/images/projects/Piko Fg Music/Site Images/hero-white.webp',
+        '/images/projects/Piko Fg Music/Site Images/graffiti-wall-2.webp',
+        '/images/projects/Piko Fg Music/Site Images/grunge-window.webp',
         '/images/projects/Piko Fg Music/piko-logo.png',
       ],
     };
@@ -169,14 +182,16 @@ const SideProjectDetail: React.FC = () => {
               <div className="relative rounded-2xl overflow-hidden border border-slate-700/50 bg-slate-800/50 backdrop-blur-sm">
                 {/* Hero Image */}
                 <div className="relative aspect-[16/9] overflow-hidden bg-slate-900">
-                  <motion.img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
+                  <motion.picture
                     initial={{ scale: 1.1 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.8 }}
-                  />
+                    className="block w-full h-full"
+                  >
+                    <source srcSet={displayImage.replace(/\.(webp|jpg|jpeg|png)$/i, '.avif')} type="image/avif" />
+                    <source srcSet={displayImage.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
+                    <img src={displayImage} alt={project.title} className="w-full h-full object-cover" />
+                  </motion.picture>
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
                 </div>
 

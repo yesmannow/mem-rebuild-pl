@@ -1,0 +1,32 @@
+{
+  "title": "Jacob Darling | Fractional CMO & Marketing Technologist",
+  "description": "16+ years of experience blending creative strategy, marketing automation, and systems thinking to drive scalable growth. Explore full-funnel campaigns, CRM architecture, and performance marketing across SaaS, healthcare, and more.",
+  "keywords": "fractional CMO, marketing technologist, marketing automation, CRM campaigns, systems architecture, growth marketing",
+  "canonical": "https://mem-rebuild-pl.pages.dev/",
+  "openGraph": {
+    "type": "website",
+    "url": "https://mem-rebuild-pl.pages.dev/",
+    "title": "Jacob Darling | Fractional CMO & Marketing Technologist",
+    "description": "16+ years of experience blending creative strategy, marketing automation, and systems thinking to drive scalable growth. Explore full-funnel campaigns, CRM architecture, and performance marketing across SaaS, healthcare, and more.",
+    "image": "https://mem-rebuild-pl.pages.dev/og/home.svg",
+    "siteName": "Jacob Darling Portfolio",
+    "locale": "en_US"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "url": "https://mem-rebuild-pl.pages.dev/",
+    "title": "Jacob Darling | Fractional CMO & Marketing Technologist",
+    "description": "16+ years of experience blending creative strategy, marketing automation, and systems thinking to drive scalable growth. Explore full-funnel campaigns, CRM architecture, and performance marketing across SaaS, healthcare, and more.",
+    "image": "https://mem-rebuild-pl.pages.dev/og/home.svg",
+    "site": "@jacobdarling",
+    "creator": "@jacobdarling"
+  },
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Jacob Darling | Fractional CMO & Marketing Technologist",
+    "description": "16+ years of experience blending creative strategy, marketing automation, and systems thinking to drive scalable growth. Explore full-funnel campaigns, CRM architecture, and performance marketing across SaaS, healthcare, and more.",
+    "url": "https://mem-rebuild-pl.pages.dev/",
+    "inLanguage": "en-US"
+  }
+}

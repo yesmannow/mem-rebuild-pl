@@ -22,7 +22,6 @@ const PersonSchema = lazy(() => import('./components/seo/PersonSchema'));
 const PerformanceMonitor = lazy(() => import('./components/utils/PerformanceMonitor'));
 const AppRouter = lazy(() => import('./router/AppRouter'));
 const QuickContactFAB = lazy(() => import('./components/ui/QuickContactFAB'));
-const ConciergeWidget = lazy(() => import('./components/chat/ConciergeWidget'));
 
 const AppContent: React.FC = () => {
   const isGodMode = useKonamiCode();
@@ -86,10 +85,6 @@ const AppContent: React.FC = () => {
 
               <Suspense fallback={null}>
                 <QuickContactFAB />
-              </Suspense>
-
-              <Suspense fallback={null}>
-                <ConciergeWidget />
               </Suspense>
 
               <GodMode active={isGodMode} />

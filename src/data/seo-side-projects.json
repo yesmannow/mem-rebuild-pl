@@ -1,0 +1,32 @@
+{
+  "title": "Side Projects | Independent Creative Work",
+  "description": "Browse independent side projects including branding, web design, and community campaigns built with the same care as flagship launches.",
+  "keywords": "side projects, independent work, branding, web design, community campaigns",
+  "canonical": "https://mem-rebuild-pl.pages.dev/side-projects",
+  "openGraph": {
+    "type": "website",
+    "url": "https://mem-rebuild-pl.pages.dev/side-projects",
+    "title": "Side Projects | Independent Creative Work",
+    "description": "Browse independent side projects including branding, web design, and community campaigns built with the same care as flagship launches.",
+    "image": "https://mem-rebuild-pl.pages.dev/og/side-projects.svg",
+    "siteName": "Jacob Darling Portfolio",
+    "locale": "en_US"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "url": "https://mem-rebuild-pl.pages.dev/side-projects",
+    "title": "Side Projects | Independent Creative Work",
+    "description": "Browse independent side projects including branding, web design, and community campaigns built with the same care as flagship launches.",
+    "image": "https://mem-rebuild-pl.pages.dev/og/side-projects.svg",
+    "site": "@jacobdarling",
+    "creator": "@jacobdarling"
+  },
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Side Projects | Independent Creative Work",
+    "description": "Browse independent side projects including branding, web design, and community campaigns built with the same care as flagship launches.",
+    "url": "https://mem-rebuild-pl.pages.dev/side-projects",
+    "inLanguage": "en-US"
+  }
+}

@@ -29,6 +29,11 @@ const MobileDock: React.FC = () => {
   const location = useLocation();
   const { triggerHaptic } = useHaptic();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const openPalette = () => {
+    triggerHaptic([10]);
+    const ev = new KeyboardEvent('keydown', { key: 'k', ctrlKey: true } as KeyboardEventInit);
+    document.dispatchEvent(ev);
+  };
 
   const dockItems = [
     { icon: HomeIcon, label: 'Home', path: '/', ariaLabel: 'Navigate to home' },
@@ -87,6 +92,37 @@ const MobileDock: React.FC = () => {
                 >
                   <X size={20} />
                 </button>
+              </div>
+
+              {/* Quick actions & links */}
+              <div className="px-6 py-3 border-b border-white/10 flex items-center gap-3">
+                <button
+                  onClick={openPalette}
+                  className="px-3 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-brand-muted hover:text-brand-teal hover:border-brand-teal/30 transition"
+                  aria-label="Open command palette"
+                >
+                  Search (Cmd+K)
+                </button>
+                <div className="flex-1 overflow-x-auto">
+                  <div className="flex items-center gap-2 min-w-max">
+                    {[
+                      { label: 'Resume', path: '/resume' },
+                      { label: 'Case Studies', path: '/case-studies' },
+                      { label: 'Services', path: '/services' },
+                      { label: 'Applications', path: '/apps' },
+                      { label: 'Contact', path: '/contact' },
+                    ].map((q) => (
+                      <Link
+                        key={q.path}
+                        to={q.path}
+                        onClick={handleMenuItemClick}
+                        className="px-3 py-1.5 text-sm rounded-full border border-white/10 bg-slate-800/40 text-brand-muted hover:text-brand-teal hover:border-brand-teal/30 whitespace-nowrap"
+                      >
+                        {q.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               {/* Grid of menu items */}

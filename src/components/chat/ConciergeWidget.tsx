@@ -23,7 +23,7 @@ const ConciergeWidget: React.FC<ConciergeWidgetProps> = ({ className = '' }) => 
     {
       id: '1',
       type: 'bot',
-      content: 'Hello! I\'m your RBE Law AI Concierge. How can I help you today?',
+      content: 'Hello! I\'m your Portfolio AI Assistant. How can I help you explore Jacob\'s work and experience?',
       timestamp: new Date(),
     },
   ]);
@@ -116,7 +116,7 @@ const ConciergeWidget: React.FC<ConciergeWidgetProps> = ({ className = '' }) => 
     }
 
     if (!botResponse) {
-      botResponse = 'I\'d be happy to help you find the right attorney. Could you tell me more about your legal needs? Are you looking for help with business law, litigation, construction, healthcare, or something else?';
+      botResponse = 'I\'d be happy to help you explore Jacob\'s portfolio. Are you interested in case studies, technical skills, side projects, or would you like to learn more about his experience?';
     }
 
     botMessage.content = botResponse;
@@ -130,7 +130,7 @@ const ConciergeWidget: React.FC<ConciergeWidgetProps> = ({ className = '' }) => 
         const leadFormMessage: Message = {
           id: (Date.now() + 2).toString(),
           type: 'bot',
-          content: 'Would you like to schedule a consultation? I can connect you with the right attorney.',
+          content: 'Would you like to get in touch? I can help you connect with Jacob for consulting or collaboration opportunities.',
           timestamp: new Date(),
         };
         setMessages(prev => [...prev, leadFormMessage]);
@@ -158,7 +158,7 @@ const ConciergeWidget: React.FC<ConciergeWidgetProps> = ({ className = '' }) => 
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
             className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gradient-to-br from-[#3d7eff] to-[#0e2650] text-white shadow-2xl flex items-center justify-center group ${className}`}
-            aria-label="Open AI Legal Concierge"
+            aria-label="Open Portfolio AI Assistant"
           >
             <MessageCircle className="w-7 h-7" />
             <motion.div
@@ -185,8 +185,8 @@ const ConciergeWidget: React.FC<ConciergeWidgetProps> = ({ className = '' }) => 
                   <Sparkles className="w-5 h-5 text-[#f3bd4f]" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold">AI Legal Concierge</h3>
-                  <p className="text-white/70 text-xs">RBE Law</p>
+                  <h3 className="text-white font-semibold">Portfolio Assistant</h3>
+                  <p className="text-white/70 text-xs">Jacob Darling</p>
                 </div>
               </div>
               <button
@@ -216,7 +216,7 @@ const ConciergeWidget: React.FC<ConciergeWidgetProps> = ({ className = '' }) => 
                     {message.type === 'bot' && (
                       <div className="flex items-center gap-2 mb-2">
                         <Sparkles className="w-4 h-4 text-[#f3bd4f]" />
-                        <span className="text-xs font-medium opacity-70">AI Concierge</span>
+                        <span className="text-xs font-medium opacity-70">AI Assistant</span>
                       </div>
                     )}
                     <p className="text-sm whitespace-pre-line">{message.content}</p>
@@ -333,7 +333,7 @@ const ConciergeWidget: React.FC<ConciergeWidgetProps> = ({ className = '' }) => 
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Ask about our legal services..."
+                  placeholder="Ask about projects, skills, or experience..."
                   className="flex-1 p-3 text-sm rounded-xl border border-gray-300 dark:border-[#3d7eff]/20 bg-white dark:bg-[#0e2650]/50 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#3d7eff]"
                 />
                 <button

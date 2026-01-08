@@ -470,16 +470,19 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                   transition={{ duration: 0.2, ease: 'easeOut' }}
-                  className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-screen max-w-4xl z-[200]"
+                  className="fixed left-0 right-0 top-[72px] mx-auto w-[calc(100vw-2rem)] md:w-[calc(100vw-4rem)] max-w-6xl px-4 z-[200]"
                   onMouseEnter={handleMenuMouseEnter}
                   onMouseLeave={handleMouseLeave}
+                  style={{
+                    maxHeight: 'calc(100vh - 100px)',
+                  }}
                 >
-                  <div className="bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
+                  <div className="bg-slate-900 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
                     {/* Gradient accent bar */}
                     <div className="h-1 bg-gradient-to-r from-brand-turquoise via-brand-creamsicle to-brand-teal" />
                     
                     {/* Menu content */}
-                    <div className="p-6">
+                    <div className="p-4 md:p-6 max-h-[calc(100vh-140px)] overflow-y-auto overscroll-contain custom-scrollbar" role="menu" aria-label={`${link.name} menu`}>
                       {megaMenuContent[link.name]}
                     </div>
 

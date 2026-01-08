@@ -41,19 +41,19 @@
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACQAwCdASoUABQAPxF6tFOsJ6SiqAqpgCIJbADCgBEcmDmVdueAAP7tN2kYhRFiKvOkuYk5X6Pl4WhGjw4LBCR5+7BhFT2ppTMyqhXuhsQMH28zlFgAAA=="
   },
-  "images/projects/Behr pet essentials/Behr pet essentials logo.png": {
-    "width": 1578,
-    "height": 1036,
-    "base": "images/projects/Behr pet essentials/Behr pet essentials logo",
-    "color": "rgb(8 8 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRp4BAABXRUJQVlA4WAoAAAAQAAAAEwAADAAAQUxQSOMAAAANgLJt2/lX9f23bXu2rWhU1x3ri4vq+wZMTP8+Jdu27b3vO0fEBOBXkciTp57fXnjHP3mvBc17t6HDJPgfRqtweBnj98wsc+lvHNL4TJyTiy33t6sMv3KoqAroHe/gPVvPyG9AIMUmOoFC9/SAPznMntVwh5QQMmEFj/zgUE4wa7JvwHHW5ROC4CfjmjXtK52FTfXJBouCXTyCC3/ozauqfy1JbH7xcQ/PhPdvlL8/8fL88Hzuq7SKDxcoANQOWV9PYkV7Jw+z2yKl0WPajFiXla2wj2l55eiDJvVDcH354ThQAABWUDgglAAAABAEAJ0BKhQADQA/EXKwUCwmpKKwCAGAIglsAJ0vXR8zIhwW8QbNJ53AAMIHFpVVP4AY9LfUPilYpz/QfP6nGAh6TZn7nlKAlBfiMstg8wUsscffd27G0WxdjvHpv7kOR9WaBaYnjLZQFRWAPEuecA49Zm/7y+XkCv6BTv9ZbEtZxJuWTub3Dflej5i101t+gH8/AAA="
-  },
   "images/projects/Black Letter/Black Letter - Full Logo.png": {
     "width": 1164,
     "height": 1080,
     "base": "images/projects/Black Letter/Black Letter - Full Logo",
     "color": "rgb(72 104 120)",
     "blurDataURL": "data:image/webp;base64,UklGRhwCAABXRUJQVlA4WAoAAAAQAAAAEwAAEgAAQUxQSCEBAAABgJ1tmzHn/WbWsW3btm3bOrZtOw3kEB2kAjaQFJDDNPCvZraGiFDYtm3DrM5HABDsd40nflOHbiDIwZFuLAW2vw02EgxZxjLA29gLLiFHuwLFwsvYL+NebsiwbhZ+HOWNt4EsWlzH7zzkcnAXntQgdbZT5qUDE78Z3hfBBJ4aiQ5d/34gGzKM5VAh0tgkfvQWNkoRtIhXqkQOnmB8XDkPZJj4c5YufOzhGRe7+Xule54AAxGIuI8LgRD08vUY5+ETEmUAEZidm6Ors4tvZOdQVZSHBtjvqkRyefpsc3WRHzTO6SF6O6fXw1WsPG34d73lRbqPNDRUNnQ1HQzPzLTUDoy0VjcUx5bH5uYWZIequGuYu6d3kIujX3Sgt79HiB8HAFZQOCDUAAAA8AUAnQEqFAATAD8RgLhVrCglIygIAYAiCWwAuy9tFQrwC7SQERC1FvSbuYsRDmdhzf4yHJmSBmAA/nxctVw1r9bLRQaSxJ5Bu2bgQ0ADfpP9TQdgQfipWKpFpQ7h1BAGljn8BoQ3kJRV63nOGalhiaKAtI4wXZeQB0/66mKZtxGub/abeKy3yylnhATd2+fASb8IKnV8BBHegNJbEZhaczCvtVAZB5mztxaDTu6PGs1b3xULlUUg5Z+CHgG3t76wVUIu8gkWYMODtks+oMHj7yXmAAA="
+  },
+  "images/projects/Behr pet essentials/Behr pet essentials logo.png": {
+    "width": 1578,
+    "height": 1036,
+    "base": "images/projects/Behr pet essentials/Behr pet essentials logo",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRp4BAABXRUJQVlA4WAoAAAAQAAAAEwAADAAAQUxQSOMAAAANgLJt2/lX9f23bXu2rWhU1x3ri4vq+wZMTP8+Jdu27b3vO0fEBOBXkciTp57fXnjHP3mvBc17t6HDJPgfRqtweBnj98wsc+lvHNL4TJyTiy33t6sMv3KoqAroHe/gPVvPyG9AIMUmOoFC9/SAPznMntVwh5QQMmEFj/zgUE4wa7JvwHHW5ROC4CfjmjXtK52FTfXJBouCXTyCC3/ozauqfy1JbH7xcQ/PhPdvlL8/8fL88Hzuq7SKDxcoANQOWV9PYkV7Jw+z2yKl0WPajFiXla2wj2l55eiDJvVDcH354ThQAABWUDgglAAAABAEAJ0BKhQADQA/EXKwUCwmpKKwCAGAIglsAJ0vXR8zIhwW8QbNJ53AAMIHFpVVP4AY9LfUPilYpz/QfP6nGAh6TZn7nlKAlBfiMstg8wUsscffd27G0WxdjvHpv7kOR9WaBaYnjLZQFRWAPEuecA49Zm/7y+XkCv6BTv9ZbEtZxJuWTub3Dflej5i101t+gH8/AAA="
   },
   "images/projects/circle  city kicks/circle  city kicks logo.png": {
     "width": 1127,
@@ -76,13 +76,6 @@
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRvoBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSPYAAAABkKNt27FH9/N+sVWlMqqsgCtga6fODlJpAVZlq3VSsbXHtr/nfe/hN1uIiAmAGEFS7eTZl8+nE3VJECOAQdXKDR1JOl4ttsHAiyr5RKe+o7OqjloWFYJxpz8s/2l9tWtAKS0DK+sgWKQGUW4JPHT/zwg8VNK5IHRsQcoN1Qaxli8zO/jdOvsv6+x39l7S/3TCfzqevVM+vtvvaUwao/6hnE+q7tx6mpbiGeR/pSPpWADPJKZBjCdhA1RSORcpnhExAghSn9I6vs+DAcTgzxB00fc5ghAEFCz9sSeQfwm8daryODYIBLHVj960JEIQOATtHQjB3wFWUDgg3gAAAPAEAJ0BKhQAFAA/EX62VawnpKMoCAGAIglsALsgN8mqLX6JJGIro1nW6DQRaf6wAAD+ycTxLRAYmn+jBjG9snVMv6tyvKxyD2hy9Nabg1711Jgmprhm6YKMFugoMvTOaktDNlQdp2T8Rrcf0tPXZZDVgBrp5Pt963QLVQeh1Mw7KV24Rimmil097mWTeupACuO6pPp5yOPRpnQsdUZEq8w2gZULToOJH9j6pngdy5whe2+KRNPxKFijurS62ohUa8pkLpuZRTpT4NhuXWuBcVH7f30EeYdy0K8olAAAAA=="
   },
-  "images/projects/Piko Fg Music/piko-logo.png": {
-    "width": 523,
-    "height": 794,
-    "base": "images/projects/Piko Fg Music/piko-logo",
-    "color": "rgb(8 8 8)",
-    "blurDataURL": "data:image/webp;base64,UklGRkgDAABXRUJQVlA4WAoAAAAQAAAAEwAAHQAAQUxQSPMBAAABkHDb1hm4wm+Sjm3btm3bqm3btm3btm27Y9uevFHbiJgAgAWEVCXAMGAl4NYfLMDCYH1mW6Yv9B0RJLv7BRiwGN7adG5x+z2svgGZRTkHwAEz6eLYMThbuPrPGDX/d/TUCvCnEzh3HL/PD89ML59/4G7beRlcLlCXbR8wpWXhrKLcKR5ln+5leaBwP0bQ88IDZzbSCnw/lnmFgrF3DZ43n7M9tuluywHPn0Nzw0K0RdA3hY5Aofx3adr3Q5k1M6AaqtsHiykBspcjhnCul1ePnXlvx9H9YJ/c13AcPm3BwQf3tprtoZzVH2fB/uqSOp6Ip5zHm45S86hDq6UwNjHwWw7tCTASkThK3wfZyIBFsiIkbtL8gTIC1+l7yoozW5QhqCh2JL+ZpxyPZVSadIFaaQzAwvszrfKTTKK2ibHPeL7KsQf7plwTIu+oObuV+IZgsGBhTQcBR54KPne00B5wAIdU6gdGfOO5MT+ptTgF6BFVrgiGhc0f+vJxhZgAABZR68CwcMnla561jQPXyxBbcNArbl4x+DEt7YVDkgoEsTyvIAXSw3TBAGBgL8YJ2i+bsMMJMBdG74IszObIOmvLAjYif2EAfXG46UgICmoI/qUnBycdGXEJfeF/YVjYGqhJqwhx/wIGZooyotJg/kNPCH8HAFZQOCAuAQAAUAYAnQEqFAAeAD8RcK9QLCYkIrAIAYAiCWwAxQaVuMBNLJEPiUW3s4GQTEG/mtL3T4Z87pPGR1faUAAA/ujzNcyjHoz7Jjb/r34ujXnjFdf6+PP86DkHSKQZBahTQue+7X4CyjnFk2w0cMMAMXyByFp5+i3nLtpYYTM/KAWqev+bMSIZzwyJuk/nrfdbxUeFRUsI0Hg6ns8t4Sn+afFJNksj4IpZCHXTRHG9LwIpI0x/32kmm4DWlnvodJN8r/P/P9oXNUgT7+N/ycmVUBhGYgL4poPqpgY2+7z4Q6XkrGBn2g928lYQlgVfy3jJH1sAbTl28kJGZDrtZ9YOjYtdSOK2uHCykOYNTjWln5GwNTaTeihn98fofw8fzH3VqQ5qGK59w3oZKMlszOePgAA="
-  },
   "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post.png": {
     "width": 1080,
     "height": 1080,
@@ -97,6 +90,13 @@
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4WAoAAAAQAAAAEwAAAwAAQUxQSFEAAAAAPYZtYVmBaUJ1UIt5UFxqa2NffDoUGDZLRDs5SE8nLTk9OjQ2NUBDGwUSFB4eHxUDDAkHBAIGHyEWTWkkGCorKiorFwIVCxcWExQpJxg3dSIAVlA4IGAAAAAwBACdASoUAAQAPxFwsFAsJiSisAgBgCIJZgCdMoHgA5/8B5IAzJrbYQAA/s4FJYxWXCMmBAQRGGrQ4wU/VgPa/SEz/s+9hwO5AIaL30z9pTcxxAWAU4lyjoxhbCu30AA="
   },
+  "images/projects/Piko Fg Music/piko-logo.png": {
+    "width": 523,
+    "height": 794,
+    "base": "images/projects/Piko Fg Music/piko-logo",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRkgDAABXRUJQVlA4WAoAAAAQAAAAEwAAHQAAQUxQSPMBAAABkHDb1hm4wm+Sjm3btm3bqm3btm3btm27Y9uevFHbiJgAgAWEVCXAMGAl4NYfLMDCYH1mW6Yv9B0RJLv7BRiwGN7adG5x+z2svgGZRTkHwAEz6eLYMThbuPrPGDX/d/TUCvCnEzh3HL/PD89ML59/4G7beRlcLlCXbR8wpWXhrKLcKR5ln+5leaBwP0bQ88IDZzbSCnw/lnmFgrF3DZ43n7M9tuluywHPn0Nzw0K0RdA3hY5Aofx3adr3Q5k1M6AaqtsHiykBspcjhnCul1ePnXlvx9H9YJ/c13AcPm3BwQf3tprtoZzVH2fB/uqSOp6Ip5zHm45S86hDq6UwNjHwWw7tCTASkThK3wfZyIBFsiIkbtL8gTIC1+l7yoozW5QhqCh2JL+ZpxyPZVSadIFaaQzAwvszrfKTTKK2ibHPeL7KsQf7plwTIu+oObuV+IZgsGBhTQcBR54KPne00B5wAIdU6gdGfOO5MT+ptTgF6BFVrgiGhc0f+vJxhZgAABZR68CwcMnla561jQPXyxBbcNArbl4x+DEt7YVDkgoEsTyvIAXSw3TBAGBgL8YJ2i+bsMMJMBdG74IszObIOmvLAjYif2EAfXG46UgICmoI/qUnBycdGXEJfeF/YVjYGqhJqwhx/wIGZooyotJg/kNPCH8HAFZQOCAuAQAAUAYAnQEqFAAeAD8RcK9QLCYkIrAIAYAiCWwAxQaVuMBNLJEPiUW3s4GQTEG/mtL3T4Z87pPGR1faUAAA/ujzNcyjHoz7Jjb/r34ujXnjFdf6+PP86DkHSKQZBahTQue+7X4CyjnFk2w0cMMAMXyByFp5+i3nLtpYYTM/KAWqev+bMSIZzwyJuk/nrfdbxUeFRUsI0Hg6ns8t4Sn+afFJNksj4IpZCHXTRHG9LwIpI0x/32kmm4DWlnvodJN8r/P/P9oXNUgT7+N/ycmVUBhGYgL4poPqpgY2+7z4Q6XkrGBn2g928lYQlgVfy3jJH1sAbTl28kJGZDrtZ9YOjYtdSOK2uHCykOYNTjWln5GwNTaTeihn98fofw8fzH3VqQ5qGK59w3oZKMlszOePgAA="
+  },
   "images/projects/Primarycare Indy/Primary Care Logo with PMC.png": {
     "width": 2356,
     "height": 604,
@@ -110,6 +110,13 @@
     "base": "images/projects/Primarycare Indy/primarycare indy logo",
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRgIBAABXRUJQVlA4WAoAAAAQAAAAEwAABQAAQUxQSGIAAAABcBvbtqrs8wWLfoy7u7u7xeQ0QE4TNEYJVPMoIiISkG1j6Q9J4J2yw8cKCyMfpjV9fm+7xTxaTaRK1USskoBQ8/V7l9Pz/maw2DYy7fvG8xPYfjoIISFHVnUZxkhCkkDCJ1ZQOCB6AAAA8AMAnQEqFAAGAD8RdrFQrCckorAIAYAiCWoAnTlBOAAjLUZ0b0DnIAD+2GcjU2LgerAT3mrmKf1Rqpz29bPgTY9pOH//+DUmVdHau6XpDpFBCsX2Iz+TzkXawx/udPEijhBx0OopmNvy26fct4zYAB/oDYAFDcfQYAA="
+  },
+  "images/projects/ResQ Organics/CBD-for-Pets-and-Pet-Skin-Care.png": {
+    "width": 831,
+    "height": 519,
+    "base": "images/projects/ResQ Organics/CBD-for-Pets-and-Pet-Skin-Care",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
   },
   "images/projects/ResQ Organics/CBD-Oil-for-Pets.png": {
     "width": 1000,
@@ -129,13 +136,6 @@
     "width": 831,
     "height": 519,
     "base": "images/projects/ResQ Organics/ResQ Organics for Pets",
-    "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
-  },
-  "images/projects/ResQ Organics/CBD-for-Pets-and-Pet-Skin-Care.png": {
-    "width": 831,
-    "height": 519,
-    "base": "images/projects/ResQ Organics/CBD-for-Pets-and-Pet-Skin-Care",
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
   },
@@ -174,12 +174,173 @@
     "color": "rgb(8 8 8)",
     "blurDataURL": "data:image/webp;base64,UklGRoABAABXRUJQVlA4WAoAAAAQAAAAEwAADQAAQUxQSOEAAAANkGvb2rFXe3+xbdturdrGTditnTJdarZ2i862bX5PdM41RMQEAAQEFAoBKJ/NbhnQkE8AAoEAIOw197TqrFtX9J71n/Uf6Z58tbfydhHx7uxxW/q6kDSYMlZYu6igCigxOJ7PGQ85Ua3P9BdNXT60jAAE9e746s4l9STPRB7FDTmrAYDC/YCPlxc/wzlj82eLq0+TQ0BmXx71Hw0fDbyeHx7E6t0IqvJObQ2hUKhoQhRRVVXzQMH/EqBovXbN/hcA0djsRtE/BAABqq7+Bh8kQIAgAAI01l0SIeSXUACArwYAVlA4IHgAAAAwBACdASoUAA4APxFysFAsJqSisAgBgCIJbACxC8GJ/gPIG+kFGReQAaAA/u8SXOqVn/8felr7zeYwQwDk8LXsZ0YdM9+4l3YFCPLRDsXwaLoyVZnHZqL1MSfX+Sh1HGjn3Ox1bzXzNhnix7oMFzkPlTeS6EgQAAA="
   },
-  "demos/images of apps/screenshot-of-graston-technique-roi-calculator.jpg": {
-    "width": 2291,
-    "height": 1352,
-    "base": "demos/images of apps/screenshot-of-graston-technique-roi-calculator",
+  "images/_src/developer-workspace-1.jpg": {
+    "width": 940,
+    "height": 627,
+    "base": "images/_src/developer-workspace-1",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADwAwCdASoUAA0APxFysFAsJqSisAgBgCIJZwDE2BxK9D9/Dgk/ZUvAAP7mvg5vvRfqm0/rbksds1byqzmwrzc5VsSfiLsc5yYeiTC1cVzEPjEC9+SQrl/e7VvhYDf+VOtEkzXdBap8eIH2yZ94h9K3K6AAAA=="
+  },
+  "images/_src/developer-workspace-4.jpg": {
+    "width": 940,
+    "height": 627,
+    "base": "images/_src/developer-workspace-4",
+    "color": "rgb(136 136 136)",
+    "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwBACdASoUAA0APxFysFAsJqSisAgBgCIJYgCpDuAAN9J9FDEDYLHZpRAAyeYvrfZKsKQse0Lahq4dJRd+ptpj6+3+uOy22eQMCdwFoykg/Ke2VZE5fB7zIyv7pn8vCyePR+frnYfJxjSCNSYdUgXZQ77GYpJmtRXsAAAA"
+  },
+  "images/_src/developer-workspace-2.jpg": {
+    "width": 940,
+    "height": 627,
+    "base": "images/_src/developer-workspace-2",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAwCdASoUAA0APxF2sVCsJySisAgBgCIJZwAASoSvAXx6e2AAAP2stojiPD7Q+CrzCjTGSXXsu6wouRVXid9qFoP6LjR7AAA="
+  },
+  "images/_src/developer-workspace-3.jpg": {
+    "width": 940,
+    "height": 627,
+    "base": "images/_src/developer-workspace-3",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAADwAwCdASoUAA0APxFysFAsJqSisAgBgCIJZwC7ACPScxwNGbN0QaogAPw74A9s18hYNmFwDvjSqrH7QfWIQYGrPtsi2sxnt1Fwd+rbqP4MRgWxkZdk5j/5LwgFoAZVpWVzRJa93/+mgJ/2uCpUnnkt+rRQjOstg5cSpHQ5MT4KMLgWAAA="
+  },
+  "images/_src/developer-workspace-5.jpg": {
+    "width": 940,
+    "height": 628,
+    "base": "images/_src/developer-workspace-5",
+    "color": "rgb(24 24 24)",
+    "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADQAwCdASoUAA0APxFwsFAsJiSisAgBgCIJZgC7ABhdvSeqp3BIcAAA/pkcqwqyh58vuL8yyGofqix8SD96YHU2ttwnXcvql7SIEjQ5JYmdViT+9LuoZ81BcVCRGxbUlVAAAA=="
+  },
+  "images/_src/developer-workspace-6.jpg": {
+    "width": 940,
+    "height": 627,
+    "base": "images/_src/developer-workspace-6",
+    "color": "rgb(232 232 232)",
+    "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAA0APxFwsFAsJiSisAgBgCIJYwDE2CHS5puashXzvoAA/q8JGoCd3mY0bo/iWJG1mMH7B7SnbDKWUJ18XizNKXDtjS1JMkWDDksGgjIJMQDqcn8xyWh51tWEfInkd81NI7EwQAA="
+  },
+  "images/_src/developer-workspace-8.jpg": {
+    "width": 940,
+    "height": 627,
+    "base": "images/_src/developer-workspace-8",
+    "color": "rgb(216 216 200)",
+    "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACwAwCdASoUAA0APxFysFAsJqSisAgBgCIJQBOgBDkCPgb2Xfi+UAD+ruYckXfQLjqextJxfZxstEffd6C7d9SPcqy7P1iYq19/GObL1ZLW4fkdh+vR8qS/P/UZPgGTGKtAAA=="
+  },
+  "images/_src/developer-workspace-7.jpg": {
+    "width": 940,
+    "height": 627,
+    "base": "images/_src/developer-workspace-7",
+    "color": "rgb(200 184 184)",
+    "blurDataURL": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADQAwCdASoUAA0APxFysFAsJqSisAgBgCIJYgC+SBea+rbqij9o7AAA+QKs6CiE7dpG8WB4uP3mx+NqwUSXzEeFvjRAzpNiAjvrFHEzdiLXpgruI+5ZDJkili/4S5xNomrJ72twT8TFA8oqLSQNbtu2Mt59zmSjGWTpB2ZvyDkwtiBa+3Ndcu+Trfl/mRJ29bQh6AAA"
+  },
+  "images/_src/marketing-strategy-meeting-1.jpg": {
+    "width": 940,
+    "height": 529,
+    "base": "images/_src/marketing-strategy-meeting-1",
     "color": "rgb(248 248 248)",
-    "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAgCdASoUAAwAPxFysVAsJqSisAgBgCIJaQAAeyAA/u9vdwl6heSQvLnnIRxHZW2AAA=="
+    "blurDataURL": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAwBACdASoUAAsAPxFysFAsJqSisAgBgCIJQBdgMXmW1v1eA8L/rkG/LwAA/mpLCxeZF7TLIJD0sQfEULWgmgV7w/61lKUvB0+UFY+6dcy0HsFfdLviRUOcZ1lAirIZ79M9lBG7pwp5sTPvqqu+ct+Jz3A7Kvl3oYrAwBbAMvcNneQmTKpD9aymRLeA4YAA"
+  },
+  "images/_src/marketing-strategy-meeting-2.jpg": {
+    "width": 940,
+    "height": 627,
+    "base": "images/_src/marketing-strategy-meeting-2",
+    "color": "rgb(216 184 152)",
+    "blurDataURL": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAQBACdASoUAA0APxFwsFAsJiSisAgBgCIJZACw7CHgTCe13Br4294uAAD86r8lIBde83nwfl+e6NVsnjebQ0JuFNh8zTh7bq9ALinrZJ0/q7d+v5ZuV7Mq4kEr9BOF4SqwzBPl+uuaA/EHgA2XyHXMPhQAAA=="
+  },
+  "images/_src/marketing-strategy-meeting-7.jpg": {
+    "width": 940,
+    "height": 627,
+    "base": "images/_src/marketing-strategy-meeting-7",
+    "color": "rgb(168 168 152)",
+    "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACQAwCdASoUAA0APxFysFAsJqSisAgBgCIJYwCo9BMol3Gt2ojUAP7ht6+Mrs1IkU+0BIjt7ykQxBYgvpl4XWEcVUMrHfWEDZydDKBaXpp40LSF1vY7hdbIhb9zv5YX/M2/xOAuxYWKQWkzW8MTNmygAAA="
+  },
+  "images/_src/marketing-strategy-meeting-6.jpg": {
+    "width": 940,
+    "height": 627,
+    "base": "images/_src/marketing-strategy-meeting-6",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAwBACdASoUAA0APxFwsFAsJiSisAgBgCIJZgCACG/AnY4qVdSjM2K2E6AA/uqg6IKKOb8t4iK0NV8HRsR5mIJyMDtefj24LY/IX+EPyKlXFKdd14p1uZJtAkpSQ4DMzB8eUJ52/vsosd37kCBXcyPedcX3BeqmqtXp9JM/tmLzN4KXGt3C2XY2eP68UZ7wgAA="
+  },
+  "images/_src/marketing-strategy-meeting-3.jpg": {
+    "width": 867,
+    "height": 650,
+    "base": "images/_src/marketing-strategy-meeting-3",
+    "color": "rgb(200 200 200)",
+    "blurDataURL": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAABQBACdASoUAA8APxFysFAsJqSisAgBgCIJZACdEf/i161qVdVJnXYGaFkAAP5b8FkTCofQUvP4a7YZIWfM0sSCniyM3nm8KNxTpiSGr1tgwHFQb2xZVPO2g+oAFUnpOTluNQuzW/sMG/Kp3bPHH7wkpDvxGlSjc2TwtltKwD3xEGA1ojAaNefDtPs1FN2nz4AAAA=="
+  },
+  "images/_src/marketing-strategy-meeting-4.jpg": {
+    "width": 940,
+    "height": 529,
+    "base": "images/_src/marketing-strategy-meeting-4",
+    "color": "rgb(232 216 184)",
+    "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAwBACdASoUAAsAPxFwsFAsJiSisAgBgCIJYgCdMoADEAyBE6VVumT/sCAA/iQ+VJ6ad0RwQrxzGN7umts06Y3u+6OW8Ngmy407JixY1Xa+RZD08LpB4HIy7eBPAlS2PHEGZeM1Pc4foihzaGlVPVxfFTs20XX6AAA="
+  },
+  "images/_src/marketing-strategy-meeting-5.jpg": {
+    "width": 940,
+    "height": 529,
+    "base": "images/_src/marketing-strategy-meeting-5",
+    "color": "rgb(232 232 232)",
+    "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAwBACdASoUAAsAPxFysFAsJqSisAgBgCIJYwCzgB9xjjoAS/C9ID3K+9AA/B3Lda9Fq6S5/4z90x1HA72ac0BJp9Xd2FqeWcr/zDP195qhQfNqv/PaymOlRjukvIHgwRtkvisg5GnMG+rV1fV/cc8+xQAScgBZAAA="
+  },
+  "images/_src/technical-architecture-2.jpg": {
+    "width": 940,
+    "height": 627,
+    "base": "images/_src/technical-architecture-2",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQBACdASoUAA0APxFysFAsJqSisAgBgCIJYgCw7CFNzpcF6vzsOZQmAAD+w9/GH4tCB9q2am4Gud/EvXb5juesmbWU7ZwjK3t994m8+lTnUcnaRhvvNTIP9AWgq5tZJ4f4ppXQqeAAAA=="
+  },
+  "images/_src/technical-architecture-3.jpg": {
+    "width": 682,
+    "height": 650,
+    "base": "images/_src/technical-architecture-3",
+    "color": "rgb(232 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQBACdASoUABMAPxF4t1MsJyWiqAqpgCIJYwCdMwnBWb0iTi7TCk9gAAD+7V+9fIbtVDAwB6UdVSOMVuZqUkcJJY0nlbxGhRzuxmbeJfzeqPumabMUGMFU16PCPOgA"
+  },
+  "images/_src/marketing-strategy-meeting-8.jpg": {
+    "width": 940,
+    "height": 627,
+    "base": "images/_src/marketing-strategy-meeting-8",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwAwCdASoUAA0APxFysFAsJqSisAgBgCIJZQC/OB6jF6SDzLa9csrwAP7bZR7dNZ4SxOV/l18iZx/rvI0+MS6hQb8i9E63ZEeKcrwtsxxyp2U+2Hr6z+yODd5pr49oRlx/WYskoW/BQ5GPAQAAAA=="
+  },
+  "images/_src/technical-architecture-4.jpg": {
+    "width": 940,
+    "height": 627,
+    "base": "images/_src/technical-architecture-4",
+    "color": "rgb(120 184 232)",
+    "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQBACdASoUAA0APxFysFAsJqSisAgBgCIJbACdMoR3JoHh/gLdeADGHAQAAK49BEI3dClvwMe8fjw1B+Qd7b0ezhRnzQ3P52tWok09qrcj7ErG21Z4kO9oAAA="
+  },
+  "images/_src/technical-architecture-1.jpg": {
+    "width": 940,
+    "height": 627,
+    "base": "images/_src/technical-architecture-1",
+    "color": "rgb(168 184 184)",
+    "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwBACdASoUAA0APxFysFAsJqSisAgBgCIJaACxHn8Apv1TSRgZ8PZfJwAA4cKWfagNFlg4hkieMggQ0dChlASKhvHJ3LFUS3R/w6xteVa2hyt9RZ2Ajrvq0ypxX0UPunm35I6/u8094Ll2p0WhnlAhYNP1lU5HH8yMwAAA"
+  },
+  "images/_src/technical-architecture-7.jpg": {
+    "width": 940,
+    "height": 627,
+    "base": "images/_src/technical-architecture-7",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAA0APxFysFAsJqSisAgBgCIJQBYdhD4b5IRhl38KKoAA/uGScTIHNpHCSvj8W/9TTai7xr6hNHjlsZQcfK0bOxo2Z2fq9MiwCi076R+iYqO0i2V2dIlgJtDbfVMaZlMg1o+HAAA="
+  },
+  "images/_src/technical-architecture-5.jpg": {
+    "width": 940,
+    "height": 620,
+    "base": "images/_src/technical-architecture-5",
+    "color": "rgb(8 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACQAwCdASoUAA0APxFysFAsJqSisAgBgCIJQBibA1mjZAAPcEoAAP7umiwYMOvVXHxVQKhIQnsnrl2bd83pjGuMZT8XhTsoFZjMF7pFPC8RBKyjAOfbQKP0MPpEjAn9ko0ZuAAA"
+  },
+  "images/_src/technical-architecture-8.jpg": {
+    "width": 940,
+    "height": 528,
+    "base": "images/_src/technical-architecture-8",
+    "color": "rgb(88 8 8)",
+    "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAACwAwCdASoUAAsAPxFysFAsJqSisAgBgCIJaACdMoAB9mnRqtJeAAD+ze/0eKePR6+sP8mL1Xa6izvE1Lczq6k490YvP6bnNVWSPPqKyLsYmV3eNsq5sqVEqmWIdwI50LSvtivTnaZpQAAA"
+  },
+  "images/_src/technical-architecture-6.jpg": {
+    "width": 940,
+    "height": 613,
+    "base": "images/_src/technical-architecture-6",
+    "color": "rgb(120 120 120)",
+    "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAgCdASoUAA0ALtGIxGIkLCwsDADQS0gABSjK44u4AACtdEdmFRlUP97uIrG7ejUp2t7L7LMyeoGMVa/MYnFvXu2VGXYhQAA="
   },
   "demos/graston-growth-engine.jpg": {
     "width": 1390,
@@ -194,6 +355,13 @@
     "base": "demos/images of apps/screenshot-of-practitioner-license-requirements-_-graston-technique",
     "color": "rgb(248 248 248)",
     "blurDataURL": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAgCdASoUABAAPxFysFAsJqSisAgBgCIJaWhNADdYAAD+720t/03jrcaKnWgnCyp2a084AAA="
+  },
+  "demos/images of apps/screenshot-of-graston-technique-roi-calculator.jpg": {
+    "width": 2291,
+    "height": 1352,
+    "base": "demos/images of apps/screenshot-of-graston-technique-roi-calculator",
+    "color": "rgb(248 248 248)",
+    "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAgCdASoUAAwAPxFysVAsJqSisAgBgCIJaQAAeyAA/u9vdwl6heSQvLnnIRxHZW2AAA=="
   },
   "demos/images of apps/screenshot-of-graston-clinical-compass---intelligent-protocol-builder.jpg": {
     "width": 2269,

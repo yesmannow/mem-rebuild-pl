@@ -12,14 +12,13 @@ interface BioPhotoSlideshowProps {
   photos?: BioPhoto[];
 }
 
-// Default bio photos - using source images, build process will generate WebP versions
-// Browser will serve the optimized versions through the build-time image processing
+// Default bio photos - using optimized AVIF/WebP formats
 const defaultPhotos: BioPhoto[] = [
-  { src: '/images/bio/bio-photo.jpg', alt: 'Jacob Darling - Professional portrait' },
-  { src: '/images/bio/bio pic 2.png', alt: 'Jacob Darling - Portrait 2' },
-  { src: '/images/bio/bio pic 3.png', alt: 'Jacob Darling - Portrait 3' },
-  { src: '/images/bio/IMG_20230617_015647_366.jpg', alt: 'Jacob Darling - Portrait' },
-  { src: '/images/bio/QVZlSmkxeURiak5tajdscg.jpeg', alt: 'Jacob Darling - Portrait' },
+  { src: '/images/bio/bio-photo.avif', alt: 'Jacob Darling - Professional portrait' },
+  { src: '/images/bio/bio pic 2.avif', alt: 'Jacob Darling - Portrait 2' },
+  { src: '/images/bio/bio pic 3.avif', alt: 'Jacob Darling - Portrait 3' },
+  { src: '/images/bio/IMG_20230617_015647_366.avif', alt: 'Jacob Darling - Portrait' },
+  { src: '/images/bio/QVZlSmkxeURiak5tajdscg.avif', alt: 'Jacob Darling - Portrait' },
 ];
 
 const BioPhotoSlideshow: React.FC<BioPhotoSlideshowProps> = ({

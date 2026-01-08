@@ -15,9 +15,6 @@ export default defineConfig({
   resolve: {
     dedupe: ['react', 'react-dom', 'react-is'],
     alias: {
-      react: resolve(__dirname, 'node_modules/react'),
-      'react-dom': resolve(__dirname, 'node_modules/react-dom'),
-      'react/jsx-runtime': resolve(__dirname, 'node_modules/react/jsx-runtime'),
       '@': resolve(__dirname, 'src'),
       '@components': resolve(__dirname, 'src/components'),
       '@pages': resolve(__dirname, 'src/pages'),

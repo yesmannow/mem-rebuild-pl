@@ -60,16 +60,6 @@
     }
   },
   {
-    "file": "images/projects/Behr pet essentials/Behr pet essentials logo.png",
-    "meta": {
-      "width": 1578,
-      "height": 1036,
-      "base": "images/projects/Behr pet essentials/Behr pet essentials logo",
-      "color": "rgb(8 8 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRp4BAABXRUJQVlA4WAoAAAAQAAAAEwAADAAAQUxQSOMAAAANgLJt2/lX9f23bXu2rWhU1x3ri4vq+wZMTP8+Jdu27b3vO0fEBOBXkciTp57fXnjHP3mvBc17t6HDJPgfRqtweBnj98wsc+lvHNL4TJyTiy33t6sMv3KoqAroHe/gPVvPyG9AIMUmOoFC9/SAPznMntVwh5QQMmEFj/zgUE4wa7JvwHHW5ROC4CfjmjXtK52FTfXJBouCXTyCC3/ozauqfy1JbH7xcQ/PhPdvlL8/8fL88Hzuq7SKDxcoANQOWV9PYkV7Jw+z2yKl0WPajFiXla2wj2l55eiDJvVDcH354ThQAABWUDgglAAAABAEAJ0BKhQADQA/EXKwUCwmpKKwCAGAIglsAJ0vXR8zIhwW8QbNJ53AAMIHFpVVP4AY9LfUPilYpz/QfP6nGAh6TZn7nlKAlBfiMstg8wUsscffd27G0WxdjvHpv7kOR9WaBaYnjLZQFRWAPEuecA49Zm/7y+XkCv6BTv9ZbEtZxJuWTub3Dflej5i101t+gH8/AAA="
-    }
-  },
-  {
     "file": "images/projects/Black Letter/Black Letter - Full Logo.png",
     "meta": {
       "width": 1164,
@@ -77,6 +67,16 @@
       "base": "images/projects/Black Letter/Black Letter - Full Logo",
       "color": "rgb(72 104 120)",
       "blurDataURL": "data:image/webp;base64,UklGRhwCAABXRUJQVlA4WAoAAAAQAAAAEwAAEgAAQUxQSCEBAAABgJ1tmzHn/WbWsW3btm3bOrZtOw3kEB2kAjaQFJDDNPCvZraGiFDYtm3DrM5HABDsd40nflOHbiDIwZFuLAW2vw02EgxZxjLA29gLLiFHuwLFwsvYL+NebsiwbhZ+HOWNt4EsWlzH7zzkcnAXntQgdbZT5qUDE78Z3hfBBJ4aiQ5d/34gGzKM5VAh0tgkfvQWNkoRtIhXqkQOnmB8XDkPZJj4c5YufOzhGRe7+Xule54AAxGIuI8LgRD08vUY5+ETEmUAEZidm6Ors4tvZOdQVZSHBtjvqkRyefpsc3WRHzTO6SF6O6fXw1WsPG34d73lRbqPNDRUNnQ1HQzPzLTUDoy0VjcUx5bH5uYWZIequGuYu6d3kIujX3Sgt79HiB8HAFZQOCDUAAAA8AUAnQEqFAATAD8RgLhVrCglIygIAYAiCWwAuy9tFQrwC7SQERC1FvSbuYsRDmdhzf4yHJmSBmAA/nxctVw1r9bLRQaSxJ5Bu2bgQ0ADfpP9TQdgQfipWKpFpQ7h1BAGljn8BoQ3kJRV63nOGalhiaKAtI4wXZeQB0/66mKZtxGub/abeKy3yylnhATd2+fASb8IKnV8BBHegNJbEZhaczCvtVAZB5mztxaDTu6PGs1b3xULlUUg5Z+CHgG3t76wVUIu8gkWYMODtks+oMHj7yXmAAA="
+    }
+  },
+  {
+    "file": "images/projects/Behr pet essentials/Behr pet essentials logo.png",
+    "meta": {
+      "width": 1578,
+      "height": 1036,
+      "base": "images/projects/Behr pet essentials/Behr pet essentials logo",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRp4BAABXRUJQVlA4WAoAAAAQAAAAEwAADAAAQUxQSOMAAAANgLJt2/lX9f23bXu2rWhU1x3ri4vq+wZMTP8+Jdu27b3vO0fEBOBXkciTp57fXnjHP3mvBc17t6HDJPgfRqtweBnj98wsc+lvHNL4TJyTiy33t6sMv3KoqAroHe/gPVvPyG9AIMUmOoFC9/SAPznMntVwh5QQMmEFj/zgUE4wa7JvwHHW5ROC4CfjmjXtK52FTfXJBouCXTyCC3/ozauqfy1JbH7xcQ/PhPdvlL8/8fL88Hzuq7SKDxcoANQOWV9PYkV7Jw+z2yKl0WPajFiXla2wj2l55eiDJvVDcH354ThQAABWUDgglAAAABAEAJ0BKhQADQA/EXKwUCwmpKKwCAGAIglsAJ0vXR8zIhwW8QbNJ53AAMIHFpVVP4AY9LfUPilYpz/QfP6nGAh6TZn7nlKAlBfiMstg8wUsscffd27G0WxdjvHpv7kOR9WaBaYnjLZQFRWAPEuecA49Zm/7y+XkCv6BTv9ZbEtZxJuWTub3Dflej5i101t+gH8/AAA="
     }
   },
   {
@@ -110,16 +110,6 @@
     }
   },
   {
-    "file": "images/projects/Piko Fg Music/piko-logo.png",
-    "meta": {
-      "width": 523,
-      "height": 794,
-      "base": "images/projects/Piko Fg Music/piko-logo",
-      "color": "rgb(8 8 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRkgDAABXRUJQVlA4WAoAAAAQAAAAEwAAHQAAQUxQSPMBAAABkHDb1hm4wm+Sjm3btm3bqm3btm3btm27Y9uevFHbiJgAgAWEVCXAMGAl4NYfLMDCYH1mW6Yv9B0RJLv7BRiwGN7adG5x+z2svgGZRTkHwAEz6eLYMThbuPrPGDX/d/TUCvCnEzh3HL/PD89ML59/4G7beRlcLlCXbR8wpWXhrKLcKR5ln+5leaBwP0bQ88IDZzbSCnw/lnmFgrF3DZ43n7M9tuluywHPn0Nzw0K0RdA3hY5Aofx3adr3Q5k1M6AaqtsHiykBspcjhnCul1ePnXlvx9H9YJ/c13AcPm3BwQf3tprtoZzVH2fB/uqSOp6Ip5zHm45S86hDq6UwNjHwWw7tCTASkThK3wfZyIBFsiIkbtL8gTIC1+l7yoozW5QhqCh2JL+ZpxyPZVSadIFaaQzAwvszrfKTTKK2ibHPeL7KsQf7plwTIu+oObuV+IZgsGBhTQcBR54KPne00B5wAIdU6gdGfOO5MT+ptTgF6BFVrgiGhc0f+vJxhZgAABZR68CwcMnla561jQPXyxBbcNArbl4x+DEt7YVDkgoEsTyvIAXSw3TBAGBgL8YJ2i+bsMMJMBdG74IszObIOmvLAjYif2EAfXG46UgICmoI/qUnBycdGXEJfeF/YVjYGqhJqwhx/wIGZooyotJg/kNPCH8HAFZQOCAuAQAAUAYAnQEqFAAeAD8RcK9QLCYkIrAIAYAiCWwAxQaVuMBNLJEPiUW3s4GQTEG/mtL3T4Z87pPGR1faUAAA/ujzNcyjHoz7Jjb/r34ujXnjFdf6+PP86DkHSKQZBahTQue+7X4CyjnFk2w0cMMAMXyByFp5+i3nLtpYYTM/KAWqev+bMSIZzwyJuk/nrfdbxUeFRUsI0Hg6ns8t4Sn+afFJNksj4IpZCHXTRHG9LwIpI0x/32kmm4DWlnvodJN8r/P/P9oXNUgT7+N/ycmVUBhGYgL4poPqpgY2+7z4Q6XkrGBn2g928lYQlgVfy3jJH1sAbTl28kJGZDrtZ9YOjYtdSOK2uHCykOYNTjWln5GwNTaTeihn98fofw8fzH3VqQ5qGK59w3oZKMlszOePgAA="
-    }
-  },
-  {
     "file": "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post.png",
     "meta": {
       "width": 1080,
@@ -140,6 +130,16 @@
     }
   },
   {
+    "file": "images/projects/Piko Fg Music/piko-logo.png",
+    "meta": {
+      "width": 523,
+      "height": 794,
+      "base": "images/projects/Piko Fg Music/piko-logo",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRkgDAABXRUJQVlA4WAoAAAAQAAAAEwAAHQAAQUxQSPMBAAABkHDb1hm4wm+Sjm3btm3bqm3btm3btm27Y9uevFHbiJgAgAWEVCXAMGAl4NYfLMDCYH1mW6Yv9B0RJLv7BRiwGN7adG5x+z2svgGZRTkHwAEz6eLYMThbuPrPGDX/d/TUCvCnEzh3HL/PD89ML59/4G7beRlcLlCXbR8wpWXhrKLcKR5ln+5leaBwP0bQ88IDZzbSCnw/lnmFgrF3DZ43n7M9tuluywHPn0Nzw0K0RdA3hY5Aofx3adr3Q5k1M6AaqtsHiykBspcjhnCul1ePnXlvx9H9YJ/c13AcPm3BwQf3tprtoZzVH2fB/uqSOp6Ip5zHm45S86hDq6UwNjHwWw7tCTASkThK3wfZyIBFsiIkbtL8gTIC1+l7yoozW5QhqCh2JL+ZpxyPZVSadIFaaQzAwvszrfKTTKK2ibHPeL7KsQf7plwTIu+oObuV+IZgsGBhTQcBR54KPne00B5wAIdU6gdGfOO5MT+ptTgF6BFVrgiGhc0f+vJxhZgAABZR68CwcMnla561jQPXyxBbcNArbl4x+DEt7YVDkgoEsTyvIAXSw3TBAGBgL8YJ2i+bsMMJMBdG74IszObIOmvLAjYif2EAfXG46UgICmoI/qUnBycdGXEJfeF/YVjYGqhJqwhx/wIGZooyotJg/kNPCH8HAFZQOCAuAQAAUAYAnQEqFAAeAD8RcK9QLCYkIrAIAYAiCWwAxQaVuMBNLJEPiUW3s4GQTEG/mtL3T4Z87pPGR1faUAAA/ujzNcyjHoz7Jjb/r34ujXnjFdf6+PP86DkHSKQZBahTQue+7X4CyjnFk2w0cMMAMXyByFp5+i3nLtpYYTM/KAWqev+bMSIZzwyJuk/nrfdbxUeFRUsI0Hg6ns8t4Sn+afFJNksj4IpZCHXTRHG9LwIpI0x/32kmm4DWlnvodJN8r/P/P9oXNUgT7+N/ycmVUBhGYgL4poPqpgY2+7z4Q6XkrGBn2g928lYQlgVfy3jJH1sAbTl28kJGZDrtZ9YOjYtdSOK2uHCykOYNTjWln5GwNTaTeihn98fofw8fzH3VqQ5qGK59w3oZKMlszOePgAA="
+    }
+  },
+  {
     "file": "images/projects/Primarycare Indy/Primary Care Logo with PMC.png",
     "meta": {
       "width": 2356,
@@ -157,6 +157,16 @@
       "base": "images/projects/Primarycare Indy/primarycare indy logo",
       "color": "rgb(248 248 248)",
       "blurDataURL": "data:image/webp;base64,UklGRgIBAABXRUJQVlA4WAoAAAAQAAAAEwAABQAAQUxQSGIAAAABcBvbtqrs8wWLfoy7u7u7xeQ0QE4TNEYJVPMoIiISkG1j6Q9J4J2yw8cKCyMfpjV9fm+7xTxaTaRK1USskoBQ8/V7l9Pz/maw2DYy7fvG8xPYfjoIISFHVnUZxkhCkkDCJ1ZQOCB6AAAA8AMAnQEqFAAGAD8RdrFQrCckorAIAYAiCWoAnTlBOAAjLUZ0b0DnIAD+2GcjU2LgerAT3mrmKf1Rqpz29bPgTY9pOH//+DUmVdHau6XpDpFBCsX2Iz+TzkXawx/udPEijhBx0OopmNvy26fct4zYAB/oDYAFDcfQYAA="
+    }
+  },
+  {
+    "file": "images/projects/ResQ Organics/CBD-for-Pets-and-Pet-Skin-Care.png",
+    "meta": {
+      "width": 831,
+      "height": 519,
+      "base": "images/projects/ResQ Organics/CBD-for-Pets-and-Pet-Skin-Care",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
     }
   },
   {
@@ -185,16 +195,6 @@
       "width": 831,
       "height": 519,
       "base": "images/projects/ResQ Organics/ResQ Organics for Pets",
-      "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
-    }
-  },
-  {
-    "file": "images/projects/ResQ Organics/CBD-for-Pets-and-Pet-Skin-Care.png",
-    "meta": {
-      "width": 831,
-      "height": 519,
-      "base": "images/projects/ResQ Organics/CBD-for-Pets-and-Pet-Skin-Care",
       "color": "rgb(248 248 248)",
       "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
     }
@@ -247,6 +247,246 @@
       "base": "images/projects/Russell painting/Russell Painting Company Logo",
       "color": "rgb(8 8 8)",
       "blurDataURL": "data:image/webp;base64,UklGRoABAABXRUJQVlA4WAoAAAAQAAAAEwAADQAAQUxQSOEAAAANkGvb2rFXe3+xbdturdrGTditnTJdarZ2i862bX5PdM41RMQEAAQEFAoBKJ/NbhnQkE8AAoEAIOw197TqrFtX9J71n/Uf6Z58tbfydhHx7uxxW/q6kDSYMlZYu6igCigxOJ7PGQ85Ua3P9BdNXT60jAAE9e746s4l9STPRB7FDTmrAYDC/YCPlxc/wzlj82eLq0+TQ0BmXx71Hw0fDbyeHx7E6t0IqvJObQ2hUKhoQhRRVVXzQMH/EqBovXbN/hcA0djsRtE/BAABqq7+Bh8kQIAgAAI01l0SIeSXUACArwYAVlA4IHgAAAAwBACdASoUAA4APxFysFAsJqSisAgBgCIJbACxC8GJ/gPIG+kFGReQAaAA/u8SXOqVn/8felr7zeYwQwDk8LXsZ0YdM9+4l3YFCPLRDsXwaLoyVZnHZqL1MSfX+Sh1HGjn3Ox1bzXzNhnix7oMFzkPlTeS6EgQAAA="
+    }
+  },
+  {
+    "file": "images/_src/developer-workspace-1.jpg",
+    "meta": {
+      "width": 940,
+      "height": 627,
+      "base": "images/_src/developer-workspace-1",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADwAwCdASoUAA0APxFysFAsJqSisAgBgCIJZwDE2BxK9D9/Dgk/ZUvAAP7mvg5vvRfqm0/rbksds1byqzmwrzc5VsSfiLsc5yYeiTC1cVzEPjEC9+SQrl/e7VvhYDf+VOtEkzXdBap8eIH2yZ94h9K3K6AAAA=="
+    }
+  },
+  {
+    "file": "images/_src/developer-workspace-4.jpg",
+    "meta": {
+      "width": 940,
+      "height": 627,
+      "base": "images/_src/developer-workspace-4",
+      "color": "rgb(136 136 136)",
+      "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwBACdASoUAA0APxFysFAsJqSisAgBgCIJYgCpDuAAN9J9FDEDYLHZpRAAyeYvrfZKsKQse0Lahq4dJRd+ptpj6+3+uOy22eQMCdwFoykg/Ke2VZE5fB7zIyv7pn8vCyePR+frnYfJxjSCNSYdUgXZQ77GYpJmtRXsAAAA"
+    }
+  },
+  {
+    "file": "images/_src/developer-workspace-2.jpg",
+    "meta": {
+      "width": 940,
+      "height": 627,
+      "base": "images/_src/developer-workspace-2",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAwCdASoUAA0APxF2sVCsJySisAgBgCIJZwAASoSvAXx6e2AAAP2stojiPD7Q+CrzCjTGSXXsu6wouRVXid9qFoP6LjR7AAA="
+    }
+  },
+  {
+    "file": "images/_src/developer-workspace-3.jpg",
+    "meta": {
+      "width": 940,
+      "height": 627,
+      "base": "images/_src/developer-workspace-3",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAADwAwCdASoUAA0APxFysFAsJqSisAgBgCIJZwC7ACPScxwNGbN0QaogAPw74A9s18hYNmFwDvjSqrH7QfWIQYGrPtsi2sxnt1Fwd+rbqP4MRgWxkZdk5j/5LwgFoAZVpWVzRJa93/+mgJ/2uCpUnnkt+rRQjOstg5cSpHQ5MT4KMLgWAAA="
+    }
+  },
+  {
+    "file": "images/_src/developer-workspace-5.jpg",
+    "meta": {
+      "width": 940,
+      "height": 628,
+      "base": "images/_src/developer-workspace-5",
+      "color": "rgb(24 24 24)",
+      "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADQAwCdASoUAA0APxFwsFAsJiSisAgBgCIJZgC7ABhdvSeqp3BIcAAA/pkcqwqyh58vuL8yyGofqix8SD96YHU2ttwnXcvql7SIEjQ5JYmdViT+9LuoZ81BcVCRGxbUlVAAAA=="
+    }
+  },
+  {
+    "file": "images/_src/developer-workspace-6.jpg",
+    "meta": {
+      "width": 940,
+      "height": 627,
+      "base": "images/_src/developer-workspace-6",
+      "color": "rgb(232 232 232)",
+      "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAA0APxFwsFAsJiSisAgBgCIJYwDE2CHS5puashXzvoAA/q8JGoCd3mY0bo/iWJG1mMH7B7SnbDKWUJ18XizNKXDtjS1JMkWDDksGgjIJMQDqcn8xyWh51tWEfInkd81NI7EwQAA="
+    }
+  },
+  {
+    "file": "images/_src/developer-workspace-8.jpg",
+    "meta": {
+      "width": 940,
+      "height": 627,
+      "base": "images/_src/developer-workspace-8",
+      "color": "rgb(216 216 200)",
+      "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACwAwCdASoUAA0APxFysFAsJqSisAgBgCIJQBOgBDkCPgb2Xfi+UAD+ruYckXfQLjqextJxfZxstEffd6C7d9SPcqy7P1iYq19/GObL1ZLW4fkdh+vR8qS/P/UZPgGTGKtAAA=="
+    }
+  },
+  {
+    "file": "images/_src/developer-workspace-7.jpg",
+    "meta": {
+      "width": 940,
+      "height": 627,
+      "base": "images/_src/developer-workspace-7",
+      "color": "rgb(200 184 184)",
+      "blurDataURL": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADQAwCdASoUAA0APxFysFAsJqSisAgBgCIJYgC+SBea+rbqij9o7AAA+QKs6CiE7dpG8WB4uP3mx+NqwUSXzEeFvjRAzpNiAjvrFHEzdiLXpgruI+5ZDJkili/4S5xNomrJ72twT8TFA8oqLSQNbtu2Mt59zmSjGWTpB2ZvyDkwtiBa+3Ndcu+Trfl/mRJ29bQh6AAA"
+    }
+  },
+  {
+    "file": "images/_src/marketing-strategy-meeting-1.jpg",
+    "meta": {
+      "width": 940,
+      "height": 529,
+      "base": "images/_src/marketing-strategy-meeting-1",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAwBACdASoUAAsAPxFysFAsJqSisAgBgCIJQBdgMXmW1v1eA8L/rkG/LwAA/mpLCxeZF7TLIJD0sQfEULWgmgV7w/61lKUvB0+UFY+6dcy0HsFfdLviRUOcZ1lAirIZ79M9lBG7pwp5sTPvqqu+ct+Jz3A7Kvl3oYrAwBbAMvcNneQmTKpD9aymRLeA4YAA"
+    }
+  },
+  {
+    "file": "images/_src/marketing-strategy-meeting-2.jpg",
+    "meta": {
+      "width": 940,
+      "height": 627,
+      "base": "images/_src/marketing-strategy-meeting-2",
+      "color": "rgb(216 184 152)",
+      "blurDataURL": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAQBACdASoUAA0APxFwsFAsJiSisAgBgCIJZACw7CHgTCe13Br4294uAAD86r8lIBde83nwfl+e6NVsnjebQ0JuFNh8zTh7bq9ALinrZJ0/q7d+v5ZuV7Mq4kEr9BOF4SqwzBPl+uuaA/EHgA2XyHXMPhQAAA=="
+    }
+  },
+  {
+    "file": "images/_src/marketing-strategy-meeting-7.jpg",
+    "meta": {
+      "width": 940,
+      "height": 627,
+      "base": "images/_src/marketing-strategy-meeting-7",
+      "color": "rgb(168 168 152)",
+      "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACQAwCdASoUAA0APxFysFAsJqSisAgBgCIJYwCo9BMol3Gt2ojUAP7ht6+Mrs1IkU+0BIjt7ykQxBYgvpl4XWEcVUMrHfWEDZydDKBaXpp40LSF1vY7hdbIhb9zv5YX/M2/xOAuxYWKQWkzW8MTNmygAAA="
+    }
+  },
+  {
+    "file": "images/_src/marketing-strategy-meeting-6.jpg",
+    "meta": {
+      "width": 940,
+      "height": 627,
+      "base": "images/_src/marketing-strategy-meeting-6",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAwBACdASoUAA0APxFwsFAsJiSisAgBgCIJZgCACG/AnY4qVdSjM2K2E6AA/uqg6IKKOb8t4iK0NV8HRsR5mIJyMDtefj24LY/IX+EPyKlXFKdd14p1uZJtAkpSQ4DMzB8eUJ52/vsosd37kCBXcyPedcX3BeqmqtXp9JM/tmLzN4KXGt3C2XY2eP68UZ7wgAA="
+    }
+  },
+  {
+    "file": "images/_src/marketing-strategy-meeting-3.jpg",
+    "meta": {
+      "width": 867,
+      "height": 650,
+      "base": "images/_src/marketing-strategy-meeting-3",
+      "color": "rgb(200 200 200)",
+      "blurDataURL": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAABQBACdASoUAA8APxFysFAsJqSisAgBgCIJZACdEf/i161qVdVJnXYGaFkAAP5b8FkTCofQUvP4a7YZIWfM0sSCniyM3nm8KNxTpiSGr1tgwHFQb2xZVPO2g+oAFUnpOTluNQuzW/sMG/Kp3bPHH7wkpDvxGlSjc2TwtltKwD3xEGA1ojAaNefDtPs1FN2nz4AAAA=="
+    }
+  },
+  {
+    "file": "images/_src/marketing-strategy-meeting-4.jpg",
+    "meta": {
+      "width": 940,
+      "height": 529,
+      "base": "images/_src/marketing-strategy-meeting-4",
+      "color": "rgb(232 216 184)",
+      "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAwBACdASoUAAsAPxFwsFAsJiSisAgBgCIJYgCdMoADEAyBE6VVumT/sCAA/iQ+VJ6ad0RwQrxzGN7umts06Y3u+6OW8Ngmy407JixY1Xa+RZD08LpB4HIy7eBPAlS2PHEGZeM1Pc4foihzaGlVPVxfFTs20XX6AAA="
+    }
+  },
+  {
+    "file": "images/_src/marketing-strategy-meeting-5.jpg",
+    "meta": {
+      "width": 940,
+      "height": 529,
+      "base": "images/_src/marketing-strategy-meeting-5",
+      "color": "rgb(232 232 232)",
+      "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAwBACdASoUAAsAPxFysFAsJqSisAgBgCIJYwCzgB9xjjoAS/C9ID3K+9AA/B3Lda9Fq6S5/4z90x1HA72ac0BJp9Xd2FqeWcr/zDP195qhQfNqv/PaymOlRjukvIHgwRtkvisg5GnMG+rV1fV/cc8+xQAScgBZAAA="
+    }
+  },
+  {
+    "file": "images/_src/technical-architecture-2.jpg",
+    "meta": {
+      "width": 940,
+      "height": 627,
+      "base": "images/_src/technical-architecture-2",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQBACdASoUAA0APxFysFAsJqSisAgBgCIJYgCw7CFNzpcF6vzsOZQmAAD+w9/GH4tCB9q2am4Gud/EvXb5juesmbWU7ZwjK3t994m8+lTnUcnaRhvvNTIP9AWgq5tZJ4f4ppXQqeAAAA=="
+    }
+  },
+  {
+    "file": "images/_src/technical-architecture-3.jpg",
+    "meta": {
+      "width": 682,
+      "height": 650,
+      "base": "images/_src/technical-architecture-3",
+      "color": "rgb(232 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQBACdASoUABMAPxF4t1MsJyWiqAqpgCIJYwCdMwnBWb0iTi7TCk9gAAD+7V+9fIbtVDAwB6UdVSOMVuZqUkcJJY0nlbxGhRzuxmbeJfzeqPumabMUGMFU16PCPOgA"
+    }
+  },
+  {
+    "file": "images/_src/marketing-strategy-meeting-8.jpg",
+    "meta": {
+      "width": 940,
+      "height": 627,
+      "base": "images/_src/marketing-strategy-meeting-8",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwAwCdASoUAA0APxFysFAsJqSisAgBgCIJZQC/OB6jF6SDzLa9csrwAP7bZR7dNZ4SxOV/l18iZx/rvI0+MS6hQb8i9E63ZEeKcrwtsxxyp2U+2Hr6z+yODd5pr49oRlx/WYskoW/BQ5GPAQAAAA=="
+    }
+  },
+  {
+    "file": "images/_src/technical-architecture-4.jpg",
+    "meta": {
+      "width": 940,
+      "height": 627,
+      "base": "images/_src/technical-architecture-4",
+      "color": "rgb(120 184 232)",
+      "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQBACdASoUAA0APxFysFAsJqSisAgBgCIJbACdMoR3JoHh/gLdeADGHAQAAK49BEI3dClvwMe8fjw1B+Qd7b0ezhRnzQ3P52tWok09qrcj7ErG21Z4kO9oAAA="
+    }
+  },
+  {
+    "file": "images/_src/technical-architecture-1.jpg",
+    "meta": {
+      "width": 940,
+      "height": 627,
+      "base": "images/_src/technical-architecture-1",
+      "color": "rgb(168 184 184)",
+      "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwBACdASoUAA0APxFysFAsJqSisAgBgCIJaACxHn8Apv1TSRgZ8PZfJwAA4cKWfagNFlg4hkieMggQ0dChlASKhvHJ3LFUS3R/w6xteVa2hyt9RZ2Ajrvq0ypxX0UPunm35I6/u8094Ll2p0WhnlAhYNP1lU5HH8yMwAAA"
+    }
+  },
+  {
+    "file": "images/_src/technical-architecture-7.jpg",
+    "meta": {
+      "width": 940,
+      "height": 627,
+      "base": "images/_src/technical-architecture-7",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAA0APxFysFAsJqSisAgBgCIJQBYdhD4b5IRhl38KKoAA/uGScTIHNpHCSvj8W/9TTai7xr6hNHjlsZQcfK0bOxo2Z2fq9MiwCi076R+iYqO0i2V2dIlgJtDbfVMaZlMg1o+HAAA="
+    }
+  },
+  {
+    "file": "images/_src/technical-architecture-5.jpg",
+    "meta": {
+      "width": 940,
+      "height": 620,
+      "base": "images/_src/technical-architecture-5",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACQAwCdASoUAA0APxFysFAsJqSisAgBgCIJQBibA1mjZAAPcEoAAP7umiwYMOvVXHxVQKhIQnsnrl2bd83pjGuMZT8XhTsoFZjMF7pFPC8RBKyjAOfbQKP0MPpEjAn9ko0ZuAAA"
+    }
+  },
+  {
+    "file": "images/_src/technical-architecture-8.jpg",
+    "meta": {
+      "width": 940,
+      "height": 528,
+      "base": "images/_src/technical-architecture-8",
+      "color": "rgb(88 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAACwAwCdASoUAAsAPxFysFAsJqSisAgBgCIJaACdMoAB9mnRqtJeAAD+ze/0eKePR6+sP8mL1Xa6izvE1Lczq6k490YvP6bnNVWSPPqKyLsYmV3eNsq5sqVEqmWIdwI50LSvtivTnaZpQAAA"
+    }
+  },
+  {
+    "file": "images/_src/technical-architecture-6.jpg",
+    "meta": {
+      "width": 940,
+      "height": 613,
+      "base": "images/_src/technical-architecture-6",
+      "color": "rgb(120 120 120)",
+      "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAgCdASoUAA0ALtGIxGIkLCwsDADQS0gABSjK44u4AACtdEdmFRlUP97uIrG7ejUp2t7L7LMyeoGMVa/MYnFvXu2VGXYhQAA="
     }
   }
 ]

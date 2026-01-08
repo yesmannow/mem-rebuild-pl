@@ -6,6 +6,7 @@
  * - Blur-up placeholder
  * - Brand color overlay
  * - Accessibility features
+ * - Automatic AVIF/WebP picture element generation
  */
 
 import React, { useState, useEffect } from 'react';
@@ -22,6 +23,7 @@ interface EnhancedImageProps {
   aspectRatio?: string;
   objectFit?: 'cover' | 'contain' | 'fill' | 'none';
   priority?: boolean;
+  usePicture?: boolean; // Enable <picture> with AVIF/WebP sources
 }
 
 export const EnhancedImage: React.FC<EnhancedImageProps> = ({
@@ -35,6 +37,7 @@ export const EnhancedImage: React.FC<EnhancedImageProps> = ({
   aspectRatio,
   objectFit = 'cover',
   priority = false,
+  usePicture = true, // Default to true for modern format support
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(!lazy || priority);
@@ -128,17 +131,43 @@ export const EnhancedImage: React.FC<EnhancedImageProps> = ({
         )}
 
         {(isLoaded || imageSrc) && (
-          <motion.img
-            key="main"
-            src={imageSrc}
-            alt={alt}
-            className="absolute inset-0 w-full h-full"
-            style={{ objectFit }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            loading={lazy && !priority ? 'lazy' : 'eager'}
-          />
+          usePicture ? (
+            <motion.picture
+              key="main"
+              className="absolute inset-0 w-full h-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <source
+                srcSet={imageSrc.replace(/\.(webp|jpg|jpeg|png)$/i, '.avif')}
+                type="image/avif"
+              />
+              <source
+                srcSet={imageSrc.replace(/\.(jpg|jpeg|png)$/i, '.webp')}
+                type="image/webp"
+              />
+              <img
+                src={imageSrc}
+                alt={alt}
+                className="w-full h-full"
+                style={{ objectFit }}
+                loading={lazy && !priority ? 'lazy' : 'eager'}
+              />
+            </motion.picture>
+          ) : (
+            <motion.img
+              key="main"
+              src={imageSrc}
+              alt={alt}
+              className="absolute inset-0 w-full h-full"
+              style={{ objectFit }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              loading={lazy && !priority ? 'lazy' : 'eager'}
+            />
+          )
         )}
       </AnimatePresence>
 

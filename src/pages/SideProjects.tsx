@@ -81,7 +81,12 @@ const SideProjects: React.FC = () => {
       id: p.id,
       title: p.title,
       slug: p.id,
-      image: p.image,
+      image:
+        p.id === 'piko-fg-music'
+          ? '/images/projects/Piko Fg Music/Site Images/Screenshot of PIKO _ Pro DJ Console.webp'
+          : p.id === 'primary-colours'
+            ? '/images/projects/Primary Colours/primary colours logo.webp'
+            : p.image,
       category: p.category,
       tags: p.tags,
       year: p.year,
@@ -149,7 +154,7 @@ const SideProjects: React.FC = () => {
           className="absolute inset-0 z-0"
         />
         {/* Subtle gradient overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-900/80 to-slate-950/95 pointer-events-none" />
 
         {/* Main Content */}
         <main className="relative z-10 pt-24 pb-32 px-4 sm:px-6 lg:px-8">

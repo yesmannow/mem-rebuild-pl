@@ -1,0 +1,32 @@
+{
+  "title": "Case Studies | Marketing Campaigns & Growth Strategies",
+  "description": "Dive into detailed case studies showcasing full-funnel marketing campaigns, CRM automation, and performance marketing strategies that drove measurable growth.",
+  "keywords": "case studies, marketing campaigns, growth strategies, performance marketing, CRM automation",
+  "canonical": "https://mem-rebuild-pl.pages.dev/case-studies",
+  "openGraph": {
+    "type": "website",
+    "url": "https://mem-rebuild-pl.pages.dev/case-studies",
+    "title": "Case Studies | Marketing Campaigns & Growth Strategies",
+    "description": "Dive into detailed case studies showcasing full-funnel marketing campaigns, CRM automation, and performance marketing strategies that drove measurable growth.",
+    "image": "https://mem-rebuild-pl.pages.dev/og/case-studies.svg",
+    "siteName": "Jacob Darling Portfolio",
+    "locale": "en_US"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "url": "https://mem-rebuild-pl.pages.dev/case-studies",
+    "title": "Case Studies | Marketing Campaigns & Growth Strategies",
+    "description": "Dive into detailed case studies showcasing full-funnel marketing campaigns, CRM automation, and performance marketing strategies that drove measurable growth.",
+    "image": "https://mem-rebuild-pl.pages.dev/og/case-studies.svg",
+    "site": "@jacobdarling",
+    "creator": "@jacobdarling"
+  },
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Case Studies | Marketing Campaigns & Growth Strategies",
+    "description": "Dive into detailed case studies showcasing full-funnel marketing campaigns, CRM automation, and performance marketing strategies that drove measurable growth.",
+    "url": "https://mem-rebuild-pl.pages.dev/case-studies",
+    "inLanguage": "en-US"
+  }
+}

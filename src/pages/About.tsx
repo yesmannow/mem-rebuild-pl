@@ -7,6 +7,8 @@ import { BentoCard, BentoGrid } from '../components/ui/BentoGrid';
 import { SchematicBackground } from '../components/ui/SchematicBackground';
 import { OceanRippleButton } from '../components/ui/OceanRippleButton';
 import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
+import TechLogoCarousel from '../components/ui/TechLogoCarousel';
+import { TECH_ICON_MAP } from '../utils/techIcons';
 import { experience, education, volunteering, awards, metrics, skillCategories, executiveSummary } from '../data/resume';
 import type { ExperienceItem, SkillCategory as SkillCategoryType } from '../types';
 
@@ -339,6 +341,31 @@ const About: React.FC = () => {
   });
 
   const heroMetrics = useMemo(() => metrics, []);
+  const logos = useMemo(() => (
+    [
+      TECH_ICON_MAP['React'],
+      TECH_ICON_MAP['Next.js'],
+      TECH_ICON_MAP['TypeScript'],
+      TECH_ICON_MAP['JavaScript'],
+      TECH_ICON_MAP['Node.js'],
+      TECH_ICON_MAP['Express'],
+      TECH_ICON_MAP['PostgreSQL'],
+      TECH_ICON_MAP['MySQL'],
+      TECH_ICON_MAP['MongoDB'],
+      TECH_ICON_MAP['Redis'],
+      TECH_ICON_MAP['Docker'],
+      TECH_ICON_MAP['Kubernetes'],
+      TECH_ICON_MAP['AWS'],
+      TECH_ICON_MAP['Azure'],
+      TECH_ICON_MAP['GraphQL'],
+      TECH_ICON_MAP['Supabase'],
+      TECH_ICON_MAP['GitHub'],
+      TECH_ICON_MAP['Git'],
+      TECH_ICON_MAP['Figma'],
+      TECH_ICON_MAP['HubSpot'],
+      TECH_ICON_MAP['Cloudflare'],
+    ].filter(Boolean) as string[]
+  ), []);
 
   return (
     <>
@@ -445,6 +472,11 @@ const About: React.FC = () => {
               </motion.div>
             </div>
           </header>
+
+          {/* Tech Logos Carousel */}
+          <section className="max-w-6xl mx-auto mb-12">
+            <TechLogoCarousel logos={logos} height={44} speed={90} gap={32} className="py-2" />
+          </section>
 
           {/* Impact Metrics */}
           <section className="max-w-6xl mx-auto mb-16">

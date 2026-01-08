@@ -1,0 +1,32 @@
+{
+  "title": "About Jacob Darling | Marketing Strategist & Systems Architect",
+  "description": "Learn about Jacob Darling's 16+ years of experience in marketing technology, automation, and strategic growth across SaaS, healthcare, and enterprise sectors.",
+  "keywords": "marketing strategist, systems architect, professional background, marketing experience",
+  "canonical": "https://mem-rebuild-pl.pages.dev/about",
+  "openGraph": {
+    "type": "website",
+    "url": "https://mem-rebuild-pl.pages.dev/about",
+    "title": "About Jacob Darling | Marketing Strategist & Systems Architect",
+    "description": "Learn about Jacob Darling's 16+ years of experience in marketing technology, automation, and strategic growth across SaaS, healthcare, and enterprise sectors.",
+    "image": "https://mem-rebuild-pl.pages.dev/og/about.svg",
+    "siteName": "Jacob Darling Portfolio",
+    "locale": "en_US"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "url": "https://mem-rebuild-pl.pages.dev/about",
+    "title": "About Jacob Darling | Marketing Strategist & Systems Architect",
+    "description": "Learn about Jacob Darling's 16+ years of experience in marketing technology, automation, and strategic growth across SaaS, healthcare, and enterprise sectors.",
+    "image": "https://mem-rebuild-pl.pages.dev/og/about.svg",
+    "site": "@jacobdarling",
+    "creator": "@jacobdarling"
+  },
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "About Jacob Darling | Marketing Strategist & Systems Architect",
+    "description": "Learn about Jacob Darling's 16+ years of experience in marketing technology, automation, and strategic growth across SaaS, healthcare, and enterprise sectors.",
+    "url": "https://mem-rebuild-pl.pages.dev/about",
+    "inLanguage": "en-US"
+  }
+}

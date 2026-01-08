@@ -1,0 +1,32 @@
+{
+  "title": "Contact Jacob Darling | Let's Build Something Together",
+  "description": "Get in touch to discuss fractional CMO services, marketing automation, or strategic growth initiatives. Let's build something remarkable together.",
+  "keywords": "contact, fractional CMO, marketing consultation, strategic growth",
+  "canonical": "https://mem-rebuild-pl.pages.dev/contact",
+  "openGraph": {
+    "type": "website",
+    "url": "https://mem-rebuild-pl.pages.dev/contact",
+    "title": "Contact Jacob Darling | Let's Build Something Together",
+    "description": "Get in touch to discuss fractional CMO services, marketing automation, or strategic growth initiatives. Let's build something remarkable together.",
+    "image": "https://mem-rebuild-pl.pages.dev/og/contact.svg",
+    "siteName": "Jacob Darling Portfolio",
+    "locale": "en_US"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "url": "https://mem-rebuild-pl.pages.dev/contact",
+    "title": "Contact Jacob Darling | Let's Build Something Together",
+    "description": "Get in touch to discuss fractional CMO services, marketing automation, or strategic growth initiatives. Let's build something remarkable together.",
+    "image": "https://mem-rebuild-pl.pages.dev/og/contact.svg",
+    "site": "@jacobdarling",
+    "creator": "@jacobdarling"
+  },
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Contact Jacob Darling | Let's Build Something Together",
+    "description": "Get in touch to discuss fractional CMO services, marketing automation, or strategic growth initiatives. Let's build something remarkable together.",
+    "url": "https://mem-rebuild-pl.pages.dev/contact",
+    "inLanguage": "en-US"
+  }
+}

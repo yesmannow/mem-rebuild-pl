@@ -113,6 +113,7 @@ interface HeroWithApiBackgroundProps {
   className?: string;
   height?: string;
   imageSrc?: string;
+  overlayOpacity?: number;
 }
 
 export const HeroWithApiBackground: React.FC<HeroWithApiBackgroundProps> = ({
@@ -121,7 +122,9 @@ export const HeroWithApiBackground: React.FC<HeroWithApiBackgroundProps> = ({
   className = '',
   height = 'min-h-screen',
   imageSrc,
+  overlayOpacity,
 }) => {
+  const ov = overlayOpacity ?? 0.85;
   return (
     <motion.section
       className={`relative ${height} flex items-center overflow-hidden ${className}`}
@@ -134,7 +137,7 @@ export const HeroWithApiBackground: React.FC<HeroWithApiBackgroundProps> = ({
           src={imageSrc}
           alt={`${theme} background`}
           overlayColor="dark"
-          overlayOpacity={0.85}
+          overlayOpacity={ov}
           priority={true}
           className="absolute inset-0 z-0"
         />
@@ -142,7 +145,7 @@ export const HeroWithApiBackground: React.FC<HeroWithApiBackgroundProps> = ({
         <ApiBackgroundImage
           theme={theme}
           overlayColor="dark"
-          overlayOpacity={0.85}
+          overlayOpacity={ov}
           priority={true}
           className="absolute inset-0 z-0"
         />

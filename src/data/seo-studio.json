@@ -1,0 +1,32 @@
+{
+  "title": "Studio | Creative Work & Design Projects",
+  "description": "Explore Jacob Darling's creative studio featuring brand identity, web design, and digital product work across healthcare, SaaS, and community sectors.",
+  "keywords": "creative studio, brand identity, web design, digital products, portfolio",
+  "canonical": "https://mem-rebuild-pl.pages.dev/studio",
+  "openGraph": {
+    "type": "website",
+    "url": "https://mem-rebuild-pl.pages.dev/studio",
+    "title": "Studio | Creative Work & Design Projects",
+    "description": "Explore Jacob Darling's creative studio featuring brand identity, web design, and digital product work across healthcare, SaaS, and community sectors.",
+    "image": "https://mem-rebuild-pl.pages.dev/og/studio.svg",
+    "siteName": "Jacob Darling Portfolio",
+    "locale": "en_US"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "url": "https://mem-rebuild-pl.pages.dev/studio",
+    "title": "Studio | Creative Work & Design Projects",
+    "description": "Explore Jacob Darling's creative studio featuring brand identity, web design, and digital product work across healthcare, SaaS, and community sectors.",
+    "image": "https://mem-rebuild-pl.pages.dev/og/studio.svg",
+    "site": "@jacobdarling",
+    "creator": "@jacobdarling"
+  },
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Studio | Creative Work & Design Projects",
+    "description": "Explore Jacob Darling's creative studio featuring brand identity, web design, and digital product work across healthcare, SaaS, and community sectors.",
+    "url": "https://mem-rebuild-pl.pages.dev/studio",
+    "inLanguage": "en-US"
+  }
+}

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Target, Cpu, LineChart, ShieldCheck, Users, CheckCircle2, Code } from 'lucide-react';
 import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
 import ScrollProgress from '../components/ui/ScrollProgress';
-import SectionDivider from '../components/ui/SectionDivider';
+import { SimpleSection } from '../components/ui/SimpleSection';
 import TerminalBlock from '../components/ui/TerminalBlock';
 import { OceanRippleButton } from '../components/ui/OceanRippleButton';
 import ScrollReveal from '../components/animations/ScrollReveal';
@@ -12,12 +12,12 @@ import StaggerChildren, { StaggerItem } from '../components/animations/StaggerCh
 import MagneticCursor from '../components/ui/MagneticCursor';
 import TiltCard from '../components/ui/TiltCard';
 import { AppCard } from '../ui/AppCard';
-import { AppSection } from '../ui/AppSection';
-import { AppButton } from '../ui/AppButton';
 import { PageParticleBackground } from '../components/PageParticleBackground';
 import { FeaturedAppsShowcase } from '../components/home/FeaturedAppsShowcase';
 import { LivePortfolioMetrics } from '../components/ui/LivePortfolioMetrics';
 import { TypewriterEffect } from '../components/ui/TypewriterEffect';
+import TechLogoCarousel from '../components/ui/TechLogoCarousel';
+import { TECH_ICON_MAP } from '../utils/techIcons';
 
 const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
 const TechProfile = React.lazy(() => import('../components/TechProfile'));
@@ -57,6 +57,29 @@ const operatingSignals = [
 ];
 
 const Home: React.FC = () => {
+  const logos = useMemo(() => (
+    [
+      TECH_ICON_MAP['React'],
+      TECH_ICON_MAP['Next.js'],
+      TECH_ICON_MAP['TypeScript'],
+      TECH_ICON_MAP['Node.js'],
+      TECH_ICON_MAP['PostgreSQL'],
+      TECH_ICON_MAP['MySQL'],
+      TECH_ICON_MAP['MongoDB'],
+      TECH_ICON_MAP['Redis'],
+      TECH_ICON_MAP['Docker'],
+      TECH_ICON_MAP['Kubernetes'],
+      TECH_ICON_MAP['AWS'],
+      TECH_ICON_MAP['Azure'],
+      TECH_ICON_MAP['GraphQL'],
+      TECH_ICON_MAP['Supabase'],
+      TECH_ICON_MAP['GitHub'],
+      TECH_ICON_MAP['Git'],
+      TECH_ICON_MAP['Figma'],
+      TECH_ICON_MAP['HubSpot'],
+      TECH_ICON_MAP['Cloudflare'],
+    ].filter(Boolean) as string[]
+  ), []);
   const HeroRightColumn = useMemo(
     () => (
       <div className="space-y-6">
@@ -79,7 +102,13 @@ const Home: React.FC = () => {
       <MagneticCursor color="#40E0D0" enabled={true} />
       <ScrollProgress />
       <div className="relative z-10 w-full min-h-screen flex flex-col">
-        <section className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Hero Section */}
+        <SimpleSection
+          variant="default"
+          padding="none"
+          container={false}
+          className="pt-28 pb-20"
+        >
           <PageParticleBackground 
             particleCount={40}
             particleColor="#40E0D0"
@@ -89,7 +118,7 @@ const Home: React.FC = () => {
           <Suspense fallback={<div className="h-16" />}>
             <FloatingParticles count={24} />
           </Suspense>
-          <div className="max-w-7xl mx-auto grid gap-8 sm:gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-8 sm:gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -136,11 +165,14 @@ const Home: React.FC = () => {
             </motion.div>
             {HeroRightColumn}
           </div>
-        </section>
+        </SimpleSection>
 
-        <SectionDivider />
-
-        <AppSection padding="lg" container={false}>
+        {/* Navigation Snapshot */}
+        <SimpleSection
+          variant="elevated"
+          padding="lg"
+          animated={true}
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollReveal direction="up">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
@@ -202,28 +234,49 @@ const Home: React.FC = () => {
               ))}
             </StaggerChildren>
           </div>
-        </AppSection>
+        </SimpleSection>
 
-        <SectionDivider />
+        {/* Featured Apps */}
+        <SimpleSection
+          variant="bordered"
+          padding="xl"
+          container={false}
+        >
+          <FeaturedAppsShowcase />
+        </SimpleSection>
 
-        {/* Featured Apps Showcase */}
-        <FeaturedAppsShowcase />
-
-        <SectionDivider />
-
-        {/* Live Portfolio Metrics Dashboard */}
-        <AppSection padding="lg" container={true}>
+        {/* Live Portfolio Metrics */}
+        <SimpleSection
+          variant="accent-teal"
+          padding="lg"
+          animated={true}
+        >
           <LivePortfolioMetrics className="py-8" />
-        </AppSection>
+        </SimpleSection>
 
-        <SectionDivider />
+        {/* Why Fractional */}
+        <SimpleSection
+          variant="default"
+          padding="none"
+          container={false}
+        >
+          <WhyFractionalSection />
+        </SimpleSection>
 
-        <WhyFractionalSection />
-
-        <SectionDivider />
-
+        {/* Tech Logo Carousel */}
+        <SimpleSection
+          variant="inset"
+          padding="md"
+        >
+          <TechLogoCarousel logos={logos} height={44} speed={90} gap={32} className="py-4" />
+        </SimpleSection>
+        
         {/* Technical Stack Preview */}
-        <AppSection padding="lg" container={false}>
+        <SimpleSection
+          variant="elevated"
+          padding="lg"
+          animated={true}
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollReveal direction="up">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
@@ -339,11 +392,13 @@ const Home: React.FC = () => {
               </OceanRippleButton>
             </div>
           </div>
-        </AppSection>
+        </SimpleSection>
 
-        <SectionDivider />
-
-        <AppSection padding="lg" container={false}>
+        {/* Final CTA */}
+        <SimpleSection
+          variant="accent-orange"
+          padding="xl"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollReveal direction="up" delay={0.2}>
               <div className="max-w-5xl mx-auto text-center">
@@ -375,7 +430,7 @@ const Home: React.FC = () => {
               </div>
             </ScrollReveal>
           </div>
-        </AppSection>
+        </SimpleSection>
       </div>
     </OceanAuroraBackground>
   );
