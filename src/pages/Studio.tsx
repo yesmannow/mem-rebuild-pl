@@ -13,6 +13,7 @@ import {
 } from '../data/studioData';
 import { manifestToStudioItems } from '../utils/studioManifest';
 import { EnhancedImage } from '../components/ui/EnhancedImage';
+import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
 
 /**
  * Studio Page - Visual Engineering
@@ -111,23 +112,23 @@ const Studio: React.FC = () => {
 
       {/* Deep Slate Background - War Room ecosystem integration */}
       <div className="min-h-screen bg-slate-900 relative overflow-hidden">
-        <EnhancedImage
-          src="/images/_src/creative-agency-office-3.webp"
-          alt="Studio header"
+        <ApiBackgroundImage
+          query="creative studio design workspace photography"
+          source="pexels"
           overlayColor="dark"
-          overlayOpacity={0.6}
-          priority={true}
+          overlayOpacity={0.7}
           className="absolute inset-0 z-0"
+          priority
         />
         {/* Animated gradient overlay for depth */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 pointer-events-none" />
-        
+
         {/* Animated background particles */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <motion.div
             className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-10"
             style={{
-              background: activeTab === 'photography' 
+              background: activeTab === 'photography'
                 ? 'radial-gradient(circle, rgba(255,165,0,0.4) 0%, transparent 70%)'
                 : 'radial-gradient(circle, rgba(64,224,208,0.4) 0%, transparent 70%)',
             }}
@@ -145,7 +146,7 @@ const Studio: React.FC = () => {
           <motion.div
             className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl opacity-10"
             style={{
-              background: activeTab === 'photography' 
+              background: activeTab === 'photography'
                 ? 'radial-gradient(circle, rgba(64,224,208,0.4) 0%, transparent 70%)'
                 : 'radial-gradient(circle, rgba(255,165,0,0.4) 0%, transparent 70%)',
             }}

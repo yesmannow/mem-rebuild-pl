@@ -30,7 +30,7 @@ export const sideProjects: SideProject[] = [
       'Long-term Maintenance + Growth Support'
     ],
     tags: ['Healthcare', 'Branding', 'WordPress', 'Local SEO', 'Email Marketing', 'Analytics'],
-    image: '/images/projects/Primarycare Indy/primarycare indy logo.png'
+    image: '/images/projects/Primarycare Indy/PMC_PrimaryCare-Large_TransparentBG.png'
   },
   {
     id: 'urgent-care-indy',
@@ -60,7 +60,7 @@ export const sideProjects: SideProject[] = [
       'Hosting, Security, Maintenance Support'
     ],
     tags: ['Healthcare', 'Branding', 'WordPress', 'SEO', 'Google Ads', 'Email Marketing'],
-    image: '/images/projects/urgent care indy/urgent care indy logo.png'
+    image: '/images/projects/urgent care indy/Urgent Care Indy Logo - 22.png'
   },
   {
     id: 'hoosier-boy',
@@ -90,7 +90,7 @@ export const sideProjects: SideProject[] = [
       'Launch Support + Asset Delivery'
     ],
     tags: ['Service Business', 'Branding', 'Web Design', 'Local SEO', 'Illustration'],
-    image: '/images/projects/Hoosierboy Barbershop/Hoosierboy Barbershop logo 1 (1).png'
+    image: '/images/projects/Hoosierboy Barbershop/Hoosierboy Barbershop logo 1.png'
   },
 
   // --- TIER 2: BRANDING & IDENTITY ---
@@ -134,7 +134,7 @@ export const sideProjects: SideProject[] = [
     ],
     stack: ['Logo Design', 'Brand Identity', 'Character Design', 'Typography System', 'Color Strategy', 'Logo Variations for Food Service Applications'],
     tags: ['Food', 'Branding', 'Logo', 'Character Design', 'Identity System'],
-    image: '/images/projects/Taco Ninja/taco ninja logo.png'
+    image: '/images/projects/Taco Ninja/taconinja-logo.png'
   },
   {
     id: 'perpetual-fitness',
@@ -175,7 +175,7 @@ export const sideProjects: SideProject[] = [
     ],
     stack: ['Brand Strategy', 'Brand Guidelines', 'Visual Identity System', 'Documentation'],
     tags: ['Brand Strategy', 'Guidelines', 'Legal', 'Identity System', 'Documentation'],
-    image: '/images/projects/Tuohy Bailey & Moore LLP/TBM-Small-1.png'
+    image: '/images/projects/Tuohy Bailey & Moore LLP/Touhy BM Logo.png'
   },
 
   // --- TIER 3: PRODUCT & COMMUNITY ---
@@ -232,7 +232,7 @@ export const sideProjects: SideProject[] = [
     ],
     stack: ['Logo Design', 'Brand Identity', 'Typography System', 'Brand Applications'],
     tags: ['Branding', 'Typography', 'Logo Design', 'Identity System'],
-    image: '/images/projects/Black Letter/Black Letter - Full Logo.png'
+    image: '/images/projects/Black Letter/Black Letter - Full Logo (1).png'
   },
   {
     id: 'primary-colours',
@@ -253,7 +253,7 @@ export const sideProjects: SideProject[] = [
     ],
     stack: ['Event Marketing', 'Web Development', 'Sponsorship Strategy', 'Content & Promotions', 'Fundraising Support'],
     tags: ['Non-Profit', 'Event Marketing', 'Sponsorship', 'Web', 'Community'],
-    image: '/images/projects/Primary Colours/cropped-PC_LOGO1-1024x174.jpg'
+    image: '/images/projects/Primary Colours/PC-Logo-PNG-e1506002890460.png'
   },
   {
     id: 'circle-city',
@@ -303,7 +303,7 @@ export const sideProjects: SideProject[] = [
     category: 'Branding',
     tags: ['Medical', 'Luxury', 'Logo'],
     description: 'Concierge Botox identity anchored by a geometric CA monogram.',
-    image: '/images/projects/Clean Aesthetic/Clean Aesthetic CA Logo - Primary (full color).png',
+    image: '/images/projects/Clean Aesthetic/CA Logo - Primary (full color).png',
     year: '2023',
     challenge: 'Create a luxury-leaning yet clinical identity for a concierge medical aesthetics group.',
     solution:
@@ -338,7 +338,7 @@ export const sideProjects: SideProject[] = [
     category: 'Web Design',
     tags: ['Next.js', 'WASM', 'Three.js', 'Audio Engineering', 'Industrial Design'],
     description: 'High-end industrial web experience with WASM-powered audio processing and real-time DJ tools.',
-    image: '/images/projects/Piko Fg Music/Site Images/Screenshot of Piko Artist Studio.jpg',
+    image: '/images/projects/Piko Fg Music/pkfg logo.png',
     year: '2024',
     challenge: 'Legacy "gaming" UI lacked professional artist authority. Needed to transform the experience into a high-stakes tactical command center for producers.',
     solution: 'Built a WASM-powered "Neural Signal Cracker" for real-time stem isolation with zero-latency audio processing. Integrated professional DJ crossfader logic using cosine/sine curves (Constant-Power) and holographic deck visualizers reactive to bass frequencies using Three.js.',

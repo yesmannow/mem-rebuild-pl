@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Search, Target, Zap, Shield, BarChart3, Server, Palette, CreditCard, 
+import {
+  Search, Target, Zap, Shield, BarChart3, Server, Palette, CreditCard,
   ChevronDown, Check, Star, TrendingUp, Code, Users, Wrench, Sparkles,
   ArrowRight, Filter, Grid3X3, List, ExternalLink
 } from 'lucide-react';
@@ -15,6 +15,7 @@ import { technicalCategories, technologyStacks } from '../data/toolbox';
 import { getTechDescription } from '../data/techDescriptions';
 import { getTechIconSlug } from '../utils/techIcons';
 import { cn } from '../lib/utils';
+import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
 
 // Hero stats showcasing expertise
 const heroStats = [
@@ -125,12 +126,21 @@ const Toolbox: React.FC = () => {
       </Helmet>
 
       <main className="min-h-screen bg-brand-dark text-brand-text relative overflow-hidden">
+        {/* API Background Image */}
+        <ApiBackgroundImage
+          query="technology tools software development workspace"
+          source="pexels"
+          overlayColor="dark"
+          overlayOpacity={0.8}
+          className="fixed inset-0 z-0"
+          priority
+        />
         {/* Aurora Background */}
-        <OceanAuroraBackground className="opacity-30">
+        <OceanAuroraBackground className="opacity-30 relative z-10">
           <>
-        
+
         {/* Hero Section */}
-        <section className="relative pt-24 pb-16 md:pt-32 md:pb-24">
+        <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 z-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             {/* Badge */}
             <motion.div
@@ -159,8 +169,8 @@ const Toolbox: React.FC = () => {
               </h1>
               <p className="text-lg sm:text-xl text-brand-muted leading-relaxed max-w-3xl mx-auto">
                 A unique fusion of <span className="text-brand-teal font-semibold">marketing strategy</span> and{' '}
-                <span className="text-brand-orange font-semibold">technical development</span>. 
-                I build complete marketing systems that drive measurable ROI—from automation workflows to 
+                <span className="text-brand-orange font-semibold">technical development</span>.
+                I build complete marketing systems that drive measurable ROI—from automation workflows to
                 custom applications.
               </p>
             </motion.div>
@@ -356,8 +366,8 @@ const Toolbox: React.FC = () => {
             {/* Stacks Grid */}
             <div className={cn(
               "grid gap-4 max-w-6xl mx-auto",
-              viewMode === 'grid' 
-                ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" 
+              viewMode === 'grid'
+                ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                 : "grid-cols-1 md:grid-cols-2"
             )}>
               {filteredStacks.map((stack, index) => (
@@ -375,7 +385,7 @@ const Toolbox: React.FC = () => {
                       <span className="text-2xl">{stack.icon}</span>
                       <h3 className="font-semibold text-brand-text text-sm">{stack.category}</h3>
                     </div>
-                    
+
                     {/* Technologies */}
                     <div className={cn(
                       "flex gap-2",
@@ -442,8 +452,8 @@ const Toolbox: React.FC = () => {
                   >
                     <div className={cn(
                       "bg-slate-900/60 backdrop-blur-sm border rounded-xl overflow-hidden transition-all duration-300",
-                      isExpanded 
-                        ? "border-brand-teal/40 shadow-lg shadow-brand-teal/10" 
+                      isExpanded
+                        ? "border-brand-teal/40 shadow-lg shadow-brand-teal/10"
                         : "border-white/10 hover:border-brand-teal/20"
                     )}>
                       {/* Category Header */}
@@ -454,8 +464,8 @@ const Toolbox: React.FC = () => {
                       >
                         <div className={cn(
                           "p-3 rounded-xl transition-colors",
-                          isExpanded 
-                            ? "bg-brand-teal/20 text-brand-teal" 
+                          isExpanded
+                            ? "bg-brand-teal/20 text-brand-teal"
                             : "bg-slate-800 text-brand-muted group-hover:text-brand-teal"
                         )}>
                           <IconComponent className="w-5 h-5" />
@@ -523,22 +533,22 @@ const Toolbox: React.FC = () => {
             >
               {/* Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-brand-teal/20 via-brand-orange/20 to-brand-teal/20 rounded-3xl blur-3xl opacity-50" />
-              
+
               {/* Content Card */}
               <div className="relative bg-slate-900/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-12 text-center">
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-teal/10 border border-brand-teal/30 text-brand-teal text-sm font-medium mb-6">
                   <Star className="w-4 h-4" />
                   Ready to collaborate?
                 </span>
-                
+
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                   See These Skills in Action
                 </h2>
                 <p className="text-brand-muted text-lg max-w-2xl mx-auto mb-8">
-                  Explore my case studies to see how I apply these technical capabilities 
+                  Explore my case studies to see how I apply these technical capabilities
                   to solve real business challenges and drive measurable results.
                 </p>
-                
+
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <OceanRippleButton
                     asLink
@@ -549,7 +559,7 @@ const Toolbox: React.FC = () => {
                     View Case Studies
                     <ArrowRight className="w-5 h-5" />
                   </OceanRippleButton>
-                  
+
                   <OceanRippleButton
                     asLink
                     href="/contact"

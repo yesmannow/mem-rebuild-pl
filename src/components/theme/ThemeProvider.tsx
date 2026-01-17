@@ -59,12 +59,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   const apply = React.useCallback((t: Theme, accent?: string) => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = t === 'dark' || (t === 'system' && prefersDark);
+    // Force dark mode - always use dark theme for consistent branding
+    const isDark = true; // Always dark mode
 
-    document.documentElement.classList.toggle('dark', isDark);
-    document.documentElement.classList.toggle('light', !isDark);
+    document.documentElement.classList.add('dark');
+    document.documentElement.classList.remove('light');
     document.documentElement.setAttribute('data-brand', 'default');
-    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', 'dark');
 
     // Apply default (hybrid) font family
     const fontFamily = "'Montserrat', system-ui, sans-serif";

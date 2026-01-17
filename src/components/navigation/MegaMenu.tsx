@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ArrowRight, Sparkles, Code2, FileText, Download, Rocket, FlaskConical, Palette } from 'lucide-react';
+// Icons removed from main nav for cleaner, more professional design
 import type { MainNavigationLink } from '../../data/navigation';
 
 interface MegaMenuProps {
@@ -136,7 +137,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
             description="Success stories & feedback"
             link="/case-studies?filter=testimonials"
           />
-          
+
           <div className="mt-6 p-4 bg-gradient-to-br from-brand-turquoise/10 to-brand-creamsicle/10 rounded-lg border border-brand-turquoise/20">
             <p className="text-sm text-brand-muted mb-2">Portfolio Highlights</p>
             <div className="space-y-1 text-xs">
@@ -170,11 +171,11 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
             tags={['Web Dev', 'E-Commerce']}
           />
           <MegaMenuCard
-            title="Russell Painting Co."
-            description="Service business portfolio & quotes"
-            image="/images/projects/Russell painting/Interior_sl.jpg"
-            link="/side-projects/russell-painting"
-            tags={['Portfolio', 'Forms']}
+            title="Piko Fg Music"
+            description="High-end industrial web experience with WASM-powered audio processing"
+            image="/images/projects/Piko Fg Music/pkfg logo.png"
+            link="/side-projects/piko-fg-music"
+            tags={['Next.js', 'WASM', 'Three.js']}
           />
         </div>
         <div className="space-y-4">
@@ -326,7 +327,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
             </div>
             <ArrowRight className="text-brand-turquoise group-hover:translate-x-1 transition-transform" size={20} />
           </Link>
-          
+
           <button className="w-full flex items-center gap-3 p-4 bg-gradient-to-br from-brand-creamsicle/20 to-brand-creamsicle/5 rounded-lg border border-brand-creamsicle/30 hover:border-brand-creamsicle/50 transition-all group">
             <Download className="text-brand-creamsicle" size={20} />
             <div className="flex-1 text-left">
@@ -358,7 +359,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
               Available for consulting, collaboration, and new opportunities.
             </p>
           </div>
-          
+
           <ContactMethod
             icon="📧"
             title="Email"
@@ -378,7 +379,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
             link="https://github.com/JdarlingGT"
           />
         </div>
-        
+
         <div className="space-y-4">
           <Link
             to="/contact"
@@ -419,11 +420,10 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
   };
 
   return (
-    <div ref={menuRef} className="hidden md:flex items-center space-x-8">
+    <div ref={menuRef} className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
       {navLinks.map((link) => {
-        const Icon = link.icon;
         const hasContent = megaMenuContent[link.name];
-        
+
         return (
           <div
             key={link.name}
@@ -433,31 +433,30 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
           >
             <Link
               to={link.path}
-              className={`relative flex items-center gap-2 ${
+              className={`relative flex items-center gap-1.5 ${
                 isActive(link.path)
-                  ? 'text-white scale-105'
+                  ? 'text-white'
                   : 'text-brand-muted hover:text-brand-turquoise'
-              } transition-all duration-300 font-medium text-sm uppercase tracking-wide group py-2 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-turquoise focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-md`}
+              } transition-all duration-300 font-semibold text-sm uppercase tracking-wider group py-2 px-2 lg:px-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-turquoise focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-md`}
               aria-expanded={activeMenu === link.name}
               aria-haspopup={hasContent ? 'true' : 'false'}
             >
-              <Icon size={18} className="opacity-70" />
               <span>{link.name}</span>
               {hasContent && (
                 <ChevronDown
-                  size={16}
+                  size={14}
                   className={`transition-transform duration-200 ${
                     activeMenu === link.name ? 'rotate-180' : ''
                   }`}
                 />
               )}
-              
+
               {/* Hover glow effect */}
               <span
-                className={`absolute -bottom-1 left-0 w-full h-px transition-all duration-300 ${
+                className={`absolute -bottom-0.5 left-0 w-full h-0.5 transition-all duration-300 ${
                   isActive(link.path)
-                    ? 'bg-white shadow-[0_0_8px_rgba(255,255,255,0.5)]'
-                    : 'bg-transparent group-hover:bg-brand-turquoise/50'
+                    ? 'bg-gradient-to-r from-brand-teal via-brand-turquoise to-brand-teal shadow-[0_0_8px_rgba(64,224,208,0.5)]'
+                    : 'bg-transparent group-hover:bg-gradient-to-r group-hover:from-brand-turquoise/50 group-hover:via-brand-teal/50 group-hover:to-brand-turquoise/50'
                 }`}
               />
             </Link>
@@ -480,7 +479,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ navLinks, isActive }) => {
                   <div className="bg-slate-900 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
                     {/* Gradient accent bar */}
                     <div className="h-1 bg-gradient-to-r from-brand-turquoise via-brand-creamsicle to-brand-teal" />
-                    
+
                     {/* Menu content */}
                     <div className="p-4 md:p-6 max-h-[calc(100vh-140px)] overflow-y-auto overscroll-contain custom-scrollbar" role="menu" aria-label={`${link.name} menu`}>
                       {megaMenuContent[link.name]}
@@ -534,7 +533,7 @@ const MegaMenuCard: React.FC<MegaMenuCardProps> = ({
         />
       </div>
     )}
-    
+
     <div className="p-3">
       <div className="flex items-start justify-between mb-1.5">
         <h5 className="text-white font-semibold text-sm group-hover:text-brand-turquoise transition-colors">
@@ -546,9 +545,9 @@ const MegaMenuCard: React.FC<MegaMenuCardProps> = ({
           </span>
         )}
       </div>
-      
+
       <p className="text-xs text-brand-muted mb-2 line-clamp-2">{description}</p>
-      
+
       {stats && stats.length > 0 && (
         <div className="flex gap-3 mt-2 pt-2 border-t border-white/5">
           {stats.map((stat, idx) => (
@@ -559,7 +558,7 @@ const MegaMenuCard: React.FC<MegaMenuCardProps> = ({
           ))}
         </div>
       )}
-      
+
       {tags && tags.length > 0 && (
         <div className="flex flex-wrap gap-1 mt-2">
           {tags.map((t) => (
@@ -573,7 +572,7 @@ const MegaMenuCard: React.FC<MegaMenuCardProps> = ({
         </div>
       )}
     </div>
-    
+
     {/* Hover arrow */}
     <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
       <ArrowRight className="text-brand-turquoise" size={16} />

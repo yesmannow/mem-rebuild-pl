@@ -10,6 +10,7 @@ import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import SectionDivider from '../components/ui/SectionDivider';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { EnhancedImage } from '../components/ui/EnhancedImage';
+import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
 
 /**
  * Side Projects Page - Independent Studio Vault
@@ -83,7 +84,7 @@ const SideProjects: React.FC = () => {
       slug: p.id,
       image:
         p.id === 'piko-fg-music'
-          ? '/images/projects/Piko Fg Music/Site Images/Screenshot of PIKO _ Pro DJ Console.webp'
+          ? '/images/projects/Piko Fg Music/pkfg logo.png'
           : p.id === 'primary-colours'
             ? '/images/projects/Primary Colours/primary colours logo.webp'
             : p.image,
@@ -145,13 +146,13 @@ const SideProjects: React.FC = () => {
 
       {/* Deep Slate Background - Matching Studio page */}
       <div className="min-h-screen bg-slate-900 relative">
-        <EnhancedImage
-          src="/images/_src/modern-workspace-6.webp"
-          alt="Side Projects header"
+        <ApiBackgroundImage
+          query="creative design studio workspace branding"
+          source="pexels"
           overlayColor="dark"
-          overlayOpacity={0.65}
-          priority={true}
+          overlayOpacity={0.7}
           className="absolute inset-0 z-0"
+          priority
         />
         {/* Subtle gradient overlay for depth */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-900/80 to-slate-950/95 pointer-events-none" />

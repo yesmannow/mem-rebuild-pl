@@ -1,9 +1,9 @@
 /**
  * Pixabay API Helper (Fallback for Pexels)
- * 
+ *
  * Fetches stock photos from Pixabay API
  * Uses environment variable PIXABAY_API_KEY for authentication
- * 
+ *
  * Note: Pixabay has restrictions on permanent hotlinking.
  * This helper is designed for download/store patterns.
  */
@@ -54,32 +54,32 @@ const cache = new Map<string, { data: PixabayImageResult | null; timestamp: numb
 /**
  * Search for images on Pixabay
  * @param query Search query
- * @param perPage Number of results to return (default: 1)
- * @returns Best matching image or null on failure
+ * @param perPage Number of results to return (default: 3)
+ * @returns Array of matching images or empty array on failure
  */
 export async function searchPixabayImages(
   query: string,
   perPage: number = 3
-): Promise<PixabayImageResult | null> {
+): Promise<PixabayImageResult[]> {
   const cacheKey = `${query}-${perPage}`;
-  
+
   // Check cache
   const cached = cache.get(cacheKey);
   if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
-    return cached.data;
+    return cached.data ? [cached.data] : [];
   }
 
   const apiKey = import.meta.env.VITE_PIXABAY_API_KEY || process.env.PIXABAY_API_KEY;
-  
+
   if (!apiKey) {
     console.warn('Pixabay API key not found. Set PIXABAY_API_KEY environment variable.');
     cache.set(cacheKey, { data: null, timestamp: Date.now() });
-    return null;
+    return [];
   }
 
   try {
     const response = await fetch(
-      `${PIXABAY_API_URL}?key=${apiKey}&q=${encodeURIComponent(query)}&image_type=photo&orientation=horizontal&per_page=${perPage}&safesearch=true`
+      `${PIXABAY_API_URL}?key=${apiKey}&q=${encodeURIComponent(query)}&image_type=photo&orientation=horizontal&per_page=${Math.min(perPage, 200)}&safesearch=true`
     );
 
     if (!response.ok) {
@@ -89,27 +89,27 @@ export async function searchPixabayImages(
     const data: PixabayResponse = await response.json();
 
     if (data.hits && data.hits.length > 0) {
-      const image = data.hits[0];
-      const result: PixabayImageResult = {
+      const results: PixabayImageResult[] = data.hits.slice(0, perPage).map(image => ({
         url: image.largeImageURL, // High quality image
         alt: image.tags || query,
         photographer: image.user,
         photographer_url: `https://pixabay.com/users/${image.user}-${image.id}/`,
         width: image.imageWidth,
         height: image.imageHeight,
-      };
+      }));
 
-      cache.set(cacheKey, { data: result, timestamp: Date.now() });
-      return result;
+      // Cache first result for backward compatibility
+      cache.set(cacheKey, { data: results[0], timestamp: Date.now() });
+      return results;
     }
 
     // No results found
     cache.set(cacheKey, { data: null, timestamp: Date.now() });
-    return null;
+    return [];
   } catch (error) {
     console.error('Error fetching from Pixabay:', error);
     cache.set(cacheKey, { data: null, timestamp: Date.now() });
-    return null;
+    return [];
   }
 }
 
@@ -121,14 +121,24 @@ export async function getStockImage(query: string): Promise<PixabayImageResult |
   // Try Pexels first
   try {
     const { searchPexelsImages } = await import('./pexels');
-    const pexelsResult = await searchPexelsImages(query);
-    if (pexelsResult) {
-      return pexelsResult;
+    const pexelsResults = await searchPexelsImages(query, 1);
+    if (pexelsResults && pexelsResults.length > 0) {
+      // Convert Pexels result to Pixabay format for compatibility
+      const pexelsResult = pexelsResults[0];
+      return {
+        url: pexelsResult.url,
+        alt: pexelsResult.alt,
+        photographer: pexelsResult.photographer || '',
+        photographer_url: pexelsResult.photographer_url || '',
+        width: pexelsResult.width,
+        height: pexelsResult.height,
+      };
     }
   } catch (error) {
     console.warn('Pexels failed, trying Pixabay:', error);
   }
 
   // Fall back to Pixabay
-  return await searchPixabayImages(query);
+  const pixabayResults = await searchPixabayImages(query, 1);
+  return pixabayResults[0] || null;
 }

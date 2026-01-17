@@ -1,6 +1,6 @@
 /**
  * Pexels API Helper
- * 
+ *
  * Fetches high-quality stock photos from Pexels API
  * Uses environment variable PEXELS_API_KEY for authentication
  */
@@ -51,31 +51,31 @@ const cache = new Map<string, { data: PexelsImageResult | null; timestamp: numbe
  * Search for images on Pexels
  * @param query Search query
  * @param perPage Number of results to return (default: 1)
- * @returns Best matching image or null on failure
+ * @returns Array of matching images or empty array on failure
  */
 export async function searchPexelsImages(
   query: string,
   perPage: number = 1
-): Promise<PexelsImageResult | null> {
+): Promise<PexelsImageResult[]> {
   const cacheKey = `${query}-${perPage}`;
-  
+
   // Check cache
   const cached = cache.get(cacheKey);
   if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
-    return cached.data;
+    return cached.data ? [cached.data] : [];
   }
 
   const apiKey = import.meta.env.VITE_PEXELS_API_KEY || process.env.PEXELS_API_KEY;
-  
+
   if (!apiKey) {
     console.warn('Pexels API key not found. Set PEXELS_API_KEY environment variable.');
     cache.set(cacheKey, { data: null, timestamp: Date.now() });
-    return null;
+    return [];
   }
 
   try {
     const response = await fetch(
-      `${PEXELS_API_URL}/search?query=${encodeURIComponent(query)}&per_page=${perPage}&orientation=landscape`,
+      `${PEXELS_API_URL}/search?query=${encodeURIComponent(query)}&per_page=${Math.min(perPage, 80)}&orientation=landscape`,
       {
         headers: {
           Authorization: apiKey,
@@ -90,27 +90,27 @@ export async function searchPexelsImages(
     const data: PexelsResponse = await response.json();
 
     if (data.photos && data.photos.length > 0) {
-      const photo = data.photos[0];
-      const result: PexelsImageResult = {
+      const results: PexelsImageResult[] = data.photos.slice(0, perPage).map(photo => ({
         url: photo.src.large2x, // High quality image
         alt: photo.alt || query,
         photographer: photo.photographer,
         photographer_url: photo.photographer_url,
         width: photo.width,
         height: photo.height,
-      };
+      }));
 
-      cache.set(cacheKey, { data: result, timestamp: Date.now() });
-      return result;
+      // Cache first result for backward compatibility
+      cache.set(cacheKey, { data: results[0], timestamp: Date.now() });
+      return results;
     }
 
     // No results found
     cache.set(cacheKey, { data: null, timestamp: Date.now() });
-    return null;
+    return [];
   } catch (error) {
     console.error('Error fetching from Pexels:', error);
     cache.set(cacheKey, { data: null, timestamp: Date.now() });
-    return null;
+    return [];
   }
 }
 
@@ -121,14 +121,14 @@ export async function searchPexelsImages(
  */
 export async function getCuratedPexelsImage(page: number = 1): Promise<PexelsImageResult | null> {
   const cacheKey = `curated-${page}`;
-  
+
   const cached = cache.get(cacheKey);
   if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
     return cached.data;
   }
 
   const apiKey = import.meta.env.VITE_PEXELS_API_KEY || process.env.PEXELS_API_KEY;
-  
+
   if (!apiKey) {
     console.warn('Pexels API key not found.');
     return null;

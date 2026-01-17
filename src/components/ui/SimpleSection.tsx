@@ -20,12 +20,12 @@ interface SimpleSectionProps {
 }
 
 const variantClasses: Record<SectionVariant, string> = {
-  default: 'bg-[var(--ink-900)]',
-  elevated: 'bg-[var(--ink-700)] shadow-[var(--shadow-lg)]',
-  'accent-teal': 'bg-[var(--ink-900)] relative before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_center,_rgba(64,224,208,0.08)_0%,_transparent_70%)] before:pointer-events-none',
-  'accent-orange': 'bg-[var(--ink-900)] relative before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_center,_rgba(255,165,0,0.08)_0%,_transparent_70%)] before:pointer-events-none',
-  bordered: 'bg-[var(--ink-900)] border-t border-b border-[var(--color-border)]',
-  inset: 'bg-[var(--color-neutral-950)] shadow-inner',
+  default: 'bg-brand-dark',
+  elevated: 'bg-slate-900 shadow-[var(--shadow-lg)]',
+  'accent-teal': 'bg-brand-dark relative before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_center,_rgba(64,224,208,0.08)_0%,_transparent_70%)] before:pointer-events-none',
+  'accent-orange': 'bg-brand-dark relative before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_center,_rgba(255,165,0,0.08)_0%,_transparent_70%)] before:pointer-events-none',
+  bordered: 'bg-brand-dark border-t border-b border-white/10',
+  inset: 'bg-slate-950 shadow-inner',
 };
 
 const paddingClasses = {
@@ -48,10 +48,10 @@ const maxWidthClasses = {
 
 /**
  * SimpleSection - Clean section wrapper using existing design system
- * 
+ *
  * Aligns with tokens.css and home-sections.css patterns
  * Uses shadows and background colors for separation
- * 
+ *
  * Usage:
  * <SimpleSection variant="accent-teal" padding="lg">
  *   {children}

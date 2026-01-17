@@ -22,31 +22,31 @@ export const OceanAuroraBackground = ({
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
       const isSmallScreen = window.innerWidth < 768;
-      
+
       setPrefersReducedMotion(reducedMotion);
       // Consider mobile if touch device OR small screen (not both required)
       setIsMobile(isTouchDevice || isSmallScreen);
     };
-    
+
     checkMotionAndDevice();
-    
+
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     motionQuery.addEventListener('change', checkMotionAndDevice);
     window.addEventListener('resize', checkMotionAndDevice);
-    
+
     return () => {
       motionQuery.removeEventListener('change', checkMotionAndDevice);
       window.removeEventListener('resize', checkMotionAndDevice);
     };
   }, []);
-  
+
   // For mobile/reduced motion, render a simplified static version
   if (prefersReducedMotion || isMobile) {
     return (
       <main>
         <div
           className={cn(
-            "relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-[#edf6f9] via-[#83c5be] to-[#006d77] text-[#006d77] dark:text-[#edf6f9] dark:from-[#005a63] dark:via-[#006d77] dark:to-[#003d44]",
+            "relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-[#005a63] via-[#006d77] to-[#003d44] text-[#edf6f9]",
             className,
           )}
           style={{ willChange: 'auto' }}
@@ -62,7 +62,7 @@ export const OceanAuroraBackground = ({
     <main>
       <div
         className={cn(
-          "transition-bg relative flex min-h-screen flex-col items-center justify-center bg-[#edf6f9] text-[#006d77] dark:bg-[#005a63]",
+          "transition-bg relative flex min-h-screen flex-col items-center justify-center bg-[#005a63] text-[#edf6f9]",
           className,
         )}
         {...props}

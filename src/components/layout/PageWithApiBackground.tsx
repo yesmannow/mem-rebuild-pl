@@ -1,6 +1,6 @@
 /**
  * PageWithApiBackground Component
- * 
+ *
  * Reusable page wrapper that adds themed API backgrounds to any page
  * Provides consistent styling and performance optimization across the site
  */
@@ -35,10 +35,10 @@ export const PageWithApiBackground: React.FC<PageWithApiBackgroundProps> = ({
       {/* API Background Image */}
       {includeBackground && (
         <ApiBackgroundImage
-          theme={theme.primary}
-          overlayColor={theme.overlay}
+          query={theme.primary}
+          source="auto"
+          overlayColor={theme.overlay as 'dark' | 'light' | 'brand'}
           overlayOpacity={overlayOpacity || theme.overlayOpacity}
-          lazy={!priority}
           priority={priority}
           className="fixed inset-0 z-0"
         />
@@ -54,7 +54,7 @@ export const PageWithApiBackground: React.FC<PageWithApiBackgroundProps> = ({
 
 /**
  * SectionWithApiBackground Component
- * 
+ *
  * Section-level background for specific content blocks
  */
 interface SectionWithApiBackgroundProps {
@@ -104,7 +104,7 @@ export const SectionWithApiBackground: React.FC<SectionWithApiBackgroundProps> =
 
 /**
  * HeroWithApiBackground Component
- * 
+ *
  * Hero section with parallax effect and API background
  */
 interface HeroWithApiBackgroundProps {
@@ -143,17 +143,18 @@ export const HeroWithApiBackground: React.FC<HeroWithApiBackgroundProps> = ({
         />
       ) : (
         <ApiBackgroundImage
-          theme={theme}
+          query={theme}
+          source="auto"
           overlayColor="dark"
           overlayOpacity={ov}
           priority={true}
           className="absolute inset-0 z-0"
         />
       )}
-      
+
       {/* Gradient overlay for depth */}
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-brand-dark/40 via-transparent to-brand-dark" />
-      
+
       <div className="relative z-10 w-full">
         {children}
       </div>

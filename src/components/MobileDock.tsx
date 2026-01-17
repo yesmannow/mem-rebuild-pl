@@ -126,7 +126,7 @@ const MobileDock: React.FC = () => {
               </div>
 
               {/* Grid of menu items */}
-              <div className="p-5 overflow-y-auto max-h-[calc(100vh-200px)]">
+              <div className="p-4 sm:p-6 overflow-y-auto max-h-[calc(100vh-200px)] custom-scrollbar">
                 <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   {fullMenuItems.map((item, index) => {
                     const Icon = item.icon;
@@ -141,15 +141,15 @@ const MobileDock: React.FC = () => {
                         <Link
                           to={item.path}
                           onClick={handleMenuItemClick}
-                          className={`flex flex-col items-center justify-center p-4 sm:p-5 rounded-2xl border transition-all duration-300 min-h-[120px] ${
+                          className={`flex flex-col items-center justify-center p-4 sm:p-5 rounded-2xl border transition-all duration-300 min-h-[110px] sm:min-h-[130px] ${
                             active
                               ? 'bg-gradient-to-br from-brand-teal/20 to-brand-turquoise/10 border-brand-teal/50 shadow-lg shadow-brand-teal/20'
                               : 'bg-slate-800/40 border-white/10 hover:bg-slate-800/60 hover:border-brand-teal/30 active:scale-95'
                           }`}
                         >
                           <div className={`mb-3 p-3 rounded-xl ${
-                            active 
-                              ? 'bg-brand-teal/20' 
+                            active
+                              ? 'bg-brand-teal/20'
                               : 'bg-slate-700/50'
                           }`}>
                             <Icon
@@ -160,10 +160,10 @@ const MobileDock: React.FC = () => {
                               }}
                             />
                           </div>
-                          <span className="font-semibold text-base mb-1 text-center text-white">
+                          <span className="font-semibold text-sm sm:text-base mb-1 text-center text-white">
                             {item.label}
                           </span>
-                          <span className="text-xs text-brand-muted text-center leading-tight px-2">
+                          <span className="text-[10px] sm:text-xs text-brand-muted text-center leading-tight px-2 line-clamp-2">
                             {item.description}
                           </span>
                         </Link>
@@ -177,9 +177,9 @@ const MobileDock: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Bottom Dock */}
+      {/* Bottom Dock - Top-level mobile navigation */}
       <nav
-        className="fixed bottom-6 left-4 right-4 z-[90] block md:hidden"
+        className="fixed bottom-4 sm:bottom-6 left-3 right-3 sm:left-4 sm:right-4 z-[90] block md:hidden"
         aria-label="Mobile navigation dock"
       >
         <motion.div
@@ -195,7 +195,7 @@ const MobileDock: React.FC = () => {
           {/* Teal accent line at top */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-transparent via-brand-teal to-transparent rounded-full" />
 
-          <div className="flex items-center justify-evenly px-3 py-3">
+          <div className="flex items-center justify-evenly px-2 sm:px-3 py-2.5 sm:py-3">
             {/* Core Navigation Items */}
             {dockItems.map((item) => {
               const Icon = item.icon;
@@ -206,7 +206,7 @@ const MobileDock: React.FC = () => {
                   to={item.path}
                   onClick={handleTap}
                   aria-label={item.ariaLabel}
-                  className="relative flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 group min-w-[72px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                  className="relative flex flex-col items-center justify-center p-2 sm:p-3 rounded-xl transition-all duration-300 group min-w-[64px] sm:min-w-[72px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
                 >
                   {active && (
                     <motion.div
@@ -223,8 +223,8 @@ const MobileDock: React.FC = () => {
                     animate={active ? { scale: 1.1 } : { scale: 1 }}
                   >
                     <Icon
-                      size={24}
-                      className={`transition-all duration-300 ${
+                      size={22}
+                      className={`transition-all duration-300 sm:w-6 sm:h-6 ${
                         active ? 'text-brand-teal' : 'text-brand-muted group-hover:text-brand-teal/70'
                       }`}
                       style={{
@@ -234,7 +234,7 @@ const MobileDock: React.FC = () => {
                   </motion.div>
 
                   <span
-                    className={`text-[11px] whitespace-nowrap mt-1.5 font-semibold transition-colors duration-300 ${
+                    className={`text-[10px] sm:text-[11px] whitespace-nowrap mt-1 sm:mt-1.5 font-semibold transition-colors duration-300 ${
                       active ? 'text-brand-teal' : 'text-brand-muted/70'
                     }`}
                   >
@@ -249,13 +249,13 @@ const MobileDock: React.FC = () => {
               whileTap={{ scale: 0.85 }}
               onClick={handleMenuToggle}
               aria-label="Open full menu"
-              className={`relative flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 min-w-[72px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
+              className={`relative flex flex-col items-center justify-center p-2 sm:p-3 rounded-xl transition-all duration-300 min-w-[64px] sm:min-w-[72px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
                 isMenuOpen ? 'bg-gradient-to-b from-brand-teal/20 to-brand-teal/10 border border-brand-teal/30' : ''
               }`}
             >
               <Grip
-                size={24}
-                className={`transition-all duration-300 ${
+                size={22}
+                className={`transition-all duration-300 sm:w-6 sm:h-6 ${
                   isMenuOpen ? 'text-brand-teal' : 'text-brand-muted'
                 }`}
                 style={{
@@ -263,7 +263,7 @@ const MobileDock: React.FC = () => {
                 }}
               />
               <span
-                className={`text-[11px] whitespace-nowrap mt-1.5 font-semibold transition-colors duration-300 ${
+                className={`text-[10px] sm:text-[11px] whitespace-nowrap mt-1 sm:mt-1.5 font-semibold transition-colors duration-300 ${
                   isMenuOpen ? 'text-brand-teal' : 'text-brand-muted/70'
                 }`}
               >

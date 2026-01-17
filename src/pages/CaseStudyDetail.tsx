@@ -16,6 +16,7 @@ import WorkflowVisualizer from '../components/case-studies/WorkflowVisualizer';
 import SystemSchematic from '../components/case-studies/SystemSchematic';
 import { CaseStudyExplainer } from '../components/case-study/CaseStudyExplainer';
 import { AppSection } from '../ui/AppSection';
+import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
 import './CaseStudyDetail.css';
 
 const renderInlineText = (text: string, keyPrefix: string) => {
@@ -136,12 +137,21 @@ const CaseStudyDetail: React.FC = () => {
       <main className="case-study-detail-modern">
       {/* Hero Section */}
       <motion.section
-        className="detail-hero"
+        className="detail-hero relative overflow-hidden"
         data-hero-bg-color={caseStudy.color || '#40E0D0'}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
+        {/* API Background Image */}
+        <ApiBackgroundImage
+          query={`${caseStudy.category.join(' ')} business strategy marketing`}
+          source="pexels"
+          overlayColor="dark"
+          overlayOpacity={0.7}
+          className="absolute inset-0 z-0"
+          priority
+        />
         <div className="detail-hero-content" style={{ textAlign: 'center' }}>
           <Link to="/case-studies" className="back-link" style={{ justifyContent: 'flex-start' }}>
             <svg

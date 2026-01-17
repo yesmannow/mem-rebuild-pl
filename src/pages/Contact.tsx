@@ -27,6 +27,7 @@ import TechProfile from '../components/TechProfile';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import { AvailabilityBadge } from '../components/ui/AvailabilityBadge';
 import MagneticCursor from '../components/ui/MagneticCursor';
+import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
 import './Contact.css';
 
 const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
@@ -223,12 +224,21 @@ const Contact: React.FC = () => {
         </Suspense>
 
         {/* Hero Section with Bio Photo */}
-        <section className="relative pt-28 pb-12 px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            variants={staggerContainer} 
-            initial="hidden" 
+        <section className="relative pt-28 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+          {/* API Background Image */}
+          <ApiBackgroundImage
+            query="professional communication networking business"
+            source="pexels"
+            overlayColor="dark"
+            overlayOpacity={0.8}
+            className="absolute inset-0 z-0"
+            priority
+          />
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
             animate="visible"
-            className="max-w-5xl mx-auto"
+            className="relative z-10 max-w-5xl mx-auto"
           >
             {/* Profile and Intro Grid */}
             <div className="grid md:grid-cols-[auto_1fr] gap-8 items-center mb-10">
@@ -238,13 +248,13 @@ const Contact: React.FC = () => {
                 className="flex flex-col items-center"
               >
                 <TechProfile size="lg" className="mb-4" />
-                <AvailabilityBadge 
-                  available={true} 
-                  text="Open to Opportunities" 
-                  size="md" 
+                <AvailabilityBadge
+                  available={true}
+                  text="Open to Opportunities"
+                  size="md"
                 />
               </motion.div>
-              
+
               {/* Intro Text */}
               <motion.div variants={fadeInUp} className="text-center md:text-left">
                 <p className="text-sm font-mono uppercase tracking-[0.35em] text-brand-muted mb-4">
@@ -274,37 +284,37 @@ const Contact: React.FC = () => {
               className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8"
             >
               <div className="rounded-xl border border-white/10 bg-slate-950/70 backdrop-blur p-4 text-center">
-                <OceanCountingNumber 
-                  number={15} 
-                  suffix="+" 
-                  inView 
-                  className="text-3xl md:text-4xl text-brand-teal block mb-1" 
+                <OceanCountingNumber
+                  number={15}
+                  suffix="+"
+                  inView
+                  className="text-3xl md:text-4xl text-brand-teal block mb-1"
                 />
                 <span className="text-xs md:text-sm text-brand-muted">Years Experience</span>
               </div>
               <div className="rounded-xl border border-white/10 bg-slate-950/70 backdrop-blur p-4 text-center">
-                <OceanCountingNumber 
-                  number={72} 
-                  suffix="+" 
-                  inView 
-                  className="text-3xl md:text-4xl text-ocean-tangerine-dream block mb-1" 
+                <OceanCountingNumber
+                  number={72}
+                  suffix="+"
+                  inView
+                  className="text-3xl md:text-4xl text-ocean-tangerine-dream block mb-1"
                 />
                 <span className="text-xs md:text-sm text-brand-muted">Projects Delivered</span>
               </div>
               <div className="rounded-xl border border-white/10 bg-slate-950/70 backdrop-blur p-4 text-center">
-                <OceanCountingNumber 
-                  number={24} 
-                  inView 
-                  className="text-3xl md:text-4xl text-ocean-pearl-aqua block mb-1" 
+                <OceanCountingNumber
+                  number={24}
+                  inView
+                  className="text-3xl md:text-4xl text-ocean-pearl-aqua block mb-1"
                 />
                 <span className="text-xs md:text-sm text-brand-muted">Hour Response</span>
               </div>
               <div className="rounded-xl border border-white/10 bg-slate-950/70 backdrop-blur p-4 text-center">
-                <OceanCountingNumber 
-                  number={100} 
-                  suffix="%" 
-                  inView 
-                  className="text-3xl md:text-4xl text-green-400 block mb-1" 
+                <OceanCountingNumber
+                  number={100}
+                  suffix="%"
+                  inView
+                  className="text-3xl md:text-4xl text-green-400 block mb-1"
                 />
                 <span className="text-xs md:text-sm text-brand-muted">Client Satisfaction</span>
               </div>

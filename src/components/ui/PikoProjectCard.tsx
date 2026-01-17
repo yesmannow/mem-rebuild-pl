@@ -88,7 +88,7 @@ export const PikoProjectCard: React.FC<PikoProjectCardProps> = ({
           transition={{ duration: 0.3 }}
         >
           {/* Concrete Grit Overlay */}
-          <div 
+          <div
             className="absolute inset-0 pointer-events-none z-10"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E")`,
@@ -111,7 +111,7 @@ export const PikoProjectCard: React.FC<PikoProjectCardProps> = ({
 
             {/* Logo Overlay - Top Right Corner */}
             <motion.img
-              src="/images/projects/Piko Fg Music/piko-logo.png"
+              src="/images/projects/Piko Fg Music/pkfg logo.png"
               alt="Piko Logo"
               className="absolute top-4 right-4 w-16 h-16 object-contain z-20"
               style={{
@@ -173,7 +173,7 @@ export const PikoProjectCard: React.FC<PikoProjectCardProps> = ({
 
             {/* Technical Specs - JetBrains Mono */}
             <div className="mb-4">
-              <p 
+              <p
                 className="text-xs text-[#FFD700] font-mono uppercase tracking-widest"
                 style={{ fontFamily: '"JetBrains Mono", monospace' }}
               >
@@ -190,7 +190,7 @@ export const PikoProjectCard: React.FC<PikoProjectCardProps> = ({
 
             {/* Technical Tags - Staggered fade-in from bottom */}
             {project.tags && project.tags.length > 0 && (
-              <motion.div 
+              <motion.div
                 className="flex flex-wrap gap-2 mb-4"
                 variants={tagVariants}
               >

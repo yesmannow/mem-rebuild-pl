@@ -7,6 +7,9 @@ import { AppSection } from '../ui/AppSection';
 import { AppCard } from '../ui/AppCard';
 import { Illustration } from '../components/Illustration';
 import { EnhancedImage } from '../components/ui/EnhancedImage';
+import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
+import { ApiImageGallery } from '../components/ui/ApiImageGallery';
+import { useUnifiedImage } from '../hooks/useUnifiedImage';
 
 // Lazy load heavy components to reduce initial bundle size
 const SkillsRadar = lazy(() => import('../components/ui/SkillsRadar'));
@@ -149,7 +152,7 @@ const Services: React.FC = () => {
 
       <div className="min-h-screen bg-brand-dark pt-24 pb-20">
         {/* Hero Section with API Background */}
-        <SectionWithApiBackground 
+        <SectionWithApiBackground
           theme="strategy,consulting,planning,business"
           overlayColor="dark"
           overlayOpacity={0.85}
@@ -224,6 +227,32 @@ const Services: React.FC = () => {
             <Suspense fallback={<SectionLoader />}>
               <TheAtlas />
             </Suspense>
+          </div>
+        </AppSection>
+
+        {/* Image Gallery Section - Strategy & Business */}
+        <AppSection padding="lg" variant="feature" container={false}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">
+                Visualizing Strategy & Growth
+              </h2>
+              <p className="text-lg text-brand-muted max-w-2xl mx-auto">
+                Real-world imagery that represents the impact of strategic marketing leadership.
+              </p>
+            </motion.div>
+            <ApiImageGallery
+              themes={['business strategy', 'team collaboration', 'growth planning']}
+              count={6}
+              columns={3}
+              showAttribution={false}
+            />
           </div>
         </AppSection>
 

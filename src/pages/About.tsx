@@ -7,6 +7,7 @@ import { BentoCard, BentoGrid } from '../components/ui/BentoGrid';
 import { SchematicBackground } from '../components/ui/SchematicBackground';
 import { OceanRippleButton } from '../components/ui/OceanRippleButton';
 import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
+import { ApiImageGallery } from '../components/ui/ApiImageGallery';
 import TechLogoCarousel from '../components/ui/TechLogoCarousel';
 import { TECH_ICON_MAP } from '../utils/techIcons';
 import { experience, education, volunteering, awards, metrics, skillCategories, executiveSummary } from '../data/resume';
@@ -178,7 +179,7 @@ const categoryIconMap: Record<string, React.ElementType> = {
 
 const SkillsGrid: React.FC<{ categories: SkillCategoryType[] }> = ({ categories }) => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-  
+
   // Map category themes for background images
   const categoryThemes: Record<string, string> = {
     'leadership': 'team,collaboration,leadership',
@@ -188,14 +189,14 @@ const SkillsGrid: React.FC<{ categories: SkillCategoryType[] }> = ({ categories 
     'development': 'coding,programming,developer',
     'tools': 'workspace,tools,software',
   };
-  
+
   return (
     <BentoGrid className="mt-8">
       {categories.map((cat, catIndex) => {
         const CategoryIcon = categoryIconMap[cat.id] || Settings;
         const isToolsCategory = cat.id === 'tools';
         const bgTheme = categoryThemes[cat.id] || 'technology';
-        
+
         return (
           <BentoCard
             key={cat.id}
@@ -210,7 +211,7 @@ const SkillsGrid: React.FC<{ categories: SkillCategoryType[] }> = ({ categories 
               className="opacity-20 group-hover:opacity-30 transition-opacity duration-500"
               lazy={true}
             />
-            
+
             {/* Animated background gradient on hover */}
             <motion.div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -218,9 +219,9 @@ const SkillsGrid: React.FC<{ categories: SkillCategoryType[] }> = ({ categories 
                 background: `radial-gradient(600px circle at 50% 50%, rgba(64, 224, 208, 0.06), transparent 40%)`,
               }}
             />
-            
+
             <div className="relative z-10">
-              <motion.div 
+              <motion.div
                 className="flex items-center justify-between mb-5"
                 initial={{ opacity: 0, y: -10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -250,12 +251,12 @@ const SkillsGrid: React.FC<{ categories: SkillCategoryType[] }> = ({ categories 
                   {isToolsCategory ? 'Stack' : 'Skills'}
                 </motion.div>
               </motion.div>
-              
+
               <div className="flex flex-wrap gap-2">
                 {cat.items.map((skill, skillIndex) => {
                   const techInfo = isToolsCategory ? techIconMap[skill] : null;
                   const isHovered = hoveredSkill === `${cat.id}-${skill}`;
-                  
+
                   return (
                     <motion.span
                       key={skill}
@@ -265,14 +266,14 @@ const SkillsGrid: React.FC<{ categories: SkillCategoryType[] }> = ({ categories 
                       transition={{ delay: catIndex * 0.05 + skillIndex * 0.02 }}
                       onMouseEnter={() => setHoveredSkill(`${cat.id}-${skill}`)}
                       onMouseLeave={() => setHoveredSkill(null)}
-                      whileHover={{ 
-                        scale: 1.05, 
+                      whileHover={{
+                        scale: 1.05,
                         y: -2,
                         transition: { type: 'spring', stiffness: 400 }
                       }}
                       className={`relative rounded-lg border px-3 py-2 text-sm cursor-default transition-all duration-200 ${
-                        isHovered 
-                          ? 'border-brand-teal/50 bg-brand-teal/10 text-brand-text shadow-lg shadow-brand-teal/10' 
+                        isHovered
+                          ? 'border-brand-teal/50 bg-brand-teal/10 text-brand-text shadow-lg shadow-brand-teal/10'
                           : 'border-white/10 bg-white/5 text-brand-text/90 hover:border-brand-teal/30 hover:bg-brand-teal/5'
                       }`}
                       style={techInfo && isHovered ? {
@@ -282,7 +283,7 @@ const SkillsGrid: React.FC<{ categories: SkillCategoryType[] }> = ({ categories 
                     >
                       <span className="flex items-center gap-2">
                         {techInfo && (
-                          <motion.span 
+                          <motion.span
                             className="text-base"
                             animate={isHovered ? { rotate: [0, -10, 10, 0] } : {}}
                             transition={{ duration: 0.3 }}
@@ -292,7 +293,7 @@ const SkillsGrid: React.FC<{ categories: SkillCategoryType[] }> = ({ categories 
                         )}
                         <span>{skill}</span>
                       </span>
-                      
+
                       {/* Shimmer effect on hover */}
                       <AnimatePresence>
                         {isHovered && (
@@ -382,7 +383,7 @@ const About: React.FC = () => {
       <div className="min-h-screen bg-brand-dark text-brand-text relative overflow-hidden">
         {/* Animated Schematic Background */}
         <SchematicBackground variant="default" showGrid={true} showOrbs={true} showBeams={true} />
-        
+
         {/* Hero Background Image - Subtle tech/workspace theme */}
         <ApiBackgroundImage
           theme="technology,workspace,minimal"
@@ -621,7 +622,7 @@ const About: React.FC = () => {
               className="opacity-15 rounded-3xl"
               lazy={true}
             />
-            
+
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-10 w-10 rounded-full bg-pink-500/20 border border-pink-500/50 flex items-center justify-center text-pink-400">

@@ -29,6 +29,7 @@ const BioPhotoSlideshow: React.FC<BioPhotoSlideshowProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
   const [failedImages, setFailedImages] = useState<Set<number>>(new Set());
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   // Preload images with error handling
   useEffect(() => {
@@ -56,6 +57,8 @@ const BioPhotoSlideshow: React.FC<BioPhotoSlideshowProps> = ({
       const nextValidIndex = (currentValidIndex + 1) % validIndices.length;
       return validIndices[nextValidIndex];
     });
+    // Reset image loaded state when changing slides
+    setImageLoaded(false);
   }, [validPhotos.length, validIndices]);
 
   useEffect(() => {
@@ -64,6 +67,18 @@ const BioPhotoSlideshow: React.FC<BioPhotoSlideshowProps> = ({
     return () => clearInterval(timer);
   }, [interval, nextSlide, validPhotos.length]);
 
+  // Reset image loaded state when current index changes
+  useEffect(() => {
+    setImageLoaded(loadedImages.has(currentIndex));
+
+    // Fallback: ensure image becomes visible after a short delay even if load event doesn't fire
+    const fallbackTimer = setTimeout(() => {
+      setImageLoaded(true);
+    }, 500);
+
+    return () => clearTimeout(fallbackTimer);
+  }, [currentIndex, loadedImages]);
+
   // If no valid photos, show nothing
   if (validPhotos.length === 0) {
     return null;
@@ -71,6 +86,12 @@ const BioPhotoSlideshow: React.FC<BioPhotoSlideshowProps> = ({
 
   const currentPhoto = photos[currentIndex];
   const isCurrentImageLoaded = loadedImages.has(currentIndex);
+
+  // Handle image load event to ensure animation triggers
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+    setLoadedImages(prev => new Set(prev).add(currentIndex));
+  };
 
   return (
     <div className={`relative w-full h-full overflow-hidden ${className}`}>
@@ -81,11 +102,15 @@ const BioPhotoSlideshow: React.FC<BioPhotoSlideshowProps> = ({
           alt={currentPhoto.alt}
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: isCurrentImageLoaded ? 1 : 0.5, scale: 1 }}
+          animate={{ opacity: (isCurrentImageLoaded || imageLoaded) ? 1 : 0.7, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{
             opacity: { duration: 0.8, ease: 'easeInOut' },
             scale: { duration: 1.2, ease: 'easeOut' },
+          }}
+          onLoad={handleImageLoad}
+          onError={() => {
+            setFailedImages(prev => new Set(prev).add(currentIndex));
           }}
         />
       </AnimatePresence>

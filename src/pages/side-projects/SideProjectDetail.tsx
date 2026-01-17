@@ -28,7 +28,7 @@ const SideProjectDetail: React.FC = () => {
   const project = sideProjects.find((p) => p.id === id);
   const displayImage = project
     ? (project.id === 'piko-fg-music'
-        ? '/images/projects/Piko Fg Music/Site Images/Screenshot of PIKO _ Pro DJ Console.webp'
+        ? '/images/projects/Piko Fg Music/pkfg logo.png'
         : (project.id === 'primary-colours'
             ? '/images/projects/Primary Colours/primary colours logo.webp'
             : project.image))
@@ -95,13 +95,13 @@ const SideProjectDetail: React.FC = () => {
         '/images/projects/Primary Colours/installation nation 2.webp',
       ],
       'piko-fg-music': [
+        '/images/projects/Piko Fg Music/pkfg logo.png',
         '/images/projects/Piko Fg Music/Site Images/Screenshot of Piko Artist Studio.webp',
         '/images/projects/Piko Fg Music/Site Images/Screenshot of PIKO _ Pro DJ Console.webp',
         '/images/projects/Piko Fg Music/Site Images/hero-bw.webp',
         '/images/projects/Piko Fg Music/Site Images/hero-white.webp',
         '/images/projects/Piko Fg Music/Site Images/graffiti-wall-2.webp',
         '/images/projects/Piko Fg Music/Site Images/grunge-window.webp',
-        '/images/projects/Piko Fg Music/piko-logo.png',
       ],
     };
 
@@ -310,7 +310,7 @@ const SideProjectDetail: React.FC = () => {
                     >
                       SYNDICATE DISPATCH
                     </motion.h2>
-                    <p 
+                    <p
                       className="text-xs text-gray-400 font-mono uppercase tracking-widest"
                       style={{ fontFamily: '"JetBrains Mono", monospace' }}
                     >
@@ -322,8 +322,8 @@ const SideProjectDetail: React.FC = () => {
                   <div className="space-y-6 text-gray-300">
                     <div>
                       <p className="leading-relaxed mb-4">
-                        The <span className="text-[#FFD700] font-semibold">Syndicate Dispatch</span> is the technical heart of the Studio Engine V3, 
-                        manifested through the <span className="font-mono text-brand-teal">StudioMonitor</span> component. It serves as a real-time 
+                        The <span className="text-[#FFD700] font-semibold">Syndicate Dispatch</span> is the technical heart of the Studio Engine V3,
+                        manifested through the <span className="font-mono text-brand-teal">StudioMonitor</span> component. It serves as a real-time
                         telemetry readout, providing producers with mission-critical feedback as they "crack" signals and command the mix.
                       </p>
                     </div>
@@ -335,10 +335,10 @@ const SideProjectDetail: React.FC = () => {
                         Tactical Communication Protocol
                       </h3>
                       <p className="text-sm leading-relaxed mb-4">
-                        The <span className="font-mono text-brand-teal">StudioMonitor</span> utilizes a specialized linguistic dictionary to reinforce 
+                        The <span className="font-mono text-brand-teal">StudioMonitor</span> utilizes a specialized linguistic dictionary to reinforce
                         the project's industrial narrative. Standard web interactions are translated into high-stakes tactical commands:
                       </p>
-                      
+
                       <ul className="space-y-3 text-sm">
                         <li className="flex gap-3">
                           <span className="text-[#FFD700] font-mono shrink-0">→</span>
@@ -352,11 +352,11 @@ const SideProjectDetail: React.FC = () => {
                             </code>, transitioning the interface from idle to active unit tracking.
                           </div>
                         </li>
-                        
+
                         <li className="flex gap-3">
                           <span className="text-[#FFD700] font-mono shrink-0">→</span>
                           <div>
-                            <span className="font-semibold text-white">Decryption Narrative:</span> Instead of standard progress bars, the monitor 
+                            <span className="font-semibold text-white">Decryption Narrative:</span> Instead of standard progress bars, the monitor
                             outputs a sequence of "decryption" logs—such as{' '}
                             <code className="px-2 py-0.5 bg-black/50 border border-[#FFD700]/30 text-[#FFD700] font-mono text-xs" style={{ borderRadius: '0px' }}>
                               PREPARING_MASTER_STEMS
@@ -366,11 +366,11 @@ const SideProjectDetail: React.FC = () => {
                             </code>—to simulate the technical effort required to isolate audio frequencies.
                           </div>
                         </li>
-                        
+
                         <li className="flex gap-3">
                           <span className="text-[#FFD700] font-mono shrink-0">→</span>
                           <div>
-                            <span className="font-semibold text-white">System Status:</span> The boot sequence provides a choreographed rollout, 
+                            <span className="font-semibold text-white">System Status:</span> The boot sequence provides a choreographed rollout,
                             logging{' '}
                             <code className="px-2 py-0.5 bg-black/50 border border-[#FFD700]/30 text-[#FFD700] font-mono text-xs" style={{ borderRadius: '0px' }}>
                               SESSION_INITIALIZED
@@ -393,10 +393,10 @@ const SideProjectDetail: React.FC = () => {
                         "Signal Cracking" Telemetry
                       </h3>
                       <p className="text-sm leading-relaxed mb-4">
-                        When a producer imports an "Unverified Signal" (user-uploaded file), the telemetry logic initiates a timed 
+                        When a producer imports an "Unverified Signal" (user-uploaded file), the telemetry logic initiates a timed
                         "cracking" sequence to build anticipation and simulate complex AI processing:
                       </p>
-                      
+
                       <div className="space-y-2 text-sm font-mono bg-black/30 p-4" style={{ borderRadius: '0px', border: '1px solid #333' }}>
                         <div className="flex gap-3">
                           <span className="text-[#FFD700]">0.0s:</span>
@@ -424,8 +424,8 @@ const SideProjectDetail: React.FC = () => {
                         Technical Architecture
                       </h3>
                       <p className="text-sm leading-relaxed">
-                        Built on a custom hook-based system, the <span className="font-mono text-brand-teal">useStudioMonitor</span> manages 
-                        a persistent log stack that interfaces directly with the Audio Engine. This allows the monitor to react dynamically 
+                        Built on a custom hook-based system, the <span className="font-mono text-brand-teal">useStudioMonitor</span> manages
+                        a persistent log stack that interfaces directly with the Audio Engine. This allows the monitor to react dynamically
                         to audio events, such as logging{' '}
                         <code className="px-2 py-0.5 bg-black/50 border border-brand-teal/30 text-brand-teal font-mono text-xs" style={{ borderRadius: '0px' }}>
                           STUDIO_CORE: DECELERATING
@@ -434,7 +434,7 @@ const SideProjectDetail: React.FC = () => {
                           MIX_RENDERED: DOWNLOAD_COMPLETE
                         </code>. The visual presentation remains strictly brutalist, featuring a{' '}
                         <span className="text-[#FFD700] font-semibold">Safety Yellow</span> and{' '}
-                        <span className="text-gray-400 font-semibold">Industrial Chrome</span> palette that mirrors the aesthetic 
+                        <span className="text-gray-400 font-semibold">Industrial Chrome</span> palette that mirrors the aesthetic
                         of professional field equipment.
                       </p>
                     </div>

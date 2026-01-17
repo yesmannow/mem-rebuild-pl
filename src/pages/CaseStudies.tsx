@@ -7,6 +7,7 @@ import { Sparkles, TrendingUp, Award } from 'lucide-react';
 import MagneticCursor from '../components/ui/MagneticCursor';
 import { HeroWithApiBackground } from '../components/layout/PageWithApiBackground';
 import { AppBadge } from '../ui/AppBadge';
+import { ApiImageGallery } from '../components/ui/ApiImageGallery';
 import './CaseStudies.css';
 import './CaseStudiesEnhanced.css';
 import './CaseStudiesLandingEnhanced.css';
@@ -146,7 +147,7 @@ const CaseStudies: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6, duration: 0.6 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="stat-item stat-interactive"
                     whileHover={{ scale: 1.05, y: -4 }}
                     transition={{ type: 'spring', stiffness: 400 }}
@@ -154,7 +155,7 @@ const CaseStudies: React.FC = () => {
                     <div className="stat-icon-wrapper">
                       <TrendingUp size={18} className="stat-icon" />
                     </div>
-                    <motion.div 
+                    <motion.div
                       className="stat-number"
                       initial={{ opacity: 0, scale: 0.5 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -164,7 +165,7 @@ const CaseStudies: React.FC = () => {
                     </motion.div>
                     <div className="stat-label">Case Studies</div>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="stat-item stat-interactive stat-featured"
                     whileHover={{ scale: 1.05, y: -4 }}
                     transition={{ type: 'spring', stiffness: 400 }}
@@ -172,7 +173,7 @@ const CaseStudies: React.FC = () => {
                     <div className="stat-icon-wrapper">
                       <Award size={18} className="stat-icon" />
                     </div>
-                    <motion.div 
+                    <motion.div
                       className="stat-number"
                       initial={{ opacity: 0, scale: 0.5 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -182,7 +183,7 @@ const CaseStudies: React.FC = () => {
                     </motion.div>
                     <div className="stat-label">Featured</div>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="stat-item stat-interactive stat-results"
                     whileHover={{ scale: 1.05, y: -4 }}
                     transition={{ type: 'spring', stiffness: 400 }}
@@ -190,7 +191,7 @@ const CaseStudies: React.FC = () => {
                     <div className="stat-icon-wrapper">
                       <Sparkles size={18} className="stat-icon" />
                     </div>
-                    <motion.div 
+                    <motion.div
                       className="stat-number"
                       initial={{ opacity: 0, scale: 0.5 }}
                       animate={{ opacity: 1, scale: 1 }}

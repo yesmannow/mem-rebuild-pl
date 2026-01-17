@@ -26,17 +26,17 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
   const shouldShowNavbar = scrollDirection === 'up' || isAtTop;
 
   return (
-    <motion.nav 
+    <motion.nav
       className="fixed w-full z-[100] h-16 transition-all duration-300"
       initial={{ y: 0 }}
-      animate={{ 
+      animate={{
         y: shouldHideNavbar ? -80 : 0,
         backgroundColor: isAtTop ? 'rgba(2, 6, 23, 0.6)' : 'rgba(2, 6, 23, 0.8)',
       }}
-      transition={{ 
-        type: 'spring', 
-        stiffness: 300, 
-        damping: 30 
+      transition={{
+        type: 'spring',
+        stiffness: 300,
+        damping: 30
       }}
       style={{
         backdropFilter: 'blur(12px)',
@@ -45,8 +45,8 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
         willChange: 'transform, background-color',
       }}
     >
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-full">
-        <div className="flex items-center justify-between h-full gap-2 sm:gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex items-center justify-between h-full gap-3 sm:gap-4 lg:gap-6">
 
           {/* Left Section: Logo */}
           <div className="flex items-center flex-shrink-0">

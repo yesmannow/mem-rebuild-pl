@@ -1,99 +1,64 @@
 /**
- * ApiBackgroundImage Component
- * 
- * Provides themed background images from photography APIs
- * Optimized for resume page sections
+ * Enhanced API Background Image Component
+ *
+ * Fetches high-quality background images from Pexels, Pixabay, or Unsplash
+ * with automatic fallback and loading states
  */
 
 import React from 'react';
-import { EnhancedImage } from './EnhancedImage';
-import { useApiImage } from '../../hooks/useApiImage';
+import { useUnifiedImage } from '../../hooks/useUnifiedImage';
+import EnhancedImage from './EnhancedImage';
 
-interface ApiBackgroundImageProps {
-  theme: string;
-  className?: string;
-  overlayColor?: 'turquoise' | 'orange' | 'dark' | 'none';
+export interface ApiBackgroundImageProps {
+  query: string;
+  source?: 'pexels' | 'pixabay' | 'unsplash' | 'auto';
+  overlayColor?: 'dark' | 'light' | 'brand';
   overlayOpacity?: number;
-  source?: 'unsplash' | 'picsum';
-  lazy?: boolean;
+  className?: string;
   priority?: boolean;
+  fallbackGradient?: string;
 }
 
 export const ApiBackgroundImage: React.FC<ApiBackgroundImageProps> = ({
-  theme,
-  className = '',
+  query,
+  source = 'auto',
   overlayColor = 'dark',
   overlayOpacity = 0.7,
-  source = 'unsplash',
-  lazy = true,
+  className = '',
   priority = false,
+  fallbackGradient = 'linear-gradient(135deg, #0f172a, #1e293b)',
 }) => {
-  const { imageUrl, placeholderUrl, isLoading } = useApiImage({
-    source,
-    theme,
-    lazy,
-    width: 1920,
-    height: 1080,
-  });
+  const { image, isLoading, error } = useUnifiedImage(query, { preferredSource: source });
 
-  if (isLoading && !placeholderUrl) {
+  if (isLoading) {
     return (
-      <div className={`absolute inset-0 bg-slate-900/50 animate-pulse ${className}`} />
+      <div
+        className={`absolute inset-0 bg-slate-900/50 animate-pulse ${className}`}
+        style={{ background: fallbackGradient }}
+      />
     );
   }
 
-  if (!imageUrl && !placeholderUrl) {
-    return null;
+  if (error || !image) {
+    return (
+      <div
+        className={`absolute inset-0 ${className}`}
+        style={{ background: fallbackGradient }}
+      />
+    );
   }
 
   return (
     <EnhancedImage
-      src={imageUrl || placeholderUrl || ''}
-      placeholderSrc={placeholderUrl || undefined}
-      alt={`${theme} background`}
+      src={image.url}
+      alt={image.alt}
       className={`absolute inset-0 z-0 ${className}`}
       overlayColor={overlayColor}
       overlayOpacity={overlayOpacity}
-      lazy={lazy}
       priority={priority}
       objectFit="cover"
     />
   );
 };
 
-/**
- * Section with API Background
- * 
- * Wrapper component for sections that need API background images
- */
-interface SectionWithApiBackgroundProps {
-  theme: string;
-  children: React.ReactNode;
-  className?: string;
-  overlayColor?: 'turquoise' | 'orange' | 'dark' | 'none';
-  overlayOpacity?: number;
-  source?: 'unsplash' | 'picsum';
-}
-
-export const SectionWithApiBackground: React.FC<SectionWithApiBackgroundProps> = ({
-  theme,
-  children,
-  className = '',
-  overlayColor = 'dark',
-  overlayOpacity = 0.7,
-  source = 'unsplash',
-}) => {
-  return (
-    <section className={`relative overflow-hidden ${className}`}>
-      <ApiBackgroundImage
-        theme={theme}
-        overlayColor={overlayColor}
-        overlayOpacity={overlayOpacity}
-        source={source}
-      />
-      <div className="relative z-10">
-        {children}
-      </div>
-    </section>
-  );
-};
+export default ApiBackgroundImage;

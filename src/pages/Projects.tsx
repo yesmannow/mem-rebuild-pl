@@ -11,6 +11,7 @@ import type { FeaturedProjectCardProps } from '../components/home/FeaturedProjec
 import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import MagneticCursor from '../components/ui/MagneticCursor';
+import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
 import './Projects.css';
 
 const Projects: React.FC = () => {
@@ -35,6 +36,17 @@ const Projects: React.FC = () => {
     <main className="projects-page relative">
       <MagneticCursor color="#40E0D0" enabled={true} />
       <OceanBackgroundBeams className="opacity-20" />
+      {/* Hero Background Image */}
+      <div className="absolute inset-0 z-0">
+        <ApiBackgroundImage
+          query="web development coding programming technology"
+          source="pexels"
+          overlayColor="dark"
+          overlayOpacity={0.75}
+          className="absolute inset-0"
+          priority
+        />
+      </div>
       <AnimatedSection>
         <header className="projects-header relative z-10">
           {/* Toggle Switch */}

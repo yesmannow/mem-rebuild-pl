@@ -52,7 +52,7 @@
       "featured": true,
       "website": "https://primarycareindy.com",
       "images": [
-        "/images/side-projects/Primary Care Logo with PMC.png",
+        "/images/projects/Primarycare Indy/PMC_PrimaryCare-Large_TransparentBG.png",
         "/images/side-projects/cropped-PC_LOGO1-1024x174.jpg",
         "/images/side-projects/Man at the doctors office.jpg",
         "/images/side-projects/Online Doctor Consultation Instagram Post.png",
@@ -117,7 +117,7 @@
       "featured": true,
       "website": "https://www.tbmattorneys.com",
       "images": [
-        "/images/side-projects/TBM Logo.png",
+        "/images/projects/Tuohy Bailey & Moore LLP/Touhy BM Logo.png",
         "/images/side-projects/TBM Brand Playbook Demo.png"
       ]
     },
@@ -178,7 +178,7 @@
       "tags": ["Legal Branding", "Corporate Identity", "Logo Design", "Professional Services Branding", "Typography", "Minimalist Logo", "Legal Consultant", "Trial Prep Agency"],
       "featured": true,
       "logoOnly": true,
-      "images": ["/images/side-projects/Black Letter - Full Logo (1).png"]
+      "images": ["/images/projects/Black Letter/Black Letter - Full Logo (1).png"]
     },
     {
       "id": "primary-colours",
@@ -207,7 +207,7 @@
       },
       "tags": ["non-profit", "arts", "event marketing", "sponsorship", "community engagement"],
       "featured": true,
-      "images": ["/images/side-projects/cropped-PC_LOGO1-1024x174.jpg"]
+      "images": ["/images/projects/Primary Colours/PC-Logo-PNG-e1506002890460.png"]
     },
     {
       "id": "clean-aesthetic",
@@ -232,8 +232,7 @@
       "featured": true,
       "logoOnly": true,
       "images": [
-        "/images/side-projects/CA Logo - Primary (full color).jpg",
-        "/images/design/CA.jpg"
+        "/images/projects/Clean Aesthetic/CA Logo - Primary (full color).png"
       ]
     },
     {
@@ -266,49 +265,12 @@
       "featured": true,
       "website": "https://urgentcareindy.com",
       "images": [
-        "/images/side-projects/Urgent Care Indy Logo - 22.png",
+        "/images/projects/urgent care indy/Urgent Care Indy Logo - 22.png",
         "/images/side-projects/dot-physicals-header.jpg",
         "/images/side-projects/occ-health-header.jpg",
         "/images/side-projects/sports-physical-header (1).jpg",
         "/images/side-projects/what-we-treat-1.jpg",
         "/images/side-projects/UCI Hours COVID.jpg"
-      ]
-    },
-    {
-      "id": "russell-painting",
-      "title": "Russell Painting Company Website Redesign & Trust Building",
-      "slug": "russell-painting",
-      "category": "Service Business",
-      "client": "Russell Painting Company",
-      "year": "2022",
-      "duration": "3 months",
-      "services": [
-        "Website Redesign",
-        "UX Research",
-        "Trust Optimization",
-        "Local SEO",
-        "Conversion Strategy"
-      ],
-      "challenge": "Modernize outdated website for established painting contractor (43+ years) to leverage experience and credibility, compete with larger contractors online, improve lead generation, and showcase quality credentials.",
-      "approach": "Developed comprehensive trust-building strategy featuring HomeAdvisor Seal (4.9/5 rating), Angie's List 'A' Grade, 43+ years experience narrative, customer testimonials, and clear service categorization for exterior, interior, residential, and commercial work.",
-      "execution": "Redesigned website with modern design, clear service categorization, high-quality before/after project galleries, multiple contact methods, mobile optimization, local SEO for Indianapolis market, and compelling content including multi-generational family business story.",
-      "results": "Increased online lead generation and quote requests, improved search engine rankings for local painting searches, enhanced professional credibility and trust perception, better mobile user experience, and streamlined customer decision-making process.",
-      "takeaway": "Trust indicators are critical for service businesses. Combining long-term credibility with modern digital presence effectively converts visitors to leads in competitive local markets.",
-      "metrics": {
-        "homeadvisorRating": "4.9/5",
-        "angiesListGrade": "A",
-        "yearsExperience": "43+",
-        "leadGeneration": "Increased"
-      },
-      "tags": ["home services", "website redesign", "trust building", "local seo", "conversion"],
-      "featured": true,
-      "website": "https://russellpaintingcompany.com",
-      "images": [
-        "/images/projects/Russell painting/New-Logo-Transparent-1.png",
-        "/images/projects/Russell painting/Screenshot of Power Washing _ Russell Painting Company, Inc.jpg",
-        "/images/side-projects/painting_illustration_01.png",
-        "/images/side-projects/Interior_sl.jpg",
-        "/images/side-projects/interior_w3.jpg"
       ]
     },
     {
@@ -339,8 +301,9 @@
       },
       "tags": ["e-commerce", "pet care", "amazon", "brand development", "multi-channel"],
       "featured": true,
-      "website": "https://resqorganics.com",
+      "website": "https://behrpetessentials.com",
       "images": [
+        "/images/projects/Behr pet essentials/Behr pet essentials logo.png",
         "/images/side-projects/CBD-for-Pets-and-Pet-Skin-Care.png",
         "/images/side-projects/CBD-Oil-for-Pets.png",
         "/images/side-projects/Skincare-for-Dogs-and-Cats.jpg",
@@ -442,7 +405,9 @@
       "tags": ["service business", "web design", "online booking", "local seo", "barbershop"],
       "featured": false,
       "website": "https://hoosierboybarbershop.com",
-      "images": []
+      "images": [
+        "/images/projects/Hoosierboy Barbershop/Hoosierboy Barbershop logo 1.png"
+      ]
     },
     {
       "id": "school-80-condos",
@@ -563,7 +528,9 @@
       "tags": ["retail", "logo design", "streetwear", "sneakers", "urban branding"],
       "featured": false,
       "logoOnly": true,
-      "images": []
+      "images": [
+        "/images/projects/circle  city kicks/circle  city kicks logo.png"
+      ]
     },
     {
       "id": "indianapolis-bicentennial",
@@ -689,7 +656,9 @@
       ],
       "featured": false,
       "logoOnly": true,
-      "images": []
+      "images": [
+        "/images/projects/Taco Ninja/taconinja-logo.png"
+      ]
     }
   ],
   "metadata": {

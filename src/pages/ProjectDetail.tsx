@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { projects } from '../data/projects';
+import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
 
 const ProjectDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -11,8 +12,17 @@ const ProjectDetail: React.FC = () => {
   }
 
   return (
-    <main className="bg-[var(--ink-900)] text-[var(--parchment-050)] min-h-dvh">
-      <div className="container mx-auto px-6 py-10">
+    <main className="bg-[var(--ink-900)] text-[var(--parchment-050)] min-h-dvh relative overflow-hidden">
+      {/* API Background Image */}
+      <ApiBackgroundImage
+        query={`${project.tags.join(' ')} web development`}
+        source="pexels"
+        overlayColor="dark"
+        overlayOpacity={0.85}
+        className="fixed inset-0 z-0"
+        priority
+      />
+      <div className="relative z-10 container mx-auto px-6 py-10">
         <Link
           to="/projects"
           className="inline-block mb-6 text-[var(--parchment-050)]/70 hover:text-[var(--signal-500)] transition-colors"

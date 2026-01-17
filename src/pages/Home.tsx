@@ -18,6 +18,7 @@ import { LivePortfolioMetrics } from '../components/ui/LivePortfolioMetrics';
 import { TypewriterEffect } from '../components/ui/TypewriterEffect';
 import TechLogoCarousel from '../components/ui/TechLogoCarousel';
 import { TECH_ICON_MAP } from '../utils/techIcons';
+import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
 
 const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
 const TechProfile = React.lazy(() => import('../components/TechProfile'));
@@ -107,9 +108,24 @@ const Home: React.FC = () => {
           variant="default"
           padding="none"
           container={false}
-          className="pt-28 pb-20"
+          className="pt-28 pb-20 relative overflow-hidden"
         >
-          <PageParticleBackground 
+          {/* Dark background base */}
+          <div className="absolute inset-0 z-0 bg-brand-dark" />
+
+          {/* API Background Image */}
+          <ApiBackgroundImage
+            query="modern workspace technology business"
+            source="pexels"
+            overlayColor="dark"
+            overlayOpacity={0.95}
+            className="absolute inset-0 z-[1]"
+            priority
+          />
+          {/* Additional dark overlay for consistency with other pages */}
+          <div className="absolute inset-0 z-[2] bg-gradient-to-b from-brand-dark/95 via-brand-dark/90 to-brand-dark/95 pointer-events-none" />
+
+          <PageParticleBackground
             particleCount={40}
             particleColor="#40E0D0"
             opacity={0.08}
@@ -118,7 +134,7 @@ const Home: React.FC = () => {
           <Suspense fallback={<div className="h-16" />}>
             <FloatingParticles count={24} />
           </Suspense>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-8 sm:gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-8 sm:gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -126,8 +142,8 @@ const Home: React.FC = () => {
               className="space-y-8"
             >
               <p className="text-sm font-mono uppercase tracking-[0.35em] text-brand-muted">
-                Fractional CMO & <TypewriterEffect 
-                  words={['Marketing Technologist', 'Systems Architect', 'Growth Strategist', 'Revenue Engineer']} 
+                Fractional CMO & <TypewriterEffect
+                  words={['Marketing Technologist', 'Systems Architect', 'Growth Strategist', 'Revenue Engineer']}
                   className="text-brand-teal"
                 />
               </p>
@@ -270,7 +286,7 @@ const Home: React.FC = () => {
         >
           <TechLogoCarousel logos={logos} height={44} speed={90} gap={32} className="py-4" />
         </SimpleSection>
-        
+
         {/* Technical Stack Preview */}
         <SimpleSection
           variant="elevated"
@@ -444,7 +460,7 @@ const WhyFractionalSection: React.FC = () => {
   const rightInView = useInView(rightColumnRef, { once: true, margin: '-50px' });
 
   return (
-    <section ref={sectionRef} className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section ref={sectionRef} className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-brand-dark">
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/5 via-transparent to-brand-teal/5 pointer-events-none" />
 

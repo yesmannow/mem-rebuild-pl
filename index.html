@@ -26,13 +26,16 @@
           const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
           let theme;
           if (ls === 'system' || !ls) {
-            theme = prefersDark ? 'dark' : 'light';
+            // Force dark mode by default for consistent branding
+            theme = 'dark';
           } else {
             theme = ls;
           }
           const isDark = theme === 'dark';
 
-          document.documentElement.classList.toggle('dark', isDark);
+          // Always ensure dark class is present, remove light class
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
           document.documentElement.setAttribute('data-brand', brand);
 
           // Update theme-color meta tag immediately (for Chrome/Edge/Safari)
