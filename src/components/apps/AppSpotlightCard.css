@@ -1,0 +1,103 @@
+.app-spotlight-card {
+  @apply bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden;
+  @apply transition-all duration-300;
+}
+
+.app-spotlight-card.featured {
+  @apply border-brand-turquoise/50 shadow-lg shadow-brand-turquoise/20;
+}
+
+.app-spotlight-card__header {
+  @apply relative p-6 flex items-center justify-between;
+  @apply bg-gradient-to-br;
+}
+
+.app-spotlight-card__icon {
+  @apply text-4xl;
+}
+
+.app-spotlight-card__badge {
+  @apply flex items-center gap-1.5 px-3 py-1.5 rounded-full;
+  @apply bg-white/20 backdrop-blur-sm text-white text-xs font-semibold;
+}
+
+.app-spotlight-card__content {
+  @apply p-6 space-y-4;
+}
+
+.app-spotlight-card__meta {
+  @apply space-y-2;
+}
+
+.app-spotlight-card__title {
+  @apply text-xl font-bold text-brand-text;
+}
+
+.app-spotlight-card__tagline {
+  @apply text-sm text-brand-muted;
+}
+
+.app-spotlight-card__categories {
+  @apply flex flex-wrap gap-2;
+}
+
+.app-spotlight-card__category {
+  @apply px-2.5 py-1 rounded-md text-xs font-medium;
+  @apply bg-brand-turquoise/10 text-brand-turquoise border border-brand-turquoise/20;
+}
+
+.app-spotlight-card__metrics {
+  @apply grid grid-cols-2 gap-4 p-4 rounded-lg;
+  @apply bg-slate-900/50 border border-slate-700/50;
+}
+
+.app-spotlight-card__metric {
+  @apply flex items-center gap-3;
+}
+
+.app-spotlight-card__metric-value {
+  @apply text-lg font-bold text-brand-text;
+}
+
+.app-spotlight-card__metric-label {
+  @apply text-xs text-brand-muted;
+}
+
+.app-spotlight-card__tech {
+  @apply space-y-2;
+}
+
+.app-spotlight-card__tech-label {
+  @apply text-xs font-semibold text-brand-muted uppercase tracking-wider;
+}
+
+.app-spotlight-card__tech-tags {
+  @apply flex flex-wrap gap-2;
+}
+
+.app-spotlight-card__tech-tag {
+  @apply px-2.5 py-1 rounded-md text-xs font-mono;
+  @apply bg-slate-900/50 text-brand-text border border-slate-700/50;
+}
+
+.app-spotlight-card__tech-tag--more {
+  @apply text-brand-turquoise border-brand-turquoise/30;
+}
+
+.app-spotlight-card__actions {
+  @apply flex gap-3 pt-2;
+}
+
+.app-spotlight-card__btn {
+  @apply flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium text-sm;
+  @apply transition-all duration-200;
+}
+
+.app-spotlight-card__btn--primary {
+  @apply bg-brand-turquoise text-white hover:bg-brand-turquoise-dark;
+  @apply flex-1 justify-center;
+}
+
+.app-spotlight-card__btn--secondary {
+  @apply bg-slate-700/50 text-brand-text hover:bg-slate-700 border border-slate-600/50;
+}

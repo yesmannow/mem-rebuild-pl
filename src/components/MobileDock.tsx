@@ -96,6 +96,21 @@ const MobileDock: React.FC = () => {
 
               {/* Quick actions & links */}
               <div className="px-6 py-3 border-b border-white/10 flex items-center gap-3">
+                {/* System Status Indicator */}
+                <div className="relative group">
+                  <Link
+                    to="/war-room"
+                    onClick={handleMenuItemClick}
+                    className="flex items-center justify-center w-[10px] h-[10px] rounded-full bg-emerald-500 animate-pulse hover:animate-none transition-all duration-300"
+                    aria-label="System Status: Online"
+                  />
+                  {/* Tooltip */}
+                  <div className="absolute left-full ml-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+                    <div className="px-2 py-1 text-xs bg-slate-900/95 backdrop-blur-sm border border-white/10 rounded text-white">
+                      System Status: Online
+                    </div>
+                  </div>
+                </div>
                 <button
                   onClick={openPalette}
                   className="px-3 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-brand-muted hover:text-brand-teal hover:border-brand-teal/30 transition"

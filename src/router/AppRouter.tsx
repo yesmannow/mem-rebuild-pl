@@ -8,7 +8,7 @@ import './AppRouter.css';
 
 // Lazy load pages for code splitting with better chunking
 const Home = React.lazy(() => import('../pages/Home')); // Ocean Pearl Hero homepage
-const About = React.lazy(() => import('../pages/About'));
+const Resume = React.lazy(() => import('../pages/Resume'));
 const CaseStudies = React.lazy(() => import('../pages/CaseStudies'));
 const CaseStudyDetail = React.lazy(() => import('../pages/CaseStudyDetail'));
 const ComponentShowcase = React.lazy(() => import('../pages/ComponentShowcase'));
@@ -31,26 +31,14 @@ const TermsOfService = React.lazy(() => import('../pages/legal/TermsOfService'))
 const Testimonials = React.lazy(() => import('../pages/Testimonials'));
 const Contact = React.lazy(() => import('../pages/Contact'));
 const Services = React.lazy(() => import('../pages/Services'));
-// Legacy routes - commented out
-// const Inspiration = React.lazy(() => import('../pages/InspirationPage'));
-// const InspirationDetail = React.lazy(() => import('../pages/InspirationDetail'));
 const Gallery = React.lazy(() => import('../pages/Gallery'));
-// const BrandBuilder = React.lazy(() => import('../pages/BrandBuilder'));
 const BrandDetail = React.lazy(() => import('../pages/brand/BrandDetail'));
-const TheLaunchpad = React.lazy(() => import('../pages/case-studies/the-launchpad'));
-const TheCompass = React.lazy(() => import('../pages/case-studies/the-compass'));
-const TheEngineRoom = React.lazy(() => import('../pages/case-studies/the-engine-room'));
-const TheGuardian = React.lazy(() => import('../pages/case-studies/the-guardian'));
-const TheFortress = React.lazy(() => import('../pages/case-studies/the-fortress'));
-const TheConductor = React.lazy(() => import('../pages/case-studies/the-conductor'));
-const GrastonCEU = React.lazy(() => import('../pages/case-studies/graston-ceu-system'));
-const RBELaw = React.lazy(() => import('../pages/case-studies/rbe-law'));
-const UltimateTechROI = React.lazy(() => import('../pages/case-studies/ultimate-tech-roi'));
+// Legacy case study imports removed - all case studies now use dynamic CaseStudyDetail template
 const DesignSystemDemo = React.lazy(() => import('../pages/DesignSystemDemo'));
 const DeploymentStatus = React.lazy(() => import('../pages/DeploymentStatus'));
 const ResumePrint = React.lazy(() => import('../pages/ResumePrint'));
-const AppsLibrary = React.lazy(() => import('../pages/AppsLibrary'));
 const Lab = React.lazy(() => import('../pages/Lab'));
+const WarRoom = React.lazy(() => import('../pages/WarRoom'));
 const GrowthEngine = React.lazy(() => import('../components/apps/GrowthEngine'));
 const LicenseHub = React.lazy(() => import('../components/apps/LicenseHub'));
 const ClinicalCompass = React.lazy(() => import('../components/apps/ClinicalCompass'));
@@ -343,7 +331,7 @@ const AppRouter: React.FC = () => {
               path="/resume"
               element={
                 <PageTransition>
-                  <About />
+                  <Resume />
                 </PageTransition>
               }
             />
@@ -356,78 +344,7 @@ const AppRouter: React.FC = () => {
                 </PageTransition>
               }
             />
-            <Route
-              path="/case-studies/the-launchpad"
-              element={
-                <PageTransition>
-                  <TheLaunchpad />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/case-studies/the-compass"
-              element={
-                <PageTransition>
-                  <TheCompass />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/case-studies/the-engine-room"
-              element={
-                <PageTransition>
-                  <TheEngineRoom />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/case-studies/the-guardian"
-              element={
-                <PageTransition>
-                  <TheGuardian />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/case-studies/the-fortress"
-              element={
-                <PageTransition>
-                  <TheFortress />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/case-studies/the-conductor"
-              element={
-                <PageTransition>
-                  <TheConductor />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/case-studies/graston-ceu-system"
-              element={
-                <PageTransition>
-                  <GrastonCEU />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/case-studies/rbe-law-brand-and-digital"
-              element={
-                <PageTransition>
-                  <RBELaw />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/case-studies/ultimate-tech-roi-growth"
-              element={
-                <PageTransition>
-                  <UltimateTechROI />
-                </PageTransition>
-              }
-            />
+            {/* All case studies now use the dynamic CaseStudyDetail template */}
             <Route
               path="/case-studies/:slug"
               element={
@@ -464,7 +381,11 @@ const AppRouter: React.FC = () => {
             />
             <Route
               path="/war-room"
-              element={<Navigate to="/apps" replace />}
+              element={
+                <PageTransition>
+                  <WarRoom />
+                </PageTransition>
+              }
             />
             <Route
               path="/projects"
@@ -632,7 +553,7 @@ const AppRouter: React.FC = () => {
               path="/apps"
               element={
                 <PageTransition>
-                  <Lab />
+                  <Applications />
                 </PageTransition>
               }
             />

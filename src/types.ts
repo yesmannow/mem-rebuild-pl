@@ -32,6 +32,7 @@ export interface ExperienceItem {
   achievements: string[];
   techStack: string[];
   highlight?: string;
+  keyAchievement?: string; // e.g., 'Grow Revenue +40%', 'Cut CI/CD Time 50%', 'Scale to 30k Users'
 }
 
 export interface VolunteerItem {
@@ -52,6 +53,14 @@ export interface Award {
   title: string;
   organization: string;
   year: string;
+  description?: string;
+}
+
+export interface Certification {
+  name: string;
+  issuer: string;
+  year?: string;
+  credentialId?: string;
   description?: string;
 }
 

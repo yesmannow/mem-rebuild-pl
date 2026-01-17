@@ -1,3 +1,71 @@
+/* ===================================================================
+   ZERO-FOUC (Flash of Unstyled Content) Implementation
+   ===================================================================
+   Prevents white flash on page load by setting dark background
+   immediately before CSS loads. This is critical for dark mode sites.
+   =================================================================== */
+
+/* Critical inline styles - applied before any CSS loads */
+html {
+  /* Force dark background immediately to prevent white flash */
+  background-color: #0f172a !important; /* slate-dark */
+  color-scheme: dark;
+}
+
+body {
+  /* Ensure body also has dark background */
+  background-color: #0f172a !important; /* slate-dark */
+  color: #f8fafc !important; /* High contrast text */
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide content until styles are loaded */
+#root:not(.loaded) {
+  visibility: hidden;
+}
+
+#root.loaded {
+  visibility: visible;
+}
+
+/* ===================================================================
+   CODE AESTHETIC - Typography Foundation
+   ===================================================================
+   Apply mono font to all data points, dates, and technical tags
+   for that 'Top-Level Dev / Systems Architect' aesthetic
+   =================================================================== */
+
+.text-xs,
+.badge,
+.pill,
+.metric-value {
+  font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', 'SFMono-Regular', 'Menlo', monospace;
+  font-variant-numeric: tabular-nums; /* Align numbers properly */
+  letter-spacing: 0.025em; /* Slight spacing for readability */
+}
+
+/* ===================================================================
+   WOW FACTOR UTILITY CLASSES
+   =================================================================== */
+
+/* Glass Panel - Solid Technical design */
+.glass-panel {
+  background: var(--brand-surface);
+  border: 1px solid rgba(64, 224, 208, 0.2); /* Subtle Turquoise border */
+  border-radius: 0.75rem;
+}
+
+/* Text Gradient - Solid Turquoise */
+.text-gradient {
+  color: var(--brand-primary); /* Turquoise */
+}
+
+/* Text Gradient - Reverse (Creamsicle) */
+.text-gradient-reverse {
+  color: var(--brand-accent); /* Creamsicle */
+}
+
 /* Import mobile optimizations to fix flickering */
 @import './styles/mobile-optimizations.css';
 
@@ -61,6 +129,54 @@ body,
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
+/* ===================================================================
+   SYSTEM BUTTON: High-Contrast Engineering Aesthetic
+   Replaces gradient buttons with sharp, instant transitions
+   =================================================================== */
+
+.btn-system {
+  background: transparent;
+  border: 1px solid #40E0D0;
+  color: #40E0D0;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0ms, color 0ms, border-color 0ms;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-system:hover {
+  background: #40E0D0;
+  color: #0f172a;
+  transition: background-color 0ms, color 0ms;
+}
+
+.btn-system:active {
+  transform: translateY(1px);
+}
+
+.btn-system:focus-visible {
+  outline: 2px solid #40E0D0;
+  outline-offset: 2px;
+}
+
+/* Disabled state */
+.btn-system:disabled,
+.btn-system[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 /* Enhanced Focus States for Accessibility */
 a:focus-visible,
 button:focus-visible,
@@ -112,4 +228,86 @@ select:focus-visible,
 .skip-to-content:focus {
   left: 1rem;
   top: 1rem;
+}
+
+/* ===================================================================
+   WIREFRAME MODE - God Mode Debug Overlay
+   ===================================================================
+   Activated via Konami Code easter egg
+   Shows element outlines for layout debugging
+   =================================================================== */
+
+body.wireframe-mode * {
+  outline: 1px solid #40E0D0 !important;
+  background: transparent !important;
+}
+
+body.wireframe-mode *::before,
+body.wireframe-mode *::after {
+  outline: 1px solid #40E0D0 !important;
+  background: transparent !important;
+}
+
+/* ===================================================================
+   PRINT OPTIMIZATION
+   ===================================================================
+   Ensures clean, professional print output
+   =================================================================== */
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Remove glass effects for print */
+  .glass-panel,
+  [class*="backdrop-blur"],
+  [class*="bg-slate-900/"] {
+    border: 1px solid #ccc !important;
+    background: white !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Hide navigation and interactive elements */
+  nav,
+  button,
+  .no-print,
+  [role="button"],
+  [onclick] {
+    display: none !important;
+  }
+
+  /* Timeline prints as clean vertical list */
+  .cinematic-timeline {
+    display: block !important;
+  }
+
+  .cinematic-timeline .absolute {
+    display: none !important;
+  }
+
+  .cinematic-timeline > div > div {
+    display: block !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* Remove animations and effects */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Ensure text is readable */
+  * {
+    color: black !important;
+    background: white !important;
+  }
+
+  /* Page breaks */
+  .cinematic-timeline > div > div {
+    page-break-inside: avoid;
+  }
 }

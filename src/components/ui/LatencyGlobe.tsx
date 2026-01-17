@@ -9,26 +9,58 @@ type ArcEntry = {
   color: string;
 };
 
+// Indianapolis coordinates (lat: 39.76, lng: -86.15)
+const INDIANAPOLIS_LAT = 39.76;
+const INDIANAPOLIS_LNG = -86.15;
+
+// Major tech hubs
 const arcsData: ArcEntry[] = [
+  // San Francisco
   {
-    startLat: 39.7684,
-    startLng: -86.1581,
+    startLat: INDIANAPOLIS_LAT,
+    startLng: INDIANAPOLIS_LNG,
+    endLat: 37.7749,
+    endLng: -122.4194,
+    color: '#40E0D0',
+  },
+  // New York City
+  {
+    startLat: INDIANAPOLIS_LAT,
+    startLng: INDIANAPOLIS_LNG,
+    endLat: 40.7128,
+    endLng: -74.0060,
+    color: '#40E0D0',
+  },
+  // London
+  {
+    startLat: INDIANAPOLIS_LAT,
+    startLng: INDIANAPOLIS_LNG,
     endLat: 51.5074,
     endLng: -0.1278,
     color: '#40E0D0',
   },
+  // Tokyo
   {
-    startLat: 39.7684,
-    startLng: -86.1581,
+    startLat: INDIANAPOLIS_LAT,
+    startLng: INDIANAPOLIS_LNG,
     endLat: 35.6895,
     endLng: 139.6917,
-    color: '#FFA500',
+    color: '#40E0D0',
   },
+  // Seattle
   {
-    startLat: 39.7684,
-    startLng: -86.1581,
-    endLat: -33.8688,
-    endLng: 151.2093,
+    startLat: INDIANAPOLIS_LAT,
+    startLng: INDIANAPOLIS_LNG,
+    endLat: 47.6062,
+    endLng: -122.3321,
+    color: '#40E0D0',
+  },
+  // Austin
+  {
+    startLat: INDIANAPOLIS_LAT,
+    startLng: INDIANAPOLIS_LNG,
+    endLat: 30.2672,
+    endLng: -97.7431,
     color: '#40E0D0',
   },
 ];
@@ -57,8 +89,10 @@ const LatencyGlobe: React.FC = () => {
           width={640}
           height={420}
           backgroundColor="rgba(0, 0, 0, 0)"
-          globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-          showAtmosphere={false}
+          globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
+          showAtmosphere={true}
+          atmosphereColor="#40E0D0"
+          atmosphereAltitude={0.15}
           arcsData={arcsData}
           arcColor={(d: any) => (d as ArcEntry).color}
           arcDashLength={0.4}

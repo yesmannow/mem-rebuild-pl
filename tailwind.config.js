@@ -11,7 +11,7 @@ export default {
   theme: {
   	extend: {
       fontFamily: {
-        mono: ['"Fira Code"', 'SFMono-Regular', 'Menlo', 'monospace'],
+        mono: ['"Fira Code"', '"JetBrains Mono"', 'Courier New', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
 		colors: {
 			// Ocean Pearl Brand Palette - Unified System
@@ -23,13 +23,13 @@ export default {
 				'creamsicle-light': '#FFB380', // Lighter variant
 				'creamsicle-dark': '#E68A48',  // Darker variant
 				'blue-gray': '#B3CDE0',   // Background/subtle elements
-				
+
 				// Foundation colors
 				dark: '#0f172a',          // Main background
 				surface: '#1e293b',       // Card backgrounds
 				text: '#F8FAFC',          // Main text high contrast
 				muted: '#94A3B8',         // Secondary text (Slate-400)
-				
+
 				// Ocean Pearl Delight Extended Palette
 				teal: '#0F766E',          // Professional teal for links/buttons
 				orange: '#C2410C',        // Professional orange for emphasis
@@ -72,6 +72,7 @@ export default {
   			creamsicle: '#FFA500',
   			'creamsicle-dark': '#E68A48',
   			'light-blue-gray': '#B3CDE0',
+  			'slate-dark': '#0f172a', // Wow Factor: Dark Slate background
   			'montserrat-blue': '#40E0D0',   // Updated to turquoise
   			'montserrat-orange': '#FFA500', // Updated to creamsicle
   			'montserrat-gray': '#B3CDE0',
@@ -168,14 +169,7 @@ export default {
   			'case-study-glow': '0px 0px 40px var(--case-study-glow)',
   			'brand-shadow-accent': '0 8px 25px rgba(64, 224, 208, 0.3)', // Turquoise accent shadow
   			'brand-shadow-warm': '0 8px 25px rgba(255, 165, 0, 0.3)', // Creamsicle warm shadow
-  		},
-  		backgroundImage: {
-  			'case-study-gradient': 'var(--case-study-gradient)',
-  			'brand-grad': 'linear-gradient(135deg, rgb(131 197 190 / 0.35), rgb(226 149 120 / 0.35))', // Pearl Aqua to Tangerine Dream
-  			'ocean-grad': 'linear-gradient(135deg, #006d77, #83c5be)', // Stormy Teal to Pearl Aqua
-  			'pearl-grad': 'linear-gradient(135deg, #edf6f9, #ffddd2)', // Alice Blue to Almond Silk
-  			'hero-gradient': 'linear-gradient(to right bottom, #0f172a, #1e293b)',
-  			'accent-glow': 'conic-gradient(from 90deg at 50% 50%, #0f172a 0%, #1e293b 50%, #40E0D0 100%)',
+  			'neon-flat': '0 0 0 1px var(--brand-primary), 0 0 20px -10px var(--brand-primary)',
   		},
 		fontFamily: {
 			sans: [
@@ -184,6 +178,9 @@ export default {
 			],
 			mono: [
 				'Fira Code',
+				'JetBrains Mono',
+				'Courier New',
+				'ui-monospace',
 				'monospace'
 			],
 			display: [
@@ -214,11 +211,7 @@ export default {
 				'system-ui',
 				'sans-serif'
 			],
-			mono: [
-				'IBM Plex Mono',
-				'ui-monospace',
-				'monospace'
-			],
+			/* mono fontFamily defined above in extend section */
   			'clash': [
   				'var(--font-clash)',
   				'Clash Display',

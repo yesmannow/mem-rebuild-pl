@@ -113,7 +113,7 @@ export async function getChatCompletion(
  */
 export function generateSuggestions(lastResponse: string): string[] {
   const lowerResponse = lastResponse.toLowerCase();
-  
+
   // Project-related suggestions
   if (lowerResponse.includes('project') || lowerResponse.includes('launchpad') || lowerResponse.includes('conductor')) {
     return [
@@ -122,7 +122,7 @@ export function generateSuggestions(lastResponse: string): string[] {
       'Show me more case studies',
     ];
   }
-  
+
   // Skills-related suggestions
   if (lowerResponse.includes('skill') || lowerResponse.includes('technology') || lowerResponse.includes('react')) {
     return [
@@ -131,7 +131,7 @@ export function generateSuggestions(lastResponse: string): string[] {
       'Tell me about his experience',
     ];
   }
-  
+
   // Experience-related suggestions
   if (lowerResponse.includes('experience') || lowerResponse.includes('years') || lowerResponse.includes('background')) {
     return [
@@ -140,7 +140,7 @@ export function generateSuggestions(lastResponse: string): string[] {
       'What industries has he worked in?',
     ];
   }
-  
+
   // Contact-related suggestions
   if (lowerResponse.includes('contact') || lowerResponse.includes('hire') || lowerResponse.includes('email')) {
     return [
@@ -149,7 +149,7 @@ export function generateSuggestions(lastResponse: string): string[] {
       'Check availability',
     ];
   }
-  
+
   // Default suggestions
   return [
     'Show me recent projects',
@@ -163,15 +163,15 @@ export function generateSuggestions(lastResponse: string): string[] {
  */
 export function extractProjectLinks(response: string): Array<{ title: string; url: string }> {
   const projects = [
-    { title: 'The Launchpad', url: '/case-study/the-launchpad', keywords: ['launchpad', 'website redesign', 'engagement'] },
-    { title: 'The Conductor', url: '/case-study/the-conductor', keywords: ['conductor', 'automation', 'marketing'] },
-    { title: 'The Fortress', url: '/case-study/the-fortress', keywords: ['fortress', 'security', 'cybersecurity'] },
-    { title: 'RBE Law', url: '/case-study/rbe-law', keywords: ['rbe', 'law firm', 'legal'] },
-    { title: 'Graston CEU System', url: '/case-study/graston-ceu-system', keywords: ['graston', 'healthcare', 'education'] },
+    { title: 'The Launchpad', url: '/case-studies/the-launchpad', keywords: ['launchpad', 'website redesign', 'engagement'] },
+    { title: 'The Conductor', url: '/case-studies/the-conductor', keywords: ['conductor', 'automation', 'marketing'] },
+    { title: 'The Fortress', url: '/case-studies/the-fortress', keywords: ['fortress', 'security', 'cybersecurity'] },
+    { title: 'RBE Law', url: '/case-studies/rbe-law-brand-and-digital', keywords: ['rbe', 'law firm', 'legal'] },
+    { title: 'Graston CEU System', url: '/case-studies/graston-ceu-system', keywords: ['graston', 'healthcare', 'education'] },
   ];
-  
+
   const lowerResponse = response.toLowerCase();
-  return projects.filter(project => 
+  return projects.filter(project =>
     project.keywords.some(keyword => lowerResponse.includes(keyword))
   );
 }

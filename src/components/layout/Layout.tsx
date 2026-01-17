@@ -5,11 +5,11 @@ import KeyboardShortcuts from '../ui/KeyboardShortcuts';
 import Atmosphere from '../ui/Atmosphere';
 
 const Navbar = lazy(() => import('../Navbar'));
-const ModernFooter = lazy(() => import('./ModernFooter'));
+const Footer = lazy(() => import('./Footer'));
 const ScrollToTop = lazy(() => import('../utils/ScrollToTop'));
-const BackToTop = lazy(() => import('../utilities/BackToTop'));
 const MobileDock = lazy(() => import('../MobileDock'));
 const CommandPalette = lazy(() => import('../CommandPalette'));
+const PortfolioConcierge = lazy(() => import('../ai/PortfolioConcierge'));
 
 interface LayoutProps {
   children: ReactNode;
@@ -70,9 +70,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Suspense fallback={null}>
           <ScrollToTop />
         </Suspense>
-        <Suspense fallback={null}>
-          <BackToTop />
-        </Suspense>
 
         {/* Main content area */}
         <main id="main-content" className="flex-1 pb-24 md:pb-0" role="main">
@@ -89,7 +86,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </footer>
           }
         >
-          <ModernFooter />
+          <Footer />
         </Suspense>
 
         {/* Mobile Navigation Dock */}
@@ -104,6 +101,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
         {/* Keyboard Shortcuts Overlay */}
         <KeyboardShortcuts />
+
+        {/* Portfolio Concierge - Global Floating Widget */}
+        <Suspense fallback={null}>
+          <PortfolioConcierge />
+        </Suspense>
       </div>
     </>
   );

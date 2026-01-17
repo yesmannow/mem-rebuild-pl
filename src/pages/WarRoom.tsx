@@ -1,7 +1,8 @@
 import React, { Suspense } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import TerminalBlock from '../components/ui/TerminalBlock';
 import AnimatedCounter from '../components/ui/AnimatedCounter';
+import { useFluctuatingValue } from '../hooks/useFluctuatingValue';
 
 const LatencyGlobe = React.lazy(() => import('../components/ui/LatencyGlobe'));
 const CodeVelocity = React.lazy(() => import('../components/ui/CodeVelocity'));
@@ -15,31 +16,57 @@ const bootSequence = [
   '> ATTACHING HEARTBEAT MONITOR (SOURCE: /dev/pulse)',
 ];
 
-const statCards = [
-  {
-    label: 'Uptime',
-    value: 99.9,
-    suffix: '%',
-    description: 'Real-time nodes maintaining 99.9% availability for the last sliding window.',
-    decimals: 1,
-  },
-  {
-    label: 'Requests / sec',
-    value: 1284,
-    suffix: ' r/s',
-    description: 'Average throughput across Asia, Europe, and the Americas.',
-    decimals: 0,
-  },
-  {
-    label: 'Global latency',
-    value: 24,
-    suffix: ' ms',
-    description: 'Median RTT after edge caching and LiteSpeed tuning.',
-    decimals: 0,
-  },
+const deploymentLog = [
+  { time: '10:42 AM', type: 'feat', message: 'Implemented Cinematic Visual Engine' },
+  { time: '10:15 AM', type: 'fix', message: 'Router dom mismatch in navigation' },
+  { time: '09:30 AM', type: 'chore', message: 'Optimized Pexels API caching' },
+  { time: '09:00 AM', type: 'init', message: 'War Room telemetry uplink' },
 ];
 
+const logVariants = {
+  hidden: { opacity: 0, x: -20 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.4,
+      ease: 'easeOut',
+    },
+  },
+};
+
 const WarRoom = () => {
+  // Fluctuating values
+  const requestsPerSec = useFluctuatingValue(1300, 100); // Fluctuates between 1200-1400
+  const globalLatency = useFluctuatingValue(25, 3); // Fluctuates between 22-28ms
+  const uptime = 99.99; // Static - stability flex
+
+  const statCards = [
+    {
+      label: 'Uptime',
+      value: uptime,
+      suffix: '%',
+      description: 'Real-time nodes maintaining 99.99% availability for the last sliding window.',
+      decimals: 2,
+      isFluctuating: false,
+    },
+    {
+      label: 'Requests / sec',
+      value: requestsPerSec,
+      suffix: ' r/s',
+      description: 'Average throughput across Asia, Europe, and the Americas.',
+      decimals: 0,
+      isFluctuating: true,
+    },
+    {
+      label: 'Global latency',
+      value: globalLatency,
+      suffix: ' ms',
+      description: 'Median RTT after edge caching and LiteSpeed tuning.',
+      decimals: 0,
+      isFluctuating: true,
+    },
+  ];
   return (
     <div className="min-h-screen bg-[#0f172a] text-[#40E0D0] pt-24 pb-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -74,13 +101,28 @@ const WarRoom = () => {
             >
               <p className="text-[10px] uppercase tracking-[0.4em] text-[#FFA500]/70">{card.label}</p>
               <div className="mt-3">
-                <AnimatedCounter
-                  value={card.value}
-                  prefix=""
-                  suffix={card.suffix}
-                  decimals={card.decimals}
-                  className="text-4xl md:text-5xl text-[#40E0D0]"
-                />
+                {card.isFluctuating ? (
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={card.value}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                      className="text-4xl md:text-5xl text-[#40E0D0] block"
+                    >
+                      {card.value.toFixed(card.decimals)}{card.suffix}
+                    </motion.span>
+                  </AnimatePresence>
+                ) : (
+                  <AnimatedCounter
+                    value={card.value}
+                    prefix=""
+                    suffix={card.suffix}
+                    decimals={card.decimals}
+                    className="text-4xl md:text-5xl text-[#40E0D0]"
+                  />
+                )}
               </div>
               <p className="mt-3 text-sm text-white/60">{card.description}</p>
             </motion.article>
@@ -120,6 +162,52 @@ const WarRoom = () => {
           >
             <CodeVelocity />
           </Suspense>
+        </section>
+
+        <section className="space-y-4">
+          <TerminalBlock title="Deployment Log" className="min-h-[240px] border-[#40E0D0]/30 bg-[#0f172a]/80">
+            <motion.div
+              className="space-y-2 text-sm font-mono"
+              initial="hidden"
+              animate="show"
+              variants={{
+                show: {
+                  transition: {
+                    staggerChildren: 0.1,
+                  },
+                },
+              }}
+            >
+              {deploymentLog.map((log, index) => (
+                <motion.div
+                  key={`${log.time}-${index}`}
+                  variants={logVariants}
+                  className="flex items-start gap-3 leading-relaxed"
+                >
+                  <span className="text-[#FFA500]/70 shrink-0">[{log.time}]</span>
+                  <span className="text-[#40E0D0]">{log.type}:</span>
+                  <span className="text-white/80">{log.message}</span>
+                </motion.div>
+              ))}
+              {/* Blinking cursor */}
+              <motion.div
+                variants={logVariants}
+                className="flex items-center gap-2 mt-2"
+              >
+                <motion.span
+                  className="text-[#40E0D0] font-mono"
+                  animate={{ opacity: [1, 0, 1] }}
+                  transition={{
+                    duration: 1,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                >
+                  _
+                </motion.span>
+              </motion.div>
+            </motion.div>
+          </TerminalBlock>
         </section>
 
         <section className="flex flex-col gap-2 border-t border-[#40E0D0]/20 pt-6">

@@ -1,0 +1,61 @@
+/**
+ * Sonner Toast Theme - Blueprint System Style
+ * Matches the high-end system aesthetic with turquoise accents
+ */
+
+.sonner-toast {
+  background: var(--brand-surface) !important;
+  border: 1px solid var(--brand-turquoise) !important;
+  font-family: var(--brand-font-family, 'Montserrat', monospace) !important;
+  color: var(--brand-text) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 4px 20px rgba(64, 224, 208, 0.2) !important;
+}
+
+.sonner-toast [data-title] {
+  color: var(--brand-text) !important;
+  font-weight: 600;
+  font-family: var(--brand-font-family, 'Montserrat', monospace) !important;
+}
+
+.sonner-toast [data-description] {
+  color: var(--brand-text-muted) !important;
+  font-family: var(--brand-font-family, 'Montserrat', monospace) !important;
+  font-size: 0.875rem;
+}
+
+.sonner-toast [data-icon] {
+  color: var(--brand-turquoise) !important;
+}
+
+.sonner-toast [data-button] {
+  background: var(--brand-turquoise) !important;
+  color: var(--brand-bg) !important;
+  border: none !important;
+  font-family: var(--brand-font-family, 'Montserrat', monospace) !important;
+}
+
+.sonner-toast [data-button]:hover {
+  background: var(--brand-turquoise) !important;
+  opacity: 0.9;
+}
+
+/* Success variant */
+.sonner-toast[data-type="success"] {
+  border-color: var(--brand-turquoise) !important;
+}
+
+/* Error variant */
+.sonner-toast[data-type="error"] {
+  border-color: var(--brand-accent) !important;
+}
+
+/* Warning variant */
+.sonner-toast[data-type="warning"] {
+  border-color: var(--brand-accent) !important;
+}
+
+/* Info variant */
+.sonner-toast[data-type="info"] {
+  border-color: var(--brand-turquoise) !important;
+}

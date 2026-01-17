@@ -5,9 +5,9 @@ import Icon from '../components/Icon';
 import { TiltCaseCard } from '../components/ui/TiltCaseCard';
 import { Sparkles, TrendingUp, Award } from 'lucide-react';
 import MagneticCursor from '../components/ui/MagneticCursor';
-import { HeroWithApiBackground } from '../components/layout/PageWithApiBackground';
-import { AppBadge } from '../ui/AppBadge';
-import { ApiImageGallery } from '../components/ui/ApiImageGallery';
+import { SimpleSection } from '../components/ui/SimpleSection';
+import TechBackdrop from '../components/hero/TechBackdrop';
+import { NetworkBackground } from '../components/visuals/NetworkBackground';
 import './CaseStudies.css';
 import './CaseStudiesEnhanced.css';
 import './CaseStudiesLandingEnhanced.css';
@@ -90,19 +90,19 @@ const CaseStudies: React.FC = () => {
   return (
     <div className="case-studies-page">
       <MagneticCursor color="#40E0D0" enabled={true} />
-      {/* Hero Section - Dark Theme with API Background */}
-      <HeroWithApiBackground theme="portfolio,design,creative,work" height="auto" imageSrc="/images/_src/creative-agency-office-7.webp" overlayOpacity={0.65}>
-        <section className="case-studies-hero-section">
-          <div className="case-studies-hero-container">
-            <div className="case-studies-hero-wrapper">
-              <div className="case-studies-hero-content">
+      {/* Hero Section with TechBackdrop */}
+      <SimpleSection variant="default" padding="none" container={false} className="relative min-h-[60vh] flex items-center overflow-hidden">
+        <TechBackdrop className="absolute inset-0" />
+        <div className="relative z-10 w-full pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="case-studies-hero-content">
               <motion.div
                 className="case-studies-hero relative z-10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
               >
-                <div className="hero-content-cases">
+                <div className="hero-content-cases text-center mx-auto max-w-4xl">
                   {/* Animated badge with pulse effect */}
                   <motion.div
                     className="hero-badge"
@@ -206,15 +206,15 @@ const CaseStudies: React.FC = () => {
             </motion.div>
           </div>
         </div>
-      </div>
-      </section>
-      </HeroWithApiBackground>
+        </div>
+      </SimpleSection>
 
       {/* Main Content Area - Two Column Layout */}
       <main className="case-studies-main">
-        <div className="case-studies-content-wrapper">
+        <SimpleSection variant="elevated" padding="lg" animated>
+          <div className="case-studies-content-wrapper">
           {/* Sidebar Filter Section */}
-          <section id="filters" className="filter-section">
+          <section id="filters" className="filter-section mb-8 h-fit">
             <motion.div
               className="filter-controls"
               initial={{ opacity: 0, y: 20 }}
@@ -309,11 +309,13 @@ const CaseStudies: React.FC = () => {
           </section>
 
           {/* Cases Grid Section */}
-          <section className="cases-section">
+          <section className="cases-section relative">
+            <NetworkBackground className="cases-network-bg" />
             <AnimatePresence mode="wait">
+              {/* Minimal top padding to prevent 3D tilt clipping while maintaining alignment */}
               <motion.div
                 key={activeFilter + viewMode}
-                className={`cases-${viewMode}`}
+                className={`cases-${viewMode} relative z-10 pt-4 sm:pt-6 overflow-visible`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -340,7 +342,8 @@ const CaseStudies: React.FC = () => {
               </motion.div>
             )}
           </section>
-        </div>
+          </div>
+        </SimpleSection>
       </main>
     </div>
   );

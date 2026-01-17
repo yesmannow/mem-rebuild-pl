@@ -1,6 +1,6 @@
 /**
  * CaseStudyScreenshotCard Component
- * 
+ *
  * Enhanced case study card with live screenshot thumbnail
  * Uses screenshot API for dynamic thumbnails of live projects
  */
@@ -59,7 +59,7 @@ export const CaseStudyScreenshotCard: React.FC<CaseStudyScreenshotCardProps> = (
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <Link to={`/case-study/${slug}`} className="block">
+      <Link to={`/case-studies/${slug}`} className="block">
         {/* Screenshot Thumbnail */}
         <div className="relative aspect-[1.91/1] overflow-hidden bg-slate-900/50">
           {siteUrl && screenshotUrl && !screenshotError ? (
@@ -70,7 +70,7 @@ export const CaseStudyScreenshotCard: React.FC<CaseStudyScreenshotCardProps> = (
                   <ImageIcon size={32} className="text-brand-muted" />
                 </div>
               )}
-              
+
               {/* Screenshot image */}
               <img
                 src={screenshotUrl}

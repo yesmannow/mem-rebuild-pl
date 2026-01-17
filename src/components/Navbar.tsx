@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, Command } from 'lucide-react';
-import { motion } from 'framer-motion';
-import ModernLogo from './branding/ModernLogo';
+import { motion, AnimatePresence } from 'framer-motion';
+import ArchitectLogo from './branding/ArchitectLogo';
 import { mainNavigationLinks } from '../data/navigation';
 import MegaMenu from './navigation/MegaMenu';
 import { useScrollDirection } from '../hooks/useScrollDirection';
@@ -50,29 +50,42 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
 
           {/* Left Section: Logo */}
           <div className="flex items-center flex-shrink-0">
-            {/* BRANDING: Personal Identity - Modern Animated Logo */}
-            <Link to="/" className="flex items-center min-w-0">
-              {/* Mobile: Icon only, smaller size */}
-              <ModernLogo size={28} showText={false} animated={true} className="sm:hidden" />
-              {/* Desktop: Icon + text */}
-              <ModernLogo size={38} showText={true} animated={true} className="hidden sm:flex" />
-            </Link>
+            {/* BRANDING: Architect Logo - Generative Systems Architecture Monogram */}
+            <ArchitectLogo size="lg" showLabel={true} />
           </div>
 
           {/* DESKTOP NAV - Mega Menu */}
           <MegaMenu navLinks={navLinks} isActive={isActive} />
 
-          {/* Cmd+K Search Button - Desktop */}
-          <button
-            onClick={onOpenCommandPalette}
-            className="hidden md:flex items-center gap-2 px-4 py-2 bg-slate-800/50 border border-white/10 rounded-lg text-brand-muted hover:text-brand-teal hover:border-brand-teal/30 transition-all duration-300 group flex-shrink-0"
-            aria-label="Open command palette"
-          >
-            <Search size={16} className="group-hover:text-brand-teal transition-colors" />
-            <kbd className="hidden lg:flex items-center gap-1 text-xs font-mono">
-              <Command size={12} />K
-            </kbd>
-          </button>
+          {/* Right Section: System Status + Cmd+K Search Button - Desktop */}
+          <div className="hidden md:flex items-center gap-3 flex-shrink-0">
+            {/* System Status Indicator */}
+            <div className="relative group">
+              <Link
+                to="/war-room"
+                className="flex items-center justify-center w-[10px] h-[10px] rounded-full bg-emerald-500 animate-pulse hover:animate-none transition-all duration-300 hover:scale-110"
+                aria-label="System Status: Online"
+              />
+              {/* Tooltip */}
+              <div className="absolute right-full mr-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+                <div className="px-2 py-1 text-xs bg-slate-900/95 backdrop-blur-sm border border-white/10 rounded text-white">
+                  System Status: Online
+                </div>
+              </div>
+            </div>
+
+            {/* Cmd+K Search Button */}
+            <button
+              onClick={onOpenCommandPalette}
+              className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 border border-white/10 rounded-lg text-brand-muted hover:text-brand-teal hover:border-brand-teal/30 transition-all duration-300 group"
+              aria-label="Open command palette"
+            >
+              <Search size={16} className="group-hover:text-brand-teal transition-colors" />
+              <kbd className="hidden lg:flex items-center gap-1 text-xs font-mono">
+                <Command size={12} />K
+              </kbd>
+            </button>
+          </div>
 
           {/* MOBILE: Search button (navigation handled by MobileDock) */}
           <div className="md:hidden flex items-center flex-shrink-0">

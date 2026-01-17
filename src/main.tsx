@@ -221,6 +221,8 @@ if (!React || !ReactDOM) {
           // Clear timeout once React mounts
           setTimeout(() => {
             clearTimeout(mountTimeout);
+            // Mark root as loaded for Zero-FOUC
+            rootElement.classList.add('loaded');
             if (process.env.NODE_ENV === 'development') {
               // eslint-disable-next-line no-console
               console.log('React app initialized successfully');

@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Radio, ExternalLink } from 'lucide-react';
 import './AppDemoModal.css';
 
 interface AppDemoModalProps {
@@ -7,9 +8,21 @@ interface AppDemoModalProps {
   onClose: () => void;
   appTitle: string;
   appUrl: string;
+  embeddable?: boolean; // Defaults to true
+  thumbnail?: string; // For non-embeddable apps backdrop
 }
 
-const AppDemoModal: React.FC<AppDemoModalProps> = ({ isOpen, onClose, appTitle, appUrl }) => {
+const AppDemoModal: React.FC<AppDemoModalProps> = ({
+  isOpen,
+  onClose,
+  appTitle,
+  appUrl,
+  embeddable = true,
+  thumbnail
+}) => {
+  const [countdown, setCountdown] = useState<number | null>(null);
+  const [isLaunching, setIsLaunching] = useState(false);
+
   const isSameOrigin = (() => {
     try {
       const url = new URL(appUrl, window.location.href);
@@ -18,6 +31,9 @@ const AppDemoModal: React.FC<AppDemoModalProps> = ({ isOpen, onClose, appTitle, 
       return false;
     }
   })();
+
+  // Determine if we should use iframe or Secure Terminal UI
+  const shouldEmbed = embeddable && isSameOrigin;
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -34,13 +50,45 @@ const AppDemoModal: React.FC<AppDemoModalProps> = ({ isOpen, onClose, appTitle, 
   // Handle ESC key to close
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) {
+      if (e.key === 'Escape' && isOpen && !isLaunching) {
         onClose();
       }
     };
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, isLaunching]);
+
+  // Handle countdown and launch
+  const handleLaunch = () => {
+    if (isLaunching) return;
+
+    setIsLaunching(true);
+    setCountdown(3);
+
+    const countdownInterval = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev === null) {
+          clearInterval(countdownInterval);
+          return null;
+        }
+        if (prev === 1) {
+          clearInterval(countdownInterval);
+          // Wait one more second to show "1", then open
+          setTimeout(() => {
+            window.open(appUrl, '_blank', 'noopener,noreferrer');
+            // Reset after a brief moment
+            setTimeout(() => {
+              setIsLaunching(false);
+              setCountdown(null);
+              onClose();
+            }, 500);
+          }, 1000);
+          return 1; // Keep showing 1
+        }
+        return prev - 1;
+      });
+    }, 1000);
+  };
 
   if (!isOpen) return null;
 
@@ -66,9 +114,16 @@ const AppDemoModal: React.FC<AppDemoModalProps> = ({ isOpen, onClose, appTitle, 
           <div className="app-demo-modal-header">
             <div className="modal-header-content">
               <h3 className="modal-title">{appTitle}</h3>
-              <p className="modal-subtitle">Interactive Demo</p>
+              <p className="modal-subtitle">
+                {shouldEmbed ? 'Interactive Demo' : 'External Secure Session'}
+              </p>
             </div>
-            <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
+            <button
+              className="modal-close-btn"
+              onClick={onClose}
+              aria-label="Close modal"
+              disabled={isLaunching}
+            >
               <svg
                 width="24"
                 height="24"
@@ -84,7 +139,8 @@ const AppDemoModal: React.FC<AppDemoModalProps> = ({ isOpen, onClose, appTitle, 
 
           {/* Modal Content */}
           <div className="app-demo-modal-content">
-            {isSameOrigin ? (
+            {shouldEmbed ? (
+              // Embeddable: Use iframe
               <iframe
                 src={appUrl}
                 title={`${appTitle} Demo`}
@@ -94,46 +150,123 @@ const AppDemoModal: React.FC<AppDemoModalProps> = ({ isOpen, onClose, appTitle, 
                 allow="clipboard-write; encrypted-media; picture-in-picture; web-share"
               />
             ) : (
-              <div className="flex flex-col items-center justify-center text-center p-6 gap-4">
-                <p>
-                  This demo is hosted externally and can’t be embedded due to site restrictions.
-                </p>
-                <a
-                  href={appUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="modal-footer-link"
+              // Non-embeddable: Secure Terminal UI
+              <div className="secure-terminal-container">
+                {/* Blurred Backdrop */}
+                {thumbnail && (
+                  <div
+                    className="secure-terminal-backdrop"
+                    style={{
+                      backgroundImage: `url(${thumbnail})`,
+                    }}
+                  />
+                )}
+
+                {/* Foreground Card */}
+                <motion.div
+                  className="secure-terminal-card"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  Open in New Tab
-                </a>
+                  {/* Status Indicator */}
+                  <div className="secure-terminal-status">
+                    <motion.div
+                      className="signal-indicator"
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.6, 1, 0.6],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                      }}
+                    >
+                      <Radio className="signal-icon" size={48} />
+                    </motion.div>
+                    <motion.p
+                      className="status-text"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4 }}
+                    >
+                      Ready to Launch
+                    </motion.p>
+                  </div>
+
+                  {/* Title */}
+                  <h2 className="secure-terminal-title">External Environment Detected</h2>
+
+                  {/* Description */}
+                  <p className="secure-terminal-description">
+                    This application requires a secure external session.
+                  </p>
+
+                  {/* Countdown Display */}
+                  <AnimatePresence mode="wait">
+                    {countdown !== null && (
+                      <motion.div
+                        key={countdown}
+                        className="countdown-display"
+                        initial={{ scale: 0, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <span className="countdown-number">{countdown}</span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  {/* Launch Button */}
+                  <motion.button
+                    className="secure-launch-button"
+                    onClick={handleLaunch}
+                    disabled={isLaunching}
+                    whileHover={!isLaunching ? { scale: 1.05 } : {}}
+                    whileTap={!isLaunching ? { scale: 0.95 } : {}}
+                  >
+                    {isLaunching && countdown !== null ? (
+                      <span className="launch-button-text">Initializing...</span>
+                    ) : (
+                      <>
+                        <span className="launch-button-text">Initialize Secure Session</span>
+                        <ExternalLink className="launch-button-icon" size={24} />
+                      </>
+                    )}
+                  </motion.button>
+                </motion.div>
               </div>
             )}
           </div>
 
-          {/* Modal Footer */}
-          <div className="app-demo-modal-footer">
-            <a
-              href={appUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="modal-footer-link"
-              onClick={e => e.stopPropagation()}
-            >
-              Open in New Tab
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path
-                  d="M6 3L11 8L6 13M11 3h3v10h-3"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
-            <button className="modal-close-footer-btn" onClick={onClose}>
-              Close
-            </button>
-          </div>
+          {/* Modal Footer - Only show for embeddable apps */}
+          {shouldEmbed && (
+            <div className="app-demo-modal-footer">
+              <a
+                href={appUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="modal-footer-link"
+                onClick={e => e.stopPropagation()}
+              >
+                Open in New Tab
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M6 3L11 8L6 13M11 3h3v10h-3"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+              <button className="modal-close-footer-btn" onClick={onClose}>
+                Close
+              </button>
+            </div>
+          )}
         </motion.div>
       </motion.div>
     </AnimatePresence>

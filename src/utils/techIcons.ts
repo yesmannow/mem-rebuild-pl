@@ -45,6 +45,32 @@ export const TECH_ICON_MAP: Record<string, string> = {
   'Sharp': '/images/tech-icons/sharp.svg',
   'Zod': '/images/tech-icons/zod.svg',
 
+  // Marketing & CRM
+  'FluentCRM': '/images/tech-icons/hubspot.svg', // Fallback to HubSpot icon
+  'Salesforce': '/images/tech-icons/salesforce.svg',
+  'WP Fusion': '/images/tech-icons/wordpress.svg',
+  'LearnDash': '/images/tech-icons/wordpress.svg',
+  'WooCommerce': '/images/tech-icons/woocommerce.svg',
+  'Google Analytics': '/images/tech-icons/googleanalytics.svg',
+  'Google Tag Manager': '/images/tech-icons/googletagmanager.svg',
+  'GA4': '/images/tech-icons/googleanalytics.svg',
+  'GTM': '/images/tech-icons/googletagmanager.svg',
+
+  // WordPress & CMS
+  'WordPress': '/images/tech-icons/wordpress.svg',
+  'WP Rocket': '/images/tech-icons/wordpress.svg',
+  'ACF Pro': '/images/tech-icons/wordpress.svg',
+  'FacetWP': '/images/tech-icons/wordpress.svg',
+
+  // Design Tools
+  'Adobe Creative Suite': '/images/tech-icons/adobe.svg',
+  'Photoshop': '/images/tech-icons/photoshop.svg',
+  'Canva': '/images/tech-icons/canva.svg',
+
+  // Infrastructure
+  'LiteSpeed': '/images/tech-icons/cloudflare.svg', // Fallback
+  'Mapbox': '/images/tech-icons/mapbox.svg',
+
   // Cloud
   'AWS': '/images/tech-icons/AWS.svg',
   'Azure': '/images/tech-icons/Azure.svg',

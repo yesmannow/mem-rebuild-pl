@@ -52,66 +52,71 @@
    STYLE VARIANTS
    =================================================================== */
 
-/* Primary Button */
+/* Primary Button - Solid Technical: Turquoise solid */
 .btn--primary {
-  background: var(--gradient-brand);
-  color: var(--color-text);
-  box-shadow: var(--shadow-brand);
+  background: #40E0D0; /* Solid Turquoise */
+  color: #0f172a; /* Dark slate text for contrast */
+  box-shadow: 0 0 0 1px #40E0D0, 0 0 20px -10px #40E0D0; /* Neon flat shadow */
+  font-weight: 600;
 }
 
 .btn--primary:hover:not(:disabled):not(.btn--loading) {
   transform: translateY(-2px);
-  box-shadow: var(--glow-brand);
+  box-shadow: 0 0 0 1px #40E0D0, 0 0 30px -5px #40E0D0; /* Enhanced neon flat */
+  background: #4FE8D8; /* Lighter turquoise on hover */
 }
 
 .btn--primary:active:not(:disabled):not(.btn--loading) {
   transform: translateY(0);
 }
 
-/* Secondary Button */
+/* Secondary Button - Solid Technical: Creamsicle solid */
 .btn--secondary {
-  background: var(--color-neutral-700);
-  color: var(--color-text);
-  box-shadow: var(--shadow-md);
+  background: #FFA500; /* Solid Creamsicle */
+  color: #0f172a; /* Dark slate text for contrast */
+  box-shadow: 0 0 0 1px #FFA500, 0 0 20px -10px #FFA500; /* Neon flat shadow */
+  font-weight: 600;
 }
 
 .btn--secondary:hover:not(:disabled):not(.btn--loading) {
-  background: var(--color-neutral-600);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 0 0 1px #FFA500, 0 0 30px -5px #FFA500; /* Enhanced neon flat */
+  background: #FFB530; /* Lighter creamsicle on hover */
 }
 
 .btn--secondary:active:not(:disabled):not(.btn--loading) {
   transform: translateY(0);
 }
 
-/* Outline Button */
+/* Outline Button - Wow Factor: Turquoise border */
 .btn--outline {
   background: transparent;
-  color: var(--color-text);
-  border: 2px solid var(--color-accent);
+  color: #f8fafc; /* High contrast text */
+  border: 2px solid #40E0D0; /* Turquoise border */
   box-shadow: none;
 }
 
 .btn--outline:hover:not(:disabled):not(.btn--loading) {
-  background: rgba(64, 224, 208, 0.12);
+  background: rgba(64, 224, 208, 0.12); /* Turquoise background tint */
   transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(64, 224, 208, 0.35);
+  box-shadow: 0 0 25px rgba(64, 224, 208, 0.35); /* Turquoise glow */
+  border-color: #4FE8D8; /* Lighter turquoise on hover */
 }
 
 .btn--outline:active:not(:disabled):not(.btn--loading) {
   transform: translateY(0);
 }
 
-/* Ghost Button */
+/* Ghost Button - Wow Factor: Subtle hover with brand colors */
 .btn--ghost {
   background: transparent;
-  color: var(--color-text);
+  color: #f8fafc; /* High contrast text */
   box-shadow: none;
 }
 
 .btn--ghost:hover:not(:disabled):not(.btn--loading) {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(30, 41, 59, 0.6); /* Surface color with transparency */
+  color: #40E0D0; /* Turquoise text on hover */
 }
 
 /* ===================================================================
@@ -142,7 +147,7 @@
    =================================================================== */
 
 .btn:focus-visible {
-  outline: 3px solid var(--color-accent);
+  outline: 3px solid #40E0D0; /* Turquoise focus ring */
   outline-offset: 4px;
 }
 

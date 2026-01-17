@@ -8,6 +8,7 @@ export interface Application {
   tags: string[];
   thumbnail: string;
   demoUrl: string;
+  embeddable?: boolean; // Defaults to true if not specified
   githubUrl?: string;
   overview: string;
   valueProposition: {
@@ -55,7 +56,7 @@ export const applications: Application[] = [
     accentGradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     category: ['Sales Tools', 'E-Commerce'],
     tags: ['JavaScript', 'Interactive UI', 'Quote Generation', 'Sales Automation'],
-    thumbnail: '/apps/gt9-pricing-thumbnail.png',
+    thumbnail: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1600',
     demoUrl: 'https://jacob-darling-portfolio-meme.vercel.app/demos/gt9_pricing_sheet',
     overview:
       'A sophisticated sales enablement tool that transforms the complex Graston Technique product catalog into an intuitive, searchable interface with real-time quote building, customer segmentation, and professional quote generation capabilities.',
@@ -235,7 +236,7 @@ export const applications: Application[] = [
     accentGradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     category: ['Education Tools', 'Compliance'],
     tags: ['JavaScript', 'Data Visualization', 'Regulatory Compliance', 'Multi-State'],
-    thumbnail: '/apps/license-requirements-thumbnail.png',
+    thumbnail: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1600',
     demoUrl:
       'https://jacob-darling-portfolio-meme.vercel.app/demos/Practitioner%20License%20Requirements%20-%20Tool%20for%20Website.htm',
     overview:
@@ -435,7 +436,7 @@ export const applications: Application[] = [
     accentGradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
     category: ['Sales Tools', 'Financial Planning'],
     tags: ['JavaScript', 'ROI Modeling', 'Interactive Forms', 'Data Visualization'],
-    thumbnail: '/apps/roi-calculator-thumbnail.png',
+    thumbnail: 'https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&q=80&w=1600',
     demoUrl:
       'https://jacob-darling-portfolio-meme.vercel.app/demos/ROI%20Calculator%20-%20Essential%20Training%20Large.htm',
     overview:
@@ -634,7 +635,7 @@ export const applications: Application[] = [
       'Protocol Generation',
       'Interactive Workflow',
     ],
-    thumbnail: '/apps/clinical-compass-thumbnail.png',
+    thumbnail: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1600',
     demoUrl:
       'https://jacob-darling-portfolio-meme.vercel.app/demos/Graston%20Clinical%20Compass%20-%20%20clinical%20reasoning%20and%20treatment%20protocol.htm',
     overview:
@@ -899,8 +900,9 @@ function showInstrumentInfo(instCode) {
     accentGradient: 'linear-gradient(135deg, #88ABF2 0%, #EC4899 100%)',
     category: ['Marketing Platform', 'Analytics', 'Provider Tools'],
     tags: ['WordPress', 'PHP', 'Google Analytics API', 'Chart.js', 'SQL', 'React', 'REST API'],
-    thumbnail: '/apps/graston-growth-engine-thumbnail.png',
+    thumbnail: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600',
     demoUrl: 'https://dazzling-tiger-zoom.vercel.app/',
+    embeddable: false,
     githubUrl: 'https://github.com/JdarlingGT/graston-growth-engine',
     overview:
       'A sophisticated multi-platform ecosystem that transforms provider membership from a passive directory listing into an active growth engine. Combines real-time analytics, AI-powered marketing tools, interactive calculators, and a comprehensive resource library to prove ROI, drive engagement, and reduce churn. Built as a WordPress backend with React frontend components, integrated with Google Analytics API for data-driven insights and peer benchmarking.',
@@ -1430,6 +1432,7 @@ export default AnalyticsDashboard;`,
     tags: ['Cloudflare', 'Caching', 'Security', 'Performance', 'DevOps'],
     thumbnail: '/apps/site-optimization-thumbnail.png',
     demoUrl: 'https://bearcavemarketing.com',
+    embeddable: false,
     overview:
       'A consolidated view of the tasks completed in May 2025 to harden security, optimize caching, and improve performance on BearCaveMarketing.com. This comprehensive optimization initiative addressed brute-force attacks, slow page loads, and configuration sprawl across Cloudflare and WordPress through advanced protections, tuned caching, compressed assets, hardened SSL, optimized PHP/WP settings, and cleaned up scripts/plugins.',
     valueProposition: {
@@ -1688,7 +1691,7 @@ add_filter('rocket_cache_reject_cookies', function($cookies) {
     accentGradient: 'linear-gradient(135deg, #40E0D0 0%, #88ABF2 100%)',
     category: ['Marketing Platform', 'Analytics', 'Strategic Planning'],
     tags: ['React', 'TypeScript', 'Recharts', 'Budget Planning', 'ROI Modeling', 'Pipeline Analytics'],
-    thumbnail: '/apps/marketing-simulator-thumbnail.png',
+    thumbnail: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600',
     demoUrl: '/apps/marketing-simulator',
     overview:
       'A comprehensive marketing simulation platform that empowers CMOs and marketing leaders to model scenarios, stress-test budgets, and visualize the downstream effects of strategic decisions. Features interactive tools for budget allocation, headcount planning, media mix optimization, experimentation budgeting, pipeline visualization, and burn rate analysis.',
@@ -1849,17 +1852,17 @@ const channelData = useMemo(() => {
   let cumulativeCount = monthlyVisitors;
   const data = funnelStages.map((stage, index) => {
     if (index === 0) return { name: stage.name, count: cumulativeCount };
-    
+
     const previousCount = cumulativeCount;
     cumulativeCount = Math.round((cumulativeCount * stage.conversionRate) / 100);
     const dropOff = previousCount - cumulativeCount;
-    
+
     return { name: stage.name, count: cumulativeCount, dropOff };
   });
-  
+
   const deals = data[data.length - 1].count;
   const revenue = deals * averageDealSize;
-  
+
   return { pipelineData: data, totalRevenue: revenue };
 }, [monthlyVisitors, averageDealSize, funnelStages]);`,
         },
@@ -1886,7 +1889,7 @@ const channelData = useMemo(() => {
     accentGradient: 'linear-gradient(135deg, #A855F7 0%, #EC4899 100%)',
     category: ['Marketing Platform', 'Brand Strategy'],
     tags: ['React', 'TypeScript', 'Brand Identity', 'Design System', 'AI-Powered'],
-    thumbnail: '/apps/brand-builder-thumbnail.png',
+    thumbnail: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=1600',
     demoUrl: '/apps/brand-builder',
     overview:
       'A comprehensive brand identity generator that creates professional brand playbooks with logo concepts, color palettes, typography pairings, and brand voice guidelines. Perfect for startups, agencies, and marketing professionals building cohesive brand identities.',
@@ -1986,10 +1989,10 @@ const channelData = useMemo(() => {
           language: 'typescript',
           snippet: `const brandVoice: BrandVoice = useMemo(() => {
   const [modern, professional, friendly, bold] = brandValues.personality;
-  
+
   let tone = '';
   let adjectives: string[] = [];
-  
+
   if (professional > 60) {
     tone = 'Professional & Authoritative';
     adjectives = ['Expert', 'Reliable', 'Knowledgeable', 'Confident'];
@@ -2000,7 +2003,7 @@ const channelData = useMemo(() => {
     tone = 'Bold & Innovative';
     adjectives = ['Daring', 'Pioneering', 'Disruptive', 'Dynamic'];
   }
-  
+
   return { tone, adjectives, doList, dontList };
 }, [brandValues.personality]);`,
         },
@@ -2043,7 +2046,7 @@ const channelData = useMemo(() => {
     accentGradient: 'linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%)',
     category: ['Marketing Platform', 'Analytics'],
     tags: ['React', 'TypeScript', 'A/B Testing', 'Recharts', 'Campaign Optimization'],
-    thumbnail: '/apps/email-simulator-thumbnail.png',
+    thumbnail: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1600',
     demoUrl: '/apps/email-marketing-simulator',
     overview:
       'A sophisticated email campaign simulator that models A/B/C testing scenarios, segment targeting, and conversion tracking. Features real mathematical models for open rates, click rates, statistical significance, and ROI calculations based on industry benchmarks.',
@@ -2144,22 +2147,22 @@ const channelData = useMemo(() => {
           language: 'typescript',
           snippet: `const calculateMetrics = (variant: EmailVariant, segment: Segment): CampaignMetrics => {
   let baseOpenRate = 22; // Industry average
-  
+
   // Subject line factors
   if (variant.emoji) baseOpenRate += 3;
   if (variant.personalization) baseOpenRate += 5;
   if (variant.subjectLine.length < 50) baseOpenRate += 2;
-  
+
   // Send time optimization
   const hour = parseInt(variant.sendTime.split(':')[0]);
   if (hour >= 9 && hour <= 11) baseOpenRate += 4;  // Morning peak
   if (hour >= 14 && hour <= 16) baseOpenRate += 2; // Afternoon
   if (hour >= 18 && hour <= 20) baseOpenRate += 3; // Evening
-  
+
   // Calculate click and conversion rates
   const clickRate = (baseOpenRate / 22) * 2.8;
   const conversionRate = (clickRate / 2.8) * segment.avgConversion;
-  
+
   return { openRate: baseOpenRate, clickRate, conversionRate, revenue };
 };`,
         },
@@ -2177,7 +2180,7 @@ const channelData = useMemo(() => {
   const pooled = (controlMetric + variantMetric) / 2;
   const se = Math.sqrt((pooled * (100 - pooled)) / sampleSize);
   const zScore = diff / se;
-  
+
   if (zScore > 2.576) return { confidence: 99, significant: true };
   if (zScore > 1.96) return { confidence: 95, significant: true };
   if (zScore > 1.645) return { confidence: 90, significant: true };
@@ -2207,7 +2210,7 @@ const channelData = useMemo(() => {
     accentGradient: 'linear-gradient(135deg, #EC4899 0%, #F97316 100%)',
     category: ['Marketing Platform', 'Social Media'],
     tags: ['React', 'TypeScript', 'Social Media', 'Recharts', 'Influencer Marketing', 'ROI Calculator'],
-    thumbnail: '/apps/social-simulator-thumbnail.png',
+    thumbnail: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1600',
     demoUrl: '/apps/social-media-simulator',
     overview:
       'A complete social media marketing simulator covering Instagram, LinkedIn, Twitter/X, Facebook, and TikTok. Features content calendar planning, engagement rate modeling, best posting time recommendations, viral coefficient calculations, and influencer collaboration ROI analysis.',
@@ -2317,13 +2320,13 @@ const channelData = useMemo(() => {
   const timeBonus = bestPostingTimes[platform.id]?.includes(postTime) ? 1.25 : 1.0;
   const hashtagBonus = Math.min(hashtags / 30, 0.15); // Max 15% boost
   const influencerBonus = influencer ? 2.5 : 1.0;
-  
-  let engagement = platform.baseEngagement 
-    * contentMultiplier 
-    * timeBonus 
-    * (1 + hashtagBonus) 
+
+  let engagement = platform.baseEngagement
+    * contentMultiplier
+    * timeBonus
+    * (1 + hashtagBonus)
     * influencerBonus;
-  
+
   return parseFloat(engagement.toFixed(2));
 };`,
         },
@@ -2336,10 +2339,10 @@ const channelData = useMemo(() => {
   const avgShares = campaignMetrics.reduce(
     (sum, m) => sum + (m.engagement * 0.03), 0
   ) / Math.max(campaignMetrics.length, 1);
-  
+
   const avgNewFollowers = avgShares * 0.15; // 15% share-to-follower conversion
   const coefficient = avgNewFollowers / Math.max(selectedPlatforms.length, 1);
-  
+
   return parseFloat(coefficient.toFixed(2));
 }, [campaignMetrics, selectedPlatforms]);`,
         },
@@ -2357,6 +2360,548 @@ const channelData = useMemo(() => {
       author: 'Priya Sharma',
       role: 'CMO - Fashion Brand',
     },
+  },
+  {
+    id: 'campaign-performance',
+    title: 'Campaign Performance Analyzer',
+    tagline: 'Real-time marketing campaign analytics and ROI optimization',
+    icon: '📊',
+    accentGradient: 'linear-gradient(135deg, #40E0D0 0%, #0F766E 100%)',
+    category: ['Analytics', 'Marketing Tools'],
+    tags: ['Analytics', 'Data Visualization', 'ROI Tracking', 'Campaign Optimization'],
+    thumbnail: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600',
+    demoUrl: 'https://jacob-darling-portfolio-meme.vercel.app/demos/campaign-performance',
+    embeddable: true,
+    overview:
+      'A comprehensive analytics dashboard that tracks marketing campaign performance across multiple channels, providing real-time insights into ROI, conversion rates, and cost-per-acquisition metrics.',
+    valueProposition: {
+      problem:
+        'Marketing teams struggle to consolidate performance data from multiple channels, leading to delayed decision-making and inefficient budget allocation.',
+      solution:
+        'Unified analytics platform that aggregates data from all marketing channels, providing real-time dashboards, automated reporting, and predictive ROI modeling.',
+      impact: [
+        'Reduced reporting time from 8 hours to 15 minutes',
+        'Increased campaign ROI by 35% through data-driven optimization',
+        'Identified $120K in wasted ad spend across underperforming channels',
+        'Improved cross-channel attribution accuracy by 60%',
+      ],
+    },
+    features: [
+      {
+        title: 'Multi-Channel Integration',
+        description: 'Connects to Google Ads, Facebook Ads, LinkedIn, email platforms, and more',
+        icon: '🔗',
+      },
+      {
+        title: 'Real-Time Dashboards',
+        description: 'Live performance metrics with customizable widgets and drill-down capabilities',
+        icon: '📈',
+      },
+      {
+        title: 'ROI Calculator',
+        description: 'Automated ROI calculation with customizable attribution models and time windows',
+        icon: '💰',
+      },
+      {
+        title: 'Predictive Analytics',
+        description: 'Machine learning models predict campaign performance and recommend optimizations',
+        icon: '🔮',
+      },
+      {
+        title: 'Automated Reporting',
+        description: 'Scheduled reports delivered to stakeholders with executive summaries',
+        icon: '📧',
+      },
+    ],
+    technicalDetails: {
+      architecture:
+        'Microservices architecture with separate data ingestion, processing, and visualization layers. Real-time data pipeline using event-driven architecture with Redis for caching and WebSocket connections for live updates.',
+      techStack: [
+        'React',
+        'TypeScript',
+        'Node.js',
+        'PostgreSQL',
+        'Redis',
+        'Chart.js',
+        'WebSocket',
+        'REST APIs',
+        'Docker',
+      ],
+      keyComponents: [
+        {
+          name: 'Data Ingestion Service',
+          purpose: 'Collects and normalizes data from multiple marketing APIs',
+          complexity: 'High - Handles rate limiting, error handling, and data transformation',
+        },
+        {
+          name: 'Analytics Engine',
+          purpose: 'Processes raw data into calculated metrics and KPIs',
+          complexity: 'High - Complex aggregation queries and time-series calculations',
+        },
+        {
+          name: 'Dashboard Renderer',
+          purpose: 'Dynamic widget system with drag-and-drop customization',
+          complexity: 'High - State management for complex layouts and real-time updates',
+        },
+        {
+          name: 'Report Generator',
+          purpose: 'Generates PDF and Excel reports with templating engine',
+          complexity: 'Medium - Template rendering and file generation',
+        },
+      ],
+      codeHighlights: [
+        {
+          title: 'Real-Time Data Pipeline',
+          description: 'Event-driven architecture for live campaign updates',
+          language: 'typescript',
+        },
+        {
+          title: 'Multi-Channel Data Normalization',
+          description: 'Unified data model across different API schemas',
+          language: 'typescript',
+        },
+      ],
+    },
+    metrics: [
+      { label: 'Channels Tracked', value: '12+' },
+      { label: 'Data Points/Hour', value: '50K+' },
+      { label: 'ROI Improvement', value: '+35%' },
+      { label: 'Time Saved', value: '7.5 hrs/wk' },
+    ],
+  },
+  {
+    id: 'competitor-intelligence',
+    title: 'Competitor Intelligence Platform',
+    tagline: 'Comprehensive competitive analysis and market positioning insights',
+    icon: '🔍',
+    accentGradient: 'linear-gradient(135deg, #40E0D0 0%, #0F766E 100%)',
+    category: ['Analytics', 'Sales Tools'],
+    tags: ['Competitive Analysis', 'Market Research', 'SEO', 'Content Strategy'],
+    thumbnail: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1600',
+    demoUrl: 'https://jacob-darling-portfolio-meme.vercel.app/demos/competitor-intelligence',
+    embeddable: true,
+    overview:
+      'An intelligent platform that monitors competitor activities across digital channels, analyzing their content strategies, SEO performance, pricing changes, and marketing campaigns to provide actionable competitive insights.',
+    valueProposition: {
+      problem:
+        'Businesses lack visibility into competitor strategies, missing opportunities to differentiate and respond to market changes proactively.',
+      solution:
+        'Automated competitive intelligence platform that tracks competitors across web, social, and advertising channels, providing alerts and strategic recommendations.',
+      impact: [
+        'Identified 15 content gaps leading to 40% increase in organic traffic',
+        'Discovered competitor pricing strategy shifts 2 weeks before market impact',
+        'Uncovered 8 new competitor features to inform product roadmap',
+        'Reduced competitive research time from 10 hours to 30 minutes weekly',
+      ],
+    },
+    features: [
+      {
+        title: 'Website Monitoring',
+        description: 'Tracks competitor website changes, new pages, content updates, and feature launches',
+        icon: '🌐',
+      },
+      {
+        title: 'SEO Analysis',
+        description: 'Monitors keyword rankings, backlink profiles, and content performance',
+        icon: '🔎',
+      },
+      {
+        title: 'Social Media Tracking',
+        description: 'Analyzes competitor social posts, engagement rates, and campaign themes',
+        icon: '📱',
+      },
+      {
+        title: 'Pricing Intelligence',
+        description: 'Monitors competitor pricing changes and promotional strategies',
+        icon: '💵',
+      },
+      {
+        title: 'Alert System',
+        description: 'Real-time notifications for significant competitor activities',
+        icon: '🔔',
+      },
+    ],
+    technicalDetails: {
+      architecture:
+        'Distributed crawling system with scheduled jobs, data storage in time-series database, and machine learning models for change detection and pattern recognition.',
+      techStack: [
+        'Python',
+        'Scrapy',
+        'React',
+        'TypeScript',
+        'PostgreSQL',
+        'TimescaleDB',
+        'Redis',
+        'Celery',
+        'Docker',
+      ],
+      keyComponents: [
+        {
+          name: 'Web Crawler Engine',
+          purpose: 'Scheduled crawling of competitor websites with change detection',
+          complexity: 'High - Handles JavaScript rendering, rate limiting, and anti-bot measures',
+        },
+        {
+          name: 'Change Detection Algorithm',
+          purpose: 'Identifies meaningful changes vs. noise in competitor data',
+          complexity: 'High - ML-based diff algorithm with semantic understanding',
+        },
+        {
+          name: 'Intelligence Dashboard',
+          purpose: 'Visualizes competitive landscape and trends over time',
+          complexity: 'Medium - Complex data visualization with time-series charts',
+        },
+        {
+          name: 'Alert Engine',
+          purpose: 'Configurable alert system for significant competitor activities',
+          complexity: 'Medium - Rule-based and ML-based alert triggers',
+        },
+      ],
+      codeHighlights: [
+        {
+          title: 'Intelligent Change Detection',
+          description: 'ML-powered algorithm to identify meaningful competitor changes',
+          language: 'python',
+        },
+        {
+          title: 'Time-Series Data Storage',
+          description: 'Efficient storage and querying of historical competitor data',
+          language: 'sql',
+        },
+      ],
+    },
+    metrics: [
+      { label: 'Competitors Tracked', value: '50+' },
+      { label: 'Data Points/Day', value: '100K+' },
+      { label: 'Alert Accuracy', value: '94%' },
+      { label: 'Research Time Saved', value: '9.5 hrs/wk' },
+    ],
+  },
+  {
+    id: 'lead-score-lab',
+    title: 'Lead Score Lab',
+    tagline: 'AI-powered lead scoring and qualification automation',
+    icon: '🎯',
+    accentGradient: 'linear-gradient(135deg, #40E0D0 0%, #0F766E 100%)',
+    category: ['Sales Tools', 'Automation'],
+    tags: ['Lead Scoring', 'Machine Learning', 'CRM Integration', 'Sales Automation'],
+    thumbnail: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600',
+    demoUrl: 'https://jacob-darling-portfolio-meme.vercel.app/demos/lead-score-lab',
+    embeddable: true,
+    overview:
+      'An intelligent lead scoring platform that uses machine learning to automatically score and qualify leads based on behavioral data, firmographics, and engagement patterns, integrating seamlessly with CRM systems.',
+    valueProposition: {
+      problem:
+        'Sales teams waste 60% of their time on unqualified leads, while marketing struggles to identify which leads are ready to buy.',
+      solution:
+        'AI-powered lead scoring that automatically ranks leads based on multiple signals, routes high-quality leads to sales, and nurtures others through automated workflows.',
+      impact: [
+        'Increased conversion rate by 42% by focusing on high-scoring leads',
+        'Reduced sales cycle time by 28% through better lead qualification',
+        'Improved lead-to-opportunity rate from 12% to 31%',
+        'Freed up 15 hours/week of sales time previously spent on unqualified leads',
+      ],
+    },
+    features: [
+      {
+        title: 'AI Scoring Engine',
+        description: 'Machine learning models that continuously learn from conversion data',
+        icon: '🤖',
+      },
+      {
+        title: 'Multi-Signal Analysis',
+        description: 'Analyzes website behavior, email engagement, firmographics, and intent data',
+        icon: '📊',
+      },
+      {
+        title: 'CRM Integration',
+        description: 'Seamless sync with HubSpot, Salesforce, and other major CRMs',
+        icon: '🔗',
+      },
+      {
+        title: 'Automated Routing',
+        description: 'Routes high-scoring leads to sales reps and nurtures others automatically',
+        icon: '⚡',
+      },
+      {
+        title: 'Score Explanation',
+        description: 'Transparent scoring breakdown showing why each lead received their score',
+        icon: '💡',
+      },
+    ],
+    technicalDetails: {
+      architecture:
+        'Microservices architecture with ML model serving, real-time scoring API, webhook integration layer, and event-driven lead processing pipeline.',
+      techStack: [
+        'Python',
+        'TensorFlow',
+        'React',
+        'TypeScript',
+        'Node.js',
+        'PostgreSQL',
+        'Redis',
+        'RabbitMQ',
+        'Docker',
+        'Kubernetes',
+      ],
+      keyComponents: [
+        {
+          name: 'ML Model Service',
+          purpose: 'Serves trained lead scoring models with low-latency inference',
+          complexity: 'High - Model versioning, A/B testing, and real-time predictions',
+        },
+        {
+          name: 'Event Processing Pipeline',
+          purpose: 'Processes lead events in real-time and updates scores',
+          complexity: 'High - High-throughput event streaming with exactly-once semantics',
+        },
+        {
+          name: 'CRM Sync Engine',
+          purpose: 'Bidirectional sync with CRM systems for lead data and scores',
+          complexity: 'High - Handles API rate limits, conflict resolution, and error recovery',
+        },
+        {
+          name: 'Scoring Dashboard',
+          purpose: 'Visualizes lead scores, model performance, and scoring factors',
+          complexity: 'Medium - Real-time data visualization with drill-down capabilities',
+        },
+      ],
+      codeHighlights: [
+        {
+          title: 'Real-Time Scoring API',
+          description: 'Low-latency API for scoring leads as events occur',
+          language: 'python',
+        },
+        {
+          title: 'Model Training Pipeline',
+          description: 'Automated retraining pipeline with feature engineering',
+          language: 'python',
+        },
+      ],
+    },
+    metrics: [
+      { label: 'Leads Scored/Day', value: '10K+' },
+      { label: 'Model Accuracy', value: '87%' },
+      { label: 'Conversion Lift', value: '+42%' },
+      { label: 'Sales Time Saved', value: '15 hrs/wk' },
+    ],
+  },
+  {
+    id: 'link-architect',
+    title: 'Link Architect',
+    tagline: 'Strategic backlink analysis and link building automation',
+    icon: '🔗',
+    accentGradient: 'linear-gradient(135deg, #40E0D0 0%, #0F766E 100%)',
+    category: ['SEO', 'Automation'],
+    tags: ['Link Building', 'SEO', 'Backlink Analysis', 'Outreach Automation'],
+    thumbnail: 'https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&q=80&w=1600',
+    demoUrl: 'https://jacob-darling-portfolio-meme.vercel.app/demos/link-architect',
+    embeddable: true,
+    overview:
+      'A comprehensive link building platform that identifies link opportunities, analyzes competitor backlink profiles, automates outreach campaigns, and tracks link acquisition performance.',
+    valueProposition: {
+      problem:
+        'SEO teams spend 20+ hours per week on manual link building tasks, with low success rates and poor tracking of outreach efforts.',
+      solution:
+        'Automated link building platform that identifies opportunities, personalizes outreach, tracks campaigns, and measures ROI of link acquisition efforts.',
+      impact: [
+        'Increased link acquisition rate by 180% through better targeting',
+        'Reduced outreach time from 20 hours to 3 hours per week',
+        'Improved response rate from 2% to 8% with personalized outreach',
+        'Generated 450+ high-quality backlinks in first 6 months',
+      ],
+    },
+    features: [
+      {
+        title: 'Opportunity Discovery',
+        description: 'AI-powered identification of link opportunities based on content and competitor analysis',
+        icon: '💎',
+      },
+      {
+        title: 'Competitor Analysis',
+        description: 'Analyzes competitor backlink profiles to find link opportunities',
+        icon: '🔍',
+      },
+      {
+        title: 'Outreach Automation',
+        description: 'Personalized email sequences with A/B testing and follow-up automation',
+        icon: '📧',
+      },
+      {
+        title: 'Link Tracking',
+        description: 'Monitors acquired links, tracks domain authority, and measures SEO impact',
+        icon: '📈',
+      },
+      {
+        title: 'ROI Reporting',
+        description: 'Measures organic traffic growth and rankings improvement from link building',
+        icon: '💰',
+      },
+    ],
+    technicalDetails: {
+      architecture:
+        'Event-driven architecture with web scraping service, email automation engine, CRM integration, and analytics dashboard. Uses queue-based processing for scalable outreach campaigns.',
+      techStack: [
+        'Python',
+        'Scrapy',
+        'React',
+        'TypeScript',
+        'Node.js',
+        'PostgreSQL',
+        'Redis',
+        'SendGrid',
+        'Celery',
+        'Docker',
+      ],
+      keyComponents: [
+        {
+          name: 'Backlink Analyzer',
+          purpose: 'Crawls and analyzes competitor backlink profiles',
+          complexity: 'High - Handles large-scale web crawling with rate limiting',
+        },
+        {
+          name: 'Opportunity Scoring Engine',
+          purpose: 'ML model that scores link opportunities based on multiple factors',
+          complexity: 'High - Feature engineering and model training pipeline',
+        },
+        {
+          name: 'Email Personalization Engine',
+          purpose: 'Generates personalized outreach emails using AI and templates',
+          complexity: 'Medium - Template system with variable substitution and A/B testing',
+        },
+        {
+          name: 'Campaign Manager',
+          purpose: 'Orchestrates outreach campaigns with scheduling and follow-ups',
+          complexity: 'High - Complex state machine for campaign workflows',
+        },
+      ],
+      codeHighlights: [
+        {
+          title: 'Intelligent Opportunity Scoring',
+          description: 'ML model for identifying high-value link opportunities',
+          language: 'python',
+        },
+        {
+          title: 'Email Personalization Pipeline',
+          description: 'Automated personalization using website data and AI',
+          language: 'python',
+        },
+      ],
+    },
+    metrics: [
+      { label: 'Links Acquired', value: '450+' },
+      { label: 'Outreach Success Rate', value: '8%' },
+      { label: 'Time Saved', value: '17 hrs/wk' },
+      { label: 'Traffic Growth', value: '+65%' },
+    ],
+  },
+  {
+    id: 'seo-scanner',
+    title: 'SEO Scanner',
+    tagline: 'Comprehensive website SEO audit and optimization recommendations',
+    icon: '🔎',
+    accentGradient: 'linear-gradient(135deg, #40E0D0 0%, #0F766E 100%)',
+    category: ['SEO', 'Analytics'],
+    tags: ['SEO Audit', 'Technical SEO', 'On-Page Optimization', 'Site Analysis'],
+    thumbnail: 'https://images.unsplash.com/photo-1572177812156-58036aae439c?auto=format&fit=crop&q=80&w=1600',
+    demoUrl: 'https://jacob-darling-portfolio-meme.vercel.app/demos/seo-scanner',
+    embeddable: true,
+    overview:
+      'An advanced SEO auditing tool that performs comprehensive website scans, identifying technical issues, on-page optimization opportunities, and providing actionable recommendations to improve search rankings.',
+    valueProposition: {
+      problem:
+        'SEO audits are time-consuming and often miss critical issues, while recommendations are generic and don\'t prioritize based on impact.',
+      solution:
+        'Automated SEO scanner that performs deep technical audits, identifies prioritized issues, and provides specific, actionable recommendations with impact estimates.',
+      impact: [
+        'Identified 47 critical SEO issues leading to 85% improvement in crawlability',
+        'Increased organic traffic by 120% through prioritized fixes',
+        'Reduced audit time from 8 hours to 15 minutes',
+        'Improved average page load speed by 2.3 seconds',
+      ],
+    },
+    features: [
+      {
+        title: 'Technical SEO Audit',
+        description: 'Comprehensive scan of crawlability, indexing, site structure, and technical issues',
+        icon: '⚙️',
+      },
+      {
+        title: 'On-Page Analysis',
+        description: 'Analyzes title tags, meta descriptions, headings, content quality, and keyword optimization',
+        icon: '📄',
+      },
+      {
+        title: 'Performance Metrics',
+        description: 'Measures page speed, Core Web Vitals, and mobile usability',
+        icon: '⚡',
+      },
+      {
+        title: 'Priority Scoring',
+        description: 'Ranks issues by SEO impact to help prioritize fixes',
+        icon: '🎯',
+      },
+      {
+        title: 'Actionable Recommendations',
+        description: 'Specific, step-by-step recommendations with code examples and impact estimates',
+        icon: '💡',
+      },
+    ],
+    technicalDetails: {
+      architecture:
+        'Distributed crawling system with headless browser rendering, analysis engine for SEO rule checking, and report generation service. Uses queue-based processing for large site audits.',
+      techStack: [
+        'Python',
+        'Puppeteer',
+        'React',
+        'TypeScript',
+        'Node.js',
+        'PostgreSQL',
+        'Redis',
+        'Celery',
+        'Docker',
+      ],
+      keyComponents: [
+        {
+          name: 'Website Crawler',
+          purpose: 'Crawls entire website with JavaScript rendering and sitemap parsing',
+          complexity: 'High - Handles large sites, JavaScript SPAs, and rate limiting',
+        },
+        {
+          name: 'SEO Rule Engine',
+          purpose: 'Applies 200+ SEO rules to identify issues and opportunities',
+          complexity: 'High - Complex rule evaluation with context-aware scoring',
+        },
+        {
+          name: 'Report Generator',
+          purpose: 'Generates comprehensive SEO audit reports with visualizations',
+          complexity: 'Medium - Template-based report generation with charts',
+        },
+        {
+          name: 'Recommendation Engine',
+          purpose: 'Generates prioritized, actionable recommendations with impact estimates',
+          complexity: 'Medium - Rule-based recommendation system with priority scoring',
+        },
+      ],
+      codeHighlights: [
+        {
+          title: 'Headless Browser Crawling',
+          description: 'JavaScript rendering for accurate SEO analysis of SPAs',
+          language: 'javascript',
+        },
+        {
+          title: 'SEO Rule Evaluation Engine',
+          description: 'Efficient evaluation of 200+ SEO rules across crawled pages',
+          language: 'python',
+        },
+      ],
+    },
+    metrics: [
+      { label: 'Issues Detected', value: '200+' },
+      { label: 'Pages Scanned', value: '10K+' },
+      { label: 'Audit Time', value: '<15 min' },
+      { label: 'Traffic Improvement', value: '+120%' },
+    ],
   },
 ];
 

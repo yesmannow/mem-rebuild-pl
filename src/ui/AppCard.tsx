@@ -1,6 +1,6 @@
 /**
  * AppCard Component
- * 
+ *
  * Brand-specific card with glass effect, gradients, and Framer Motion
  * Built with Bear Cave Marketing styling
  */
@@ -8,6 +8,7 @@
 import { motion, HTMLMotionProps } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { ReactNode } from 'react';
+import { useSystemSound } from '../hooks/useSystemSound';
 
 export interface AppCardProps extends Omit<HTMLMotionProps<'div'>, 'ref'> {
   variant?: 'default' | 'glass' | 'gradient' | 'outline';
@@ -33,7 +34,7 @@ const paddingStyles = {
 
 /**
  * AppCard - Brand-styled card with motion
- * 
+ *
  * @example
  * <AppCard variant="glass" padding="lg" hover>
  *   <h3>Card Title</h3>
@@ -48,6 +49,18 @@ export function AppCard({
   children,
   ...props
 }: AppCardProps) {
+  const { playBlip } = useSystemSound();
+
+  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (hover) {
+      playBlip();
+    }
+    // Call original onMouseEnter if provided
+    if (props.onMouseEnter) {
+      props.onMouseEnter(e);
+    }
+  };
+
   return (
     <motion.div
       className={cn(
@@ -60,6 +73,7 @@ export function AppCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
       whileHover={hover ? { y: -4, scale: 1.02 } : undefined}
+      onMouseEnter={handleMouseEnter}
       {...props}
     >
       {children}

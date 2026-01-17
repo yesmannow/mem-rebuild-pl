@@ -1,0 +1,47 @@
+.metric-visualizer {
+  @apply bg-slate-900/50 backdrop-blur-sm rounded-xl border border-slate-700/50 p-6;
+  @apply transition-all duration-300 hover:border-[#40E0D0]/50 hover:shadow-lg;
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-visualizer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(64, 224, 208, 0.1), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.metric-visualizer:hover::before {
+  opacity: 1;
+}
+
+.metric-visualizer__content {
+  @apply flex flex-col items-center text-center;
+}
+
+.metric-visualizer__label {
+  @apply text-sm font-medium text-slate-400 uppercase tracking-wider mb-2;
+}
+
+.metric-visualizer__value {
+  @apply text-3xl font-bold font-mono mb-4;
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.metric-visualizer__chart {
+  @apply w-full;
+  min-height: 120px;
+}
+
+.metric-visualizer--radial .metric-visualizer__chart {
+  min-height: 120px;
+}
+
+.metric-visualizer--sparkline .metric-visualizer__chart {
+  min-height: 60px;
+}

@@ -51,21 +51,21 @@ const knowledgeBase = {
     {
       title: 'The Launchpad',
       description: 'Website redesign achieving 180% engagement increase',
-      url: '/case-study/the-launchpad',
+      url: '/case-studies/the-launchpad',
       tags: ['Web Development', 'UX Design', 'Performance'],
       metrics: { engagement: '+180%', conversion: '+92%' },
     },
     {
       title: 'The Conductor',
       description: 'Marketing automation platform for efficiency',
-      url: '/case-study/the-conductor',
+      url: '/case-studies/the-conductor',
       tags: ['Automation', 'Marketing Tech', 'Integration'],
       metrics: { efficiency: '+250%', timeSaved: '40 hrs/mo' },
     },
     {
       title: 'The Fortress',
       description: 'Cybersecurity infrastructure overhaul',
-      url: '/case-study/the-fortress',
+      url: '/case-studies/the-fortress',
       tags: ['Security', 'Infrastructure', 'Compliance'],
       metrics: { securityScore: '98/100', incidents: '-100%' },
     },
@@ -140,7 +140,7 @@ const EnhancedPortfolioAssistant: React.FC<EnhancedPortfolioAssistantProps> = ({
     // Skills queries
     else if (lowerInput.match(/skill|technology|tech stack|expertise|tools/i)) {
       const categories: SkillHighlight[] = [];
-      
+
       if (lowerInput.match(/frontend|react|ui|design/i) || !lowerInput.match(/backend|devops|marketing/i)) {
         categories.push({
           category: 'Frontend Development',
@@ -169,7 +169,7 @@ const EnhancedPortfolioAssistant: React.FC<EnhancedPortfolioAssistantProps> = ({
           icon: <TrendingUp size={16} />,
         });
       }
-      
+
       if (categories.length === 0) {
         // Show all categories
         categories.push(
@@ -217,7 +217,7 @@ const EnhancedPortfolioAssistant: React.FC<EnhancedPortfolioAssistantProps> = ({
     }
     // Specific project queries
     else if (lowerInput.match(/launchpad|conductor|fortress/i)) {
-      const project = knowledgeBase.projects.find(p => 
+      const project = knowledgeBase.projects.find(p =>
         lowerInput.includes(p.title.toLowerCase())
       );
       if (project) {

@@ -47,7 +47,7 @@ const ModernFooter: React.FC = () => {
       title: 'Connect',
       icon: User,
       links: [
-        { name: 'Bio', path: '/about', description: 'My story' },
+        { name: 'Bio', path: '/resume', description: 'My story' },
         { name: 'Contact', path: '/contact', description: 'Get in touch' },
       ],
     },

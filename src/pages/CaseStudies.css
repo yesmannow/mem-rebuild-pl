@@ -197,6 +197,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  overflow: visible;
 }
 
 @media (min-width: 1024px) {
@@ -463,6 +464,7 @@
 .cases-section {
   padding-bottom: 2rem;
   flex: 1;
+  overflow: visible;
 }
 
 @media (min-width: 1024px) {
@@ -474,13 +476,19 @@
 .cases-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
+  overflow: visible;
+  margin-top: 1rem;
+}
+
+.cases-grid > * {
+  overflow: visible;
 }
 
 @media (max-width: 639px) {
   .cases-grid {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
 
   .case-card-inner {
@@ -502,7 +510,13 @@
 .cases-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
+  overflow: visible;
+  margin-top: 1rem;
+}
+
+.cases-list > * {
+  overflow: visible;
 }
 
 .case-card {
@@ -514,16 +528,90 @@
 .case-card-inner {
   border-radius: 26px;
   border: 1px solid rgba(64, 224, 208, 0.2);
-  padding: 2rem;
+  padding: 0;
   background: rgba(30, 41, 59, 0.7);
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 0;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 25px 55px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   transform-style: preserve-3d;
+}
+
+/* Cinematic card styles with dynamic background */
+.cinematic-card .case-card-inner {
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* Ensure background images are clipped to card bounds */
+.cinematic-card .case-card-inner > div[class*="absolute"] {
+  overflow: hidden;
+  border-radius: 26px;
+}
+
+.cinematic-card .case-content {
+  padding: 0;
+  color: white;
+  /* Custom scrollbar for overflow content */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(64, 224, 208, 0.3) transparent;
+}
+
+.cinematic-card .case-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.cinematic-card .case-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cinematic-card .case-content::-webkit-scrollbar-thumb {
+  background: rgba(64, 224, 208, 0.3);
+  border-radius: 2px;
+}
+
+.cinematic-card .case-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(64, 224, 208, 0.5);
+}
+
+.cinematic-card .case-title,
+.cinematic-card .case-tagline,
+.cinematic-card .preview-text,
+.cinematic-card .preview-label,
+.cinematic-card .metric-label,
+.cinematic-card .metric-value,
+.cinematic-card .view-case,
+.cinematic-card .tech-tag,
+.cinematic-card .tech-tag span,
+.cinematic-card .category-tag,
+.cinematic-card .tech-stack-more {
+  color: white !important;
+}
+
+.cinematic-card .case-title {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.cinematic-card .case-tagline {
+  color: rgba(255, 255, 255, 0.95) !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.cinematic-card .preview-text {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.cinematic-card .metric-value {
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.cinematic-card .view-case {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .case-card:hover .case-card-inner {
@@ -935,11 +1023,11 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 0.75rem;
   }
-  
+
   .stat-item {
     padding: 0.75rem;
   }
-  
+
   .stat-number {
     font-size: 1.5rem;
   }

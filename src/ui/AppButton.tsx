@@ -1,6 +1,6 @@
 /**
  * AppButton Component
- * 
+ *
  * Brand-specific button with gradients, borders, and Framer Motion
  * Built on top of shadcn/ui primitives with Bear Cave Marketing styling
  */
@@ -8,6 +8,7 @@
 import { motion, HTMLMotionProps } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { LucideIcon } from 'lucide-react';
+import { useSystemSound } from '../hooks/useSystemSound';
 
 export interface AppButtonProps extends Omit<HTMLMotionProps<'button'>, 'ref'> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'gradient';
@@ -35,7 +36,7 @@ const sizeStyles = {
 
 /**
  * AppButton - Brand-styled button with motion
- * 
+ *
  * @example
  * <AppButton variant="primary" size="lg" icon={ArrowRight} iconPosition="right">
  *   Get Started
@@ -50,8 +51,21 @@ export function AppButton({
   fullWidth = false,
   className,
   children,
+  onClick,
   ...props
 }: AppButtonProps) {
+  const { playSwitch } = useSystemSound();
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // Play mechanical switch sound for primary buttons
+    if (variant === 'primary' && !isLoading) {
+      playSwitch();
+    }
+    if (onClick) {
+      onClick(e);
+    }
+  };
+
   return (
     <motion.button
       className={cn(
@@ -65,6 +79,7 @@ export function AppButton({
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       disabled={isLoading}
+      onClick={handleClick}
       {...props}
     >
       {Icon && iconPosition === 'left' && <Icon size={size === 'sm' ? 16 : size === 'xl' ? 24 : 20} />}

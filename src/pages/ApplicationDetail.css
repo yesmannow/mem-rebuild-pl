@@ -4,7 +4,7 @@
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
-  background: linear-gradient(180deg, var(--color-neutral-1) 0%, #0d0d0d 30%, var(--color-neutral-1) 70%, #0d0d0d 100%);
+  background: var(--brand-dark);
   color: var(--color-light);
 }
 
@@ -69,10 +69,7 @@
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1rem;
   line-height: 1.2;
-  background: linear-gradient(135deg, var(--color-light) 0%, var(--color-primary) 50%, var(--color-danger) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--brand-primary); /* Turquoise */
 }
 
 .detail-header .tagline {
@@ -149,8 +146,8 @@
 }
 
 .cta-btn.primary {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-danger) 100%);
-  color: var(--color-light);
+  background: #40E0D0; /* Solid turquoise */
+  color: #0f172a; /* Dark text */
 }
 
 .cta-btn.primary:hover {
@@ -199,10 +196,7 @@
 .metric-card .metric-value {
   font-size: 3rem;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-danger) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #40E0D0; /* Solid turquoise */
   line-height: 1;
   margin-bottom: 0.75rem;
 }
@@ -607,10 +601,7 @@
 .cta-content h3 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--color-light) 0%, var(--color-primary) 50%, var(--color-danger) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--brand-primary); /* Turquoise */
 }
 
 .cta-content p {

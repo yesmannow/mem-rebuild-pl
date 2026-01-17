@@ -5,8 +5,12 @@ import { getCaseStudyBySlug } from '../data/caseStudies';
 import AnimatedSection from '../components/animations/AnimatedSection';
 import { getCaseStudyDiagrams } from '../components/diagrams/caseStudyDiagrams';
 import { trackPortfolioEngagement, createTimeTracker } from '../utils/analytics';
-import MetricsVisualization from '../components/case-study/MetricsVisualization';
-import InteractiveROIChart from '../components/case-study/InteractiveROIChart';
+import { CaseStudyExplainer } from '../components/case-study/CaseStudyExplainer';
+import { CaseStudyArchitectureTimeline, CaseStudyTechStack } from '../components/case-study';
+import { MetricVisualizer } from '../components/visuals/MetricVisualizer';
+import { RichContentRenderer } from '../components/case-study/RichContentRenderer';
+import { SimpleSection } from '../components/ui/SimpleSection';
+import TechBackdrop from '../components/hero/TechBackdrop';
 import Breadcrumbs from '../components/layout/Breadcrumbs';
 import caseStudyInspirationMap from '../data/caseStudyInspirationMap.json';
 import inspirationsData from '../data/inspirations.json';
@@ -14,86 +18,18 @@ import DataStream from '../components/case-studies/DataStream';
 import ThreatMap from '../components/case-studies/ThreatMap';
 import WorkflowVisualizer from '../components/case-studies/WorkflowVisualizer';
 import SystemSchematic from '../components/case-studies/SystemSchematic';
-import { CaseStudyExplainer } from '../components/case-study/CaseStudyExplainer';
-import { AppSection } from '../ui/AppSection';
-import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
+import { useDynamicImage } from '../hooks/useDynamicImage';
 import './CaseStudyDetail.css';
 
-const renderInlineText = (text: string, keyPrefix: string) => {
-  const fragments = text.split(/(\*\*[^*]+\*\*)/g).filter(Boolean);
-  return fragments.map((fragment, index) => {
-    if (fragment.startsWith('**') && fragment.endsWith('**')) {
-      const value = fragment.slice(2, -2);
-      return <strong key={`${keyPrefix}-strong-${index}`}>{value}</strong>;
-    }
-    return <React.Fragment key={`${keyPrefix}-text-${index}`}>{fragment}</React.Fragment>;
-  });
-};
-
-// Helper to render structured content safely
-const renderRichSection = (content?: string | { paragraphs?: string[]; bullets?: string[] }) => {
-  // If content is structured data
-  if (content && typeof content === 'object' && ('paragraphs' in content || 'bullets' in content)) {
-    return (
-      <>
-        {content.paragraphs?.map((text, idx) => (
-          <p key={`p-${idx}`}>{renderInlineText(text, `structured-p-${idx}`)}</p>
-        ))}
-        {content.bullets && (
-          <ul>
-            {content.bullets.map((item, idx) => (
-              <li key={`li-${idx}`}>{renderInlineText(item, `structured-li-${idx}`)}</li>
-            ))}
-          </ul>
-        )}
-      </>
-    );
-  }
-
-  // If content is a string, parse it into structured format
-  if (typeof content === 'string') {
-    const paragraphs: string[] = [];
-    const bullets: string[] = [];
-    const lines = content.split('\n').filter(line => line.trim());
-
-    lines.forEach(line => {
-      const trimmed = line.trim();
-      // Check if it's a bullet point
-      if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
-        // Remove markdown bold formatting
-        const bulletText = trimmed.replace(/^[-*]\s*/, '').replace(/\*\*(.*?)\*\*/g, '$1');
-        bullets.push(bulletText);
-      } else {
-        // Regular paragraph
-        const paraText = trimmed.replace(/\*\*(.*?)\*\*/g, '$1');
-        if (paraText) paragraphs.push(paraText);
-      }
-    });
-
-    return (
-      <>
-        {paragraphs.map((text, idx) => (
-          <p key={`p-${idx}`}>{renderInlineText(text, `parsed-p-${idx}`)}</p>
-        ))}
-        {bullets.length > 0 && (
-          <ul>
-            {bullets.map((item, idx) => (
-              <li key={`li-${idx}`}>{renderInlineText(item, `parsed-li-${idx}`)}</li>
-            ))}
-          </ul>
-        )}
-      </>
-    );
-  }
-
-  // Fallback for undefined/null
-  return null;
-};
 
 const CaseStudyDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const caseStudy = slug ? getCaseStudyBySlug(slug) : undefined;
   const diagrams = slug ? getCaseStudyDiagrams(slug) : [];
+
+  // Fetch dynamic background image based on first tag
+  const imageQuery = caseStudy?.tags?.[0] || 'technology';
+  const { imageUrl: backgroundImage } = useDynamicImage(imageQuery);
 
   // Track case study view
   useEffect(() => {
@@ -134,165 +70,207 @@ const CaseStudyDetail: React.FC = () => {
   };
 
   return (
-      <main className="case-study-detail-modern">
-      {/* Hero Section */}
-      <motion.section
-        className="detail-hero relative overflow-hidden"
-        data-hero-bg-color={caseStudy.color || '#40E0D0'}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        {/* API Background Image */}
-        <ApiBackgroundImage
-          query={`${caseStudy.category.join(' ')} business strategy marketing`}
-          source="pexels"
-          overlayColor="dark"
-          overlayOpacity={0.7}
-          className="absolute inset-0 z-0"
-          priority
-        />
-        <div className="detail-hero-content" style={{ textAlign: 'center' }}>
-          <Link to="/case-studies" className="back-link" style={{ justifyContent: 'flex-start' }}>
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
-            Back to Case Studies
-          </Link>
-
-          {caseStudy.icon && (
-            <motion.div
-              className="hero-icon-large"
-              data-icon-bg-color={caseStudy.color || '#40E0D0'}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              style={{ display: 'flex', justifyContent: 'center' }}
-            >
-              <span className="icon-large" data-icon-shadow-color={caseStudy.color || '#40E0D0'}>
-                {caseStudy.icon}
-              </span>
-            </motion.div>
-          )}
-
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
-            <h1 className="detail-title">{caseStudy.title}</h1>
-            <p className="detail-tagline">{caseStudy.tagline}</p>
-          </motion.div>
-
-          <motion.div
-            className="detail-meta"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            style={{ justifyContent: 'center' }}
-          >
-            <div className="meta-categories">
-              {caseStudy.category.map(cat => (
-                <span
-                  key={cat}
-                  className="meta-category"
-                  data-category-color={caseStudy.color || '#40E0D0'}
+    <main className="case-study-detail-modern">
+      {/* Hero Section with TechBackdrop */}
+      <SimpleSection variant="default" padding="none" container={false} className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <TechBackdrop className="absolute inset-0" backgroundImage={backgroundImage} />
+        <div className="relative z-10 w-full pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            {/* Hero Content Container - Centered */}
+            <div className="text-center mx-auto max-w-4xl">
+              {/* Back Link */}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mb-8 flex justify-center"
+              >
+                <Link
+                  to="/case-studies"
+                  className="inline-flex items-center gap-2 text-brand-muted hover:text-brand-turquoise transition-colors"
                 >
-                  {cat}
-                </span>
-              ))}
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                  </svg>
+                  Back to Case Studies
+                </Link>
+              </motion.div>
+
+              {/* Icon */}
+              {caseStudy.icon && (
+                <motion.div
+                  className="flex justify-center mb-6"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                >
+                  <div
+                    className="w-24 h-24 rounded-2xl flex items-center justify-center text-5xl shadow-lg"
+                    style={{
+                      backgroundColor: `${caseStudy.color || '#40E0D0'}20`,
+                      border: `2px solid ${caseStudy.color || '#40E0D0'}40`,
+                    }}
+                  >
+                    {caseStudy.icon}
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Title and Tagline */}
+              <motion.div
+                className="text-center mb-8"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+              >
+                <h1 className="text-5xl md:text-6xl font-bold text-brand-text mb-4">
+                  {caseStudy.title}
+                </h1>
+                <p className="text-xl md:text-2xl text-brand-muted max-w-3xl mx-auto">
+                  {caseStudy.tagline}
+                </p>
+              </motion.div>
+
+              {/* Categories and Tags */}
+              <motion.div
+                className="flex flex-wrap items-center justify-center gap-3"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                {caseStudy.category.map(cat => (
+                  <span
+                    key={cat}
+                    className="px-4 py-2 rounded-full text-sm font-medium"
+                    style={{
+                      backgroundColor: `${caseStudy.color || '#40E0D0'}20`,
+                      color: caseStudy.color || '#40E0D0',
+                      border: `1px solid ${caseStudy.color || '#40E0D0'}40`,
+                    }}
+                  >
+                    {cat}
+                  </span>
+                ))}
+                {caseStudy.tags.slice(0, 3).map(tag => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 rounded-full text-xs text-brand-muted bg-slate-800/50 border border-slate-700/50"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </motion.div>
             </div>
-            <div className="meta-tags">
-              {caseStudy.tags.map(tag => (
-                <span key={tag} className="meta-tag">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </motion.div>
+          </div>
         </div>
-      </motion.section>
+      </SimpleSection>
 
       {/* Breadcrumbs */}
-      <div className="case-study-breadcrumbs">
-        <Breadcrumbs />
-      </div>
+      <SimpleSection variant="bordered" padding="sm" animated>
+        <div className="max-w-7xl mx-auto">
+          <Breadcrumbs />
+        </div>
+      </SimpleSection>
 
-      {/* Metrics Showcase */}
-      <AnimatedSection delay={0.2}>
-        <section className="metrics-modern">
-          <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-brand-text mb-6">
-              Impact Metrics
-            </h2>
-            <InteractiveROIChart metrics={caseStudy.metrics} />
-          </div>
-          <div className="mt-12">
-            <MetricsVisualization
-              metrics={caseStudy.metrics}
-              accentColor={caseStudy.color || 'var(--color-secondary)'}
-              caseStudySlug={slug}
-              variant="cards"
+      {/* Impact Metrics */}
+      <SimpleSection variant="elevated" padding="lg" animated>
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection delay={0.2}>
+            <div className="mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-2">
+                Impact Metrics
+              </h2>
+              <p className="text-brand-muted">
+                Measurable results and outcomes from this project
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {caseStudy.metrics.map((metric, index) => (
+                <MetricVisualizer
+                  key={index}
+                  label={metric.label}
+                  value={metric.value}
+                  accentColor={caseStudy.color || '#40E0D0'}
+                />
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </SimpleSection>
+
+      {/* Challenge Section - Gray Background */}
+      <SimpleSection variant="default" padding="xl" animated>
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection delay={0.3}>
+            <div className="mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4 flex items-center gap-3">
+                <span className="text-4xl">⚠️</span>
+                The Challenge
+              </h2>
+            </div>
+            <RichContentRenderer
+              content={caseStudy.fullContent?.challenge ?? caseStudy.challenge}
             />
-          </div>
-        </section>
-      </AnimatedSection>
+          </AnimatedSection>
+        </div>
+      </SimpleSection>
 
-      <div className="content-sections">
-        <AnimatedSection delay={0.3}>
-          <section className="content-section challenge">
-            <h2>
-              <span className="section-icon">⚠️</span> The Challenge
-            </h2>
-            <div className="section-content">
-              {renderRichSection(caseStudy.fullContent?.challenge ?? caseStudy.challenge)}
+      {/* Strategy Section - Dark Background */}
+      <SimpleSection variant="inset" padding="xl" animated>
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection delay={0.4}>
+            <div className="mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4 flex items-center gap-3">
+                <span className="text-4xl">🎯</span>
+                The Strategy & Solution
+              </h2>
             </div>
-          </section>
-        </AnimatedSection>
-
-        <AnimatedSection delay={0.4}>
-          <section className="content-section strategy">
-            <h2>
-              <span className="section-icon">🎯</span> The Strategy & Solution
-            </h2>
-            <div className="section-content">
-              {renderRichSection(caseStudy.fullContent?.strategy ?? caseStudy.strategy)}
-            </div>
+            <RichContentRenderer
+              content={caseStudy.fullContent?.strategy ?? caseStudy.strategy}
+            />
 
             {/* Visual Architecture Diagrams */}
             {diagrams.length > 0 && (
-              <div className="architecture-diagrams">
+              <div className="mt-12 space-y-8">
                 {diagrams.map((DiagramComponent, index) => (
                   <DiagramComponent key={index} />
                 ))}
               </div>
             )}
-          </section>
-        </AnimatedSection>
+          </AnimatedSection>
+        </div>
+      </SimpleSection>
 
         {/* Architecture Section */}
         {caseStudy.architecture && caseStudy.architecture.length > 0 && (
           <AnimatedSection delay={0.45}>
             <section className="content-section architecture">
-              <h2>
-                <span className="section-icon">🏗️</span> System Architecture
-              </h2>
-              <div className="section-content">
-                <p>The technical architecture connects the following systems:</p>
-                <div className="architecture-flow">
-                  {caseStudy.architecture.map((connection, index) => (
-                    <div key={index} className="architecture-connection">
-                      {connection}
-                    </div>
-                  ))}
-                </div>
+              <div className="max-w-6xl mx-auto">
+                <CaseStudyArchitectureTimeline
+                  architecture={caseStudy.architecture}
+                  accentColor={caseStudy.color || '#40E0D0'}
+                />
+              </div>
+            </section>
+          </AnimatedSection>
+        )}
+
+        {/* Tech Stack Section */}
+        {caseStudy.technologies && caseStudy.technologies.length > 0 && (
+          <AnimatedSection delay={0.47}>
+            <section className="content-section">
+              <div className="max-w-6xl mx-auto">
+                <CaseStudyTechStack
+                  technologies={caseStudy.technologies}
+                  accentColor={caseStudy.color || '#40E0D0'}
+                />
               </div>
             </section>
           </AnimatedSection>
@@ -307,123 +285,144 @@ const CaseStudyDetail: React.FC = () => {
           </AnimatedSection>
         )}
 
-        <AnimatedSection delay={0.5}>
-          <section className="content-section impact">
-            <h2>
-              <span className="section-icon">🚀</span> The Value & Impact
-            </h2>
-            <div className="section-content">
-              {renderRichSection(caseStudy.fullContent?.impact ?? caseStudy.impact)}
+      {/* Impact Section - Brand Gradient Highlight */}
+      <SimpleSection variant="accent-teal" padding="xl" animated>
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection delay={0.5}>
+            <div className="mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4 flex items-center gap-3">
+                <span className="text-4xl">🚀</span>
+                The Value & Impact
+              </h2>
             </div>
-          </section>
-        </AnimatedSection>
+            <RichContentRenderer
+              content={caseStudy.fullContent?.impact ?? caseStudy.impact}
+            />
+          </AnimatedSection>
+        </div>
+      </SimpleSection>
 
-        {/* Live Site Preview - if siteUrl exists */}
-        {caseStudy.siteUrl && (
-          <AnimatedSection delay={0.52}>
-            <AppSection padding="md" container={false}>
-              <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-6">
-                  <h2 className="text-2xl md:text-3xl font-bold text-brand-text mb-2">
-                    <span className="section-icon">🌐</span> Live Site
-                  </h2>
-                  <p className="text-brand-muted">
-                    Visit the live implementation to see the results in action
-                  </p>
-                </div>
-                <motion.div
-                  className="relative rounded-2xl overflow-hidden border border-brand-turquoise/20 bg-slate-950/40 backdrop-blur-sm p-8"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <div className="flex flex-col items-center gap-6">
-                    <div className="text-center">
-                      <p className="text-brand-text font-semibold mb-2">
-                        {caseStudy.title}
-                      </p>
-                      <a
-                        href={caseStudy.siteUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-brand-turquoise hover:text-brand-turquoise-dark transition-colors inline-flex items-center gap-2"
-                      >
-                        <span className="text-sm break-all">{caseStudy.siteUrl}</span>
-                        <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </a>
-                    </div>
-                    <motion.a
+      {/* Live Site Preview - if siteUrl exists */}
+      {caseStudy.siteUrl && (
+        <SimpleSection variant="elevated" padding="lg" animated>
+          <div className="max-w-4xl mx-auto">
+            <AnimatedSection delay={0.52}>
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-brand-text mb-2 flex items-center justify-center gap-3">
+                  <span className="text-3xl">🌐</span>
+                  Live Site
+                </h2>
+                <p className="text-brand-muted">
+                  Visit the live implementation to see the results in action
+                </p>
+              </div>
+              <motion.div
+                className="relative rounded-2xl overflow-hidden border border-brand-turquoise/20 bg-slate-950/40 backdrop-blur-sm p-8"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="flex flex-col items-center gap-6">
+                  <div className="text-center">
+                    <p className="text-brand-text font-semibold mb-2">
+                      {caseStudy.title}
+                    </p>
+                    <a
                       href={caseStudy.siteUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-turquoise text-white font-semibold hover:bg-brand-turquoise-dark transition-all duration-200 shadow-lg hover:shadow-xl"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
+                      className="text-brand-turquoise hover:text-brand-turquoise-dark transition-colors inline-flex items-center gap-2"
                     >
-                      <span>Visit Live Site</span>
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      <span className="text-sm break-all">{caseStudy.siteUrl}</span>
+                      <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
-                    </motion.a>
+                    </a>
                   </div>
-                </motion.div>
-              </div>
-            </AppSection>
-          </AnimatedSection>
-        )}
+                  <motion.a
+                    href={caseStudy.siteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-turquoise text-white font-semibold hover:bg-brand-turquoise-dark transition-all duration-200 shadow-lg hover:shadow-xl"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <span>Visit Live Site</span>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </motion.a>
+                </div>
+              </motion.div>
+            </AnimatedSection>
+          </div>
+        </SimpleSection>
+      )}
 
-        {/* AI Explainer Section */}
-        <AnimatedSection delay={0.5}>
-          <section className="content-section ai-explainer-section" style={{ marginTop: '3rem' }}>
+      {/* AI Explainer Section */}
+      <SimpleSection variant="elevated" padding="lg" animated>
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection delay={0.5}>
             <CaseStudyExplainer
               title={caseStudy.title}
               problem={caseStudy.challenge}
               solution={caseStudy.strategy}
               results={caseStudy.impact}
             />
-          </section>
-        </AnimatedSection>
+          </AnimatedSection>
+        </div>
+      </SimpleSection>
 
-        {/* Inspirations Section */}
-        {relatedInspirations.length > 0 && (
-          <AnimatedSection delay={0.55}>
-            <section className="content-section inspirations">
-              <h4>Inspired by</h4>
-              <div className="inspirations-list">
+      {/* Inspirations Section */}
+      {relatedInspirations.length > 0 && (
+        <SimpleSection variant="bordered" padding="lg" animated>
+          <div className="max-w-6xl mx-auto">
+            <AnimatedSection delay={0.55}>
+              <h3 className="text-2xl font-bold text-brand-text mb-4">Inspired by</h3>
+              <div className="flex flex-wrap gap-3">
                 {relatedInspirations.map(inspiration => (
                   <Link
                     key={inspiration.id}
                     to={`/inspiration#${inspiration.id}`}
-                    className="inspiration-link"
+                    className="px-4 py-2 rounded-lg bg-slate-800/50 text-brand-text hover:bg-brand-turquoise/20 hover:text-brand-turquoise transition-colors border border-slate-700/50"
                   >
-                    <span className="inspiration-title">{inspiration.title}</span>
+                    {inspiration.title}
                   </Link>
                 ))}
               </div>
-            </section>
-          </AnimatedSection>
-        )}
-      </div>
+            </AnimatedSection>
+          </div>
+        </SimpleSection>
+      )}
 
-      <AnimatedSection delay={0.6}>
-        <section className="cta-section">
-          <div className="cta-content">
-            <h3>Interested in similar results?</h3>
-            <p>Let's discuss how I can help transform your marketing systems.</p>
-            <div className="cta-buttons">
-              <Link to="/contact" className="cta-btn primary">
+      {/* CTA Section */}
+      <SimpleSection variant="accent-orange" padding="xl" animated>
+        <div className="max-w-4xl mx-auto text-center">
+          <AnimatedSection delay={0.6}>
+            <h3 className="text-3xl font-bold text-brand-text mb-4">
+              Interested in similar results?
+            </h3>
+            <p className="text-lg text-brand-muted mb-8">
+              Let's discuss how I can help transform your marketing systems.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                to="/contact"
+                className="px-6 py-3 rounded-xl bg-brand-turquoise text-white font-semibold hover:bg-brand-turquoise-dark transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
                 Start a Conversation
               </Link>
-              <Link to="/case-studies" className="cta-btn secondary">
+              <Link
+                to="/case-studies"
+                className="px-6 py-3 rounded-xl bg-slate-800/50 text-brand-text font-semibold hover:bg-slate-700/50 transition-all duration-200 border border-slate-700/50"
+              >
                 View More Case Studies
               </Link>
             </div>
-          </div>
-        </section>
-      </AnimatedSection>
+          </AnimatedSection>
+        </div>
+      </SimpleSection>
     </main>
   );
 };

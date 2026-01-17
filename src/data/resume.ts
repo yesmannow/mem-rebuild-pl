@@ -1,4 +1,4 @@
-import { ExperienceItem, EducationItem, VolunteerItem, SkillCategory, Metric, Award } from '../types';
+import { ExperienceItem, EducationItem, VolunteerItem, SkillCategory, Metric, Award, Certification } from '../types';
 
 // Executive Summary
 export const executiveSummary = `Marketing strategist and systems architect with 15+ years of experience building revenue-driving marketing infrastructure for global healthcare brands. Proven track record of transforming complex marketing challenges into measurable business results through strategic thinking, technical execution, and data-driven decision making. I bridge the gap between creative marketing vision and technical implementation, delivering systems that scale while driving measurable ROI. My expertise spans marketing automation, CRM architecture, web development, and revenue operations - positioning me uniquely to lead growth initiatives from strategy through execution.`;
@@ -18,6 +18,7 @@ export const experience: ExperienceItem[] = [
     period: 'Aug 2023 - Present',
     location: 'Indianapolis, IN',
     description: 'Leads both marketing strategy and technical execution for a high-volume educational platform serving thousands of clinicians with continuing education and clinical tools.',
+    keyAchievement: 'Scale to 30k Users',
     achievements: [
       "System Architecture: Built integrated ecosystem with LearnDash LMS, WooCommerce, WP Fusion, Gravity Forms, Uncanny Automator, and FluentCRM. Architected 'Buy Now, Choose Later' credit system for training bundles.",
       "AI & Automation: Built and deployed GPT-powered assistant connected via REST APIs for CEU rules, order lookups, training suggestions. Built 400+ automations triggered by tags, training progress, or form submissions.",
@@ -41,6 +42,7 @@ export const experience: ExperienceItem[] = [
     period: 'Mar 2023 - Jul 2023',
     location: 'Fishers, IN',
     description: 'Spearheaded marketing strategy and execution during a key transitional period, ensuring business continuity and brand consistency across all channels.',
+    keyAchievement: 'Cut CI/CD Time 50%',
     achievements: [
       'Managed end-to-end marketing communications, including internal messaging, external campaigns, and stakeholder engagement.',
       'Led the development and optimization of Google Ads campaigns, improving lead generation, CTR, and overall ROI.',
@@ -61,6 +63,7 @@ export const experience: ExperienceItem[] = [
     period: 'Jul 2022 - Mar 2023',
     location: 'Indianapolis, IN',
     description: 'Led strategic marketing, digital communications, and client development for legal and professional services.',
+    keyAchievement: 'Grow Revenue +40%',
     achievements: [
       'Designed, built, and managed comprehensive marketing materials, including brochures, advertisements, email campaigns, newsletters, social media content, and RBE magazines.',
       'Oversaw firm branding and content strategy across digital platforms, including full ownership of the RBE website—enhancing performance, SEO, and user experience.',
@@ -82,6 +85,7 @@ export const experience: ExperienceItem[] = [
     period: 'Jun 2015 - Nov 2022',
     location: 'Greater Indianapolis',
     description: 'Responsible for managing content marketing initiatives, website content, social media platforms, graphic design and ad creation, overall firm-to-client communication, and brand development.',
+    keyAchievement: 'Scale to 30k Users',
     achievements: [
       "Assisted in responding to the firm's RFP responses.",
       "Worked in conjunction with the Marketing Committee to carry out the firm's strategic marketing plan.",
@@ -96,6 +100,7 @@ export const experience: ExperienceItem[] = [
     period: 'Jun 2013 - Jun 2015',
     location: 'Indianapolis, IN',
     description: 'Executed marketing initiatives and campaigns to elevate brand awareness and attract new clients while supporting ongoing engagement with existing clients and professional partners.',
+    keyAchievement: 'Grow Revenue +40%',
     achievements: [
       'Planned and managed successful client-facing seminars and events, enhancing client retention and brand credibility.',
       'Wrote and maintained content for the company website, email marketing campaigns, and printed collateral, ensuring consistency and clarity in brand messaging.',
@@ -129,6 +134,7 @@ export const experience: ExperienceItem[] = [
     period: '2006 – 2007',
     location: 'Indianapolis, IN',
     description: 'Gained foundational experience in a professional healthcare marketing environment, assisting with content and event coordination.',
+    keyAchievement: 'Scale to 30k Users',
     achievements: [
       'Assisted with content development and event coordination in a professional healthcare marketing environment.',
     ],
@@ -157,11 +163,32 @@ export const education: EducationItem[] = [
 ];
 
 export const awards: Award[] = [
-  { 
-    title: 'Gold Key Photography Award', 
-    organization: 'Scholastic Art & Writing Awards', 
+  {
+    title: 'Gold Key Photography Award',
+    organization: 'Scholastic Art & Writing Awards',
     year: '2008',
     description: 'Top-tier recognition in visual arts'
+  },
+];
+
+export const certifications: Certification[] = [
+  {
+    name: 'HubSpot Marketing Software Certification',
+    issuer: 'HubSpot Academy',
+    year: '2023',
+    description: 'Certified in HubSpot Marketing Software, including email marketing, lead nurturing, and marketing automation.',
+  },
+  {
+    name: 'Google Analytics Certification',
+    issuer: 'Google',
+    year: '2022',
+    description: 'Certified in Google Analytics 4 (GA4) and Google Tag Manager for advanced tracking and measurement.',
+  },
+  {
+    name: 'AWS Cloud Practitioner',
+    issuer: 'Amazon Web Services',
+    year: '2024',
+    description: 'Foundational AWS cloud knowledge including core services, security, and architecture best practices.',
   },
 ];
 
@@ -176,11 +203,14 @@ export const skillCategories: SkillCategory[] = [
       'Budget & Resource Management',
       'Executive Communication & Board Reporting',
       'Mentoring & Staff Development',
+      'Team Building',
+      'Project Management',
+      'Stakeholder Management',
     ],
   },
   {
     id: 'strategy',
-    title: 'Marketing Strategy',
+    title: 'Strategy',
     accent: 'orange',
     items: [
       'Brand Strategy & Positioning',
@@ -188,50 +218,59 @@ export const skillCategories: SkillCategory[] = [
       'Campaign Strategy & Execution',
       'Content Strategy & Technical SEO',
       'Business Development & Client Relations',
+      'Market Research & Competitive Analysis',
+      'Strategic Planning',
+      'ROI Measurement & Reporting',
     ],
   },
   {
     id: 'automation',
-    title: 'Marketing Automation',
+    title: 'Automation',
     accent: 'blue',
     items: [
       'CRM Architecture (HubSpot, FluentCRM, Salesforce)',
       'Workflow Automation & Lead Nurturing',
       'Email Marketing & Drip Campaigns',
       'Marketing Operations (RevOps)',
-    ],
-  },
-  {
-    id: 'analytics',
-    title: 'Analytics & Performance',
-    accent: 'teal',
-    items: [
       'Data Analytics & Attribution Modeling',
       'Custom Analytics Dashboards (GA4, GTM)',
       'Conversion Rate Optimization (CRO)',
-      'ROI Measurement & Reporting',
+      'HubSpot',
+      'FluentCRM',
+      'WP Fusion',
+      'Uncanny Automator',
+      'Google Analytics',
+      'Google Tag Manager',
     ],
   },
   {
-    id: 'development',
-    title: 'Technical Implementation',
-    accent: 'orange',
+    id: 'engineering',
+    title: 'Engineering',
+    accent: 'teal',
     items: [
       'Full-Stack Web Development (WordPress, JavaScript, React)',
       'Marketing Technology Integration',
       'Serverless Development (Cloudflare Workers)',
       'API Development & System Integration',
-    ],
-  },
-  {
-    id: 'tools',
-    title: 'Tools & Platforms',
-    accent: 'blue',
-    items: [
-      'WordPress', 'JavaScript', 'React', 'HubSpot', 'FluentCRM', 'WP Fusion', 
-      'LearnDash', 'WooCommerce', 'Google Analytics', 'Google Tag Manager', 
-      'Mapbox', 'Cloudflare Workers', 'Cloudflare CDN', 'WP Rocket', 'LiteSpeed',
-      'ACF Pro', 'FacetWP', 'Figma', 'Adobe Creative Suite', 'Canva', 'Photoshop'
+      'WordPress',
+      'JavaScript',
+      'React',
+      'PHP',
+      'REST APIs',
+      'Cloudflare Workers',
+      'Cloudflare CDN',
+      'LearnDash',
+      'WooCommerce',
+      'Gravity Forms',
+      'Mapbox',
+      'WP Rocket',
+      'LiteSpeed',
+      'ACF Pro',
+      'FacetWP',
+      'Figma',
+      'Adobe Creative Suite',
+      'Canva',
+      'Photoshop',
     ],
   },
 ];

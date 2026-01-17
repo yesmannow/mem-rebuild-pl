@@ -3,17 +3,21 @@ import { motion } from 'framer-motion';
 import { Server, GitBranch, Package, Zap, Shield, CheckCircle, Code, FileCode, ChevronDown as ChevronDownIcon } from 'lucide-react';
 import AnimatedSection from '../components/animations/AnimatedSection';
 import { OceanBackgroundBeams } from '../components/ui/OceanBackgroundBeams';
+import { SimpleSection } from '../components/ui/SimpleSection';
+import TechBackdrop from '../components/hero/TechBackdrop';
+import { DevOpsBundleChart, DevOpsPerformanceMetrics, DevOpsDeploymentTimeline } from '../components/devops';
 
 const DevOpsPortfolio: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'architecture' | 'deployment' | 'guards' | 'metrics'>('architecture');
 
   return (
-    <main className="devops-portfolio bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white min-h-screen relative">
-      <OceanBackgroundBeams className="opacity-30" />
-
-      {/* Hero Section */}
-      <AnimatedSection>
-        <section className="container mx-auto px-6 py-16 relative z-10">
+    <main className="devops-portfolio min-h-screen relative">
+      {/* Hero Section with TechBackdrop */}
+      <SimpleSection variant="default" padding="none" container={false} className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <TechBackdrop className="absolute inset-0" />
+        <div className="relative z-10 w-full pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -33,12 +37,15 @@ const DevOpsPortfolio: React.FC = () => {
               powering this portfolio—from dual base path logic to custom element guards.
             </p>
           </motion.div>
-        </section>
-      </AnimatedSection>
+            </div>
+          </AnimatedSection>
+        </div>
+      </SimpleSection>
 
       {/* Tab Navigation */}
-      <AnimatedSection delay={0.1}>
-        <section className="container mx-auto px-6 pb-8 relative z-10">
+      <SimpleSection variant="bordered" padding="md" animated>
+        <AnimatedSection delay={0.1}>
+          <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap justify-center gap-2 mb-12">
             {[
               { id: 'architecture', label: 'Architecture', icon: <Code className="w-4 h-4" /> },
@@ -60,12 +67,13 @@ const DevOpsPortfolio: React.FC = () => {
               </button>
             ))}
           </div>
-        </section>
-      </AnimatedSection>
+          </div>
+        </AnimatedSection>
+      </SimpleSection>
 
       {/* Content Sections */}
-      <AnimatedSection delay={0.2}>
-        <section className="container mx-auto px-6 pb-16 relative z-10">
+      <SimpleSection variant="elevated" padding="xl" animated>
+        <AnimatedSection delay={0.2}>
           <div className="max-w-6xl mx-auto">
 
             {/* Architecture Tab */}
@@ -140,68 +148,42 @@ const DevOpsPortfolio: React.FC = () => {
                 className="space-y-8"
               >
                 {/* Deployment Timeline */}
-                <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
-                  <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-                    <GitBranch className="w-8 h-8 text-turquoise" />
-                    Deployment Pipeline
-                  </h2>
-
-                  <div className="relative">
-                    {/* Timeline line */}
-                    <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-turquoise via-brand-teal to-brand-teal"></div>
-
-                    <div className="space-y-8">
-                      {[
-                        {
-                          step: '1',
-                          title: 'Development',
-                          desc: 'Local development with Vite dev server',
-                          details: ['Hot Module Replacement', 'React Fast Refresh', 'Instant updates'],
-                          color: 'turquoise'
-                        },
-                        {
-                          step: '2',
-                          title: 'Pre-build',
-                          desc: 'Type checking, linting, and asset generation',
-                          details: ['npm run typecheck', 'npm run lint', 'Image manifest creation'],
-                          color: 'blue'
-                        },
-                        {
-                          step: '3',
-                          title: 'Build',
-                          desc: 'Production build with environment-specific configuration',
-                          details: ['Vite production build', 'Code splitting', 'Asset optimization'],
-                          color: 'teal'
-                        },
-                        {
-                          step: '4',
-                          title: 'Deploy',
-                          desc: 'Automatic deployment to target platform',
-                          details: ['GitHub Actions trigger', 'Cloudflare Pages webhook', 'DNS propagation'],
-                          color: 'green'
-                        }
-                      ].map((item, i) => (
-                        <div key={i} className="relative pl-20">
-                          <div className={`absolute left-0 w-16 h-16 rounded-full bg-${item.color}-500/20 border-4 border-${item.color}-500 flex items-center justify-center text-2xl font-bold text-${item.color}-300`}>
-                            {item.step}
-                          </div>
-                          <div className="bg-slate-900/50 rounded-lg p-6 border border-slate-700">
-                            <h4 className="text-xl font-bold mb-2">{item.title}</h4>
-                            <p className="text-slate-300 mb-4">{item.desc}</p>
-                            <ul className="space-y-2">
-                              {item.details.map((detail, j) => (
-                                <li key={j} className="flex items-center gap-2 text-sm text-slate-400">
-                                  <CheckCircle className="w-4 h-4 text-green-400" />
-                                  {detail}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                <DevOpsDeploymentTimeline
+                  steps={[
+                    {
+                      step: 1,
+                      title: 'Development',
+                      description: 'Local development with Vite dev server',
+                      status: 'completed',
+                      duration: 'Instant',
+                      details: ['Hot Module Replacement', 'React Fast Refresh', 'Instant updates'],
+                    },
+                    {
+                      step: 2,
+                      title: 'Pre-build',
+                      description: 'Type checking, linting, and asset generation',
+                      status: 'completed',
+                      duration: '~30s',
+                      details: ['npm run typecheck', 'npm run lint', 'Image manifest creation'],
+                    },
+                    {
+                      step: 3,
+                      title: 'Build',
+                      description: 'Production build with environment-specific configuration',
+                      status: 'completed',
+                      duration: '~2min',
+                      details: ['Vite production build', 'Code splitting', 'Asset optimization'],
+                    },
+                    {
+                      step: 4,
+                      title: 'Deploy',
+                      description: 'Automatic deployment to target platform',
+                      status: 'completed',
+                      duration: '~1min',
+                      details: ['GitHub Actions trigger', 'Cloudflare Pages webhook', 'DNS propagation'],
+                    },
+                  ]}
+                />
 
                 {/* GitHub Pages vs Cloudflare Comparison */}
                 <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
@@ -570,10 +552,35 @@ defineCustomElementIfNeeded('mce-autosize-textarea', AutosizeTextarea);
                 animate={{ opacity: 1, y: 0 }}
                 className="space-y-8"
               >
+                {/* Bundle Size Chart */}
+                <DevOpsBundleChart
+                  data={[
+                    { name: 'Vendor', size: 450, gzipped: 150, color: '#3B82F6' },
+                    { name: 'Motion', size: 240, gzipped: 80, color: '#40E0D0' },
+                    { name: 'Router', size: 120, gzipped: 40, color: '#10B981' },
+                    { name: 'App', size: 200, gzipped: 70, color: '#F59E0B' },
+                  ]}
+                />
+
+                {/* Performance Metrics */}
+                <DevOpsPerformanceMetrics
+                  data={[
+                    { metric: 'Lighthouse Score', value: 92, target: 85 },
+                    { metric: 'First Contentful Paint', value: 1.2, target: 2.0 },
+                    { metric: 'Time to Interactive', value: 2.8, target: 3.5 },
+                  ]}
+                  timeSeriesData={[
+                    { date: 'Week 1', value: 85 },
+                    { date: 'Week 2', value: 88 },
+                    { date: 'Week 3', value: 90 },
+                    { date: 'Week 4', value: 92 },
+                  ]}
+                />
+
                 <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
                   <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                     <Package className="w-8 h-8 text-turquoise" />
-                    Bundle Optimization Metrics
+                    Bundle Optimization Details
                   </h2>
 
                   <div className="space-y-6">
@@ -593,26 +600,6 @@ defineCustomElementIfNeeded('mce-autosize-textarea', AutosizeTextarea);
   router: ['react-router-dom'],
 }`}
                         </pre>
-                      </div>
-
-                      <div className="grid md:grid-cols-3 gap-4">
-                        <div className="bg-gradient-to-br from-blue-900/50 to-slate-900/50 p-6 rounded-lg border border-blue-700">
-                          <div className="text-3xl font-bold text-blue-300 mb-2">~150KB</div>
-                          <div className="text-sm text-slate-300">Vendor chunk (gzipped)</div>
-                          <div className="text-xs text-slate-400 mt-2">React + React DOM</div>
-                        </div>
-
-                        <div className="bg-gradient-to-br from-brand-teal/20 to-slate-900/50 p-6 rounded-lg border border-brand-teal/50">
-                          <div className="text-3xl font-bold text-brand-teal mb-2">~80KB</div>
-                          <div className="text-sm text-slate-300">Motion chunk (gzipped)</div>
-                          <div className="text-xs text-slate-400 mt-2">Framer Motion</div>
-                        </div>
-
-                        <div className="bg-gradient-to-br from-green-900/50 to-slate-900/50 p-6 rounded-lg border border-green-700">
-                          <div className="text-3xl font-bold text-green-300 mb-2">~40KB</div>
-                          <div className="text-sm text-slate-300">Router chunk (gzipped)</div>
-                          <div className="text-xs text-slate-400 mt-2">React Router</div>
-                        </div>
                       </div>
                     </div>
 
@@ -686,12 +673,13 @@ const ToolsShowcase = React.lazy(() => import('../pages/ToolsShowcase'));
               </motion.div>
             )}
           </div>
-        </section>
-      </AnimatedSection>
+        </AnimatedSection>
+      </SimpleSection>
 
       {/* Technology Summary */}
-      <AnimatedSection delay={0.3}>
-        <section className="container mx-auto px-6 pb-16 relative z-10">
+      <SimpleSection variant="accent-teal" padding="lg" animated>
+        <AnimatedSection delay={0.3}>
+          <div className="max-w-7xl mx-auto">
           <div className="max-w-5xl mx-auto bg-gradient-to-r from-turquoise via-brand-teal to-brand-teal rounded-2xl shadow-2xl p-8 md:p-12">
             <h2 className="text-3xl font-bold mb-8 text-center text-white">Deployment Stack Summary</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -717,8 +705,9 @@ const ToolsShowcase = React.lazy(() => import('../pages/ToolsShowcase'));
               </div>
             </div>
           </div>
-        </section>
-      </AnimatedSection>
+          </div>
+        </AnimatedSection>
+      </SimpleSection>
     </main>
   );
 };

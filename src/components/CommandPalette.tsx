@@ -148,7 +148,7 @@ const NAVIGATION_ITEMS: NavigationItem[] = [
     title: 'Bio / About',
     description: 'Learn about my journey and background',
     icon: User,
-    to: '/about',
+    to: '/resume',
     keywords: ['me', 'story', 'background', 'about'],
     type: 'navigation'
   },

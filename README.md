@@ -2,189 +2,7 @@
 
 > Marketing Strategist & Systems Architect | Turning Complexity into Clarity
 
-A modern, interactive portfolio showcasing expertise in marketing automation, full-stack development, and systems integration. Built with Vite, React, TypeScript, and Framer Motion.
-
-## ✨ Recent Improvements (December 2024)
-
-### Modern UI Enhancements
-- 🎨 **Live Portfolio Metrics** - Real-time animated dashboard with glassmorphism design
-- ⌨️ **Typewriter Effect** - Dynamic hero text cycling through key roles
-- 🎯 **Interactive Skills Visualization** - Filterable skill categories with animated progress bars
-- 💎 **Glassmorphism Cards** - Modern backdrop blur effects throughout
-- 📊 **Skeleton Loaders** - Improved perceived performance during loading
-
-### Code Quality
-- ✅ **TypeScript Fixes** - All compilation errors resolved
-- 📁 **Repository Cleanup** - 25 historical docs archived for cleaner structure
-- 🧹 **Organized Archive** - Historical documentation preserved in `/archive`
-
-### Performance
-- 🚀 **Build Status** - Clean TypeScript compilation
-- ⚡ **Optimized Components** - Better code splitting and lazy loading
-- 📦 **Bundle Analysis** - Ready for optimization with `ANALYZE=true npm run build`
-
-See [SITE_AUDIT.md](./SITE_AUDIT.md) for complete audit report and improvement roadmap.
-
-## 🚀 Features
-
-- **BearCave cinematic hero** — looping tech backdrop, chip indicators, and gradient CTAs
-- **Filterable case study library** — six narrative deep dives with rich metrics and tag search
-- **Interactive applications hub** — live demos, sort/search, grid & list layouts, and metric cards
-- **Modern About experience** — rotating portrait gallery, accordion timeline, and community work showcase
-- **AI-Powered Case Study Explainer** — Generate persona-specific explanations (Founder, CMO, Developer, General) using OpenAI/Gemini
-- **Live Screenshot Previews** — Dynamic case study thumbnails from live websites via screenshot API
-- **Dynamic API Imagery** — Photography APIs (Unsplash, Lorem Picsum) enhance all pages with themed backgrounds
-- **Design System** — Shadcn/ui style components (Card, Badge, TechIcon) for consistent UX
-- **Assistant-ready data model** — case studies and applications defined in TypeScript for quick updates
-
-## 🛠️ Tech Stack
-
-- **Framework**: React 18 + TypeScript
-- **Build Tool**: Vite
-- **Routing**: React Router v6
-- **Animations**: Framer Motion
-- **Styling**: CSS3 with Custom Properties
-- **Deployment**: Vercel
-
-## 📱 Key Sections
-
-### 🧭 Site navigation
-
-- **Home** — hero, selected work, testimonials, and contact CTA
-- **Case Studies** — searchable hub plus `/case-studies/[slug]` detail pages
-- **Applications** — interactive listings and `/applications/[id]` detail views
-- **About** — rotating bio gallery, philosophy cards, accordion timeline, community impact
-- **Projects** — technical and value project catalog
-- **Contact** — accessible contact form with scheduling link
-
-### Case Studies
-Six narrative projects showing problem → strategy → impact:
-- **The Launchpad** — turned a static directory into a revenue engine (+212% qualified leads)
-- **The Guardian** — automated compliance assistant that reduces tickets 68%
-- **The Compass** — rebuilt analytics and attribution for precise ROI decisions
-- **The Fortress** — edge-first security overhaul blocking 85K+ malicious hits monthly
-- **The Conductor** — unified data pipeline across WooCommerce, LearnDash, FluentCRM, and Sheets
-- **The Engine Room** — server optimization that cut load times from 5.8s to 1.2s
-
-### Content management
-
-#### Adding a case study
-1. Update `src/data/caseStudies.ts` with a new object containing `slug`, `title`, `tagline`, `color`, `icon`, `metrics`, and `fullContent` (challenge/strategy/impact). The `fullContent` object supports `paragraphs` and `bullets` arrays for rich rendering.
-2. Add a lightweight entry to `src/data/caseStudies.json` so the Case Study Explorer highlights the new story.
-3. Provide a supporting image or illustration in `public/images/case-studies/` and reference it from the `image` field. Use TODO comments if an asset needs to be produced later.
-
-#### Adding an application
-1. Append a new application object in `src/data/applications.ts`. Provide an `icon` emoji, optional `accentGradient`, and ensure `thumbnail` points to an asset in `public/apps/`.
-2. Populate the `valueProposition`, `features`, and `technicalDetails` arrays so the detail view renders the Overview, Technical Deep Dive, and Live Demo tabs.
-3. Supply metrics and optional testimonial data to surface impact on both the listing card and detail page.
-
-## 📸 Professional API Integrations
-
-This portfolio features enterprise-grade API integrations that showcase technical expertise and create engaging user experiences.
-
-### 🤖 AI-Powered Case Study Explainer
-
-**Location**: Case study detail pages (`/case-study/[slug]`)
-
-Generate persona-specific explanations of case studies using OpenAI GPT-4 or Google Gemini AI:
-
-- **Personas**: Founder/CEO, CMO, Developer, General
-- **Features**: 
-  - Interactive persona selection with animations
-  - Real-time AI-generated explanations
-  - Automatic fallback from OpenAI to Gemini
-  - Professional, concise output (2-3 paragraphs)
-- **Implementation**: 
-  - Cloudflare Pages Function: `/functions/api/explain-case-study.ts`
-  - React Component: `/src/components/case-study/CaseStudyExplainer.tsx`
-
-### 📸 Live Screenshot API
-
-**Location**: Case studies listing page
-
-Dynamically generate screenshots of live case study websites:
-
-- **Features**:
-  - Live website thumbnails
-  - Lazy loading and 24-hour caching
-  - Graceful fallback to gradient backgrounds
-  - Hover effects and external links
-- **Implementation**:
-  - Cloudflare Pages Function: `/functions/api/screenshot.ts`
-  - React Component: `/src/components/case-study/CaseStudyScreenshotCard.tsx`
-
-### 🎨 Dynamic Background Imagery
-
-**Location**: All major pages
-
-Themed background images from Unsplash API enhance visual appeal:
-
-- **Page Themes**: Pre-configured for Home, Portfolio, Services, Tools, DevOps, etc.
-- **Features**:
-  - Lazy loading for performance
-  - Brand-consistent overlays
-  - WCAG AA contrast compliance
-  - Section-level and page-level backgrounds
-- **Implementation**:
-  - Service: `/src/services/pageBackgroundService.ts`
-  - Components: `/src/components/layout/PageWithApiBackground.tsx`
-
-### 🎨 Design System Components
-
-Professional UI components following Shadcn/ui principles:
-
-- **Card**: Composable card system with 4 variants (default, glass, gradient, outlined)
-- **Badge**: 8 variants with icons and removable functionality
-- **TechIcon**: Unified tech stack icon system with 50+ pre-mapped technologies
-
-See [`docs/PROFESSIONAL_API_ENHANCEMENTS.md`](docs/PROFESSIONAL_API_ENHANCEMENTS.md) for complete documentation.
-
-### Environment Variables
-
-Required for Cloudflare Pages deployment:
-
-```env
-# AI APIs (at least one required)
-OPENAI_API_KEY=sk-...
-GEMINI_API_KEY=...
-
-# Database
-SUPABASE_URL=...
-SUPABASE_ANON_KEY=...
-```
-
-## 🎨 Brand Identity
-
-- **Primary**: #88ABF2 (Clarity Blue)
-- **Secondary**: #595959 (Professional Gray)
-- **Dark**: #0D0D0D (Deep Background)
-- **Light**: #fafbfc (Clean White)
-
-## 🏃 Quick Start
-
-```bash
-# Clone the repository
-git clone https://github.com/JdarlingGT/jacob-darling-portfolio.git
-
-# Navigate to project
-cd jacob-darling-portfolio
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-```
-
-# mem-rebuild-pl
-
-A modern, professional portfolio powered by Vite, React, TypeScript, TailwindCSS, and a comprehensive suite of CLI tools and MCP servers for automated content generation, asset optimization, and deployment.
+A modern, interactive portfolio showcasing expertise in marketing automation, full-stack development, and systems integration. Built with Vite, React, TypeScript, TailwindCSS, and a comprehensive suite of CLI tools and MCP servers.
 
 ## 🚀 Quick Start
 
@@ -202,131 +20,215 @@ npm run build
 npm run preview
 ```
 
-## 📂 Site Structure
+The development server will be available at `http://localhost:5173`
 
-### Main Pages
+## 🛠️ Tech Stack
 
-- **/** - Homepage with hero, featured work, and testimonials
-- **/portfolio** - Interactive portfolio gallery with filtering
+### Core Framework
+
+- **React 18** - UI library with hooks and concurrent features
+- **TypeScript 5.9** - Type-safe development
+- **Vite 6** - Fast build tool and dev server
+- **React Router v6** - Client-side routing
+- **TailwindCSS 3.4** - Utility-first CSS framework
+
+### UI & Animation
+
+- **Framer Motion** - Production-ready motion library
+- **GSAP** - Advanced animation toolkit
+- **Lenis** - Smooth scrolling library
+- **Lucide React** - Icon library
+- **Radix UI** - Accessible component primitives
+
+### Data & State
+
+- **TanStack Query** - Server state management
+- **Zustand** - Lightweight state management
+- **React Hook Form** - Form handling with validation
+
+### Build & Deployment
+
+- **Vite PWA Plugin** - Progressive Web App support
+- **Rollup** - Module bundler
+- **TypeScript Compiler** - Type checking
+
+### Development Tools
+
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+- **Jest** - Testing framework
+- **Playwright** - E2E testing
+- **Lighthouse CI** - Performance auditing
+
+## ✨ Features
+
+### Core Portfolio Features
+
+- **Modern Homepage** - Ocean Pearl hero with animated background, career highlights, portfolio showcase, and testimonials
+- **Case Studies** - 9+ detailed case studies with metrics, challenges, strategies, and outcomes
+- **Interactive Applications** - Live demos of marketing tools and applications
+- **Resume/About Page** - Interactive resume with timeline, skills visualization, and downloadable PDF
+- **Projects Gallery** - Technical and creative project showcase
+- **Services** - Marketing systems and services overview
+- **Contact Form** - Accessible contact form with scheduling integration
+- **Portfolio Concierge (AI Assistant)** - Global floating chat widget that answers visitor questions about skills, rates, case studies, and availability
+
+### Interactive Applications
+
+- **Growth Engine** - ROI modeling & quote generation
+- **SEO Scanner** - Edge HTMLRewriter audit tool
+- **License Hub** - 50-state compliance database
+- **Clinical Compass** - Logic-based treatment protocols
+- **Lead Score Lab** - Lead scoring and qualification
+- **Link Architect** - Link building and management
+- **Campaign Performance Visualizer** - Marketing campaign analytics
+- **Competitor Intelligence Hub** - Competitive analysis tools
+- **Marketing Simulator** - Interactive marketing scenario modeling
+- **Brand Builder** - Interactive brand identity creation tool
+- **Email Marketing Simulator** - Email campaign simulation
+- **Social Media Simulator** - Social media strategy tool
+
+### Design & Creative
+
+- **Photography Portfolio** - Curated photography gallery
+- **Graphic Design** - Branding and visual identity work
+- **Design System** - Comprehensive design tokens and components
+- **Component Showcase** - Interactive UI component demos
+- **Brand Gallery** - Brand identity systems showcase
+
+### Developer Tools
+
+- **Tools Showcase** - CLI tools and MCP servers documentation
+- **DevOps Portfolio** - Deployment architecture and optimization strategies
+- **The Lab** - Interactive tools and system telemetry
+
+### Legal Demo Features
+
+- **Workers Compensation** - Legal tech demo with document viewer
+- **Litigation Practice** - Court mapping and legal tools
+- **Business Law** - Corporate law tools with market data
+- **Finance Industry** - Financial services legal tools
+
+### AI & Interactive Features
+
+- **Portfolio Concierge** - Global Marketing OS Assistant
+  - Floating chat widget (bottom-right corner, accessible from any page)
+  - Answers questions about skills, hourly rates, case studies, and availability
+  - Keyword-based intelligent responses using centralized knowledge base
+  - Preset prompt buttons for quick questions ("Skills", "The Launchpad", "Availability")
+  - Typing indicator with smooth animations
+  - Responsive design (mobile-optimized with proper spacing)
+  - Glass-panel styling with brand turquoise gradient
+  - Auto-scrolls to latest messages
+  - Case study search and detailed project information
+
+## 📱 Site Structure
+
+### Main Navigation
+
+- **/** - Homepage with hero, featured work, testimonials
+- **/resume** - Interactive resume (About page redirects here)
+- **/case-studies** - Case studies listing with filtering
+- **/applications** - Interactive applications hub
+- **/projects** - Technical and creative projects
+- **/services** - Marketing systems and services
 - **/tools** - CLI tools & MCP servers showcase
-- **/devops** - DevOps & deployment portfolio with architecture documentation
-- **/case-study/[slug]** - Dynamic case study detail pages
-- **/resume** - Interactive resume with PDF download
-- **/about** - About page with bio, timeline, and community work
-- **/contact** - Contact form with scheduling integration
+- **/devops** - DevOps & deployment documentation
+- **/contact** - Contact form
 
-### 🎯 Wow Factor Portfolio Pages
+### Global Features
 
-#### 🧰 Tools Showcase (`/tools`)
+- **Portfolio Concierge** - Floating AI assistant widget (available on all pages)
+  - Accessible via floating button in bottom-right corner
+  - Responsive positioning (mobile: `bottom-4 right-4`, desktop: `bottom-6 right-6`)
+  - High z-index (z-50) to float above all content
+  - Mobile-optimized chat window with proper margins
 
-**Location**: `src/pages/ToolsShowcase.tsx`
+### Case Studies
 
-A comprehensive showcase of CLI tools, MCP servers, and automation scripts that power this portfolio's development workflow.
+Individual case study pages with comprehensive metrics:
 
-**Features**:
-- **12 documented tools** across 6 categories (CLI, MCP Server, Build Tools, Content Generation, Automation, Deployment)
-- **Search & filter** functionality to find tools by name, technology, or description
-- **Code snippets** with copy-to-clipboard for immediate use
-- **Tech stack badges** showing Node.js, Python, React, TypeScript, etc.
-- **Outcomes tracking** for each tool's benefits and results
+- `/case-studies/the-launchpad` - 212% increase in qualified leads
+- `/case-studies/the-guardian` - 68% reduction in compliance tickets
+- `/case-studies/the-compass` - Analytics rebuild for precise ROI tracking
+- `/case-studies/the-fortress` - Edge security blocking 85K+ malicious hits/month
+- `/case-studies/the-conductor` - Unified data pipeline across 4+ platforms
+- `/case-studies/the-engine-room` - Server optimization (5.8s → 1.2s load time)
+- `/case-studies/graston-ceu-system` - Continuing education platform
+- `/case-studies/rbe-law-brand-and-digital` - Law firm rebrand and digital transformation
+- `/case-studies/ultimate-tech-roi-growth` - Tech ROI growth system
 
-**Documented Tools**:
-1. **MCP Server** - Express-based Model Context Protocol server with health monitoring
-2. **Scrape & Generate CLI** - Gemini AI content pipeline with image optimization
-3. **MCP CLI Wrapper** - Unified command-line interface for all MCP operations
-4. **Design Asset Scraper** - Python/MCP integration for extracting images from websites
-5. **Icon Component Generator** - Auto-generates React components from SVG icons
-6. **Color Refactoring Tool** - Design system migration for color tokens
-7. **Enhanced Moodboard Generator** - AI-powered brand inspiration boards
-8. **Image Build Pipeline** - Sharp integration for optimization and format conversion
-9. **Bundle Analyzer** - Rollup visualizer for production build optimization
-10. **Image Optimizer** - Batch compression and modern format conversion
-11. **Unused Image Auditor** - Identifies unreferenced images for cleanup
-12. **Deployment Pipeline** - Multi-platform deployment configuration
+### Creative & Design
 
-**Usage Examples**:
-```bash
-# Start MCP server
-npm run mcp:start
+- `/photography` - Photography portfolio
+- `/design` - Design work showcase
+- `/graphic-design` - Graphic design portfolio
+- `/creative` - Combined creative work
+- `/gallery` - Brand gallery
+- `/showcase` - Component showcase
+- `/design-system` - Design system demo
 
-# Generate content
-npm run generate:content
+### Applications & Tools
 
-# Optimize images
-npm run optimize-images
+- `/apps` - The Lab (interactive tools hub)
+- `/apps/growth-engine` - Growth Engine application
+- `/apps/seo-scanner` - SEO Scanner tool
+- `/apps/license-hub` - License Hub application
+- `/apps/clinical-compass` - Clinical Compass tool
+- `/apps/lead-lab` - Lead Score Lab
+- `/apps/link-architect` - Link Architect
+- `/apps/campaign-performance` - Campaign Performance Visualizer
+- `/apps/competitor-intelligence` - Competitor Intelligence Hub
+- `/apps/marketing-simulator` - Marketing Simulator
+- `/apps/brand-builder` - Brand Builder tool
+- `/apps/email-marketing-simulator` - Email Marketing Simulator
+- `/apps/social-media-simulator` - Social Media Simulator
 
-# Analyze bundle
-ANALYZE=true npm run build
-```
+### Legal Demo Routes
 
-#### ⚙️ DevOps Portfolio (`/devops`)
+- `/legal/workers-compensation` - Workers compensation law demo
+- `/legal/litigation` - Litigation practice demo
+- `/legal/business-law` - Business law demo
+- `/legal/finance-industry` - Financial services law demo
+- `/business-development-demo` - Law firm business development components
 
-**Location**: `src/pages/DevOpsPortfolio.tsx`
+### Additional Pages
 
-A deep dive into the deployment architecture, build optimizations, and custom element guards that power this portfolio.
+- `/side-projects` - Side projects showcase
+- `/testimonials` - Client testimonials
+- `/privacy` - Privacy policy
+- `/terms` - Terms of service
+- `/resume-print` - Printable resume version
+- `/deployment-status` - Deployment status dashboard
 
-**Tabs**:
-1. **Architecture** - Vite configuration, framework stack, and path aliases
-2. **Deployment** - CI/CD pipeline, platform comparison (GitHub Pages vs Cloudflare)
-3. **Element Guards** - `defineCustomElementIfNeeded` pattern for HMR compatibility
-4. **Bundle Metrics** - Code splitting strategy, lazy loading, and performance targets
+## 🎨 Design System
 
-**Key Topics**:
-- **Dual Base Path Logic**: Automatic switching between `/mem-rebuild-pl/` (GitHub Pages) and `/` (Cloudflare/Vercel)
-- **Custom Element Guards**: Preventing duplicate registration errors in development
-- **Bundle Optimization**: Intelligent code splitting and chunk organization
-- **Platform Comparison**: GitHub Pages vs Cloudflare Pages feature matrix
+### Color Palette
 
-**Code Examples**:
-```javascript
-// vite.config.js - Dual deployment support
-export default defineConfig({
-  base: process.env.GITHUB_PAGES === 'true'
-    ? `/${process.env.GITHUB_REPOSITORY?.split('/')[1] || 'mem-rebuild-pl'}/`
-    : '/',
-  // ... rest of config
-});
-
-// Custom Element Guard
-import { defineCustomElementIfNeeded } from '@/utils/defineCustomElementGuard';
-defineCustomElementIfNeeded('mce-autosize-textarea', AutosizeTextarea);
-```
-
-#### 📚 Case Study Deep Dives
-
-Individual case study pages with comprehensive metrics, challenges, solutions, and outcomes:
-- `/case-study/the-launchpad` - 212% increase in qualified leads
-- `/case-study/the-guardian` - 68% reduction in compliance tickets
-- `/case-study/the-compass` - Analytics rebuild for precise ROI tracking
-- `/case-study/the-fortress` - Edge security blocking 85K+ malicious hits/month
-- `/case-study/the-conductor` - Unified data pipeline across 4+ platforms
-- `/case-study/the-engine-room` - Server optimization (5.8s → 1.2s load time)
-
-### 🎨 Brand Identity (Wow Factor Edition)
-
-The portfolio uses a modern, vibrant color palette designed to stand out:
-
-**Color Palette**:
 - **Primary: Turquoise** (#40E0D0) - Bright, modern accent for CTAs and highlights
 - **Secondary: Creamsicle** (#FFA500) - Warm, energetic for secondary emphasis
-- **Tertiary: Light Blue-Gray** (#B3CDE0) - Sophisticated backgrounds and subtle elements
+- **Tertiary: Light Blue-Gray** (#B3CDE0) - Sophisticated backgrounds
 - **Dark: Slate** (#0f172a) - Deep backgrounds for dark mode
+- **Surface: Slate-800** (#1e293b) - Card backgrounds
 - **Text: High contrast** (#F8FAFC) - Accessibility-first text color
 
-**Typography**:
+### Typography
+
 - **Primary Font**: Montserrat (300-800 weights) - Modern, clean, professional
 - **Monospace Font**: Fira Code - For code snippets and technical content
-- **Loading**: `font-display: swap` for optimal performance
+- **Font Display**: `swap` for optimal performance
 
-**Features**:
+### Features
+
 - ✅ WCAG AA contrast compliance
 - ✅ Dark mode with system preference detection
 - ✅ Zero-FOUC (Flash of Unstyled Content) implementation
 - ✅ Smooth theme transitions
+- ✅ Responsive design (mobile-first)
 
-## 🛠️ CLI Tools & Automation
+## 🧰 CLI Tools & Automation
 
-### Build & Deploy Commands
+### Build & Deploy
 
 ```bash
 # Analyze bundle size with visualizer
@@ -335,7 +237,7 @@ ANALYZE=true npm run build
 # Build for GitHub Pages (subdirectory deployment)
 GITHUB_PAGES=true npm run build
 
-# Build for Cloudflare Pages / custom domain (root deployment)
+# Build for Cloudflare Pages / Vercel (root deployment)
 npm run build
 
 # Preview build locally
@@ -424,80 +326,149 @@ npm run predeploy:full
 npm run validate:all
 ```
 
-## 📦 Folder Structure
+### Design & Content Tools
 
+```bash
+# Analyze portfolio design
+npm run design:analyze
+
+# Generate icon components
+npm run icon:generate-components
+
+# Refactor colors in design system
+npm run design:refactor-colors
+
+# Generate moodboards
+npm run generate:moodboards
+
+# Generate enhanced moodboards
+npm run generate:enhanced-moodboards
 ```
+
+### Audit & Cleanup
+
+```bash
+# Lighthouse audit
+npm run audit:lighthouse
+
+# Accessibility audit
+npm run audit:accessibility
+
+# Find duplicates
+npm run audit:duplicates
+
+# Find unused assets
+npm run audit:unused
+
+# Cleanup unused files (dry run)
+npm run cleanup:unused:dry
+
+# Interactive cleanup
+npm run cleanup:unused:interactive
+```
+
+## 📦 Project Structure
+
+```text
 mem-rebuild-pl/
 ├── src/
 │   ├── pages/              # React page components
+│   │   ├── Home.tsx
+│   │   ├── About.tsx
+│   │   ├── CaseStudies.tsx
+│   │   ├── Applications.tsx
 │   │   ├── ToolsShowcase.tsx
 │   │   ├── DevOpsPortfolio.tsx
-│   │   ├── Resume.tsx
 │   │   └── ...
 │   ├── components/         # Reusable React components
+│   │   ├── layout/         # Layout components
+│   │   │   └── Layout.tsx  # Main layout with Portfolio Concierge
+│   │   ├── ai/             # AI assistant components
+│   │   │   └── PortfolioConcierge.tsx  # Global Marketing OS Assistant
+│   │   ├── case-study/     # Case study components
+│   │   ├── apps/           # Application components
+│   │   ├── ui/             # UI primitives
+│   │   └── ...
 │   ├── data/               # TypeScript data models
+│   │   ├── caseStudies.ts
+│   │   ├── applications.ts
+│   │   ├── ai-knowledge.ts # Portfolio Concierge knowledge base
+│   │   ├── projects.ts
+│   │   └── ...
 │   ├── router/             # React Router configuration
-│   └── styles/             # CSS and style files
+│   ├── hooks/               # Custom React hooks
+│   ├── utils/              # Utility functions
+│   ├── services/           # API services
+│   ├── styles/             # Global styles
+│   └── assets/             # Static assets
 ├── public/
-│   ├── images/             # Static images (optimized, 44MB from 64MB)
+│   ├── images/             # Optimized images (WebP/AVIF)
+│   │   ├── bio/            # Bio photos
+│   │   ├── case-studies/   # Case study images
+│   │   ├── projects/       # Project images
+│   │   └── ...
+│   ├── apps/               # Application assets
 │   ├── resume/             # PDF resumes
 │   └── ...
 ├── scripts/                # Build and automation scripts
-│   ├── optimize-large-images.mjs  # Image optimization with Sharp
-│   ├── listUnusedImages.ts        # Unused image auditor
-│   ├── mcp-cli.js                 # MCP CLI wrapper
+│   ├── optimize-images.js  # Image optimization
+│   ├── mcp-cli.js          # MCP CLI wrapper
 │   └── ...
 ├── mcp/                    # MCP server implementation
-│   └── server.js           # Express-based MCP server
-├── archive/                # Non-production files (archived)
-│   ├── docs/               # Historical documentation (640KB)
-│   ├── cli-workflow/       # CLI tool source files (40KB)
-│   └── README.md           # Archive documentation
-├── vite.config.js          # Vite configuration with base path logic
-├── package.json            # Dependencies and scripts
-├── WOW_PORTFOLIO_STATUS.md # Comprehensive status report
-└── README.md               # This file
+│   ├── server.js           # Express-based MCP server
+│   ├── routes/             # API routes
+│   └── utils/              # MCP utilities
+├── functions/              # Cloudflare Pages Functions
+│   └── api/                # API endpoints
+├── cli/                    # CLI tools
+├── vite.config.js          # Vite configuration
+├── tailwind.config.js      # TailwindCSS configuration
+├── tsconfig.json           # TypeScript configuration
+└── package.json            # Dependencies and scripts
 ```
-
-## 🎨 Design System
-
-The portfolio uses a comprehensive, unified design system for consistency and maintainability.
-
-### Color Palette (Wow Factor Portfolio Theme)
-
-- **Turquoise**: `#40E0D0` - Primary accent for links, highlights, and interactive elements
-- **Creamsicle**: `#FFA500` - Secondary accent for warm touches and CTAs
-- **Light Blue-Gray**: `#B3CDE0` - Backgrounds and subtle elements
-- **Dark Slate**: `#0f172a` - Main background
-- **Surface**: `#1e293b` - Card backgrounds
-
-### Typography
-
-- **Font Family**: Montserrat (all text - unified across the site)
-- **Weights**: 300 (light), 400 (normal), 500 (medium), 600 (semibold), 700 (bold), 800 (extra bold)
-- **Monospace**: Fira Code (code blocks only)
-
-### Component Library
-
-The site includes a comprehensive style guide with pre-built utilities:
-- Card components (primary, secondary, glass)
-- Button styles (primary, secondary, accent)
-- Badge and tag components
-- Form elements
-- Metric displays
-- Timeline components
-- Icon wrappers
-- Loading states
-- Hover effects
-- Accessibility utilities
-
-📖 See [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) for complete documentation and usage examples.
 
 ## 🚢 Deployment
 
+### Vercel (Recommended)
+
+The project is configured for Vercel deployment with `vercel.json`:
+
+```bash
+# Deploy to Vercel
+vercel
+
+# Or connect via GitHub for automatic deployments
+```
+
+**Configuration:**
+
+- Build command: `npm run build`
+- Output directory: `dist`
+- Framework: Vite
+- Node version: 18+
+
+### Cloudflare Pages
+
+Deploy to Cloudflare Pages with automatic builds:
+
+```bash
+# Build for Cloudflare Pages
+npm run build
+
+# Output in dist/ is ready for Cloudflare Pages
+# Connect your repo in Cloudflare dashboard
+```
+
+**Features:**
+
+- Edge Functions support via `functions/` directory
+- Automatic HTTPS
+- Global CDN
+- Custom domain support
+
 ### GitHub Pages
 
-Deploy to `https://username.github.io/mem-rebuild-pl/`
+Deploy to GitHub Pages with subdirectory support:
 
 ```bash
 # Build with GitHub Pages base path
@@ -507,51 +478,12 @@ GITHUB_PAGES=true npm run build
 # GitHub Actions can auto-deploy on push to main
 ```
 
-### Cloudflare Pages / Custom Domain
-
-Deploy to root domain like `https://yourdomain.com/`
-
-```bash
-# Build with root base path (default)
-npm run build
-
-# Verify Cloudflare configuration
-npm run verify:cloudflare
-
-# Output in dist/ is ready for Cloudflare Pages
-# Connect your repo in Cloudflare dashboard
-```
-
-#### Setting Up Custom Domain
-
-If you're experiencing **Error 522** or connection issues with your custom domain:
-
-1. **Add Custom Domain in Cloudflare Pages Dashboard:**
-   - Go to Cloudflare Dashboard → Workers & Pages → Your Project
-   - Click "Custom domains" tab
-   - Add both apex domain (`example.com`) and www subdomain (`www.example.com`)
-
-2. **Configure DNS Records:**
-   ```
-   Type    Name              Target                      Proxied
-   CNAME   example.com       your-project.pages.dev     Yes ☁️
-   CNAME   www.example.com   example.com                Yes ☁️
-   ```
-
-3. **Verify SSL/TLS Settings:**
-   - Go to Cloudflare Dashboard → SSL/TLS
-   - Set encryption mode to **Full** or **Full (strict)**
-
-4. **Wait for DNS Propagation** (5-60 minutes)
-
-📖 **For detailed troubleshooting, see [docs/CLOUDFLARE_CUSTOM_DOMAIN_SETUP.md](./docs/CLOUDFLARE_CUSTOM_DOMAIN_SETUP.md)**
-
 ### Base Path Logic
 
 The `vite.config.js` automatically handles base path:
 
 - **GitHub Pages**: Sets `base: '/mem-rebuild-pl/'` when `GITHUB_PAGES=true`
-- **Custom Domain**: Uses `base: '/'` by default
+- **Vercel/Cloudflare**: Uses `base: '/'` by default
 
 This ensures all asset paths and routing work correctly on both deployment targets.
 
@@ -560,6 +492,7 @@ This ensures all asset paths and routing work correctly on both deployment targe
 ### Adding a Case Study
 
 1. Edit `src/data/caseStudies.ts` and add a new object:
+
    ```typescript
    {
      slug: 'my-project',
@@ -580,60 +513,110 @@ This ensures all asset paths and routing work correctly on both deployment targe
 
 2. Add image to `public/images/case-studies/my-project.jpg`
 
-3. Case study will be accessible at `/case-study/my-project`
+3. Case study will be accessible at `/case-studies/my-project`
+
+### Updating Portfolio Concierge Knowledge Base
+
+The Portfolio Concierge uses a centralized knowledge base in `src/data/ai-knowledge.ts`:
+
+1. Edit `src/data/ai-knowledge.ts` to update:
+   - **Bio**: Professional summary
+   - **Skills**: Array of technical and professional skills
+   - **Availability**: Current availability status
+   - **Contact**: Contact information and links
+   - **Rates**: Pricing information
+
+2. The `findAnswer()` function uses keyword matching to provide quick responses:
+   - Rate/cost questions → Returns pricing information
+   - Contact questions → Returns contact details
+   - Availability questions → Returns availability status
+   - Skills questions → Returns skills list and bio
+   - Case study questions → Searches case studies and returns details
+
+3. Preset prompts can be updated in `src/components/ai/PortfolioConcierge.tsx`:
+
+```typescript
+const presetPrompts = [
+  { text: 'What are your skills?', label: 'Skills' },
+  { text: 'Tell me about The Launchpad', label: 'The Launchpad' },
+  { text: 'Are you available?', label: 'Availability' },
+];
+```
+
+### Adding an Application
+
+1. Edit `src/data/applications.ts` and add a new application object
+2. Provide `icon`, `accentGradient`, and ensure `thumbnail` points to an asset
+3. Populate `valueProposition`, `features`, and `technicalDetails` arrays
+4. Application will appear in `/applications` listing
 
 ### Adding a CLI Tool to /tools Page
 
 1. Edit `src/pages/ToolsShowcase.tsx`
-2. Add a new tool object to the `tools` array:
-   ```typescript
-   {
-     name: 'My Tool',
-     category: 'CLI',
-     description: 'What it does',
-     technologies: ['Node.js', 'TypeScript'],
-     usage: `# Command examples
-   npm run my-tool`,
-     outcomes: ['Outcome 1', 'Outcome 2'],
-     icon: <Terminal className="w-6 h-6" />,
-     lastModified: '2024-11',
-     author: 'Your Name'
-   }
-   ```
+2. Add a new tool object to the `tools` array with metadata
+3. Tool will appear in the tools showcase with search and filtering
 
-## 🔍 Tool Metadata
+## 🔧 Environment Variables
 
-All CLI tools include comprehensive metadata:
+For local development, create a `.env` file:
 
-- **sourcePath**: Automatically resolved from `scripts/` and `cli/` directories
-- **outputType**: Varies by tool (Markdown reports, Optimized assets, JSON data)
-- **lastUsed**: Tracked via git log and file modification timestamps
-- **archiveLocation**: Non-production tools can be moved to `/docs` for reference
+```env
+# AI APIs (optional - for case study explainer)
+OPENAI_API_KEY=sk-...
+GEMINI_API_KEY=...
 
-View the full tool catalog at `/tools` or in `src/pages/ToolsShowcase.tsx`
+# Database (optional)
+SUPABASE_URL=...
+SUPABASE_ANON_KEY=...
 
-## 🧰 MCP Integration
+# Build configuration
+NODE_ENV=development
+```
 
-This portfolio includes Model Context Protocol (MCP) integration for AI-powered development workflows:
+## 🧪 Testing
 
-- **MCP Server**: Express-based server with health monitoring and rate limiting
-- **CLI Wrapper**: Unified command-line interface for all MCP operations
-- **Content Generation**: Automated design inspiration scraping and content creation
-- **Asset Pipeline**: Image optimization and metadata generation
+```bash
+# Run all tests
+npm test
 
-All MCP tools are documented at `/tools` with usage examples and outcomes.
+# Run accessibility tests
+npm run a11y:smoke
 
-## 📊 Available Scripts Reference
+# Run E2E tests with Playwright
+npm run a11y:ci
 
-See `package.json` for the complete list of 100+ scripts. Key categories:
+# Performance testing
+npm run perf:ci
+```
 
-- **Development**: `dev`, `build`, `preview`, `typecheck`, `lint`, `format`
-- **MCP**: `mcp:start`, `mcp:test`, `mcp:monitor`, `mcp:smoke`
-- **Content**: `generate:content`, `copy:assets`, `build:full`
-- **Images**: `optimize-images`, `audit:images`, `images:build`, `images:normalize`
-- **Design**: `design:analyze`, `design:refactor-colors`, `icon:generate-components`
-- **Audit**: `audit:lighthouse`, `audit:accessibility`, `audit:duplicates`, `audit:unused`
-- **Deploy**: `predeploy`, `deploy:cloudflare`, `validate:all`
+## 📊 Performance
+
+### Bundle Optimization
+
+- Code splitting with manual chunks for optimal loading
+- Lazy loading for routes and heavy components
+- Image optimization with WebP/AVIF formats
+- Tree shaking for unused code elimination
+
+### Performance Targets
+
+- Lighthouse Performance: 90+
+- First Contentful Paint: < 1.5s
+- Time to Interactive: < 3.5s
+- Cumulative Layout Shift: < 0.1
+
+### Monitoring
+
+```bash
+# Analyze bundle size
+ANALYZE=true npm run build
+
+# Lighthouse audit
+npm run audit:lighthouse
+
+# Monitor bundle size
+npm run monitor:size
+```
 
 ## 🤝 Contributing
 
@@ -644,93 +627,41 @@ See `package.json` for the complete list of 100+ scripts. Key categories:
 5. Commit: `git commit -m "feat: add my feature"`
 6. Push and open a Pull Request
 
+### Code Quality
+
+- TypeScript strict mode enabled
+- ESLint for code linting
+- Prettier for code formatting
+- Pre-commit hooks recommended
+
 ## 📄 License
 
 This portfolio is private and proprietary. All rights reserved.
 
 ## 🎯 Project Status
 
-**Version**: 2.0 (Wow Factor Portfolio)
+**Version**: 1.0.0
 **Status**: Production Ready
-**Last Updated**: November 2024
+**Last Updated**: January 2026
 
----
+### Recent Updates (January 2026)
 
-## 🛠️ CLI Tools (Legacy)
+- ✅ **Portfolio Concierge (AI Assistant)** - Global floating chat widget integrated
+  - Keyword-based intelligent responses
+  - Case study search and information
+  - Preset prompt buttons for quick questions
+  - Responsive mobile design with proper spacing
+  - Glass-panel styling with brand turquoise gradient
+  - Centralized knowledge base in `src/data/ai-knowledge.ts`
+- ✅ **Application Detail Pages** - Full application showcase with Code Vault component
+- ✅ **Case Study Detail Pages** - Enhanced with Impact Metrics and Rich Content Renderer
+- ✅ **Legal Demo Pages** - Simplified layout with direct content integration
 
-> **Note**: The CLI tools documentation has been consolidated to `/docs` for reference.
-> Active tools are documented at `/tools` and in the sections above.
+## 📚 Additional Documentation
 
-Run from terminal:
+- [Design System](./DESIGN_SYSTEM.md) - Complete design system documentation
+- [Deployment Guide](./DEPLOYMENT_GUIDE.md) - Detailed deployment instructions
+- [Architecture Status](./ARCHITECTURE_STATUS.md) - Current architecture overview
+- [Component Usage Guide](./COMPONENT_USAGE_GUIDE.md) - Component documentation
 
-```bash
-ts-node cli/generate-logo.ts public/logo.svg
-ts-node cli/preview-layout.ts
-ts-node cli/svg-export.ts public/assets
-```
-
-## 🌐 API Services
-
-New! Free API integrations for enhanced UX and content generation. See [API Services Documentation](scripts/api-services/README.md) for details.
-
-```bash
-# Fetch website favicons/logos
-npm run api:favicon -- google.com github.com
-
-# Search high-quality images
-npm run api:image -- search "technology" --count=5
-
-# Extract website metadata
-npm run api:metadata -- https://example.com --output=metadata.json
-
-# Generate avatars, QR codes, demo data
-npm run api:utility -- avatar "John Doe"
-npm run api:utility -- qr "https://example.com" --output=qr.png
-npm run api:utility -- users 5
-```
-
-**Available Services:**
-- 🎨 **Favicon Fetcher**: Extract logos from any website
-- 📸 **Image Provider**: Unsplash stock photos & placeholders
-- 🔍 **Metadata Extractor**: Rich website metadata & Open Graph data
-- 🛠️ **Utility Services**: Avatars, QR codes, demo users, jokes, advice
-
-See [scripts/api-services/README.md](scripts/api-services/README.md) for comprehensive API documentation and usage examples.
-
-## 🤖 Assistant Prompts
-
-See `prompts/branding.json` for reusable instructions for staff and AI assistants.
-
-## 🌐 Deployment
-
-### GitHub Pages
-The project is configured for automatic deployment to GitHub Pages. See [docs/HOW_TO_LAUNCH_GITHUB_PAGES.md](./docs/HOW_TO_LAUNCH_GITHUB_PAGES.md) for detailed setup instructions.
-
-**Quick Deploy:**
-```bash
-# Push to main or test branch to trigger automatic deployment
-git push origin main
-```
-
-### Vercel
-Uses `vercel.json` for Vercel deployment configuration.
-
-## 📊 Build Status
-
-[![Deploy to GitHub Pages](https://github.com/yesmannow/mem-rebuild-pl/actions/workflows/github-pages.yml/badge.svg)](https://github.com/yesmannow/mem-rebuild-pl/actions/workflows/github-pages.yml)
-[![Inspiration Showcase Build & Deploy](https://github.com/yesmannow/mem-rebuild-pl/actions/workflows/showcase.yml/badge.svg)](https://github.com/yesmannow/mem-rebuild-pl/actions/workflows/showcase.yml)
-
-## 🌐 Live Site
-
-**GitHub Pages**: [https://yesmannow.github.io/mem-rebuild-pl/](https://yesmannow.github.io/mem-rebuild-pl/)
-
-**Vercel (Alternative)**: [https://mem-rebuild-55q0c32al-gpttttys-projects.vercel.app/](https://mem-rebuild-55q0c32al-gpttttys-projects.vercel.app/)
-
-> 📝 See [docs/HOW_TO_LAUNCH_GITHUB_PAGES.md](./docs/HOW_TO_LAUNCH_GITHUB_PAGES.md) for GitHub Pages setup and [docs/VERCEL_DEPLOYMENT.md](./docs/VERCEL_DEPLOYMENT.md) for Vercel configuration.
-
-## 🧠 Roadmap
-
-- MCP FastAPI integration
-- Assistant-ready branding CLI
-- Real-time telemetry and layout scoring
-- SVG component preview and export
+For questions or issues, please open an issue on GitHub or contact through the portfolio website.

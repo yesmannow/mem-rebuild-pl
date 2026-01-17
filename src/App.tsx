@@ -9,14 +9,16 @@ import SwipeShell from './components/SwipeShell';
 import { EnhancedOceanBackground } from './components/ui/EnhancedOceanBackground';
 import CookieConsent from './components/ui/CookieConsent';
 import { queryClient } from './lib/queryClient';
-import { initLenis, destroyLenis } from './utils/motion-sync';
+import { ReactLenis } from './hooks/useLenis.tsx';
 import { initAnalytics } from './utils/analytics';
 import { initAccessibility } from './utils/accessibility';
 import JSONLD from './components/seo/JSONLD';
 import { useKonamiCode } from './hooks/useKonamiCode';
 import GodMode from './components/ui/GodMode';
+import { Toaster } from 'sonner';
 import 'lenis/dist/lenis.css';
 import './styles/skip-to-content.css';
+import './styles/sonner-theme.css';
 
 const PersonSchema = lazy(() => import('./components/seo/PersonSchema'));
 const PerformanceMonitor = lazy(() => import('./components/utils/PerformanceMonitor'));
@@ -31,33 +33,6 @@ const AppContent: React.FC = () => {
 
     document.documentElement.style.overflow = 'auto';
     document.body.style.overflow = 'auto';
-
-    const initScrolling = () => {
-      try {
-        const lenis = initLenis();
-        if (!lenis && process.env.NODE_ENV === 'development') {
-          console.warn('⚠️ Lenis not initialized, using native scroll');
-        }
-      } catch (error) {
-        console.error('App: Lenis initialization error:', error);
-      }
-    };
-
-    if ('requestIdleCallback' in window) {
-      (window as any).requestIdleCallback(initScrolling, { timeout: 2000 });
-    } else {
-      setTimeout(initScrolling, 100);
-    }
-
-    return () => {
-      if (process.env.NODE_ENV === 'production') {
-        try {
-          destroyLenis();
-        } catch (error) {
-          console.error('App: Cleanup error:', error);
-        }
-      }
-    };
   }, []);
 
   return (
@@ -65,25 +40,42 @@ const AppContent: React.FC = () => {
       <QueryClientProvider client={queryClient}>
         <HelmetProvider>
           <ThemeProvider>
-            <ToastProvider>
-              <EnhancedOceanBackground variant="minimal" intensity="subtle" className="fixed inset-0 -z-10" />
+            <ReactLenis root options={{ lerp: 0.1, duration: 1.2 }}>
+              <ToastProvider>
+                <EnhancedOceanBackground variant="minimal" intensity="subtle" className="fixed inset-0 -z-10" />
 
-              <JSONLD />
-              <Suspense fallback={null}>
-                <PersonSchema />
-              </Suspense>
-              <Suspense fallback={null}>
-                <PerformanceMonitor />
-              </Suspense>
-              <Layout>
-                <SwipeShell>
-                  <AppRouter />
-                </SwipeShell>
-              </Layout>
-              <CookieConsent />
+                <JSONLD />
+                <Suspense fallback={null}>
+                  <PersonSchema />
+                </Suspense>
+                <Suspense fallback={null}>
+                  <PerformanceMonitor />
+                </Suspense>
+                <Layout>
+                  <SwipeShell>
+                    <AppRouter />
+                  </SwipeShell>
+                </Layout>
+                <CookieConsent />
 
-              <GodMode active={isGodMode} />
-            </ToastProvider>
+                <GodMode active={isGodMode} />
+
+                {/* Sonner Toaster with Blueprint theme */}
+                <Toaster
+                  position="top-right"
+                  theme="dark"
+                  toastOptions={{
+                    className: 'sonner-toast',
+                    style: {
+                      background: 'var(--brand-surface)',
+                      border: '1px solid var(--brand-turquoise)',
+                      fontFamily: 'var(--brand-font-family, monospace)',
+                      color: 'var(--brand-text)',
+                    },
+                  }}
+                />
+              </ToastProvider>
+            </ReactLenis>
           </ThemeProvider>
         </HelmetProvider>
       </QueryClientProvider>

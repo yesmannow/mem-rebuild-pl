@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Icon from '@components/Icon';
+import { useDynamicImage } from '../../hooks/useDynamicImage';
 
 interface TiltCaseCardProps {
   study: any;
@@ -13,6 +14,10 @@ export const TiltCaseCard: React.FC<TiltCaseCardProps> = ({ study, index, getTec
   const cardRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+
+  // Get dynamic background image from first tag
+  const imageQuery = study.tags?.[0] || 'technology';
+  const { imageUrl, isLoading } = useDynamicImage(imageQuery);
 
   const rotateX = useTransform(y, [-0.5, 0.5], [5, -5]);
   const rotateY = useTransform(x, [-0.5, 0.5], [-5, 5]);
@@ -56,14 +61,37 @@ export const TiltCaseCard: React.FC<TiltCaseCardProps> = ({ study, index, getTec
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05, duration: 0.4 }}
-      whileHover={!isMobile ? { scale: 1.02, z: 50 } : {}}
+      whileHover={!isMobile ? { scale: 1.01, z: 50 } : {}}
       className="w-full"
+      style={{ transformOrigin: 'center center' }}
     >
-      <Link to={`/case-studies/${study.slug}`} className="case-card">
-        <div className="case-card-inner">
+      <Link to={`/case-studies/${study.slug}`} className="case-card cinematic-card">
+        <div className="case-card-inner relative overflow-hidden rounded-2xl group isolate" style={{ minHeight: '500px', aspectRatio: '4/5' }}>
+          {/* Dynamic Background Image - clipped to card bounds */}
+          <div className="absolute inset-0 -z-10 overflow-hidden rounded-2xl">
+            {imageUrl && !imageUrl.startsWith('linear-gradient') && (
+              <img
+                src={imageUrl}
+                alt={study.title}
+                className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+              />
+            )}
+            {imageUrl && imageUrl.startsWith('linear-gradient') && (
+              <div
+                className="w-full h-full opacity-90 transition-transform duration-700 group-hover:scale-105"
+                style={{
+                  background: imageUrl,
+                }}
+              />
+            )}
+          </div>
+
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent z-[1]" />
+
           {/* Glow effect on hover */}
           <motion.div
-            className="absolute inset-0 rounded-2xl opacity-0 pointer-events-none"
+            className="absolute inset-0 rounded-2xl opacity-0 pointer-events-none z-[2]"
             whileHover={{ opacity: 1 }}
             style={{
               background: `radial-gradient(circle at center, rgba(64, 224, 208, 0.15), transparent 70%)`,
@@ -71,19 +99,21 @@ export const TiltCaseCard: React.FC<TiltCaseCardProps> = ({ study, index, getTec
             }}
           />
 
-          <div className="relative z-10">
-            <div className="case-icon" data-color={study.color}>
-              <motion.span
-                className="icon-emoji"
-                data-color={study.color}
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                {study.icon}
-              </motion.span>
+          <div className="relative z-10 p-6 flex flex-col h-full gap-4" style={{ minHeight: '100%' }}>
+            <div className="flex-shrink-0">
+              <div className="case-icon" data-color={study.color}>
+                <motion.span
+                  className="icon-emoji"
+                  data-color={study.color}
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {study.icon}
+                </motion.span>
+              </div>
             </div>
 
-            <div className="case-content">
+            <div className="case-content text-white flex-1 min-h-0 overflow-y-auto">
               <div className="case-header">
                 <h3 className="case-title">{study.title}</h3>
                 <p className="case-tagline">{study.tagline}</p>
@@ -169,7 +199,7 @@ export const TiltCaseCard: React.FC<TiltCaseCardProps> = ({ study, index, getTec
               </div>
             </div>
 
-            <div className="case-footer">
+            <div className="case-footer flex-shrink-0 mt-auto">
               <motion.span
                 className="view-case"
                 whileHover={{ x: 4 }}

@@ -10,6 +10,7 @@ import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
 import { OceanRippleButton } from '../components/ui/OceanRippleButton';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import { BentoCard, BentoGrid } from '../components/ui/BentoGrid';
+import { SkillsBalanceRadar } from '../components/ui/SkillsBalanceRadar';
 import Icon from '../components/Icon';
 import { technicalCategories, technologyStacks } from '../data/toolbox';
 import { getTechDescription } from '../data/techDescriptions';
@@ -175,28 +176,38 @@ const Toolbox: React.FC = () => {
               </p>
             </motion.div>
 
-            {/* Stats Grid */}
+            {/* Stats Grid with Radar Chart */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-12"
+              className="max-w-6xl mx-auto mt-12"
             >
-              {heroStats.map((stat, index) => (
-                <div
-                  key={stat.label}
-                  className="relative group"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/20 to-brand-orange/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative bg-slate-900/50 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-6 text-center hover:border-brand-teal/40 transition-all duration-300">
-                    <stat.icon className="w-6 h-6 mx-auto mb-2 text-brand-teal" />
-                    <div className="text-2xl sm:text-3xl font-bold text-brand-text">
-                      <OceanCountingNumber number={stat.number} suffix={stat.suffix} />
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+                {/* Stats Grid - 2 columns on mobile, 2 columns on desktop */}
+                <div className="grid grid-cols-2 gap-4 lg:col-span-2">
+                  {heroStats.map((stat, index) => (
+                    <div
+                      key={stat.label}
+                      className="relative group"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/20 to-brand-orange/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="relative bg-slate-900/50 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-6 text-center hover:border-brand-teal/40 transition-all duration-300">
+                        <stat.icon className="w-6 h-6 mx-auto mb-2 text-brand-teal" />
+                        <div className="text-2xl sm:text-3xl font-bold text-brand-text">
+                          <OceanCountingNumber number={stat.number} suffix={stat.suffix} />
+                        </div>
+                        <div className="text-xs sm:text-sm text-brand-muted mt-1">{stat.label}</div>
+                      </div>
                     </div>
-                    <div className="text-xs sm:text-sm text-brand-muted mt-1">{stat.label}</div>
-                  </div>
+                  ))}
                 </div>
-              ))}
+
+                {/* Radar Chart - Full width on mobile, sidebar on desktop */}
+                <div className="lg:col-span-1">
+                  <SkillsBalanceRadar />
+                </div>
+              </div>
             </motion.div>
           </div>
         </section>

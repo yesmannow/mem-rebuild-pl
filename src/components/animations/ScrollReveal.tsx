@@ -1,56 +1,92 @@
-/**
- * ScrollReveal - Scroll-triggered animation component
- * Reveals elements with smooth animations as they enter viewport
- */
-
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 interface ScrollRevealProps {
   children: React.ReactNode;
-  direction?: 'up' | 'down' | 'left' | 'right' | 'fade';
-  delay?: number;
-  duration?: number;
+  direction?: 'up' | 'left' | 'right';
+  stagger?: boolean;
+  speed?: 'fast' | 'slow';
   className?: string;
-  once?: boolean;
+  delay?: number;
 }
 
+/**
+ * ScrollReveal - Global scroll-triggered animation system
+ * Reveals elements as they enter the viewport with smooth animations
+ */
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   direction = 'up',
-  delay = 0,
-  duration = 0.6,
+  stagger = false,
+  speed = 'fast',
   className = '',
-  once = true,
+  delay = 0,
 }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { 
-    once, 
-    margin: '-50px',
-    amount: 0.3 
-  });
+  // Speed mapping
+  const speedMap = {
+    fast: 0.4,
+    slow: 0.8,
+  };
 
+  // Direction variants
   const directionVariants = {
-    up: { y: 40, opacity: 0 },
-    down: { y: -40, opacity: 0 },
-    left: { x: 40, opacity: 0 },
-    right: { x: -40, opacity: 0 },
-    fade: { opacity: 0 },
+    up: { y: 30, opacity: 0 },
+    left: { x: 30, opacity: 0 },
+    right: { x: -30, opacity: 0 },
   };
 
   const initial = directionVariants[direction];
 
+  // If stagger is true, wrap children in a container with staggerChildren
+  if (stagger) {
+    return (
+      <motion.div
+        className={className}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-100px' }}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              delayChildren: delay,
+              staggerChildren: speedMap[speed] / 2,
+            },
+          },
+        }}
+      >
+        {React.Children.map(children, (child, index) => (
+          <motion.div
+            key={index}
+            variants={{
+              hidden: initial,
+              visible: { x: 0, y: 0, opacity: 1 },
+            }}
+            transition={{
+              duration: speedMap[speed],
+              ease: 'easeOut',
+            }}
+          >
+            {child}
+          </motion.div>
+        ))}
+      </motion.div>
+    );
+  }
+
+  // Single element reveal
   return (
     <motion.div
-      ref={ref}
-      initial={initial}
-      animate={isInView ? { x: 0, y: 0, opacity: 1 } : initial}
-      transition={{
-        duration,
-        delay,
-        ease: 'easeOut' as const,
-      }}
       className={className}
+      initial={initial}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{
+        duration: speedMap[speed],
+        delay,
+        ease: 'easeOut',
+      }}
     >
       {children}
     </motion.div>

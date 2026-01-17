@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { BackgroundGrid } from './BackgroundGrid';
 
 type SectionVariant =
   | 'default'      // Standard dark background
@@ -21,9 +22,9 @@ interface SimpleSectionProps {
 
 const variantClasses: Record<SectionVariant, string> = {
   default: 'bg-brand-dark',
-  elevated: 'bg-slate-900 shadow-[var(--shadow-lg)]',
-  'accent-teal': 'bg-brand-dark relative before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_center,_rgba(64,224,208,0.08)_0%,_transparent_70%)] before:pointer-events-none',
-  'accent-orange': 'bg-brand-dark relative before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_center,_rgba(255,165,0,0.08)_0%,_transparent_70%)] before:pointer-events-none',
+  elevated: 'bg-brand-surface border-y border-white/5',
+  'accent-teal': 'bg-brand-dark border-l-2 border-brand-turquoise',
+  'accent-orange': 'bg-brand-dark border-l-2 border-brand-creamsicle',
   bordered: 'bg-brand-dark border-t border-b border-white/10',
   inset: 'bg-slate-950 shadow-inner',
 };
@@ -70,9 +71,13 @@ export const SimpleSection: React.FC<SimpleSectionProps> = ({
   const paddingClass = paddingClasses[padding];
   const maxWidthClass = maxWidthClasses[maxWidth];
 
+  // Render BackgroundGrid for default and inset variants
+  const showGrid = variant === 'default' || variant === 'inset';
+
   const sectionContent = (
     <div className={`relative ${variantClass} ${className}`}>
-      <div className={`relative z-10 ${paddingClass}`}>
+      {showGrid && <BackgroundGrid />}
+      <div className={`relative z-10 w-full ${paddingClass}`}>
         {container ? (
           <div className={`${maxWidthClass} mx-auto`}>{children}</div>
         ) : (

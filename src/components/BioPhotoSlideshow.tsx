@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface BioPhoto {
   src: string;
+  fallback?: string;
   alt: string;
 }
 
@@ -12,13 +13,34 @@ interface BioPhotoSlideshowProps {
   photos?: BioPhoto[];
 }
 
-// Default bio photos - using optimized AVIF/WebP formats
+// Default bio photos - using optimized formats with proper fallback chain
+// Format priority in <picture>: AVIF (best) -> WebP (good) -> PNG (universal)
 const defaultPhotos: BioPhoto[] = [
-  { src: '/images/bio/bio-photo.avif', alt: 'Jacob Darling - Professional portrait' },
-  { src: '/images/bio/bio pic 2.avif', alt: 'Jacob Darling - Portrait 2' },
-  { src: '/images/bio/bio pic 3.avif', alt: 'Jacob Darling - Portrait 3' },
-  { src: '/images/bio/IMG_20230617_015647_366.avif', alt: 'Jacob Darling - Portrait' },
-  { src: '/images/bio/QVZlSmkxeURiak5tajdscg.avif', alt: 'Jacob Darling - Portrait' },
+  {
+    src: '/images/bio/bio-photo.webp',
+    fallback: '/images/bio/bio-photo.avif', // AVIF in source, WebP fallback, PNG in img src
+    alt: 'Jacob Darling - Professional portrait'
+  },
+  {
+    src: '/images/bio/bio pic 2.webp',
+    fallback: '/images/bio/bio pic 2.png', // PNG fallback (user confirmed this exists)
+    alt: 'Jacob Darling - Portrait 2'
+  },
+  {
+    src: '/images/bio/bio pic 3.webp',
+    fallback: '/images/bio/bio pic 3.png', // PNG fallback (user confirmed this exists)
+    alt: 'Jacob Darling - Portrait 3'
+  },
+  {
+    src: '/images/bio/IMG_20230617_015647_366.webp',
+    fallback: '/images/bio/IMG_20230617_015647_366.avif',
+    alt: 'Jacob Darling - Portrait'
+  },
+  {
+    src: '/images/bio/QVZlSmkxeURiak5tajdscg.webp',
+    fallback: '/images/bio/QVZlSmkxeURiak5tajdscg.avif',
+    alt: 'Jacob Darling - Portrait'
+  },
 ];
 
 const BioPhotoSlideshow: React.FC<BioPhotoSlideshowProps> = ({
@@ -96,11 +118,9 @@ const BioPhotoSlideshow: React.FC<BioPhotoSlideshowProps> = ({
   return (
     <div className={`relative w-full h-full overflow-hidden ${className}`}>
       <AnimatePresence mode="wait">
-        <motion.img
+        <motion.div
           key={currentIndex}
-          src={currentPhoto.src}
-          alt={currentPhoto.alt}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full"
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: (isCurrentImageLoaded || imageLoaded) ? 1 : 0.7, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
@@ -108,11 +128,33 @@ const BioPhotoSlideshow: React.FC<BioPhotoSlideshowProps> = ({
             opacity: { duration: 0.8, ease: 'easeInOut' },
             scale: { duration: 1.2, ease: 'easeOut' },
           }}
-          onLoad={handleImageLoad}
-          onError={() => {
-            setFailedImages(prev => new Set(prev).add(currentIndex));
-          }}
-        />
+        >
+          <picture className="absolute inset-0 w-full h-full">
+            {/* Try AVIF first (best compression, smallest file size) */}
+            {currentPhoto.fallback && currentPhoto.fallback.endsWith('.avif') && (
+              <source srcSet={currentPhoto.fallback} type="image/avif" />
+            )}
+            {/* Fallback to WebP (good browser support, good compression) */}
+            {currentPhoto.src.endsWith('.webp') && (
+              <source srcSet={currentPhoto.src} type="image/webp" />
+            )}
+            {/* Final fallback: Use PNG if fallback is PNG, otherwise derive PNG from src */}
+            <img
+              src={
+                currentPhoto.fallback && !currentPhoto.fallback.endsWith('.avif')
+                  ? currentPhoto.fallback // Use explicit PNG fallback
+                  : currentPhoto.src.replace(/\.(webp|avif)$/i, '.png') // Derive PNG from src
+              }
+              alt={currentPhoto.alt}
+              className="absolute inset-0 w-full h-full object-cover"
+              onLoad={handleImageLoad}
+              onError={(e) => {
+                // If PNG also fails, mark image as failed
+                setFailedImages(prev => new Set(prev).add(currentIndex));
+              }}
+            />
+          </picture>
+        </motion.div>
       </AnimatePresence>
 
       {/* Slide indicators - only show for valid images */}
