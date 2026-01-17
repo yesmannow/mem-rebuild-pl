@@ -253,7 +253,7 @@ export const sideProjects: SideProject[] = [
     ],
     stack: ['Event Marketing', 'Web Development', 'Sponsorship Strategy', 'Content & Promotions', 'Fundraising Support'],
     tags: ['Non-Profit', 'Event Marketing', 'Sponsorship', 'Web', 'Community'],
-    image: '/images/projects/Primary Colours/PC-Logo-PNG-e1506002890460.png'
+    image: '/images/projects/Primary Colours/pc-org logo.png'
   },
   {
     id: 'circle-city',

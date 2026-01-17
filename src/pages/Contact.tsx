@@ -165,15 +165,8 @@ const Contact: React.FC = () => {
     setError(null);
 
     try {
-      const web3formsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
-
-      if (!web3formsKey) {
-        setError(
-          'Form submission is not configured. Please contact me directly at hoosierdarling@gmail.com'
-        );
-        setIsSubmitting(false);
-        return;
-      }
+      // Use access key from environment variable or fallback to the provided key
+      const web3formsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'b6c0916d-2dba-4faf-933e-fcdd6c683a88';
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -187,10 +180,12 @@ const Contact: React.FC = () => {
           email: formData.email,
           message: formData.message,
           reason: formData.reason,
-          company: formData.company,
-          phone: formData.phone,
-          subject: `Portfolio Contact: ${formData.reason || 'General Inquiry'}`,
-          from_name: 'Portfolio Contact Form',
+          company: formData.company || '',
+          phone: formData.phone || '',
+          subject: `Portfolio Contact: ${CONTACT_REASONS.find(r => r.value === formData.reason)?.label || 'General Inquiry'}`,
+          from_name: formData.name || 'Portfolio Contact Form',
+          // Additional fields for better email formatting
+          'reason-label': CONTACT_REASONS.find(r => r.value === formData.reason)?.label || 'General Inquiry',
         }),
       });
 

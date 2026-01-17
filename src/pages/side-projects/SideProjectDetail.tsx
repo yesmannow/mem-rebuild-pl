@@ -30,7 +30,7 @@ const SideProjectDetail: React.FC = () => {
     ? (project.id === 'piko-fg-music'
         ? '/images/projects/Piko Fg Music/pkfg logo.png'
         : (project.id === 'primary-colours'
-            ? '/images/projects/Primary Colours/primary colours logo.webp'
+            ? '/images/projects/Primary Colours/pc-org logo.png'
             : project.image))
     : '';
   // Map project IDs to folder names
@@ -88,7 +88,7 @@ const SideProjectDetail: React.FC = () => {
         '/images/projects/ResQ Organics/skincare-for-dogs-and-cats.webp',
       ],
       'primary-colours': [
-        '/images/projects/Primary Colours/primary colours logo.webp',
+        '/images/projects/Primary Colours/pc-org logo.png',
         '/images/projects/Primary Colours/art v art.webp',
         '/images/projects/Primary Colours/Broad Ripple Village Association.webp',
         '/images/projects/Primary Colours/installation nation .webp',
