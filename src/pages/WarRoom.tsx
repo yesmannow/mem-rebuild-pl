@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { Easing, Variants } from 'framer-motion';
 import TerminalBlock from '../components/ui/TerminalBlock';
 import AnimatedCounter from '../components/ui/AnimatedCounter';
 import { useFluctuatingValue } from '../hooks/useFluctuatingValue';
@@ -23,14 +24,17 @@ const deploymentLog = [
   { time: '09:00 AM', type: 'init', message: 'War Room telemetry uplink' },
 ];
 
-const logVariants = {
+const easeOut: Easing = [0.17, 0.67, 0.83, 1];
+const easeInOut: Easing = [0.42, 0, 0.58, 1];
+
+const logVariants: Variants = {
   hidden: { opacity: 0, x: -20 },
   show: {
     opacity: 1,
     x: 0,
     transition: {
       duration: 0.4,
-      ease: 'easeOut',
+      ease: easeOut,
     },
   },
 };
@@ -108,7 +112,7 @@ const WarRoom = () => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                      transition={{ duration: 0.3, ease: easeOut }}
                       className="text-4xl md:text-5xl text-[#40E0D0] block"
                     >
                       {card.value.toFixed(card.decimals)}{card.suffix}
@@ -200,7 +204,7 @@ const WarRoom = () => {
                   transition={{
                     duration: 1,
                     repeat: Infinity,
-                    ease: 'easeInOut',
+                    ease: easeInOut,
                   }}
                 >
                   _

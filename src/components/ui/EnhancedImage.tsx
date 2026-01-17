@@ -17,7 +17,7 @@ interface EnhancedImageProps {
   alt: string;
   placeholderSrc?: string;
   className?: string;
-  overlayColor?: 'turquoise' | 'orange' | 'dark' | 'none';
+  overlayColor?: 'turquoise' | 'orange' | 'dark' | 'none' | 'light' | 'brand';
   overlayOpacity?: number;
   lazy?: boolean;
   aspectRatio?: string;
@@ -48,6 +48,8 @@ export const EnhancedImage: React.FC<EnhancedImageProps> = ({
     turquoise: 'rgba(64, 224, 208, 0.3)',
     orange: 'rgba(255, 165, 0, 0.3)',
     dark: 'rgba(15, 23, 42, 0.6)',
+    light: 'rgba(255, 255, 255, 0.35)',
+    brand: 'rgba(0, 255, 255, 0.35)',
     none: 'transparent',
   };
 

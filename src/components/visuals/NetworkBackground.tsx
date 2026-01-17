@@ -29,7 +29,7 @@ export const NetworkBackground: React.FC<NetworkBackgroundProps> = ({
   speed = 0.5,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | null>(null);
   const nodesRef = useRef<Node[]>([]);
 
   useEffect(() => {
@@ -122,7 +122,7 @@ export const NetworkBackground: React.FC<NetworkBackgroundProps> = ({
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      if (animationFrameRef.current) {
+      if (animationFrameRef.current !== null) {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };

@@ -53,17 +53,17 @@ export const TiltCaseCard: React.FC<TiltCaseCardProps> = ({ study, index, getTec
       ref={cardRef}
       onMouseMove={!isMobile ? handleMouseMove : undefined}
       onMouseLeave={!isMobile ? handleMouseLeave : undefined}
-      style={{
-        rotateX: !isMobile ? rotateX : 0,
-        rotateY: !isMobile ? rotateY : 0,
-        transformStyle: 'preserve-3d'
-      }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05, duration: 0.4 }}
       whileHover={!isMobile ? { scale: 1.01, z: 50 } : {}}
       className="w-full"
-      style={{ transformOrigin: 'center center' }}
+      style={{
+        rotateX: !isMobile ? rotateX : 0,
+        rotateY: !isMobile ? rotateY : 0,
+        transformStyle: 'preserve-3d',
+        transformOrigin: 'center center'
+      }}
     >
       <Link to={`/case-studies/${study.slug}`} className="case-card cinematic-card">
         <div className="case-card-inner relative overflow-hidden rounded-2xl group isolate" style={{ minHeight: '500px', aspectRatio: '4/5' }}>

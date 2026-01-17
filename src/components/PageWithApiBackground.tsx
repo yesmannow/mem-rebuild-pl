@@ -43,7 +43,8 @@ export function PageWithApiBackground({
       
       try {
         // Try Pexels first
-        const pexelsResult = await searchPexelsImages(query);
+        const pexelsResults = await searchPexelsImages(query);
+        const pexelsResult = pexelsResults[0];
         if (pexelsResult) {
           setBackgroundImage(pexelsResult.url);
           setIsLoading(false);
@@ -51,9 +52,10 @@ export function PageWithApiBackground({
         }
 
         // Fall back to Pixabay
-        const pixabayResult = await searchPixabayImages(query);
-        if (pixabayResult) {
-          setBackgroundImage(pixabayResult.url);
+        const pixabayResults = await searchPixabayImages(query);
+        const pixabayResult = Array.isArray(pixabayResults) ? pixabayResults[0] : pixabayResults;
+        if (pixabayResult && 'url' in pixabayResult) {
+          setBackgroundImage(pixabayResult.url as string);
           setIsLoading(false);
           return;
         }

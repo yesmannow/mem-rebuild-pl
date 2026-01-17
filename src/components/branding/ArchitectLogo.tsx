@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
+import type { Easing, Variants } from 'framer-motion';
 import './ArchitectLogo.css';
 
 interface ArchitectLogoProps {
@@ -23,29 +24,33 @@ const ArchitectLogo: React.FC<ArchitectLogoProps> = ({
   const shouldReduceMotion = useReducedMotion();
   const dimensions = sizeMap[size];
 
-  const orbitVariants = {
+  const easeLinear: Easing = [0, 0, 1, 1];
+  const easeOut: Easing = [0.17, 0.67, 0.83, 1];
+  const easeInOut: Easing = [0.4, 0, 0.2, 1];
+
+  const orbitVariants: Variants = {
     static: { rotate: 0 },
     rotate: {
       rotate: 360,
-      transition: { repeat: Infinity, ease: 'linear', duration: 18 },
+      transition: { repeat: Infinity, ease: easeLinear, duration: 18 },
     },
   };
 
-  const shimmerVariants = {
+  const shimmerVariants: Variants = {
     rest: { opacity: 0.55, scale: 0.96 },
     hover: {
       opacity: 0.85,
       scale: 1.04,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.6, ease: easeOut },
     },
   };
 
-  const pulseVariants = {
+  const pulseVariants: Variants = {
     rest: { opacity: 0.35, scale: 0.92 },
     hover: {
       opacity: 0.55,
       scale: 1.05,
-      transition: { duration: 1.4, ease: 'easeInOut' },
+      transition: { duration: 1.4, ease: easeInOut },
     },
   };
 

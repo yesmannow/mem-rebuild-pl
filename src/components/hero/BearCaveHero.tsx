@@ -40,7 +40,7 @@ const BearCaveHero: React.FC<BearCaveHeroProps> = ({
   chips = defaultChips,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | null>(null);
 
   // Looping tech backdrop animation
   useEffect(() => {
@@ -140,7 +140,7 @@ const BearCaveHero: React.FC<BearCaveHeroProps> = ({
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      if (animationFrameRef.current) {
+      if (animationFrameRef.current !== null) {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };

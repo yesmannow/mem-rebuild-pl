@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import { Activity, Server, Wrench, CheckCircle2 } from 'lucide-react';
 import { Card, CardContent } from '../ui/card';
 import './GlassMetrics.css';
@@ -37,7 +38,7 @@ const GlassMetrics: React.FC = () => {
     },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -49,13 +50,13 @@ const GlassMetrics: React.FC = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 100,
         damping: 10,
       },
