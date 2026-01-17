@@ -9,7 +9,7 @@ import SwipeShell from './components/SwipeShell';
 import { EnhancedOceanBackground } from './components/ui/EnhancedOceanBackground';
 import CookieConsent from './components/ui/CookieConsent';
 import { queryClient } from './lib/queryClient';
-import { ReactLenis } from './hooks/useLenis.tsx';
+import { ReactLenis } from './hooks/useLenis';
 import { initAnalytics } from './utils/analytics';
 import { initAccessibility } from './utils/accessibility';
 import JSONLD from './components/seo/JSONLD';
@@ -20,8 +20,8 @@ import 'lenis/dist/lenis.css';
 import './styles/skip-to-content.css';
 import './styles/sonner-theme.css';
 
-const PersonSchema = lazy(() => import('./components/seo/PersonSchema'));
-const PerformanceMonitor = lazy(() => import('./components/utils/PerformanceMonitor'));
+// const PersonSchema = lazy(() => import('./components/seo/PersonSchema')); // Removed - deleted
+// const PerformanceMonitor = lazy(() => import('./components/utils/PerformanceMonitor')); // Removed - deleted
 const AppRouter = lazy(() => import('./router/AppRouter'));
 
 const AppContent: React.FC = () => {
@@ -45,12 +45,12 @@ const AppContent: React.FC = () => {
                 <EnhancedOceanBackground variant="minimal" intensity="subtle" className="fixed inset-0 -z-10" />
 
                 <JSONLD />
-                <Suspense fallback={null}>
+                {/* <Suspense fallback={null}>
                   <PersonSchema />
-                </Suspense>
-                <Suspense fallback={null}>
+                </Suspense> */}
+                {/* <Suspense fallback={null}>
                   <PerformanceMonitor />
-                </Suspense>
+                </Suspense> */}
                 <Layout>
                   <SwipeShell>
                     <AppRouter />

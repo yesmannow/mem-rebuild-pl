@@ -32,26 +32,27 @@ const Testimonials = React.lazy(() => import('../pages/Testimonials'));
 const Contact = React.lazy(() => import('../pages/Contact'));
 const Services = React.lazy(() => import('../pages/Services'));
 const Gallery = React.lazy(() => import('../pages/Gallery'));
-const BrandDetail = React.lazy(() => import('../pages/brand/BrandDetail'));
+// const BrandDetail = React.lazy(() => import('../pages/brand/BrandDetail'));
 // Legacy case study imports removed - all case studies now use dynamic CaseStudyDetail template
 const DesignSystemDemo = React.lazy(() => import('../pages/DesignSystemDemo'));
 const DeploymentStatus = React.lazy(() => import('../pages/DeploymentStatus'));
 const ResumePrint = React.lazy(() => import('../pages/ResumePrint'));
-const Lab = React.lazy(() => import('../pages/Lab'));
+// const Lab = React.lazy(() => import('../pages/Lab'));
 const WarRoom = React.lazy(() => import('../pages/WarRoom'));
-const GrowthEngine = React.lazy(() => import('../components/apps/GrowthEngine'));
-const LicenseHub = React.lazy(() => import('../components/apps/LicenseHub'));
-const ClinicalCompass = React.lazy(() => import('../components/apps/ClinicalCompass'));
-const LeadScoreLab = React.lazy(() => import('../components/apps/LeadScoreLab'));
-const LinkArchitect = React.lazy(() => import('../components/apps/LinkArchitect'));
-const SEOScanner = React.lazy(() => import('../components/apps/SEOScanner'));
-const CampaignPerformanceVisualizer = React.lazy(() => import('../components/apps/CampaignPerformanceVisualizer'));
-const CompetitorIntelligenceHub = React.lazy(() => import('../components/apps/CompetitorIntelligenceHub'));
-const MarketingSimulator = React.lazy(() => import('../components/apps/MarketingSimulator'));
-const MarketingSimulatorGame = React.lazy(() => import('../components/apps/MarketingSimulatorGame'));
+// Removed deleted app components:
+// const GrowthEngine = React.lazy(() => import('../components/apps/GrowthEngine'));
+// const LicenseHub = React.lazy(() => import('../components/apps/LicenseHub'));
+// const ClinicalCompass = React.lazy(() => import('../components/apps/ClinicalCompass'));
+// const LeadScoreLab = React.lazy(() => import('../components/apps/LeadScoreLab'));
+// const LinkArchitect = React.lazy(() => import('../components/apps/LinkArchitect'));
+// const SEOScanner = React.lazy(() => import('../components/apps/SEOScanner'));
+// const CampaignPerformanceVisualizer = React.lazy(() => import('../components/apps/CampaignPerformanceVisualizer'));
+// const CompetitorIntelligenceHub = React.lazy(() => import('../components/apps/CompetitorIntelligenceHub'));
+// const MarketingSimulator = React.lazy(() => import('../components/apps/MarketingSimulator'));
+// const MarketingSimulatorGame = React.lazy(() => import('../components/apps/MarketingSimulatorGame'));
 const BrandBuilder = React.lazy(() => import('../components/apps/BrandBuilder'));
-const EmailMarketingSimulator = React.lazy(() => import('../components/apps/EmailMarketingSimulator'));
-const SocialMediaSimulator = React.lazy(() => import('../components/apps/SocialMediaSimulator'));
+// const EmailMarketingSimulator = React.lazy(() => import('../components/apps/EmailMarketingSimulator'));
+// const SocialMediaSimulator = React.lazy(() => import('../components/apps/SocialMediaSimulator'));
 const BusinessDevelopmentDemo = React.lazy(() => import('../pages/BusinessDevelopmentDemo'));
 const WorkersCompensationPage = React.lazy(() => import('../pages/legal/WorkersCompensationPage'));
 const LitigationPage = React.lazy(() => import('../pages/legal/LitigationPage'));
@@ -557,6 +558,7 @@ const AppRouter: React.FC = () => {
                 </PageTransition>
               }
             />
+            {/* Removed routes for deleted app components:
             <Route
               path="/apps/campaign-performance"
               element={
@@ -637,6 +639,7 @@ const AppRouter: React.FC = () => {
                 </PageTransition>
               }
             />
+            */}
             <Route
               path="/apps/brand-builder"
               element={
@@ -645,6 +648,7 @@ const AppRouter: React.FC = () => {
                 </PageTransition>
               }
             />
+            {/* Removed routes for deleted app components:
             <Route
               path="/apps/email-marketing-simulator"
               element={
@@ -661,6 +665,7 @@ const AppRouter: React.FC = () => {
                 </PageTransition>
               }
             />
+            */}
             <Route
               path="/business-development-demo"
               element={
