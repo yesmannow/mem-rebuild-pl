@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ApiBackgroundImage } from '../ui/ApiBackgroundImage';
+import { ApiBackgroundImage, type ApiBackgroundImageProps } from '../ui/ApiBackgroundImage';
 import { EnhancedImage } from '../ui/EnhancedImage';
 import { pageBackgroundService } from '../../services/pageBackgroundService';
 
@@ -37,7 +37,7 @@ export const PageWithApiBackground: React.FC<PageWithApiBackgroundProps> = ({
         <ApiBackgroundImage
           query={theme.primary}
           source="auto"
-          overlayColor={theme.overlay as 'dark' | 'light' | 'brand'}
+          overlayColor={theme.overlay as ApiBackgroundImageProps['overlayColor']}
           overlayOpacity={overlayOpacity || theme.overlayOpacity}
           priority={priority}
           className="fixed inset-0 z-0"
@@ -61,7 +61,7 @@ interface SectionWithApiBackgroundProps {
   theme: string;
   children: React.ReactNode;
   className?: string;
-  overlayColor?: 'turquoise' | 'orange' | 'dark' | 'none';
+  overlayColor?: ApiBackgroundImageProps['overlayColor'];
   overlayOpacity?: number;
   minHeight?: string;
   imageSrc?: string;
@@ -89,7 +89,7 @@ export const SectionWithApiBackground: React.FC<SectionWithApiBackgroundProps> =
         />
       ) : (
         <ApiBackgroundImage
-          theme={theme}
+          query={theme}
           overlayColor={overlayColor}
           overlayOpacity={overlayOpacity}
           className="absolute inset-0 z-0"

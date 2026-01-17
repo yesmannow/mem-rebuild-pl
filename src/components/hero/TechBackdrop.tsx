@@ -17,7 +17,7 @@ interface TechBackdropProps {
  */
 const TechBackdrop: React.FC<TechBackdropProps> = ({ className = '', backgroundImage }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | null>(null);
 
   // Grid animation using canvas for smooth performance
   useEffect(() => {
@@ -84,7 +84,7 @@ const TechBackdrop: React.FC<TechBackdropProps> = ({ className = '', backgroundI
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      if (animationFrameRef.current) {
+      if (animationFrameRef.current !== null) {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };

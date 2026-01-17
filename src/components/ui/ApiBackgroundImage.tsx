@@ -12,7 +12,7 @@ import EnhancedImage from './EnhancedImage';
 export interface ApiBackgroundImageProps {
   query: string;
   source?: 'pexels' | 'pixabay' | 'unsplash' | 'auto';
-  overlayColor?: 'dark' | 'light' | 'brand';
+  overlayColor?: 'turquoise' | 'orange' | 'dark' | 'none' | 'light' | 'brand';
   overlayOpacity?: number;
   className?: string;
   priority?: boolean;
