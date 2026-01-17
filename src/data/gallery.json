@@ -1,12 +1,12 @@
 [
   {
-    "file": "images/bio/bio-photo.jpg",
+    "file": "images/bio/QVZlSmkxeURiak5tajdscg.jpeg",
     "meta": {
-      "width": 2048,
-      "height": 1317,
-      "base": "images/bio/bio-photo",
-      "color": "rgb(8 8 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABwBACdASoUAA0APxFysFAsJqSisAgBgCIJZACdIMggthCahY0hNku2UJ9XQAD8itaB4nJA0F+sjhZnfEEdf39ujbPsKWEzrvFMSqZh/UoH0EwtOTqdfZsDZ9/gst1v0A1NbpNmqSyBzLvo+N3zSgdb2l1KmYRHZAtk8Cojmk31ahB6C1S5CvCUAAA="
+      "width": 1199,
+      "height": 1199,
+      "base": "images/bio/QVZlSmkxeURiak5tajdscg",
+      "color": "rgb(248 216 104)",
+      "blurDataURL": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAABQBQCdASoUABQAPxGAuFWsKCUjKAgBgCIJagCxHoKP+Hk0GFwHzvwSBC1wy+EFcHuYmuAA/tOD5ocYLyijBPc+Exe3c28/sKvvhsjrTQoIXLN801RXeXipp4z1RJGCB8g1Hab9wxcb1zIY1TJEJw412PoNDqr2T23PZrEzuT1QqRLYW73uT/ueRRLVvh1nE46RDCAEZYwhTq728bbitc8snXfCnHnlXBUwsadAAAA="
     }
   },
   {
@@ -20,13 +20,13 @@
     }
   },
   {
-    "file": "images/bio/QVZlSmkxeURiak5tajdscg.jpeg",
+    "file": "images/bio/bio-photo.jpg",
     "meta": {
-      "width": 1199,
-      "height": 1199,
-      "base": "images/bio/QVZlSmkxeURiak5tajdscg",
-      "color": "rgb(248 216 104)",
-      "blurDataURL": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAABQBQCdASoUABQAPxGAuFWsKCUjKAgBgCIJagCxHoKP+Hk0GFwHzvwSBC1wy+EFcHuYmuAA/tOD5ocYLyijBPc+Exe3c28/sKvvhsjrTQoIXLN801RXeXipp4z1RJGCB8g1Hab9wxcb1zIY1TJEJw412PoNDqr2T23PZrEzuT1QqRLYW73uT/ueRRLVvh1nE46RDCAEZYwhTq728bbitc8snXfCnHnlXBUwsadAAAA="
+      "width": 2048,
+      "height": 1317,
+      "base": "images/bio/bio-photo",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABwBACdASoUAA0APxFysFAsJqSisAgBgCIJZACdIMggthCahY0hNku2UJ9XQAD8itaB4nJA0F+sjhZnfEEdf39ujbPsKWEzrvFMSqZh/UoH0EwtOTqdfZsDZ9/gst1v0A1NbpNmqSyBzLvo+N3zSgdb2l1KmYRHZAtk8Cojmk31ahB6C1S5CvCUAAA="
     }
   },
   {
@@ -50,6 +50,16 @@
     }
   },
   {
+    "file": "images/projects/Hoosierboy Barbershop/Hoosierboy Barbershop logo 1.png",
+    "meta": {
+      "width": 512,
+      "height": 512,
+      "base": "images/projects/Hoosierboy Barbershop/Hoosierboy Barbershop logo 1",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRvoBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSPYAAAABkKNt27FH9/N+sVWlMqqsgCtga6fODlJpAVZlq3VSsbXHtr/nfe/hN1uIiAmAGEFS7eTZl8+nE3VJECOAQdXKDR1JOl4ttsHAiyr5RKe+o7OqjloWFYJxpz8s/2l9tWtAKS0DK+sgWKQGUW4JPHT/zwg8VNK5IHRsQcoN1Qaxli8zO/jdOvsv6+x39l7S/3TCfzqevVM+vtvvaUwao/6hnE+q7tx6mpbiGeR/pSPpWADPJKZBjCdhA1RSORcpnhExAghSn9I6vs+DAcTgzxB00fc5ghAEFCz9sSeQfwm8daryODYIBLHVj960JEIQOATtHQjB3wFWUDgg3gAAAPAEAJ0BKhQAFAA/EX62VawnpKMoCAGAIglsALsgN8mqLX6JJGIro1nW6DQRaf6wAAD+ycTxLRAYmn+jBjG9snVMv6tyvKxyD2hy9Nabg1711Jgmprhm6YKMFugoMvTOaktDNlQdp2T8Rrcf0tPXZZDVgBrp5Pt963QLVQeh1Mw7KV24Rimmil097mWTeupACuO6pPp5yOPRpnQsdUZEq8w2gZULToOJH9j6pngdy5whe2+KRNPxKFijurS62ohUa8pkLpuZRTpT4NhuXWuBcVH7f30EeYdy0K8olAAAAA=="
+    }
+  },
+  {
     "file": "images/projects/Behr pet essentials/Behr pet essentials logo.png",
     "meta": {
       "width": 1578,
@@ -67,16 +77,6 @@
       "base": "images/projects/317 bbq/317bbqlogo_wht",
       "color": "rgb(8 8 8)",
       "blurDataURL": "data:image/webp;base64,UklGRqYBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSFoBAAABkCvbtmlbfc11bdu2bdu2nm3btm37RbZCM2Xo92Kd+xERMQEAojD2jk8KsQJhcMG2b9WKmVMXr54ZjlYGmszdQ70VCpviraPFQKjZ7oZSCgWMXapBSN1p4jtjild+r1/HqCpGTUcw2RbOzQfPT/T8aRty470l6zKgbjKcKl921/hLI5uvQcIKmB+LMPn3NOPvtbybjmapt9USK4goe7hf/yh1+Z2MMWPzXZejeDZk/j3T77mtn43R9Da4Lke4febWZeMfeSfOoo3obbBaYgXdr48m5h4OnLDdFc24fOblhrlueTIu6N3V6JWrDjoleizzomZWmPvex8ujnt7I2nLxil9G5VIw3hpCenuQRVu5mduQKmFNOkLKdn8LDJXCwn7CNAShentJtLUWI2Xpl7hggQYQMjfPrsiKdAupHLFxhFYGaGxbVy1bsWDx6omhyGCIQrzjkkPNQQAAVlA4ICYAAADQAgCdASoUABQAPxGCuVWsKKWjKAgBgCIJaQAAPaOgAP7wCfsAAA=="
-    }
-  },
-  {
-    "file": "images/projects/circle  city kicks/circle  city kicks logo.png",
-    "meta": {
-      "width": 1463,
-      "height": 1402,
-      "base": "images/projects/circle  city kicks/circle  city kicks logo",
-      "color": "rgb(200 40 40)",
-      "blurDataURL": "data:image/webp;base64,UklGRpICAABXRUJQVlA4WAoAAAAQAAAAEwAAEgAAQUxQSGcBAAANkGTbtqln+7zYtm3bdjkjtfQjtXSDVdvmb9vmZ/vpdCMiAgQiJSwuQlFlRSupxADAzKnyd0NEUF7mhC98ykOMgMCwTicZRzbGUjZ3IrLwH4iZDs96+tYZcuH/6G/h7a8P+UUfKVA23vtTmxOQn/6jyXcB4XNJwj9TUsyTmTcnNaHCI22MmBCr/ip6E1H7K3EvM/nsaVHLnmbE9T3wn5Do2zDXv7bEp4ZUXPX80gEMpYBW4AIYZf86cp5ZBGaypAiihPwWb/LevVZdjAZMHMgERk5SSc1/U/CCD8HRLkeCvzeMZNGvCo7CDN0P9FXKqxqrGBzq9Pe9rMu4ybXEqUn2aJ/9DzS9Ir9/gfFaLXV/kPzkCP+vpM+d3PkevefJ/tFXF6t7L5Q+AuMwvdHFylclOYH77nvC9XYCictNNVHkTbCJIeE/eIdJBZNjMWkoWfXIfn5uzTFIBcAk3h4mNARHOn9/CQCpAABWUDggBAEAADAHAJ0BKhQAEwA/EXiwUqwnJCKoDVGAIglsAJ0yhHaIq/ZIx89s+Zy1AD9QPYA6UlGgA9KmcZFbGQXR3S9eNr/EAAD+5D/aZ0UOI9mYZfq0OxHw1udVJCQ42Ox93/1I4StEcDf1OQPqpa3R3F1XrO+Ohn9/kTk5QYY3HPilpZ0hie0KbNblfcgdgH73PC/J568nXRuXFcvCbNdiD4d/zV3qnkv49hJGY/xL8O9RLpyyEig8gxyU7Bs6mNhsUNr4FFn5hdqtZq6coFkf1hX7X8garpvud03NeDqWYOng/ns0fyQJFSQvjSgHR4SEunVKy9xo+7f8esc991h4MuJ2hvljAAAA"
     }
   },
   {
@@ -100,13 +100,13 @@
     }
   },
   {
-    "file": "images/projects/Hoosierboy Barbershop/Hoosierboy Barbershop logo 1.png",
+    "file": "images/projects/Piko Fg Music/piko-logo.png",
     "meta": {
-      "width": 512,
-      "height": 512,
-      "base": "images/projects/Hoosierboy Barbershop/Hoosierboy Barbershop logo 1",
-      "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRvoBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSPYAAAABkKNt27FH9/N+sVWlMqqsgCtga6fODlJpAVZlq3VSsbXHtr/nfe/hN1uIiAmAGEFS7eTZl8+nE3VJECOAQdXKDR1JOl4ttsHAiyr5RKe+o7OqjloWFYJxpz8s/2l9tWtAKS0DK+sgWKQGUW4JPHT/zwg8VNK5IHRsQcoN1Qaxli8zO/jdOvsv6+x39l7S/3TCfzqevVM+vtvvaUwao/6hnE+q7tx6mpbiGeR/pSPpWADPJKZBjCdhA1RSORcpnhExAghSn9I6vs+DAcTgzxB00fc5ghAEFCz9sSeQfwm8daryODYIBLHVj960JEIQOATtHQjB3wFWUDgg3gAAAPAEAJ0BKhQAFAA/EX62VawnpKMoCAGAIglsALsgN8mqLX6JJGIro1nW6DQRaf6wAAD+ycTxLRAYmn+jBjG9snVMv6tyvKxyD2hy9Nabg1711Jgmprhm6YKMFugoMvTOaktDNlQdp2T8Rrcf0tPXZZDVgBrp5Pt963QLVQeh1Mw7KV24Rimmil097mWTeupACuO6pPp5yOPRpnQsdUZEq8w2gZULToOJH9j6pngdy5whe2+KRNPxKFijurS62ohUa8pkLpuZRTpT4NhuXWuBcVH7f30EeYdy0K8olAAAAA=="
+      "width": 523,
+      "height": 794,
+      "base": "images/projects/Piko Fg Music/piko-logo",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRkgDAABXRUJQVlA4WAoAAAAQAAAAEwAAHQAAQUxQSPMBAAABkHDb1hm4wm+Sjm3btm3bqm3btm3btm27Y9uevFHbiJgAgAWEVCXAMGAl4NYfLMDCYH1mW6Yv9B0RJLv7BRiwGN7adG5x+z2svgGZRTkHwAEz6eLYMThbuPrPGDX/d/TUCvCnEzh3HL/PD89ML59/4G7beRlcLlCXbR8wpWXhrKLcKR5ln+5leaBwP0bQ88IDZzbSCnw/lnmFgrF3DZ43n7M9tuluywHPn0Nzw0K0RdA3hY5Aofx3adr3Q5k1M6AaqtsHiykBspcjhnCul1ePnXlvx9H9YJ/c13AcPm3BwQf3tprtoZzVH2fB/uqSOp6Ip5zHm45S86hDq6UwNjHwWw7tCTASkThK3wfZyIBFsiIkbtL8gTIC1+l7yoozW5QhqCh2JL+ZpxyPZVSadIFaaQzAwvszrfKTTKK2ibHPeL7KsQf7plwTIu+oObuV+IZgsGBhTQcBR54KPne00B5wAIdU6gdGfOO5MT+ptTgF6BFVrgiGhc0f+vJxhZgAABZR68CwcMnla561jQPXyxBbcNArbl4x+DEt7YVDkgoEsTyvIAXSw3TBAGBgL8YJ2i+bsMMJMBdG74IszObIOmvLAjYif2EAfXG46UgICmoI/qUnBycdGXEJfeF/YVjYGqhJqwhx/wIGZooyotJg/kNPCH8HAFZQOCAuAQAAUAYAnQEqFAAeAD8RcK9QLCYkIrAIAYAiCWwAxQaVuMBNLJEPiUW3s4GQTEG/mtL3T4Z87pPGR1faUAAA/ujzNcyjHoz7Jjb/r34ujXnjFdf6+PP86DkHSKQZBahTQue+7X4CyjnFk2w0cMMAMXyByFp5+i3nLtpYYTM/KAWqev+bMSIZzwyJuk/nrfdbxUeFRUsI0Hg6ns8t4Sn+afFJNksj4IpZCHXTRHG9LwIpI0x/32kmm4DWlnvodJN8r/P/P9oXNUgT7+N/ycmVUBhGYgL4poPqpgY2+7z4Q6XkrGBn2g928lYQlgVfy3jJH1sAbTl28kJGZDrtZ9YOjYtdSOK2uHCykOYNTjWln5GwNTaTeihn98fofw8fzH3VqQ5qGK59w3oZKMlszOePgAA="
     }
   },
   {
@@ -120,26 +120,6 @@
     }
   },
   {
-    "file": "images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM.png",
-    "meta": {
-      "width": 2550,
-      "height": 515,
-      "base": "images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM",
-      "color": "rgb(8 8 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4WAoAAAAQAAAAEwAAAwAAQUxQSFEAAAAAPYZtYVmBaUJ1UIt5UFxqa2NffDoUGDZLRDs5SE8nLTk9OjQ2NUBDGwUSFB4eHxUDDAkHBAIGHyEWTWkkGCorKiorFwIVCxcWExQpJxg3dSIAVlA4IGAAAAAwBACdASoUAAQAPxFwsFAsJiSisAgBgCIJZgCdMoHgA5/8B5IAzJrbYQAA/s4FJYxWXCMmBAQRGGrQ4wU/VgPa/SEz/s+9hwO5AIaL30z9pTcxxAWAU4lyjoxhbCu30AA="
-    }
-  },
-  {
-    "file": "images/projects/Piko Fg Music/piko-logo.png",
-    "meta": {
-      "width": 523,
-      "height": 794,
-      "base": "images/projects/Piko Fg Music/piko-logo",
-      "color": "rgb(8 8 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRkgDAABXRUJQVlA4WAoAAAAQAAAAEwAAHQAAQUxQSPMBAAABkHDb1hm4wm+Sjm3btm3bqm3btm3btm27Y9uevFHbiJgAgAWEVCXAMGAl4NYfLMDCYH1mW6Yv9B0RJLv7BRiwGN7adG5x+z2svgGZRTkHwAEz6eLYMThbuPrPGDX/d/TUCvCnEzh3HL/PD89ML59/4G7beRlcLlCXbR8wpWXhrKLcKR5ln+5leaBwP0bQ88IDZzbSCnw/lnmFgrF3DZ43n7M9tuluywHPn0Nzw0K0RdA3hY5Aofx3adr3Q5k1M6AaqtsHiykBspcjhnCul1ePnXlvx9H9YJ/c13AcPm3BwQf3tprtoZzVH2fB/uqSOp6Ip5zHm45S86hDq6UwNjHwWw7tCTASkThK3wfZyIBFsiIkbtL8gTIC1+l7yoozW5QhqCh2JL+ZpxyPZVSadIFaaQzAwvszrfKTTKK2ibHPeL7KsQf7plwTIu+oObuV+IZgsGBhTQcBR54KPne00B5wAIdU6gdGfOO5MT+ptTgF6BFVrgiGhc0f+vJxhZgAABZR68CwcMnla561jQPXyxBbcNArbl4x+DEt7YVDkgoEsTyvIAXSw3TBAGBgL8YJ2i+bsMMJMBdG74IszObIOmvLAjYif2EAfXG46UgICmoI/qUnBycdGXEJfeF/YVjYGqhJqwhx/wIGZooyotJg/kNPCH8HAFZQOCAuAQAAUAYAnQEqFAAeAD8RcK9QLCYkIrAIAYAiCWwAxQaVuMBNLJEPiUW3s4GQTEG/mtL3T4Z87pPGR1faUAAA/ujzNcyjHoz7Jjb/r34ujXnjFdf6+PP86DkHSKQZBahTQue+7X4CyjnFk2w0cMMAMXyByFp5+i3nLtpYYTM/KAWqev+bMSIZzwyJuk/nrfdbxUeFRUsI0Hg6ns8t4Sn+afFJNksj4IpZCHXTRHG9LwIpI0x/32kmm4DWlnvodJN8r/P/P9oXNUgT7+N/ycmVUBhGYgL4poPqpgY2+7z4Q6XkrGBn2g928lYQlgVfy3jJH1sAbTl28kJGZDrtZ9YOjYtdSOK2uHCykOYNTjWln5GwNTaTeihn98fofw8fzH3VqQ5qGK59w3oZKMlszOePgAA="
-    }
-  },
-  {
     "file": "images/projects/Primary Colours/pc-org logo.png",
     "meta": {
       "width": 1536,
@@ -150,43 +130,13 @@
     }
   },
   {
-    "file": "images/projects/ResQ Organics/CBD-Oil-for-Pets.png",
+    "file": "images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM.png",
     "meta": {
-      "width": 1000,
-      "height": 1000,
-      "base": "images/projects/ResQ Organics/CBD-Oil-for-Pets",
-      "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAABwBACdASoUABQAPxF8s1QsJ6QjKAqpgCIJQBA8LJzTh0QMbNW92W7TIz1dZAD+7T+EL9xLrt9czIWEn18VeGjEVvL3N8Wi/Zb/0vTQiMGLo7kgi8ZtuD0Fo2U4EkH02s2V0kOqHvu0/64XAZdfutxKQi0CbidZd1/z4ww3IyjxVlWkkxeRcGqkxJAQNgECbPRj2GFmoxxyDfjroAAAAA=="
-    }
-  },
-  {
-    "file": "images/projects/ResQ Organics/ResQ Organics for Pets.png",
-    "meta": {
-      "width": 831,
-      "height": 519,
-      "base": "images/projects/ResQ Organics/ResQ Organics for Pets",
-      "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
-    }
-  },
-  {
-    "file": "images/projects/Russell painting/painting_illustration_01.png",
-    "meta": {
-      "width": 800,
-      "height": 952,
-      "base": "images/projects/Russell painting/painting_illustration_01",
-      "color": "rgb(72 104 72)",
-      "blurDataURL": "data:image/webp;base64,UklGRk4CAABXRUJQVlA4WAoAAAAQAAAAEwAAFwAAQUxQSC4BAAABkLRtmyG7+p+qnnNObNt2VubW2Nq2veLKzsrJ0rZt27aT7q436DoRMQEYzNFdGDAGb+lSpM5qOAXHlcV43jwoVHFm+LViFW3CerZr1anvx3SQBRpEkFTuZfxE9z9o37lfn+sQJNBNkXPOSaEOZ2D+s2xQ5KQ4VqQZ2KTST+SUGGk0KYCAzj6nL/WxwMrl832KdCwfBibrszIZagYBmB36lQmnr/Wwlsqv5Xz6pbkEBPRS7Iv1oQoWLJsUeX5cUBeC/1pFcpJcqO3574cNACxzFEmKI3Wjj64XBQy5ryt2+nBHZ/JySKsBLG1DF2l4lW/aSLOfv/4jYLq+/WjEYmkqzUYlQI721R+/q1joheJ2WI8JGK6rWYZKa0j3pch5SSPY8q411gOWOg8HkpEFAFZQOCD6AAAAEAYAnQEqFAAYAD8RfrZVrCekoygIAYAiCWoAvmGgCGc6RLOU+xh0pM0wk4bAMdhBKzEGGFiYkYCAAP2mKzykfsm4gB7MEzEZJNZlMtRgwCtgfkIk5cBF+Va4DVweZiHbAzL/TErdZNn2QR8fnKSfmIL2Ned1JOLfbSjPMRhzcUCWLIJfVx/2CzFMP/BQlJL7UO24EjJAwh2puzklDkRuwzLNwbKBcADXGe6+YR0zZUJsgLN0OvJdF1pLLFgIxJwiJcpx1VTbOfk8OBYEh+oEpy2S8CKC5PTJ4VMCY1Gfov+eIHv8HH89qdKqXIblkEC69F1mLV6Df1GQAA=="
-    }
-  },
-  {
-    "file": "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post.png",
-    "meta": {
-      "width": 1080,
-      "height": 1080,
-      "base": "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post",
-      "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoUABQAPvVip1AqpaOit+gBUB6JbADE2DJPZbuJ/qkcHr+olAAA/u3XsrFq6dO6rbFJLw1uomVtwRhjDDzU/HQEGD3ZQIaTNTwVmPQcD1gs34Eij4s5H1E6wcXgN1v+0/QqRiM/scuTApYBMFirqiKzk3NI0BXGYcWI9br0UkYAAA=="
+      "width": 2550,
+      "height": 515,
+      "base": "images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4WAoAAAAQAAAAEwAAAwAAQUxQSFEAAAAAPYZtYVmBaUJ1UIt5UFxqa2NffDoUGDZLRDs5SE8nLTk9OjQ2NUBDGwUSFB4eHxUDDAkHBAIGHyEWTWkkGCorKiorFwIVCxcWExQpJxg3dSIAVlA4IGAAAAAwBACdASoUAAQAPxFwsFAsJiSisAgBgCIJZgCdMoHgA5/8B5IAzJrbYQAA/s4FJYxWXCMmBAQRGGrQ4wU/VgPa/SEz/s+9hwO5AIaL30z9pTcxxAWAU4lyjoxhbCu30AA="
     }
   },
   {
@@ -200,13 +150,53 @@
     }
   },
   {
-    "file": "images/projects/urgent care indy/Urgent Care Indy Logo - 22.png",
+    "file": "images/projects/ResQ Organics/CBD-Oil-for-Pets.png",
     "meta": {
-      "width": 3000,
-      "height": 685,
-      "base": "images/projects/urgent care indy/Urgent Care Indy Logo - 22",
+      "width": 1000,
+      "height": 1000,
+      "base": "images/projects/ResQ Organics/CBD-Oil-for-Pets",
       "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRgIBAABXRUJQVlA4WAoAAAAQAAAAEwAABAAAQUxQSGQAAAABcBvbtqqc7+7/4565u0PmkLpGFEIJZK8fhiaohqGGiMhiaX2+98Dgh6EAID15vwbpVNAyPMNOJHU9oMImn+/TaPSPi+WktSnWt48YKJ4QQNV1xxElwVW98TRIwR8FhT+UmfUAVlA4IHgAAADwAwCdASoUAAUAPxF2slEsJySisAgBgCIJaACdOUACmfR0MyojRXEAAP4HScvqwpJ93JHeKM8fZaW/Hfis+nTvJD86+Dj+ff5ilAFULhDCYMykBe6Le/q3+vxbLc798EJY18O1mf7+csvYc9oCAHftBd352rQAAAA="
+      "blurDataURL": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAABwBACdASoUABQAPxF8s1QsJ6QjKAqpgCIJQBA8LJzTh0QMbNW92W7TIz1dZAD+7T+EL9xLrt9czIWEn18VeGjEVvL3N8Wi/Zb/0vTQiMGLo7kgi8ZtuD0Fo2U4EkH02s2V0kOqHvu0/64XAZdfutxKQi0CbidZd1/z4ww3IyjxVlWkkxeRcGqkxJAQNgECbPRj2GFmoxxyDfjroAAAAA=="
+    }
+  },
+  {
+    "file": "images/projects/Russell painting/painting_illustration_01.png",
+    "meta": {
+      "width": 800,
+      "height": 952,
+      "base": "images/projects/Russell painting/painting_illustration_01",
+      "color": "rgb(72 104 72)",
+      "blurDataURL": "data:image/webp;base64,UklGRk4CAABXRUJQVlA4WAoAAAAQAAAAEwAAFwAAQUxQSC4BAAABkLRtmyG7+p+qnnNObNt2VubW2Nq2veLKzsrJ0rZt27aT7q436DoRMQEYzNFdGDAGb+lSpM5qOAXHlcV43jwoVHFm+LViFW3CerZr1anvx3SQBRpEkFTuZfxE9z9o37lfn+sQJNBNkXPOSaEOZ2D+s2xQ5KQ4VqQZ2KTST+SUGGk0KYCAzj6nL/WxwMrl832KdCwfBibrszIZagYBmB36lQmnr/Wwlsqv5Xz6pbkEBPRS7Iv1oQoWLJsUeX5cUBeC/1pFcpJcqO3574cNACxzFEmKI3Wjj64XBQy5ryt2+nBHZ/JySKsBLG1DF2l4lW/aSLOfv/4jYLq+/WjEYmkqzUYlQI721R+/q1joheJ2WI8JGK6rWYZKa0j3pch5SSPY8q411gOWOg8HkpEFAFZQOCD6AAAAEAYAnQEqFAAYAD8RfrZVrCekoygIAYAiCWoAvmGgCGc6RLOU+xh0pM0wk4bAMdhBKzEGGFiYkYCAAP2mKzykfsm4gB7MEzEZJNZlMtRgwCtgfkIk5cBF+Va4DVweZiHbAzL/TErdZNn2QR8fnKSfmIL2Ned1JOLfbSjPMRhzcUCWLIJfVx/2CzFMP/BQlJL7UO24EjJAwh2puzklDkRuwzLNwbKBcADXGe6+YR0zZUJsgLN0OvJdF1pLLFgIxJwiJcpx1VTbOfk8OBYEh+oEpy2S8CKC5PTJ4VMCY1Gfov+eIHv8HH89qdKqXIblkEC69F1mLV6Df1GQAA=="
+    }
+  },
+  {
+    "file": "images/projects/ResQ Organics/ResQ Organics for Pets.png",
+    "meta": {
+      "width": 831,
+      "height": 519,
+      "base": "images/projects/ResQ Organics/ResQ Organics for Pets",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
+    }
+  },
+  {
+    "file": "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post.png",
+    "meta": {
+      "width": 1080,
+      "height": 1080,
+      "base": "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoUABQAPvVip1AqpaOit+gBUB6JbADE2DJPZbuJ/qkcHr+olAAA/u3XsrFq6dO6rbFJLw1uomVtwRhjDDzU/HQEGD3ZQIaTNTwVmPQcD1gs34Eij4s5H1E6wcXgN1v+0/QqRiM/scuTApYBMFirqiKzk3NI0BXGYcWI9br0UkYAAA=="
+    }
+  },
+  {
+    "file": "images/projects/Russell painting/rpc-logo.png",
+    "meta": {
+      "width": 1904,
+      "height": 1310,
+      "base": "images/projects/Russell painting/rpc-logo",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRoABAABXRUJQVlA4WAoAAAAQAAAAEwAADQAAQUxQSOEAAAANkGvb2rFXe3+xbdturdrGTditnTJdarZ2i862bX5PdM41RMQEAAQEFAoBKJ/NbhnQkE8AAoEAIOw197TqrFtX9J71n/Uf6Z58tbfydhHx7uxxW/q6kDSYMlZYu6igCigxOJ7PGQ85Ua3P9BdNXT60jAAE9e746s4l9STPRB7FDTmrAYDC/YCPlxc/wzlj82eLq0+TQ0BmXx71Hw0fDbyeHx7E6t0IqvJObQ2hUKhoQhRRVVXzQMH/EqBovXbN/hcA0djsRtE/BAABqq7+Bh8kQIAgAAI01l0SIeSXUACArwYAVlA4IHgAAAAwBACdASoUAA4APxFysFAsJqSisAgBgCIJbACxC8GJ/gPIG+kFGReQAaAA/u8SXOqVn/8felr7zeYwQwDk8LXsZ0YdM9+4l3YFCPLRDsXwaLoyVZnHZqL1MSfX+Sh1HGjn3Ox1bzXzNhnix7oMFzkPlTeS6EgQAAA="
     }
   },
   {
@@ -220,13 +210,23 @@
     }
   },
   {
-    "file": "images/projects/Russell painting/rpc-logo.png",
+    "file": "images/projects/urgent care indy/Urgent Care Indy Logo - 22.png",
     "meta": {
-      "width": 1904,
-      "height": 1310,
-      "base": "images/projects/Russell painting/rpc-logo",
-      "color": "rgb(8 8 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRoABAABXRUJQVlA4WAoAAAAQAAAAEwAADQAAQUxQSOEAAAANkGvb2rFXe3+xbdturdrGTditnTJdarZ2i862bX5PdM41RMQEAAQEFAoBKJ/NbhnQkE8AAoEAIOw197TqrFtX9J71n/Uf6Z58tbfydhHx7uxxW/q6kDSYMlZYu6igCigxOJ7PGQ85Ua3P9BdNXT60jAAE9e746s4l9STPRB7FDTmrAYDC/YCPlxc/wzlj82eLq0+TQ0BmXx71Hw0fDbyeHx7E6t0IqvJObQ2hUKhoQhRRVVXzQMH/EqBovXbN/hcA0djsRtE/BAABqq7+Bh8kQIAgAAI01l0SIeSXUACArwYAVlA4IHgAAAAwBACdASoUAA4APxFysFAsJqSisAgBgCIJbACxC8GJ/gPIG+kFGReQAaAA/u8SXOqVn/8felr7zeYwQwDk8LXsZ0YdM9+4l3YFCPLRDsXwaLoyVZnHZqL1MSfX+Sh1HGjn3Ox1bzXzNhnix7oMFzkPlTeS6EgQAAA="
+      "width": 3000,
+      "height": 685,
+      "base": "images/projects/urgent care indy/Urgent Care Indy Logo - 22",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRgIBAABXRUJQVlA4WAoAAAAQAAAAEwAABAAAQUxQSGQAAAABcBvbtqqc7+7/4565u0PmkLpGFEIJZK8fhiaohqGGiMhiaX2+98Dgh6EAID15vwbpVNAyPMNOJHU9oMImn+/TaPSPi+WktSnWt48YKJ4QQNV1xxElwVW98TRIwR8FhT+UmfUAVlA4IHgAAADwAwCdASoUAAUAPxF2slEsJySisAgBgCIJaACdOUACmfR0MyojRXEAAP4HScvqwpJ93JHeKM8fZaW/Hfis+nTvJD86+Dj+ff5ilAFULhDCYMykBe6Le/q3+vxbLc798EJY18O1mf7+csvYc9oCAHftBd352rQAAAA="
+    }
+  },
+  {
+    "file": "images/projects/circle  city kicks/circle  city kicks logo.png",
+    "meta": {
+      "width": 1463,
+      "height": 1402,
+      "base": "images/projects/circle  city kicks/circle  city kicks logo",
+      "color": "rgb(200 40 40)",
+      "blurDataURL": "data:image/webp;base64,UklGRpICAABXRUJQVlA4WAoAAAAQAAAAEwAAEgAAQUxQSGcBAAANkGTbtqln+7zYtm3bdjkjtfQjtXSDVdvmb9vmZ/vpdCMiAgQiJSwuQlFlRSupxADAzKnyd0NEUF7mhC98ykOMgMCwTicZRzbGUjZ3IrLwH4iZDs96+tYZcuH/6G/h7a8P+UUfKVA23vtTmxOQn/6jyXcB4XNJwj9TUsyTmTcnNaHCI22MmBCr/ip6E1H7K3EvM/nsaVHLnmbE9T3wn5Do2zDXv7bEp4ZUXPX80gEMpYBW4AIYZf86cp5ZBGaypAiihPwWb/LevVZdjAZMHMgERk5SSc1/U/CCD8HRLkeCvzeMZNGvCo7CDN0P9FXKqxqrGBzq9Pe9rMu4ybXEqUn2aJ/9DzS9Ir9/gfFaLXV/kPzkCP+vpM+d3PkevefJ/tFXF6t7L5Q+AuMwvdHFylclOYH77nvC9XYCictNNVHkTbCJIeE/eIdJBZNjMWkoWfXIfn5uzTFIBcAk3h4mNARHOn9/CQCpAABWUDggBAEAADAHAJ0BKhQAEwA/EXiwUqwnJCKoDVGAIglsAJ0yhHaIq/ZIx89s+Zy1AD9QPYA6UlGgA9KmcZFbGQXR3S9eNr/EAAD+5D/aZ0UOI9mYZfq0OxHw1udVJCQ42Ox93/1I4StEcDf1OQPqpa3R3F1XrO+Ohn9/kTk5QYY3HPilpZ0hie0KbNblfcgdgH73PC/J568nXRuXFcvCbNdiD4d/zV3qnkv49hJGY/xL8O9RLpyyEig8gxyU7Bs6mNhsUNr4FFn5hdqtZq6coFkf1hX7X8garpvud03NeDqWYOng/ns0fyQJFSQvjSgHR4SEunVKy9xo+7f8esc991h4MuJ2hvljAAAA"
     }
   },
   {
