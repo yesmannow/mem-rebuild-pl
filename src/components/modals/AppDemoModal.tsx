@@ -30,7 +30,7 @@ const AppDemoModal: React.FC<AppDemoModalProps> = ({
   const shouldEmbed = embeddable && isSameOrigin;
 
   // For non-embeddable apps, open in new window immediately
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen && !shouldEmbed) {
       window.open(appUrl, '_blank', 'noopener,noreferrer');
       onClose();
@@ -60,8 +60,6 @@ const AppDemoModal: React.FC<AppDemoModalProps> = ({
     return () => window.removeEventListener('keydown', handleEsc);
   }, [isOpen, onClose]);
 
-  // Remove countdown and launch handler - not needed anymore for external apps
-  
   // Only render modal for embeddable apps
   if (!isOpen || !shouldEmbed) return null;
 
