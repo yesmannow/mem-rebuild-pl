@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './AppDemoModal.css';
 
@@ -8,7 +8,6 @@ interface AppDemoModalProps {
   appTitle: string;
   appUrl: string;
   embeddable?: boolean; // Defaults to true
-  thumbnail?: string; // For non-embeddable apps backdrop
 }
 
 const AppDemoModal: React.FC<AppDemoModalProps> = ({
@@ -16,12 +15,8 @@ const AppDemoModal: React.FC<AppDemoModalProps> = ({
   onClose,
   appTitle,
   appUrl,
-  embeddable = true,
-  thumbnail
+  embeddable = true
 }) => {
-  const [countdown, setCountdown] = useState<number | null>(null);
-  const [isLaunching, setIsLaunching] = useState(false);
-
   const isSameOrigin = (() => {
     try {
       const url = new URL(appUrl, window.location.href);
@@ -57,13 +52,13 @@ const AppDemoModal: React.FC<AppDemoModalProps> = ({
   // Handle ESC key to close
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen && !isLaunching) {
+      if (e.key === 'Escape' && isOpen) {
         onClose();
       }
     };
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
-  }, [isOpen, onClose, isLaunching]);
+  }, [isOpen, onClose]);
 
   // Remove countdown and launch handler - not needed anymore for external apps
   
