@@ -93,7 +93,7 @@ interface ReactLenisProps {
   children: ReactNode;
 }
 
-export function ReactLenis({ root = true, options, children }: ReactLenisProps) {
+export function ReactLenis({ root: _root = true, options, children }: ReactLenisProps) {
   useLenis(options);
   return <>{children}</>;
 }

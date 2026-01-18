@@ -1,11 +1,11 @@
 /**
  * useParallax - Custom hook for parallax scroll effects
- * 
+ *
  * Provides smooth parallax scrolling with customizable speed and direction
  */
 
 import { useScroll, useTransform, MotionValue } from 'framer-motion';
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 
 interface ParallaxConfig {
   speed?: number;
@@ -28,46 +28,22 @@ export function useParallax(config: ParallaxConfig = {}) {
     offset: ['start start', 'end start'],
   });
 
-  let transform: MotionValue<number>;
+  const yRange = useMemo<[number, number]>(() => {
+    if (direction === 'down') return [startOffset, endOffset * speed];
+    if (direction === 'up') return [startOffset, -endOffset * speed];
+    return [0, 0];
+  }, [direction, endOffset, speed, startOffset]);
 
-  switch (direction) {
-    case 'down':
-      transform = useTransform(
-        scrollYProgress,
-        [0, 1],
-        [startOffset, endOffset * speed]
-      );
-      break;
-    case 'up':
-      transform = useTransform(
-        scrollYProgress,
-        [0, 1],
-        [startOffset, -endOffset * speed]
-      );
-      break;
-    case 'left':
-      transform = useTransform(
-        scrollYProgress,
-        [0, 1],
-        [startOffset, -endOffset * speed]
-      );
-      break;
-    case 'right':
-      transform = useTransform(
-        scrollYProgress,
-        [0, 1],
-        [startOffset, endOffset * speed]
-      );
-      break;
-    default:
-      transform = useTransform(
-        scrollYProgress,
-        [0, 1],
-        [startOffset, -endOffset * speed]
-      );
-  }
+  const xRange = useMemo<[number, number]>(() => {
+    if (direction === 'right') return [startOffset, endOffset * speed];
+    if (direction === 'left') return [startOffset, -endOffset * speed];
+    return [0, 0];
+  }, [direction, endOffset, speed, startOffset]);
 
-  return { ref, y: transform, x: transform, scrollYProgress };
+  const y = useTransform(scrollYProgress, [0, 1], yRange);
+  const x = useTransform(scrollYProgress, [0, 1], xRange);
+
+  return { ref, y, x, scrollYProgress };
 }
 
 export function useParallaxOpacity(

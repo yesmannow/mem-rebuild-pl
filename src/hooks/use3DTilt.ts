@@ -5,7 +5,7 @@
  * with spring-based animation for natural motion
  */
 
-import { useRef, useState, useCallback, useEffect } from 'react';
+import { useRef, useState, useCallback, useEffect, useMemo } from 'react';
 import { useSpring } from 'framer-motion';
 
 interface TiltConfig {
@@ -27,7 +27,7 @@ const defaultConfig: Required<TiltConfig> = {
 };
 
 export function use3DTilt(config: TiltConfig = {}) {
-  const options = { ...defaultConfig, ...config };
+  const options = useMemo(() => ({ ...defaultConfig, ...config }), [config]);
   const elementRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
   const [isMobile, setIsMobile] = useState(false);

@@ -23,7 +23,7 @@ export function usePerformanceMetrics() {
     // FPS Counter
     let lastTime = performance.now();
     let frameCount = 0;
-    let fpsInterval = 1000;
+    const fpsInterval = 1000;
 
     const measureFPS = () => {
       frameCount++;
@@ -42,11 +42,11 @@ export function usePerformanceMetrics() {
 
     // Memory Usage (Chrome only)
     const updateMemory = () => {
-      // @ts-ignore - performance.memory is Chrome-specific
+      // @ts-ignore: performance.memory is Chrome-specific
       if (performance.memory) {
-        // @ts-ignore
+        // @ts-ignore: Chrome-only memory stats
         const used = performance.memory.usedJSHeapSize;
-        // @ts-ignore
+        // @ts-ignore: Chrome-only memory stats
         const limit = performance.memory.jsHeapSizeLimit;
 
         setMetrics(prev => ({

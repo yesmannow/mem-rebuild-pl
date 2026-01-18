@@ -7,7 +7,7 @@ import { useEffect, useState, useCallback } from 'react';
  */
 export function useKonami(onActivate?: () => void) {
   const [isActive, setIsActive] = useState(false);
-  const [sequence, setSequence] = useState<string[]>([]);
+  const [, setSequence] = useState<string[]>([]);
 
   // Konami code sequence
   const KONAMI_CODE = [
@@ -99,7 +99,7 @@ export function DebugOverlay({ isActive, onClose }: DebugOverlayProps) {
 
     let lastTime = performance.now();
     let frameCount = 0;
-    let fpsInterval = 1000; // Update every second
+    const fpsInterval = 1000; // Update every second
 
     const measureFPS = () => {
       frameCount++;
@@ -124,13 +124,13 @@ export function DebugOverlay({ isActive, onClose }: DebugOverlayProps) {
     if (!isActive) return;
 
     const updateMemory = () => {
-      // @ts-ignore - performance.memory is Chrome-specific
+      // @ts-ignore: performance.memory is Chrome-specific
       if (performance.memory) {
-        // @ts-ignore
+        // @ts-ignore: Chrome-only memory stats
         const used = performance.memory.usedJSHeapSize;
-        // @ts-ignore
+        // @ts-ignore: Chrome-only memory stats
         const total = performance.memory.totalJSHeapSize;
-        // @ts-ignore
+        // @ts-ignore: Chrome-only memory stats
         const limit = performance.memory.jsHeapSizeLimit;
 
         setMemory({

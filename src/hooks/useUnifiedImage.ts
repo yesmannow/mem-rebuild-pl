@@ -4,7 +4,7 @@
  * Provides easy access to images from multiple providers with React state management
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { unifiedImageService, ImageResult, ImageSearchOptions } from '../services/unifiedImageService';
 
 export interface UseUnifiedImageOptions extends Omit<ImageSearchOptions, 'query'> {
@@ -33,7 +33,7 @@ export function useUnifiedImage(query: string, options?: Omit<UseUnifiedImageOpt
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  const fetchImage = async () => {
+  const fetchImage = useCallback(async () => {
     if (!query) {
       setIsLoading(false);
       return;
@@ -50,13 +50,13 @@ export function useUnifiedImage(query: string, options?: Omit<UseUnifiedImageOpt
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [options?.preferredSource, query]);
 
   useEffect(() => {
     if (options?.enabled !== false) {
       fetchImage();
     }
-  }, [query, options?.preferredSource]);
+  }, [fetchImage, options?.enabled]);
 
   return {
     image,
@@ -70,12 +70,13 @@ export function useUnifiedImage(query: string, options?: Omit<UseUnifiedImageOpt
  * Hook for fetching multiple images
  */
 export function useUnifiedImages(options: UseUnifiedImageOptions): UseUnifiedImageResult {
-  const { query, enabled = true, ...searchOptions } = options;
+  const { query, enabled = true, ...restOptions } = options;
+  const searchOptions = useMemo(() => restOptions, [restOptions]);
   const [images, setImages] = useState<ImageResult[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  const fetchImages = async () => {
+  const fetchImages = useCallback(async () => {
     if (!query || !enabled) {
       setIsLoading(false);
       return;
@@ -95,11 +96,11 @@ export function useUnifiedImages(options: UseUnifiedImageOptions): UseUnifiedIma
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [enabled, query, searchOptions]);
 
   useEffect(() => {
     fetchImages();
-  }, [query, searchOptions.perPage, searchOptions.preferredSource, enabled]);
+  }, [fetchImages]);
 
   return {
     images,

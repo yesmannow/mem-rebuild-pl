@@ -6,8 +6,6 @@ import { applications, getAllCategories } from '../data/applications';
 import { staggerContainer, staggerItem } from '../utils/animations';
 import AnimatedSection from '../components/animations/AnimatedSection';
 import AppDemoModal from '../components/modals/AppDemoModal';
-import { OceanGradientAnimation } from '../components/ui/OceanGradientAnimation';
-import GlassCard from '../components/ui/GlassCard';
 import TiltCard from '../components/ui/TiltCard';
 import { useSwipe } from '../hooks/useGestures';
 import { SimpleSection } from '../components/ui/SimpleSection';

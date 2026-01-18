@@ -8,6 +8,7 @@ interface AppDemoModalProps {
   appTitle: string;
   appUrl: string;
   embeddable?: boolean;
+  thumbnail?: string;
 }
 
 const AppDemoModal: React.FC<AppDemoModalProps> = ({

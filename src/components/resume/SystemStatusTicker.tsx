@@ -18,7 +18,7 @@ export const SystemStatusTicker: React.FC = () => {
       <Activity size={14} className="text-brand-teal animate-pulse" />
       <span className="text-xs font-mono text-brand-text">
         <span className="text-brand-teal">Available for Consulting</span>
-        <span className="text-brand-muted mx-2">//</span>
+        <span className="text-brand-muted mx-2">{'//'}</span>
         <span className="text-brand-muted">Next Slot: Oct 2025</span>
       </span>
     </motion.div>

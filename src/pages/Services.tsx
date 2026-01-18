@@ -1,15 +1,11 @@
 import React, { useRef, Suspense, lazy } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useInView } from 'framer-motion';
-import { Briefcase, Code, Palette, TrendingUp, DollarSign, Target, Zap, Database, Globe, Type, Image, Video } from 'lucide-react';
+import { Briefcase, TrendingUp, DollarSign, Zap, Database, Globe, Type, Image, Video } from 'lucide-react';
 import { SectionWithApiBackground } from '../components/layout/PageWithApiBackground';
 import { AppSection } from '../ui/AppSection';
 import { AppCard } from '../ui/AppCard';
-import { Illustration } from '../components/Illustration';
-import { EnhancedImage } from '../components/ui/EnhancedImage';
-import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
 import { ApiImageGallery } from '../components/ui/ApiImageGallery';
-import { useUnifiedImage } from '../hooks/useUnifiedImage';
 
 // Lazy load heavy components to reduce initial bundle size
 const SkillsRadar = lazy(() => import('../components/ui/SkillsRadar'));
