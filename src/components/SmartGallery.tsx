@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Maximize2, Palette as PaletteIcon, X } from 'lucide-react';
 // Use browser entry to avoid the package root throwing on default import.
@@ -25,18 +25,24 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
   const [palettes, setPalettes] = useState<Record<string, string[]>>({});
   const hasItems = items && items.length > 0;
 
-  const showLightbox = (idx: number) => setLightboxIndex(idx);
-  const closeLightbox = () => setLightboxIndex(null);
+  const showLightbox = useCallback((idx: number) => setLightboxIndex(idx), []);
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
 
-  const goNext = () => {
+  const goNext = useCallback(() => {
     if (lightboxIndex === null) return;
-    setLightboxIndex((lightboxIndex + 1) % items.length);
-  };
+    setLightboxIndex((prev) => {
+      if (prev === null) return null;
+      return (prev + 1) % items.length;
+    });
+  }, [items.length, lightboxIndex]);
 
-  const goPrev = () => {
+  const goPrev = useCallback(() => {
     if (lightboxIndex === null) return;
-    setLightboxIndex((lightboxIndex - 1 + items.length) % items.length);
-  };
+    setLightboxIndex((prev) => {
+      if (prev === null) return null;
+      return (prev - 1 + items.length) % items.length;
+    });
+  }, [items.length, lightboxIndex]);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -47,7 +53,7 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [lightboxIndex, items.length]);
+  }, [lightboxIndex, items.length, goNext, goPrev, closeLightbox]);
 
   const ensurePalette = async (src: string) => {
     if (paletteCache[src] || palettes[src]) return;
@@ -62,6 +68,17 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
       // swallow palette errors to keep UI responsive
     }
   };
+
+  const masonryItems = useMemo(
+    () =>
+      items.map((item, idx) => ({
+        ...item,
+        idx,
+        width: item.width ?? 400,
+        height: item.height ?? 400,
+      })),
+    [items]
+  );
 
   if (!hasItems) {
     return (
@@ -79,17 +96,6 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
       </div>
     );
   }
-
-  const masonryItems = useMemo(
-    () =>
-      items.map((item, idx) => ({
-        ...item,
-        idx,
-        width: item.width ?? 400,
-        height: item.height ?? 400,
-      })),
-    [items]
-  );
 
   return (
     <>

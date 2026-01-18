@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, X, Send, Terminal, Command } from 'lucide-react';
+import { X, Send, Terminal, Command } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { findAnswer } from '../../data/ai-knowledge';
 import { caseStudies } from '../../data/caseStudies';

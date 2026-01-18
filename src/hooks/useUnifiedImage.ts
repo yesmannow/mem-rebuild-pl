@@ -114,7 +114,7 @@ export function useUnifiedImages(options: UseUnifiedImageOptions): UseUnifiedIma
 /**
  * Hook for fetching curated/featured images
  */
-export function useCuratedImages(count: number = 10): {
+export function useCuratedImages(count: number = 10, enabled: boolean = true): {
   images: ImageResult[];
   isLoading: boolean;
   error: Error | null;
@@ -124,7 +124,13 @@ export function useCuratedImages(count: number = 10): {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  const fetchCurated = async () => {
+  const fetchCurated = useCallback(async () => {
+    if (!enabled) {
+      setIsLoading(false);
+      setImages([]);
+      return;
+    }
+
     try {
       setIsLoading(true);
       setError(null);
@@ -136,11 +142,11 @@ export function useCuratedImages(count: number = 10): {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [count, enabled]);
 
   useEffect(() => {
     fetchCurated();
-  }, [count]);
+  }, [fetchCurated]);
 
   return {
     images,
@@ -153,7 +159,7 @@ export function useCuratedImages(count: number = 10): {
 /**
  * Hook for fetching themed images
  */
-export function useThemedImages(themes: string[], imagesPerTheme: number = 3): {
+export function useThemedImages(themes: string[], imagesPerTheme: number = 3, enabled: boolean = true): {
   images: ImageResult[];
   isLoading: boolean;
   error: Error | null;
@@ -163,8 +169,8 @@ export function useThemedImages(themes: string[], imagesPerTheme: number = 3): {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  const fetchThemed = async () => {
-    if (!themes.length) {
+  const fetchThemed = useCallback(async () => {
+    if (!enabled || themes.length === 0) {
       setIsLoading(false);
       return;
     }
@@ -180,11 +186,11 @@ export function useThemedImages(themes: string[], imagesPerTheme: number = 3): {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [enabled, imagesPerTheme, themes]);
 
   useEffect(() => {
     fetchThemed();
-  }, [themes.join(','), imagesPerTheme]);
+  }, [fetchThemed]);
 
   return {
     images,

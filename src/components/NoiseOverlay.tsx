@@ -3,12 +3,12 @@
  * Adds grain/texture effect for visual depth
  */
 
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 interface NoiseOverlayProps {
   className?: string;
   opacity?: number;
-  blendMode?: string;
+  blendMode?: CSSProperties['mixBlendMode'];
 }
 
 const NoiseOverlay: React.FC<NoiseOverlayProps> = ({
@@ -24,7 +24,7 @@ const NoiseOverlay: React.FC<NoiseOverlayProps> = ({
       className={`noise-overlay pointer-events-none absolute inset-0 ${className}`}
       style={{
         opacity,
-        mixBlendMode: blendMode as any,
+        mixBlendMode: blendMode,
       }}
     >
       <svg className="w-full h-full">

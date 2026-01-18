@@ -31,14 +31,25 @@ export const ApiImageGallery: React.FC<ApiImageGalleryProps> = ({
   className = '',
   onImageClick,
 }) => {
-  // Determine which hook to use
-  const imagesHook = curated
-    ? useCuratedImages(count)
-    : themes && themes.length > 0
-    ? useThemedImages(themes, Math.ceil(count / themes.length))
-    : useUnifiedImages({ query: query || 'technology', perPage: count });
+  const themeList = themes ?? [];
+  const hasThemes = themeList.length > 0;
+  const themeCount = hasThemes ? Math.ceil(count / themeList.length) : 0;
 
-  const { images, isLoading, error } = imagesHook;
+  const curatedData = useCuratedImages(count, curated);
+  const themedData = useThemedImages(themeList, themeCount, hasThemes);
+  const unifiedData = useUnifiedImages({
+    query: query || 'technology',
+    perPage: count,
+    enabled: !curated && !hasThemes,
+  });
+
+  const selectedHook = curated
+    ? curatedData
+    : hasThemes
+      ? themedData
+      : unifiedData;
+
+  const { images, isLoading, error } = selectedHook;
 
   if (isLoading) {
     return (

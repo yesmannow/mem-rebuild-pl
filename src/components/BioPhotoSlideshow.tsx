@@ -148,7 +148,7 @@ const BioPhotoSlideshow: React.FC<BioPhotoSlideshowProps> = ({
               alt={currentPhoto.alt}
               className="absolute inset-0 w-full h-full object-cover"
               onLoad={handleImageLoad}
-              onError={(e) => {
+              onError={() => {
                 // If PNG also fails, mark image as failed
                 setFailedImages(prev => new Set(prev).add(currentIndex));
               }}

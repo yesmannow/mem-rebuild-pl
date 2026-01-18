@@ -173,7 +173,7 @@ const ServiceModules: React.FC = () => {
         className="mt-12 text-center"
       >
         <p className="text-brand-muted mb-4">
-          Need a custom solution? Let's build something specific to your needs.
+          Need a custom solution? Let&apos;s build something specific to your needs.
         </p>
         <a
           href="mailto:hoosierdarling@gmail.com"

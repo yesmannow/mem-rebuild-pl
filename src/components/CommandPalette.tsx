@@ -9,7 +9,6 @@ import {
   User,
   Briefcase,
   Palette,
-  Code,
   Wrench,
   Mail,
   FileText,
@@ -21,7 +20,6 @@ import {
   Rocket,
   Shield,
   Compass,
-  Zap,
   Database,
   CreditCard,
   Settings
@@ -214,9 +212,9 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
     try {
       await navigator.clipboard.writeText(EMAIL);
       // Could add toast notification here
-      console.log('Email copied to clipboard');
+      // Email copy succeeded
     } catch (err) {
-      console.error('Failed to copy email:', err);
+      // Swallow error intentionally; clipboard might be unavailable
     }
   }, []);
 
@@ -403,7 +401,9 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
               {filteredItems.length === 0 ? (
                 <div className="p-8 text-center">
                   <Search className="mx-auto text-brand-muted mb-3" size={24} />
-                  <p className="text-brand-muted">No results found for "{query}"</p>
+                  <p className="text-brand-muted">
+                    No results found for <span className="text-white">&ldquo;{query}&rdquo;</span>
+                  </p>
                   <p className="text-brand-muted/60 text-sm mt-1">Try a different search term</p>
                 </div>
               ) : (

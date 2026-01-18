@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, Command } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import ArchitectLogo from './branding/ArchitectLogo';
 import { mainNavigationLinks } from '../data/navigation';
 import MegaMenu from './navigation/MegaMenu';
@@ -17,13 +17,10 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
 
   const navLinks = mainNavigationLinks;
 
-  const isActive = (path: string) => {
-    return location.pathname.startsWith(path);
-  };
+  const isActive = (path: string) => location.pathname.startsWith(path);
 
   // Determine navbar visibility
   const shouldHideNavbar = scrollDirection === 'down' && scrollY > 100;
-  const shouldShowNavbar = scrollDirection === 'up' || isAtTop;
 
   return (
     <motion.nav

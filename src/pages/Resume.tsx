@@ -1,17 +1,116 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { GraduationCap, Trophy, Award as AwardIcon, ArrowRight, Heart, Lock, Unlock } from 'lucide-react';
+import { GraduationCap, Trophy, Award as AwardIcon, ArrowRight, Heart, Lock, Unlock, Download, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { toast } from 'sonner';
 import { SimpleSection } from '../components/ui/SimpleSection';
 import TechBackdrop from '../components/hero/TechBackdrop';
-import { BentoGridHeader } from '../components/resume/BentoGridHeader';
+import HeroProfileCarousel from '../components/hero/HeroProfileCarousel';
+import { MetricVisualizer } from '../components/visuals/MetricVisualizer';
+import { MouseSpotlight } from '../components/resume/MouseSpotlight';
+import { SystemStatusTicker } from '../components/resume/SystemStatusTicker';
 import { SkillCluster } from '../components/resume/SkillCluster';
 import { CinematicTimeline } from '../components/resume/CinematicTimeline';
 import { EndorsementTicker } from '../components/resume/EndorsementTicker';
 import { VirtualizedVolunteerFeed } from '../components/resume/VirtualizedVolunteerFeed';
+import { useSystemSound } from '../hooks/useSystemSound';
 import ResumePrint from './ResumePrint';
 import { experience, education, volunteering, awards, certifications, skillCategories, executiveSummary } from '../data/resume';
+
+const AceternitySpotlight: React.FC = () => (
+  <MouseSpotlight
+    intensity={0.45}
+    size={520}
+    className="absolute inset-0 pointer-events-none opacity-60"
+  />
+);
+
+const IdentityMatrixHeader: React.FC<{ summary: string }> = ({ summary }) => {
+  const { playSwitch } = useSystemSound();
+  const [isCompiling, setIsCompiling] = useState(false);
+
+  const handleDownloadPDF = useCallback(async (event?: React.MouseEvent<HTMLButtonElement>) => {
+    if (event) {
+      event.preventDefault();
+    }
+    if (isCompiling) return;
+
+    setIsCompiling(true);
+    playSwitch();
+    toast.success('Compiling Personnel Dossier...', {
+      description: 'System Access Authorized',
+      duration: 800,
+    });
+    await new Promise((resolve) => setTimeout(resolve, 800));
+
+    const link = document.createElement('a');
+    link.href = '/resume/resume-jd-draft.pdf';
+    link.download = 'Jacob-Darling-Resume.pdf';
+    link.click();
+
+    setIsCompiling(false);
+  }, [isCompiling, playSwitch]);
+
+  const handleBookConsultation = () => {
+    window.location.href = '/contact';
+  };
+
+  return (
+    <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-slate-950/70 shadow-[0_40px_80px_rgba(2,6,23,0.8)]">
+      <AceternitySpotlight />
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-4 gap-4 p-6 lg:p-8 auto-rows-[minmax(180px,auto)]">
+        <div className="col-span-1 lg:col-span-2 row-span-2 bg-slate-900/50 backdrop-blur border border-white/5 rounded-2xl overflow-hidden shadow-lg">
+          <HeroProfileCarousel className="h-full w-full" />
+        </div>
+        <div className="col-span-1 lg:col-span-2 row-span-1 bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-5 flex flex-col gap-4">
+          <div>
+            <p className="text-xs uppercase tracking-[0.4em] text-brand-teal">Identity Matrix</p>
+            <h1 className="text-3xl md:text-4xl font-bold text-brand-text">Jacob Darling</h1>
+            <p className="text-brand-muted text-sm mt-1 max-w-xl leading-relaxed">{summary}</p>
+          </div>
+          <div>
+            <p className="text-xs uppercase tracking-[0.4em] text-brand-orange mb-2">System Status</p>
+            <SystemStatusTicker />
+          </div>
+        </div>
+        <div className="col-span-1 lg:col-span-1 row-span-1 bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-4 grid gap-3">
+          <MetricVisualizer label="Years in Systems" value="15+" accentColor="#40E0D0" />
+          <MetricVisualizer label="Deploys & Projects" value="120+" accentColor="#FACC15" />
+        </div>
+        <div className="col-span-1 lg:col-span-1 row-span-1 bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-4 flex flex-col gap-3 justify-between">
+          <div>
+            <p className="text-xs uppercase tracking-[0.4em] text-brand-muted mb-2">Operations</p>
+            <p className="text-sm text-brand-text mb-1">Live systems, stakeholder orchestration, and strategic design.</p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <motion.button
+              onClick={handleDownloadPDF}
+              disabled={isCompiling}
+              whileHover={{ scale: isCompiling ? 1 : 1.05 }}
+              whileTap={{ scale: isCompiling ? 1 : 0.95 }}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-brand-turquoise text-white font-semibold rounded-xl text-sm transition duration-200 shadow-lg shadow-brand-teal/40 ${
+                isCompiling ? 'opacity-70 cursor-wait' : ''
+              }`}
+            >
+              <Download size={18} className={isCompiling ? 'animate-pulse' : ''} />
+              <span>{isCompiling ? 'Compiling...' : 'Download CV'}</span>
+            </motion.button>
+            <motion.button
+              onClick={handleBookConsultation}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-3 border border-white/10 rounded-xl text-sm font-semibold text-brand-text bg-slate-900/60 hover:border-brand-turquoise/50 hover:text-brand-teal transition duration-200"
+            >
+              <Calendar size={18} />
+              <span>Book Consultation</span>
+            </motion.button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Resume: React.FC = () => {
   return (
@@ -49,14 +148,14 @@ const Resume: React.FC = () => {
         {/* Background Effect */}
         <TechBackdrop className="absolute inset-0 opacity-30" />
 
-        {/* Bento Grid Header */}
+        {/* Resume Identity Matrix Header */}
         <SimpleSection variant="default" padding="md" container={true} className="relative z-10 pt-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <BentoGridHeader executiveSummary={executiveSummary} />
+            <IdentityMatrixHeader summary={executiveSummary} />
           </motion.div>
         </SimpleSection>
 
