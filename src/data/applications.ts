@@ -58,6 +58,7 @@ export const applications: Application[] = [
     tags: ['JavaScript', 'Interactive UI', 'Quote Generation', 'Sales Automation'],
     thumbnail: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1600',
     demoUrl: 'https://jacob-darling-portfolio-meme.vercel.app/demos/gt9_pricing_sheet',
+    embeddable: false,
     overview:
       'A sophisticated sales enablement tool that transforms the complex Graston Technique product catalog into an intuitive, searchable interface with real-time quote building, customer segmentation, and professional quote generation capabilities.',
     valueProposition: {
@@ -239,6 +240,7 @@ export const applications: Application[] = [
     thumbnail: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1600',
     demoUrl:
       'https://jacob-darling-portfolio-meme.vercel.app/demos/Practitioner%20License%20Requirements%20-%20Tool%20for%20Website.htm',
+    embeddable: false,
     overview:
       'A comprehensive, interactive tool providing instant access to continuing education (CE) requirements for Physical Therapists, Occupational Therapists, Chiropractors, Athletic Trainers, and Massage Therapists across all 50 states plus DC and Puerto Rico.',
     valueProposition: {
@@ -439,6 +441,7 @@ export const applications: Application[] = [
     thumbnail: 'https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&q=80&w=1600',
     demoUrl:
       'https://jacob-darling-portfolio-meme.vercel.app/demos/ROI%20Calculator%20-%20Essential%20Training%20Large.htm',
+    embeddable: false,
     overview:
       'A sophisticated financial planning tool that helps clinicians understand the business case for Graston Technique training by calculating projected revenue, break-even time, and return on investment based on their specific practice parameters.',
     valueProposition: {
@@ -638,6 +641,7 @@ export const applications: Application[] = [
     thumbnail: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1600',
     demoUrl:
       'https://jacob-darling-portfolio-meme.vercel.app/demos/Graston%20Clinical%20Compass%20-%20%20clinical%20reasoning%20and%20treatment%20protocol.htm',
+    embeddable: false,
     overview:
       'A sophisticated clinical decision support tool that guides practitioners through evidence-based treatment protocol development using a step-by-step questionnaire, integrating clinical reasoning, anatomical knowledge, and instrument selection into actionable treatment plans.',
     valueProposition: {
@@ -2371,7 +2375,7 @@ const channelData = useMemo(() => {
     tags: ['Analytics', 'Data Visualization', 'ROI Tracking', 'Campaign Optimization'],
     thumbnail: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600',
     demoUrl: 'https://jacob-darling-portfolio-meme.vercel.app/demos/campaign-performance',
-    embeddable: true,
+    embeddable: false,
     overview:
       'A comprehensive analytics dashboard that tracks marketing campaign performance across multiple channels, providing real-time insights into ROI, conversion rates, and cost-per-acquisition metrics.',
     valueProposition: {
@@ -2479,7 +2483,7 @@ const channelData = useMemo(() => {
     tags: ['Competitive Analysis', 'Market Research', 'SEO', 'Content Strategy'],
     thumbnail: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1600',
     demoUrl: 'https://jacob-darling-portfolio-meme.vercel.app/demos/competitor-intelligence',
-    embeddable: true,
+    embeddable: false,
     overview:
       'An intelligent platform that monitors competitor activities across digital channels, analyzing their content strategies, SEO performance, pricing changes, and marketing campaigns to provide actionable competitive insights.',
     valueProposition: {
@@ -2587,7 +2591,7 @@ const channelData = useMemo(() => {
     tags: ['Lead Scoring', 'Machine Learning', 'CRM Integration', 'Sales Automation'],
     thumbnail: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600',
     demoUrl: 'https://jacob-darling-portfolio-meme.vercel.app/demos/lead-score-lab',
-    embeddable: true,
+    embeddable: false,
     overview:
       'An intelligent lead scoring platform that uses machine learning to automatically score and qualify leads based on behavioral data, firmographics, and engagement patterns, integrating seamlessly with CRM systems.',
     valueProposition: {
@@ -2696,7 +2700,7 @@ const channelData = useMemo(() => {
     tags: ['Link Building', 'SEO', 'Backlink Analysis', 'Outreach Automation'],
     thumbnail: 'https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&q=80&w=1600',
     demoUrl: 'https://jacob-darling-portfolio-meme.vercel.app/demos/link-architect',
-    embeddable: true,
+    embeddable: false,
     overview:
       'A comprehensive link building platform that identifies link opportunities, analyzes competitor backlink profiles, automates outreach campaigns, and tracks link acquisition performance.',
     valueProposition: {
@@ -2805,7 +2809,7 @@ const channelData = useMemo(() => {
     tags: ['SEO Audit', 'Technical SEO', 'On-Page Optimization', 'Site Analysis'],
     thumbnail: 'https://images.unsplash.com/photo-1572177812156-58036aae439c?auto=format&fit=crop&q=80&w=1600',
     demoUrl: 'https://jacob-darling-portfolio-meme.vercel.app/demos/seo-scanner',
-    embeddable: true,
+    embeddable: false,
     overview:
       'An advanced SEO auditing tool that performs comprehensive website scans, identifying technical issues, on-page optimization opportunities, and providing actionable recommendations to improve search rankings.',
     valueProposition: {

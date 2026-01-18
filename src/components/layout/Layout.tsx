@@ -1,4 +1,5 @@
 import React, { lazy, Suspense, ReactNode, useState, useEffect, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
 import Loader from '../ui/Loader';
 import ReadingProgressBar from '../ui/ReadingProgressBar';
 import KeyboardShortcuts from '../ui/KeyboardShortcuts';
@@ -16,7 +17,11 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const location = useLocation();
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+
+  // Check if we're on an app route - these should have minimal chrome
+  const isAppRoute = location.pathname.startsWith('/apps/');
 
   // Global keyboard shortcut for Cmd+K / Ctrl+K
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
@@ -52,19 +57,21 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       <div className="app min-h-dvh flex flex-col bg-[var(--ink-900)] text-[var(--parchment-050)] relative overflow-hidden">
         <Atmosphere />
-        {/* Reading Progress Bar */}
-        <ReadingProgressBar />
+        {/* Reading Progress Bar - hide on app routes */}
+        {!isAppRoute && <ReadingProgressBar />}
 
-        {/* Navigation */}
-        <Suspense
-          fallback={
-            <nav className="container-px py-4" aria-label="Main navigation">
-              <Loader size="sm" message="Loading navigation..." />
-            </nav>
-          }
-        >
-          <Navbar onOpenCommandPalette={openCommandPalette} />
-        </Suspense>
+        {/* Navigation - hide on app routes for focused experience */}
+        {!isAppRoute && (
+          <Suspense
+            fallback={
+              <nav className="container-px py-4" aria-label="Main navigation">
+                <Loader size="sm" message="Loading navigation..." />
+              </nav>
+            }
+          >
+            <Navbar onOpenCommandPalette={openCommandPalette} />
+          </Suspense>
+        )}
 
         {/* Scroll utilities */}
         <Suspense fallback={null}>
@@ -76,25 +83,29 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           {children}
         </main>
 
-        {/* Footer */}
-        <Suspense
-          fallback={
-            <footer className="container-px py-12" role="contentinfo">
-              <div className="mx-auto max-w-6xl text-sm opacity-70">
-                © {new Date().getFullYear()} Jacob Darling — Marketing Strategist & Systems Architect
-              </div>
-            </footer>
-          }
-        >
-          <Footer />
-        </Suspense>
+        {/* Footer - hide on app routes */}
+        {!isAppRoute && (
+          <Suspense
+            fallback={
+              <footer className="container-px py-12" role="contentinfo">
+                <div className="mx-auto max-w-6xl text-sm opacity-70">
+                  © {new Date().getFullYear()} Jacob Darling — Marketing Strategist & Systems Architect
+                </div>
+              </footer>
+            }
+          >
+            <Footer />
+          </Suspense>
+        )}
 
-        {/* Mobile Navigation Dock */}
-        <Suspense fallback={null}>
-          <MobileDock />
-        </Suspense>
+        {/* Mobile Navigation Dock - hide on app routes */}
+        {!isAppRoute && (
+          <Suspense fallback={null}>
+            <MobileDock />
+          </Suspense>
+        )}
 
-        {/* Command Palette (Cmd+K) */}
+        {/* Command Palette (Cmd+K) - keep available everywhere */}
         <Suspense fallback={null}>
           <CommandPalette isOpen={isCommandPaletteOpen} onClose={closeCommandPalette} />
         </Suspense>
@@ -102,10 +113,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {/* Keyboard Shortcuts Overlay */}
         <KeyboardShortcuts />
 
-        {/* Portfolio Concierge - Global Floating Widget */}
-        <Suspense fallback={null}>
-          <PortfolioConcierge />
-        </Suspense>
+        {/* Portfolio Concierge - hide on app routes for focused experience */}
+        {!isAppRoute && (
+          <Suspense fallback={null}>
+            <PortfolioConcierge />
+          </Suspense>
+        )}
       </div>
     </>
   );
