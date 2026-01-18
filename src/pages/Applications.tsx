@@ -20,7 +20,7 @@ const AppCard: React.FC<{
   app: typeof applications[0];
   imageErrors: Set<string>;
   onImageError: (id: string) => void;
-  onLaunch: (title: string, url: string) => void;
+  onLaunch: (app: typeof applications[0]) => void;
 }> = ({ app, imageErrors, onImageError, onLaunch }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isHovering, setIsHovering] = useState(false);
@@ -57,6 +57,7 @@ const AppCard: React.FC<{
         className="app-screenshot-wrapper"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onClick={() => onLaunch(app)}
       >
         <div className="screenshot-frame">
           {imageErrors.has(app.id) ? (
@@ -93,9 +94,9 @@ const AppCard: React.FC<{
             </>
           )}
           <div className="screenshot-overlay">
-            <div className="overlay-content">
+            <button className="overlay-content" type="button">
               <span className="preview-label">Click to Launch Live App</span>
-            </div>
+            </button>
           </div>
         </div>
 
@@ -166,10 +167,7 @@ const AppCard: React.FC<{
 
         {/* Actions */}
         <div className="app-card-actions">
-          <button
-            className="app-btn primary group"
-            onClick={() => onLaunch(app.title, app.demoUrl)}
-          >
+          <button className="app-btn primary group" onClick={() => onLaunch(app)}>
             <span>Launch Live App</span>
             <svg
               width="16"
@@ -209,6 +207,32 @@ const TheLab: React.FC = () => {
   } | null>(null);
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
   const categories = ['All', ...getAllCategories()];
+
+  const handleLaunch = (app: typeof applications[0]) => {
+    if (!app.demoUrl) return;
+
+    let isSameOrigin = false;
+    try {
+      const url = new URL(app.demoUrl, window.location.href);
+      isSameOrigin = url.origin === window.location.origin;
+    } catch {
+      isSameOrigin = false;
+    }
+
+    const embeddable = app.embeddable !== false && isSameOrigin;
+
+    if (!embeddable) {
+      window.open(app.demoUrl, '_blank', 'noopener,noreferrer');
+      return;
+    }
+
+    setModalApp({
+      title: app.title,
+      url: app.demoUrl,
+      embeddable: app.embeddable,
+      thumbnail: app.thumbnail
+    });
+  };
 
   // Add swipe gesture support for mobile tab navigation
   const swipeRef = useSwipe({
@@ -457,12 +481,7 @@ const TheLab: React.FC = () => {
                               app={app}
                               imageErrors={imageErrors}
                               onImageError={(id) => setImageErrors(prev => new Set(prev).add(id))}
-                              onLaunch={(title, url) => setModalApp({
-                                title,
-                                url,
-                                embeddable: app.embeddable,
-                                thumbnail: app.thumbnail
-                              })}
+                              onLaunch={handleLaunch}
                             />
                           </motion.div>
                         ))}
