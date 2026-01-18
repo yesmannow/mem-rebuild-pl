@@ -150,7 +150,8 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: false,
     target: 'esnext',
-    chunkSizeWarningLimit: 1000,
+    // Allow larger lazy chunks for heavy visualizations (e.g., 3D globe) while keeping main bundle small
+    chunkSizeWarningLimit: 2000,
     rollupOptions: {
       input: (() => {
         const entries = {
@@ -201,6 +202,10 @@ export default defineConfig({
           if (id.includes('node_modules/gsap/') || 
               id.includes('node_modules/lenis/')) {
             return 'vendor-scroll';
+          }
+          // Three.js + globe visualization (large but only loaded on WarRoom/Lab)
+          if (id.includes('node_modules/three') || id.includes('node_modules/react-globe.gl')) {
+            return 'vendor-globe';
           }
           // React PDF - only used on Resume page
           if (id.includes('node_modules/@react-pdf/')) {

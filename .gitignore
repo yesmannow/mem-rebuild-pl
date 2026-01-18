@@ -32,7 +32,9 @@ mcp/mcp.log
 # Temporary files
 *.tmp
 .cache/
-.vercel
+.vercel/
+.env.*
+.env.vercel
 mcp/tmp-*
 
 # Ignore generated type declarations
