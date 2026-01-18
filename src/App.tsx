@@ -9,11 +9,7 @@ import SwipeShell from './components/SwipeShell';
 import { EnhancedOceanBackground } from './components/ui/EnhancedOceanBackground';
 import CookieConsent from './components/ui/CookieConsent';
 import { queryClient } from './lib/queryClient';
-<<<<<<< HEAD
 import { ReactLenis } from './hooks/useLenis';
-=======
-import { ReactLenis } from './hooks/useLenis';
->>>>>>> origin/main
 import { initAnalytics } from './utils/analytics';
 import { initAccessibility } from './utils/accessibility';
 import JSONLD from './components/seo/JSONLD';
