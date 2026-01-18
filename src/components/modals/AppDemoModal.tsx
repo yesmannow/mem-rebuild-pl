@@ -7,7 +7,7 @@ interface AppDemoModalProps {
   onClose: () => void;
   appTitle: string;
   appUrl: string;
-  embeddable?: boolean; // Defaults to true
+  embeddable?: boolean;
 }
 
 const AppDemoModal: React.FC<AppDemoModalProps> = ({
