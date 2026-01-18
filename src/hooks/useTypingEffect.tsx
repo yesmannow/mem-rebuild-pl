@@ -4,7 +4,7 @@
  * Cycles through multiple strings with typing/deleting animation
  */
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 export interface UseTypingEffectOptions {
   strings: string[];

@@ -5,23 +5,22 @@ import { useEffect, useState, useCallback } from 'react';
  * Detects the classic Konami code sequence: ↑ ↑ ↓ ↓ ← → ← → b a
  * When triggered, activates "God Mode" with debug overlay
  */
+const KONAMI_CODE = [
+  'ArrowUp',
+  'ArrowUp',
+  'ArrowDown',
+  'ArrowDown',
+  'ArrowLeft',
+  'ArrowRight',
+  'ArrowLeft',
+  'ArrowRight',
+  'KeyB',
+  'KeyA'
+];
+
 export function useKonami(onActivate?: () => void) {
   const [isActive, setIsActive] = useState(false);
   const [, setSequence] = useState<string[]>([]);
-
-  // Konami code sequence
-  const KONAMI_CODE = [
-    'ArrowUp',
-    'ArrowUp',
-    'ArrowDown',
-    'ArrowDown',
-    'ArrowLeft',
-    'ArrowRight',
-    'ArrowLeft',
-    'ArrowRight',
-    'KeyB',
-    'KeyA'
-  ];
 
   const handleKeyDown = useCallback((event: KeyboardEvent) => {
     // Don't trigger in input fields
@@ -39,7 +38,7 @@ export function useKonami(onActivate?: () => void) {
       const newSequence = [...prev, key];
 
       // Keep only the last N keys (where N is the length of Konami code)
-      const trimmedSequence = newSequence.slice(-KONAMI_CODE.length);
+    const trimmedSequence = newSequence.slice(-KONAMI_CODE.length);
 
       // Check if sequence matches
       if (trimmedSequence.length === KONAMI_CODE.length) {
@@ -59,7 +58,7 @@ export function useKonami(onActivate?: () => void) {
 
       return trimmedSequence;
     });
-  }, [isActive, onActivate]);
+  }, [isActive, onActivate, KONAMI_CODE]);
 
   useEffect(() => {
     if (isActive) return; // Don't listen if already active
