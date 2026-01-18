@@ -17,7 +17,7 @@ import ServiceSchema from '../components/seo/ServiceSchema';
 import ReviewSchema from '../components/seo/ReviewSchema';
 
 // Lazy load heavy components
-const PersonSchema = lazy(() => import('../components/seo/PersonSchema'));
+// const PersonSchema = lazy(() => import('../components/seo/PersonSchema')); // Removed - deleted
 
 const testimonialsData = [
   {
@@ -97,9 +97,9 @@ const HomePage: React.FC = () => {
       </Helmet>
 
       {/* Structured Data */}
-      <Suspense fallback={null}>
+      {/* <Suspense fallback={null}>
         <PersonSchema />
-      </Suspense>
+      </Suspense> */}
       <OrganizationSchema />
       <ServiceSchema />
       <ReviewSchema />
