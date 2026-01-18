@@ -100,6 +100,39 @@
     }
   },
   {
+<<<<<<< HEAD
+=======
+    "file": "images/projects/Hoosierboy Barbershop/Hoosierboy Barbershop logo 1.png",
+    "meta": {
+      "width": 512,
+      "height": 512,
+      "base": "images/projects/Hoosierboy Barbershop/Hoosierboy Barbershop logo 1",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRvoBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSPYAAAABkKNt27FH9/N+sVWlMqqsgCtga6fODlJpAVZlq3VSsbXHtr/nfe/hN1uIiAmAGEFS7eTZl8+nE3VJECOAQdXKDR1JOl4ttsHAiyr5RKe+o7OqjloWFYJxpz8s/2l9tWtAKS0DK+sgWKQGUW4JPHT/zwg8VNK5IHRsQcoN1Qaxli8zO/jdOvsv6+x39l7S/3TCfzqevVM+vtvvaUwao/6hnE+q7tx6mpbiGeR/pSPpWADPJKZBjCdhA1RSORcpnhExAghSn9I6vs+DAcTgzxB00fc5ghAEFCz9sSeQfwm8daryODYIBLHVj960JEIQOATtHQjB3wFWUDgg3gAAAPAEAJ0BKhQAFAA/EX62VawnpKMoCAGAIglsALsgN8mqLX6JJGIro1nW6DQRaf6wAAD+ycTxLRAYmn+jBjG9snVMv6tyvKxyD2hy9Nabg1711Jgmprhm6YKMFugoMvTOaktDNlQdp2T8Rrcf0tPXZZDVgBrp5Pt963QLVQeh1Mw7KV24Rimmil097mWTeupACuO6pPp5yOPRpnQsdUZEq8w2gZULToOJH9j6pngdy5whe2+KRNPxKFijurS62ohUa8pkLpuZRTpT4NhuXWuBcVH7f30EeYdy0K8olAAAAA=="
+    }
+  },
+  {
+    "file": "images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM.png",
+    "meta": {
+      "width": 2550,
+      "height": 515,
+      "base": "images/projects/Perpetual Movement Fitness/Perpetual Movement Fitness - Primary Logo TM",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4WAoAAAAQAAAAEwAAAwAAQUxQSFEAAAAAPYZtYVmBaUJ1UIt5UFxqa2NffDoUGDZLRDs5SE8nLTk9OjQ2NUBDGwUSFB4eHxUDDAkHBAIGHyEWTWkkGCorKiorFwIVCxcWExQpJxg3dSIAVlA4IGAAAAAwBACdASoUAAQAPxFwsFAsJiSisAgBgCIJZgCdMoHgA5/8B5IAzJrbYQAA/s4FJYxWXCMmBAQRGGrQ4wU/VgPa/SEz/s+9hwO5AIaL30z9pTcxxAWAU4lyjoxhbCu30AA="
+    }
+  },
+  {
+    "file": "images/projects/Piko Fg Music/piko-logo.png",
+    "meta": {
+      "width": 523,
+      "height": 794,
+      "base": "images/projects/Piko Fg Music/piko-logo",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRkgDAABXRUJQVlA4WAoAAAAQAAAAEwAAHQAAQUxQSPMBAAABkHDb1hm4wm+Sjm3btm3bqm3btm3btm27Y9uevFHbiJgAgAWEVCXAMGAl4NYfLMDCYH1mW6Yv9B0RJLv7BRiwGN7adG5x+z2svgGZRTkHwAEz6eLYMThbuPrPGDX/d/TUCvCnEzh3HL/PD89ML59/4G7beRlcLlCXbR8wpWXhrKLcKR5ln+5leaBwP0bQ88IDZzbSCnw/lnmFgrF3DZ43n7M9tuluywHPn0Nzw0K0RdA3hY5Aofx3adr3Q5k1M6AaqtsHiykBspcjhnCul1ePnXlvx9H9YJ/c13AcPm3BwQf3tprtoZzVH2fB/uqSOp6Ip5zHm45S86hDq6UwNjHwWw7tCTASkThK3wfZyIBFsiIkbtL8gTIC1+l7yoozW5QhqCh2JL+ZpxyPZVSadIFaaQzAwvszrfKTTKK2ibHPeL7KsQf7plwTIu+oObuV+IZgsGBhTQcBR54KPne00B5wAIdU6gdGfOO5MT+ptTgF6BFVrgiGhc0f+vJxhZgAABZR68CwcMnla561jQPXyxBbcNArbl4x+DEt7YVDkgoEsTyvIAXSw3TBAGBgL8YJ2i+bsMMJMBdG74IszObIOmvLAjYif2EAfXG46UgICmoI/qUnBycdGXEJfeF/YVjYGqhJqwhx/wIGZooyotJg/kNPCH8HAFZQOCAuAQAAUAYAnQEqFAAeAD8RcK9QLCYkIrAIAYAiCWwAxQaVuMBNLJEPiUW3s4GQTEG/mtL3T4Z87pPGR1faUAAA/ujzNcyjHoz7Jjb/r34ujXnjFdf6+PP86DkHSKQZBahTQue+7X4CyjnFk2w0cMMAMXyByFp5+i3nLtpYYTM/KAWqev+bMSIZzwyJuk/nrfdbxUeFRUsI0Hg6ns8t4Sn+afFJNksj4IpZCHXTRHG9LwIpI0x/32kmm4DWlnvodJN8r/P/P9oXNUgT7+N/ycmVUBhGYgL4poPqpgY2+7z4Q6XkrGBn2g928lYQlgVfy3jJH1sAbTl28kJGZDrtZ9YOjYtdSOK2uHCykOYNTjWln5GwNTaTeihn98fofw8fzH3VqQ5qGK59w3oZKMlszOePgAA="
+    }
+  },
+  {
+>>>>>>> origin/main
     "file": "images/projects/Piko Fg Music/pkfg logo.png",
     "meta": {
       "width": 576,
@@ -120,6 +153,7 @@
     }
   },
   {
+<<<<<<< HEAD
     "file": "images/projects/ResQ Organics/ResQ Organics for Pets.png",
     "meta": {
       "width": 831,
@@ -127,6 +161,25 @@
       "base": "images/projects/ResQ Organics/ResQ Organics for Pets",
       "color": "rgb(248 248 248)",
       "blurDataURL": "data:image/webp;base64,UklGRpYBAABXRUJQVlA4WAoAAAAQAAAAEwAACwAAQUxQSPEAAAAAIG15Yio9OSkZGhuJSBEfFgFbRBEZZ39dTvb6XQwLbf+sEAdahNZhCyZgPjNY//9xJCmn/9A1TkOy/1ANJneKY63//728zOP/14n/Zon/dQ0mOi0vpv//zM7J5f/Yy/+s5v+UDShTdVZy//38/9/j//7+/+L4/2wNFmd+LWnExtjc383Yy7Xbxdbsgg4da3JOZlI4UDk8TUFMMlxST0hjRypOBVONeHw9TmKQT4VvSXZjAEB3R3OJWkxHSk1fLTdRFkIyMkAyJj9TCgkCAAEAAwEAAAIBAAEBAgQDAysAAQEBAQEBAQABAQACAAEBAAABAFZQOCB+AAAAEAQAnQEqFAAMAD8RcLBQLCYkorAIAYAiCWUAwoGLpKSouv+Oo38Y3MAA/ollhlxN46my3sxqosFYY4JMZhvN51XIhdytAkjx33x1/foalzNDf0ELGqazqGCTn9yEix5FqMWH02u2+x07UIVAeT3/mmTQ0mDuAAS6ADh+AAAA"
+=======
+    "file": "images/projects/ResQ Organics/CBD-Oil-for-Pets.png",
+    "meta": {
+      "width": 1000,
+      "height": 1000,
+      "base": "images/projects/ResQ Organics/CBD-Oil-for-Pets",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAABwBACdASoUABQAPxF8s1QsJ6QjKAqpgCIJQBA8LJzTh0QMbNW92W7TIz1dZAD+7T+EL9xLrt9czIWEn18VeGjEVvL3N8Wi/Zb/0vTQiMGLo7kgi8ZtuD0Fo2U4EkH02s2V0kOqHvu0/64XAZdfutxKQi0CbidZd1/z4ww3IyjxVlWkkxeRcGqkxJAQNgECbPRj2GFmoxxyDfjroAAAAA=="
+    }
+  },
+  {
+    "file": "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post.png",
+    "meta": {
+      "width": 1080,
+      "height": 1080,
+      "base": "images/projects/Primarycare Indy/online-doctor-consultation-instagram-post",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoUABQAPvVip1AqpaOit+gBUB6JbADE2DJPZbuJ/qkcHr+olAAA/u3XsrFq6dO6rbFJLw1uomVtwRhjDDzU/HQEGD3ZQIaTNTwVmPQcD1gs34Eij4s5H1E6wcXgN1v+0/QqRiM/scuTApYBMFirqiKzk3NI0BXGYcWI9br0UkYAAA=="
+>>>>>>> origin/main
     }
   },
   {
@@ -140,6 +193,7 @@
     }
   },
   {
+<<<<<<< HEAD
     "file": "images/projects/Russell painting/rpc-logo.png",
     "meta": {
       "width": 1904,
@@ -150,6 +204,8 @@
     }
   },
   {
+=======
+>>>>>>> origin/main
     "file": "images/projects/Taco Ninja/taconinja-logo.png",
     "meta": {
       "width": 1583,
@@ -177,6 +233,16 @@
       "base": "images/projects/circle  city kicks/circle  city kicks logo",
       "color": "rgb(200 40 40)",
       "blurDataURL": "data:image/webp;base64,UklGRpICAABXRUJQVlA4WAoAAAAQAAAAEwAAEgAAQUxQSGcBAAANkGTbtqln+7zYtm3bdjkjtfQjtXSDVdvmb9vmZ/vpdCMiAgQiJSwuQlFlRSupxADAzKnyd0NEUF7mhC98ykOMgMCwTicZRzbGUjZ3IrLwH4iZDs96+tYZcuH/6G/h7a8P+UUfKVA23vtTmxOQn/6jyXcB4XNJwj9TUsyTmTcnNaHCI22MmBCr/ip6E1H7K3EvM/nsaVHLnmbE9T3wn5Do2zDXv7bEp4ZUXPX80gEMpYBW4AIYZf86cp5ZBGaypAiihPwWb/LevVZdjAZMHMgERk5SSc1/U/CCD8HRLkeCvzeMZNGvCo7CDN0P9FXKqxqrGBzq9Pe9rMu4ybXEqUn2aJ/9DzS9Ir9/gfFaLXV/kPzkCP+vpM+d3PkevefJ/tFXF6t7L5Q+AuMwvdHFylclOYH77nvC9XYCictNNVHkTbCJIeE/eIdJBZNjMWkoWfXIfn5uzTFIBcAk3h4mNARHOn9/CQCpAABWUDggBAEAADAHAJ0BKhQAEwA/EXiwUqwnJCKoDVGAIglsAJ0yhHaIq/ZIx89s+Zy1AD9QPYA6UlGgA9KmcZFbGQXR3S9eNr/EAAD+5D/aZ0UOI9mYZfq0OxHw1udVJCQ42Ox93/1I4StEcDf1OQPqpa3R3F1XrO+Ohn9/kTk5QYY3HPilpZ0hie0KbNblfcgdgH73PC/J568nXRuXFcvCbNdiD4d/zV3qnkv49hJGY/xL8O9RLpyyEig8gxyU7Bs6mNhsUNr4FFn5hdqtZq6coFkf1hX7X8garpvud03NeDqWYOng/ns0fyQJFSQvjSgHR4SEunVKy9xo+7f8esc991h4MuJ2hvljAAAA"
+    }
+  },
+  {
+    "file": "images/projects/urgent care indy/Urgent Care Indy Logo - 22.png",
+    "meta": {
+      "width": 3000,
+      "height": 685,
+      "base": "images/projects/urgent care indy/Urgent Care Indy Logo - 22",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRgIBAABXRUJQVlA4WAoAAAAQAAAAEwAABAAAQUxQSGQAAAABcBvbtqqc7+7/4565u0PmkLpGFEIJZK8fhiaohqGGiMhiaX2+98Dgh6EAID15vwbpVNAyPMNOJHU9oMImn+/TaPSPi+WktSnWt48YKJ4QQNV1xxElwVW98TRIwR8FhT+UmfUAVlA4IHgAAADwAwCdASoUAAUAPxF2slEsJySisAgBgCIJaACdOUACmfR0MyojRXEAAP4HScvqwpJ93JHeKM8fZaW/Hfis+nTvJD86+Dj+ff5ilAFULhDCYMykBe6Le/q3+vxbLc798EJY18O1mf7+csvYc9oCAHftBd352rQAAAA="
     }
   },
   {
