@@ -120,7 +120,7 @@ const menuData: Record<string, MenuCategory[]> = {
       items: [
         {
           name: 'Marketing Simulator',
-          path: '/apps/marketing-simulator',
+          path: '/applications/marketing-simulator',
           description: 'Scenario planning & budget modeling engine. 6 tools, 8+ interactive charts.',
           status: 'LIVE',
         },
@@ -132,13 +132,13 @@ const menuData: Record<string, MenuCategory[]> = {
         },
         {
           name: 'Graston Growth Engine',
-          path: '/apps/graston-growth-engine',
+          path: '/applications/graston-growth-engine',
           description: 'Provider analytics hub & growth platform. 91% retention, $847K ARR.',
           status: 'LIVE',
         },
         {
           name: 'ROI Calculator',
-          path: '/apps/roi-calculator',
+          path: '/applications/roi-calculator',
           description: 'Real-time investment return modeling. +28% enrollment, -40% cycle time.',
           status: 'LIVE',
         },
