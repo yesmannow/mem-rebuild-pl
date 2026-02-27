@@ -200,16 +200,6 @@
     }
   },
   {
-    "file": "images/projects/Primary Colours/hero.jpg",
-    "meta": {
-      "width": 433,
-      "height": 650,
-      "base": "images/projects/Primary Colours/hero",
-      "color": "rgb(8 8 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRvAAAABXRUJQVlA4IOQAAADQBQCdASoUAB4APxFwrlAsJiQisAgBgCIJbACdMzOH3fMZAyuVEjOB22srXASd/E3FDajw+NYAAP7ukk7Mn9Uhtu/bYvbL+nZqgalJNjlaiYK8oxVR0ZYIWoDKwkfcohLKMXesHC7xPz5Q7xhMn8QYL063WGzBdnVdkl6PuYU6Of8BgvK7l7XdIfp2t6z63gTRtuZ4+8qpnvdRrilwawzIIlQHE4Kzipeu7Onj9PC/ergUWThT1RIePZjc8mZainPXBSe7ugGzvkJ44d5E5Eo7JVPBc08TqiDcb2hDs+e4reE0AAA="
-    }
-  },
-  {
     "file": "images/projects/Primarycare Indy/hero.jpg",
     "meta": {
       "width": 434,
@@ -217,6 +207,16 @@
       "base": "images/projects/Primarycare Indy/hero",
       "color": "rgb(8 8 8)",
       "blurDataURL": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAAAQBgCdASoUAB4APxF0sFAsJySisAgBgCIJbAC1GzOEJbbXsHrwANnEi9t/zIg4DMkryYTI9JnsdAAA/tlcix92a2N+PsDvWyh9z0Fv/pi4TgCXdY+j05uoqfnqYIIbebnOgiOPDk/b7ZrwEIraPa6Co8RoLUr2At+g2xsZe5VAR3XJ7gwYkwvlGaS/CQswCh7ckdnXyiFl+sKTJrzMY3yGlKy0UogMh2ODRWBVpOfjsvidywoNnc/J5DcnD+EFQMtFFhhQAAA="
+    }
+  },
+  {
+    "file": "images/projects/Primary Colours/hero.jpg",
+    "meta": {
+      "width": 433,
+      "height": 650,
+      "base": "images/projects/Primary Colours/hero",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRvAAAABXRUJQVlA4IOQAAADQBQCdASoUAB4APxFwrlAsJiQisAgBgCIJbACdMzOH3fMZAyuVEjOB22srXASd/E3FDajw+NYAAP7ukk7Mn9Uhtu/bYvbL+nZqgalJNjlaiYK8oxVR0ZYIWoDKwkfcohLKMXesHC7xPz5Q7xhMn8QYL063WGzBdnVdkl6PuYU6Of8BgvK7l7XdIfp2t6z63gTRtuZ4+8qpnvdRrilwawzIIlQHE4Kzipeu7Onj9PC/ergUWThT1RIePZjc8mZainPXBSe7ugGzvkJ44d5E5Eo7JVPBc08TqiDcb2hDs+e4reE0AAA="
     }
   },
   {

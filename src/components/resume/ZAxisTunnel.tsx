@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import type { ExperienceItem } from '../../types';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 interface ZAxisTunnelProps {
   experiences: ExperienceItem[];
@@ -12,7 +13,7 @@ interface ZAxisTunnelProps {
 const DataSlab: React.FC<{ item: ExperienceItem; index: number }> = ({ item, index }) => {
   return (
     <div
-      className="data-slab absolute inset-0 w-full"
+      className="job-card absolute inset-0 w-full"
       style={{ transformOrigin: '50% 50%' }}
     >
       <div className="relative mx-auto max-w-3xl backdrop-blur-xl bg-slate-900/60 border border-white/10 rounded-2xl p-7 shadow-[0_0_60px_rgba(0,242,255,0.04)] overflow-hidden">
@@ -21,7 +22,7 @@ const DataSlab: React.FC<{ item: ExperienceItem; index: number }> = ({ item, ind
 
         {/* Index badge */}
         <span className="absolute top-4 right-5 font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-white/20">
-          {String(index + 1).padStart(2, '0')} / {String(7).padStart(2, '0')}
+          {String(index + 1).padStart(2, '0')} / {String(index + 1).padStart(2, '0')}
         </span>
 
         <div className="pl-4">
@@ -81,34 +82,39 @@ export const ZAxisTunnel: React.FC<ZAxisTunnelProps> = ({ experiences }) => {
   const stackRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const section = sectionRef.current;
-    const stack = stackRef.current;
-    if (!section || !stack) return;
+  useGSAP(
+    () => {
+      const stack = stackRef.current;
+      if (!stack) return;
 
-    const slabs = gsap.utils.toArray<HTMLElement>('.data-slab', stack);
-    const total = slabs.length;
+      const cards = gsap.utils.toArray<HTMLElement>('.job-card', stack);
+      const total = cards.length;
+      if (total === 0) return;
 
-    // Stack all slabs on top of each other, scaled forward
-    gsap.set(slabs, {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      z: (i) => (total - i) * 120,
-      scale: (i) => 1 - (total - 1 - i) * 0.04,
-      opacity: (i) => (i === total - 1 ? 1 : 0.3 + i * (0.7 / total)),
-      filter: (i) => (i === total - 1 ? 'blur(0px)' : `blur(${(total - 1 - i) * 1.5}px)`),
-    });
+      // Position all cards stacked in Z — furthest back first, frontmost last
+      gsap.set(cards, {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        z: (i: number) => -i * 500,
+        opacity: (i: number) => Math.max(0, 1 - i * 0.18),
+        filter: (i: number) => `blur(${i * 1.2}px)`,
+      });
 
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
+      // Fly each card towards and past the camera
+      gsap.to(cards, {
+        z: 1200,
+        opacity: 0,
+        filter: 'blur(12px)',
+        ease: 'none',
+        stagger: 0.5,
         scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: `+=${total * 600}`,
-          scrub: 1.2,
+          trigger: sectionRef.current,
           pin: true,
+          scrub: 1,
+          start: 'top top',
+          end: `+=${total * 700}`,
           anticipatePin: 1,
           onUpdate: (self) => {
             if (progressBarRef.current) {
@@ -117,49 +123,9 @@ export const ZAxisTunnel: React.FC<ZAxisTunnelProps> = ({ experiences }) => {
           },
         },
       });
-
-      // Each slab flies "past the camera" — scale up to 1.4, opacity 0, then next becomes focus
-      slabs.forEach((slab, i) => {
-        const isLast = i === total - 1;
-        if (!isLast) {
-          tl.to(
-            slab,
-            {
-              z: 400,
-              scale: 1.35,
-              opacity: 0,
-              filter: 'blur(8px)',
-              duration: 1,
-              ease: 'power2.in',
-            },
-            i
-          );
-        }
-        // Bring next slab into focus
-        if (i > 0) {
-          tl.to(
-            slabs[i - 1],
-            {
-              z: 0,
-              scale: 1,
-              opacity: 1,
-              filter: 'blur(0px)',
-              duration: 1,
-              ease: 'power2.out',
-            },
-            i - 0.5
-          );
-        }
-      });
-    }, section);
-
-    return () => {
-      ctx.revert();
-      ScrollTrigger.getAll().forEach((st) => {
-        if (st.trigger === section) st.kill();
-      });
-    };
-  }, [experiences]);
+    },
+    { scope: sectionRef, dependencies: [experiences] }
+  );
 
   return (
     <div ref={sectionRef} className="relative w-full print:hidden">
@@ -201,8 +167,8 @@ export const ZAxisTunnel: React.FC<ZAxisTunnelProps> = ({ experiences }) => {
           className="relative w-full h-full"
           style={{ transformStyle: 'preserve-3d' }}
         >
-          {[...experiences].reverse().map((item, i) => (
-            <DataSlab key={item.id} item={item} index={experiences.length - 1 - i} />
+          {experiences.map((item, i) => (
+            <DataSlab key={item.id} item={item} index={i} />
           ))}
         </div>
       </div>

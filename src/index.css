@@ -565,4 +565,37 @@ body.wireframe-mode *::after {
   .cinematic-timeline > div > div {
     page-break-inside: avoid;
   }
+
+  /* ── Resume-specific print rules ───────────────────── */
+  /* Hide WebGL canvas, GSAP tunnel cards, terminal text */
+  canvas,
+  .job-card,
+  .terminal-text,
+  [data-r3f],
+  .print-hide {
+    display: none !important;
+  }
+
+  /* Ensure main resume wrapper is white/black */
+  body,
+  main {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Reveal the hidden semantic HTML resume for printing */
+  .print-only-resume {
+    display: block !important;
+  }
+
+  /* .sr-only becomes visible in print for ATS/human readers */
+  .sr-only {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: normal !important;
+    margin: 0 !important;
+  }
 }

@@ -1,15 +1,19 @@
-// @ts-nocheck — R3F JSX intrinsic elements (group, mesh, etc.) not in standard React JSX namespace
+/* eslint-disable react/no-unknown-property */
 import React, { useRef, useState, useMemo, Suspense } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Points, PointMaterial, Text, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import type { SkillCategory } from '../../types';
+import { usePerformanceBudget } from '../../hooks/usePerformanceProfile';
 
 interface ConstellationPointsProps {
   count: number;
   radius: number;
   color: string;
   mousePos: React.MutableRefObject<[number, number]>;
+  burstSpeed: React.MutableRefObject<number>;
+  pointSize?: number;
+  frameSkip?: number;
 }
 
 function randomInSphere(count: number, radius: number): Float32Array {
@@ -32,15 +36,27 @@ const ConstellationPoints: React.FC<ConstellationPointsProps> = ({
   radius,
   color,
   mousePos,
+  burstSpeed,
+  pointSize = 0.022,
+  frameSkip = 1,
 }) => {
   const ref = useRef<THREE.Points>(null!);
   const sphere = useMemo(() => randomInSphere(count, radius), [count, radius]);
+  const skipRef = useRef(0);
 
   useFrame((_state, delta) => {
     if (!ref.current) return;
+    if (frameSkip > 1) {
+      skipRef.current = (skipRef.current + 1) % frameSkip;
+      if (skipRef.current !== 0) return;
+    }
     const [mx, my] = mousePos.current;
-    ref.current.rotation.x += delta * 0.04 + my * 0.0008;
-    ref.current.rotation.y += delta * 0.06 + mx * 0.0008;
+    const burst = burstSpeed.current;
+    ref.current.rotation.x += delta * (0.04 + burst * 0.6) + my * 0.0008;
+    ref.current.rotation.y += delta * (0.06 + burst * 0.9) + mx * 0.0008;
+    // Decay burst speed back to 0
+    if (burstSpeed.current > 0.001) burstSpeed.current *= 0.94;
+    else burstSpeed.current = 0;
   });
 
   return (
@@ -49,7 +65,7 @@ const ConstellationPoints: React.FC<ConstellationPointsProps> = ({
         <PointMaterial
           transparent
           color={color}
-          size={0.022}
+          size={pointSize}
           sizeAttenuation
           depthWrite={false}
           opacity={0.85}
@@ -66,6 +82,7 @@ interface NodeOrbitProps {
   color: string;
   isHovered: boolean;
   onHover: (label: string | null) => void;
+  orbitSpeed: number;
 }
 
 const NodeOrbit: React.FC<NodeOrbitProps> = ({
@@ -75,6 +92,7 @@ const NodeOrbit: React.FC<NodeOrbitProps> = ({
   color,
   isHovered,
   onHover,
+  orbitSpeed,
 }) => {
   const groupRef = useRef<THREE.Group>(null!);
   const meshRef = useRef<THREE.Mesh>(null!);
@@ -83,7 +101,7 @@ const NodeOrbit: React.FC<NodeOrbitProps> = ({
   useFrame(({ clock }) => {
     if (!groupRef.current) return;
     const t = clock.getElapsedTime();
-    const a = baseAngleRef.current + t * 0.3;
+    const a = baseAngleRef.current + t * orbitSpeed;
     groupRef.current.position.x = Math.cos(a) * orbitRadius;
     groupRef.current.position.z = Math.sin(a) * orbitRadius;
     groupRef.current.position.y = Math.sin(a * 0.7) * 0.4;
@@ -135,10 +153,20 @@ const NodeOrbit: React.FC<NodeOrbitProps> = ({
   );
 };
 
-const Scene: React.FC<{ categories: SkillCategory[]; mousePos: React.MutableRefObject<[number, number]> }> = ({
-  categories,
-  mousePos,
-}) => {
+const Scene: React.FC<{
+  categories: SkillCategory[];
+  mousePos: React.MutableRefObject<[number, number]>;
+  burstSpeed: React.MutableRefObject<number>;
+  activeColor: string;
+  particleConfig: {
+    primary: number;
+    secondary: number;
+    pointSize: number;
+    frameSkip: number;
+  };
+  orbitRadius: number;
+  orbitSpeed: number;
+}> = ({ categories, mousePos, burstSpeed, activeColor, particleConfig, orbitRadius, orbitSpeed }) => {
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
   const { gl } = useThree();
 
@@ -154,14 +182,30 @@ const Scene: React.FC<{ categories: SkillCategory[]; mousePos: React.MutableRefO
   return (
     <>
       <ambientLight intensity={0.4} />
-      <pointLight position={[3, 3, 3]} intensity={1.2} color="#00F2FF" />
+      <pointLight position={[3, 3, 3]} intensity={1.2} color={activeColor} />
       <pointLight position={[-3, -2, -2]} intensity={0.6} color="#FF6B35" />
 
-      {/* Background particle sphere — subtle */}
-      <ConstellationPoints count={800} radius={2.4} color="#00F2FF" mousePos={mousePos} />
+      {/* Background particle sphere — color reacts to active category */}
+      <ConstellationPoints
+        count={particleConfig.primary}
+        radius={2.4}
+        color={activeColor}
+        mousePos={mousePos}
+        burstSpeed={burstSpeed}
+        pointSize={particleConfig.pointSize}
+        frameSkip={particleConfig.frameSkip}
+      />
 
       {/* Secondary sparse cloud */}
-      <ConstellationPoints count={200} radius={2.8} color="#FF6B35" mousePos={mousePos} />
+      <ConstellationPoints
+        count={particleConfig.secondary}
+        radius={2.8}
+        color="#FF6B35"
+        mousePos={mousePos}
+        burstSpeed={burstSpeed}
+        pointSize={particleConfig.pointSize * 0.85}
+        frameSkip={particleConfig.frameSkip}
+      />
 
       {/* Category orbital nodes */}
       {categories.map((cat, i) => (
@@ -169,10 +213,11 @@ const Scene: React.FC<{ categories: SkillCategory[]; mousePos: React.MutableRefO
           key={cat.id}
           label={cat.title}
           angle={(i / categories.length) * Math.PI * 2}
-          orbitRadius={1.2}
+          orbitRadius={orbitRadius}
           color={NODE_COLORS[cat.id] ?? '#FFFFFF'}
           isHovered={hoveredNode === cat.title}
           onHover={setHoveredNode}
+          orbitSpeed={orbitSpeed}
         />
       ))}
 
@@ -198,7 +243,34 @@ export const SkillConstellation: React.FC<SkillConstellationProps> = ({
   className = '',
 }) => {
   const mousePos = useRef<[number, number]>([0, 0]);
+  const burstSpeed = useRef<number>(0);
   const [activeTab, setActiveTab] = useState<string>(categories[0]?.id ?? '');
+  const { profile, budget } = usePerformanceBudget();
+
+  const NODE_COLORS_MAP: Record<string, string> = {
+    leadership: '#40E0D0',
+    strategy: '#FF6B35',
+    automation: '#A78BFA',
+    engineering: '#00F2FF',
+  };
+
+  const activeColor = NODE_COLORS_MAP[activeTab] ?? '#00F2FF';
+  const particleConfig = useMemo(
+    () => ({
+      primary: budget.particles,
+      secondary: budget.secondaryParticles,
+      pointSize: budget.pointSize,
+      frameSkip: budget.positionFrameSkip,
+    }),
+    [budget]
+  );
+  const orbitRadius = profile.tier === 'cinematic' ? 1.2 : profile.tier === 'balanced' ? 1.1 : 1.0;
+  const orbitSpeed = profile.tier === 'low-power' ? 0.2 : profile.tier === 'balanced' ? 0.26 : 0.3;
+
+  const handleCategoryClick = (id: string) => {
+    setActiveTab(id);
+    burstSpeed.current = 1; // Trigger data-sort burst
+  };
 
   const activeCategory = useMemo(
     () => categories.find((c) => c.id === activeTab),
@@ -216,6 +288,14 @@ export const SkillConstellation: React.FC<SkillConstellationProps> = ({
     <div
       className={`relative overflow-hidden rounded-[28px] border border-white/10 bg-[#020409] shadow-[0_40px_120px_rgba(0,0,0,0.7)] ${className}`}
     >
+      <div className="absolute top-5 right-6 z-10 flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur">
+        <span className="text-[10px] font-['Geist',_sans-serif] uppercase tracking-[0.3em] text-white/50">
+          Perf Mode
+        </span>
+        <span className="text-xs font-['Geist',_sans-serif] text-cyan-300">
+          {profile.tier.toUpperCase()} · {profile.summary}
+        </span>
+      </div>
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 p-6 lg:px-8 lg:pt-8">
         <div>
@@ -232,7 +312,7 @@ export const SkillConstellation: React.FC<SkillConstellationProps> = ({
           {categories.map((cat) => (
             <button
               key={cat.id}
-              onClick={() => setActiveTab(cat.id)}
+              onClick={() => handleCategoryClick(cat.id)}
               className={`font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest px-4 py-2 rounded-full border transition-all duration-200 ${
                 activeTab === cat.id
                   ? 'border-cyan-400/60 text-cyan-400 bg-cyan-400/10 shadow-[0_0_12px_rgba(0,242,255,0.2)]'
@@ -264,11 +344,19 @@ export const SkillConstellation: React.FC<SkillConstellationProps> = ({
         >
           <Canvas
             camera={{ position: [0, 0, 3.8], fov: 55 }}
-            dpr={[1, 1.5]}
-            gl={{ antialias: true, alpha: true }}
+            dpr={budget.dpr}
+            gl={{ antialias: profile.tier !== 'low-power', alpha: true }}
           >
             <Suspense fallback={null}>
-              <Scene categories={categories} mousePos={mousePos} />
+              <Scene
+                categories={categories}
+                mousePos={mousePos}
+                burstSpeed={burstSpeed}
+                activeColor={activeColor}
+                particleConfig={particleConfig}
+                orbitRadius={orbitRadius}
+                orbitSpeed={orbitSpeed}
+              />
             </Suspense>
           </Canvas>
 

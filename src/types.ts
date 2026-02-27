@@ -89,3 +89,37 @@ export interface LabItem {
   liveUrl?: string;    // Optional direct deployment link
   command?: string;    // For Tools
 }
+
+export interface Project {
+  slug: string;
+  title: string;
+  description: string;
+  longDescription: string;
+  image: string;
+  gallery?: string[];
+  tags: string[];
+  link?: string;
+  github?: string;
+  featured?: boolean;
+}
+
+export interface ProjectMetric {
+  value: string;
+  label: string;
+}
+
+export interface FlagshipProject {
+  id: string;
+  slug?: string;
+  title: string;
+  client: string;
+  metrics: ProjectMetric;
+  roles: string[];
+  heroImage: string;
+  excerpt: string;
+  summary: string;
+  outcomes: string[];
+  gallery?: string[];
+  link?: string;
+  github?: string;
+}

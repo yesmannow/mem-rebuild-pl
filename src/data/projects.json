@@ -1,0 +1,94 @@
+[
+  {
+    "id": "317-bbq",
+    "slug": "317-bbq",
+    "title": "Cinder-Fired Commerce System",
+    "client": "317 BBQ",
+    "metrics": {
+      "value": "+67.6%",
+      "label": "Increase in ROI"
+    },
+    "roles": ["Strategy", "Experience", "Automation"],
+    "heroImage": "https://images.pexels.com/photos/2833039/pexels-photo-2833039.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
+    "excerpt": "Transformed a humble smokehouse site into a cinematic commerce experience that feels like stepping inside the pit room.",
+    "summary": "Unified menu architecture, waitlist capture, and e‑commerce packaging into a single parallax journey with live inventory callouts and tactile hover states.",
+    "outcomes": [
+      "Deployed a headless commerce stack that surfaces 42 dynamic SKUs with live availability",
+      "Lifted catering conversions by 2.3x through motion-led storytelling"
+    ],
+    "gallery": [
+      "https://images.pexels.com/photos/313705/pexels-photo-313705.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
+      "https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
+      "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1"
+    ]
+  },
+  {
+    "id": "russell-painting",
+    "slug": "russell-painting",
+    "title": "FieldOps Finishing Suite",
+    "client": "Russell Painting Company",
+    "metrics": {
+      "value": "-38%",
+      "label": "Quote Friction"
+    },
+    "roles": ["Product Design", "WebGL", "AI Assistant"],
+    "heroImage": "https://images.pexels.com/photos/3584438/pexels-photo-3584438.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
+    "excerpt": "Turned a legacy brochure site into a responsive ops cockpit with instant quoting and regional service telemetry.",
+    "summary": "Mapped 40 years of craftsmanship data into a cinematic CMS that lets the crew prove finishes before a single brush stroke.",
+    "outcomes": [
+      "Reduced manual quote back-and-forth by 38% with a guided intake bot",
+      "Surfaced regional crew utilization so ops can shift teams in one tap"
+    ],
+    "gallery": [
+      "https://images.pexels.com/photos/6333926/pexels-photo-6333926.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
+      "https://images.pexels.com/photos/6333923/pexels-photo-6333923.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
+      "https://images.pexels.com/photos/5256811/pexels-photo-5256811.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1"
+    ]
+  },
+  {
+    "id": "tuohy-bailey-moore",
+    "slug": "tuohy-bailey-moore",
+    "title": "Transaction Command Deck",
+    "client": "Tuohy Bailey & Moore LLP",
+    "metrics": {
+      "value": "+312bps",
+      "label": "Deal Velocity"
+    },
+    "roles": ["Narrative Systems", "Automation", "Interactive Data"],
+    "heroImage": "https://images.pexels.com/photos/3758104/pexels-photo-3758104.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
+    "excerpt": "Coded a capital-markets briefing room that feels like stepping inside the firm's data room.",
+    "summary": "Connected jurisprudence intel, partner commentary, and live sector signals into one editorial scroll that feels like a Collins-grade annual report.",
+    "outcomes": [
+      "Increased inbound mandates from growth-stage funds by surfacing precedent instantly",
+      "Accelerated RFP narratives with reusable typography systems"
+    ],
+    "gallery": [
+      "https://images.pexels.com/photos/5990671/pexels-photo-5990671.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
+      "https://images.pexels.com/photos/3735437/pexels-photo-3735437.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
+      "https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1"
+    ]
+  },
+  {
+    "id": "riley-bennett-egloff",
+    "slug": "riley-bennett-egloff",
+    "title": "Litigation Guidance Array",
+    "client": "Riley Bennett Egloff LLP",
+    "metrics": {
+      "value": "+145%",
+      "label": "Qualified Leads"
+    },
+    "roles": ["Strategy", "Voice & Tone", "CX Systems"],
+    "heroImage": "https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
+    "excerpt": "Reframed a legacy legal library into a cinematic litigation atlas with spatial navigation and tone modules.",
+    "summary": "Folded 70+ practice narratives into a twilight UI kit with generative motion, letting in-house counsel feel the firm's tempo in under 30 seconds.",
+    "outcomes": [
+      "Tracked a 145% lift in qualified inquiries post-launch",
+      "Cut editorial turnaround from days to hours with structured content models"
+    ],
+    "gallery": [
+      "https://images.pexels.com/photos/3861970/pexels-photo-3861970.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
+      "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
+      "https://images.pexels.com/photos/3861838/pexels-photo-3861838.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1"
+    ]
+  }
+]

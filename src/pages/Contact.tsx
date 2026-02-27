@@ -1,173 +1,73 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
+  Shield,
+  Activity,
+  Radio,
+  SignalHigh,
+  Send,
+  Loader2,
   Mail,
   Linkedin,
   Github,
-  Send,
-  MessageSquare,
-  User,
-  Building2,
-  Phone,
-  FileText,
-  CheckCircle2,
-  AlertCircle,
-  Loader2,
-  ArrowRight,
-  Clock,
-  Star,
-  Coffee,
 } from 'lucide-react';
-import { trackPortfolioEngagement } from '../utils/analytics';
-import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations';
-import { OceanAuroraBackground } from '../components/ui/OceanAuroraBackground';
-import { OceanRippleButton } from '../components/ui/OceanRippleButton';
-import TerminalBlock from '../components/ui/TerminalBlock';
-import TechProfile from '../components/TechProfile';
-import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
-import { AvailabilityBadge } from '../components/ui/AvailabilityBadge';
 import MagneticCursor from '../components/ui/MagneticCursor';
-import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
-import './Contact.css';
 
-const FloatingParticles = React.lazy(() => import('../components/ui/FloatingParticles'));
+const FINAL_MESSAGE = '[SYSTEM]:: INTEL_RECEIVED. MISSION_UNDER_REVIEW. EXPECT_CONTACT_WITHIN_24_CYCLES.';
 
-interface FormData {
+const SECTORS = ['Fractional CMO', 'Product Studio', 'Defense Tech', 'Luxury Commerce', 'Media Network', 'Stealth Startup'];
+const BUDGET_BANDS = ['<$25K Rapid Strike', '$25K–$75K Systems Build', '$75K–$150K Platform Overhaul', '$150K+ Long Campaign'];
+const OBJECTIVES = ['Launch New Initiative', 'Scale Revenue Engine', 'Stabilize Infrastructure', 'Audit + Advisory'];
+
+interface MissionData {
   name: string;
-  email: string;
-  message: string;
-  reason: string;
-  company?: string;
-  phone?: string;
+  sector: string;
+  budget: string;
+  objective: string;
+  intel: string;
 }
 
-interface FormErrors {
-  name?: string;
-  email?: string;
-  message?: string;
-  reason?: string;
-}
-
-const CONTACT_REASONS = [
-  { value: 'job-opportunity', label: 'Job Opportunity', description: 'Interested in hiring me' },
-  { value: 'collaboration', label: 'Collaboration', description: 'Want to work together' },
-  { value: 'consulting', label: 'Consulting Inquiry', description: 'Need marketing expertise' },
-  { value: 'interview', label: 'Interview Request', description: 'Would like to interview' },
-  { value: 'question', label: 'General Question', description: 'Have a question' },
-  { value: 'other', label: 'Other', description: 'Something else' },
-];
+type TransmitStatus = 'idle' | 'arming' | 'uplinking' | 'success' | 'error';
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
+  const [mission, setMission] = useState<MissionData>({
     name: '',
-    email: '',
-    message: '',
-    reason: '',
-    company: '',
-    phone: '',
+    sector: SECTORS[0],
+    budget: '',
+    objective: OBJECTIVES[0],
+    intel: '',
   });
-  const [formErrors, setFormErrors] = useState<FormErrors>({});
-  const [touchedFields, setTouchedFields] = useState<Set<string>>(new Set());
+  const [logs, setLogs] = useState<string[]>([
+    '[BOOT]:: SECURITY CLEARANCE AWAITING CREDENTIALS',
+    '[SYSTEM]:: DIGITAL TWILIGHT RELAY ACTIVE',
+    '[PROMPT]:: FILL BRIEFING + INITIATE TRANSMISSION',
+  ]);
+  const [transmitStatus, setTransmitStatus] = useState<TransmitStatus>('idle');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [glitchBurst, setGlitchBurst] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  // Track form interactions on mount
-  useEffect(() => {
-    trackPortfolioEngagement.contactFormStart();
-  }, []);
-
-  // Real-time validation
-  const validateField = (name: string, value: string): string | undefined => {
-    switch (name) {
-      case 'name':
-        if (!value.trim()) return 'Name is required';
-        if (value.trim().length < 2) return 'Name must be at least 2 characters';
-        return undefined;
-      case 'email': {
-        if (!value.trim()) return 'Email is required';
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value)) return 'Please enter a valid email address';
-        return undefined;
-      }
-      case 'reason':
-        if (!value) return 'Please select a reason';
-        return undefined;
-      case 'message':
-        if (!value.trim()) return 'Message is required';
-        if (value.trim().length < 10) return 'Message must be at least 10 characters';
-        return undefined;
-      default:
-        return undefined;
-    }
+  const appendLog = (entry: string) => {
+    setLogs(prev => [...prev.slice(-7), entry]);
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-
-    // Validate on change if field has been touched
-    if (touchedFields.has(name)) {
-      const error = validateField(name, value);
-      setFormErrors(prev => ({
-        ...prev,
-        [name]: error,
-      }));
-    }
+  const handleChange = (field: keyof MissionData, value: string) => {
+    setMission(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setTouchedFields(prev => new Set(prev).add(name));
-    const error = validateField(name, value);
-    setFormErrors(prev => ({
-      ...prev,
-      [name]: error,
-    }));
-  };
+  const isReady = mission.name.trim() && mission.budget && mission.intel.trim().length >= 12;
 
-  const isFormValid = (): boolean => {
-    return (
-      !formErrors.name &&
-      !formErrors.email &&
-      !formErrors.reason &&
-      !formErrors.message &&
-      formData.name.trim() !== '' &&
-      formData.email.trim() !== '' &&
-      formData.reason !== '' &&
-      formData.message.trim() !== ''
-    );
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Mark all required fields as touched
-    const requiredFields = ['name', 'email', 'reason', 'message'];
-    const newTouchedFields = new Set([...touchedFields, ...requiredFields]);
-    setTouchedFields(newTouchedFields);
-
-    // Validate all fields
-    const errors: FormErrors = {};
-    requiredFields.forEach(field => {
-      const error = validateField(field, formData[field as keyof FormData] || '');
-      if (error) errors[field as keyof FormErrors] = error;
-    });
-    setFormErrors(errors);
-
-    if (Object.keys(errors).length > 0 || !isFormValid()) {
-      return;
-    }
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!isReady || isSubmitting) return;
 
     setIsSubmitting(true);
-    setError(null);
+    setErrorMessage(null);
+    setTransmitStatus('arming');
+    appendLog('[ARMING]:: ENCRYPTION SALTS PRIMED');
 
     try {
-      // Use access key from environment variable or fallback to the provided key
       const web3formsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'b6c0916d-2dba-4faf-933e-fcdd6c683a88';
-
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
@@ -176,657 +76,298 @@ const Contact: React.FC = () => {
         },
         body: JSON.stringify({
           access_key: web3formsKey,
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          reason: formData.reason,
-          company: formData.company || '',
-          phone: formData.phone || '',
-          subject: `Portfolio Contact: ${CONTACT_REASONS.find(r => r.value === formData.reason)?.label || 'General Inquiry'}`,
-          from_name: formData.name || 'Portfolio Contact Form',
-          // Additional fields for better email formatting
-          'reason-label': CONTACT_REASONS.find(r => r.value === formData.reason)?.label || 'General Inquiry',
+          subject: 'Mission Briefing Protocol',
+          from_name: mission.name,
+          name: mission.name,
+          sector: mission.sector,
+          budget: mission.budget,
+          objective: mission.objective,
+          intel: mission.intel,
+          message: `Sector: ${mission.sector}\nBudget: ${mission.budget}\nObjective: ${mission.objective}\nIntel: ${mission.intel}`,
         }),
       });
 
       const result = await response.json();
 
-      if (result.success) {
-        setSubmitted(true);
-        setFormData({ name: '', email: '', message: '', reason: '', company: '', phone: '' });
-        setFormErrors({});
-        setTouchedFields(new Set());
-        trackPortfolioEngagement.contactFormSubmit(formData.reason || 'general');
-      } else {
-        setError(result.message || 'Failed to send message. Please try again.');
-        trackPortfolioEngagement.contactFormError(result.message || 'Unknown error');
+      if (!result.success) {
+        throw new Error(result.message || 'Transmission jammed');
       }
-    } catch (err) {
-      setError('An error occurred. Please try emailing directly at hoosierdarling@gmail.com');
-      trackPortfolioEngagement.contactFormError(err instanceof Error ? err.message : 'Network error');
+
+      setTransmitStatus('uplinking');
+      appendLog('[UPLINK]:: CARRIER WAVE LOCKED. TRANSMITTING…');
+
+      setTimeout(() => {
+        setTransmitStatus('success');
+        appendLog(FINAL_MESSAGE);
+        setGlitchBurst(true);
+        setTimeout(() => setGlitchBurst(false), 2000);
+        setMission({ name: '', sector: SECTORS[0], budget: '', objective: OBJECTIVES[0], intel: '' });
+      }, 600);
+    } catch (error) {
+      const description = error instanceof Error ? error.message : 'Unknown fault';
+      setTransmitStatus('error');
+      setErrorMessage(description);
+      appendLog(`[ALERT]:: TRANSMISSION FAILED — ${description.toUpperCase()}`);
     } finally {
-      setIsSubmitting(false);
+      setTimeout(() => setIsSubmitting(false), 300);
     }
   };
 
   return (
-    <OceanAuroraBackground className="bg-brand-dark" style={{ minHeight: '100vh', height: 'auto' }}>
-      <MagneticCursor color="#40E0D0" enabled={true} />
-      <main className="contact-page relative z-10 w-full min-h-screen flex flex-col">
-        {/* Floating Particles */}
-        <Suspense fallback={<div className="h-16" />}>
-          <FloatingParticles count={32} />
-        </Suspense>
+    <div className="relative min-h-screen overflow-hidden bg-[#01030A] text-white">
+      <MagneticCursor color="#00F2FF" enabled />
+      <div className="pointer-events-none absolute inset-0 opacity-60" style={{
+        backgroundImage: 'radial-gradient(circle at 20% 20%, rgba(0,242,255,0.15), transparent 55%), radial-gradient(circle at 80% 10%, rgba(255,111,97,0.25), transparent 50%)',
+      }} />
+      <div className="pointer-events-none absolute inset-0 bg-[url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80')] opacity-[0.08] mix-blend-screen" />
 
-        {/* Hero Section with Bio Photo */}
-        <section className="relative pt-28 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
-          {/* API Background Image */}
-          <ApiBackgroundImage
-            query="professional communication networking business"
-            source="pexels"
-            overlayColor="dark"
-            overlayOpacity={0.8}
-            className="absolute inset-0 z-0"
-            priority
-          />
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="relative z-10 max-w-5xl mx-auto"
-          >
-            {/* Profile and Intro Grid */}
-            <div className="grid md:grid-cols-[auto_1fr] gap-8 items-center mb-10">
-              {/* Bio Photo */}
-              <motion.div
-                variants={fadeInUp}
-                className="flex flex-col items-center"
-              >
-                <TechProfile size="lg" className="mb-4" />
-                <AvailabilityBadge
-                  available={true}
-                  text="Open to Opportunities"
-                  size="md"
-                />
-              </motion.div>
+      <main className="relative z-10 px-4 py-16 sm:px-6 lg:px-10">
+        <div className="mx-auto max-w-6xl">
+          <header className="mb-10 flex flex-col gap-3 text-center lg:text-left">
+            <p className="text-[11px] uppercase tracking-[0.8em] text-white/40">security clearance · delta tier</p>
+            <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <h1 className="font-['Playfair_Display'] italic text-[clamp(2.6rem,4vw,3.8rem)] text-white">
+                  Mission Briefing Portal
+                </h1>
+                <p className="font-['Geist',_sans-serif] text-sm uppercase tracking-[0.45em] text-cyan-300">
+                  digital twilight operations · real-time uplink
+                </p>
+              </div>
+              <div className="rounded-full border border-white/10 bg-white/5 px-6 py-2 text-xs font-['Geist',_sans-serif] uppercase tracking-[0.5em] text-white/70">
+                Status · {transmitStatus === 'success' ? 'Secure' : 'Standby'}
+              </div>
+            </div>
+          </header>
 
-              {/* Intro Text */}
-              <motion.div variants={fadeInUp} className="text-center md:text-left">
-                <p className="text-sm font-mono uppercase tracking-[0.35em] text-brand-muted mb-4">
-                  Get in Touch
-                </p>
-                <p className="text-lg md:text-xl text-brand-muted leading-relaxed mb-4">
-                  Available for marketing leadership roles, strategic consulting, and technology integration projects.
-                  I respond to all inquiries within 24 hours.
-                </p>
-                <div className="flex flex-wrap gap-2 mt-4 justify-center md:justify-start">
-                  <span className="px-3 py-1 bg-brand-teal/20 border border-brand-teal/30 rounded-full text-xs text-brand-teal font-medium">
-                    Leadership Roles
-                  </span>
-                  <span className="px-3 py-1 bg-ocean-tangerine-dream/20 border border-ocean-tangerine-dream/30 rounded-full text-xs text-ocean-tangerine-dream font-medium">
-                    Consulting
-                  </span>
-                  <span className="px-3 py-1 bg-ocean-pearl-aqua/20 border border-ocean-pearl-aqua/30 rounded-full text-xs text-ocean-pearl-aqua font-medium">
-                    Inquiries
-                  </span>
+          <section className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="rounded-[32px] border border-white/10 bg-white/5/20 backdrop-blur-xl p-8 shadow-[0_30px_120px_rgba(0,0,0,0.65)]">
+              <div className="mb-8 flex items-center gap-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/60 bg-black/60 text-cyan-300">
+                  <Shield size={26} />
                 </div>
-              </motion.div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.5em] text-white/40">Command Center</p>
+                  <p className="font-['Geist',_sans-serif] text-lg text-white">System Log &amp; Security Feed</p>
+                </div>
+              </div>
+
+              <div className="mb-8 rounded-2xl border border-white/10 bg-black/70 p-6 font-['Geist',_sans-serif] text-sm">
+                <div className="mb-3 flex items-center gap-3 text-xs uppercase tracking-[0.4em] text-cyan-300">
+                  <Activity size={12} />
+                  Live terminal stream
+                </div>
+                <div className="space-y-2 font-mono text-[13px] text-cyan-100">
+                  {logs.map((line, idx) => (
+                    <motion.p
+                      key={`${line}-${idx}`}
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.25, delay: idx * 0.03 }}
+                      className="rounded bg-white/5 px-3 py-2 text-left"
+                    >
+                      {line}
+                    </motion.p>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-3">
+                <div className="rounded-2xl border border-white/10 bg-white/5/10 p-4">
+                  <p className="text-[11px] uppercase tracking-[0.5em] text-white/40">Comms</p>
+                  <p className="mt-2 flex items-center gap-2 text-sm text-white/80">
+                    <Radio size={16} className="text-cyan-300" />
+                    Secure Web3 Relay
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/5/10 p-4">
+                  <p className="text-[11px] uppercase tracking-[0.5em] text-white/40">Latency</p>
+                  <p className="mt-2 flex items-center gap-2 text-sm text-white/80">
+                    <SignalHigh size={16} className="text-cyan-300" />
+                    &lt;120ms global
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/5/10 p-4">
+                  <p className="text-[11px] uppercase tracking-[0.5em] text-white/40">Response</p>
+                  <p className="mt-2 text-sm text-white/80">Contact within 24 cycles</p>
+                </div>
+              </div>
+
+              <div className="mt-8 rounded-[26px] border border-white/10 bg-black/60 p-6">
+                <p className="text-xs uppercase tracking-[0.4em] text-white/40">Direct comm channels</p>
+                <div className="mt-4 flex flex-wrap gap-3 text-sm text-white/80">
+                  <a href="mailto:hoosierdarling@gmail.com" className="flex items-center gap-2 rounded-full border border-white/10 px-4 py-1.5 text-white/80 transition hover:border-cyan-400/60">
+                    <Mail size={16} /> Email
+                  </a>
+                  <a href="https://linkedin.com/in/jacobdarling" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-full border border-white/10 px-4 py-1.5 text-white/80 transition hover:border-cyan-400/60">
+                    <Linkedin size={16} /> LinkedIn
+                  </a>
+                  <a href="https://github.com/JdarlingGT" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-full border border-white/10 px-4 py-1.5 text-white/80 transition hover:border-cyan-400/60">
+                    <Github size={16} /> GitHub
+                  </a>
+                </div>
+              </div>
             </div>
 
-            {/* Stats Row */}
-            <motion.div
-              variants={fadeInUp}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8"
+            <motion.form
+              onSubmit={handleSubmit}
+              className="rounded-[32px] border border-cyan-400/20 bg-[#050B15]/80 p-8 shadow-[0_30px_120px_rgba(0,0,0,0.65)]"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45 }}
             >
-              <div className="rounded-xl border border-white/10 bg-slate-950/70 backdrop-blur p-4 text-center">
-                <OceanCountingNumber
-                  number={15}
-                  suffix="+"
-                  inView
-                  className="text-3xl md:text-4xl text-brand-teal block mb-1"
-                />
-                <span className="text-xs md:text-sm text-brand-muted">Years Experience</span>
-              </div>
-              <div className="rounded-xl border border-white/10 bg-slate-950/70 backdrop-blur p-4 text-center">
-                <OceanCountingNumber
-                  number={72}
-                  suffix="+"
-                  inView
-                  className="text-3xl md:text-4xl text-ocean-tangerine-dream block mb-1"
-                />
-                <span className="text-xs md:text-sm text-brand-muted">Projects Delivered</span>
-              </div>
-              <div className="rounded-xl border border-white/10 bg-slate-950/70 backdrop-blur p-4 text-center">
-                <OceanCountingNumber
-                  number={24}
-                  inView
-                  className="text-3xl md:text-4xl text-ocean-pearl-aqua block mb-1"
-                />
-                <span className="text-xs md:text-sm text-brand-muted">Hour Response</span>
-              </div>
-              <div className="rounded-xl border border-white/10 bg-slate-950/70 backdrop-blur p-4 text-center">
-                <OceanCountingNumber
-                  number={100}
-                  suffix="%"
-                  inView
-                  className="text-3xl md:text-4xl text-green-400 block mb-1"
-                />
-                <span className="text-xs md:text-sm text-brand-muted">Client Satisfaction</span>
-              </div>
-            </motion.div>
-          </motion.div>
-        </section>
-
-        {/* Main Content */}
-        <section className="relative z-10 py-8 px-4 sm:px-6 lg:px-8 flex-1">
-          <div className="contact-content max-w-6xl mx-auto">
-            <div className="contact-grid">
-            {/* Contact Form Card */}
-            <motion.div
-              className="form-card rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 md:p-8"
-              variants={staggerItem}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-lg bg-brand-teal/15 text-brand-teal">
-                  <Send size={20} />
+              <div className="mb-8 flex items-center gap-3">
+                <div className="rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.5em] text-white/50">
+                  Clearance Form · v10
                 </div>
-                <h2 className="text-2xl font-bold text-brand-text">Send a Message</h2>
+                <div className="text-sm text-white/60">Enter credentials + payload</div>
               </div>
 
-              <AnimatePresence mode="wait">
-                {submitted ? (
-                  <motion.div
-                    key="success"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    className="success-card text-center py-8"
-                  >
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                      className="w-20 h-20 mx-auto mb-6 bg-brand-teal/20 rounded-full flex items-center justify-center"
+              <label className="mb-5 block">
+                <span className="text-xs uppercase tracking-[0.4em] text-white/40">Name</span>
+                <input
+                  type="text"
+                  value={mission.name}
+                  onChange={e => handleChange('name', e.target.value)}
+                  className="mt-2 w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-white focus:border-cyan-300 focus:outline-none"
+                  placeholder="Commander Alias"
+                  required
+                />
+              </label>
+
+              <label className="mb-5 block">
+                <span className="text-xs uppercase tracking-[0.4em] text-white/40">Sector</span>
+                <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                  {SECTORS.map(sector => (
+                    <button
+                      key={sector}
+                      type="button"
+                      onClick={() => handleChange('sector', sector)}
+                      className={`rounded-2xl border px-4 py-3 text-left text-sm transition ${
+                        mission.sector === sector
+                          ? 'border-cyan-400/80 bg-cyan-400/10 text-cyan-100'
+                          : 'border-white/10 text-white/60 hover:border-white/25'
+                      }`}
                     >
-                      <CheckCircle2 size={48} className="text-brand-teal" />
-                    </motion.div>
-                    <h3 className="text-2xl font-bold text-brand-text mb-2">Message Received!</h3>
-                    <p className="text-brand-muted mb-6">I'll be in touch within 24 hours.</p>
-                    <OceanRippleButton
-                      onClick={() => {
-                        setSubmitted(false);
-                        setFormData({ name: '', email: '', message: '', reason: '', company: '', phone: '' });
-                        setFormErrors({});
-                        setTouchedFields(new Set());
-                      }}
-                      variant="outline"
-                      size="md"
+                      {sector}
+                    </button>
+                  ))}
+                </div>
+              </label>
+
+              <label className="mb-5 block">
+                <span className="text-xs uppercase tracking-[0.4em] text-white/40">Budget Band</span>
+                <div className="mt-3 grid gap-2">
+                  {BUDGET_BANDS.map(band => (
+                    <button
+                      key={band}
+                      type="button"
+                      onClick={() => handleChange('budget', band)}
+                      className={`rounded-2xl border px-4 py-3 text-left text-sm transition ${
+                        mission.budget === band
+                          ? 'border-orange-400/70 bg-orange-400/10 text-orange-100'
+                          : 'border-white/10 text-white/60 hover:border-white/25'
+                      }`}
                     >
-                      Send Another Message
-                    </OceanRippleButton>
-                  </motion.div>
+                      {band}
+                    </button>
+                  ))}
+                </div>
+              </label>
+
+              <label className="mb-5 block">
+                <span className="text-xs uppercase tracking-[0.4em] text-white/40">Objective</span>
+                <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                  {OBJECTIVES.map(obj => (
+                    <button
+                      key={obj}
+                      type="button"
+                      onClick={() => handleChange('objective', obj)}
+                      className={`rounded-2xl border px-4 py-3 text-left text-sm transition ${
+                        mission.objective === obj
+                          ? 'border-cyan-400/80 bg-cyan-400/10 text-cyan-100'
+                          : 'border-white/10 text-white/60 hover:border-white/25'
+                      }`}
+                    >
+                      {obj}
+                    </button>
+                  ))}
+                </div>
+              </label>
+
+              <label className="mb-8 block">
+                <span className="text-xs uppercase tracking-[0.4em] text-white/40">Intel Package</span>
+                <textarea
+                  value={mission.intel}
+                  onChange={e => handleChange('intel', e.target.value)}
+                  placeholder="Summarize objectives, constraints, and any sensitive intel. Include contact instructions."
+                  rows={6}
+                  className="mt-3 w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white/80 focus:border-cyan-300 focus:outline-none"
+                  required
+                />
+                <p className="mt-2 text-[11px] uppercase tracking-[0.35em] text-white/30">
+                  Minimum 12 characters · encrypted in transit
+                </p>
+              </label>
+
+              {errorMessage && (
+                <div className="mb-5 rounded-2xl border border-red-400/40 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                  {errorMessage}
+                </div>
+              )}
+
+              <motion.button
+                type="submit"
+                disabled={!isReady || isSubmitting}
+                className={`flex w-full items-center justify-center gap-3 rounded-2xl border px-5 py-4 text-sm uppercase tracking-[0.5em] transition ${
+                  !isReady || isSubmitting
+                    ? 'border-white/10 text-white/30'
+                    : 'border-cyan-400/60 text-cyan-200 hover:border-cyan-400 hover:text-white'
+                }`}
+                whileTap={{ scale: isReady && !isSubmitting ? 0.98 : 1 }}
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="animate-spin" size={18} />
+                    transmitting
+                  </>
                 ) : (
-                  <motion.form
-                    key="form"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    onSubmit={handleSubmit}
-                    className="contact-form"
-                  >
-                    {/* Name Field */}
-                    <div className="form-group-floating">
-                      <div className="input-wrapper">
-                        <User size={20} className="input-icon" />
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          placeholder=" "
-                          required
-                          className={formErrors.name ? 'error' : ''}
-                          aria-label="Your name"
-                          {...(formErrors.name && { 'aria-invalid': 'true' })}
-                          aria-describedby={formErrors.name ? 'name-error' : undefined}
-                        />
-                        <label htmlFor="name" className={formData.name ? 'floating' : ''}>
-                          Name <span className="required">*</span>
-                        </label>
-                      </div>
-                      {formErrors.name && (
-                        <motion.p
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          className="error-text"
-                          id="name-error"
-                          role="alert"
-                        >
-                          <AlertCircle size={14} />
-                          {formErrors.name}
-                        </motion.p>
-                      )}
-                    </div>
-
-                    {/* Email Field */}
-                    <div className="form-group-floating">
-                      <div className="input-wrapper">
-                        <Mail size={20} className="input-icon" />
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          placeholder=" "
-                          required
-                          className={formErrors.email ? 'error' : ''}
-                          aria-label="Your email address"
-                          {...(formErrors.email && { 'aria-invalid': 'true' })}
-                          aria-describedby={formErrors.email ? 'email-error' : undefined}
-                        />
-                        <label htmlFor="email" className={formData.email ? 'floating' : ''}>
-                          Email <span className="required">*</span>
-                        </label>
-                      </div>
-                      {formErrors.email && (
-                        <motion.p
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          className="error-text"
-                          id="email-error"
-                          role="alert"
-                        >
-                          <AlertCircle size={14} />
-                          {formErrors.email}
-                        </motion.p>
-                      )}
-                    </div>
-
-                    {/* Reason Field */}
-                    <div className="form-group-floating">
-                      <div className="select-wrapper">
-                        <MessageSquare size={20} className="input-icon" />
-                        <select
-                          id="reason"
-                          name="reason"
-                          value={formData.reason}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          required
-                          className={formErrors.reason ? 'error' : ''}
-                          aria-label="Reason for contact"
-                          {...(formErrors.reason && { 'aria-invalid': 'true' })}
-                          aria-describedby={formErrors.reason ? 'reason-error' : undefined}
-                        >
-                          <option value="">Select a reason...</option>
-                          {CONTACT_REASONS.map(reason => (
-                            <option key={reason.value} value={reason.value}>
-                              {reason.label} - {reason.description}
-                            </option>
-                          ))}
-                        </select>
-                        <label htmlFor="reason" className={formData.reason ? 'floating-select' : ''}>
-                          Reason for Contact <span className="required">*</span>
-                        </label>
-                      </div>
-                      {formErrors.reason && (
-                        <motion.p
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          className="error-text"
-                          id="reason-error"
-                          role="alert"
-                        >
-                          <AlertCircle size={14} />
-                          {formErrors.reason}
-                        </motion.p>
-                      )}
-                    </div>
-
-                    {/* Company Field */}
-                    <div className="form-group-floating">
-                      <div className="input-wrapper">
-                        <Building2 size={20} className="input-icon" />
-                        <input
-                          type="text"
-                          id="company"
-                          name="company"
-                          value={formData.company}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          placeholder=" "
-                          aria-label="Your company or organization"
-                        />
-                        <label htmlFor="company" className={formData.company ? 'floating' : ''}>
-                          Company/Organization
-                        </label>
-                      </div>
-                    </div>
-
-                    {/* Phone Field */}
-                    <div className="form-group-floating">
-                      <div className="input-wrapper">
-                        <Phone size={20} className="input-icon" />
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          placeholder=" "
-                          aria-label="Your phone number"
-                        />
-                        <label htmlFor="phone" className={formData.phone ? 'floating' : ''}>
-                          Phone
-                        </label>
-                      </div>
-                    </div>
-
-                    {/* Message Field */}
-                    <div className="form-group-floating">
-                      <div className="textarea-wrapper">
-                        <FileText size={20} className="input-icon" />
-                        <textarea
-                          id="message"
-                          name="message"
-                          value={formData.message}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          placeholder=" "
-                          rows={6}
-                          required
-                          className={formErrors.message ? 'error' : ''}
-                          aria-label="Your message"
-                          {...(formErrors.message && { 'aria-invalid': 'true' })}
-                          aria-describedby={formErrors.message ? 'message-error' : undefined}
-                        />
-                        <label htmlFor="message" className={formData.message ? 'floating-textarea' : ''}>
-                          Message <span className="required">*</span>
-                        </label>
-                      </div>
-                      {formErrors.message && (
-                        <motion.p
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          className="error-text"
-                          id="message-error"
-                          role="alert"
-                        >
-                          <AlertCircle size={14} />
-                          {formErrors.message}
-                        </motion.p>
-                      )}
-                    </div>
-
-                    {/* Error Message */}
-                    <AnimatePresence>
-                      {error && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          className="error-card"
-                          role="alert"
-                        >
-                          <AlertCircle size={20} />
-                          <div>
-                            <strong>Error sending message</strong>
-                            <p>{error}</p>
-                            <a
-                              href="mailto:hoosierdarling@gmail.com"
-                              className="error-link"
-                              aria-label="Send email directly to hoosierdarling@gmail.com"
-                            >
-                              Email directly instead →
-                            </a>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-
-                    {/* Submit Button */}
-                    <OceanRippleButton
-                      type="submit"
-                      variant="primary"
-                      size="lg"
-                      disabled={isSubmitting || !isFormValid()}
-                      className="btn-primary w-full"
-                      aria-label="Submit contact form"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 size={18} className="animate-spin" />
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send size={18} />
-                          Send Message
-                        </>
-                      )}
-                    </OceanRippleButton>
-                  </motion.form>
+                  <>
+                    <Send size={18} />
+                    transmit brief
+                  </>
                 )}
-              </AnimatePresence>
-            </motion.div>
+              </motion.button>
 
-            {/* Contact Info Cards */}
-            <div className="info-column">
-              {/* Get In Touch Card */}
-              <motion.div
-                className="rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-brand-teal/40 transition-all duration-300"
-                variants={staggerItem}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.2 }}
-              >
-                <h3 className="text-xl font-bold mb-4 text-brand-text">Get In Touch</h3>
-                <p className="text-brand-muted mb-6">Prefer to reach out directly? Use any of these options:</p>
-
-                {/* Contact Methods */}
-                <div className="space-y-3">
-                  <motion.a
-                    href="mailto:hoosierdarling@gmail.com"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-slate-900/50 border border-white/5 hover:border-brand-teal/40 transition-all group"
-                    whileHover={{ x: 4, scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ duration: 0.2 }}
-                    aria-label="Send email to hoosierdarling@gmail.com"
-                  >
-                    <div className="w-12 h-12 flex items-center justify-center bg-brand-teal/15 rounded-xl text-brand-teal group-hover:bg-brand-teal group-hover:text-slate-900 transition-all">
-                      <Mail size={24} />
-                    </div>
-                    <div>
-                      <strong className="text-brand-text block">Email</strong>
-                      <p className="text-brand-muted text-sm">hoosierdarling@gmail.com</p>
-                    </div>
-                  </motion.a>
-
-                  <motion.a
-                    href="https://linkedin.com/in/jacobdarling"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-slate-900/50 border border-white/5 hover:border-brand-teal/40 transition-all group"
-                    whileHover={{ x: 4, scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ duration: 0.2 }}
-                    aria-label="Connect on LinkedIn"
-                  >
-                    <div className="w-12 h-12 flex items-center justify-center bg-brand-teal/15 rounded-xl text-brand-teal group-hover:bg-brand-teal group-hover:text-slate-900 transition-all">
-                      <Linkedin size={24} />
-                    </div>
-                    <div>
-                      <strong className="text-brand-text block">LinkedIn</strong>
-                      <p className="text-brand-muted text-sm">Connect professionally</p>
-                    </div>
-                  </motion.a>
-
-                  <motion.a
-                    href="https://github.com/JdarlingGT"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-slate-900/50 border border-white/5 hover:border-brand-teal/40 transition-all group"
-                    whileHover={{ x: 4, scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ duration: 0.2 }}
-                    aria-label="View GitHub profile"
-                  >
-                    <div className="w-12 h-12 flex items-center justify-center bg-brand-teal/15 rounded-xl text-brand-teal group-hover:bg-brand-teal group-hover:text-slate-900 transition-all">
-                      <Github size={24} />
-                    </div>
-                    <div>
-                      <strong className="text-brand-text block">GitHub</strong>
-                      <p className="text-brand-muted text-sm">View my code</p>
-                    </div>
-                  </motion.a>
-                </div>
-              </motion.div>
-
-              {/* What to Expect Card */}
-              <motion.div
-                className="rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-ocean-tangerine-dream/40 transition-all duration-300"
-                variants={staggerItem}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-ocean-tangerine-dream/15 text-ocean-tangerine-dream">
-                    <Coffee size={20} />
-                  </div>
-                  <h3 className="text-xl font-bold text-brand-text">Process Overview</h3>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal text-xs font-bold">1</div>
-                    <div>
-                      <p className="text-brand-text font-medium text-sm">Initial Discussion</p>
-                      <p className="text-brand-muted text-xs">Brief call to understand requirements</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal text-xs font-bold">2</div>
-                    <div>
-                      <p className="text-brand-text font-medium text-sm">Scope Review</p>
-                      <p className="text-brand-muted text-xs">Assess objectives and deliverables</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal text-xs font-bold">3</div>
-                    <div>
-                      <p className="text-brand-text font-medium text-sm">Proposal</p>
-                      <p className="text-brand-muted text-xs">Timeline and engagement details</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Response Time & Preferred Contact */}
-              <motion.div
-                className="rounded-2xl border border-white/10 bg-slate-950/70 backdrop-blur p-6 hover:border-ocean-pearl-aqua/40 transition-all duration-300"
-                variants={staggerItem}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-ocean-pearl-aqua/15 text-ocean-pearl-aqua">
-                    <Clock size={20} />
-                  </div>
-                  <h3 className="text-xl font-bold text-brand-text">Response Info</h3>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-3 rounded-lg bg-slate-900/50 border border-white/5">
-                    <span className="text-brand-muted text-sm">Avg. Response Time</span>
-                    <span className="text-brand-teal font-bold">Under 24 hours</span>
-                  </div>
-                  <div>
-                    <p className="text-brand-muted text-xs mb-2 uppercase tracking-wide">Preferred Contact Methods</p>
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <Star size={14} className="text-ocean-tangerine-dream" />
-                        <span className="text-brand-text text-sm">This Contact Form</span>
-                        <span className="ml-auto text-xs text-brand-muted">#1 Preferred</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Star size={14} className="text-brand-muted" />
-                        <span className="text-brand-text text-sm">LinkedIn Message</span>
-                        <span className="ml-auto text-xs text-brand-muted">#2</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Star size={14} className="text-brand-muted" />
-                        <span className="text-brand-text text-sm">Email Directly</span>
-                        <span className="ml-auto text-xs text-brand-muted">#3</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Terminal Quote Card */}
-              <motion.div
-                variants={staggerItem}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.2 }}
-              >
-                <TerminalBlock title="Approach">
-                  <div className="space-y-2 text-sm text-brand-text">
-                    <p>&gt; Strategy-first, execution-focused</p>
-                    <p>&gt; Data-driven decisions</p>
-                    <p className="text-brand-teal animate-pulse">&gt; _</p>
-                  </div>
-                </TerminalBlock>
-              </motion.div>
-
-              {/* CTA Card */}
-              <motion.div
-                className="rounded-2xl border border-brand-teal/30 bg-gradient-to-br from-brand-teal/10 to-brand-teal/5 backdrop-blur p-6 text-center hover:border-brand-teal/50 transition-all duration-300"
-                variants={staggerItem}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.2 }}
-              >
-                <h3 className="text-xl font-bold mb-2 text-brand-text">View Portfolio</h3>
-                <p className="text-brand-muted mb-4">
-                  Review case studies and project outcomes.
-                </p>
-                <OceanRippleButton
-                  asLink
-                  href="/case-studies"
-                  variant="outline"
-                  size="md"
-                  className="inline-flex items-center gap-2"
-                  aria-label="View case studies"
-                >
-                  Case Studies
-                  <ArrowRight size={16} />
-                </OceanRippleButton>
-              </motion.div>
-            </div>
-          </div>
+              <div className="mt-4 text-center text-xs uppercase tracking-[0.45em] text-white/40">
+                {transmitStatus === 'success'
+                  ? 'intel received • standby'
+                  : transmitStatus === 'error'
+                    ? 'transmission fault • retry'
+                    : 'ready when you are'}
+              </div>
+            </motion.form>
+          </section>
         </div>
-        </section>
       </main>
-    </OceanAuroraBackground>
+
+      <AnimatePresence>
+        {glitchBurst && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="pointer-events-none fixed inset-0 z-40"
+          >
+            <div className="absolute inset-0 animate-[glitch_0.8s_steps(2)_infinite] bg-gradient-to-br from-cyan-500/40 via-transparent to-orange-400/40 mix-blend-screen" />
+            <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0)_2px)] opacity-60" />
+            <div className="absolute inset-0 flex items-center justify-center text-center font-['Geist',_sans-serif] text-lg uppercase tracking-[0.6em] text-white">
+              TRANSMIT_SUCCESS
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 

@@ -78,17 +78,37 @@ const AppRouter: React.FC = () => {
 
     if (path === '/') {
       return {
-        title: 'Jacob Darling — Marketing Strategist & Systems Architect',
-        description: 'I build marketing systems that turn brands into revenue engines. Portfolio showcasing 15+ years of experience in marketing strategy, automation, and full-stack implementation.',
-        keywords:
-          'marketing strategist, marketing technologist, marketing automation, CRM campaigns, systems architect, portfolio',
+        title: 'Jacob Darling — Fractional CMO & Systems Architect',
+        description: 'Fractional CMO + Systems Architect activating high-ticket growth systems, AI-assisted creative, and cinematic GTM experiences.',
+        keywords: 'fractional cmo, systems architect, marketing automation, revenue architecture, cinematic web design, ai creative director',
+      };
+    } else if (path === '/studio') {
+      return {
+        title: 'Studio | Visual Engineering & Digital Twilight Systems',
+        description:
+          'Immersive studio reel of cinematic photography, interaction design, and Digital Twilight brand systems engineered for premium launches.',
+        keywords: 'visual engineering, digital twilight, cinematic design, brand systems, 3d studio, creative direction',
+      };
+    } else if (path === '/projects') {
+      return {
+        title: 'Flagship Projects | Agency-Grade Systems & ROI',
+        description:
+          'Flagship deployments combining GSAP, WebGL, and revenue architecture. Cinematic case studies for elite operators and growth teams.',
+        keywords: 'flagship case studies, gsap parallax stack, cinematic webgl, revenue systems, enterprise web design',
       };
     } else if (path === '/resume') {
       return {
-        title: 'Resume | Jacob Darling',
+        title: 'Resume | Systems Architect & Growth Command',
         description:
-          'Meet Jacob Darling—marketing automation, analytics, and growth systems architect with 15+ years of experience building revenue engines for SaaS, healthcare, and e-commerce brands.',
-        keywords: 'Jacob Darling, marketing strategist, marketing technologist, automation, systems architect',
+          'Mission dossier covering 15+ years of systems architecture, marketing automation, AI copilots, and command-center GTM execution.',
+        keywords: 'systems architect resume, fractional cmo resume, marketing automation lead, growth operator, ai marketing director',
+      };
+    } else if (path === '/side-projects') {
+      return {
+        title: 'Side Projects | Experimental Labs & Applied R&D',
+        description:
+          'Experimental labs, applied R&D, and self-funded prototypes spanning AI tooling, 3D interactions, and brand telemetry.',
+        keywords: 'side projects, experimental labs, applied rnd, ai tooling, brand telemetry, indie prototypes',
       };
     } else if (path === '/about') {
       return {

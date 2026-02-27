@@ -1,14 +1,12 @@
 import React, { lazy, Suspense, ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
-import Loader from '../ui/Loader';
 import ReadingProgressBar from '../ui/ReadingProgressBar';
 import KeyboardShortcuts from '../ui/KeyboardShortcuts';
 import Atmosphere from '../ui/Atmosphere';
-import FloatingCommandCenter from '../navigation/FloatingCommandCenter';
 import SystemBreadcrumb from '../navigation/SystemBreadcrumb';
 import { useSystemStore } from '../../store/useSystemStore';
+import MenuOverlay from '../navigation/MenuOverlay';
 
-const Navbar = lazy(() => import('../Navbar'));
 const Footer = lazy(() => import('./Footer'));
 const ScrollToTop = lazy(() => import('../utils/ScrollToTop'));
 const MobileDock = lazy(() => import('../MobileDock'));
@@ -26,7 +24,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   // Check if we're on an app route - these should have minimal chrome
   const isAppRoute = location.pathname.startsWith('/apps/');
 
-  const openCommandPalette = () => setCommandPalette(true);
   const closeCommandPalette = () => setCommandPalette(false);
 
   return (
@@ -45,24 +42,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {/* Reading Progress Bar - hide on app routes */}
         {!isAppRoute && <ReadingProgressBar />}
 
-        {/* Floating Command Center (desktop pill) */}
-        <FloatingCommandCenter />
+        {/* Global MENU overlay trigger */}
+        <MenuOverlay />
 
         {/* System Breadcrumb path indicator */}
         <SystemBreadcrumb />
-
-        {/* Navbar — shown on mobile only (MegaMenu hidden on mobile already) */}
-        <Suspense
-          fallback={
-            <nav className="container-px py-4 md:hidden" aria-label="Main navigation">
-              <Loader size="sm" message="Loading navigation..." />
-            </nav>
-          }
-        >
-          <div className="md:hidden">
-            <Navbar onOpenCommandPalette={openCommandPalette} />
-          </div>
-        </Suspense>
 
         {/* Scroll utilities */}
         <Suspense fallback={null}>

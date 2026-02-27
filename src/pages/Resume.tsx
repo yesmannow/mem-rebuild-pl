@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowRight, Lock, Unlock } from 'lucide-react';
@@ -169,6 +169,32 @@ const PeerSignals: React.FC = () => (
 /*  MAIN PAGE                                                                  */
 /* ─────────────────────────────────────────────────────────────────────────── */
 const Resume: React.FC = () => {
+  useEffect(() => {
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Jacob Darling',
+      jobTitle: 'Systems Architect & Fractional CMO',
+      url: 'https://jacobdarling.com/resume',
+      sameAs: ['https://linkedin.com/in/jacobdarling', 'https://github.com/JdarlingGT'],
+      hasOccupation: experience.map((job) => ({
+        '@type': 'Role',
+        roleName: job.role,
+        startDate: job.period?.split('–')[0]?.trim() ?? '',
+        description: job.description,
+        occupationLocation: { '@type': 'City', name: job.location },
+      })),
+    };
+    const existing = document.getElementById('resume-jsonld');
+    if (existing) existing.remove();
+    const script = document.createElement('script');
+    script.id = 'resume-jsonld';
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+    return () => { document.getElementById('resume-jsonld')?.remove(); };
+  }, []);
+
   return (
     <>
       <Helmet>

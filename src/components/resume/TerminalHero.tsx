@@ -5,6 +5,8 @@ import { TextPlugin } from 'gsap/TextPlugin';
 import { Download, Calendar, Terminal } from 'lucide-react';
 import { useSystemSound } from '../../hooks/useSystemSound';
 import { toast } from 'sonner';
+import { DossierForm, type DossierFormData } from './DossierForm';
+import resumeJson from '../../data/resume.json';
 
 gsap.registerPlugin(TextPlugin);
 
@@ -31,6 +33,8 @@ export const TerminalHero: React.FC<TerminalHeroProps> = ({ onBootComplete }) =>
   const [visibleLines, setVisibleLines] = useState<string[]>([]);
   const [isBooted, setIsBooted] = useState(false);
   const [isCompiling, setIsCompiling] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+  const [capturedData, setCapturedData] = useState<DossierFormData | null>(null);
   const { playSwitch } = useSystemSound();
 
   const onBootCompleteRef = useRef(onBootComplete);
@@ -83,17 +87,46 @@ export const TerminalHero: React.FC<TerminalHeroProps> = ({ onBootComplete }) =>
     };
   }, []); // intentionally run once on mount
 
-  const handleDownload = async () => {
+  const handleDownloadClick = () => {
+    if (capturedData) {
+      triggerPdfDownload(capturedData);
+    } else {
+      setShowForm(true);
+    }
+  };
+
+  const triggerPdfDownload = async (data: DossierFormData) => {
     if (isCompiling) return;
     setIsCompiling(true);
     playSwitch();
-    toast.success('Compiling Personnel Dossier...', { description: 'System Access Authorized', duration: 800 });
-    await new Promise((r) => setTimeout(r, 800));
-    const link = document.createElement('a');
-    link.href = '/resume/resume-jd-draft.pdf';
-    link.download = 'Jacob-Darling-Resume.pdf';
-    link.click();
+    toast.success('Compiling Dossier...', { description: `Targeting: ${data.sector}`, duration: 1200 });
+
+    try {
+      const { pdf } = await import('@react-pdf/renderer');
+      const { ResumePDF } = await import('./ResumePDF');
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const blob = await pdf(
+        React.createElement(ResumePDF, { data: resumeJson as unknown as Parameters<typeof ResumePDF>[0]['data'], formData: data }) as any
+      ).toBlob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `Jacob-Darling-Resume-${data.sector}.pdf`;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 5000);
+    } catch {
+      const link = document.createElement('a');
+      link.href = '/documents/Jacob-Darling-Interview-Toolkit.pdf';
+      link.download = 'Jacob-Darling-Resume.pdf';
+      link.click();
+    }
     setIsCompiling(false);
+  };
+
+  const handleFormUnlock = (data: DossierFormData) => {
+    setCapturedData(data);
+    setShowForm(false);
+    triggerPdfDownload(data);
   };
 
   return (
@@ -167,12 +200,12 @@ export const TerminalHero: React.FC<TerminalHeroProps> = ({ onBootComplete }) =>
         className="border-t border-white/[0.06] bg-white/[0.02] p-5 flex flex-col sm:flex-row gap-3"
       >
         <button
-          onClick={handleDownload}
+          onClick={handleDownloadClick}
           disabled={isCompiling}
           className="flex items-center justify-center gap-2 px-6 py-3 bg-cyan-400 text-[#020409] font-bold text-sm rounded-xl hover:bg-cyan-300 transition-colors duration-200 shadow-[0_0_20px_rgba(0,242,255,0.35)] disabled:opacity-60"
         >
           <Download size={16} className={isCompiling ? 'animate-pulse' : ''} />
-          {isCompiling ? 'COMPILING...' : 'DOWNLOAD CV'}
+          {isCompiling ? 'COMPILING...' : capturedData ? 'DOWNLOAD DOSSIER' : 'REQUEST ACCESS'}
         </button>
         <button
           onClick={() => (window.location.href = '/contact')}
@@ -187,6 +220,11 @@ export const TerminalHero: React.FC<TerminalHeroProps> = ({ onBootComplete }) =>
           <span>NODE: READY</span>
         </div>
       </motion.div>
+      <DossierForm
+        isOpen={showForm}
+        onUnlock={handleFormUnlock}
+        onClose={() => setShowForm(false)}
+      />
     </div>
   );
 };
