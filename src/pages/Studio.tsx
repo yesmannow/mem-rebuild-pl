@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
-import MagneticCursor from '../components/ui/MagneticCursor';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -11,8 +10,6 @@ import {
   fallbackDesignItems,
   type StudioItem,
 } from '../data/studioData';
-import { manifestToStudioItems } from '../utils/studioManifest';
-import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
 import StudioGridItem from '../components/ui/StudioGridItem';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -30,7 +27,6 @@ const Studio: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<'all' | 'photography' | 'design'>('all');
   const reelTrackRef = useRef<HTMLDivElement>(null);
   const reelSectionRef = useRef<HTMLElement>(null);
-  const cursorColor = '#00F2FF'; // Cyan accent
 
   const allItems = useMemo(() => [...photos, ...designs], [photos, designs]);
 
@@ -54,63 +50,10 @@ const Studio: React.FC = () => {
   };
 
   useEffect(() => {
-    let mounted = true;
-
-    const fetchManifest = async (path: string): Promise<string[] | null> => {
-      try {
-        const response = await fetch(path, { cache: 'no-store' });
-        if (!response.ok) return null;
-        const payload = await response.json();
-        return Array.isArray(payload) ? payload : null;
-      } catch {
-        return null;
-      }
-    };
-
-    const loadAssets = async () => {
-      try {
-        const [photoManifest, designManifest] = await Promise.all([
-          fetchManifest('/images/photography/manifest.json'),
-          fetchManifest('/images/design/manifest.json'),
-        ]);
-
-        if (!mounted) return;
-
-        const manifestPhotos = manifestToStudioItems(photoManifest, 'photography');
-        const manifestDesigns = manifestToStudioItems(designManifest, 'design');
-
-        const resolvedPhotos = manifestPhotos.length
-          ? manifestPhotos
-          : photographyItems.length
-            ? photographyItems
-            : fallbackPhotographyItems;
-
-        const resolvedDesigns = manifestDesigns.length
-          ? manifestDesigns
-          : designItems.length
-            ? designItems
-            : fallbackDesignItems;
-
-        setPhotos(resolvedPhotos);
-        setDesigns(resolvedDesigns);
-        setUseFallback(!(manifestPhotos.length && manifestDesigns.length));
-      } catch {
-        if (!mounted) return;
-        setPhotos(fallbackPhotographyItems);
-        setDesigns(fallbackDesignItems);
-        setUseFallback(true);
-      } finally {
-        if (mounted) {
-          setIsLoading(false);
-        }
-      }
-    };
-
-    void loadAssets();
-
-    return () => {
-      mounted = false;
-    };
+    setPhotos(photographyItems.length ? photographyItems : fallbackPhotographyItems);
+    setDesigns(designItems.length ? designItems : fallbackDesignItems);
+    setUseFallback(false);
+    setIsLoading(false);
   }, []);
 
   useEffect(() => {
@@ -169,18 +112,18 @@ const Studio: React.FC = () => {
         />
       </Helmet>
 
-      <MagneticCursor color={cursorColor} enabled={true} />
-
       <div className="min-h-screen bg-slate-950 relative overflow-hidden">
-        <ApiBackgroundImage
-          query="creative studio design workspace photography dark cinematic"
-          source="pexels"
-          overlayOpacity={0.6}
-          twilight
-          className="absolute inset-0 z-0"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/95 to-black pointer-events-none" />
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <img
+            src="/images/photography/20240628_185356.avif"
+            alt=""
+            aria-hidden="true"
+            className="w-full h-[50vh] object-cover object-center"
+            style={{ filter: 'brightness(0.25) saturate(0.5) contrast(1.1)' }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/80 to-slate-950" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/95 to-black pointer-events-none" />
 
         <main className="relative z-10 pt-24 pb-32 px-6">
           <section className="max-w-7xl mx-auto">

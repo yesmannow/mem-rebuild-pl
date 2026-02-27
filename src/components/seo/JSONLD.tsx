@@ -9,7 +9,7 @@ export default function JSONLD() {
     jobTitle: 'Systems Architect & Fractional CMO',
     sameAs: [
       'https://linkedin.com/in/jacobdarling',
-      'https://github.com/JdarlingGT',
+      'https://github.com/yesmannow',
     ],
     description: 'Digital production, visual engineering, and technical architecture by Jacob Darling. I build marketing systems that turn brands into revenue engines.',
     knowsAbout: [

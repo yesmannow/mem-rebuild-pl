@@ -16,7 +16,7 @@ const DataSlab: React.FC<{ item: ExperienceItem; index: number }> = ({ item, ind
       className="job-card absolute inset-0 w-full"
       style={{ transformOrigin: '50% 50%' }}
     >
-      <div className="relative mx-auto max-w-3xl backdrop-blur-xl bg-slate-900/60 border border-white/10 rounded-2xl p-7 shadow-[0_0_60px_rgba(0,242,255,0.04)] overflow-hidden job-card-inner transition-colors duration-500">
+      <div className="relative mx-auto max-w-3xl backdrop-blur-md bg-slate-900/60 border border-white/10 rounded-2xl p-7 shadow-[0_0_60px_rgba(0,242,255,0.04)] overflow-hidden job-card-inner transition-colors duration-500">
         {/* Teal left accent bar */}
         <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-cyan-400 to-orange-400 opacity-60" />
 
@@ -34,7 +34,7 @@ const DataSlab: React.FC<{ item: ExperienceItem; index: number }> = ({ item, ind
             {item.role}
           </h3>
           <p className="text-cyan-300/80 font-semibold text-base mb-4">{item.company}</p>
-          <p className="text-white/50 text-sm leading-relaxed mb-5 line-clamp-3">{item.description}</p>
+          <p className="text-white/60 text-[15px] leading-relaxed mb-5 line-clamp-3">{item.description}</p>
 
           {/* Achievement pills */}
           <div className="flex flex-wrap gap-2 mb-5">
@@ -125,9 +125,11 @@ export const ZAxisTunnel: React.FC<ZAxisTunnelProps> = ({ experiences }) => {
             cards.forEach((card) => {
               const z = gsap.getProperty(card, 'z') as number;
 
-              // Blur: Only sharp when near focal point (z approx 0)
-              const blurValue = z < 0 ? Math.abs(z) / 150 : z / 50;
-              const opacityValue = z < -1000 ? 0 : z > 800 ? 0 : 1;
+              // Sharp when z is in the readable focal zone (-600 to +600).
+              // Only apply blur (max 4px) when pushed far into the background (z < -1500).
+              // Cards approaching from behind (z > 600) stay sharp until they pass.
+              const blurValue = z < -1500 ? Math.min(4, Math.abs(z + 1500) / 500) : 0;
+              const opacityValue = z < -2000 ? 0 : z > 900 ? 0 : z > 600 ? 1 - (z - 600) / 300 : 1;
 
               gsap.set(card, {
                 filter: `blur(${blurValue}px)`,

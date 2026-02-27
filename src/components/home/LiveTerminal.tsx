@@ -35,7 +35,7 @@ const commands = {
     'Contact Information:',
     '  Email: jacob@jdarling.com',
     '  LinkedIn: linkedin.com/in/jacobdarling',
-    '  GitHub: github.com/JdarlingGT',
+    '  GitHub: github.com/yesmannow',
     '  Portfolio: jdarling.com',
   ],
   skills: [

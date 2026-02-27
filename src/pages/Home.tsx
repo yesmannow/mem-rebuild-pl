@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, FolderOpen, Radio } from 'lucide-react';
-import ScrollProgress from '../components/ui/ScrollProgress';
 import { SimpleSection } from '../components/ui/SimpleSection';
 import ScrollReveal from '../components/animations/ScrollReveal';
-import MagneticCursor from '../components/ui/MagneticCursor';
 import { EndorsementTicker } from '../components/resume/EndorsementTicker';
-import HeroCinematic from '../components/hero/HeroCinematic';
+import HeroCinematicStatic from '../components/hero/HeroCinematicStatic';
 import TheLabWorkbench from '../components/home/TheLabWorkbench';
 import WarRoomCTA from '../components/home/WarRoomCTA';
 import CinematicCaseStudies from '../components/case-studies/CinematicCaseStudies';
@@ -37,11 +35,8 @@ const Home: React.FC = () => {
 
   return (
     <div className="bg-[#080C12]" style={{ minHeight: '100vh' }}>
-      <MagneticCursor color="#40E0D0" enabled={true} />
-      <ScrollProgress />
-
-      {/* A. Cinematic Hero — GSAP pinned scroll, video circle mask, serif headline */}
-      <HeroCinematic onOpenCommandPalette={() => setCommandPalette(true)} />
+      {/* A. Cinematic Hero — h-screen photography parallax, single viewport */}
+      <HeroCinematicStatic onOpenCommandPalette={() => setCommandPalette(true)} />
 
       {/* Mosaic section divider — terrain texture strip between hero and case studies */}
       <div

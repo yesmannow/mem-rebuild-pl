@@ -12,7 +12,6 @@ import type { CaseStudy } from '../../data/caseStudies';
 import { useCardVideo } from '../../hooks/useCardVideo';
 import CountUp from './CountUp';
 import TopicClusterMap from './TopicClusterMap';
-import SearchlightCursor from './SearchlightCursor';
 
 // Lucide icon per case-study slug — replaces emojis
 const SLUG_ICONS: Record<string, React.ElementType> = {
@@ -452,7 +451,6 @@ const CaseStudyStack: React.FC<CaseStudyStackProps> = ({ studies, activeFilter }
   // ── Desktop: sticky-stack ────────────────────────────────────────────────
   return (
     <>
-      <SearchlightCursor color="#40E0D0" activeCardColor={activeCardColor} isOverCard={isOverCard} />
       <div ref={stackRef} className="case-study-stack">
         {filtered.length === 0 ? (
           <div className="case-study-stack__empty"><p>No case studies match this filter.</p></div>

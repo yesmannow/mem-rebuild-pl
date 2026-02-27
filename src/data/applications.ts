@@ -904,7 +904,7 @@ function showInstrumentInfo(instCode) {
     thumbnail: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600',
     demoUrl: 'https://dazzling-tiger-zoom.vercel.app/',
     embeddable: false,
-    githubUrl: 'https://github.com/JdarlingGT/graston-growth-engine',
+    githubUrl: 'https://github.com/yesmannow/graston-growth-engine',
     overview:
       'A sophisticated multi-platform ecosystem that transforms provider membership from a passive directory listing into an active growth engine. Combines real-time analytics, AI-powered marketing tools, interactive calculators, and a comprehensive resource library to prove ROI, drive engagement, and reduce churn. Built as a WordPress backend with React frontend components, integrated with Google Analytics API for data-driven insights and peer benchmarking.',
     valueProposition: {

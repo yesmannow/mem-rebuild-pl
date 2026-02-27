@@ -32,7 +32,7 @@ const itemVariants: Variants = {
 
 const overlayItems = [
   {
-    name: 'Home',
+    name: '[ 00 // INDEX ]',
     path: '/',
     description: 'Return to the war-room console',
   },

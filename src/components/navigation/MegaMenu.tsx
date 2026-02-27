@@ -238,7 +238,7 @@ const menuData: Record<string, MenuCategory[]> = {
         },
         {
           name: 'GitHub',
-          path: 'https://github.com/JdarlingGT',
+          path: 'https://github.com/yesmannow',
           description: 'View repositories and code contributions.',
           status: 'ACTIVE',
         },

@@ -178,7 +178,7 @@ const Resume: React.FC = () => {
       name: 'Jacob Darling',
       jobTitle: 'Systems Architect & Fractional CMO',
       url: 'https://jacobdarling.com/resume',
-      sameAs: ['https://linkedin.com/in/jacobdarling', 'https://github.com/JdarlingGT'],
+      sameAs: ['https://linkedin.com/in/jacobdarling', 'https://github.com/yesmannow'],
       hasOccupation: experience.map((job) => ({
         '@type': 'Role',
         roleName: job.role,

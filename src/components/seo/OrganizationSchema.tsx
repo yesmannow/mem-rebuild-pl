@@ -13,7 +13,7 @@ const OrganizationSchema: React.FC = () => {
     description:
       'Marketing systems architect and strategist with 15+ years of experience building revenue engines through strategy, creative, analytics, and execution.',
     email: 'hoosierdarling@gmail.com',
-    sameAs: ['https://linkedin.com/in/jacobdarling', 'https://github.com/JdarlingGT'],
+    sameAs: ['https://linkedin.com/in/jacobdarling', 'https://github.com/yesmannow'],
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'US',

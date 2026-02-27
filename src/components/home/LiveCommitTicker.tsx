@@ -42,7 +42,7 @@ export const LiveCommitTicker: React.FC = () => {
         setError(null);
 
         // Fetch GitHub events for the user
-        const response = await fetch('https://api.github.com/users/JdarlingGT/events/public', {
+        const response = await fetch('https://api.github.com/users/yesmannow/events/public', {
           headers: {
             Accept: 'application/vnd.github.v3+json',
           },
@@ -56,9 +56,13 @@ export const LiveCommitTicker: React.FC = () => {
 
         // Filter and map PushEvents to commits
         const commitList: Commit[] = events
-          .filter((event: any) => event.type === 'PushEvent')
+          .filter((event: { type: string }) => event.type === 'PushEvent')
           .slice(0, 5)
-          .map((event: any) => {
+          .map((event: {
+            repo: { name: string };
+            payload: { commits?: Array<{ message: string; sha: string }> };
+            created_at: string;
+          }) => {
             const repo = event.repo.name;
             const pushPayload = event.payload;
             const commits = pushPayload.commits || [];
@@ -84,19 +88,19 @@ export const LiveCommitTicker: React.FC = () => {
               repo: 'portfolio',
               message: 'Updated Home.tsx with Systems Architect aesthetic',
               timeAgo: '2 hours ago',
-              url: 'https://github.com/JdarlingGT',
+              url: 'https://github.com/yesmannow',
             },
             {
               repo: 'portfolio',
               message: 'Refactored component architecture',
               timeAgo: '1 day ago',
-              url: 'https://github.com/JdarlingGT',
+              url: 'https://github.com/yesmannow',
             },
             {
               repo: 'portfolio',
               message: 'Added Live Terminal component',
               timeAgo: '2 days ago',
-              url: 'https://github.com/JdarlingGT',
+              url: 'https://github.com/yesmannow',
             },
           ]);
         } else {
@@ -111,7 +115,7 @@ export const LiveCommitTicker: React.FC = () => {
             repo: 'portfolio',
             message: 'Building Systems Architect portfolio',
             timeAgo: 'recently',
-            url: 'https://github.com/JdarlingGT',
+            url: 'https://github.com/yesmannow',
           },
         ]);
       } finally {

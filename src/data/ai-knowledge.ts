@@ -44,7 +44,7 @@ export const PORTFOLIO_CONTEXT: PortfolioContext = {
 
   availability: 'Currently accepting new projects for Q1 2026. Available for fractional CMO engagements, full-time opportunities, consulting projects, and speaking engagements.',
 
-  contact: 'You can reach me at hoosierdarling@gmail.com or book a call on the Contact page. Also available on LinkedIn (linkedin.com/in/jacobdarling) and GitHub (github.com/JdarlingGT).',
+  contact: 'You can reach me at hoosierdarling@gmail.com or book a call on the Contact page. Also available on LinkedIn (linkedin.com/in/jacobdarling) and GitHub (github.com/yesmannow).',
 
   rates: 'Project-based pricing starting at $5k. Retainers available for ongoing engagements. Hourly consulting rates typically range from $150-200/hour, varying by project scope and duration. For full-time opportunities or long-term engagements, rates are negotiable.',
 };

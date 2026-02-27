@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
       const startTime = Date.now();
       try {
         const response = await fetch(
-          'https://api.github.com/repos/JdarlingGT/mem-rebuild-pl/commits',
+          'https://api.github.com/repos/yesmannow/mem-rebuild-pl/commits',
           {
             headers: {
               Accept: 'application/vnd.github.v3+json',
@@ -133,7 +133,7 @@ const Footer: React.FC = () => {
 
   const socialLinks = [
     { name: 'LinkedIn', href: 'https://linkedin.com/in/jacobdarling', icon: Linkedin },
-    { name: 'GitHub', href: 'https://github.com/JdarlingGT', icon: Github },
+    { name: 'GitHub', href: 'https://github.com/yesmannow', icon: Github },
     { name: 'Email', href: '/contact', icon: Mail },
   ];
 

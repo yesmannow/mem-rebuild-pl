@@ -13,9 +13,10 @@ export const PhysicsVault: React.FC = () => {
   const [ripplePos, setRipplePos] = useState<{x: number, y: number} | null>(null);
 
   const categories = ['AI', 'Web3', 'Automation'];
+  const isEmpty = !sideProjects || sideProjects.length === 0;
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (isEmpty || !containerRef.current) return;
 
     // Initialize Matter.js engine
     const engine = Matter.Engine.create({
@@ -51,7 +52,7 @@ export const PhysicsVault: React.FC = () => {
     const projectBodies = sideProjects.map((project) => {
       // Create HTML element for the body
       const el = document.createElement('div');
-      el.className = 'absolute cursor-grab active:cursor-grabbing bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 text-white w-64 select-none';
+      el.className = 'absolute cursor-grab active:cursor-grabbing bg-white/8 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-white w-64 select-none';
       el.innerHTML = `
         <div class="font-['Geist_Mono',_monospace] text-[10px] uppercase tracking-widest text-cyan-400 mb-2">${project.category[0] || 'Experiment'}</div>
         <h3 class="font-sans font-black tracking-tighter text-xl mb-2">${project.title}</h3>
@@ -115,7 +116,10 @@ export const PhysicsVault: React.FC = () => {
 
     containerRef.current.addEventListener('click', (e) => {
       if (isDragging) return;
-      const clickedBody = Matter.Query.point(projectBodies, { x: e.clientX, y: e.clientY })[0];
+      const rect = containerRef.current!.getBoundingClientRect();
+      const px = e.clientX - rect.left;
+      const py = e.clientY - rect.top;
+      const clickedBody = Matter.Query.point(projectBodies, { x: px, y: py })[0];
       if (clickedBody && clickedBody.plugin.project) {
         navigate(`/side-projects/${clickedBody.plugin.project.id}`);
       }
@@ -165,12 +169,20 @@ export const PhysicsVault: React.FC = () => {
          });
       }
     };
-  }, [activeCategory, navigate]);
+  }, [activeCategory, isEmpty, navigate]);
 
   const triggerRipple = (x: number, y: number) => {
     setRipplePos({ x, y });
     setTimeout(() => setRipplePos(null), 1000);
   };
+
+  if (isEmpty) {
+    return (
+      <div className="flex items-center justify-center w-full h-full text-white/40 font-mono text-sm uppercase tracking-widest">
+        [ VAULT EMPTY — NO PROJECTS FOUND ]
+      </div>
+    );
+  }
 
   return (
     <div className="relative w-full h-[80vh] overflow-hidden bg-transparent rounded-3xl border border-white/10" ref={containerRef}>
@@ -199,7 +211,7 @@ export const PhysicsVault: React.FC = () => {
           <button
             key={cat}
             onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
-            className={`px-6 py-2 rounded-full font-['Geist_Mono',_monospace] text-[10px] uppercase tracking-widest transition-all backdrop-blur-xl border ${
+            className={`px-6 py-2 rounded-full font-['Geist_Mono',_monospace] text-[10px] uppercase tracking-widest transition-all backdrop-blur-sm border ${
               activeCategory === cat
                 ? 'bg-cyan-400 text-black border-cyan-400 shadow-[0_0_20px_rgba(0,242,255,0.5)]'
                 : 'bg-white/5 text-white/70 border-white/10 hover:border-white/30'
