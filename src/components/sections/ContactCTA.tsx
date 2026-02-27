@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../ui/Button';
+import AppButton from '../ui/AppButton';
 import './ContactCTA.css';
 
 export interface ContactCTAProps {
@@ -7,37 +7,37 @@ export interface ContactCTAProps {
    * Main heading
    */
   title?: string;
-  
+
   /**
    * Supporting text
    */
   subtitle?: string;
-  
+
   /**
    * Primary CTA text
    */
   primaryText?: string;
-  
+
   /**
    * Primary CTA link
    */
   primaryHref?: string;
-  
+
   /**
    * Secondary CTA text
    */
   secondaryText?: string;
-  
+
   /**
    * Secondary CTA link
    */
   secondaryHref?: string;
-  
+
   /**
    * Background gradient colors
    */
   gradientColors?: string[];
-  
+
   /**
    * Additional CSS class
    */
@@ -46,7 +46,7 @@ export interface ContactCTAProps {
 
 /**
  * ContactCTA - Call-to-action section for contact
- * 
+ *
  * Features:
  * - Gradient background
  * - Responsive layout
@@ -65,38 +65,38 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
 }) => {
   return (
     <section className={`contact-cta ${className}`}>
-      <div 
+      <div
         className="contact-cta__background"
         style={{
           background: `linear-gradient(135deg, ${gradientColors.join(', ')})`,
         }}
         aria-hidden="true"
       />
-      
+
       <div className="contact-cta__container">
         <div className="contact-cta__content">
           <h2 className="contact-cta__title">{title}</h2>
           <p className="contact-cta__subtitle">{subtitle}</p>
-          
+
           <div className="contact-cta__actions">
-            <Button
+            <AppButton
               variant="primary"
               size="lg"
               href={primaryHref}
               className="contact-cta__button contact-cta__button--primary"
             >
               {primaryText}
-            </Button>
-            
+            </AppButton>
+
             {secondaryText && secondaryHref && (
-              <Button
+              <AppButton
                 variant="outline"
                 size="lg"
                 href={secondaryHref}
                 className="contact-cta__button contact-cta__button--secondary"
               >
                 {secondaryText}
-              </Button>
+              </AppButton>
             )}
           </div>
         </div>

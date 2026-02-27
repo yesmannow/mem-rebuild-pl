@@ -19,8 +19,19 @@ import AppPreviewModal from './AppPreviewModal';
 const toValidIdentifier = (title: string): string => {
   return title
     .replace(/[^a-zA-Z0-9\s]/g, '') // Remove non-alphanumeric (except spaces)
-    .replace(/\s+/g, '')             // Remove all spaces
-    .replace(/^[0-9]+/, '');         // Remove leading numbers if any
+    .replace(/\s+/g, '') // Remove all spaces
+    .replace(/^[0-9]+/, ''); // Remove leading numbers if any
+};
+
+const isSameOriginUrl = (url?: string) => {
+  if (!url || typeof window === 'undefined') return false;
+  try {
+    const resolved = new URL(url, window.location.origin);
+    return resolved.origin === window.location.origin;
+  } catch (err) {
+    console.warn('Failed to resolve launch URL origin', err);
+    return false;
+  }
 };
 
 interface SystemCardProps {
@@ -39,6 +50,7 @@ const SystemCard: React.FC<SystemCardProps> = ({ item, index = 0 }) => {
   const hasSeparateBuildLink =
     Boolean(item.liveUrl && item.link && item.liveUrl !== item.link);
   const isExternalLaunch = Boolean(launchUrl && launchUrl.startsWith('http'));
+  const isSameOriginExternal = isExternalLaunch && isSameOriginUrl(launchUrl);
   // Don't show "View Build" for growth-engine
   const shouldShowViewBuild = hasSeparateBuildLink && item.id !== 'growth-engine';
   const borderColor = isApp ? 'border-[#FFA500]' : 'border-[#40E0D0]';
@@ -75,7 +87,7 @@ const SystemCard: React.FC<SystemCardProps> = ({ item, index = 0 }) => {
 
   const handleLaunchClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (isExternalLaunch) {
+    if (isSameOriginExternal) {
       setShowModal(true);
     }
   };
@@ -203,12 +215,21 @@ const SystemCard: React.FC<SystemCardProps> = ({ item, index = 0 }) => {
 
             {launchUrl && (
               isExternalLaunch ? (
-                <button
-                  onClick={handleLaunchClick}
-                  className={launchButtonClasses}
-                >
-                  Launch <ExternalLink size={14} />
-                </button>
+                isSameOriginExternal ? (
+                  <button onClick={handleLaunchClick} className={launchButtonClasses}>
+                    Launch <ExternalLink size={14} />
+                  </button>
+                ) : (
+                  <a
+                    href={launchUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={launchButtonClasses}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Launch <ExternalLink size={14} />
+                  </a>
+                )
               ) : (
                 <Link to={launchUrl} className={launchButtonClasses} onClick={(e) => e.stopPropagation()}>
                   Launch <ExternalLink size={14} />
@@ -374,7 +395,7 @@ ${item.techStack.map((t) => `    { name: '${t.name}' }`).join(',\n')}
       </motion.div>
 
       {/* Pop-out Modal for External Links */}
-      {showModal && isExternalLaunch && launchUrl && (
+      {showModal && isSameOriginExternal && launchUrl && (
         <AppPreviewModal
           url={launchUrl}
           title={item.title}

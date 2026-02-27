@@ -6,6 +6,12 @@
 /* Import Montserrat font from Google Fonts for brand refresh */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
+/* Cinematic serif — Playfair Display for agency editorial headlines */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap');
+
+/* Geist Mono — precision label font */
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -77,7 +83,7 @@
   [data-brand="default"],
   :root {
     --brand-font-family: 'Montserrat', system-ui, sans-serif;
-    
+
     /* Primary Brand Colors */
     --brand-primary: #40E0D0;        /* Turquoise - primary accent */
     --brand-primary-dark: #0F766E;   /* Darker turquoise for contrast */
@@ -85,14 +91,14 @@
     --brand-accent-light: #FFB380;   /* Light creamsicle */
     --brand-accent-dark: #E68A48;    /* Dark creamsicle */
     --brand-neutral: #B3CDE0;        /* Light blue-gray for backgrounds */
-    
+
     /* Foundation Colors */
     --brand-bg: #0f172a;             /* Main dark background */
     --brand-surface: #1e293b;        /* Card/surface background */
     --brand-text: #f8fafc;           /* Main text color */
     --brand-text-muted: #94A3B8;     /* Secondary text color */
     --brand-border: rgba(64, 224, 208, 0.2); /* Subtle turquoise border */
-    
+
     /* Design System */
     --brand-border-radius: 0.75rem;
     --brand-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);

@@ -172,11 +172,18 @@ export default {
   			'neon-flat': '0 0 0 1px var(--brand-primary), 0 0 20px -10px var(--brand-primary)',
   		},
 		fontFamily: {
+			serif: [
+				'Playfair Display',
+				'Georgia',
+				'Times New Roman',
+				'serif'
+			],
 			sans: [
 				'Montserrat',
 				'sans-serif'
 			],
 			mono: [
+				'Geist Mono',
 				'Fira Code',
 				'JetBrains Mono',
 				'Courier New',

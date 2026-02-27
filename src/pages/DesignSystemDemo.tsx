@@ -3,14 +3,14 @@ import { Helmet } from 'react-helmet-async';
 import HeroRedesign from '../components/hero/HeroRedesign';
 import ServicesGrid from '../components/sections/ServicesGrid';
 import ContactCTA from '../components/sections/ContactCTA';
-import Button from '../components/ui/Button';
+import AppButton from '../components/ui/AppButton';
 import LayeredBackground from '../components/ui/LayeredBackground';
 import { useTheme } from '../components/theme/ThemeProvider';
 import './DesignSystemDemo.css';
 
 /**
  * DesignSystemDemo - Showcase page for the new design system
- * 
+ *
  * This page demonstrates all the new components and design tokens
  * as part of the frontend redesign initiative.
  */
@@ -81,45 +81,45 @@ const DesignSystemDemo: React.FC = () => {
               <div className="demo-control-group">
                 <h3 className="demo-control-label">Color Mode</h3>
                 <div className="demo-buttons">
-                  <Button variant="outline" size="sm" onClick={() => setTheme('light')}>
+                  <AppButton variant="outline" size="sm" onClick={() => setTheme('light')}>
                     Light
-                  </Button>
-                  <Button variant="outline" size="sm" onClick={() => setTheme('dark')}>
+                  </AppButton>
+                  <AppButton variant="outline" size="sm" onClick={() => setTheme('dark')}>
                     Dark
-                  </Button>
-                  <Button variant="outline" size="sm" onClick={() => setTheme('system')}>
+                  </AppButton>
+                  <AppButton variant="outline" size="sm" onClick={() => setTheme('system')}>
                     System
-                  </Button>
+                  </AppButton>
                 </div>
               </div>
 
               <div className="demo-control-group">
                 <h3 className="demo-control-label">Custom Accent</h3>
                 <div className="demo-buttons">
-                  <Button
+                  <AppButton
                     variant="outline"
                     size="sm"
                     onClick={() => setBrandAccent('#ff6b6b')}
                   >
                     Red
-                  </Button>
-                  <Button
+                  </AppButton>
+                  <AppButton
                     variant="outline"
                     size="sm"
                     onClick={() => setBrandAccent('#4ecdc4')}
                   >
                     Teal
-                  </Button>
-                  <Button
+                  </AppButton>
+                  <AppButton
                     variant="outline"
                     size="sm"
                     onClick={() => setBrandAccent('#ffd93d')}
                   >
                     Yellow
-                  </Button>
-                  <Button variant="outline" size="sm" onClick={() => setBrandAccent()}>
+                  </AppButton>
+                  <AppButton variant="outline" size="sm" onClick={() => setBrandAccent()}>
                     Reset
-                  </Button>
+                  </AppButton>
                 </div>
               </div>
 
@@ -143,63 +143,63 @@ const DesignSystemDemo: React.FC = () => {
 
             <div className="demo-button-showcase">
               <div className="demo-button-row">
-                <Button variant="primary" size="lg">
+                <AppButton variant="primary" size="lg">
                   Primary Large
-                </Button>
-                <Button variant="primary" size="md">
+                </AppButton>
+                <AppButton variant="primary" size="md">
                   Primary Medium
-                </Button>
-                <Button variant="primary" size="sm">
+                </AppButton>
+                <AppButton variant="primary" size="sm">
                   Primary Small
-                </Button>
+                </AppButton>
               </div>
 
               <div className="demo-button-row">
-                <Button variant="secondary" size="lg">
+                <AppButton variant="secondary" size="lg">
                   Secondary Large
-                </Button>
-                <Button variant="secondary" size="md">
+                </AppButton>
+                <AppButton variant="secondary" size="md">
                   Secondary Medium
-                </Button>
-                <Button variant="secondary" size="sm">
+                </AppButton>
+                <AppButton variant="secondary" size="sm">
                   Secondary Small
-                </Button>
+                </AppButton>
               </div>
 
               <div className="demo-button-row">
-                <Button variant="outline" size="lg">
+                <AppButton variant="outline" size="lg">
                   Outline Large
-                </Button>
-                <Button variant="outline" size="md">
+                </AppButton>
+                <AppButton variant="outline" size="md">
                   Outline Medium
-                </Button>
-                <Button variant="outline" size="sm">
+                </AppButton>
+                <AppButton variant="outline" size="sm">
                   Outline Small
-                </Button>
+                </AppButton>
               </div>
 
               <div className="demo-button-row">
-                <Button variant="ghost" size="lg">
+                <AppButton variant="ghost" size="lg">
                   Ghost Large
-                </Button>
-                <Button variant="ghost" size="md">
+                </AppButton>
+                <AppButton variant="ghost" size="md">
                   Ghost Medium
-                </Button>
-                <Button variant="ghost" size="sm">
+                </AppButton>
+                <AppButton variant="ghost" size="sm">
                   Ghost Small
-                </Button>
+                </AppButton>
               </div>
 
               <div className="demo-button-row">
-                <Button variant="primary" size="md" loading>
+                <AppButton variant="primary" size="md" isLoading>
                   Loading State
-                </Button>
-                <Button variant="primary" size="md" disabled>
+                </AppButton>
+                <AppButton variant="primary" size="md" disabled>
                   Disabled State
-                </Button>
-                <Button variant="primary" size="md" fullWidth>
+                </AppButton>
+                <AppButton variant="primary" size="md" fullWidth>
                   Full Width Button
-                </Button>
+                </AppButton>
               </div>
             </div>
           </div>

@@ -42,10 +42,131 @@ interface PexelsImageResult {
 }
 
 const PEXELS_API_URL = 'https://api.pexels.com/v1';
+const PEXELS_VIDEO_API_URL = 'https://api.pexels.com/videos';
 const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours
 
 // Simple in-memory cache
 const cache = new Map<string, { data: PexelsImageResult | null; timestamp: number }>();
+
+// ─── Video types ──────────────────────────────────────────────────────────
+
+export interface PexelsVideoFile {
+  id: number;
+  quality: 'hd' | 'sd' | '4k' | 'uhd';
+  file_type: string;
+  width: number;
+  height: number;
+  link: string;
+}
+
+export interface PexelsVideoResult {
+  id: number;
+  width: number;
+  height: number;
+  url: string;
+  duration: number;
+  user: { name: string; url: string };
+  /** Best available file — 4K > HD > SD */
+  videoUrl: string;
+  /** All available files, sorted best-first */
+  files: PexelsVideoFile[];
+}
+
+interface PexelsVideoItem {
+  id: number;
+  width: number;
+  height: number;
+  url: string;
+  duration: number;
+  user: { name: string; url: string };
+  video_files: PexelsVideoFile[];
+}
+
+interface PexelsVideoResponse {
+  videos: PexelsVideoItem[];
+  total_results: number;
+  page: number;
+  per_page: number;
+}
+
+const videoCache = new Map<string, { data: PexelsVideoResult[]; timestamp: number }>();
+
+/** Pick the best quality file available from a video item */
+function pickBestFile(files: PexelsVideoFile[]): PexelsVideoFile | undefined {
+  const QUALITY_RANK: Record<string, number> = { '4k': 4, uhd: 4, hd: 3, sd: 1 };
+  return [...files]
+    .filter((f) => f.file_type === 'video/mp4')
+    .sort((a, b) => (QUALITY_RANK[b.quality] ?? 0) - (QUALITY_RANK[a.quality] ?? 0))[0];
+}
+
+/**
+ * Search Pexels for HD/4K videos.
+ * @param query  Search term (e.g. "dark data flow", "liquid glass abstract")
+ * @param perPage  Max results (1–80, default 3)
+ * @returns Array of video results sorted best-quality-first
+ */
+export async function searchPexelsVideos(
+  query: string,
+  perPage: number = 3
+): Promise<PexelsVideoResult[]> {
+  const cacheKey = `video:${query}:${perPage}`;
+
+  const cached = videoCache.get(cacheKey);
+  if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
+    return cached.data;
+  }
+
+  const apiKey =
+    (typeof import.meta !== 'undefined' && (import.meta.env as Record<string, string | undefined>)?.VITE_PEXELS_API_KEY) ||
+    (typeof process !== 'undefined' && (process.env.VITE_PEXELS_API_KEY || process.env.PEXELS_API_KEY));
+
+  if (!apiKey) {
+    if (typeof console !== 'undefined') {
+      console.warn('[pexels] No API key found. Set VITE_PEXELS_API_KEY in .env.local');
+    }
+    videoCache.set(cacheKey, { data: [], timestamp: Date.now() });
+    return [];
+  }
+
+  try {
+    const url = `${PEXELS_VIDEO_API_URL}/search?query=${encodeURIComponent(query)}&per_page=${Math.min(perPage, 80)}&orientation=landscape&size=large`;
+    const response = await fetch(url, {
+      headers: { Authorization: apiKey as string },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Pexels Video API error: ${response.status}`);
+    }
+
+    const data: PexelsVideoResponse = await response.json();
+
+    if (!data.videos?.length) {
+      videoCache.set(cacheKey, { data: [], timestamp: Date.now() });
+      return [];
+    }
+
+    const results: PexelsVideoResult[] = data.videos.map((v) => {
+      const best = pickBestFile(v.video_files);
+      return {
+        id: v.id,
+        width: v.width,
+        height: v.height,
+        url: v.url,
+        duration: v.duration,
+        user: v.user,
+        videoUrl: best?.link ?? '',
+        files: v.video_files.filter((f) => f.file_type === 'video/mp4'),
+      };
+    }).filter((r) => r.videoUrl);
+
+    videoCache.set(cacheKey, { data: results, timestamp: Date.now() });
+    return results;
+  } catch (err) {
+    if (typeof console !== 'undefined') console.error('[pexels] Video fetch failed:', err);
+    videoCache.set(cacheKey, { data: [], timestamp: Date.now() });
+    return [];
+  }
+}
 
 /**
  * Search for images on Pexels

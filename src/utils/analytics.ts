@@ -1,5 +1,3 @@
-import React, { useEffect } from 'react';
-
 let analyticsInitialized = false;
 
 // Analytics event tracking
@@ -29,23 +27,8 @@ export function trackEvent(eventName: string, eventData?: Record<string, any>) {
   }
 }
 
-// CTA click tracking
-export function trackCTA(id: string, location?: string) {
-  trackEvent('cta_click', { id, location });
-  window.dispatchEvent(
-    new CustomEvent('bc:cta', {
-      detail: { id, location },
-    })
-  );
-}
-
-// Case study view tracking
-export function trackCaseStudy(slug: string) {
-  trackEvent('case_study_view', { slug });
-}
-
 // Scroll depth tracking
-export function trackScrollDepth(depth: number, path: string) {
+function trackScrollDepth(depth: number, path: string) {
   const milestones = [25, 50, 75, 90, 100];
   const milestone = milestones.find(m => depth >= m && depth < m + 10);
 
@@ -55,7 +38,7 @@ export function trackScrollDepth(depth: number, path: string) {
 }
 
 // Time on page tracking
-export function trackTimeOnPage(path: string, seconds: number) {
+function trackTimeOnPage(path: string, seconds: number) {
   const milestones = [10, 30, 60, 120, 300]; // 10s, 30s, 1m, 2m, 5m
   const milestone = milestones.find(m => seconds >= m && seconds < m + 10);
 
@@ -64,22 +47,8 @@ export function trackTimeOnPage(path: string, seconds: number) {
   }
 }
 
-// Form field interaction tracking
-export function trackFormInteraction(
-  formId: string,
-  fieldName: string,
-  action: 'focus' | 'blur' | 'change'
-) {
-  trackEvent('form_interaction', { formId, fieldName, action });
-}
-
-// Image load tracking
-export function trackImageLoad(src: string, loadTime?: number) {
-  trackEvent('image_load', { src, loadTime });
-}
-
 // Error tracking
-export function trackError(error: Error, context?: string) {
+function trackError(error: Error, context?: string) {
   trackEvent('error', {
     message: error.message,
     stack: error.stack,
@@ -164,25 +133,6 @@ export function createTimeTracker(path: string) {
       trackTimeOnPage(path, durationSeconds);
     },
   };
-}
-
-// Initialize analytics
-export function useAnalytics() {
-  useEffect(() => {
-    // Track page view
-    trackEvent('page_view', { path: window.location.pathname });
-
-    // Listen for custom events
-    const handleCTAClick = (e: CustomEvent) => {
-      trackEvent('cta_click', e.detail);
-    };
-
-    window.addEventListener('bc:cta', handleCTAClick as EventListener);
-
-    return () => {
-      window.removeEventListener('bc:cta', handleCTAClick as EventListener);
-    };
-  }, []);
 }
 
 // Type declarations for window analytics

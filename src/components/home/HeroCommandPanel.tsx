@@ -5,7 +5,7 @@ import { OceanAuroraBackground } from '../ui/OceanAuroraBackground';
 import { OceanTextGenerateEffect } from '../ui/OceanTextGenerateEffect';
 import { OceanGradientText } from '../ui/OceanGradientText';
 import { AvailabilityBadge } from '../ui/AvailabilityBadge';
-import { MagneticButton } from '../ui/MagneticButton';
+import { AppButton } from '../ui/AppButton';
 import { useTypingEffect } from '../../hooks/useTypingEffect';
 
 /**
@@ -155,7 +155,7 @@ const HeroCommandPanel: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="mb-4"
             >
-              <AvailabilityBadge 
+              <AvailabilityBadge
                 available={true}
                 size="md"
                 showPulse={true}
@@ -244,31 +244,28 @@ const HeroCommandPanel: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-wrap gap-4"
           >
-            <MagneticButton
+            <AppButton
               href="/case-studies"
               variant="primary"
               size="lg"
-              magneticStrength={0.4}
             >
               Explore Systems
               <ChevronRight className="w-5 h-5" />
-            </MagneticButton>
-            <MagneticButton
+            </AppButton>
+            <AppButton
               href="/contact"
               variant="outline"
               size="lg"
-              magneticStrength={0.3}
             >
               Let's Talk
-            </MagneticButton>
-            <MagneticButton
+            </AppButton>
+            <AppButton
               href="/resume"
               variant="secondary"
               size="lg"
-              magneticStrength={0.3}
             >
               View Resume
-            </MagneticButton>
+            </AppButton>
           </motion.div>
         </motion.div>
       </div>

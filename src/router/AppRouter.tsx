@@ -37,12 +37,14 @@ const Gallery = React.lazy(() => import('../pages/Gallery'));
 const DesignSystemDemo = React.lazy(() => import('../pages/DesignSystemDemo'));
 const DeploymentStatus = React.lazy(() => import('../pages/DeploymentStatus'));
 const ResumePrint = React.lazy(() => import('../pages/ResumePrint'));
-// const Lab = React.lazy(() => import('../pages/Lab'));
+const Lab = React.lazy(() => import('../pages/Lab'));
 const WarRoom = React.lazy(() => import('../pages/WarRoom'));
 // Removed deleted app components:
-// const GrowthEngine = React.lazy(() => import('../components/apps/GrowthEngine'));
-// const LicenseHub = React.lazy(() => import('../components/apps/LicenseHub'));
-// const ClinicalCompass = React.lazy(() => import('../components/apps/ClinicalCompass'));
+const GrowthEngineLab = React.lazy(() => import('../pages/apps/GrowthEngineLab'));
+const MarketingSimulatorLab = React.lazy(() => import('../pages/apps/MarketingSimulatorLab'));
+const LicenseHubLab = React.lazy(() => import('../pages/apps/LicenseHubLab'));
+const SEOScannerLab = React.lazy(() => import('../pages/apps/SEOScannerLab'));
+const ClinicalCompassLab = React.lazy(() => import('../pages/apps/ClinicalCompassLab'));
 // const LeadScoreLab = React.lazy(() => import('../components/apps/LeadScoreLab'));
 // const LinkArchitect = React.lazy(() => import('../components/apps/LinkArchitect'));
 // const SEOScanner = React.lazy(() => import('../components/apps/SEOScanner'));
@@ -102,6 +104,13 @@ const AppRouter: React.FC = () => {
           'Custom tools and applications engineered by Jacob Darling showcasing marketing automation, analytics, and product systems.',
         keywords:
           'developer tools, custom applications, interactive demos, marketing technology, web tools',
+      };
+    } else if (path === '/apps') {
+      return {
+        title: 'The Lab | Living Documentation System',
+        description:
+          'Interactive laboratory of live applications, internal tools, and telemetry dashboards showcasing architecture and impact.',
+        keywords: 'lab, live apps, engineering tools, telemetry, portfolio',
       };
     } else if (path.startsWith('/applications/')) {
       return {
@@ -318,8 +327,8 @@ const AppRouter: React.FC = () => {
     <>
       <SEOHead {...seoData} />
       <AnimatePresence mode="wait">
-        <Suspense fallback={<PageLoader />}>
-          <Routes location={location} key={location.pathname}>
+        <Suspense key={location.pathname} fallback={<PageLoader />}>
+          <Routes location={location}>
             <Route
               path="/"
               element={
@@ -551,75 +560,10 @@ const AppRouter: React.FC = () => {
               }
             />
             <Route
-              path="/apps"
-              element={
-                <PageTransition>
-                  <Applications />
-                </PageTransition>
-              }
-            />
-            {/* Removed routes for deleted app components:
-            <Route
-              path="/apps/campaign-performance"
-              element={
-                <PageTransition>
-                  <CampaignPerformanceVisualizer />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/apps/competitor-intelligence"
-              element={
-                <PageTransition>
-                  <CompetitorIntelligenceHub />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/apps/lead-lab"
-              element={
-                <PageTransition>
-                  <LeadScoreLab />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/apps/link-architect"
-              element={
-                <PageTransition>
-                  <LinkArchitect />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/apps/seo-scanner"
-              element={
-                <PageTransition>
-                  <SEOScanner />
-                </PageTransition>
-              }
-            />
-            <Route
               path="/apps/growth-engine"
               element={
                 <PageTransition>
-                  <GrowthEngine />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/apps/license-hub"
-              element={
-                <PageTransition>
-                  <LicenseHub />
-                </PageTransition>
-              }
-            />
-            <Route
-              path="/apps/clinical-compass"
-              element={
-                <PageTransition>
-                  <ClinicalCompass />
+                  <GrowthEngineLab />
                 </PageTransition>
               }
             />
@@ -627,19 +571,42 @@ const AppRouter: React.FC = () => {
               path="/apps/marketing-simulator"
               element={
                 <PageTransition>
-                  <MarketingSimulator />
+                  <MarketingSimulatorLab />
                 </PageTransition>
               }
             />
             <Route
-              path="/apps/marketing-simulator-game"
+              path="/apps/license-hub"
               element={
                 <PageTransition>
-                  <MarketingSimulatorGame />
+                  <LicenseHubLab />
                 </PageTransition>
               }
             />
-            */}
+            <Route
+              path="/apps/seo-scanner"
+              element={
+                <PageTransition>
+                  <SEOScannerLab />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps/clinical-compass"
+              element={
+                <PageTransition>
+                  <ClinicalCompassLab />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/apps"
+              element={
+                <PageTransition>
+                  <Lab />
+                </PageTransition>
+              }
+            />
             <Route
               path="/apps/brand-builder"
               element={

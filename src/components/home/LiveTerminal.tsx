@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Minimize2, Maximize2 } from 'lucide-react';
+import { useSystemStore } from '../../store/useSystemStore';
 
 interface TerminalLine {
   text: string;
@@ -21,11 +22,14 @@ const bootSequence = [
 const commands = {
   help: [
     'Available commands:',
-    '  help     - Show this help message',
-    '  contact  - Display contact information',
-    '  skills   - List technical skills',
-    '  clear    - Clear terminal screen',
-    '  about    - Show about information',
+    '  help                    - Show this help message',
+    '  contact                 - Display contact information',
+    '  skills                  - List technical skills',
+    '  clear                   - Clear terminal screen',
+    '  about                   - Show about information',
+    '  status                  - System health report',
+    '  mount [module]          - Activate a module by id',
+    '  generate brand [name]   - Launch the brand builder',
   ],
   contact: [
     'Contact Information:',
@@ -54,9 +58,8 @@ const commands = {
 export const LiveTerminal: React.FC = () => {
   const [isMinimized, setIsMinimized] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lines, setLines] = useState<TerminalLine[]>([]);
+  const [localLines, setLocalLines] = useState<TerminalLine[]>([]);
   const [currentInput, setCurrentInput] = useState('');
-  const [isBooting, setIsBooting] = useState(true);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
@@ -64,18 +67,27 @@ export const LiveTerminal: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
+  const { terminalHistory, isBooting, isProcessing, runCommand, pushHistory, setBooting } = useSystemStore();
+
+  // Sync store terminalHistory into local display lines
+  useEffect(() => {
+    setLocalLines(
+      terminalHistory.map((text) => ({
+        text,
+        type: text.startsWith('> EXEC:') ? ('command' as const) : ('output' as const),
+      }))
+    );
+  }, [terminalHistory]);
+
   // Boot sequence on mount
   useEffect(() => {
     let index = 0;
     const bootInterval = setInterval(() => {
       if (index < bootSequence.length) {
-        setLines((prev) => [
-          ...prev,
-          { text: bootSequence[index], type: 'output' },
-        ]);
+        pushHistory(bootSequence[index]);
         index++;
       } else {
-        setIsBooting(false);
+        setBooting(false);
         clearInterval(bootInterval);
       }
     }, 800);
@@ -88,21 +100,31 @@ export const LiveTerminal: React.FC = () => {
     const command = cmd.trim().toLowerCase();
 
     if (command === 'clear') {
-      setLines([]);
+      setLocalLines([]);
       return;
     }
 
-    // Add user input to lines
-    setLines((prev) => [...prev, { text: `> ${cmd}`, type: 'input' }]);
+    // Route store-kernel commands (status / mount / generate brand)
+    if (
+      command === 'status' ||
+      command.startsWith('mount ') ||
+      command.startsWith('generate brand')
+    ) {
+      runCommand(cmd);
+      return;
+    }
 
-    // Execute command
+    // Add user input as a display line
+    setLocalLines((prev) => [...prev, { text: `> ${cmd}`, type: 'input' }]);
+
+    // Execute local commands
     if (commands[command as keyof typeof commands]) {
       const output = commands[command as keyof typeof commands];
       output.forEach((line) => {
-        setLines((prev) => [...prev, { text: line, type: 'output' }]);
+        setLocalLines((prev) => [...prev, { text: line, type: 'output' }]);
       });
     } else if (command) {
-      setLines((prev) => [
+      setLocalLines((prev) => [
         ...prev,
         { text: `Command not found: ${command}. Type "help" for available commands.`, type: 'output' },
       ]);
@@ -163,7 +185,7 @@ export const LiveTerminal: React.FC = () => {
     if (bottomRef.current) {
       bottomRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [lines, isBooting]);
+  }, [localLines, isBooting]);
 
   if (!isVisible) return null;
 
@@ -224,7 +246,7 @@ export const LiveTerminal: React.FC = () => {
           >
             {/* Scrollable Content Container */}
             <div className="flex-1 overflow-y-auto custom-scrollbar p-3 font-mono text-xs text-green-400 space-y-1">
-              {lines.map((line, index) => (
+              {localLines.map((line, index) => (
                 <div
                   key={index}
                   className={
@@ -246,15 +268,18 @@ export const LiveTerminal: React.FC = () => {
               {!isBooting && (
                 <form onSubmit={handleSubmit} className="border-t border-slate-700 p-2 mt-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-mono text-brand-teal">$</span>
+                    <span className="text-xs font-mono text-brand-teal">
+                      {isProcessing ? '⟳' : '$'}
+                    </span>
                     <input
                       ref={inputRef}
                       type="text"
                       value={currentInput}
                       onChange={(e) => setCurrentInput(e.target.value)}
-                      className="flex-1 bg-transparent text-xs font-mono text-green-400 outline-none"
-                      placeholder="Type a command..."
+                      className="flex-1 bg-transparent text-xs font-mono text-green-400 outline-none disabled:opacity-50"
+                      placeholder={isProcessing ? 'Processing...' : 'Type a command...'}
                       autoComplete="off"
+                      disabled={isProcessing}
                     />
                   </div>
                 </form>

@@ -1,0 +1,904 @@
+/* ═══════════════════════════════════════════════════════════════
+   CaseStudies Revamp — Sticky-Stack Architecture
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Page wrapper ──────────────────────────────────────────────── */
+.cs-revamp {
+  min-height: 100vh;
+  background: #050507;
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
+/* ── Cinematic hero ────────────────────────────────────────────── */
+.cs-revamp__hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6rem 1.5rem 4rem;
+}
+
+.cs-revamp__hero-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.55;
+}
+.cs-revamp__hero-glow--left {
+  top: -10%;
+  left: -10%;
+  width: 640px;
+  height: 640px;
+  background: radial-gradient(circle, rgba(64, 224, 208, 0.12), transparent 70%);
+}
+.cs-revamp__hero-glow--right {
+  top: 5%;
+  right: -10%;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(124, 92, 255, 0.10), transparent 70%);
+}
+
+.cs-revamp__hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+}
+
+.cs-revamp__eyebrow {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: rgba(34, 211, 238, 0.55);
+  margin-bottom: 1.5rem;
+}
+
+.cs-revamp__headline {
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+.cs-revamp__headline-accent {
+  color: #22d3ee;
+}
+
+.cs-revamp__subline {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.38);
+  max-width: 520px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+}
+
+/* stats */
+.cs-revamp__stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.cs-revamp__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+.cs-revamp__stat-value {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 900;
+  color: #22d3ee;
+  line-height: 1;
+}
+.cs-revamp__stat-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.3);
+}
+.cs-revamp__stat-sep {
+  width: 1px;
+  height: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* scroll cue */
+.cs-revamp__scroll-cue {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 2;
+}
+.cs-revamp__scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(34, 211, 238, 0.5), transparent);
+  animation: scroll-line-pulse 2s ease-in-out infinite;
+}
+@keyframes scroll-line-pulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50%       { opacity: 1;   transform: scaleY(1.1); }
+}
+.cs-revamp__scroll-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Filter island wrapper ─────────────────────────────────────── */
+.cs-revamp__island-wrap {
+  position: sticky;
+  top: 1.25rem;
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+  pointer-events: none; /* allow scroll-through outside island */
+}
+.cs-revamp__island-wrap > * {
+  pointer-events: auto;
+}
+
+/* ── FilterIsland component ────────────────────────────────────── */
+.filter-island {
+  display: inline-flex;
+  flex-direction: column;
+  background: rgba(5, 5, 7, 0.82);
+  border: 1px solid rgba(64, 224, 208, 0.18);
+  border-radius: 999px;
+  backdrop-filter: blur(28px) saturate(1.5);
+  -webkit-backdrop-filter: blur(28px) saturate(1.5);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    0 0 0 0.5px rgba(255, 255, 255, 0.04) inset;
+  overflow: hidden;
+  max-width: min(680px, 92vw);
+  width: 100%;
+}
+
+.filter-island__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.45rem 0.75rem;
+  height: 46px;
+}
+
+.filter-island__search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+.filter-island__search-icon {
+  position: absolute;
+  left: 0.6rem;
+  color: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
+.filter-island__search-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #f1f5f9;
+  font-size: 0.8rem;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  padding: 0.25rem 1.75rem 0.25rem 1.75rem;
+  caret-color: #22d3ee;
+}
+.filter-island__search-input::placeholder {
+  color: rgba(255, 255, 255, 0.22);
+}
+.filter-island__search-clear {
+  position: absolute;
+  right: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.filter-island__search-clear:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+.filter-island__divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.filter-island__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  border-radius: 999px;
+  transition: color 0.15s, background 0.15s;
+  white-space: nowrap;
+  position: relative;
+}
+.filter-island__toggle:hover,
+.filter-island__toggle.active {
+  color: #22d3ee;
+  background: rgba(34, 211, 238, 0.08);
+}
+.filter-island__active-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #22d3ee;
+}
+
+.filter-island__count {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.25);
+  white-space: nowrap;
+  padding: 0 0.25rem;
+}
+
+.filter-island__reset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: border-color 0.15s, color 0.15s;
+}
+.filter-island__reset:hover {
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #ef4444;
+}
+
+/* pills drawer */
+.filter-island__drawer {
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.filter-island__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.75rem 1rem;
+}
+.filter-island__pill {
+  padding: 0.3rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+.filter-island__pill:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+}
+.filter-island__pill.active {
+  color: #22d3ee;
+  border-color: rgba(34, 211, 238, 0.4);
+  background: rgba(34, 211, 238, 0.08);
+}
+
+/* ── CaseStudyStack ────────────────────────────────────────────── */
+.case-study-stack {
+  position: relative;
+}
+
+.case-study-stack__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* ── Individual stack card ─────────────────────────────────────── */
+.case-study-card {
+  height: 100vh;
+  position: relative;
+}
+
+.case-study-card__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .case-study-card__sticky {
+    padding: 2rem 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .case-study-card__sticky {
+    padding: 2.5rem 2rem;
+  }
+}
+
+.case-study-card__panel {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  min-height: min(560px, 74vh);
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  transform-origin: center top;
+  will-change: transform, opacity;
+}
+
+.case-study-card__accent-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  z-index: 2;
+}
+
+.case-study-card__glow {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+/* ── Card content grid ─────────────────────────────────────────── */
+.case-study-card__content {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+  min-height: min(560px, 74vh);
+}
+
+@media (min-width: 900px) {
+  .case-study-card__content {
+    grid-template-columns: 1fr 280px;
+  }
+}
+
+/* left */
+.case-study-card__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem 2rem;
+  gap: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .case-study-card__left {
+    padding: 3rem 3rem;
+  }
+}
+
+.case-study-card__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.case-study-card__counter {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid;
+  line-height: 1;
+}
+.case-study-card__category {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.22);
+}
+
+.case-study-card__title-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.case-study-card__icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+.case-study-card__title {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.6rem;
+}
+.case-study-card__tagline {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.38);
+  line-height: 1.5;
+  max-width: 480px;
+}
+
+/* tech pills */
+.case-study-card__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+.case-study-card__pill {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid;
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+}
+
+/* CTA row */
+.case-study-card__cta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.case-study-card__cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  padding: 0.55rem 1.2rem;
+  border: 1px solid;
+  border-radius: 999px;
+  transition: background 0.15s, opacity 0.15s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.case-study-card__cta-primary:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+.case-study-card__cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid;
+  border-radius: 999px;
+  transition: opacity 0.15s;
+  text-decoration: none;
+}
+.case-study-card__cta-secondary:hover {
+  opacity: 0.8;
+}
+
+/* right results panel */
+.case-study-card__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem 1.75rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+@media (max-width: 899px) {
+  .case-study-card__right {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-end;
+  }
+}
+
+.case-study-card__results-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: rgba(255, 255, 255, 0.28);
+  margin-bottom: 1.5rem;
+}
+
+.case-study-card__metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.case-study-card__metric {}
+.case-study-card__metric-value {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  tabular-nums: normal;
+}
+.case-study-card__metric-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.32);
+  margin-bottom: 0.5rem;
+}
+.case-study-card__metric-rule {
+  height: 1px;
+  width: 100%;
+  opacity: 0.2;
+}
+
+/* progress dots */
+.case-study-card__progress {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+.case-study-card__progress-dot {
+  height: 4px;
+  border-radius: 2px;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+/* ── Pexels video background layer ────────────────────────────────────────── */
+.card-video-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.card-video-layer__gradient {
+  position: absolute;
+  inset: 0;
+}
+.card-video-layer__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: video-fade-in 1.2s ease 0.3s forwards;
+  /* Unify all local videos: desaturate, darken, cool tone */
+  filter: saturate(0.25) brightness(0.55) hue-rotate(185deg) contrast(1.1);
+  mix-blend-mode: luminosity;
+}
+@keyframes video-fade-in {
+  to { opacity: 0.55; }
+}
+.card-video-layer__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(5, 5, 7, 0.72) 0%,
+    rgba(5, 5, 7, 0.55) 50%,
+    rgba(5, 5, 7, 0.80) 100%
+  );
+}
+
+/* Strong left-side scrim — ensures title/body text is always legible over video */
+.card-video-layer__text-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.70) 35%,
+    rgba(0, 0, 0, 0.20) 60%,
+    transparent 80%
+  );
+  pointer-events: none;
+}
+
+/* Recession dim overlay — starts transparent, GSAP animates to 0.75 opacity as card recedes */
+.card-recession-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  will-change: opacity;
+}
+
+/* Ensure content sits above video + recession overlay */
+.case-study-card__accent-line,
+.tactile-grid,
+.case-study-card__content {
+  position: relative;
+  z-index: 4;
+}
+
+/* ── Topic Cluster Map ─────────────────────────────────────────────────────── */
+.topic-cluster {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+}
+.topic-cluster__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 0 18px color-mix(in srgb, currentColor 20%, transparent));
+}
+/* Cluster container in card layout gets extra room */
+.case-study-card__cluster {
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+.topic-cluster__tooltip {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 10px));
+  padding: 0.45rem 0.65rem;
+  border: 1px solid;
+  border-radius: 8px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 20;
+  min-width: 100px;
+}
+.topic-cluster__tooltip-tag {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin: 0 0 0.3rem;
+  font-weight: 700;
+}
+.topic-cluster__tooltip-tools {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.topic-cluster__tooltip-tools li {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.05em;
+}
+.topic-cluster__tooltip-no-tools {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Cluster slot inside card left column */
+.case-study-card__cluster {
+  margin: 0.5rem 0;
+  opacity: 0.85;
+}
+
+/* ── CountUp ───────────────────────────────────────────────────────────────── */
+.countup {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.05em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.countup__prefix {
+  font-size: 0.65em;
+  opacity: 0.85;
+}
+.countup__number {
+  /* inherits parent font-size — set to 12vw min on right panel */
+}
+.countup__suffix {
+  font-size: 0.55em;
+  opacity: 0.75;
+  letter-spacing: 0.05em;
+}
+
+/* Override metric value size to be heroic — 15vw target on desktop */
+.case-study-card__metric-value {
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  margin-bottom: 0.3rem;
+}
+@media (min-width: 900px) {
+  .case-study-card__metric-value {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+  }
+}
+@media (min-width: 1200px) {
+  .case-study-card__metric-value {
+    font-size: clamp(3.5rem, 10vw, 6.5rem);
+  }
+}
+
+/* ── Searchlight cursor elements ──────────────────────────────────────────── */
+.searchlight__lens,
+.searchlight__core {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9997;
+  will-change: transform, width, height, opacity;
+}
+
+/* ── Mobile card layout ────────────────────────────────────────────────────── */
+.case-study-stack--mobile {
+  padding: 1.5rem 1rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mobile-case-card {
+  position: relative;
+  border: 1px solid;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #0a0a10;
+}
+.mobile-case-card__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.mobile-case-card__inner {
+  position: relative;
+  z-index: 2;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.mobile-case-card__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.mobile-case-card__title {
+  font-size: clamp(1.8rem, 7vw, 2.8rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.mobile-case-card__tagline {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.42);
+  line-height: 1.55;
+  margin: 0;
+}
+.mobile-case-card__metrics {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+.mobile-case-card__metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.mobile-case-card__metric .countup {
+  font-size: clamp(2rem, 9vw, 3rem);
+  font-weight: 900;
+  font-family: 'Playfair Display', Georgia, serif;
+  line-height: 1;
+}
+.mobile-case-card__metric-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.3);
+}
+.mobile-case-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+  width: fit-content;
+}
+.mobile-case-card__cta:hover {
+  opacity: 0.75;
+}

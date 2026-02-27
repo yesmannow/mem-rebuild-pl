@@ -131,7 +131,6 @@ export default defineConfig({
       protocol: 'ws',
       host: 'localhost',
       port: 5173,
-      clientPort: 5173,
     },
     // Suppress overlay for known harmless errors (TinyMCE custom element duplicates)
     // Overlay is disabled - errors are caught and handled by our error handlers in index.html
@@ -199,7 +198,7 @@ export default defineConfig({
             return 'vendor-animation';
           }
           // GSAP and smooth scroll - heavy animation
-          if (id.includes('node_modules/gsap/') || 
+          if (id.includes('node_modules/gsap/') ||
               id.includes('node_modules/lenis/')) {
             return 'vendor-scroll';
           }
@@ -212,7 +211,7 @@ export default defineConfig({
             return 'vendor-pdf';
           }
           // Utility libraries - small, shared
-          if (id.includes('node_modules/clsx/') || 
+          if (id.includes('node_modules/clsx/') ||
               id.includes('node_modules/tailwind-merge/') ||
               id.includes('node_modules/class-variance-authority/')) {
             return 'vendor-utils';

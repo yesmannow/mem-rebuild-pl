@@ -1,15 +1,5 @@
 [
   {
-    "file": "images/bio/QVZlSmkxeURiak5tajdscg.jpeg",
-    "meta": {
-      "width": 1199,
-      "height": 1199,
-      "base": "images/bio/QVZlSmkxeURiak5tajdscg",
-      "color": "rgb(248 216 104)",
-      "blurDataURL": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAABQBQCdASoUABQAPxGAuFWsKCUjKAgBgCIJagCxHoKP+Hk0GFwHzvwSBC1wy+EFcHuYmuAA/tOD5ocYLyijBPc+Exe3c28/sKvvhsjrTQoIXLN801RXeXipp4z1RJGCB8g1Hab9wxcb1zIY1TJEJw412PoNDqr2T23PZrEzuT1QqRLYW73uT/ueRRLVvh1nE46RDCAEZYwhTq728bbitc8snXfCnHnlXBUwsadAAAA="
-    }
-  },
-  {
     "file": "images/bio/bio-photo.jpg",
     "meta": {
       "width": 2048,
@@ -30,13 +20,13 @@
     }
   },
   {
-    "file": "images/bio/bio pic 2.png",
+    "file": "images/bio/QVZlSmkxeURiak5tajdscg.jpeg",
     "meta": {
-      "width": 1663,
-      "height": 1894,
-      "base": "images/bio/bio pic 2",
-      "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAABwBQCdASoUABcAPxF+tlWsJ6SjKAgBgCIJZACdIOZBhJJ5DCK7H8px8iFMlsTo9DfcfyywAP2zBN3BX7zOvjMa88Ee5EnKVoMCnD85DP/B1TSAuhAxPc0nAmtXBWmTBI63rHhMDuvll88QrxhxxwTiyTvJd2s+jlWW0prBDvOOjzeW268HvwtPtWnlzwfk6PMmuI9af9sOTA9nqmnSQROP0c9F8AAA"
+      "width": 1199,
+      "height": 1199,
+      "base": "images/bio/QVZlSmkxeURiak5tajdscg",
+      "color": "rgb(248 216 104)",
+      "blurDataURL": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAABQBQCdASoUABQAPxGAuFWsKCUjKAgBgCIJagCxHoKP+Hk0GFwHzvwSBC1wy+EFcHuYmuAA/tOD5ocYLyijBPc+Exe3c28/sKvvhsjrTQoIXLN801RXeXipp4z1RJGCB8g1Hab9wxcb1zIY1TJEJw412PoNDqr2T23PZrEzuT1QqRLYW73uT/ueRRLVvh1nE46RDCAEZYwhTq728bbitc8snXfCnHnlXBUwsadAAAA="
     }
   },
   {
@@ -50,13 +40,13 @@
     }
   },
   {
-    "file": "images/projects/Behr pet essentials/Behr pet essentials logo.png",
+    "file": "images/bio/bio pic 2.png",
     "meta": {
-      "width": 1578,
-      "height": 1036,
-      "base": "images/projects/Behr pet essentials/Behr pet essentials logo",
-      "color": "rgb(8 8 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRp4BAABXRUJQVlA4WAoAAAAQAAAAEwAADAAAQUxQSOMAAAANgLJt2/lX9f23bXu2rWhU1x3ri4vq+wZMTP8+Jdu27b3vO0fEBOBXkciTp57fXnjHP3mvBc17t6HDJPgfRqtweBnj98wsc+lvHNL4TJyTiy33t6sMv3KoqAroHe/gPVvPyG9AIMUmOoFC9/SAPznMntVwh5QQMmEFj/zgUE4wa7JvwHHW5ROC4CfjmjXtK52FTfXJBouCXTyCC3/ozauqfy1JbH7xcQ/PhPdvlL8/8fL88Hzuq7SKDxcoANQOWV9PYkV7Jw+z2yKl0WPajFiXla2wj2l55eiDJvVDcH354ThQAABWUDgglAAAABAEAJ0BKhQADQA/EXKwUCwmpKKwCAGAIglsAJ0vXR8zIhwW8QbNJ53AAMIHFpVVP4AY9LfUPilYpz/QfP6nGAh6TZn7nlKAlBfiMstg8wUsscffd27G0WxdjvHpv7kOR9WaBaYnjLZQFRWAPEuecA49Zm/7y+XkCv6BTv9ZbEtZxJuWTub3Dflej5i101t+gH8/AAA="
+      "width": 1663,
+      "height": 1894,
+      "base": "images/bio/bio pic 2",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAABwBQCdASoUABcAPxF+tlWsJ6SjKAgBgCIJZACdIOZBhJJ5DCK7H8px8iFMlsTo9DfcfyywAP2zBN3BX7zOvjMa88Ee5EnKVoMCnD85DP/B1TSAuhAxPc0nAmtXBWmTBI63rHhMDuvll88QrxhxxwTiyTvJd2s+jlWW0prBDvOOjzeW268HvwtPtWnlzwfk6PMmuI9af9sOTA9nqmnSQROP0c9F8AAA"
     }
   },
   {
@@ -67,6 +57,16 @@
       "base": "images/projects/Hoosierboy Barbershop/Hoosierboy Barbershop logo 1",
       "color": "rgb(248 248 248)",
       "blurDataURL": "data:image/webp;base64,UklGRvoBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSPYAAAABkKNt27FH9/N+sVWlMqqsgCtga6fODlJpAVZlq3VSsbXHtr/nfe/hN1uIiAmAGEFS7eTZl8+nE3VJECOAQdXKDR1JOl4ttsHAiyr5RKe+o7OqjloWFYJxpz8s/2l9tWtAKS0DK+sgWKQGUW4JPHT/zwg8VNK5IHRsQcoN1Qaxli8zO/jdOvsv6+x39l7S/3TCfzqevVM+vtvvaUwao/6hnE+q7tx6mpbiGeR/pSPpWADPJKZBjCdhA1RSORcpnhExAghSn9I6vs+DAcTgzxB00fc5ghAEFCz9sSeQfwm8daryODYIBLHVj960JEIQOATtHQjB3wFWUDgg3gAAAPAEAJ0BKhQAFAA/EX62VawnpKMoCAGAIglsALsgN8mqLX6JJGIro1nW6DQRaf6wAAD+ycTxLRAYmn+jBjG9snVMv6tyvKxyD2hy9Nabg1711Jgmprhm6YKMFugoMvTOaktDNlQdp2T8Rrcf0tPXZZDVgBrp5Pt963QLVQeh1Mw7KV24Rimmil097mWTeupACuO6pPp5yOPRpnQsdUZEq8w2gZULToOJH9j6pngdy5whe2+KRNPxKFijurS62ohUa8pkLpuZRTpT4NhuXWuBcVH7f30EeYdy0K8olAAAAA=="
+    }
+  },
+  {
+    "file": "images/projects/Behr pet essentials/Behr pet essentials logo.png",
+    "meta": {
+      "width": 1578,
+      "height": 1036,
+      "base": "images/projects/Behr pet essentials/Behr pet essentials logo",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRp4BAABXRUJQVlA4WAoAAAAQAAAAEwAADAAAQUxQSOMAAAANgLJt2/lX9f23bXu2rWhU1x3ri4vq+wZMTP8+Jdu27b3vO0fEBOBXkciTp57fXnjHP3mvBc17t6HDJPgfRqtweBnj98wsc+lvHNL4TJyTiy33t6sMv3KoqAroHe/gPVvPyG9AIMUmOoFC9/SAPznMntVwh5QQMmEFj/zgUE4wa7JvwHHW5ROC4CfjmjXtK52FTfXJBouCXTyCC3/ozauqfy1JbH7xcQ/PhPdvlL8/8fL88Hzuq7SKDxcoANQOWV9PYkV7Jw+z2yKl0WPajFiXla2wj2l55eiDJvVDcH354ThQAABWUDgglAAAABAEAJ0BKhQADQA/EXKwUCwmpKKwCAGAIglsAJ0vXR8zIhwW8QbNJ53AAMIHFpVVP4AY9LfUPilYpz/QfP6nGAh6TZn7nlKAlBfiMstg8wUsscffd27G0WxdjvHpv7kOR9WaBaYnjLZQFRWAPEuecA49Zm/7y+XkCv6BTv9ZbEtZxJuWTub3Dflej5i101t+gH8/AAA="
     }
   },
   {
@@ -120,16 +120,6 @@
     }
   },
   {
-    "file": "images/projects/Primarycare Indy/PMC_PrimaryCare-Large_TransparentBG.png",
-    "meta": {
-      "width": 2826,
-      "height": 792,
-      "base": "images/projects/Primarycare Indy/PMC_PrimaryCare-Large_TransparentBG",
-      "color": "rgb(248 248 248)",
-      "blurDataURL": "data:image/webp;base64,UklGRgYBAABXRUJQVlA4WAoAAAAQAAAAEwAABQAAQUxQSGYAAAABcBvbtqqc8/1/PHJ3d3d3SOnBM+qgLdqglddERCQAyhIokZJEUCLg2aX61wkkCKoQze7td1wOpqlMNJ8pBSJVP2Crvf+ffGiwGI42jX5wdJk6dZjrbxWkBJJUqeSWXgiCAgQJTQJWUDggegAAAFAEAJ0BKhQABgA/EXayUSwnJKKwCAGAIglqAJ05QTgAhIkXep117r5kloAA/puyyVHTDMyFPe21bL3vid9il7WYl73zu0orOeotcucKKWSQMedTKlavyLKjT1VnyoX6lQYb10j0IuU3tX7w/qqpEF1JBpEOwtjWQAAA"
-    }
-  },
-  {
     "file": "images/projects/Primary Colours/pc-org logo.png",
     "meta": {
       "width": 1536,
@@ -137,6 +127,16 @@
       "base": "images/projects/Primary Colours/pc-org logo",
       "color": "rgb(88 88 88)",
       "blurDataURL": "data:image/webp;base64,UklGRjwBAABXRUJQVlA4WAoAAAAQAAAAEwAADAAAQUxQSIwAAAANgFzb1rLmvv/H3d3HLBpgRDt0QwdaA13A0N2JuyffjVsFETEB+MfyLaGQAPiJpgQEQXy0eh/0O+ODTmXVCoPcaCv6S6lo5rHX34nciq1ab1YA4qAlWe+1NbYPr+/muS60F4W2Mt14b8b5s/s03WULFACR+6NH3bQ3P11Tu8OnJF6giBeAEH7yQ+JfA1ZQOCCKAAAAEAQAnQEqFAANAD8RcrFQrCakorAIAYAiCWwAnS6AAGM5S3zNVa5q21wA/s7soMdAiltgNZlRnuIQGpQIp0pSzwMciBTboiaEte8szpWz6Q/F4eEukNoXXbO5/jzjZQ2f5/dmjP/8tg6z/5O6Jf/Gfxen/5UWv+mgukf8r/FiKHHRD/qn+jjqAAAA"
+    }
+  },
+  {
+    "file": "images/projects/Primarycare Indy/PMC_PrimaryCare-Large_TransparentBG.png",
+    "meta": {
+      "width": 2826,
+      "height": 792,
+      "base": "images/projects/Primarycare Indy/PMC_PrimaryCare-Large_TransparentBG",
+      "color": "rgb(248 248 248)",
+      "blurDataURL": "data:image/webp;base64,UklGRgYBAABXRUJQVlA4WAoAAAAQAAAAEwAABQAAQUxQSGYAAAABcBvbtqqc8/1/PHJ3d3d3SOnBM+qgLdqglddERCQAyhIokZJEUCLg2aX61wkkCKoQze7td1wOpqlMNJ8pBSJVP2Crvf+ffGiwGI42jX5wdJk6dZjrbxWkBJJUqeSWXgiCAgQJTQJWUDggegAAAFAEAJ0BKhQABgA/EXayUSwnJKKwCAGAIglqAJ05QTgAhIkXep117r5kloAA/puyyVHTDMyFPe21bL3vid9il7WYl73zu0orOeotcucKKWSQMedTKlavyLKjT1VnyoX6lQYb10j0IuU3tX7w/qqpEF1JBpEOwtjWQAAA"
     }
   },
   {
@@ -150,16 +150,6 @@
     }
   },
   {
-    "file": "images/projects/Taco Ninja/taconinja-logo.png",
-    "meta": {
-      "width": 1583,
-      "height": 1583,
-      "base": "images/projects/Taco Ninja/taconinja-logo",
-      "color": "rgb(8 8 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRmQBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSNEAAAAFgFzb2rHn3j+2bdsc2kkPGbMDp4IMky5s1mDbtvPdQYwCImIC8B+SgARQnyAEgDIJ+ghmEZ5Hy68mOJ/hfcq9IwdPfQ37FQWNV9Qbk9FebxBsGxrrqrp/h7Lvz7Z4lfmSp019p8nAO1bVlWkOuJkan5vew1sCoHPxtZwGzwXqDUCZBfoe0GdrVzIAUKHxO7cu116XL4c+e0/m3gvPgLySYl1mzwOurfadby7twoY3KJi5P5r5XjjuGRbPhvvNvXGHtxQAUABA4S0BisJbffCHAQBWUDggbAAAAHADAJ0BKhQAFAA/EXyyVCwnpSMoCqmAIglmAAAhLZQjzKTrYAD+nvRl3L0zIR+7mbJiXQQ+zISuj4RWER2kDjMYzN4Q5uaoMHM42fZF0Ly//9QcbMHQM2uwR72lU8PsXEC/avDX5ot86gAAAA=="
-    }
-  },
-  {
     "file": "images/projects/urgent care indy/Urgent Care Indy Logo - 22.png",
     "meta": {
       "width": 3000,
@@ -167,6 +157,16 @@
       "base": "images/projects/urgent care indy/Urgent Care Indy Logo - 22",
       "color": "rgb(248 248 248)",
       "blurDataURL": "data:image/webp;base64,UklGRgIBAABXRUJQVlA4WAoAAAAQAAAAEwAABAAAQUxQSGQAAAABcBvbtqqc7+7/4565u0PmkLpGFEIJZK8fhiaohqGGiMhiaX2+98Dgh6EAID15vwbpVNAyPMNOJHU9oMImn+/TaPSPi+WktSnWt48YKJ4QQNV1xxElwVW98TRIwR8FhT+UmfUAVlA4IHgAAADwAwCdASoUAAUAPxF2slEsJySisAgBgCIJaACdOUACmfR0MyojRXEAAP4HScvqwpJ93JHeKM8fZaW/Hfis+nTvJD86+Dj+ff5ilAFULhDCYMykBe6Le/q3+vxbLc798EJY18O1mf7+csvYc9oCAHftBd352rQAAAA="
+    }
+  },
+  {
+    "file": "images/projects/Taco Ninja/taconinja-logo.png",
+    "meta": {
+      "width": 1583,
+      "height": 1583,
+      "base": "images/projects/Taco Ninja/taconinja-logo",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRmQBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSNEAAAAFgFzb2rHn3j+2bdsc2kkPGbMDp4IMky5s1mDbtvPdQYwCImIC8B+SgARQnyAEgDIJ+ghmEZ5Hy68mOJ/hfcq9IwdPfQ37FQWNV9Qbk9FebxBsGxrrqrp/h7Lvz7Z4lfmSp019p8nAO1bVlWkOuJkan5vew1sCoHPxtZwGzwXqDUCZBfoe0GdrVzIAUKHxO7cu116XL4c+e0/m3gvPgLySYl1mzwOurfadby7twoY3KJi5P5r5XjjuGRbPhvvNvXGHtxQAUABA4S0BisJbffCHAQBWUDggbAAAAHADAJ0BKhQAFAA/EXyyVCwnpSMoCqmAIglmAAAhLZQjzKTrYAD+nvRl3L0zIR+7mbJiXQQ+zISuj4RWER2kDjMYzN4Q5uaoMHM42fZF0Ly//9QcbMHQM2uwR72lU8PsXEC/avDX5ot86gAAAA=="
     }
   },
   {

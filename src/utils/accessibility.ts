@@ -26,45 +26,6 @@ export function announceToScreenReader(
 }
 
 /**
- * Focus trap for modals
- */
-export function createFocusTrap(element: HTMLElement) {
-  const focusableElements = element.querySelectorAll<HTMLElement>(
-    'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
-  );
-
-  const firstElement = focusableElements[0];
-  const lastElement = focusableElements[focusableElements.length - 1];
-
-  const handleTabKey = (e: KeyboardEvent) => {
-    if (e.key !== 'Tab') return;
-
-    if (e.shiftKey) {
-      // Shift + Tab
-      if (document.activeElement === firstElement) {
-        e.preventDefault();
-        lastElement?.focus();
-      }
-    } else {
-      // Tab
-      if (document.activeElement === lastElement) {
-        e.preventDefault();
-        firstElement?.focus();
-      }
-    }
-  };
-
-  element.addEventListener('keydown', handleTabKey);
-
-  // Focus first element
-  firstElement?.focus();
-
-  return () => {
-    element.removeEventListener('keydown', handleTabKey);
-  };
-}
-
-/**
  * Skip to main content link
  */
 export function createSkipLink() {
@@ -93,52 +54,6 @@ export function createSkipLink() {
   });
 
   document.body.insertBefore(skipLink, document.body.firstChild);
-}
-
-/**
- * Check if user prefers reduced motion
- */
-export function prefersReducedMotion(): boolean {
-  if (typeof window === 'undefined') return false;
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-}
-
-/**
- * Get accessible color contrast ratio
- */
-export function getContrastRatio(color1: string, color2: string): number {
-  // Simplified contrast calculation
-  // For production, use a library like `color-contrast` or `chroma-js`
-  const getLuminance = (color: string): number => {
-    // Convert hex to RGB
-    const hex = color.replace('#', '');
-    const r = parseInt(hex.substr(0, 2), 16) / 255;
-    const g = parseInt(hex.substr(2, 2), 16) / 255;
-    const b = parseInt(hex.substr(4, 2), 16) / 255;
-
-    // Apply gamma correction
-    const [r2, g2, b2] = [r, g, b].map(val => {
-      return val <= 0.03928 ? val / 12.92 : Math.pow((val + 0.055) / 1.055, 2.4);
-    });
-
-    return 0.2126 * r2 + 0.7152 * g2 + 0.0722 * b2;
-  };
-
-  const l1 = getLuminance(color1);
-  const l2 = getLuminance(color2);
-
-  const lighter = Math.max(l1, l2);
-  const darker = Math.min(l1, l2);
-
-  return (lighter + 0.05) / (darker + 0.05);
-}
-
-/**
- * Check if color combination meets WCAG AA standards
- */
-export function meetsWCAGAA(foreground: string, background: string): boolean {
-  const ratio = getContrastRatio(foreground, background);
-  return ratio >= 4.5; // AA standard for normal text
 }
 
 /**

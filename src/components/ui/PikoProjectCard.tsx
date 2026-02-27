@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { SideProjectCardData } from './SideProjectCard';
@@ -20,6 +20,7 @@ export const PikoProjectCard: React.FC<PikoProjectCardProps> = ({
   index,
   className,
 }) => {
+  const navigate = useNavigate();
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const isInView = useInView(cardRef, { once: true, margin: '-50px' });
@@ -70,13 +71,11 @@ export const PikoProjectCard: React.FC<PikoProjectCardProps> = ({
       animate={isInView ? 'visible' : 'hidden'}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={cn('relative group', className)}
+      className={cn('relative group cursor-pointer', className)}
+      onClick={() => navigate(`/side-projects/${project.slug}`)}
+      role="link"
+      aria-label={`View ${project.title} project`}
     >
-      <Link
-        to={`/side-projects/${project.slug}`}
-        className="block h-full"
-        aria-label={`View ${project.title} project`}
-      >
         {/* Brutalist Card Container - 0px border-radius, Midnight Black */}
         <motion.div
           className="relative h-full overflow-hidden bg-[#050505] border-2 transition-all duration-300"
@@ -249,7 +248,6 @@ export const PikoProjectCard: React.FC<PikoProjectCardProps> = ({
             style={{ transformOrigin: 'left' }}
           />
         </motion.div>
-      </Link>
     </motion.div>
   );
 };

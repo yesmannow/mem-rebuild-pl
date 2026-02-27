@@ -86,6 +86,7 @@ export const labItems: LabItem[] = [
       target: 'SEO Managers, Content Strategists, Digital Marketing Directors',
       usage: 'Input URL or sitemap, receive instant audit report with prioritized issues and one-click JIRA ticket creation.',
     },
+    liveUrl: 'https://graston-telemetry.vercel.app/seo-scanner',
     link: '/apps/seo-scanner',
   },
   {

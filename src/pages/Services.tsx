@@ -3,8 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { motion, useInView } from 'framer-motion';
 import { Briefcase, TrendingUp, DollarSign, Zap, Database, Globe, Type, Image, Video } from 'lucide-react';
 import { SectionWithApiBackground } from '../components/layout/PageWithApiBackground';
-import { AppSection } from '../ui/AppSection';
-import { AppCard } from '../ui/AppCard';
+import { AppSection } from '../components/ui/AppSection';
+import { AppCard } from '../components/ui/AppCard';
 import { ApiImageGallery } from '../components/ui/ApiImageGallery';
 
 // Lazy load heavy components to reduce initial bundle size

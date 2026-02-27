@@ -1,4 +1,4 @@
-import React, { lazy, useEffect } from 'react';
+import React, { lazy, useEffect, useState } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClientProvider } from '@tanstack/react-query';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -6,7 +6,6 @@ import { ThemeProvider } from './components/theme/ThemeProvider';
 import { ToastProvider } from './components/ui/Toast';
 import Layout from './components/layout/Layout';
 import SwipeShell from './components/SwipeShell';
-import { EnhancedOceanBackground } from './components/ui/EnhancedOceanBackground';
 import CookieConsent from './components/ui/CookieConsent';
 import { queryClient } from './lib/queryClient';
 import { ReactLenis } from './hooks/useLenis';
@@ -15,6 +14,7 @@ import { initAccessibility } from './utils/accessibility';
 import JSONLD from './components/seo/JSONLD';
 import { useKonamiCode } from './hooks/useKonamiCode';
 import GodMode from './components/ui/GodMode';
+import SystemBoot from './components/ui/SystemBoot';
 import { Toaster } from 'sonner';
 import 'lenis/dist/lenis.css';
 import './styles/skip-to-content.css';
@@ -26,6 +26,15 @@ const AppRouter = lazy(() => import('./router/AppRouter'));
 
 const AppContent: React.FC = () => {
   const isGodMode = useKonamiCode();
+  const [booted, setBooted] = useState(() => {
+    if (typeof sessionStorage === 'undefined') return true;
+    return sessionStorage.getItem('sys-booted') === '1';
+  });
+
+  const handleBootComplete = () => {
+    sessionStorage.setItem('sys-booted', '1');
+    setBooted(true);
+  };
 
   useEffect(() => {
     initAnalytics();
@@ -36,50 +45,42 @@ const AppContent: React.FC = () => {
   }, []);
 
   return (
-    <ErrorBoundary>
-      <QueryClientProvider client={queryClient}>
-        <HelmetProvider>
-          <ThemeProvider>
-            <ReactLenis root options={{ lerp: 0.1, duration: 1.2 }}>
-              <ToastProvider>
-                <EnhancedOceanBackground variant="minimal" intensity="subtle" className="fixed inset-0 -z-10" />
-
-                <JSONLD />
-                {/* <Suspense fallback={null}>
-                  <PersonSchema />
-                </Suspense> */}
-                {/* <Suspense fallback={null}>
-                  <PerformanceMonitor />
-                </Suspense> */}
-                <Layout>
-                  <SwipeShell>
-                    <AppRouter />
-                  </SwipeShell>
-                </Layout>
-                <CookieConsent />
-
-                <GodMode active={isGodMode} />
-
-                {/* Sonner Toaster with Blueprint theme */}
-                <Toaster
-                  position="top-right"
-                  theme="dark"
-                  toastOptions={{
-                    className: 'sonner-toast',
-                    style: {
-                      background: 'var(--brand-surface)',
-                      border: '1px solid var(--brand-turquoise)',
-                      fontFamily: 'var(--brand-font-family, monospace)',
-                      color: 'var(--brand-text)',
-                    },
-                  }}
-                />
-              </ToastProvider>
-            </ReactLenis>
-          </ThemeProvider>
-        </HelmetProvider>
-      </QueryClientProvider>
-    </ErrorBoundary>
+    <>
+      {!booted && <SystemBoot onComplete={handleBootComplete} />}
+      <ErrorBoundary>
+        <QueryClientProvider client={queryClient}>
+          <HelmetProvider>
+            <ThemeProvider>
+              <ReactLenis root options={{ lerp: 0.1, duration: 1.2 }}>
+                <ToastProvider>
+                  <JSONLD />
+                  <Layout>
+                    <SwipeShell>
+                      <AppRouter />
+                    </SwipeShell>
+                  </Layout>
+                  <CookieConsent />
+                  <GodMode active={isGodMode} />
+                  <Toaster
+                    position="top-right"
+                    theme="dark"
+                    toastOptions={{
+                      className: 'sonner-toast',
+                      style: {
+                        background: 'var(--brand-surface)',
+                        border: '1px solid var(--brand-turquoise)',
+                        fontFamily: 'var(--brand-font-family, monospace)',
+                        color: 'var(--brand-text)',
+                      },
+                    }}
+                  />
+                </ToastProvider>
+              </ReactLenis>
+            </ThemeProvider>
+          </HelmetProvider>
+        </QueryClientProvider>
+      </ErrorBoundary>
+    </>
   );
 };
 

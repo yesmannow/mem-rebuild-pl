@@ -9,7 +9,7 @@ import { AppTechStackVisualization } from '../components/apps/AppTechStackVisual
 import { CodeVault } from '../components/apps/CodeVault';
 import { SimpleSection } from '../components/ui/SimpleSection';
 import TechBackdrop from '../components/hero/TechBackdrop';
-import { MagneticButton } from '../components/ui/MagneticButton';
+import { AppButton } from '../components/ui/AppButton';
 import ScrollReveal from '../components/animations/ScrollReveal';
 import './ApplicationDetail.css';
 
@@ -40,20 +40,15 @@ const ApplicationDetail: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="mb-8"
             >
-              <MagneticButton
-                as="div"
-                className="inline-block"
+              <Link
+                to="/applications"
+                className="inline-flex items-center gap-2 text-brand-muted hover:text-brand-turquoise transition-colors text-sm cursor-pointer"
               >
-                <Link
-                  to="/applications"
-                  className="inline-flex items-center gap-2 text-brand-muted hover:text-brand-turquoise transition-colors text-sm cursor-pointer"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M19 12H5M12 19l-7-7 7-7" />
-                  </svg>
-                  Back to Developer Tools & Projects
-                </Link>
-              </MagneticButton>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back to Developer Tools & Projects
+              </Link>
             </motion.div>
 
             {/* Hero Content */}
@@ -96,7 +91,7 @@ const ApplicationDetail: React.FC = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                <MagneticButton
+                <AppButton
                   onClick={() => setIsModalOpen(true)}
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-200"
                   style={{
@@ -107,7 +102,7 @@ const ApplicationDetail: React.FC = () => {
                 >
                   <Rocket className="w-5 h-5" />
                   Launch Live Demo
-                </MagneticButton>
+                </AppButton>
               </motion.div>
             </div>
           </div>
@@ -306,25 +301,22 @@ const ApplicationDetail: React.FC = () => {
                 />
               </motion.div>
             <div className="flex flex-wrap gap-4 justify-center">
-              <MagneticButton
+              <AppButton
                 onClick={() => setIsModalOpen(true)}
                 variant="primary"
-                magneticStrength={0.35}
                 className="shadow-lg hover:shadow-xl"
               >
                 Launch Interactive Demo
-              </MagneticButton>
-              <MagneticButton
+              </AppButton>
+              <a
                 href={app.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="outline"
-                magneticStrength={0.35}
-                className="inline-flex items-center gap-2"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-brand-turquoise text-brand-turquoise hover:bg-brand-turquoise hover:text-white transition-all duration-200"
               >
                 <ExternalLink className="w-5 h-5" />
                 Open in New Tab
-              </MagneticButton>
+              </a>
             </div>
           </AnimatedSection>
         </div>
@@ -350,21 +342,18 @@ const ApplicationDetail: React.FC = () => {
                 </p>
               </motion.div>
             <div className="flex flex-wrap justify-center gap-4">
-              <MagneticButton
-                href="/contact"
-                variant="primary"
-                magneticStrength={0.35}
-                className="shadow-lg hover:shadow-xl"
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center font-semibold transition-all duration-200 px-6 py-3 text-base rounded-xl bg-brand-turquoise text-white hover:bg-brand-turquoise-dark shadow-brand-shadow-accent hover:shadow-xl"
               >
                 Start a Conversation
-              </MagneticButton>
-              <MagneticButton
-                href="/applications"
-                variant="outline"
-                magneticStrength={0.35}
+              </Link>
+              <Link
+                to="/applications"
+                className="inline-flex items-center justify-center font-semibold transition-all duration-200 px-6 py-3 text-base rounded-xl border-2 border-brand-turquoise text-brand-turquoise hover:bg-brand-turquoise hover:text-white"
               >
                 View More Tools
-              </MagneticButton>
+              </Link>
             </div>
           </AnimatedSection>
         </div>

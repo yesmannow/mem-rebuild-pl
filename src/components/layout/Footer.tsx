@@ -3,6 +3,36 @@ import { Link } from 'react-router-dom';
 import { Cpu, GitCommit, Signal, Mail, Linkedin, Github } from 'lucide-react';
 import './Footer.css';
 
+// ─── Kinetic ticker tape ─────────────────────────────────────────────────
+const TICKER_ITEMS = [
+  'STRATEGY', 'AUTOMATION', 'GROWTH', 'ARCHITECTURE',
+  'STRATEGY', 'AUTOMATION', 'GROWTH', 'ARCHITECTURE',
+  'STRATEGY', 'AUTOMATION', 'GROWTH', 'ARCHITECTURE',
+];
+
+const KineticTicker: React.FC = () => (
+  <div
+    className="overflow-hidden border-y border-white/[0.06] py-4 bg-[#050507]"
+    aria-hidden="true"
+  >
+    <div
+      className="flex whitespace-nowrap"
+      style={{ animation: 'ticker-scroll 18s linear infinite' }}
+    >
+      {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
+        <span key={i} className="inline-flex items-center">
+          <span
+            className="text-xs font-mono font-bold uppercase tracking-[0.4em] text-white/18 px-8"
+          >
+            {item}
+          </span>
+          <span className="text-[#22d3ee]/20 text-xs select-none" aria-hidden="true">{'//'}&#8203;</span>
+        </span>
+      ))}
+    </div>
+  </div>
+);
+
 interface GitHubCommit {
   sha: string;
   commit: {
@@ -32,17 +62,19 @@ const Footer: React.FC = () => {
           }
         );
 
-        if (response.ok) {
-          const commits: GitHubCommit[] = await response.json();
-          if (commits.length > 0) {
-            setCommitHash(commits[0].sha.slice(0, 7));
-            setIsLive(true);
-          }
-        } else {
+        if (response.status === 403) {
+          setCommitHash('LOCAL-BLD');
           setIsLive(false);
+          return;
         }
-      } catch (error) {
-        console.error('Failed to fetch GitHub commit:', error);
+        if (!response.ok) throw new Error('Telemetry Offline');
+        const commits: GitHubCommit[] = await response.json();
+        if (commits.length > 0) {
+          setCommitHash(commits[0].sha.slice(0, 7));
+          setIsLive(true);
+        }
+      } catch {
+        setCommitHash('LOCAL-BLD');
         setIsLive(false);
       } finally {
         const endTime = Date.now();
@@ -60,7 +92,8 @@ const Footer: React.FC = () => {
   const playKeySound = () => {
     // Create a simple beep sound using Web Audio API
     try {
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      const audioContext = new AudioCtx();
       const oscillator = audioContext.createOscillator();
       const gainNode = audioContext.createGain();
 
@@ -87,8 +120,6 @@ const Footer: React.FC = () => {
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle subscription logic here
-    console.log('Subscribing:', email);
     setEmail('');
   };
 
@@ -107,6 +138,8 @@ const Footer: React.FC = () => {
   ];
 
   return (
+    <>
+    <KineticTicker />
     <footer className="footer-command-console" role="contentinfo">
       {/* Terminal Window Container */}
       <div className="terminal-window">
@@ -203,6 +236,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
     </footer>
+    </>
   );
 };
 

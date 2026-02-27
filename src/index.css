@@ -49,11 +49,57 @@ body {
    WOW FACTOR UTILITY CLASSES
    =================================================================== */
 
-/* Glass Panel - Solid Technical design */
+/* Glass Panel - 2026 spec */
 .glass-panel {
-  background: var(--brand-surface);
-  border: 1px solid rgba(64, 224, 208, 0.2); /* Subtle Turquoise border */
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(10, 10, 10, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 0.75rem;
+}
+
+/* Bento Glow - specular highlight follows mouse via --mouse-x / --mouse-y */
+.bento-glow {
+  position: relative;
+}
+
+.bento-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(34, 211, 238, 0.08),
+    transparent 40%
+  );
+}
+
+.bento-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+  border: 1px solid transparent;
+  background:
+    radial-gradient(
+      100px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(34, 211, 238, 0.45),
+      transparent 80%
+    )
+    border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
 }
 
 /* Text Gradient - Solid Turquoise */
@@ -246,6 +292,191 @@ body.wireframe-mode *::before,
 body.wireframe-mode *::after {
   outline: 1px solid #40E0D0 !important;
   background: transparent !important;
+}
+
+body.wireframe-mode *::after {
+  outline: 1px solid #40E0D0 !important;
+  background: transparent !important;
+}
+
+/* ===================================================================
+   PHASE 2 — CINEMATIC ARCHITECT ADDITIONS
+   =================================================================== */
+
+/* Tactile Grid — radial dot matrix background */
+.tactile-grid {
+  background-image: radial-gradient(rgba(34, 211, 238, 0.12) 1px, transparent 0);
+  background-size: 40px 40px;
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 35%, transparent 65%, black 100%);
+  mask-image: linear-gradient(to bottom, black 0%, transparent 35%, transparent 65%, black 100%);
+}
+
+/* Kinetic ticker scroll */
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0) translateZ(0); }
+  100% { transform: translateX(-50%) translateZ(0); }
+}
+
+/* Hero video gradient drift */
+@keyframes gradient-drift {
+  0%   { background-position: 30% 40%; }
+  100% { background-position: 70% 60%; }
+}
+
+/* Shimmer scan — boot preloader bar */
+@keyframes shimmer-scan {
+  0%   { transform: translateX(-100%) translateZ(0); }
+  100% { transform: translateX(300%) translateZ(0); }
+}
+
+/* Floating module materiality — backdrop blur glass */
+.glass-module {
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: rgba(9, 9, 11, 0.80);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-module-cyan {
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: rgba(9, 9, 11, 0.82);
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.05), 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+
+/* ===================================================================
+   CINEMATIC AGENCY — 2026 UPGRADE LAYER
+   GPU-accelerated utilities, haptic button feedback, immersive hero
+   =================================================================== */
+
+/* Force GPU compositing on all animated elements */
+.will-change-transform {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.gpu-layer {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Haptic button — visual pulse feedback on interaction */
+@keyframes haptic-pulse {
+  0%   { box-shadow: 0 0 0 0 var(--haptic-color, rgba(64,224,208,0.5)); }
+  60%  { box-shadow: 0 0 0 12px var(--haptic-color, rgba(64,224,208,0)); }
+  100% { box-shadow: 0 0 0 0 var(--haptic-color, rgba(64,224,208,0)); }
+}
+
+.btn-haptic {
+  --haptic-color: rgba(64, 224, 208, 0.45);
+  position: relative;
+  transition: transform 80ms ease, background-color 80ms ease;
+}
+
+.btn-haptic:active {
+  transform: scale(0.97) translateZ(0);
+  animation: haptic-pulse 0.45s ease-out forwards;
+}
+
+.btn-haptic-warm {
+  --haptic-color: rgba(255, 165, 0, 0.45);
+}
+
+/* Hero SVG decorative elements */
+@keyframes hero-sphere-spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes hero-tube-float {
+  0%   { transform: translateY(-12px) rotate(-2deg); }
+  100% { transform: translateY(12px)  rotate(2deg); }
+}
+
+/* Cinematic scanline overlay — used in hero and cards */
+@keyframes scanline-drift {
+  0%   { transform: translateY(-100%) translateZ(0); }
+  100% { transform: translateY(100vh) translateZ(0); }
+}
+
+.scanline-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Lamp line pulse */
+@keyframes lamp-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+
+.lamp-line {
+  animation: lamp-pulse 3s ease-in-out infinite;
+}
+
+/* Cinematic sticky stack — smooth stacking behavior */
+.sticky-stack > * {
+  position: sticky;
+  top: 2rem;
+}
+
+/* Immersive section dark base */
+.section-immersive {
+  background-color: #080C12;
+  color: #f0f4f8;
+}
+
+/* Gradient text — agency style */
+.text-gradient-agency {
+  background: linear-gradient(135deg, #40E0D0 0%, #7fffd4 50%, #40E0D0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradient-shift 4s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Letter spacing utility for agency headlines */
+.tracking-tighter-agency {
+  letter-spacing: -0.04em;
+}
+
+/* Noise texture helper */
+.noise-overlay {
+  position: relative;
+}
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* ===================================================================

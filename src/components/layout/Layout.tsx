@@ -1,9 +1,12 @@
-import React, { lazy, Suspense, ReactNode, useState, useEffect, useCallback } from 'react';
+import React, { lazy, Suspense, ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 import Loader from '../ui/Loader';
 import ReadingProgressBar from '../ui/ReadingProgressBar';
 import KeyboardShortcuts from '../ui/KeyboardShortcuts';
 import Atmosphere from '../ui/Atmosphere';
+import FloatingCommandCenter from '../navigation/FloatingCommandCenter';
+import SystemBreadcrumb from '../navigation/SystemBreadcrumb';
+import { useSystemStore } from '../../store/useSystemStore';
 
 const Navbar = lazy(() => import('../Navbar'));
 const Footer = lazy(() => import('./Footer'));
@@ -18,31 +21,13 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
-  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  const { isCommandPaletteOpen, setCommandPalette } = useSystemStore();
 
   // Check if we're on an app route - these should have minimal chrome
   const isAppRoute = location.pathname.startsWith('/apps/');
 
-  // Global keyboard shortcut for Cmd+K / Ctrl+K
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-      e.preventDefault();
-      setIsCommandPaletteOpen(prev => !prev);
-    }
-  }, []);
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [handleKeyDown]);
-
-  const openCommandPalette = useCallback(() => {
-    setIsCommandPaletteOpen(true);
-  }, []);
-
-  const closeCommandPalette = useCallback(() => {
-    setIsCommandPaletteOpen(false);
-  }, []);
+  const openCommandPalette = () => setCommandPalette(true);
+  const closeCommandPalette = () => setCommandPalette(false);
 
   return (
     <>
@@ -60,18 +45,24 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {/* Reading Progress Bar - hide on app routes */}
         {!isAppRoute && <ReadingProgressBar />}
 
-        {/* Navigation - hide on app routes for focused experience */}
-        {!isAppRoute && (
-          <Suspense
-            fallback={
-              <nav className="container-px py-4" aria-label="Main navigation">
-                <Loader size="sm" message="Loading navigation..." />
-              </nav>
-            }
-          >
+        {/* Floating Command Center (desktop pill) */}
+        <FloatingCommandCenter />
+
+        {/* System Breadcrumb path indicator */}
+        <SystemBreadcrumb />
+
+        {/* Navbar — shown on mobile only (MegaMenu hidden on mobile already) */}
+        <Suspense
+          fallback={
+            <nav className="container-px py-4 md:hidden" aria-label="Main navigation">
+              <Loader size="sm" message="Loading navigation..." />
+            </nav>
+          }
+        >
+          <div className="md:hidden">
             <Navbar onOpenCommandPalette={openCommandPalette} />
-          </Suspense>
-        )}
+          </div>
+        </Suspense>
 
         {/* Scroll utilities */}
         <Suspense fallback={null}>
@@ -98,12 +89,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </Suspense>
         )}
 
-        {/* Mobile Navigation Dock - hide on app routes */}
-        {!isAppRoute && (
-          <Suspense fallback={null}>
-            <MobileDock />
-          </Suspense>
-        )}
+        {/* Mobile Navigation Dock */}
+        <Suspense fallback={null}>
+          <MobileDock />
+        </Suspense>
 
         {/* Command Palette (Cmd+K) - keep available everywhere */}
         <Suspense fallback={null}>

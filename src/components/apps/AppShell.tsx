@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Maximize2, Minimize2 } from 'lucide-react';
 
-export interface Tool {
+interface AppShellTool {
   id: string;
   label: string;
   icon?: React.ReactNode;
@@ -12,7 +12,7 @@ interface AppShellProps {
   title: string;
   description?: string;
   icon?: React.ReactNode;
-  tools: Tool[];
+  tools: readonly AppShellTool[];
   activeTool: string;
   onToolChange: (toolId: string) => void;
   children: React.ReactNode;

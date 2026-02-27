@@ -38,6 +38,7 @@
   "exclude": [
     "node_modules",
     "dist",
+    "src/components/home/ArchitectCore.tsx",
     "public/moodboards/317 bbq.json",
     "public/moodboards/Russell painting.json",
     "public/moodboards/Tuohy Bailey & Moore LLP.json",
