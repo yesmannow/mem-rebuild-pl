@@ -26,7 +26,7 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({
     <motion.a
       href={href}
       aria-label={ariaLabel}
-      className="group block focus-ring rounded-lg overflow-hidden bg-white dark:bg-gray-900 shadow-lg hover:shadow-xl transition-shadow duration-300"
+      className="group block focus-ring rounded-2xl overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-xl transition-all duration-300"
       variants={hoverLift}
       initial="rest"
       whileHover="hover"
@@ -46,7 +46,7 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-brand-accent transition-colors">
+        <h3 className="text-xl font-semibold text-white dark:text-white mb-2 group-hover:text-brand-accent transition-colors">
           {title}
         </h3>
         <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-2 mb-4">
@@ -57,7 +57,7 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({
             {tags.slice(0, 3).map((tag, index) => (
               <span
                 key={index}
-                className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded"
+                className="px-2 py-1 text-xs bg-white/10 backdrop-blur-md text-white/70 rounded-md border border-white/10"
               >
                 {tag}
               </span>

@@ -33,7 +33,7 @@ const PullQuote: React.FC<PullQuoteProps> = ({
     >
       <div className="max-w-4xl mx-auto px-6">
         <blockquote
-          className="text-2xl md:text-3xl font-bold italic text-center text-gray-900 dark:text-white relative"
+          className="text-2xl md:text-3xl font-bold text-center text-white dark:text-white relative font-clash"
           style={
             visualIdentity?.primaryColor
               ? { color: visualIdentity.primaryColor }

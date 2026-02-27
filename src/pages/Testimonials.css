@@ -75,7 +75,7 @@
   font-size: 6rem;
   color: rgba(136, 171, 242, 0.2);
   line-height: 1;
-  font-family: Georgia, serif;
+  font-family: var(--font-clash);
   position: absolute;
   top: 1rem;
   left: 2rem;
@@ -85,7 +85,7 @@
   font-size: 1.5rem;
   line-height: 1.8;
   color: #fafbfc;
-  font-style: italic;
+  font-family: var(--font-clash);
   margin: 2rem 0 1.5rem;
   padding: 0 2rem;
 }
@@ -139,17 +139,17 @@
   font-size: 3rem;
   color: rgba(136, 171, 242, 0.2);
   line-height: 1;
-  font-family: Georgia, serif;
+  font-family: var(--font-clash);
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
 }
 
-.testimonial-quote {
+.testimonial-text {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--color-surface);
-  font-style: italic;
+  font-family: var(--font-mono);
   margin: 0;
   flex-grow: 1;
 }

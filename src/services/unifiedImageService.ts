@@ -31,19 +31,55 @@ export interface ImageSearchOptions {
   fallbackToUnsplash?: boolean;
 }
 
+const LS_CACHE_PREFIX = 'uimg_cache__';
+const LS_CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
+
+interface LsCacheEntry {
+  data: ImageResult[];
+  ts: number;
+}
+
+function lsCacheGet(key: string): ImageResult[] | null {
+  try {
+    const raw = localStorage.getItem(LS_CACHE_PREFIX + key);
+    if (!raw) return null;
+    const entry: LsCacheEntry = JSON.parse(raw);
+    if (Date.now() - entry.ts > LS_CACHE_TTL) {
+      localStorage.removeItem(LS_CACHE_PREFIX + key);
+      return null;
+    }
+    return entry.data;
+  } catch {
+    return null;
+  }
+}
+
+function lsCacheSet(key: string, data: ImageResult[]): void {
+  try {
+    const entry: LsCacheEntry = { data, ts: Date.now() };
+    localStorage.setItem(LS_CACHE_PREFIX + key, JSON.stringify(entry));
+  } catch {
+    // localStorage quota exceeded — silently ignore
+  }
+}
+
 class UnifiedImageService {
   /**
    * Search for images across multiple providers
    * Tries providers in order: Pexels -> Pixabay -> Unsplash
+   * Results are cached in localStorage for 24 hours.
    */
   async searchImages(options: ImageSearchOptions): Promise<ImageResult[]> {
     const {
       query,
       perPage = 10,
-      orientation = 'landscape',
       preferredSource = 'auto',
       fallbackToUnsplash = true,
     } = options;
+
+    const cacheKey = `${query}__${perPage}__${preferredSource}`;
+    const cached = lsCacheGet(cacheKey);
+    if (cached) return cached;
 
     const results: ImageResult[] = [];
     const sources = this.getSourceOrder(preferredSource);
@@ -100,7 +136,9 @@ class UnifiedImageService {
 
           // If we got results from preferred source and have enough, return early
           if (preferredSource !== 'auto' && results.length >= perPage) {
-            return results.slice(0, perPage);
+            const sliced = results.slice(0, perPage);
+            lsCacheSet(cacheKey, sliced);
+            return sliced;
           }
         }
       } catch (error) {
@@ -109,7 +147,9 @@ class UnifiedImageService {
       }
     }
 
-    return results.slice(0, perPage);
+    const final = results.slice(0, perPage);
+    if (final.length > 0) lsCacheSet(cacheKey, final);
+    return final;
   }
 
   /**

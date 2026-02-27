@@ -106,7 +106,7 @@ const FinanceIndustryPage: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -5 }}
-                  className="p-6 bg-white dark:bg-[#0e2650]/30 rounded-xl border border-gray-200 dark:border-[#3d7eff]/20 shadow-lg hover:shadow-xl transition-all"
+                  className="p-6 bg-white/5 backdrop-blur-xl dark:bg-[#0e2650]/30 rounded-xl border border-white/10 dark:border-[#3d7eff]/20 shadow-lg hover:shadow-xl transition-all"
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-[#3d7eff] to-[#0e2650] rounded-lg flex items-center justify-center mb-4">
                     <service.icon className="w-6 h-6 text-white" />
@@ -147,7 +147,7 @@ const FinanceIndustryPage: React.FC = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className="p-4 bg-white dark:bg-[#0e2650]/30 rounded-xl border border-gray-200 dark:border-[#3d7eff]/20 text-center"
+                  className="p-4 bg-white/5 backdrop-blur-xl dark:bg-[#0e2650]/30 rounded-xl border border-white/10 dark:border-[#3d7eff]/20 text-center"
                 >
                   <p className="text-sm font-medium text-[#0a1a3a] dark:text-white">
                     {industry}

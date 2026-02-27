@@ -1,5 +1,5 @@
 import React, { lazy, useEffect, useState } from 'react';
-import { HelmetProvider } from 'react-helmet-async';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { QueryClientProvider } from '@tanstack/react-query';
 import ErrorBoundary from './components/ErrorBoundary';
 import { ThemeProvider } from './components/theme/ThemeProvider';
@@ -19,6 +19,8 @@ import { Toaster } from 'sonner';
 import 'lenis/dist/lenis.css';
 import './styles/skip-to-content.css';
 import './styles/sonner-theme.css';
+
+import { ScrollProgressIndicator, InvertedCursor, DataDustCanvas } from './components/ui/GlobalPolish';
 
 // const PersonSchema = lazy(() => import('./components/seo/PersonSchema')); // Removed - deleted
 // const PerformanceMonitor = lazy(() => import('./components/utils/PerformanceMonitor')); // Removed - deleted
@@ -54,7 +56,29 @@ const AppContent: React.FC = () => {
             <ThemeProvider>
               <ReactLenis root options={premiumLenisOptions}>
                 <ToastProvider>
+                  <Helmet>
+                    <title>Jacob Darling | Systems Architect</title>
+                    <meta
+                      name="description"
+                      content="Digital production and technical architecture for high-ticket brands."
+                    />
+                    <meta property="og:title" content="Jacob Darling | Systems Architect" />
+                    <meta
+                      property="og:description"
+                      content="Digital production and technical architecture for high-ticket brands."
+                    />
+                    <meta property="og:type" content="website" />
+                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta name="twitter:title" content="Jacob Darling | Systems Architect" />
+                    <meta
+                      name="twitter:description"
+                      content="Digital production and technical architecture for high-ticket brands."
+                    />
+                  </Helmet>
                   <JSONLD />
+                  <DataDustCanvas />
+                  <ScrollProgressIndicator />
+                  <InvertedCursor />
                   <Layout>
                     <SwipeShell>
                       <AppRouter />

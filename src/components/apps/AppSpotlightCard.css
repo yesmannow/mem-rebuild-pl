@@ -1,10 +1,10 @@
 .app-spotlight-card {
-  @apply bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden;
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden;
   @apply transition-all duration-300;
 }
 
 .app-spotlight-card.featured {
-  @apply border-brand-turquoise/50 shadow-lg shadow-brand-turquoise/20;
+  @apply border-cyan-400/50 shadow-lg shadow-cyan-400/20;
 }
 
 .app-spotlight-card__header {
@@ -47,8 +47,8 @@
 }
 
 .app-spotlight-card__metrics {
-  @apply grid grid-cols-2 gap-4 p-4 rounded-lg;
-  @apply bg-slate-900/50 border border-slate-700/50;
+  @apply grid grid-cols-2 gap-4 p-4 rounded-xl;
+  @apply bg-white/5 border border-white/10;
 }
 
 .app-spotlight-card__metric {
@@ -77,7 +77,7 @@
 
 .app-spotlight-card__tech-tag {
   @apply px-2.5 py-1 rounded-md text-xs font-mono;
-  @apply bg-slate-900/50 text-brand-text border border-slate-700/50;
+  @apply bg-white/5 text-white/90 border border-white/10;
 }
 
 .app-spotlight-card__tech-tag--more {

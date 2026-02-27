@@ -103,7 +103,7 @@ const SystemBoot: React.FC<SystemBootProps> = ({ onComplete }) => {
             <div className="relative mb-12 flex flex-col items-center gap-2">
               <span
                 className="text-white font-black tracking-[-0.04em]"
-                style={{ fontFamily: '"Playfair Display", Georgia, serif', fontSize: '2.5rem' }}
+                style={{ fontFamily: '"Space Grotesk", "Clash Display", sans-serif', fontSize: '2.5rem' }}
               >
                 JD
               </span>

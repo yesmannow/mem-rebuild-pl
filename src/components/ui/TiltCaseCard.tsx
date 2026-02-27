@@ -4,8 +4,27 @@ import { Link } from 'react-router-dom';
 import Icon from '@components/Icon';
 import { useDynamicImage } from '../../hooks/useDynamicImage';
 
+interface Metric {
+  label: string;
+  value: string;
+}
+
+interface CaseStudy {
+  slug: string;
+  title: string;
+  tagline: string;
+  image?: string;
+  color: string;
+  icon: string;
+  category: string[];
+  technologies: string[];
+  challenge: string;
+  metrics: Metric[];
+  tags: string[];
+}
+
 interface TiltCaseCardProps {
-  study: any;
+  study: CaseStudy;
   index: number;
   getTechIconSlug: (tech: string) => string;
 }
@@ -17,7 +36,7 @@ export const TiltCaseCard: React.FC<TiltCaseCardProps> = ({ study, index, getTec
 
   // Get dynamic background image from first tag
   const imageQuery = study.tags?.[0] || 'technology';
-  const { imageUrl, isLoading } = useDynamicImage(imageQuery);
+  const { imageUrl } = useDynamicImage(imageQuery);
 
   const rotateX = useTransform(y, [-0.5, 0.5], [5, -5]);
   const rotateY = useTransform(x, [-0.5, 0.5], [-5, 5]);
@@ -66,7 +85,7 @@ export const TiltCaseCard: React.FC<TiltCaseCardProps> = ({ study, index, getTec
       }}
     >
       <Link to={`/case-studies/${study.slug}`} className="case-card cinematic-card">
-        <div className="case-card-inner relative overflow-hidden rounded-2xl group isolate" style={{ minHeight: '500px', aspectRatio: '4/5' }}>
+        <div className="case-card-inner relative overflow-hidden rounded-2xl group isolate bg-white/5 backdrop-blur-xl border border-white/10 transition-all duration-300 hover:border-white/20 hover:bg-white/10" style={{ minHeight: '500px', aspectRatio: '4/5' }}>
           {/* Dynamic Background Image - clipped to card bounds */}
           <div className="absolute inset-0 -z-10 overflow-hidden rounded-2xl">
             {imageUrl && !imageUrl.startsWith('linear-gradient') && (
@@ -162,7 +181,7 @@ export const TiltCaseCard: React.FC<TiltCaseCardProps> = ({ study, index, getTec
               </div>
 
               <div className="case-metrics">
-                {study.metrics.slice(0, 2).map((metric: any, idx: number) => (
+                {study.metrics.slice(0, 2).map((metric: Metric, idx: number) => (
                   <motion.div
                     key={idx}
                     className="metric-item"

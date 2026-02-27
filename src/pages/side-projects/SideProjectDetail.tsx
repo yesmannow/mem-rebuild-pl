@@ -7,7 +7,6 @@ import { sideProjects } from '../../data/sideProjects';
 import { DomeGallery, DomeGalleryImage } from '../../components/ui/DomeGallery';
 import { SpotlightCard } from '../../components/ui/SpotlightCard';
 import SectionDivider from '../../components/ui/SectionDivider';
-import { OceanCountingNumber } from '../../components/ui/OceanCountingNumber';
 
 /**
  * Side Project Detail Page
@@ -23,7 +22,6 @@ const SideProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [projectImages, setProjectImages] = useState<DomeGalleryImage[]>([]);
-  const [isLoadingImages, setIsLoadingImages] = useState(true);
 
   const project = sideProjects.find((p) => p.id === id);
   const displayImage = project
@@ -33,30 +31,30 @@ const SideProjectDetail: React.FC = () => {
             ? '/images/projects/Primary Colours/pc-org logo.png'
             : project.image))
     : '';
-  // Map project IDs to folder names
-  const folderMap: Record<string, string> = {
-    'primary-care-indy': 'Primarycare Indy',
-    '317-bbq': '317 bbq',
-    'taco-ninja': 'Taco Ninja',
-    'perpetual-fitness': 'Perpetual Movement Fitness',
-    'tbm-strategy': 'Tuohy Bailey & Moore LLP',
-    'resq-organic': 'ResQ Organics',
-    'behr-pet-essentials': 'Behr pet essentials',
-    'black-letter': 'Black Letter',
-    'primary-colours': 'Primary Colours',
-    'circle-city': 'circle  city kicks',
-    'clean-aesthetic': 'Clean Aesthetic',
-    'hoosier-boy': 'Hoosierboy Barbershop',
-    'urgent-care-indy': 'urgent care indy',
-    'piko-fg-music': 'Piko Fg Music',
-  };
 
   useEffect(() => {
     if (!project) return;
 
+    // Map project IDs to folder names
+    const folderMap: Record<string, string> = {
+      'primary-care-indy': 'Primarycare Indy',
+      '317-bbq': '317 bbq',
+      'taco-ninja': 'Taco Ninja',
+      'perpetual-fitness': 'Perpetual Movement Fitness',
+      'tbm-strategy': 'Tuohy Bailey & Moore LLP',
+      'resq-organic': 'ResQ Organics',
+      'behr-pet-essentials': 'Behr pet essentials',
+      'black-letter': 'Black Letter',
+      'primary-colours': 'Primary Colours',
+      'circle-city': 'circle  city kicks',
+      'clean-aesthetic': 'Clean Aesthetic',
+      'hoosier-boy': 'Hoosierboy Barbershop',
+      'urgent-care-indy': 'urgent care indy',
+      'piko-fg-music': 'Piko Fg Music',
+    };
+
     const folderName = folderMap[project.id];
     if (!folderName) {
-      setIsLoadingImages(false);
       return;
     }
 
@@ -117,7 +115,6 @@ const SideProjectDetail: React.FC = () => {
     }));
 
     setProjectImages(galleryImages);
-    setIsLoadingImages(false);
   }, [project]);
 
   if (!project) {
@@ -301,10 +298,9 @@ const SideProjectDetail: React.FC = () => {
                   {/* Title with Industrial Styling */}
                   <div className="mb-8 text-center">
                     <motion.h2
-                      className="text-3xl md:text-4xl font-black italic text-[#FFD700] mb-3 uppercase tracking-wider"
+                      className="text-3xl md:text-4xl font-clash font-black text-[#FFD700] mb-3 uppercase tracking-wider"
                       style={{
                         transform: 'skew(-12deg)',
-                        fontFamily: '"Lexend", sans-serif',
                         textShadow: '3px 3px 6px rgba(0, 0, 0, 0.9)',
                       }}
                     >
@@ -324,7 +320,7 @@ const SideProjectDetail: React.FC = () => {
                       <p className="leading-relaxed mb-4">
                         The <span className="text-[#FFD700] font-semibold">Syndicate Dispatch</span> is the technical heart of the Studio Engine V3,
                         manifested through the <span className="font-mono text-brand-teal">StudioMonitor</span> component. It serves as a real-time
-                        telemetry readout, providing producers with mission-critical feedback as they "crack" signals and command the mix.
+                        telemetry readout, providing producers with mission-critical feedback as they &quot;crack&quot; signals and command the mix.
                       </p>
                     </div>
 
@@ -336,7 +332,7 @@ const SideProjectDetail: React.FC = () => {
                       </h3>
                       <p className="text-sm leading-relaxed mb-4">
                         The <span className="font-mono text-brand-teal">StudioMonitor</span> utilizes a specialized linguistic dictionary to reinforce
-                        the project's industrial narrative. Standard web interactions are translated into high-stakes tactical commands:
+                        the project&apos;s industrial narrative. Standard web interactions are translated into high-stakes tactical commands:
                       </p>
 
                       <ul className="space-y-3 text-sm">
@@ -357,7 +353,7 @@ const SideProjectDetail: React.FC = () => {
                           <span className="text-[#FFD700] font-mono shrink-0">→</span>
                           <div>
                             <span className="font-semibold text-white">Decryption Narrative:</span> Instead of standard progress bars, the monitor
-                            outputs a sequence of "decryption" logs—such as{' '}
+                            outputs a sequence of &quot;decryption&quot; logs—such as{' '}
                             <code className="px-2 py-0.5 bg-black/50 border border-[#FFD700]/30 text-[#FFD700] font-mono text-xs" style={{ borderRadius: '0px' }}>
                               PREPARING_MASTER_STEMS
                             </code> and{' '}
@@ -390,11 +386,11 @@ const SideProjectDetail: React.FC = () => {
                     <div className="border-l-2 border-brand-teal pl-6">
                       <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
                         <TrendingUp size={20} className="text-brand-teal" />
-                        "Signal Cracking" Telemetry
+                        &quot;Signal Cracking&quot; Telemetry
                       </h3>
                       <p className="text-sm leading-relaxed mb-4">
-                        When a producer imports an "Unverified Signal" (user-uploaded file), the telemetry logic initiates a timed
-                        "cracking" sequence to build anticipation and simulate complex AI processing:
+                        When a producer imports an &quot;Unverified Signal&quot; (user-uploaded file), the telemetry logic initiates a timed
+                        &quot;cracking&quot; sequence to build anticipation and simulate complex AI processing:
                       </p>
 
                       <div className="space-y-2 text-sm font-mono bg-black/30 p-4" style={{ borderRadius: '0px', border: '1px solid #333' }}>
@@ -445,7 +441,7 @@ const SideProjectDetail: React.FC = () => {
                         href="https://piko-artist-website.vercel.app/studio"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#FFD700] text-black font-bold uppercase tracking-wider hover:bg-white transition-colors"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#FFD700] text-black font-bold uppercase tracking-wider hover:bg-white/5 backdrop-blur-xl transition-colors"
                         style={{ borderRadius: '0px' }}
                       >
                         EXPERIENCE LIVE SITE

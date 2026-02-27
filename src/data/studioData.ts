@@ -1,6 +1,6 @@
 /**
  * Studio Data - Single Source of Truth
- * 
+ *
  * This file centralizes all studio content (photography and design assets)
  * to eliminate duplicates and provide consistent metadata for the Visual Engineering gallery.
  */
@@ -14,6 +14,7 @@ export interface StudioItem {
   category?: string;
   width?: number;
   height?: number;
+  imageQuery?: string;
 }
 
 // Photography items - curated selection from manifest

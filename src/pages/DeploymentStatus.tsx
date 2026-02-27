@@ -99,7 +99,7 @@ const DeploymentStatus: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 mb-6"
+          className="bg-white/5 backdrop-blur-xl dark:bg-slate-800 rounded-xl shadow-lg p-6 mb-6"
         >
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
@@ -196,7 +196,7 @@ const DeploymentStatus: React.FC = () => {
             href="https://dash.cloudflare.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+            className="flex items-center justify-between p-6 bg-white/5 backdrop-blur-xl dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
           >
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-1">
@@ -213,7 +213,7 @@ const DeploymentStatus: React.FC = () => {
             href="https://github.com/yesmannow/mem-rebuild-pl/actions"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+            className="flex items-center justify-between p-6 bg-white/5 backdrop-blur-xl dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
           >
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-1">
@@ -232,7 +232,7 @@ const DeploymentStatus: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6"
+          className="bg-white/5 backdrop-blur-xl dark:bg-slate-800 rounded-xl shadow-lg p-6"
         >
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
             Local Development Commands

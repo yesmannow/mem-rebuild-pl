@@ -321,7 +321,7 @@ const HeroImmersive: React.FC<HeroImmersiveProps> = ({ onOpenCommandPalette }) =
           <Link
             to="/case-studies"
             data-magnetic
-            className="group flex items-center gap-2 bg-[#40E0D0] text-[#080C12] font-semibold px-8 py-3.5 rounded-sm text-sm uppercase tracking-wider hover:bg-white transition-colors duration-150 will-change-transform"
+            className="group flex items-center gap-2 bg-[#40E0D0] text-[#080C12] font-semibold px-8 py-3.5 rounded-sm text-sm uppercase tracking-wider hover:bg-white/5 backdrop-blur-xl transition-colors duration-150 will-change-transform"
           >
             View Case Studies
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />

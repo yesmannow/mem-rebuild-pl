@@ -9,12 +9,14 @@ import {
 } from '@react-pdf/renderer';
 import type { DossierFormData } from './DossierForm';
 
+// Define a local Style type if import is problematic
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type PdfStyle = Record<string, any>;
+
 Font.register({
   family: 'Helvetica',
   fonts: [],
 });
-
-const HEALTHCARE_COMPANIES = ['Graston Technique', 'Pike Medical', 'OrthoIndy'];
 
 const styles = StyleSheet.create({
   page: {
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     fontFamily: 'Helvetica',
     fontSize: 10,
-    color: '#1a1a1a',
+    color: '#000000',
   },
   /* ── Header ───────────────────────────────────────── */
   header: {
@@ -110,7 +112,7 @@ const styles = StyleSheet.create({
   },
   bulletText: {
     fontSize: 9,
-    color: '#444444',
+    color: '#000000',
     lineHeight: 1.4,
     flex: 1,
   },
@@ -187,13 +189,27 @@ interface ResumePDFProps {
 
 export const ResumePDF: React.FC<ResumePDFProps> = ({ data, formData }) => {
   const targetSector = formData?.sector ?? 'General';
-  const isHealthcare = targetSector === 'Health';
+  // Accept common variants e.g., 'HealthTech' or 'B2B SaaS'
+  const isHealthcare = /healthtech|health/i.test(targetSector);
+  const isB2B = /\bb2b\b/i.test(targetSector) || /b2b\s*saas/i.test(targetSector);
 
-  const shouldHighlight = (company: string): boolean => {
-    if (!isHealthcare) return false;
-    return HEALTHCARE_COMPANIES.some((hc) =>
-      company.toLowerCase().includes(hc.toLowerCase())
-    );
+  const shouldHighlight = (bullet: string): boolean => {
+    if (isHealthcare) {
+      const keywords = ['HIPAA', 'healthcare', 'clinical', 'compliance', 'medical', 'patient', 'FDA'];
+      return keywords.some(k => bullet.toLowerCase().includes(k.toLowerCase()));
+    }
+    if (isB2B) {
+      const keywords = ['revenue', 'B2B', 'SaaS', 'sales velocity', 'pipeline', 'growth', 'acquisition'];
+      return keywords.some(k => bullet.toLowerCase().includes(k.toLowerCase()));
+    }
+    return false;
+  };
+
+  const processExperience = (achievements: string[]) => {
+    // Re-prioritize: Move highlighted bullets to the top
+    const highlighted = achievements.filter(bullet => shouldHighlight(bullet));
+    const others = achievements.filter(bullet => !shouldHighlight(bullet));
+    return [...highlighted, ...others];
   };
 
   const flatSkills: string[] = data.skillCategories
@@ -214,7 +230,7 @@ export const ResumePDF: React.FC<ResumePDFProps> = ({ data, formData }) => {
           <Text style={styles.contact}>{data.personal.contact}</Text>
           {formData && (
             <Text style={styles.targeting}>
-              Personalized for: {targetSector} | Objective: {formData.objective}
+              Personalized for: {targetSector} | ID: {formData.email.split('@')[0].toUpperCase()}
             </Text>
           )}
         </View>
@@ -229,22 +245,28 @@ export const ResumePDF: React.FC<ResumePDFProps> = ({ data, formData }) => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Professional Experience</Text>
           {data.experience.map((job, i) => {
-            const highlight = shouldHighlight(job.company);
+            const processedBullets = processExperience(job.achievements);
             return (
               <View key={i} style={styles.expEntry} wrap={false}>
                 <View style={styles.expHeader}>
-                  <Text style={highlight ? styles.expRoleHighlighted : styles.expRole}>
-                    {job.role}
-                  </Text>
+                  <Text style={styles.expRole}>{job.role}</Text>
                   <Text style={styles.expDates}>{job.dates}</Text>
                 </View>
                 <Text style={styles.expCompany}>{job.company}</Text>
-                {job.achievements.slice(0, 3).map((bullet, j) => (
-                  <View key={j} style={styles.bullet}>
-                    <Text style={styles.bulletDot}>•</Text>
-                    <Text style={styles.bulletText}>{bullet}</Text>
-                  </View>
-                ))}
+                {processedBullets.slice(0, 4).map((bullet, j) => {
+                  const highlighted = shouldHighlight(bullet);
+                  return (
+                    <View key={j} style={styles.bullet}>
+                      <Text style={styles.bulletDot}>•</Text>
+                      <Text style={[
+                        styles.bulletText,
+                        ...(highlighted ? [{ fontFamily: 'Helvetica-Bold', color: '#000000' } as PdfStyle] : [])
+                      ]}>
+                        {bullet}
+                      </Text>
+                    </View>
+                  );
+                })}
               </View>
             );
           })}

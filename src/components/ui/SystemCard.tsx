@@ -110,8 +110,8 @@ const SystemCard: React.FC<SystemCardProps> = ({ item, index = 0 }) => {
         {/* Front Face */}
         <div
           className={cn(
-            'relative rounded-2xl border-2 p-6 backdrop-blur-xl transition-all duration-300',
-            'bg-slate-900/50 hover:bg-slate-900/70',
+            'relative rounded-2xl border border-white/10 p-6 backdrop-blur-xl transition-all duration-300',
+            'bg-white/5 hover:bg-white/10',
             'hover:translate-y-[-4px] hover:shadow-xl',
             borderColor,
             glowColor,

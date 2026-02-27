@@ -17,6 +17,10 @@ interface SmartGalleryProps {
   items: GalleryItem[];
 }
 
+interface VibrantSwatch {
+  getHex: () => string;
+}
+
 const paletteCache: Record<string, string[]> = {};
 
 const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
@@ -60,8 +64,8 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
     try {
       const palette = await Vibrant.from(src).getPalette();
       const colors = Object.values(palette)
-        .filter((swatch: any) => swatch && typeof swatch.getHex === 'function')
-        .map((swatch: any) => swatch.getHex()) as string[];
+        .filter((swatch): swatch is VibrantSwatch => swatch !== null && typeof swatch === 'object' && 'getHex' in swatch)
+        .map((swatch) => swatch.getHex());
       paletteCache[src] = colors.slice(0, 6);
       setPalettes((prev) => ({ ...prev, [src]: colors.slice(0, 6) }));
     } catch {
@@ -83,8 +87,8 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
   if (!hasItems) {
     return (
       <div className="flex justify-center">
-        <div className="w-full max-w-2xl rounded-3xl border border-[#40E0D0]/60 bg-slate-950/60 p-10 text-center shadow-[0_0_30px_rgba(64,224,208,0.3)]">
-          <p className="text-xs uppercase tracking-[0.4em] text-[#40E0D0] mb-2">Classified</p>
+        <div className="w-full max-w-2xl rounded-3xl border border-cyan-400/60 bg-white/5 backdrop-blur-xl p-10 text-center shadow-[0_0_30px_rgba(0,242,255,0.3)]">
+          <p className="text-xs uppercase tracking-[0.4em] text-cyan-400 mb-2">Classified</p>
           <h3 className="text-2xl font-semibold text-brand-text mb-4">Restricted Access</h3>
           <p className="text-sm text-brand-muted">
             No visual assets are available right now. Check back after the next deploy or run the gallery scraper to restore data.
@@ -108,7 +112,7 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
           return (
             <motion.div
               key={item.key || `${mode}-${item.idx}-${item.src}`}
-              className="break-inside-avoid overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 shadow-soft-dark transition hover:border-brand-teal/40 hover:shadow-accent"
+              className="break-inside-avoid overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-soft-dark transition hover:border-cyan-400/40 hover:shadow-accent"
               onMouseEnter={() => {
                 setHoveredIndex(item.idx);
                 if (mode === 'design') {
@@ -130,9 +134,8 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-slate-950/10 to-slate-950/40" />
 
 
-
                 <div className="absolute top-3 right-3 flex items-center gap-2 text-xs text-brand-text/80">
-                  <span className="rounded-full bg-slate-900/70 px-2 py-1 backdrop-blur-md border border-white/10 flex items-center gap-1">
+                  <span className="rounded-full bg-black/40 px-2 py-1 backdrop-blur-md border border-white/10 flex items-center gap-1">
                     <Maximize2 size={14} /> View
                   </span>
                 </div>
@@ -142,11 +145,11 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 6 }}
-                    className="absolute inset-3 rounded-xl border border-white/10 bg-slate-900/75 backdrop-blur-md p-3 shadow-soft-dark flex flex-col gap-2"
+                    className="absolute inset-3 rounded-xl border border-white/10 bg-black/60 backdrop-blur-md p-3 shadow-soft-dark flex flex-col gap-2"
                   >
                     <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-brand-muted">
                       <span className="inline-flex items-center gap-1">
-                        <PaletteIcon size={12} className="text-brand-teal" />
+                        <PaletteIcon size={12} className="text-cyan-400" />
                         Color DNA
                       </span>
                       <span className="text-white/80 font-semibold text-xs">{displayTitle}</span>
@@ -176,7 +179,7 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-2xl flex items-center justify-center px-4"
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-2xl flex items-center justify-center px-4"
             onClick={closeLightbox}
           >
             <motion.div

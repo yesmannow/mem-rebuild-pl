@@ -78,10 +78,10 @@ export const PikoProjectCard: React.FC<PikoProjectCardProps> = ({
     >
         {/* Brutalist Card Container - 0px border-radius, Midnight Black */}
         <motion.div
-          className="relative h-full overflow-hidden bg-[#050505] border-2 transition-all duration-300"
-          style={{ borderRadius: '0px' }}
+          className="relative h-full overflow-hidden bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl transition-all duration-300"
+          style={{ borderRadius: '1rem' }}
           animate={{
-            borderColor: isHovered ? '#FFD700' : '#333333',
+            borderColor: isHovered ? '#00F2FF' : 'rgba(255,255,255,0.1)',
             scale: isHovered ? 1.02 : 1,
           }}
           transition={{ duration: 0.3 }}
@@ -158,12 +158,11 @@ export const PikoProjectCard: React.FC<PikoProjectCardProps> = ({
 
           {/* Content Section */}
           <div className="p-5 relative z-10">
-            {/* Tactical Header - Lexend Black Italic with -12deg skew */}
+            {/* Tactical Header - Clash Display with -12deg skew */}
             <motion.h3
-              className="text-2xl font-black italic text-white mb-3 uppercase tracking-wider"
+              className="text-2xl font-black text-white mb-3 uppercase tracking-wider font-clash"
               style={{
                 transform: 'skew(-12deg)',
-                fontFamily: '"Lexend", sans-serif',
                 textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
               }}
             >
@@ -196,12 +195,9 @@ export const PikoProjectCard: React.FC<PikoProjectCardProps> = ({
                 {project.tags.slice(0, 4).map((tag, idx) => (
                   <motion.span
                     key={idx}
-                    className="px-2 py-1 text-xs font-mono uppercase tracking-wider"
+                    className="px-2 py-1 text-xs font-mono uppercase tracking-wider bg-white/10 border border-white/10 text-cyan-400"
                     style={{
-                      borderRadius: '0px',
-                      backgroundColor: '#1a1a1a',
-                      border: '1px solid #FFD700',
-                      color: '#FFD700',
+                      borderRadius: '0.5rem',
                     }}
                     variants={tagVariants}
                   >

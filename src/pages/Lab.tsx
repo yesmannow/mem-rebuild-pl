@@ -1,7 +1,6 @@
 import React, { useState, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEOHead from '../components/seo/SEOHead';
-import SystemCard from '../components/ui/SystemCard';
 import TerminalBlock from '../components/ui/TerminalBlock';
 import AnimatedCounter from '../components/ui/AnimatedCounter';
 import { labItems } from '../data/labItems';
@@ -47,10 +46,10 @@ const statCards = [
 const Lab: React.FC = () => {
   const [viewMode, setViewMode] = useState<ViewMode>('app');
 
-  const filteredItems = viewMode === 'telemetry' 
-    ? [] 
+  const filteredItems = viewMode === 'telemetry'
+    ? []
     : labItems.filter((item) => item.type === viewMode);
-  
+
   const isAppMode = viewMode === 'app';
   const isToolMode = viewMode === 'tool';
   const isTelemetryMode = viewMode === 'telemetry';
@@ -96,10 +95,10 @@ const Lab: React.FC = () => {
               <span className="inline-flex h-2 w-2 animate-pulse rounded-full bg-brand-teal" />
               ALL SYSTEMS OPERATIONAL
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-3 text-white">The Lab</h1>
+            <h1 className="text-4xl md:text-5xl font-clash font-bold mb-3 text-white">The Lab</h1>
             <p className="text-brand-muted max-w-2xl mx-auto">
               Explore the technical architecture behind client-facing applications, internal
-              engineering tools, and live system telemetry. Each system includes strategic context, 
+              engineering tools, and live system telemetry. Each system includes strategic context,
               technology rationale, and measurable business impact.
             </p>
           </motion.div>
@@ -285,18 +284,70 @@ const Lab: React.FC = () => {
                 </section>
               </motion.div>
             ) : (
-              /* Applications & Tools Card Grid */
+              /* Applications & Tools Vertical Interactive List */
               <motion.div
                 key={viewMode}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+                className="flex flex-col gap-4 relative"
               >
-                {filteredItems.map((item, index) => (
-                  <SystemCard key={item.id} item={item} index={index} />
-                ))}
+                {filteredItems.map((item, index) => {
+                  const status = 'OPERATIONAL';
+                  const version = '4.2.0';
+                  const imageUrl = (item as { imageUrl?: string; liveUrl?: string }).imageUrl ||
+                                   (item as { imageUrl?: string; liveUrl?: string }).liveUrl ?
+                                   `https://image.thum.io/get/width/1200/crop/800/${(item as { imageUrl?: string; liveUrl?: string }).liveUrl}` : null;
+                  const description = item.context.solution || item.tagline;
+                  return (
+                    <motion.div
+                      key={item.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="group relative block w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 hover:bg-white/10 transition-colors duration-300 overflow-hidden cursor-pointer"
+                    >
+                      {/* Large background hover reveal */}
+                      {imageUrl && (
+                        <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none">
+                          <img src={imageUrl} alt="" className="w-full h-full object-cover object-center scale-110 group-hover:scale-100 transition-transform duration-700" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent" />
+                        </div>
+                      )}
+
+                      <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-4 mb-3">
+                            <span className="font-mono text-[10px] uppercase tracking-widest text-cyan-400 border border-cyan-400/30 px-2 py-1 rounded">
+                              {item.category}
+                            </span>
+                            <span className="font-mono text-[10px] text-white/50">
+                              STATUS: {status} {"//"} v{version}
+                            </span>
+                          </div>
+
+                          <h2 className="font-clash font-black tracking-tighter text-4xl text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                            {item.title}
+                          </h2>
+                          <p className="font-['Geist',_sans-serif] text-sm text-white/70 max-w-2xl leading-relaxed">
+                            {description}
+                          </p>
+                        </div>
+
+                        <div className="flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-x-4 group-hover:translate-x-0">
+                          <span className="font-mono text-[10px] uppercase tracking-widest text-cyan-400">Initialize Module</span>
+                          <span className="p-2 rounded-full border border-cyan-400/50 text-cyan-400">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M5 12h14"></path>
+                              <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                          </span>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </motion.div>
             )}
           </AnimatePresence>

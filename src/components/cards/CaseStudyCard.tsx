@@ -56,7 +56,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
     >
       <Link to={`/case-studies/${slug}`} className="block h-full">
         <div
-          className="relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:shadow-2xl h-full"
+          className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/10 hover:shadow-2xl h-full"
           style={{
             background: gradient,
           }}

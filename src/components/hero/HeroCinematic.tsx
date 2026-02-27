@@ -147,7 +147,7 @@ const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenCommandPalette }) =
       style={{ height: '250vh' }}
     >
       {/* ── Sticky viewport ── */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#050507] flex items-center justify-center">
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-slate-950 flex items-center justify-center">
 
         {/* Tactile dot grid */}
         <div className="tactile-grid absolute inset-0 pointer-events-none" aria-hidden="true" />
@@ -258,7 +258,7 @@ const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenCommandPalette }) =
                   x="50%"
                   y="175"
                   textAnchor="middle"
-                  fontFamily='"Playfair Display", Georgia, serif'
+                  fontFamily='"Space Grotesk", "Clash Display", sans-serif'
                   fontSize="148"
                   fontWeight="900"
                   letterSpacing="-4"
@@ -270,7 +270,7 @@ const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenCommandPalette }) =
                   x="50%"
                   y="330"
                   textAnchor="middle"
-                  fontFamily='"Playfair Display", Georgia, serif'
+                  fontFamily='"Space Grotesk", "Clash Display", sans-serif'
                   fontSize="148"
                   fontWeight="900"
                   letterSpacing="-4"
@@ -314,7 +314,7 @@ const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenCommandPalette }) =
               x="50%"
               y="175"
               textAnchor="middle"
-              fontFamily='"Playfair Display", Georgia, serif'
+              fontFamily='"Space Grotesk", "Clash Display", sans-serif'
               fontSize="148"
               fontWeight="900"
               letterSpacing="-4"
@@ -329,7 +329,7 @@ const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenCommandPalette }) =
               x="50%"
               y="330"
               textAnchor="middle"
-              fontFamily='"Playfair Display", Georgia, serif'
+              fontFamily='"Space Grotesk", "Clash Display", sans-serif'
               fontSize="148"
               fontWeight="900"
               letterSpacing="-4"
@@ -448,7 +448,7 @@ const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenCommandPalette }) =
               to="/case-studies"
               data-magnetic
               data-cursor-label="View Work"
-              className="group flex items-center gap-2 bg-[#22d3ee] text-[#050507] font-semibold px-8 py-3.5 text-sm uppercase tracking-wider hover:bg-white transition-colors duration-100 will-change-transform btn-haptic"
+              className="group flex items-center gap-2 bg-[#22d3ee] text-[#050507] font-semibold px-8 py-3.5 text-sm uppercase tracking-wider hover:bg-white/5 backdrop-blur-xl transition-colors duration-100 will-change-transform btn-haptic"
             >
               View Case Studies
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />

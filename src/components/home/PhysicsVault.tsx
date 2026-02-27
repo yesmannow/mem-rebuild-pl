@@ -2,12 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import Matter from 'matter-js';
 import { motion } from 'framer-motion';
 import PhysicsBackground from './PhysicsBackground';
+import { ApiBackgroundImage } from '../ui/ApiBackgroundImage';
 
 // Sample projects data - ideally this would come from a CMS or props
 export interface Project {
   id: string;
   name: string;
-  hero: string;
+  hero?: string;
+  imageQuery?: string;
   stack: string[];
   tags?: string[];
 }
@@ -33,14 +35,14 @@ const MAGNET_FILTERS: Array<{ id: MagnetType; label: string; match: (project: Pr
 ];
 
 const DEFAULT_PROJECTS: Project[] = [
-  { id: '317-bbq', name: '317 BBQ', hero: '/images/projects/317 bbq/hero_optimized.webp', stack: ['React', 'Node.js'] },
-  { id: 'behr-pet', name: 'Behr Pet Essentials', hero: '/images/projects/Behr pet essentials/hero_optimized.webp', stack: ['Shopify', 'Liquid'] },
-  { id: 'black-letter', name: 'Black Letter', hero: '/images/projects/Black Letter/hero_optimized.webp', stack: ['Vue', 'Express'] },
-  { id: 'circle-city', name: 'Circle City Kicks', hero: '/images/projects/circle  city kicks/hero_optimized.webp', stack: ['Next.js', 'Tailwind'] },
-  { id: 'clean-aesthetic', name: 'Clean Aesthetic', hero: '/images/projects/Clean Aesthetic/hero_optimized.webp', stack: ['Webflow', 'GSAP'] },
-  { id: 'hoosierboy', name: 'Hoosierboy Barbershop', hero: '/images/projects/Hoosierboy Barbershop/hero_optimized.webp', stack: ['HTML', 'CSS', 'JS'] },
-  { id: 'perpetual', name: 'Perpetual Movement', hero: '/images/projects/Perpetual Movement Fitness/hero_optimized.webp', stack: ['React Native', 'Firebase'] },
-  { id: 'piko', name: 'Piko Fg Music', hero: '/images/projects/Piko Fg Music/hero_optimized.webp', stack: ['Next.js', 'Sanity'] }
+  { id: '317-bbq', name: '317 BBQ', imageQuery: 'smokehouse barbecue fire ember dark noir', stack: ['React', 'Node.js'], tags: ['web', 'digital', 'commerce'] },
+  { id: 'behr-pet', name: 'Behr Pet Essentials', imageQuery: 'pet care product lifestyle minimal white clean', stack: ['Shopify', 'Liquid'], tags: ['brand', 'identity', 'web'] },
+  { id: 'black-letter', name: 'Black Letter', imageQuery: 'editorial typography dark ink minimal black white luxury', stack: ['Vue', 'Express'], tags: ['brand', 'identity', 'digital'] },
+  { id: 'circle-city', name: 'Circle City Kicks', imageQuery: 'sneaker streetwear urban culture neon night', stack: ['Next.js', 'Tailwind'], tags: ['web', 'digital', 'app'] },
+  { id: 'clean-aesthetic', name: 'Clean Aesthetic', imageQuery: 'minimalist interior design clean white modern architecture', stack: ['Webflow', 'GSAP'], tags: ['brand', 'web', 'digital'] },
+  { id: 'hoosierboy', name: 'Hoosierboy Barbershop', imageQuery: 'barbershop vintage grooming dark moody interior', stack: ['HTML', 'CSS', 'JS'], tags: ['brand', 'web', 'digital'] },
+  { id: 'perpetual', name: 'Perpetual Movement', imageQuery: 'fitness training athlete dark cinematic motion blur', stack: ['React Native', 'Firebase'], tags: ['ai', 'automation', 'app', 'digital'] },
+  { id: 'piko', name: 'Piko Fg Music', imageQuery: 'music producer studio neon abstract sound wave dark', stack: ['Next.js', 'Sanity'], tags: ['brand', 'web', 'digital'] },
 ];
 
 const CARD_WIDTH = 150;
@@ -366,13 +368,26 @@ export const PhysicsVault: React.FC<{ onProjectSelect: (project: Project) => voi
               filter: `blur(${Math.min(3, pos.speed * 0.08)}px) brightness(${flashedCards[project.id] && Date.now() - flashedCards[project.id] < 220 ? 1.5 : 1})`,
             }}
           >
-            <motion.img
-              layoutId={`img-${project.id}`}
-              src={project.hero}
-              alt={project.name}
-              className="w-full h-full object-cover pointer-events-none"
-              draggable={false}
-            />
+            {project.imageQuery ? (
+              <ApiBackgroundImage
+                query={project.imageQuery}
+                source="auto"
+                overlayOpacity={0.35}
+                twilight
+                className="w-full h-full"
+                fallbackGradient="linear-gradient(135deg,#0a0a0a,#1a1a2e)"
+              />
+            ) : project.hero ? (
+              <img
+                src={project.hero}
+                alt={project.name}
+                className="w-full h-full object-cover pointer-events-none"
+                draggable={false}
+                style={{ filter: 'brightness(0.4) contrast(1.2) grayscale(0.2)' }}
+              />
+            ) : (
+              <div className="w-full h-full bg-gradient-to-br from-slate-900 to-slate-800" />
+            )}
 
             {/* Overlay for hover state */}
             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">

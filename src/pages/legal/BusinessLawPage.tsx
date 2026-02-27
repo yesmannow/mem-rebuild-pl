@@ -87,7 +87,7 @@ const BusinessLawPage: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-center p-6 bg-white dark:bg-[#0e2650]/30 rounded-xl border border-gray-200 dark:border-[#3d7eff]/20 shadow-lg"
+                  className="text-center p-6 bg-white/5 backdrop-blur-xl dark:bg-[#0e2650]/30 rounded-xl border border-white/10 dark:border-[#3d7eff]/20 shadow-lg"
                 >
                   <div className="text-3xl md:text-4xl font-bold text-[#3d7eff] mb-2">
                     {stat.value}
@@ -127,7 +127,7 @@ const BusinessLawPage: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -5 }}
-                  className="p-6 bg-white dark:bg-[#0e2650]/30 rounded-xl border border-gray-200 dark:border-[#3d7eff]/20 shadow-lg hover:shadow-xl transition-all"
+                  className="p-6 bg-white/5 backdrop-blur-xl dark:bg-[#0e2650]/30 rounded-xl border border-white/10 dark:border-[#3d7eff]/20 shadow-lg hover:shadow-xl transition-all"
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-[#3d7eff] to-[#0e2650] rounded-lg flex items-center justify-center mb-4">
                     <service.icon className="w-6 h-6 text-white" />

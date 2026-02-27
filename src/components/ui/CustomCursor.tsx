@@ -83,7 +83,7 @@ const CustomCursor: React.FC = () => {
           mass: 0.5,
         }}
       >
-        <div className="w-4 h-4 bg-white rounded-full" />
+        <div className="w-4 h-4 bg-white/5 backdrop-blur-xl rounded-full" />
       </motion.div>
 
       {/* Cursor Trail */}

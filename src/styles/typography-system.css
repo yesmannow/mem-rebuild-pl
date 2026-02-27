@@ -1,6 +1,6 @@
 /**
  * Typography System - Wow Factor Portfolio
- * 
+ *
  * Unified font system using Montserrat for brand consistency
  * - Montserrat: Modern, professional sans-serif for all text
  * - Fira Code: Monospace for code blocks
@@ -10,46 +10,21 @@
    FONT FACE DECLARATIONS
    =================================================================== */
 
-/* Montserrat - Primary Brand Font */
-/* Already imported in globals.css, but included here for redundancy */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+/* Space Grotesk - Primary Brand Font */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* Clash Display - Secondary Brand Font */
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap');
 
 /* Fira Code - Monospace for code */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
 
-/* Alternative: If self-hosting is required, uncomment below and add font files to public/fonts
+/* Alternative: If self-hosting is required, add font files to public/fonts */
+/*
 @font-face {
-  font-family: 'Playfair Display';
-  src: url('/fonts/playfair-display-regular.woff2') format('woff2'),
-       url('/fonts/playfair-display-regular.woff') format('woff');
+  font-family: 'Space Grotesk';
+  src: url('/fonts/space-grotesk-regular.woff2') format('woff2');
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  src: url('/fonts/playfair-display-bold.woff2') format('woff2'),
-       url('/fonts/playfair-display-bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Karla';
-  src: url('/fonts/karla-regular.woff2') format('woff2'),
-       url('/fonts/karla-regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Karla';
-  src: url('/fonts/karla-bold.woff2') format('woff2'),
-       url('/fonts/karla-bold.woff') format('woff');
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -60,7 +35,7 @@
    =================================================================== */
 
 body {
-  font-family: var(--font-body);
+  font-family: "Space Grotesk", sans-serif;
   font-size: var(--font-size-base);
   line-height: var(--leading-normal);
   font-weight: var(--font-weight-normal);
@@ -76,8 +51,8 @@ body {
 
 h1, h2, h3, h4, h5, h6,
 .heading {
-  font-family: var(--font-heading);
-  font-weight: var(--font-weight-bold);
+  font-family: "Clash Display", sans-serif;
+  font-weight: 700;
   line-height: var(--leading-tight);
   color: var(--text);
   margin-top: 0;
@@ -253,10 +228,10 @@ a:focus {
 /* Fallback for when fonts fail to load */
 @supports not (font-variation-settings: normal) {
   h1, h2, h3, h4, h5, h6, .heading {
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: 'Arial Black', system-ui, sans-serif;
   }
-  
+
   body, p {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 }

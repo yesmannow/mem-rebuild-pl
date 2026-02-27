@@ -75,7 +75,7 @@
 .detail-header .tagline {
   font-size: 1.4rem;
   color: rgba(255, 255, 255, 0.8);
-  font-style: italic;
+  font-family: var(--font-clash);
   line-height: 1.5;
   margin-bottom: 2rem;
   max-width: 800px;
@@ -398,7 +398,7 @@
 
 .testimonial p {
   font-size: 1.3rem;
-  font-style: italic;
+  font-family: var(--font-mono);
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 1.5rem;
   line-height: 1.7;

@@ -70,7 +70,7 @@ const SmartQuote: React.FC = () => {
   };
 
   return (
-    <div className="rounded-2xl border border-brand-teal/20 bg-slate-900/50 backdrop-blur-lg p-6 shadow-lg">
+    <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-lg">
       <div className="flex items-center gap-3 mb-6">
         <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-orange/20 border border-brand-orange/30 text-brand-orange">
           <SlidersHorizontal size={20} />
@@ -89,7 +89,7 @@ const SmartQuote: React.FC = () => {
               <select
                 value={bundleKey}
                 onChange={(e) => setBundleKey(e.target.value as BundleKey)}
-                className="w-full rounded-lg border border-brand-teal/30 bg-slate-900/70 px-3 py-2 text-brand-text focus:border-brand-teal focus:outline-none"
+                className="w-full rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl px-3 py-2 text-brand-text focus:border-cyan-400 focus:outline-none"
               >
                 {(Object.keys(PRICING_DATA) as BundleKey[]).map((key) => (
                   <option key={key} value={key}>
@@ -108,8 +108,8 @@ const SmartQuote: React.FC = () => {
                     onClick={() => setCustomerType(type)}
                     className={`flex-1 rounded-lg border px-3 py-2 text-sm font-semibold transition-colors ${
                       customerType === type
-                        ? 'border-brand-teal bg-brand-teal/20 text-brand-text'
-                        : 'border-brand-teal/20 bg-slate-900/70 text-brand-muted hover:border-brand-teal/40'
+                        ? 'border-cyan-400 bg-cyan-400/20 text-brand-text'
+                        : 'border-white/10 bg-white/5 backdrop-blur-xl text-brand-muted hover:border-cyan-400/40'
                     }`}
                   >
                     {type === 'retail' ? 'Retail' : 'Corporate'}
@@ -124,7 +124,7 @@ const SmartQuote: React.FC = () => {
                 type="email"
                 value={repEmail}
                 onChange={(e) => setRepEmail(e.target.value)}
-                className="w-full rounded-lg border border-brand-teal/30 bg-slate-900/70 px-3 py-2 text-brand-text focus:border-brand-teal focus:outline-none"
+                className="w-full rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl px-3 py-2 text-brand-text focus:border-cyan-400 focus:outline-none"
                 placeholder="rep@team.com"
               />
             </div>
@@ -136,7 +136,7 @@ const SmartQuote: React.FC = () => {
               type="text"
               value={customerName}
               onChange={(e) => setCustomerName(e.target.value)}
-              className="w-full rounded-lg border border-brand-teal/30 bg-slate-900/70 px-3 py-2 text-brand-text focus:border-brand-teal focus:outline-none"
+              className="w-full rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl px-3 py-2 text-brand-text focus:border-cyan-400 focus:outline-none"
               placeholder="Jordan Smith"
               aria-label="Customer name"
             />
@@ -148,7 +148,7 @@ const SmartQuote: React.FC = () => {
               type="email"
               value={customerEmail}
               onChange={(e) => setCustomerEmail(e.target.value)}
-              className="w-full rounded-lg border border-brand-teal/30 bg-slate-900/70 px-3 py-2 text-brand-text focus:border-brand-teal focus:outline-none"
+              className="w-full rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl px-3 py-2 text-brand-text focus:border-cyan-400 focus:outline-none"
               placeholder="client@email.com"
               aria-label="Customer email"
             />
@@ -156,7 +156,7 @@ const SmartQuote: React.FC = () => {
         </div>
 
         <div className="space-y-4">
-          <div className="rounded-xl border border-brand-teal/30 bg-slate-950/60 p-4 shadow-inner">
+          <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 shadow-inner">
             <div className="flex items-center justify-between">
               <span className="text-sm text-brand-muted">Quote Preview</span>
               <Mail size={18} className="text-brand-orange" />
@@ -171,9 +171,9 @@ const SmartQuote: React.FC = () => {
                 </div>
               ))}
             </div>
-            <div className="mt-4 border-t border-brand-teal/20 pt-3 flex items-center justify-between">
+            <div className="mt-4 border-t border-brand-orange/20 pt-3 flex items-center justify-between">
               <span className="text-sm text-brand-muted uppercase tracking-[0.2em]">Total</span>
-              <span className="text-2xl font-bold text-brand-text" style={fontMono}>
+              <span className="text-2xl font-bold text-brand-orange" style={fontMono}>
                 <AnimatedNumber value={total} prefix="$" />
               </span>
             </div>

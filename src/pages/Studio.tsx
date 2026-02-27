@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import MagneticCursor from '../components/ui/MagneticCursor';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -13,32 +13,45 @@ import {
 } from '../data/studioData';
 import { manifestToStudioItems } from '../utils/studioManifest';
 import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
+import StudioGridItem from '../components/ui/StudioGridItem';
 
 gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Studio Page - Visual Engineering
- *
- * A data-driven visual showcase featuring:
- * - Deep Slate background with proper layout structure
- * - Tabbed masonry gallery with context-aware HUD overlays
- * - Photography mode: Shows descriptive metadata
- * - Design mode: Shows color palettes (Hex codes)
  */
 const Studio: React.FC = () => {
   const [photos, setPhotos] = useState<StudioItem[]>([]);
   const [designs, setDesigns] = useState<StudioItem[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [useFallback, setUseFallback] = useState<boolean>(false);
-  const [loupe, setLoupe] = useState<{ x: number; y: number; bgX: number; bgY: number; src: string } | null>(null);
+  const [loupe, setLoupe] = useState<{ x: number; y: number; bgX: number; bgY: number; src: string; exif: string } | null>(null);
   const [loupeEnabled, setLoupeEnabled] = useState(false);
+  const [activeFilter, setActiveFilter] = useState<'all' | 'photography' | 'design'>('all');
   const reelTrackRef = useRef<HTMLDivElement>(null);
   const reelSectionRef = useRef<HTMLElement>(null);
-  const cursorColor = '#40E0D0';
+  const cursorColor = '#00F2FF'; // Cyan accent
 
-  const studioItems = useMemo(() => [...photos, ...designs], [photos, designs]);
-  const featuredReel = useMemo(() => studioItems.slice(0, 4), [studioItems]);
-  const featuredSpans = useMemo(() => new Set([0, 5, 8, 14, 19, 22, 27, 33, 38]), []);
+  const allItems = useMemo(() => [...photos, ...designs], [photos, designs]);
+
+  const filteredItems = useMemo(() => {
+    if (activeFilter === 'photography') return photos;
+    if (activeFilter === 'design') return designs;
+    return allItems;
+  }, [activeFilter, photos, designs, allItems]);
+
+  const featuredReel = useMemo(() => allItems.slice(0, 4), [allItems]);
+
+  // Generate random EXIF data for telemetry HUD
+  const getRandomExif = () => {
+    const isos = ['100', '200', '400', '800', '1600'];
+    const apertures = ['f/1.2', 'f/1.4', 'f/1.8', 'f/2.8', 'f/4'];
+    const shutters = ['1/125s', '1/250s', '1/500s', '1/1000s'];
+    const iso = isos[Math.floor(Math.random() * isos.length)];
+    const ap = apertures[Math.floor(Math.random() * apertures.length)];
+    const shut = shutters[Math.floor(Math.random() * shutters.length)];
+    return `ISO ${iso} // ${ap} // ${shut}`;
+  };
 
   useEffect(() => {
     let mounted = true;
@@ -149,52 +162,71 @@ const Studio: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Visual Engineering | Studio</title>
+        <title>Studio | Visual Engineering</title>
         <meta
           name="description"
-          content="Visual Engineering - A cutting-edge showcase of photography and graphic design work. Featuring advanced filtering, 3D interactions, and intelligent color palette analysis."
+          content="Immersive studio reel of cinematic photography, interaction design, and Digital Twilight brand systems engineered for premium launches."
         />
       </Helmet>
 
-      {/* Magnetic Cursor Effect */}
       <MagneticCursor color={cursorColor} enabled={true} />
 
-      {/* Deep Slate Background - War Room ecosystem integration */}
-      <div className="min-h-screen bg-slate-900 relative overflow-hidden">
+      <div className="min-h-screen bg-slate-950 relative overflow-hidden">
         <ApiBackgroundImage
-          query="creative studio design workspace photography"
+          query="creative studio design workspace photography dark cinematic"
           source="pexels"
-          overlayColor="dark"
-          overlayOpacity={0.7}
+          overlayOpacity={0.6}
+          twilight
           className="absolute inset-0 z-0"
           priority
         />
-        {/* Animated gradient overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 pointer-events-none" />
-
-        <div className="absolute inset-0 pointer-events-none overflow-hidden" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/95 to-black pointer-events-none" />
 
         <main className="relative z-10 pt-24 pb-32 px-6">
           <section className="max-w-7xl mx-auto">
-            <div className="mb-10 relative">
-              <h1 className="text-white">STUDIO</h1>
-              <div className="absolute inset-0 pointer-events-none text-[22vw] leading-none text-white/5 font-black" style={{ mixBlendMode: 'difference' }}>
-                STUDIO
+            <div className="mb-10 relative flex justify-between items-end">
+              <div>
+                <h1 className="text-white font-sans font-black tracking-tighter text-6xl">STUDIO</h1>
+                <p className="font-['Geist_Mono',_monospace] text-[10px] uppercase tracking-widest text-cyan-400 mt-4">
+                  Cinematic Reel + Variable Grid // STATUS: ONLINE
+                </p>
+                {useFallback && <p className="font-['Geist_Mono',_monospace] text-[10px] text-amber-400 mt-2">Fallback assets active</p>}
               </div>
-              <p className="text-sm text-slate-400 tech-label uppercase tracking-[0.22em] mt-4">Cinematic Reel + Variable Grid</p>
-              {useFallback && <p className="text-xs text-amber-400 mt-2 tech-label">Fallback assets active</p>}
+
+              {/* Filter Morph Toggle */}
+              <div className="flex gap-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-1">
+                {(['all', 'photography', 'design'] as const).map((filter) => (
+                  <button
+                    key={filter}
+                    onClick={() => setActiveFilter(filter)}
+                    className={`relative px-4 py-2 text-xs font-['Geist_Mono',_monospace] uppercase tracking-widest transition-colors ${
+                      activeFilter === filter ? 'text-black' : 'text-white/70 hover:text-white'
+                    }`}
+                  >
+                    {activeFilter === filter && (
+                      <motion.div
+                        layoutId="active-filter"
+                        className="absolute inset-0 bg-cyan-400 rounded-xl"
+                        initial={false}
+                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                      />
+                    )}
+                    <span className="relative z-10">{filter}</span>
+                  </button>
+                ))}
+              </div>
             </div>
 
             {!isLoading && featuredReel.length > 0 && (
-              <section ref={reelSectionRef} className="relative h-screen overflow-hidden mb-20 rounded-3xl border border-white/10">
+              <section ref={reelSectionRef} className="relative h-screen overflow-hidden mb-20 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl">
                 <div ref={reelTrackRef} className="absolute inset-0 flex w-[400vw]">
                   {featuredReel.map((item) => (
                     <div key={`reel-${item.id}`} className="w-screen h-full relative">
                       <img src={item.src} alt={item.title} className="w-full h-full object-cover" />
-                      <div className="absolute inset-0 bg-black/45" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                       <div className="absolute bottom-10 left-10">
-                        <p className="text-xs tech-label uppercase tracking-[0.2em] text-cyan-300">{item.type}</p>
-                        <h2 className="text-white text-5xl max-w-xl">{item.title}</h2>
+                        <p className="font-['Geist_Mono',_monospace] text-[10px] uppercase tracking-widest text-cyan-400 mb-2">{item.type}</p>
+                        <h2 className="text-white font-sans font-black tracking-tighter text-5xl max-w-xl">{item.title}</h2>
                       </div>
                     </div>
                   ))}
@@ -202,55 +234,68 @@ const Studio: React.FC = () => {
               </section>
             )}
 
-            {!isLoading && studioItems.length > 0 && (
+            {!isLoading && filteredItems.length > 0 && (
               <section className="relative">
-                <motion.div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] gap-3" style={{ gridAutoFlow: 'dense' }}>
-                  {studioItems.map((item, index) => {
-                    const featured = featuredSpans.has(index);
-                    return (
-                      <motion.article
-                        key={item.id}
-                        className={`relative overflow-hidden rounded-2xl border border-white/10 ${featured ? 'col-span-2 row-span-2' : 'col-span-1 row-span-1'}`}
-                        onMouseMove={(event) => {
-                          if (!loupeEnabled) return;
-                          const rect = event.currentTarget.getBoundingClientRect();
-                          const x = event.clientX - rect.left;
-                          const y = event.clientY - rect.top;
-                          setLoupe({
-                            x: event.clientX,
-                            y: event.clientY,
-                            bgX: (x / rect.width) * 100,
-                            bgY: (y / rect.height) * 100,
-                            src: item.src,
-                          });
-                        }}
-                        onMouseLeave={() => setLoupe(null)}
-                        whileHover={{ scale: 1.02 }}
-                      >
-                        <img src={item.src} alt={item.title} className="w-full h-full object-cover" loading="lazy" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-[10px] tech-label uppercase tracking-[0.16em] text-cyan-300">{item.meta}</p>
-                        </div>
-                      </motion.article>
-                    );
-                  })}
+                <motion.div
+                  layout
+                  className="grid grid-cols-2 md:grid-cols-4 auto-rows-[240px] gap-4"
+                  style={{ gridAutoFlow: 'dense' }}
+                >
+                  <AnimatePresence>
+                    {filteredItems.map((item, index) => {
+                      const isFeatured = index % 4 === 0;
+                      return (
+                        <StudioGridItem
+                          key={item.id}
+                          item={item}
+                          isFeatured={isFeatured}
+                          loupeEnabled={loupeEnabled}
+                          onMouseMove={(event, studioItem) => {
+                            const rect = event.currentTarget.getBoundingClientRect();
+                            const x = event.clientX - rect.left;
+                            const y = event.clientY - rect.top;
+                            setLoupe({
+                              x: event.clientX,
+                              y: event.clientY,
+                              bgX: (x / rect.width) * 100,
+                              bgY: (y / rect.height) * 100,
+                              src: studioItem.src,
+                              exif: getRandomExif(),
+                            });
+                          }}
+                          onMouseLeave={() => setLoupe(null)}
+                        />
+                      );
+                    })}
+                  </AnimatePresence>
                 </motion.div>
 
+                {/* Digital Loupe 2.0 with Telemetry HUD */}
                 {loupe && loupeEnabled && (
                   <div
-                    className="fixed z-[120] pointer-events-none rounded-full border border-cyan-300/50"
+                    className="fixed z-[120] pointer-events-none rounded-full border border-cyan-400/50 overflow-visible"
                     style={{
-                      width: 150,
-                      height: 150,
-                      left: loupe.x - 75,
-                      top: loupe.y - 75,
-                      backgroundImage: `url(${loupe.src})`,
-                      backgroundSize: '200%',
-                      backgroundPosition: `${loupe.bgX}% ${loupe.bgY}%`,
-                      boxShadow: '0 0 24px rgba(34,211,238,0.45)',
+                      width: 180,
+                      height: 180,
+                      left: loupe.x - 90,
+                      top: loupe.y - 90,
+                      boxShadow: '0 0 30px rgba(0, 242, 255, 0.2), inset 0 0 20px rgba(0,0,0,0.5)',
                     }}
-                  />
+                  >
+                    {/* The magnified image */}
+                    <div
+                      className="absolute inset-0 rounded-full"
+                      style={{
+                        backgroundImage: `url(${loupe.src})`,
+                        backgroundSize: '250%',
+                        backgroundPosition: `${loupe.bgX}% ${loupe.bgY}%`,
+                      }}
+                    />
+                    {/* Telemetry HUD floating on bottom right */}
+                    <div className="absolute -bottom-4 -right-12 bg-black/80 backdrop-blur-md border border-cyan-400/30 px-3 py-1.5 rounded text-[10px] font-['Geist_Mono',_monospace] text-cyan-400 whitespace-nowrap shadow-lg">
+                      <span className="opacity-50 mr-2">[SYS]</span>{loupe.exif}
+                    </div>
+                  </div>
                 )}
               </section>
             )}

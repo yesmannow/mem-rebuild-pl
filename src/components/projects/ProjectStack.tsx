@@ -159,7 +159,7 @@ const ProjectStack: React.FC<ProjectStackProps> = ({ projects }) => {
             <p className="font-['Geist',_sans-serif] text-[11px] uppercase tracking-[0.8em] text-cyan-300">
               0{index + 1}{' // '}{proj.client}
             </p>
-            <h2 className="mt-4 max-w-[90vw] font-['Playfair_Display'] text-[clamp(3rem,8vw,7rem)] italic leading-[0.9] text-white">
+            <h2 className="mt-4 max-w-[90vw] font-clash font-black tracking-tighter text-[clamp(3rem,8vw,7rem)] leading-[0.9] text-white">
               {proj.title}
             </h2>
             <div className="mt-6 flex flex-col gap-6 border-t border-white/15 pt-6 md:flex-row md:items-end md:justify-between">
@@ -174,7 +174,7 @@ const ProjectStack: React.FC<ProjectStackProps> = ({ projects }) => {
                 ))}
               </div>
               <div className="text-right">
-                <p className="font-['Playfair_Display'] text-5xl italic text-cyan-300">
+                <p className="font-clash font-black tracking-tighter text-5xl text-cyan-300">
                   {proj.metrics.value}
                 </p>
                 <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-[0.7em] text-white/50">

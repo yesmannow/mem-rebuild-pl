@@ -57,7 +57,7 @@
   background: var(--color-bg-card);
   border-radius: 20px;
   border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--border border-white/10);
   backdrop-filter: blur(10px);
 }
 
@@ -389,7 +389,7 @@
   background: rgba(13, 13, 13, 0.8);
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--border border-white/10);
 }
 
 .modal-header h2 {

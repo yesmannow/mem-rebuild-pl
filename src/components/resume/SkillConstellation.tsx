@@ -43,6 +43,7 @@ const ConstellationPoints: React.FC<ConstellationPointsProps> = ({
   const ref = useRef<THREE.Points>(null!);
   const sphere = useMemo(() => randomInSphere(count, radius), [count, radius]);
   const skipRef = useRef(0);
+  const pulseTimeRef = useRef(0);
 
   useFrame((_state, delta) => {
     if (!ref.current) return;
@@ -57,6 +58,11 @@ const ConstellationPoints: React.FC<ConstellationPointsProps> = ({
     // Decay burst speed back to 0
     if (burstSpeed.current > 0.001) burstSpeed.current *= 0.94;
     else burstSpeed.current = 0;
+
+    // Pulse the sphere scale briefly when categories are clicked (burst > 0)
+    pulseTimeRef.current += delta * 8;
+    const pulse = burst > 0 ? 1 + burst * 0.12 * (1 + Math.sin(pulseTimeRef.current) * 0.5) : 1;
+    ref.current.scale.setScalar(pulse);
   });
 
   return (
@@ -299,11 +305,11 @@ export const SkillConstellation: React.FC<SkillConstellationProps> = ({
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 p-6 lg:px-8 lg:pt-8">
         <div>
-          <h2 className="font-['Playfair_Display'] italic text-[clamp(1.75rem,4vw,3rem)] text-white mb-1 flex items-center gap-3">
-            <span className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-orange-400 rounded-full not-italic" />
+          <h2 className="font-clash font-black tracking-tighter text-[clamp(1.75rem,4vw,3rem)] text-white mb-1 flex items-center gap-3">
+            <span className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-orange-400 rounded-full" />
             Skill Constellation
           </h2>
-          <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-white/40">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-white/40">
             Drag to rotate · Hover nodes to activate
           </p>
         </div>

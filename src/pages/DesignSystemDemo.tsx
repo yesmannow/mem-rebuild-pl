@@ -218,7 +218,7 @@ const DesignSystemDemo: React.FC = () => {
           <div className="demo-container">
             <h2 className="demo-heading">Typography System</h2>
             <p className="demo-subheading">
-              Playfair Display for headings, Karla for body text
+              Space Grotesk & Clash Display for headings, Montserrat for body text
             </p>
 
             <div className="demo-typography">

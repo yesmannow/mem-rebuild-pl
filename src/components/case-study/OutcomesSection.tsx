@@ -74,7 +74,7 @@ const OutcomesSection: React.FC<OutcomesSectionProps> = ({
       transition={{ duration: 0.6 }}
     >
       <div className="max-w-3xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-black mb-8 text-gray-900 dark:text-white">
+        <h2 className="text-3xl md:text-4xl font-black mb-8 text-white dark:text-white">
           Outcomes
         </h2>
 
@@ -94,7 +94,7 @@ const OutcomesSection: React.FC<OutcomesSectionProps> = ({
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
               >
-                <p className="text-base font-semibold text-gray-900 dark:text-white">
+                <p className="text-base font-semibold text-white dark:text-white">
                   {highlight}
                 </p>
               </motion.div>
@@ -105,22 +105,22 @@ const OutcomesSection: React.FC<OutcomesSectionProps> = ({
         {/* Metrics table */}
         {metrics.length > 0 && (
           <div className="mb-12">
-            <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+            <h3 className="text-xl font-bold mb-4 text-white dark:text-white">
               Key Metrics
             </h3>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
                 <thead>
                   <tr className="border-b border-gray-300 dark:border-gray-700">
-                    <th className="text-left py-3 px-4 font-semibold text-gray-900 dark:text-white">
+                    <th className="text-left py-3 px-4 font-semibold text-white dark:text-white">
                       Metric
                     </th>
                     {metrics.some(m => m.before) && (
-                      <th className="text-left py-3 px-4 font-semibold text-gray-900 dark:text-white">
+                      <th className="text-left py-3 px-4 font-semibold text-white dark:text-white">
                         Before
                       </th>
                     )}
-                    <th className="text-left py-3 px-4 font-semibold text-gray-900 dark:text-white">
+                    <th className="text-left py-3 px-4 font-semibold text-white dark:text-white">
                       After
                     </th>
                   </tr>
@@ -129,7 +129,7 @@ const OutcomesSection: React.FC<OutcomesSectionProps> = ({
                   {metrics.map((metric, idx) => (
                     <tr
                       key={idx}
-                      className="border-b border-gray-200 dark:border-gray-800"
+                      className="border-b border-white/10 dark:border-gray-800"
                     >
                       <td className="py-4 px-4 text-gray-700 dark:text-gray-300">
                         {metric.label}
@@ -139,7 +139,7 @@ const OutcomesSection: React.FC<OutcomesSectionProps> = ({
                           {metric.before || '—'}
                         </td>
                       )}
-                      <td className="py-4 px-4 font-semibold text-gray-900 dark:text-white">
+                      <td className="py-4 px-4 font-semibold text-white dark:text-white">
                         {metric.after}
                       </td>
                     </tr>
@@ -153,14 +153,14 @@ const OutcomesSection: React.FC<OutcomesSectionProps> = ({
         {/* Capabilities */}
         {capabilities && capabilities.length > 0 && (
           <div>
-            <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+            <h3 className="text-xl font-bold mb-4 text-white dark:text-white">
               Capabilities Demonstrated
             </h3>
             <div className="flex flex-wrap gap-2">
               {capabilities.map((capability, idx) => (
                 <span
                   key={idx}
-                  className="px-4 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg text-sm font-medium border border-gray-200 dark:border-gray-700"
+                  className="px-4 py-2 bg-white/5 backdrop-blur-xl dark:bg-gray-800 text-white dark:text-white rounded-lg text-sm font-medium border border-white/10 dark:border-gray-700"
                 >
                   {capability}
                 </span>

@@ -514,11 +514,11 @@
 }
 
 .testimonial-quote {
+  font-family: var(--font-mono);
   font-size: 1.125rem;
   line-height: 1.7;
   color: var(--bc-text-secondary);
   margin-bottom: var(--bc-space-xl);
-  font-style: italic;
 }
 
 .testimonial-author h4 {

@@ -138,13 +138,6 @@ const AppRouter: React.FC = () => {
         description:
           'Deep dive into a custom tool or application engineered by Jacob Darling to solve real marketing, sales, and operations challenges.',
       };
-    } else if (path === '/projects') {
-      return {
-        title: 'Projects | Jacob Darling Portfolio',
-        description:
-          'Technical and value-driven projects delivered by Jacob Darling across automation, analytics, and growth operations.',
-        keywords: 'marketing projects, technical portfolio, automation',
-      };
     } else if (path === '/services') {
       return {
         title: 'Services | Jacob Darling Portfolio',

@@ -180,7 +180,7 @@ const StackCard: React.FC<{
                 <div>
                   <h2
                     className="case-study-card__title"
-                    style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
+                    style={{ fontFamily: '"Space Grotesk", "Clash Display", sans-serif' }}
                   >
                     {study.title}
                   </h2>
@@ -252,7 +252,7 @@ const StackCard: React.FC<{
                     <div
                       className="case-study-card__metric-value"
                       style={{
-                        fontFamily: '"Playfair Display", Georgia, serif',
+                        fontFamily: '"Space Grotesk", "Clash Display", sans-serif',
                         textShadow: `0 0 60px ${color}60`,
                       }}
                     >
@@ -310,7 +310,7 @@ const MobileCard: React.FC<{ study: CaseStudy; index: number }> = ({ study, inde
             {study.category[0]}
           </span>
         </div>
-        <h2 className="mobile-case-card__title" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
+        <h2 className="mobile-case-card__title" style={{ fontFamily: '"Space Grotesk", "Clash Display", sans-serif' }}>
           {study.icon as string} {study.title}
         </h2>
         <p className="mobile-case-card__tagline">{study.tagline}</p>

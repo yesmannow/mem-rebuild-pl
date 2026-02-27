@@ -50,6 +50,16 @@
     }
   },
   {
+    "file": "images/projects/Black Letter/hero.jpg",
+    "meta": {
+      "width": 434,
+      "height": 650,
+      "base": "images/projects/Black Letter/hero",
+      "color": "rgb(8 24 24)",
+      "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAwCdASoUAB4APwlyq1ArpyOisAwBcCEJZwAAW+s3Qj0mvKenZ0RAAP7ucPMyxAxqm3aDb8hJiO15HHOv7TPRp/QF3zY2bDj4enbr3uxtFyyFQwAAAA=="
+    }
+  },
+  {
     "file": "images/projects/Behr pet essentials/hero.jpg",
     "meta": {
       "width": 366,
@@ -67,16 +77,6 @@
       "base": "images/projects/317 bbq/hero",
       "color": "rgb(184 168 168)",
       "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACwBACdASoUAB4APv1urVArJqSit/qoAWAfiWUAAFu1kV/4nLonlnv0txQUvUiAAP5Ra7YOd+zYfv8jjO1rOFzrO9WX62cDC5x5rlymYlFrrosODC910gni7tCRbYzXHIc0PZielcel+qn9FNq8y2eAAAA="
-    }
-  },
-  {
-    "file": "images/projects/Black Letter/hero.jpg",
-    "meta": {
-      "width": 434,
-      "height": 650,
-      "base": "images/projects/Black Letter/hero",
-      "color": "rgb(8 24 24)",
-      "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAwCdASoUAB4APwlyq1ArpyOisAwBcCEJZwAAW+s3Qj0mvKenZ0RAAP7ucPMyxAxqm3aDb8hJiO15HHOv7TPRp/QF3zY2bDj4enbr3uxtFyyFQwAAAA=="
     }
   },
   {
@@ -150,16 +150,6 @@
     }
   },
   {
-    "file": "images/projects/Perpetual Movement Fitness/hero.jpg",
-    "meta": {
-      "width": 436,
-      "height": 650,
-      "base": "images/projects/Perpetual Movement Fitness/hero",
-      "color": "rgb(24 24 24)",
-      "blurDataURL": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADwBACdASoUAB4APxGAuFWsKCUjKAgBgCIJZwAAKc5T1j1KQ1WrqgGZTNkCD9sSqgAA/n6sk1XBOWXG4o8TifUJbW0bi889eluOqKjBVHqt7iHxRFOjybA2mKejhA57LsWyBHfzpi84PwRLquHbfkib0o7eugVxktVI1gOeZAAAAA=="
-    }
-  },
-  {
     "file": "images/projects/Hoosierboy Barbershop/Hoosierboy Barbershop logo 1.png",
     "meta": {
       "width": 512,
@@ -177,6 +167,16 @@
       "base": "images/projects/Piko Fg Music/hero",
       "color": "rgb(24 24 8)",
       "blurDataURL": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAAAwBQCdASoUACQAPxF8uFOsJ6W0qrgKApAiCWMAzjgirV06cUaZkd+QcKsbWpAcDiNkUAD+2QlVH82YbVeJYx+4+wLez2akgBqxKb4jkGPuTfTX7qfex8sBFeISzEJek94lR/jUlJJN7kiA/wZvdIVGMVygg1bPb5nmXWxfvxQAZgPQeHPjMIUyvhMdj+Yd4HOFTksTSiJArOAA"
+    }
+  },
+  {
+    "file": "images/projects/Perpetual Movement Fitness/hero.jpg",
+    "meta": {
+      "width": 436,
+      "height": 650,
+      "base": "images/projects/Perpetual Movement Fitness/hero",
+      "color": "rgb(24 24 24)",
+      "blurDataURL": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADwBACdASoUAB4APxGAuFWsKCUjKAgBgCIJZwAAKc5T1j1KQ1WrqgGZTNkCD9sSqgAA/n6sk1XBOWXG4o8TifUJbW0bi889eluOqKjBVHqt7iHxRFOjybA2mKejhA57LsWyBHfzpi84PwRLquHbfkib0o7eugVxktVI1gOeZAAAAA=="
     }
   },
   {
@@ -200,16 +200,6 @@
     }
   },
   {
-    "file": "images/projects/Primarycare Indy/hero.jpg",
-    "meta": {
-      "width": 434,
-      "height": 650,
-      "base": "images/projects/Primarycare Indy/hero",
-      "color": "rgb(8 8 8)",
-      "blurDataURL": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAAAQBgCdASoUAB4APxF0sFAsJySisAgBgCIJbAC1GzOEJbbXsHrwANnEi9t/zIg4DMkryYTI9JnsdAAA/tlcix92a2N+PsDvWyh9z0Fv/pi4TgCXdY+j05uoqfnqYIIbebnOgiOPDk/b7ZrwEIraPa6Co8RoLUr2At+g2xsZe5VAR3XJ7gwYkwvlGaS/CQswCh7ckdnXyiFl+sKTJrzMY3yGlKy0UogMh2ODRWBVpOfjsvidywoNnc/J5DcnD+EFQMtFFhhQAAA="
-    }
-  },
-  {
     "file": "images/projects/Primary Colours/hero.jpg",
     "meta": {
       "width": 433,
@@ -217,6 +207,16 @@
       "base": "images/projects/Primary Colours/hero",
       "color": "rgb(8 8 8)",
       "blurDataURL": "data:image/webp;base64,UklGRvAAAABXRUJQVlA4IOQAAADQBQCdASoUAB4APxFwrlAsJiQisAgBgCIJbACdMzOH3fMZAyuVEjOB22srXASd/E3FDajw+NYAAP7ukk7Mn9Uhtu/bYvbL+nZqgalJNjlaiYK8oxVR0ZYIWoDKwkfcohLKMXesHC7xPz5Q7xhMn8QYL063WGzBdnVdkl6PuYU6Of8BgvK7l7XdIfp2t6z63gTRtuZ4+8qpnvdRrilwawzIIlQHE4Kzipeu7Onj9PC/ergUWThT1RIePZjc8mZainPXBSe7ugGzvkJ44d5E5Eo7JVPBc08TqiDcb2hDs+e4reE0AAA="
+    }
+  },
+  {
+    "file": "images/projects/Primarycare Indy/hero.jpg",
+    "meta": {
+      "width": 434,
+      "height": 650,
+      "base": "images/projects/Primarycare Indy/hero",
+      "color": "rgb(8 8 8)",
+      "blurDataURL": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAAAQBgCdASoUAB4APxF0sFAsJySisAgBgCIJbAC1GzOEJbbXsHrwANnEi9t/zIg4DMkryYTI9JnsdAAA/tlcix92a2N+PsDvWyh9z0Fv/pi4TgCXdY+j05uoqfnqYIIbebnOgiOPDk/b7ZrwEIraPa6Co8RoLUr2At+g2xsZe5VAR3XJ7gwYkwvlGaS/CQswCh7ckdnXyiFl+sKTJrzMY3yGlKy0UogMh2ODRWBVpOfjsvidywoNnc/J5DcnD+EFQMtFFhhQAAA="
     }
   },
   {

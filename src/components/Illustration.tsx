@@ -66,7 +66,7 @@ export function Illustration({
 
   if (error) {
     return (
-      <div className={cn('flex items-center justify-center bg-gray-100 rounded-lg', className)}>
+      <div className={cn('flex items-center justify-center bg-white/5 backdrop-blur-xl rounded-lg', className)}>
         <p className="text-gray-400 text-sm">Illustration not found</p>
       </div>
     );

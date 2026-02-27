@@ -30,7 +30,7 @@ const CapabilitiesBadges: React.FC<CapabilitiesBadgesProps> = ({
       transition={{ duration: 0.6 }}
     >
       <div className="max-w-3xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-black mb-8 text-gray-900 dark:text-white">
+        <h2 className="text-3xl md:text-4xl font-black mb-8 text-white dark:text-white">
           Capabilities Demonstrated
         </h2>
         <div className="flex flex-wrap gap-3">

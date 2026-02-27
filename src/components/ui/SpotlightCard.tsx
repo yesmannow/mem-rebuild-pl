@@ -38,7 +38,7 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({ children, classNam
       onMouseEnter={!isMobile ? () => setIsHovered(true) : undefined}
       onMouseLeave={!isMobile ? () => setIsHovered(false) : undefined}
       onClick={onClick}
-      className={`relative overflow-hidden rounded-xl border border-[var(--ink-700)]/60 bg-[var(--ink-800)]/40 w-full ${className}`}
+      className={`relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl w-full ${className}`}
       whileHover={!isMobile ? { scale: 1.02, y: -4 } : {}}
       transition={{ duration: 0.2 }}
     >

@@ -439,7 +439,7 @@
 
 .quote-card blockquote {
   font-size: 1.125rem;
-  font-style: italic;
+  font-family: var(--font-clash);
   color: var(--color-dark);
   margin: 0;
   line-height: 1.6;

@@ -75,7 +75,7 @@ const ProjectsHero: React.FC<ProjectsHeroProps> = ({ videoSrc = '/videos/91564-6
         <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-[0.8em] text-cyan-400/80">
           Flagship Case Studies · Digital Twilight Ops
         </p>
-        <h1 className="flagship-hero__text pointer-events-none mt-6 text-[clamp(3rem,12vw,11rem)] font-['Playfair_Display'] italic leading-none text-white">
+        <h1 className="flagship-hero__text pointer-events-none mt-6 text-[clamp(3rem,12vw,11rem)] font-sans font-black tracking-tighter leading-none text-white">
           FLAGSHIP DEPLOYS
         </h1>
         <p className="mt-8 max-w-3xl font-['Geist',_sans-serif] text-xs uppercase tracking-[0.6em] text-white/70">

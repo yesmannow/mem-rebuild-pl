@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect, lazy } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowRight, Lock, Unlock } from 'lucide-react';
@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 import TechBackdrop from '../components/hero/TechBackdrop';
 import { EndorsementTicker } from '../components/resume/EndorsementTicker';
 import { TerminalHero } from '../components/resume/TerminalHero';
-import { ZAxisTunnel } from '../components/resume/ZAxisTunnel';
-import { SkillConstellation } from '../components/resume/SkillConstellation';
+// Heavy components — lazy load for better code splitting
+const ZAxisTunnel = lazy(() => import('../components/resume/ZAxisTunnel').then(m => ({ default: m.ZAxisTunnel })));
+const SkillConstellation = lazy(() => import('../components/resume/SkillConstellation').then(m => ({ default: m.SkillConstellation })));
+import GlitchOverlay from '../components/home/GlitchOverlay';
 import ResumePrint from './ResumePrint';
 import {
   experience,
@@ -90,11 +92,11 @@ const SeoLayer: React.FC = () => (
 const CredentialsDeck: React.FC = () => (
   <div>
     <div className="mb-8">
-      <h2 className="font-['Playfair_Display'] italic text-[clamp(1.75rem,4vw,3rem)] text-white mb-1 flex items-center gap-3">
-        <span className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-orange-400 rounded-full not-italic" />
+      <h2 className="font-clash font-black tracking-tighter text-[clamp(1.75rem,4vw,3rem)] text-white mb-1 flex items-center gap-3">
+        <span className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-orange-400 rounded-full" />
         Credentials Deck
       </h2>
-      <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-white/40">
+      <p className="font-mono text-[10px] uppercase tracking-widest text-white/40">
         Education · Recognition · Community
       </p>
     </div>
@@ -102,14 +104,14 @@ const CredentialsDeck: React.FC = () => (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {/* Education */}
       <div className="bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition-colors duration-300">
-        <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-cyan-400/70 mb-4">Education</p>
+        <p className="font-mono text-[10px] uppercase tracking-widest text-cyan-400/70 mb-4">Education</p>
         {education.map((edu) => (
           <div key={edu.school}>
             <p className="text-white font-semibold text-sm mb-0.5">{edu.school}</p>
-            <p className="text-white/60 text-xs mb-1">{edu.degree}</p>
+            <p className="text-white/60 text-xs mb-1 font-mono">{edu.degree}</p>
             <p className="font-mono text-[9px] uppercase tracking-widest text-white/30 mb-2">{edu.year}</p>
             {edu.honors && (
-              <p className="text-orange-400/80 text-xs">🏆 {edu.honors}</p>
+              <p className="text-orange-400/80 text-xs font-mono">🏆 {edu.honors}</p>
             )}
           </div>
         ))}
@@ -117,14 +119,14 @@ const CredentialsDeck: React.FC = () => (
 
       {/* Awards */}
       <div className="bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-6 hover:border-orange-400/30 transition-colors duration-300">
-        <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-orange-400/70 mb-4">Awards</p>
+        <p className="font-mono text-[10px] uppercase tracking-widest text-orange-400/70 mb-4">Awards</p>
         {awards.map((award) => (
           <div key={award.title}>
             <p className="text-white font-semibold text-sm mb-0.5">{award.title}</p>
-            <p className="text-white/50 text-xs mb-1">{award.organization}</p>
+            <p className="text-white/50 text-xs mb-1 font-mono">{award.organization}</p>
             <p className="font-mono text-[9px] uppercase tracking-widest text-white/30">{award.year}</p>
             {award.description && (
-              <p className="text-white/40 text-xs mt-1">{award.description}</p>
+              <p className="text-white/40 text-xs mt-1 font-mono">{award.description}</p>
             )}
           </div>
         ))}
@@ -132,7 +134,7 @@ const CredentialsDeck: React.FC = () => (
 
       {/* Certifications */}
       <div className="bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition-colors duration-300">
-        <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-cyan-400/70 mb-4">Certifications</p>
+        <p className="font-mono text-[10px] uppercase tracking-widest text-cyan-400/70 mb-4">Certifications</p>
         <div className="space-y-4">
           {certifications.map((cert) => (
             <div key={cert.name}>
@@ -154,10 +156,10 @@ const CredentialsDeck: React.FC = () => (
 const PeerSignals: React.FC = () => (
   <div>
     <div className="mb-10 text-center">
-      <h2 className="font-['Playfair_Display'] italic text-[clamp(1.75rem,4vw,3rem)] text-white mb-1">
+      <h2 className="font-clash font-black tracking-tighter text-[clamp(1.75rem,4vw,3rem)] text-white mb-1">
         Peer Signals
       </h2>
-      <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-white/40">
+      <p className="font-mono text-[10px] uppercase tracking-widest text-white/40">
         Endorsements from partners and colleagues
       </p>
     </div>
@@ -211,18 +213,21 @@ const Resume: React.FC = () => {
           body { background: white !important; color: black !important; }
           .print-hide { display: none !important; }
           .print-show { display: block !important; }
-          canvas, .webgl-canvas, [data-r3f] { display: none !important; }
+          canvas, .webgl-canvas, [data-r3f], .tech-backdrop { display: none !important; }
           .data-slab { position: static !important; opacity: 1 !important;
             transform: none !important; filter: none !important;
             break-inside: avoid; margin-bottom: 1rem; }
           .sr-only { position: static !important; width: auto !important;
             height: auto !important; overflow: visible !important;
-            clip: auto !important; white-space: normal !important; }
+            clip: auto !important; white-space: normal !important;
+            color: black !important; background: white !important; }
+          h1, h2, h3 { font-family: 'Clash Display', sans-serif !important; }
+          p, li, span { font-family: 'Geist Mono', monospace !important; }
         }
       `}</style>
 
       {/* ── PRINT-ONLY ATS RESUME ─────────────────────────────────────── */}
-      <div className="hidden print:block print:fixed print:inset-0 print:z-50 print:bg-white">
+      <div className="hidden print:block fixed inset-0 z-50 bg-white">
         <ResumePrint />
       </div>
 
@@ -243,10 +248,10 @@ const Resume: React.FC = () => {
             aria-label="Identity Matrix"
           >
             <div className="mb-4">
-              <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-cyan-400/60">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-cyan-400/60">
                 {'// DOSSIER INIT'}
               </p>
-              <h1 className="font-['Playfair_Display'] italic text-[clamp(2.5rem,8vw,6rem)] text-white leading-none mt-1">
+              <h1 className="font-clash font-black tracking-tighter text-[clamp(2.5rem,8vw,6rem)] text-white leading-none mt-1">
                 Jacob Darling
               </h1>
             </div>
@@ -261,15 +266,7 @@ const Resume: React.FC = () => {
             transition={{ duration: 0.7 }}
             aria-label="Skill Constellation"
           >
-            <Suspense
-              fallback={
-                <div className="h-[460px] rounded-[28px] border border-white/10 bg-[#020409] animate-pulse flex items-center justify-center">
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-white/30">
-                    Loading WebGL...
-                  </span>
-                </div>
-              }
-            >
+            <Suspense fallback={<GlitchOverlay isBooting={true} />}>
               <SkillConstellation categories={skillCategories} />
             </Suspense>
           </motion.section>
@@ -282,7 +279,9 @@ const Resume: React.FC = () => {
             transition={{ duration: 0.7 }}
             aria-label="Career Timeline"
           >
-            <ZAxisTunnel experiences={experience} />
+            <Suspense fallback={<GlitchOverlay isBooting={true} />}>
+              <ZAxisTunnel experiences={experience} />
+            </Suspense>
           </motion.section>
 
           {/* Peer Signals */}
@@ -323,10 +322,10 @@ const Resume: React.FC = () => {
                       <Unlock size={28} className="text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     <div>
-                      <h2 className="font-['Playfair_Display'] italic text-[clamp(1.5rem,3vw,2.5rem)] text-white mb-1">
+                      <h2 className="font-clash font-black tracking-tighter text-[clamp(1.5rem,3vw,2.5rem)] text-white mb-1">
                         Project Archives
                       </h2>
-                      <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-white/40">
+                      <p className="font-mono text-[10px] uppercase tracking-widest text-white/40">
                         Independent experiments &amp; side projects
                       </p>
                     </div>

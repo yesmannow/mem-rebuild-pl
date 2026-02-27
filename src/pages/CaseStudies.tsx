@@ -51,7 +51,7 @@ const CaseStudies: React.FC = () => {
 
           <motion.h1
             className="cs-revamp__headline"
-            style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
+            style={{ fontFamily: '"Space Grotesk", "Clash Display", sans-serif' }}
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}

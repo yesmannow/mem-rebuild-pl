@@ -25,6 +25,7 @@ export const CodeVault: React.FC<CodeVaultProps> = ({
   const [activeTab, setActiveTab] = useState(0);
   const [copied, setCopied] = useState(false);
   const [displayedLines, setDisplayedLines] = useState<string[]>([]);
+  const [typedCode, setTypedCode] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: '-100px' });
@@ -140,44 +141,40 @@ export const CodeVault: React.FC<CodeVaultProps> = ({
     );
   };
 
-  // Typewriter effect - line by line
+  // character by character typewriter effect
   useEffect(() => {
-    if (!isInView || !activeHighlight.snippet) {
-      setDisplayedLines(activeHighlight.snippet?.split('\n') || []);
-      return;
+    if (isInView && activeHighlight?.snippet) {
+      setIsTyping(true);
+      setTypedCode('');
+      let currentText = '';
+      const fullText = activeHighlight.snippet;
+      let charIndex = 0;
+
+      const timer = setInterval(() => {
+        if (charIndex < fullText.length) {
+          currentText += fullText[charIndex];
+          setTypedCode(currentText);
+          charIndex++;
+        } else {
+          setIsTyping(false);
+          clearInterval(timer);
+        }
+      }, 5);
+
+      return () => clearInterval(timer);
+    } else if (activeHighlight?.snippet) {
+      setTypedCode(activeHighlight.snippet);
+      setIsTyping(false);
     }
+  }, [isInView, activeTab, activeHighlight]);
 
-    setIsTyping(true);
-    setDisplayedLines([]);
-
-    const lines = activeHighlight.snippet.split('\n');
-    let currentLine = 0;
-
-    const typeNextLine = () => {
-      if (currentLine < lines.length) {
-        setDisplayedLines(prev => [...prev, lines[currentLine]]);
-        currentLine++;
-        setTimeout(typeNextLine, 50); // Fast line-by-line typing
-      } else {
-        setIsTyping(false);
-      }
-    };
-
-    typeNextLine();
-  }, [isInView, activeTab, activeHighlight.snippet]);
-
-  // Reset typing when tab changes
+  // Update displayed lines when typedCode changes
   useEffect(() => {
-    if (activeHighlight.snippet) {
-      const lines = activeHighlight.snippet.split('\n');
-      if (!isInView) {
-        setDisplayedLines(lines);
-      }
-    }
-  }, [activeTab]);
+    setDisplayedLines(typedCode.split('\n'));
+  }, [typedCode]);
 
   const handleCopy = async () => {
-    if (!activeHighlight.snippet) return;
+    if (!activeHighlight?.snippet) return;
 
     try {
       await navigator.clipboard.writeText(activeHighlight.snippet);
@@ -192,8 +189,8 @@ export const CodeVault: React.FC<CodeVaultProps> = ({
     return null;
   }
 
-  // Get file extension from language or title
-  const getFileExtension = (language: string, title: string): string => {
+  // Get file extension from language
+  const getFileExtension = (language: string): string => {
     const extMap: Record<string, string> = {
       typescript: 'ts',
       javascript: 'js',
@@ -211,8 +208,8 @@ export const CodeVault: React.FC<CodeVaultProps> = ({
   return (
     <div ref={containerRef} className={`code-vault ${className}`}>
       <div className="mb-6">
-        <h2 className="text-3xl font-bold text-brand-text mb-2">The Code Vault</h2>
-        <p className="text-brand-muted">
+        <h2 className="text-3xl font-bold text-brand-text mb-2 font-clash">The Code Vault</h2>
+        <p className="text-brand-muted font-mono text-sm">
           Implementation details and code highlights from this application
         </p>
       </div>
@@ -232,7 +229,7 @@ export const CodeVault: React.FC<CodeVaultProps> = ({
           </div>
 
           {/* Copy Button */}
-          {activeHighlight.snippet && (
+          {activeHighlight?.snippet && (
             <motion.button
               onClick={handleCopy}
               className="flex items-center gap-2 px-3 py-1.5 rounded text-xs text-slate-400 hover:text-brand-turquoise transition-colors hover:bg-slate-700/50"
@@ -262,7 +259,7 @@ export const CodeVault: React.FC<CodeVaultProps> = ({
                   </motion.div>
                 )}
               </AnimatePresence>
-              <span>{copied ? 'Copied!' : 'Copy'}</span>
+              <span className="font-mono">{copied ? 'Copied!' : 'Copy'}</span>
             </motion.button>
           )}
         </div>
@@ -270,7 +267,7 @@ export const CodeVault: React.FC<CodeVaultProps> = ({
         {/* File Tabs */}
         <div className="bg-[#2d2d30] border-b border-slate-700/50 flex overflow-x-auto">
           {codeHighlights.map((highlight, index) => {
-            const ext = getFileExtension(highlight.language, highlight.title);
+            const ext = getFileExtension(highlight.language);
             const fileName = highlight.title.toLowerCase().replace(/\s+/g, '-') || `file-${index + 1}`;
 
             return (
@@ -334,7 +331,7 @@ export const CodeVault: React.FC<CodeVaultProps> = ({
             </div>
           ) : (
             <div className="bg-[#0d0d0d] rounded-lg p-4 border border-slate-800/50">
-              <p className="text-sm text-slate-400 font-mono italic">No code snippet available</p>
+              <p className="text-sm text-slate-400 font-mono">No code snippet available</p>
             </div>
           )}
         </div>

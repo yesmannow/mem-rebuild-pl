@@ -5,7 +5,7 @@ import { resumeData } from '../data/resumeData';
 
 /**
  * ResumePrint - ATS-Optimized, Print-Ready Resume Page
- * 
+ *
  * Design Philosophy:
  * - Chronological Resume format with Minimalist Design
  * - NO dark mode - White background, black text
@@ -32,8 +32,8 @@ const ResumePrint: React.FC = () => {
     <>
       <Helmet>
         <title>Resume - Jacob Darling | Marketing Director & Systems Architect</title>
-        <meta 
-          name="description" 
+        <meta
+          name="description"
           content="ATS-optimized resume for Jacob Darling - Marketing Director & Systems Architect with 15+ years experience building revenue-driving infrastructure for healthcare brands."
         />
         <meta name="robots" content="noindex, nofollow" />
@@ -75,7 +75,7 @@ const ResumePrint: React.FC = () => {
         <button
           onClick={handlePrint}
           onKeyDown={handleKeyDown}
-          className="flex items-center gap-2 px-4 py-2 bg-brand-teal text-white rounded-lg 
+          className="flex items-center gap-2 px-4 py-2 bg-brand-teal text-white rounded-lg
                      hover:bg-brand-teal/90 transition-colors duration-200
                      focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2
                      shadow-lg hover:shadow-xl"
@@ -88,24 +88,24 @@ const ResumePrint: React.FC = () => {
       </div>
 
       {/* Resume Container */}
-      <div 
-        className="min-h-screen bg-gray-100 py-8 print:bg-white print:py-0"
+      <div
+        className="min-h-screen bg-[#020409]/10 backdrop-blur-xl py-8 print:bg-white print:py-0"
         role="main"
         aria-label="Printable Resume"
       >
-        <div 
+        <div
           ref={resumeRef}
-          className="resume-container max-w-[8.5in] mx-auto bg-white text-black p-[0.75in] shadow-lg print:shadow-none font-inter"
+          className="resume-container max-w-[8.5in] mx-auto bg-white text-black p-[0.75in] shadow-lg print:shadow-none font-mono"
         >
           {/* Header - Center Aligned */}
           <header className="text-center mb-6" role="banner">
-            <h1 className="text-3xl font-bold tracking-widest uppercase text-black mb-1">
+            <h1 className="text-3xl font-clash font-bold tracking-widest uppercase text-black mb-1">
               {resumeData.header.name}
             </h1>
-            <p className="text-lg font-semibold text-gray-700 uppercase tracking-wide mb-3">
+            <p className="text-lg font-clash font-semibold text-gray-700 uppercase tracking-wide mb-3">
               {resumeData.header.title}
             </p>
-            <div 
+            <div
               className="text-[11px] text-gray-600 flex flex-wrap justify-center gap-x-3 gap-y-1"
               aria-label="Contact information"
             >
@@ -122,29 +122,29 @@ const ResumePrint: React.FC = () => {
 
           {/* Summary Section */}
           <section className="mb-6" aria-labelledby="summary-heading">
-            <h2 
+            <h2
               id="summary-heading"
-              className="text-lg font-bold uppercase text-black mb-2 border-b border-gray-200 pb-1"
+              className="text-lg font-clash font-bold uppercase text-black mb-2 border-b border-black/10 pb-1"
             >
               Professional Summary
             </h2>
-            <p className="text-[11px] leading-relaxed text-gray-900">
+            <p className="text-[11px] leading-relaxed text-black/80 font-mono">
               {resumeData.summary}
             </p>
           </section>
 
           {/* Core Competencies Section */}
           <section className="mb-6" aria-labelledby="competencies-heading">
-            <h2 
+            <h2
               id="competencies-heading"
-              className="text-lg font-bold uppercase text-black mb-2 border-b border-gray-200 pb-1"
+              className="text-lg font-clash font-bold uppercase text-black mb-2 border-b border-black/10 pb-1"
             >
               Core Competencies
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-1">
               {resumeData.coreCompetencies.map((competency, idx) => (
-                <span key={idx} className="text-[11px] text-gray-900 flex items-start">
-                  <span className="text-brand-teal mr-2" aria-hidden="true">•</span>
+                <span key={idx} className="text-[11px] text-black/80 font-mono flex items-start">
+                  <span className="text-cyan-600 mr-2" aria-hidden="true">•</span>
                   {competency}
                 </span>
               ))}
@@ -153,51 +153,51 @@ const ResumePrint: React.FC = () => {
 
           {/* Professional Experience Section */}
           <section className="mb-6" aria-labelledby="experience-heading">
-            <h2 
+            <h2
               id="experience-heading"
-              className="text-lg font-bold uppercase text-black mb-3 border-b border-gray-200 pb-1"
+              className="text-lg font-clash font-bold uppercase text-black mb-3 border-b border-black/10 pb-1"
             >
               Professional Experience
             </h2>
-            
+
             {resumeData.experience.map((job, jobIdx) => (
-              <article 
-                key={jobIdx} 
+              <article
+                key={jobIdx}
                 className="mb-5 last:mb-0"
                 aria-labelledby={`job-${jobIdx}-title`}
               >
                 {/* Job Header */}
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1">
                   <div>
-                    <h3 
+                    <h3
                       id={`job-${jobIdx}-title`}
-                      className="text-base font-bold uppercase text-black"
+                      className="text-base font-clash font-bold uppercase text-black"
                     >
                       {job.role}
                     </h3>
-                    <p className="text-base font-semibold text-gray-800">
+                    <p className="text-base font-semibold text-black/90">
                       {job.company}
                     </p>
                   </div>
-                  <div className="text-[11px] text-gray-600 sm:text-right mt-1 sm:mt-0">
+                  <div className="text-[11px] text-gray-600 sm:text-right mt-1 sm:mt-0 font-mono">
                     <p>{job.period}</p>
                     <p>{job.location}</p>
                   </div>
                 </div>
 
                 {/* Tech Stack */}
-                <p className="text-[10px] italic text-gray-600 mb-2">
+                <p className="text-[10px] text-gray-600 mb-2 font-mono uppercase tracking-wider">
                   {job.stack}
                 </p>
 
                 {/* Bullets */}
                 <ul className="space-y-1" role="list">
                   {job.bullets.map((bullet, bulletIdx) => (
-                    <li 
-                      key={bulletIdx} 
-                      className="text-[11px] leading-relaxed text-gray-900 flex items-start"
+                    <li
+                      key={bulletIdx}
+                      className="text-[11px] leading-relaxed text-black/80 flex items-start font-mono"
                     >
-                      <span className="text-brand-teal mr-2 flex-shrink-0" aria-hidden="true">•</span>
+                      <span className="text-cyan-600 mr-2 flex-shrink-0" aria-hidden="true">•</span>
                       <span>{bullet}</span>
                     </li>
                   ))}
@@ -208,22 +208,22 @@ const ResumePrint: React.FC = () => {
 
           {/* Education Section */}
           <section aria-labelledby="education-heading">
-            <h2 
+            <h2
               id="education-heading"
-              className="text-lg font-bold uppercase text-black mb-2 border-b border-gray-200 pb-1"
+              className="text-lg font-clash font-bold uppercase text-black mb-2 border-b border-black/10 pb-1"
             >
               Education
             </h2>
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
               <div>
-                <p className="text-base font-bold text-black">
+                <p className="text-base font-clash font-bold text-black">
                   {resumeData.education.degree}
                 </p>
-                <p className="text-base font-semibold text-gray-800">
+                <p className="text-base font-semibold text-black/90">
                   {resumeData.education.school}
                 </p>
               </div>
-              <p className="text-[11px] text-gray-600 mt-1 sm:mt-0">
+              <p className="text-[11px] text-gray-600 mt-1 sm:mt-0 font-mono">
                 {resumeData.education.year}
               </p>
             </div>

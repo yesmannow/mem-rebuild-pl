@@ -84,7 +84,7 @@ export const EndorsementTicker: React.FC = () => {
                 />
 
                 {/* Quote Text */}
-                <p className="italic text-brand-muted mb-4 relative z-10">{endorsement.quote}</p>
+                <p className="text-brand-muted mb-4 relative z-10 font-mono text-sm">{endorsement.quote}</p>
 
                 {/* Author Info */}
                 <div className="relative z-10">

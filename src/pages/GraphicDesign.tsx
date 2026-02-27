@@ -39,7 +39,7 @@ const GraphicDesign: React.FC = () => {
               transition={{ duration: 0.8 }}
             >
               {/* Title */}
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 font-clash">
                 Graphic Design Portfolio
               </h1>
 
@@ -50,8 +50,8 @@ const GraphicDesign: React.FC = () => {
 
               {/* Description */}
               <p className="text-base md:text-lg text-[var(--parchment-050)]/70 max-w-3xl mb-8">
-                A collection of design work that blends strategic thinking with visual storytelling. 
-                From brand identities to digital campaigns, each project represents a unique challenge 
+                A collection of design work that blends strategic thinking with visual storytelling.
+                From brand identities to digital campaigns, each project represents a unique challenge
                 and creative solution.
               </p>
             </motion.div>
@@ -114,7 +114,7 @@ const GraphicDesign: React.FC = () => {
         <section className="selected-works-section relative z-10 py-12 md:py-16">
           <div className="container mx-auto px-6 max-w-5xl">
             <motion.h2
-              className="font-display text-3xl md:text-4xl font-bold mb-8"
+              className="text-3xl md:text-4xl font-bold mb-8 font-clash"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -157,7 +157,7 @@ const GraphicDesign: React.FC = () => {
               transition={{ duration: 0.8, delay: 1 }}
               whileHover={{ scale: 1.02 }}
             >
-              <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 font-clash">
                 Interested in Working Together?
               </h2>
               <p className="text-[var(--parchment-050)]/80 mb-6 max-w-2xl mx-auto">

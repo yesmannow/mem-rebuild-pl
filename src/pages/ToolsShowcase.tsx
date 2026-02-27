@@ -359,7 +359,7 @@ const ToolsShowcase: React.FC = () => {
                 placeholder="Search tools by name, technology, or description..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-turquoise focus:border-transparent text-slate-900 dark:text-white"
+                className="w-full pl-12 pr-4 py-4 bg-white/5 backdrop-blur-xl dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-turquoise focus:border-transparent text-slate-900 dark:text-white"
               />
             </div>
 
@@ -372,7 +372,7 @@ const ToolsShowcase: React.FC = () => {
                   className={`px-4 py-2 rounded-lg font-medium transition-all ${
                     selectedCategory === category
                       ? 'bg-turquoise text-white shadow-lg'
-                      : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+                      : 'bg-white/5 backdrop-blur-xl dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
                   }`}
                 >
                   {category}
@@ -388,7 +388,7 @@ const ToolsShowcase: React.FC = () => {
         <section className="container mx-auto px-6 pb-16 relative z-10">
           {filteredTools.length === 0 ? (
             <div className="text-center py-16 max-w-2xl mx-auto">
-              <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-12 border border-slate-200 dark:border-slate-700">
+              <div className="bg-white/5 backdrop-blur-xl dark:bg-slate-800 rounded-xl shadow-lg p-12 border border-slate-200 dark:border-slate-700">
                 <Terminal className="w-16 h-16 mx-auto mb-4 text-slate-400" />
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">No Tools Found</h3>
                 <p className="text-slate-600 dark:text-slate-400 mb-6">
@@ -456,7 +456,7 @@ const ToolsShowcase: React.FC = () => {
 
             <div className="grid md:grid-cols-2 gap-6">
               {/* Build & Deploy Commands */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
+              <div className="bg-white/5 backdrop-blur-xl dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                   <GitBranch className="w-5 h-5 text-turquoise" />
                   Build & Deploy
@@ -484,7 +484,7 @@ const ToolsShowcase: React.FC = () => {
               </div>
 
               {/* Asset Optimization Commands */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
+              <div className="bg-white/5 backdrop-blur-xl dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                   <Zap className="w-5 h-5 text-creamsicle" />
                   Asset Optimization
@@ -512,7 +512,7 @@ const ToolsShowcase: React.FC = () => {
               </div>
 
               {/* MCP & Content Commands */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
+              <div className="bg-white/5 backdrop-blur-xl dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                   <Database className="w-5 h-5 text-turquoise" />
                   MCP & Content
@@ -540,7 +540,7 @@ const ToolsShowcase: React.FC = () => {
               </div>
 
               {/* Development Commands */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
+              <div className="bg-white/5 backdrop-blur-xl dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                   <Code className="w-5 h-5 text-creamsicle" />
                   Development
@@ -640,7 +640,7 @@ const ToolCard: React.FC<{
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
-      className="bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all border border-slate-200 dark:border-slate-700 overflow-hidden group"
+      className="bg-white/5 backdrop-blur-xl dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all border border-slate-200 dark:border-slate-700 overflow-hidden group"
     >
       {/* Tool Header */}
       <div className="p-6 border-b border-slate-200 dark:border-slate-700">
@@ -680,7 +680,7 @@ const ToolCard: React.FC<{
           {tool.technologies.map(tech => (
             <span
               key={tech}
-              className="px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm rounded-full border border-slate-200 dark:border-slate-700"
+              className="px-3 py-1 bg-white/5 backdrop-blur-xl dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm rounded-full border border-slate-200 dark:border-slate-700"
             >
               {tech}
             </span>

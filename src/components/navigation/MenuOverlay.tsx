@@ -138,7 +138,7 @@ const MenuOverlay: React.FC = () => {
                       onClick={() => handleNavigate(item.path)}
                       className="group w-full text-left focus-visible:outline-none"
                     >
-                      <span className="block font-['Playfair_Display'] text-[min(14vw,9rem)] italic leading-none text-white transition-colors duration-300 group-hover:text-cyan-200">
+                      <span className="block font-sans font-black tracking-tighter text-[clamp(2.5rem,7vw,6rem)] leading-none text-white transition-colors duration-300 group-hover:text-cyan-200">
                         {item.name ?? item.description}
                       </span>
                       <span className="mt-2 block font-['Geist',_sans-serif] text-[12px] uppercase tracking-[0.5em] text-white/50 transition-colors group-hover:text-white/80">

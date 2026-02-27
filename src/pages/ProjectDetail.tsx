@@ -55,7 +55,7 @@ const ProjectDetail: React.FC = () => {
 
             <div>
               <p className="font-['Geist',_sans-serif] text-[11px] uppercase tracking-[0.8em] text-cyan-300">Flagship Deploy</p>
-              <h1 className="mt-4 max-w-5xl font-['Playfair_Display'] text-[clamp(3.5rem,10vw,8rem)] italic leading-[0.9] text-white">
+              <h1 className="mt-4 max-w-5xl font-clash font-black tracking-tighter text-[clamp(3.5rem,10vw,8rem)] leading-[0.9] text-white">
                 {project.title}
               </h1>
               <div className="mt-6 flex flex-wrap gap-4 text-white/70">
@@ -114,7 +114,7 @@ const ProjectDetail: React.FC = () => {
             <div className="space-y-6">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
                 <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-[0.6em] text-white/50">Metric</p>
-                <p className="mt-2 font-['Playfair_Display'] text-6xl italic text-cyan-300">{project.metrics.value}</p>
+                <p className="mt-2 font-clash font-black tracking-tighter text-6xl text-cyan-300">{project.metrics.value}</p>
                 <p className="font-['Geist',_sans-serif] text-[11px] uppercase tracking-[0.6em] text-white/60">{project.metrics.label}</p>
               </div>
 

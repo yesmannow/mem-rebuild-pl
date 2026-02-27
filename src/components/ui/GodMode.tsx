@@ -155,7 +155,7 @@ const GodMode: React.FC<GodModeProps> = ({ active }) => {
                   transition={{ duration: 0.2 }}
                 >
                   <motion.div
-                    className="absolute top-0.5 w-3 h-3 bg-white rounded-full shadow-sm"
+                    className="absolute top-0.5 w-3 h-3 bg-white/5 backdrop-blur-xl rounded-full shadow-sm"
                     animate={{
                       x: wireframeMode ? 16 : 2,
                     }}

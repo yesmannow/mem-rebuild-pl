@@ -19,7 +19,7 @@ export interface AppCardProps extends Omit<HTMLMotionProps<'div'>, 'ref'> {
 
 const variantStyles = {
   default: 'bg-brand-surface border border-brand-surface',
-  glass: 'bg-white/5 backdrop-blur-md border border-white/10',
+  glass: 'bg-white/5 backdrop-blur-xl border border-white/10',
   gradient: 'bg-gradient-to-br from-brand-turquoise/10 to-brand-creamsicle/10 border border-brand-turquoise/20',
   outline: 'bg-transparent border-2 border-brand-turquoise/30',
 };

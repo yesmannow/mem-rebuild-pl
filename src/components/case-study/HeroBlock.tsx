@@ -60,7 +60,7 @@ const HeroBlock: React.FC<HeroBlockProps> = ({
 
           {/* Title */}
           <motion.h1
-            className="text-5xl md:text-7xl font-black mb-6 text-gray-900 dark:text-white"
+            className="text-5xl md:text-7xl font-black mb-6 text-white dark:text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -80,12 +80,12 @@ const HeroBlock: React.FC<HeroBlockProps> = ({
 
           {/* Stat highlight */}
           <motion.div
-            className="inline-flex items-center gap-4 px-6 py-4 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg"
+            className="inline-flex items-center gap-4 px-6 py-4 bg-white/5 backdrop-blur-xl dark:bg-gray-900 rounded-xl border border-white/10 dark:border-gray-800 shadow-lg"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <div className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white">
+            <div className="text-4xl md:text-5xl font-black text-white dark:text-white">
               {stat.value}
             </div>
             <div className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">

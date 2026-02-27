@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Filter, Sparkles, Palette, Compass, Layers, LineChart, Tag as TagIcon, ExternalLink } from 'lucide-react';
@@ -8,26 +8,11 @@ import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import SectionDivider from '../components/ui/SectionDivider';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
-import { PhysicsVault, Project as PhysicsProject } from '../components/home/PhysicsVault';
+// Heavy component: lazy-load PhysicsVault for better initial page performance
+const PhysicsVault = lazy(() => import('../components/side-projects/PhysicsVault').then(m => ({ default: m.PhysicsVault })));
+import { Project as PhysicsProject } from '../components/home/PhysicsVault'; // keeping the interface import if needed, but we might just navigate
 import { ArtifactDossier } from '../components/home/ArtifactDossier';
 import GlitchOverlay from '../components/home/GlitchOverlay';
-
-const folderMap: Record<string, string> = {
-  'primary-care-indy': 'Primarycare Indy',
-  '317-bbq': '317 bbq',
-  'taco-ninja': 'Taco Ninja',
-  'perpetual-fitness': 'Perpetual Movement Fitness',
-  'tbm-strategy': 'Tuohy Bailey & Moore LLP',
-  'resq-organic': 'ResQ Organics',
-  'behr-pet-essentials': 'Behr pet essentials',
-  'black-letter': 'Black Letter',
-  'primary-colours': 'Primary Colours',
-  'circle-city': 'circle  city kicks',
-  'clean-aesthetic': 'Clean Aesthetic',
-  'hoosier-boy': 'Hoosierboy Barbershop',
-  'urgent-care-indy': 'urgent care indy',
-  'piko-fg-music': 'Piko Fg Music',
-};
 
 /**
  * Side Projects Page - Independent Studio Vault
@@ -42,16 +27,10 @@ const folderMap: Record<string, string> = {
 const SideProjects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('All');
   const [selectedProject, setSelectedProject] = useState<PhysicsProject | null>(null);
-  const [isBooting, setIsBooting] = useState(false);
+  const [isBooting] = useState(false);
 
-  const openDossier = (project: PhysicsProject) => {
-    if (isBooting) return;
-    setIsBooting(true);
-    window.setTimeout(() => {
-      setSelectedProject(project);
-      setIsBooting(false);
-    }, 800);
-  };
+  // Stats logic using sideProjects data directly...
+
 
   const categories = useMemo(() => {
     const set = new Set<string>(sideProjects.map((p) => p.category));
@@ -100,24 +79,6 @@ const SideProjects: React.FC = () => {
     const last = years[years.length - 1];
     return first === last ? `${first}` : `${first} – ${last}`;
   }, []);
-
-  const filteredVaultProjects = useMemo(() => {
-    const projects = activeFilter === 'All'
-      ? sideProjects
-      : sideProjects.filter((p) => p.category === activeFilter);
-
-    return projects.map((p): PhysicsProject => {
-      const folder = folderMap[p.id];
-      const optimizedHero = folder ? `/images/projects/${folder}/hero_optimized.webp` : p.image;
-      return {
-        id: p.id,
-        name: p.title,
-        hero: optimizedHero,
-        stack: p.stack ?? [],
-        tags: p.tags,
-      };
-    });
-  }, [activeFilter]);
 
   const heroStats = [
     { label: 'Side Projects', value: sideProjects.length },
@@ -396,10 +357,9 @@ const SideProjects: React.FC = () => {
               </div>
 
               <div className="h-[680px] w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative">
-                <PhysicsVault
-                  onProjectSelect={openDossier}
-                  projects={filteredVaultProjects}
-                />
+                <Suspense fallback={<GlitchOverlay isBooting={true} />}>
+                  <PhysicsVault />
+                </Suspense>
               </div>
             </motion.section>
 

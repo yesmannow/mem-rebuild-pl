@@ -86,7 +86,7 @@ const NarrativeSection: React.FC<NarrativeSectionProps> = ({
     >
       <div className="max-w-3xl mx-auto px-6">
         <h2
-          className="text-3xl md:text-4xl font-black mb-6 text-gray-900 dark:text-white"
+          className="text-3xl md:text-4xl font-black mb-6 text-white dark:text-white"
           style={
             visualIdentity?.primaryColor
               ? { color: visualIdentity.primaryColor }

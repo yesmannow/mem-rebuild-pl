@@ -5,7 +5,7 @@ interface GlassCardProps {
   children: ReactNode;
   className?: string;
   hover?: boolean;
-  blur?: 'sm' | 'md' | 'lg';
+  blur?: 'sm' | 'md' | 'lg' | 'xl';
   gradient?: string;
 }
 
@@ -13,13 +13,14 @@ const GlassCard: React.FC<GlassCardProps> = ({
   children,
   className = '',
   hover = true,
-  blur = 'md',
+  blur = 'xl',
   gradient = 'from-white/10 to-white/5',
 }) => {
   const blurClasses = {
     sm: 'backdrop-blur-sm',
     md: 'backdrop-blur-md',
     lg: 'backdrop-blur-lg',
+    xl: 'backdrop-blur-xl',
   };
 
   return (

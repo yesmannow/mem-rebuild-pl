@@ -132,7 +132,7 @@ const BrandBuilder: React.FC = () => {
     {
       heading: 'Montserrat',
       body: 'Open Sans',
-      accent: 'Playfair Display',
+      accent: '"Space Grotesk", "Clash Display", sans-serif"',
       description: 'Modern & Professional - Great for tech and corporate brands',
     },
     {
@@ -148,7 +148,7 @@ const BrandBuilder: React.FC = () => {
       description: 'Bold & Contemporary - Ideal for energetic, youth-focused brands',
     },
     {
-      heading: 'Playfair Display',
+      heading: '"Space Grotesk", "Clash Display", sans-serif',
       body: 'Source Sans Pro',
       accent: 'Oswald',
       description: 'Sophisticated & Trustworthy - Great for finance and luxury brands',
@@ -156,8 +156,8 @@ const BrandBuilder: React.FC = () => {
   ];
 
   const brandVoice: BrandVoice = useMemo(() => {
-    const [modern, professional, friendly, bold] = brandValues.personality;
-    
+    const [, professional, friendly, bold] = brandValues.personality;
+
     let tone = '';
     let adjectives: string[] = [];
     let doList: string[] = [];
@@ -215,7 +215,7 @@ const BrandBuilder: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-12">
+    <div className="min-h-screen bg-slate-950 py-12">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -227,7 +227,7 @@ const BrandBuilder: React.FC = () => {
             <Sparkles className="text-purple-400" size={16} />
             <span className="text-xs uppercase tracking-[0.3em] text-purple-300">Brand Studio</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-brand-text mt-2 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-clash font-bold text-brand-text mt-2 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
             Brand Builder
           </h1>
           <p className="text-brand-muted text-lg mt-2 max-w-2xl mx-auto">
@@ -241,7 +241,7 @@ const BrandBuilder: React.FC = () => {
             {tabs.map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
+                onClick={() => setActiveTab(tab.id as 'inputs' | 'logo' | 'colors' | 'typography' | 'voice' | 'playbook')}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all whitespace-nowrap ${
                   activeTab === tab.id
                     ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-[0_10px_30px_rgba(168,85,247,0.4)]'
@@ -263,14 +263,14 @@ const BrandBuilder: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="bg-slate-900/50 backdrop-blur-lg border border-slate-700/50 rounded-2xl p-8"
+            className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8"
           >
             {/* Brand Inputs Tab */}
             {activeTab === 'inputs' && (
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-2xl font-bold text-brand-text mb-6">Define Your Brand</h2>
-                  
+                  <h2 className="text-2xl font-clash font-bold text-brand-text mb-6">Define Your Brand</h2>
+
                   {/* Industry Selection */}
                   <div className="mb-6">
                     <label className="block text-sm font-semibold text-brand-text mb-3">Industry</label>
@@ -369,7 +369,7 @@ const BrandBuilder: React.FC = () => {
             {/* Logo Concepts Tab */}
             {activeTab === 'logo' && (
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-brand-text mb-4">Logo Concept Variations</h2>
+                <h2 className="text-2xl font-clash font-bold text-brand-text mb-4">Logo Concept Variations</h2>
                 <p className="text-brand-muted mb-6">
                   Based on your brand personality, here are AI-generated logo concept directions:
                 </p>
@@ -389,7 +389,7 @@ const BrandBuilder: React.FC = () => {
                           {index === 2 && '✨'}
                         </div>
                       </div>
-                      <h3 className="text-lg font-bold text-brand-text mb-2">{type}</h3>
+                      <h3 className="text-lg font-clash font-bold text-brand-text mb-2">{type}</h3>
                       <p className="text-sm text-brand-muted mb-4">
                         {index === 0 && 'Clean typography-focused logo emphasizing your brand name'}
                         {index === 1 && 'Balanced combination of symbolic element with wordmark'}
@@ -412,7 +412,7 @@ const BrandBuilder: React.FC = () => {
             {/* Color Schemes Tab */}
             {activeTab === 'colors' && (
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-brand-text mb-4">Color Scheme Recommendations</h2>
+                <h2 className="text-2xl font-clash font-bold text-brand-text mb-4">Color Scheme Recommendations</h2>
                 <div className="space-y-4">
                   {colorSchemes.map((scheme, index) => (
                     <motion.div
@@ -422,7 +422,7 @@ const BrandBuilder: React.FC = () => {
                       transition={{ delay: index * 0.1 }}
                       className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 hover:border-purple-500/50 transition-all"
                     >
-                      <h3 className="text-lg font-bold text-brand-text mb-4">{scheme.name}</h3>
+                      <h3 className="text-lg font-clash font-bold text-brand-text mb-4">{scheme.name}</h3>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {[
                           { label: 'Primary', color: scheme.primary },
@@ -453,7 +453,7 @@ const BrandBuilder: React.FC = () => {
             {/* Typography Tab */}
             {activeTab === 'typography' && (
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-brand-text mb-4">Typography Pairings</h2>
+                <h2 className="text-2xl font-clash font-bold text-brand-text mb-4">Typography Pairings</h2>
                 <div className="space-y-6">
                   {typographyPairings.map((pairing, index) => (
                     <motion.div
@@ -490,15 +490,15 @@ const BrandBuilder: React.FC = () => {
             {/* Brand Voice Tab */}
             {activeTab === 'voice' && (
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-brand-text mb-4">Brand Voice & Tone Guidelines</h2>
+                <h2 className="text-2xl font-clash font-bold text-brand-text mb-4">Brand Voice & Tone Guidelines</h2>
                 <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
                   <div className="mb-6">
-                    <h3 className="text-lg font-bold text-brand-text mb-2">Overall Tone</h3>
+                    <h3 className="text-lg font-clash font-bold text-brand-text mb-2">Overall Tone</h3>
                     <p className="text-2xl font-semibold text-purple-400">{brandVoice.tone}</p>
                   </div>
-                  
+
                   <div className="mb-6">
-                    <h3 className="text-lg font-bold text-brand-text mb-3">Brand Adjectives</h3>
+                    <h3 className="text-lg font-clash font-bold text-brand-text mb-3">Brand Adjectives</h3>
                     <div className="flex gap-2 flex-wrap">
                       {brandVoice.adjectives.map((adj) => (
                         <span
@@ -513,7 +513,7 @@ const BrandBuilder: React.FC = () => {
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h3 className="text-lg font-bold text-green-400 mb-3">✓ Do</h3>
+                      <h3 className="text-lg font-clash font-bold text-green-400 mb-3">✓ Do</h3>
                       <ul className="space-y-2">
                         {brandVoice.doList.map((item, index) => (
                           <li key={index} className="text-brand-muted text-sm flex items-start gap-2">
@@ -524,7 +524,7 @@ const BrandBuilder: React.FC = () => {
                       </ul>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-red-400 mb-3">✗ Don't</h3>
+                      <h3 className="text-lg font-clash font-bold text-red-400 mb-3">✗ Don&apos;t</h3>
                       <ul className="space-y-2">
                         {brandVoice.dontList.map((item, index) => (
                           <li key={index} className="text-brand-muted text-sm flex items-start gap-2">
@@ -548,7 +548,7 @@ const BrandBuilder: React.FC = () => {
                   className="inline-block"
                 >
                   <Download className="mx-auto text-purple-400 mb-4" size={64} />
-                  <h2 className="text-2xl font-bold text-brand-text mb-2">
+                  <h2 className="text-2xl font-clash font-bold text-brand-text mb-2">
                     Your Brand Playbook is Ready!
                   </h2>
                   <p className="text-brand-muted mb-6 max-w-md mx-auto">
@@ -564,7 +564,7 @@ const BrandBuilder: React.FC = () => {
                 </motion.div>
 
                 <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 max-w-2xl mx-auto mt-8">
-                  <h3 className="text-lg font-bold text-brand-text mb-4">What's Included:</h3>
+                  <h3 className="text-lg font-clash font-bold text-brand-text mb-4">What&apos;s Included:</h3>
                   <ul className="space-y-3 text-left">
                     {[
                       'Logo concept variations and usage guidelines',

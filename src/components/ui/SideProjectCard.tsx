@@ -104,7 +104,7 @@ export const SideProjectCard: React.FC<SideProjectCardProps> = ({
         )}
 
         {/* Card Container - Updated with proper colors for dark background */}
-        <div className="relative h-full overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/60 backdrop-blur-sm transition-all duration-300 hover:border-brand-teal/60 hover:shadow-lg hover:shadow-brand-teal/10">
+        <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/10 hover:shadow-lg hover:shadow-brand-teal/10">
           {/* Image Section */}
           <div className="relative aspect-[4/3] overflow-hidden bg-slate-900">
             {!imageError ? (

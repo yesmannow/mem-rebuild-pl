@@ -362,7 +362,7 @@ const StickyCard: React.FC<{
                     <div>
                       <h3
                         className="text-4xl sm:text-5xl font-black text-white leading-none tracking-tight mb-3"
-                        style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
+                        style={{ fontFamily: '"Space Grotesk", "Clash Display", sans-serif' }}
                       >
                         {study.title}
                       </h3>
@@ -407,7 +407,7 @@ const StickyCard: React.FC<{
                         <div
                           className="font-black leading-none mb-1.5 tabular-nums"
                           style={{
-                            fontFamily: '"Playfair Display", Georgia, serif',
+                            fontFamily: '"Space Grotesk", "Clash Display", sans-serif',
                             fontSize: 'clamp(2.4rem, 5.5vw, 5.5rem)',
                             textShadow: `0 0 60px ${color}55`,
                           }}
@@ -472,7 +472,7 @@ const CinematicCaseStudies: React.FC<CinematicCaseStudiesProps> = ({ studies }) 
             id="cinematic-studies-title"
             className="mb-4 leading-none"
             style={{
-              fontFamily: '"Playfair Display", Georgia, serif',
+              fontFamily: '"Space Grotesk", "Clash Display", sans-serif',
               fontSize: 'clamp(2.8rem, 6vw, 5rem)',
               fontWeight: 900,
               color: '#fff',

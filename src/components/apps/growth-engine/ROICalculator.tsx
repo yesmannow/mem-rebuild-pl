@@ -68,7 +68,7 @@ const ROICalculator: React.FC = () => {
   };
 
   return (
-    <div className="rounded-2xl border border-brand-teal/20 bg-slate-900/50 backdrop-blur-lg p-6 shadow-lg">
+    <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-lg">
       <div className="flex items-center justify-between gap-3 mb-6">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-teal/20 border border-brand-teal/30 text-brand-teal">
@@ -112,7 +112,7 @@ const ROICalculator: React.FC = () => {
                 max={300}
                 value={reimbursement}
                 onChange={(e) => handleReimbursementChange(Number(e.target.value) || 0)}
-                className="w-20 rounded-lg border border-brand-teal/30 bg-slate-900/70 px-3 py-2 text-brand-text focus:border-brand-teal focus:outline-none"
+                className="w-20 rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl px-3 py-2 text-brand-text focus:border-cyan-400 focus:outline-none"
                 style={fontMono}
                 aria-describedby="reimbursement-helper"
               />
@@ -144,7 +144,7 @@ const ROICalculator: React.FC = () => {
                 max={100}
                 value={patientsPerWeek}
                 onChange={(e) => handlePatientsChange(Number(e.target.value) || 0)}
-                className="w-20 rounded-lg border border-brand-teal/30 bg-slate-900/70 px-3 py-2 text-brand-text focus:border-brand-teal focus:outline-none"
+                className="w-20 rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl px-3 py-2 text-brand-text focus:border-cyan-400 focus:outline-none"
                 style={fontMono}
                 aria-describedby="patients-helper"
               />
@@ -159,7 +159,7 @@ const ROICalculator: React.FC = () => {
             <select
               value={bundleKey}
               onChange={(e) => setBundleKey(e.target.value as BundleKey)}
-              className="w-full rounded-lg border border-brand-teal/30 bg-slate-900/70 px-3 py-2 text-brand-text focus:border-brand-teal focus:outline-none"
+              className="w-full rounded-lg border border-white/10 bg-white/5 backdrop-blur-xl px-3 py-2 text-brand-text focus:border-cyan-400 focus:outline-none"
             >
               {bundleOptions.map((option) => (
                 <option key={option.key} value={option.key}>
@@ -171,10 +171,10 @@ const ROICalculator: React.FC = () => {
         </div>
 
         <div className="space-y-4">
-          <div className="rounded-xl border border-brand-teal/30 bg-slate-950/60 p-4 shadow-inner">
+          <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 shadow-inner">
             <div className="flex items-center justify-between">
               <span className="text-sm text-brand-muted">Weekly Revenue</span>
-              <Gauge size={18} className="text-brand-teal" />
+              <Gauge size={18} className="text-cyan-400" />
             </div>
             <div className="text-4xl font-bold text-brand-text" style={fontMono}>
               <AnimatedNumber value={weeklyRevenue} prefix="$" />
@@ -182,10 +182,10 @@ const ROICalculator: React.FC = () => {
             <p className="text-xs text-brand-muted mt-1">Patients/Week × Avg. Reimbursement</p>
           </div>
 
-          <div className="rounded-xl border border-brand-teal/30 bg-slate-950/60 p-4 shadow-inner">
+          <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 shadow-inner">
             <div className="flex items-center justify-between">
               <span className="text-sm text-brand-muted">Monthly Revenue</span>
-              <Gauge size={18} className="text-brand-teal" />
+              <Gauge size={18} className="text-cyan-400" />
             </div>
             <div className="text-4xl font-bold text-brand-text" style={fontMono}>
               <AnimatedNumber value={monthlyRevenue} prefix="$" />
@@ -193,7 +193,7 @@ const ROICalculator: React.FC = () => {
             <p className="text-xs text-brand-muted mt-1">Based on 4-week cycle</p>
           </div>
 
-          <div className="rounded-xl border border-brand-orange/40 bg-slate-950/60 p-4 shadow-inner">
+          <div className="rounded-xl border border-orange-400/20 bg-white/5 backdrop-blur-xl p-4 shadow-inner">
             <div className="flex items-center justify-between">
               <span className="text-sm text-brand-muted">Time to Profit</span>
               <Rocket size={18} className="text-brand-orange" />

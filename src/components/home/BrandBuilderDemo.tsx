@@ -265,8 +265,9 @@ const BrandBuilderDemo: React.FC<BrandBuilderDemoProps> = ({
             <div
               className="flex-1 flex items-center gap-2 px-3 py-2 rounded-xl"
               style={{
-                background: 'rgba(10,8,18,0.8)',
-                border: `1px solid ${isGenerating ? color + '50' : 'rgba(255,255,255,0.08)'}`,
+                background: 'rgba(255, 255, 255, 0.05)',
+                backdropFilter: 'blur(24px)',
+                border: `1px solid ${isGenerating ? color + '50' : 'rgba(255, 255, 255, 0.1)'}`,
                 transition: 'border-color 0.15s',
               }}
             >
@@ -377,8 +378,9 @@ const BrandBuilderDemo: React.FC<BrandBuilderDemoProps> = ({
         } : {}}
         transition={{ duration: 0.8, repeat: isGenerating ? Infinity : 0 }}
         style={{
-          background: 'rgba(10,8,18,0.8)',
-          border: `1px solid ${isLocked ? palette.primary + '50' : isGenerating ? color + '30' : 'rgba(255,255,255,0.06)'}`,
+          background: 'rgba(255, 255, 255, 0.05)',
+          backdropFilter: 'blur(24px)',
+          border: `1px solid ${isLocked ? palette.primary + '50' : isGenerating ? color + '30' : 'rgba(255, 255, 255, 0.1)'}`,
         }}
       >
         <p className="text-[9px] font-mono uppercase tracking-widest text-zinc-600 mb-2">ARCHETYPE</p>
@@ -487,7 +489,7 @@ const BrandBuilderDemo: React.FC<BrandBuilderDemoProps> = ({
             {/* Brand metrics row */}
             <div
               className="grid grid-cols-3 gap-2 rounded-xl p-3"
-              style={{ background: 'rgba(10,8,18,0.6)', border: `1px solid ${palette.primary}18` }}
+              style={{ background: 'rgba(255, 255, 255, 0.03)', border: `1px solid ${palette.primary}18`, backdropFilter: 'blur(12px)' }}
             >
               {[
                 { label: 'ARCHETYPE',   value: archetype.replace('THE ', '') },
@@ -510,7 +512,8 @@ const BrandBuilderDemo: React.FC<BrandBuilderDemoProps> = ({
               transition={{ delay: 0.32, duration: 0.4 }}
               className="rounded-xl p-4 relative overflow-hidden"
               style={{
-                background: 'rgba(10,8,18,0.85)',
+                background: 'rgba(255, 255, 255, 0.05)',
+                backdropFilter: 'blur(24px)',
                 border: `1px solid ${palette.primary}25`,
                 transform: 'perspective(1000px) rotateX(4deg)',
                 transformOrigin: 'top center',

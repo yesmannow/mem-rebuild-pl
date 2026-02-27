@@ -4,10 +4,14 @@
     "slug": "317-bbq",
     "title": "Cinder-Fired Commerce System",
     "client": "317 BBQ",
+    "category": "SYSTEMS_ARCH",
+    "imageQuery": "smokehouse barbecue restaurant cinematic dark moody",
     "metrics": {
       "value": "+67.6%",
       "label": "Increase in ROI"
     },
+    "tech": ["React", "Node.js", "Shopify", "GSAP"],
+    "physicsOptions": { "density": 0.008, "friction": 0.08, "restitution": 0.55 },
     "roles": ["Strategy", "Experience", "Automation"],
     "heroImage": "https://images.pexels.com/photos/2833039/pexels-photo-2833039.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
     "excerpt": "Transformed a humble smokehouse site into a cinematic commerce experience that feels like stepping inside the pit room.",
@@ -20,17 +24,22 @@
       "https://images.pexels.com/photos/313705/pexels-photo-313705.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
       "https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
       "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1"
-    ]
+    ],
+    "tags": ["web", "digital", "commerce", "marketing"]
   },
   {
     "id": "russell-painting",
     "slug": "russell-painting",
     "title": "FieldOps Finishing Suite",
     "client": "Russell Painting Company",
+    "category": "SYSTEMS_ARCH",
+    "imageQuery": "professional painting service field operations modern minimal",
     "metrics": {
       "value": "-38%",
       "label": "Quote Friction"
     },
+    "tech": ["Next.js", "WebGL", "Python", "AI Chatbot"],
+    "physicsOptions": { "density": 0.01, "friction": 0.1, "restitution": 0.6 },
     "roles": ["Product Design", "WebGL", "AI Assistant"],
     "heroImage": "https://images.pexels.com/photos/3584438/pexels-photo-3584438.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
     "excerpt": "Turned a legacy brochure site into a responsive ops cockpit with instant quoting and regional service telemetry.",
@@ -43,17 +52,22 @@
       "https://images.pexels.com/photos/6333926/pexels-photo-6333926.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
       "https://images.pexels.com/photos/6333923/pexels-photo-6333923.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
       "https://images.pexels.com/photos/5256811/pexels-photo-5256811.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1"
-    ]
+    ],
+    "tags": ["web", "digital", "app", "seo"]
   },
   {
     "id": "tuohy-bailey-moore",
     "slug": "tuohy-bailey-moore",
     "title": "Transaction Command Deck",
     "client": "Tuohy Bailey & Moore LLP",
+    "category": "AI_AUTOMATION",
+    "imageQuery": "legal finance capital markets dark minimal editorial luxury",
     "metrics": {
       "value": "+312bps",
       "label": "Deal Velocity"
     },
+    "tech": ["React", "D3.js", "Python", "GPT-4"],
+    "physicsOptions": { "density": 0.012, "friction": 0.05, "restitution": 0.7 },
     "roles": ["Narrative Systems", "Automation", "Interactive Data"],
     "heroImage": "https://images.pexels.com/photos/3758104/pexels-photo-3758104.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
     "excerpt": "Coded a capital-markets briefing room that feels like stepping inside the firm's data room.",
@@ -66,17 +80,22 @@
       "https://images.pexels.com/photos/5990671/pexels-photo-5990671.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
       "https://images.pexels.com/photos/3735437/pexels-photo-3735437.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
       "https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1"
-    ]
+    ],
+    "tags": ["ai", "automation", "machine learning", "data"]
   },
   {
     "id": "riley-bennett-egloff",
     "slug": "riley-bennett-egloff",
     "title": "Litigation Guidance Array",
     "client": "Riley Bennett Egloff LLP",
+    "category": "AI_AUTOMATION",
+    "imageQuery": "law firm litigation dark atmosphere blue minimalist",
     "metrics": {
       "value": "+145%",
       "label": "Qualified Leads"
     },
+    "tech": ["Vue", "GSAP", "Python", "NLP"],
+    "physicsOptions": { "density": 0.009, "friction": 0.12, "restitution": 0.5 },
     "roles": ["Strategy", "Voice & Tone", "CX Systems"],
     "heroImage": "https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
     "excerpt": "Reframed a legacy legal library into a cinematic litigation atlas with spatial navigation and tone modules.",
@@ -89,6 +108,126 @@
       "https://images.pexels.com/photos/3861970/pexels-photo-3861970.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
       "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1",
       "https://images.pexels.com/photos/3861838/pexels-photo-3861838.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1"
-    ]
+    ],
+    "tags": ["ai", "automation", "web", "digital"]
+  },
+  {
+    "id": "317-bbq-vault",
+    "slug": "317-bbq",
+    "title": "317 BBQ",
+    "client": "317 BBQ",
+    "category": "SYSTEMS_ARCH",
+    "imageQuery": "smokehouse barbecue fire ember dark noir",
+    "metrics": {
+      "value": "+67.6%",
+      "label": "ROI"
+    },
+    "tech": ["React", "Node.js", "Shopify"],
+    "physicsOptions": { "density": 0.008, "friction": 0.08, "restitution": 0.55 },
+    "roles": ["Strategy", "Experience"],
+    "tags": ["web", "digital", "commerce"],
+    "vaultHero": "/images/projects/317 bbq/hero_optimized.webp"
+  },
+  {
+    "id": "behr-pet-vault",
+    "slug": "behr-pet",
+    "title": "Behr Pet Essentials",
+    "client": "Behr Pet Essentials",
+    "category": "WEB3",
+    "imageQuery": "pet care product lifestyle minimal white clean",
+    "metrics": {
+      "value": "+89%",
+      "label": "Conversion"
+    },
+    "tech": ["Shopify", "Liquid", "GSAP"],
+    "physicsOptions": { "density": 0.006, "friction": 0.15, "restitution": 0.7 },
+    "roles": ["Commerce", "Brand"],
+    "tags": ["brand", "identity", "web"],
+    "vaultHero": "/images/projects/Behr pet essentials/hero_optimized.webp"
+  },
+  {
+    "id": "black-letter-vault",
+    "slug": "black-letter",
+    "title": "Black Letter",
+    "client": "Black Letter",
+    "category": "WEB3",
+    "imageQuery": "editorial typography dark ink minimal black white luxury",
+    "metrics": {
+      "value": "+210%",
+      "label": "Engagement"
+    },
+    "tech": ["Vue", "Express", "GSAP"],
+    "physicsOptions": { "density": 0.011, "friction": 0.06, "restitution": 0.65 },
+    "roles": ["Brand", "Experience"],
+    "tags": ["brand", "identity", "digital"],
+    "vaultHero": "/images/projects/Black Letter/hero_optimized.webp"
+  },
+  {
+    "id": "circle-city-vault",
+    "slug": "circle-city-kicks",
+    "title": "Circle City Kicks",
+    "client": "Circle City Kicks",
+    "category": "SYSTEMS_ARCH",
+    "imageQuery": "sneaker streetwear urban culture neon night",
+    "metrics": {
+      "value": "+3.1x",
+      "label": "Traffic"
+    },
+    "tech": ["Next.js", "Tailwind", "Stripe"],
+    "physicsOptions": { "density": 0.007, "friction": 0.1, "restitution": 0.8 },
+    "roles": ["Commerce", "UX"],
+    "tags": ["web", "digital", "app"],
+    "vaultHero": "/images/projects/circle  city kicks/hero_optimized.webp"
+  },
+  {
+    "id": "hoosierboy-vault",
+    "slug": "hoosierboy-barbershop",
+    "title": "Hoosierboy Barbershop",
+    "client": "Hoosierboy Barbershop",
+    "category": "WEB3",
+    "imageQuery": "barbershop vintage grooming dark moody interior",
+    "metrics": {
+      "value": "+55%",
+      "label": "Bookings"
+    },
+    "tech": ["HTML", "CSS", "JavaScript"],
+    "physicsOptions": { "density": 0.01, "friction": 0.12, "restitution": 0.5 },
+    "roles": ["Brand", "Web"],
+    "tags": ["brand", "web", "digital"],
+    "vaultHero": "/images/projects/Hoosierboy Barbershop/hero_optimized.webp"
+  },
+  {
+    "id": "perpetual-vault",
+    "slug": "perpetual-movement",
+    "title": "Perpetual Movement",
+    "client": "Perpetual Movement Fitness",
+    "category": "AI_AUTOMATION",
+    "imageQuery": "fitness training athlete dark cinematic motion blur",
+    "metrics": {
+      "value": "+400%",
+      "label": "App Sessions"
+    },
+    "tech": ["React Native", "Firebase", "Python"],
+    "physicsOptions": { "density": 0.009, "friction": 0.07, "restitution": 0.75 },
+    "roles": ["Product", "Mobile", "AI"],
+    "tags": ["ai", "automation", "app", "digital"],
+    "vaultHero": "/images/projects/Perpetual Movement Fitness/hero_optimized.webp"
+  },
+  {
+    "id": "piko-vault",
+    "slug": "piko-fg-music",
+    "title": "Piko Fg Music",
+    "client": "Piko Fg Music",
+    "category": "WEB3",
+    "imageQuery": "music producer studio neon abstract sound wave dark",
+    "metrics": {
+      "value": "+175%",
+      "label": "Streams"
+    },
+    "tech": ["Next.js", "Sanity", "GSAP"],
+    "physicsOptions": { "density": 0.007, "friction": 0.09, "restitution": 0.72 },
+    "roles": ["Brand", "Experience", "Web3"],
+    "tags": ["brand", "web", "digital"],
+    "vaultHero": "/images/projects/Piko Fg Music/hero_optimized.webp"
   }
 ]

@@ -173,13 +173,14 @@ export default {
   		},
 		fontFamily: {
 			serif: [
-				'Playfair Display',
-				'Georgia',
-				'Times New Roman',
-				'serif'
+				'Clash Display',
+				'system-ui',
+				'sans-serif'
 			],
 			sans: [
+				'Geist',
 				'Montserrat',
+				'system-ui',
 				'sans-serif'
 			],
 			mono: [
@@ -191,16 +192,16 @@ export default {
 				'monospace'
 			],
 			display: [
+				'Clash Display',
 				'Montserrat',
-				'Fraunces 144',
-				'Georgia',
-				'serif'
+				'system-ui',
+				'sans-serif'
 			],
 			brand: [
+				'Clash Display',
 				'Montserrat',
-				'Fraunces 144',
-				'Georgia',
-				'serif'
+				'system-ui',
+				'sans-serif'
 			],
 			montserrat: [
 				'Montserrat',
@@ -213,7 +214,7 @@ export default {
 				'sans-serif'
 			],
 			body: [
-				'Space Grotesk',
+				'Geist',
 				'ui-sans-serif',
 				'system-ui',
 				'sans-serif'

@@ -16,21 +16,21 @@ const DataSlab: React.FC<{ item: ExperienceItem; index: number }> = ({ item, ind
       className="job-card absolute inset-0 w-full"
       style={{ transformOrigin: '50% 50%' }}
     >
-      <div className="relative mx-auto max-w-3xl backdrop-blur-xl bg-slate-900/60 border border-white/10 rounded-2xl p-7 shadow-[0_0_60px_rgba(0,242,255,0.04)] overflow-hidden">
+      <div className="relative mx-auto max-w-3xl backdrop-blur-xl bg-slate-900/60 border border-white/10 rounded-2xl p-7 shadow-[0_0_60px_rgba(0,242,255,0.04)] overflow-hidden job-card-inner transition-colors duration-500">
         {/* Teal left accent bar */}
         <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-gradient-to-b from-cyan-400 to-orange-400 opacity-60" />
 
         {/* Index badge */}
-        <span className="absolute top-4 right-5 font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-white/20">
+        <span className="absolute top-4 right-5 font-mono text-[10px] uppercase tracking-widest text-white/20">
           {String(index + 1).padStart(2, '0')} / {String(index + 1).padStart(2, '0')}
         </span>
 
         <div className="pl-4">
           {/* Role + company */}
-          <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-cyan-400/70 mb-1">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-cyan-400/70 mb-1">
             {item.period} &nbsp;·&nbsp; {item.location}
           </p>
-          <h3 className="font-['Playfair_Display'] italic text-2xl md:text-3xl text-white leading-tight mb-0.5">
+          <h3 className="font-clash font-black tracking-tighter text-2xl md:text-3xl text-white leading-tight mb-0.5">
             {item.role}
           </h3>
           <p className="text-cyan-300/80 font-semibold text-base mb-4">{item.company}</p>
@@ -39,12 +39,12 @@ const DataSlab: React.FC<{ item: ExperienceItem; index: number }> = ({ item, ind
           {/* Achievement pills */}
           <div className="flex flex-wrap gap-2 mb-5">
             {item.keyAchievement && (
-              <span className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-green-400/30 text-green-400/80 bg-green-400/5">
+              <span className="font-mono text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-green-400/30 text-green-400/80 bg-green-400/5">
                 ✓ {item.keyAchievement}
               </span>
             )}
             {item.highlight && (
-              <span className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-cyan-400/30 text-cyan-400/80 bg-cyan-400/5">
+              <span className="font-mono text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-cyan-400/30 text-cyan-400/80 bg-cyan-400/5">
                 ↑ {item.highlight}
               </span>
             )}
@@ -56,13 +56,13 @@ const DataSlab: React.FC<{ item: ExperienceItem; index: number }> = ({ item, ind
               {item.techStack.slice(0, 10).map((tech) => (
                 <span
                   key={tech}
-                  className="font-['Geist',_sans-serif] text-[9px] uppercase tracking-widest px-2 py-1 bg-white/5 border border-white/8 rounded-md text-white/40"
+                  className="font-mono text-[9px] uppercase tracking-widest px-2 py-1 bg-white/5 border border-white/8 rounded-md text-white/40"
                 >
                   {tech}
                 </span>
               ))}
               {item.techStack.length > 10 && (
-                <span className="font-['Geist',_sans-serif] text-[9px] uppercase tracking-widest px-2 py-1 bg-white/5 border border-white/8 rounded-md text-white/30">
+                <span className="font-mono text-[9px] uppercase tracking-widest px-2 py-1 bg-white/5 border border-white/8 rounded-md text-white/30">
                   +{item.techStack.length - 10}
                 </span>
               )}
@@ -105,21 +105,49 @@ export const ZAxisTunnel: React.FC<ZAxisTunnelProps> = ({ experiences }) => {
       // Fly each card towards and past the camera
       gsap.to(cards, {
         z: 1200,
-        opacity: 0,
-        filter: 'blur(12px)',
+        opacity: (_i) => 0,
         ease: 'none',
         stagger: 0.5,
         scrollTrigger: {
           trigger: sectionRef.current,
           pin: true,
-          scrub: 1,
+          scrub: 1.2, // Weighty inertia
+          pinSpacing: true, // Ensure resistance of experience
           start: 'top top',
-          end: `+=${total * 700}`,
+          end: `+=${total * 800}`, // Increased length for more weight
           anticipatePin: 1,
           onUpdate: (self) => {
             if (progressBarRef.current) {
               progressBarRef.current.style.width = `${self.progress * 100}%`;
             }
+
+            // Dynamic Blur and Brightness Calibration
+            cards.forEach((card) => {
+              const z = gsap.getProperty(card, 'z') as number;
+
+              // Blur: Only sharp when near focal point (z approx 0)
+              const blurValue = z < 0 ? Math.abs(z) / 150 : z / 50;
+              const opacityValue = z < -1000 ? 0 : z > 800 ? 0 : 1;
+
+              gsap.set(card, {
+                filter: `blur(${blurValue}px)`,
+                opacity: opacityValue,
+                pointerEvents: z > -100 && z < 100 ? 'auto' : 'none'
+              });
+
+              // Brightness flash when reaching focal point (z between -100 and 100)
+              const innerCard = (card as HTMLElement).querySelector('.job-card-inner');
+              if (innerCard) {
+                const isFocused = z > -100 && z < 100;
+                gsap.set(innerCard, {
+                  borderColor: isFocused ? 'rgba(34, 211, 238, 0.6)' : 'rgba(255, 255, 255, 0.1)',
+                  filter: isFocused ? 'brightness(1.3)' : 'brightness(1)',
+                  boxShadow: isFocused
+                    ? '0 0 0 1px rgba(34, 211, 238, 0.6), 0 0 30px rgba(34, 211, 238, 0.35)'
+                    : '0 0 0 rgba(0,0,0,0)',
+                });
+              }
+            });
           },
         },
       });
@@ -132,17 +160,17 @@ export const ZAxisTunnel: React.FC<ZAxisTunnelProps> = ({ experiences }) => {
       {/* Section header — outside pin, above */}
       <div className="mb-8 flex items-end justify-between">
         <div>
-          <h2 className="font-['Playfair_Display'] italic text-[clamp(1.75rem,4vw,3rem)] text-white mb-1 flex items-center gap-3">
-            <span className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-orange-400 rounded-full not-italic" />
+          <h2 className="font-clash font-black tracking-tighter text-[clamp(1.75rem,4vw,3rem)] text-white mb-1 flex items-center gap-3">
+            <span className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-orange-400 rounded-full" />
             Career Tunnel
           </h2>
-          <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-white/40">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-white/40">
             Scroll to traverse the timeline
           </p>
         </div>
         {/* Depth counter */}
         <div className="hidden md:flex flex-col items-end gap-1">
-          <span className="font-['Geist',_sans-serif] text-[9px] uppercase tracking-widest text-white/20">Z-AXIS DEPTH</span>
+          <span className="font-mono text-[9px] uppercase tracking-widest text-white/20">Z-AXIS DEPTH</span>
           <div className="w-40 h-[2px] bg-white/10 rounded-full overflow-hidden">
             <div
               ref={progressBarRef}

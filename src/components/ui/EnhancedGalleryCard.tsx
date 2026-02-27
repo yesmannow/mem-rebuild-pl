@@ -1,6 +1,6 @@
 /**
  * EnhancedGalleryCard - Advanced interactive gallery card with 3D effects
- * 
+ *
  * Features:
  * - 3D tilt effect on hover
  * - Magnetic cursor interaction
@@ -94,15 +94,15 @@ const EnhancedGalleryCard: React.FC<EnhancedGalleryCardProps> = ({
       onClick={onClick}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ 
-        duration: 0.5, 
+      transition={{
+        duration: 0.5,
         delay: index * 0.05,
         ease: [0.25, 0.46, 0.45, 0.94]
       }}
     >
       {/* Card Container with 3D transform */}
       <motion.div
-        className="relative bg-slate-900/40 border border-white/5 rounded-2xl overflow-hidden shadow-soft-dark"
+        className="relative bg-white/5 border border-white/10 rounded-2xl backdrop-blur-xl overflow-hidden shadow-soft-dark"
         style={{
           boxShadow: isHovered
             ? `0 20px 60px rgba(${activeTab === 'photography' ? '255,165,0' : '64,224,208'}, 0.3)`
@@ -155,7 +155,7 @@ const EnhancedGalleryCard: React.FC<EnhancedGalleryCardProps> = ({
             animate={isHovered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.2 }}
           >
-            <div 
+            <div
               className="rounded-full px-3 py-1.5 backdrop-blur-md border flex items-center gap-1.5 shadow-lg text-xs text-white"
               style={{
                 backgroundColor: `${activeTabColor}20`,

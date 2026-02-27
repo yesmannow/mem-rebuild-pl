@@ -10,7 +10,7 @@ import HeroSplit from '../components/hero/HeroSplit';
 
 /**
  * Creative Work Hub - Consolidated creative portfolio page
- * 
+ *
  * Sections:
  * - Photography (Lightroom embed + grid)
  * - Graphic Design (Lightroom embed + hero pieces)
@@ -67,7 +67,7 @@ const Creative: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="mb-12"
             >
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-clash">
                 Photography
               </h2>
               <p className="text-lg md:text-xl text-[var(--parchment-050)]/80 max-w-2xl">
@@ -113,7 +113,7 @@ const Creative: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="mb-12"
             >
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-clash">
                 Graphic Design
               </h2>
               <p className="text-lg md:text-xl text-[var(--parchment-050)]/80 max-w-2xl">
@@ -183,7 +183,7 @@ const Creative: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="mb-12"
             >
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-clash">
                 Branding Systems
               </h2>
               <p className="text-lg md:text-xl text-[var(--parchment-050)]/80 max-w-2xl">
@@ -222,7 +222,7 @@ const Creative: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="mb-12"
             >
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-clash">
                 Web Builds
               </h2>
               <p className="text-lg md:text-xl text-[var(--parchment-050)]/80 max-w-2xl">
@@ -290,7 +290,7 @@ const Creative: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="mb-12"
             >
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-clash">
                 Motion & Animations
               </h2>
               <p className="text-lg md:text-xl text-[var(--parchment-050)]/80 max-w-2xl">
@@ -326,11 +326,11 @@ const Creative: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="max-w-3xl mx-auto"
             >
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 font-clash">
                 Let&apos;s Create Together
               </h2>
               <p className="text-lg text-[var(--parchment-050)]/80 mb-8">
-                Looking for creative direction, design systems, or technical implementation? 
+                Looking for creative direction, design systems, or technical implementation?
                 Let&apos;s discuss your next project.
               </p>
               <Link

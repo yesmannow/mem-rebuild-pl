@@ -5,7 +5,7 @@
 /* ── Page wrapper ──────────────────────────────────────────────── */
 .cs-revamp {
   min-height: 100vh;
-  background: #050507;
+  background: #020617;
   color: #f1f5f9;
   overflow-x: hidden;
 }
@@ -96,7 +96,7 @@
   gap: 0.25rem;
 }
 .cs-revamp__stat-value {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: "Space Grotesk", "Clash Display", sans-serif;
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   font-weight: 900;
   color: #22d3ee;
@@ -749,11 +749,10 @@
   letter-spacing: 0.05em;
 }
 .topic-cluster__tooltip-no-tools {
-  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 0.55rem;
   color: rgba(255, 255, 255, 0.35);
   margin: 0;
-  font-style: italic;
 }
 
 /* Cluster slot inside card left column */
@@ -823,10 +822,11 @@
 
 .mobile-case-card {
   position: relative;
-  border: 1px solid;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   overflow: hidden;
-  background: #0a0a10;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
 }
 .mobile-case-card__bg {
   position: absolute;
@@ -874,7 +874,7 @@
 .mobile-case-card__metric .countup {
   font-size: clamp(2rem, 9vw, 3rem);
   font-weight: 900;
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: "Space Grotesk", "Clash Display", sans-serif;
   line-height: 1;
 }
 .mobile-case-card__metric-label {

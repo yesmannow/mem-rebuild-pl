@@ -101,7 +101,7 @@ export const DistrictCourtMap: React.FC<DistrictCourtMapProps> = ({ className = 
               className={`p-4 rounded-lg border-2 transition-all cursor-pointer ${
                 selectedDistrict === district.id
                   ? 'border-brand-turquoise bg-brand-turquoise/10'
-                  : 'border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900'
+                  : 'border-slate-300 dark:border-slate-700 bg-white/5 backdrop-blur-xl dark:bg-slate-900'
               }`}
               onClick={() => setSelectedDistrict(district.id === selectedDistrict ? null : district.id)}
               whileHover={{ y: -2 }}

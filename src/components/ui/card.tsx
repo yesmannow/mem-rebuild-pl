@@ -1,6 +1,6 @@
 /**
  * Card Component - Shadcn/ui Style Base Primitive
- * 
+ *
  * Composable card component with consistent styling
  */
 
@@ -17,11 +17,11 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = 'default', animated = false, hover = false, children, onClick, onMouseEnter, onMouseLeave, ...restProps }, ref) => {
     const baseStyles = 'rounded-2xl border transition-all duration-300';
-    
+
     const variants = {
-      default: 'bg-slate-950/60 border-white/10 backdrop-blur',
-      glass: 'bg-slate-950/40 border-white/5 backdrop-blur-xl',
-      gradient: 'bg-gradient-to-br from-slate-950/80 to-slate-900/80 border-white/10 backdrop-blur',
+      default: 'bg-white/5 backdrop-blur-xl border border-white/10',
+      glass: 'bg-white/10 backdrop-blur-2xl border border-white/20',
+      gradient: 'bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10',
       outlined: 'bg-transparent border-white/20',
     };
 
@@ -69,7 +69,7 @@ const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('flex flex-col space-y-1.5 p-6', className)}
+      className={cn('flex flex-col space-y-1.5 p-6 border-b border-white/5', className)}
       {...props}
     />
   )
@@ -102,7 +102,7 @@ CardDescription.displayName = 'CardDescription';
 
 const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('p-6 pt-0', className)} {...props} />
+    <div ref={ref} className={cn('p-6 pt-6', className)} {...props} />
   )
 );
 CardContent.displayName = 'CardContent';
