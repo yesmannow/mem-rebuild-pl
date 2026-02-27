@@ -16,8 +16,32 @@ body {
   /* Ensure body also has dark background */
   background-color: #0f172a !important; /* slate-dark */
   color: #f8fafc !important; /* High contrast text */
+  font-family: 'Geist', 'Montserrat', system-ui, -apple-system, Segoe UI, sans-serif;
   margin: 0;
   padding: 0;
+}
+
+h1,
+h2 {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: clamp(3rem, 15vw, 12rem);
+  letter-spacing: -0.02em;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  letter-spacing: -0.02em;
+}
+
+.tech-label {
+  font-family: 'Geist', 'Montserrat', system-ui, -apple-system, Segoe UI, sans-serif;
+  font-style: normal;
+  letter-spacing: 0.08em;
 }
 
 /* Hide content until styles are loaded */
@@ -40,7 +64,7 @@ body {
 .badge,
 .pill,
 .metric-value {
-  font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', 'SFMono-Regular', 'Menlo', monospace;
+  font-family: 'Geist', 'Montserrat', 'Fira Code', system-ui, -apple-system, Segoe UI, sans-serif;
   font-variant-numeric: tabular-nums; /* Align numbers properly */
   letter-spacing: 0.025em; /* Slight spacing for readability */
 }

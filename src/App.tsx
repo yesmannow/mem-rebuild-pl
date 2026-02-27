@@ -8,7 +8,7 @@ import Layout from './components/layout/Layout';
 import SwipeShell from './components/SwipeShell';
 import CookieConsent from './components/ui/CookieConsent';
 import { queryClient } from './lib/queryClient';
-import { ReactLenis } from './hooks/useLenis';
+import { ReactLenis } from '@studio-freight/react-lenis';
 import { initAnalytics } from './utils/analytics';
 import { initAccessibility } from './utils/accessibility';
 import JSONLD from './components/seo/JSONLD';
@@ -23,6 +23,7 @@ import './styles/sonner-theme.css';
 // const PersonSchema = lazy(() => import('./components/seo/PersonSchema')); // Removed - deleted
 // const PerformanceMonitor = lazy(() => import('./components/utils/PerformanceMonitor')); // Removed - deleted
 const AppRouter = lazy(() => import('./router/AppRouter'));
+const premiumLenisOptions = { lerp: 0.08, smoothTouch: false } as unknown as Record<string, unknown>;
 
 const AppContent: React.FC = () => {
   const isGodMode = useKonamiCode();
@@ -51,7 +52,7 @@ const AppContent: React.FC = () => {
         <QueryClientProvider client={queryClient}>
           <HelmetProvider>
             <ThemeProvider>
-              <ReactLenis root options={{ lerp: 0.1, duration: 1.2 }}>
+              <ReactLenis root options={premiumLenisOptions}>
                 <ToastProvider>
                   <JSONLD />
                   <Layout>

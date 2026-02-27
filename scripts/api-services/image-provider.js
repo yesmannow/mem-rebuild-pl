@@ -1,11 +1,11 @@
 /**
  * Image Provider Service
- * 
+ *
  * Integrates with free image APIs:
  * - Unsplash (high-quality stock photography)
  * - Lorem Picsum (placeholder images)
  * - Placeholder.com (simple placeholders)
- * 
+ *
  * Features:
  * - Multiple image sources
  * - Search capabilities
@@ -22,7 +22,7 @@ import { optimizeImages } from '../optimize-images.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '../..');
- 
+
 dotenv.config({ path: path.join(ROOT, '.env.local') });
 dotenv.config();
 
@@ -74,7 +74,7 @@ class UnsplashClient {
       }
 
       const data = await response.json();
-      
+
       return data.results.map(photo => ({
         id: photo.id,
         description: photo.description || photo.alt_description,
@@ -166,7 +166,7 @@ class PexelsClient {
     this.apiKey = apiKey;
     this.baseUrl = 'https://api.pexels.com/v1';
   }
- 
+
   async searchPhotos(query, options = {}) {
     const {
       page = 1,
@@ -235,7 +235,7 @@ class PixabayClient {
     this.apiKey = apiKey;
     this.baseUrl = 'https://pixabay.com/api/';
   }
- 
+
   async searchPhotos(query, options = {}) {
     const {
       page = 1,
@@ -312,7 +312,7 @@ class LoremPicsumClient {
       specific = null, // specific image ID
     } = options;
 
-    let url = specific ? 
+    let url = specific ?
       `${this.baseUrl}/id/${specific}/${width}/${height}` :
       `${this.baseUrl}/${width}/${height}`;
 
@@ -389,7 +389,7 @@ class PlaceholderClient {
     } = options;
 
     let url = `https://via.placeholder.com/${width}x${height}/${bgColor}/${textColor}.${format}`;
-    
+
     if (text) {
       url += `?text=${encodeURIComponent(text)}`;
     }
@@ -403,7 +403,7 @@ class PlaceholderClient {
  */
 class ImageProvider {
   constructor(config = {}) {
-    this.unsplash = config.unsplashApiKey ? 
+    this.unsplash = config.unsplashApiKey ?
       new UnsplashClient(config.unsplashApiKey) : null;
     this.pexels = config.pexelsApiKey ?
       new PexelsClient(config.pexelsApiKey) : null;
@@ -480,7 +480,7 @@ class ImageProvider {
       }
 
       await fs.mkdir(outputDir, { recursive: true });
-      
+
       const buffer = await response.arrayBuffer();
       const filepath = path.join(outputDir, filename);
       await fs.writeFile(filepath, Buffer.from(buffer));
@@ -631,7 +631,7 @@ Examples:
       case 'list': {
         const page = parseInt(args.find(a => a.startsWith('--page='))?.split('=')[1]) || 1;
         console.log(`📋 Listing available images (page ${page})...\n`);
-        
+
         const images = await provider.loremPicsum.getImageList(page);
         images.forEach(img => {
           console.log(`ID: ${img.id} - ${img.author} (${img.width}x${img.height})`);
@@ -651,10 +651,14 @@ Examples:
   }
 }
 
-main().catch(error => {
-  console.error('❌ Fatal error:', error);
-  process.exit(1);
-});
+const isMainModule = process.argv[1] === fileURLToPath(import.meta.url);
+
+if (isMainModule) {
+  main().catch(error => {
+    console.error('❌ Fatal error:', error);
+    process.exit(1);
+  });
+}
 
 export {
   UnsplashClient,

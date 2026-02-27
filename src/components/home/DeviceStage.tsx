@@ -7,7 +7,8 @@ import {
   ContactShadows,
   Environment,
   Text,
-  QuadraticBezierLine
+  QuadraticBezierLine,
+  Html
 } from '@react-three/drei';
 import * as THREE from 'three';
 import { motion } from 'framer-motion';
@@ -20,6 +21,24 @@ interface DeviceStageProps {
   color?: string;
   label?: string;
   videoUrl?: string;
+}
+
+function StageFallback({ color }: { color: string }) {
+  return (
+    <Html center>
+      <div className="flex flex-col items-center gap-3">
+        <img
+          src="/images/svgs/smartphone.svg"
+          alt="Loading stage"
+          className="w-28 h-40 opacity-80"
+          style={{ filter: `drop-shadow(0 0 12px ${color}) hue-rotate(180deg)` }}
+        />
+        <span className="text-[10px] uppercase tracking-[0.18em] tech-label" style={{ color }}>
+          Staging Device Loading
+        </span>
+      </div>
+    </Html>
+  );
 }
 
 interface BentoNodeDef {
@@ -76,7 +95,7 @@ function ArchitectureNodes3D({ color, visible }: { color: string; visible: boole
     document.body.style.cursor = hovered ? 'pointer' : 'auto';
     return () => { document.body.style.cursor = 'auto'; };
   }, [hovered]);
-  
+
   const curves = useMemo(() => {
     const map = new Map<string, THREE.QuadraticBezierCurve3>();
     EDGES.forEach(([a, b]) => {
@@ -109,11 +128,11 @@ function ArchitectureNodes3D({ color, visible }: { color: string; visible: boole
 
   useFrame((_state, delta) => {
     if (!groupRef.current) return;
-    
+
     // Smoothly scale in/out based on architectMode
     const targetScale = visible ? 1 : 0;
     groupRef.current.scale.lerpScalar(targetScale, 0.1);
-    
+
     // Don't process logic if hidden
     if (!visible && groupRef.current.scale.x < 0.01) return;
 
@@ -123,7 +142,7 @@ function ArchitectureNodes3D({ color, visible }: { color: string; visible: boole
       for (let i = packetsRef.current.length - 1; i >= 0; i--) {
         const p = packetsRef.current[i];
         p.progress += delta * 1.5; // packet travel speed
-        
+
         if (p.progress >= 1) {
           // Chain to next node randomly to create ongoing flow
           const nextTargets = OUTGOING_EDGES[p.tgt] || [];
@@ -173,9 +192,9 @@ function ArchitectureNodes3D({ color, visible }: { color: string; visible: boole
       {/* Nodes */}
       {Object.entries(NODES).map(([id, node]) => (
         // @ts-expect-error
-        <group 
-          key={id} 
-          position={node.pos} 
+        <group
+          key={id}
+          position={node.pos}
           onClick={(e: any) => { e.stopPropagation(); handleNodeClick(id); }}
           onPointerOver={(e: any) => { e.stopPropagation(); setHovered(true); }}
           onPointerOut={(e: any) => { e.stopPropagation(); setHovered(false); }}
@@ -188,7 +207,7 @@ function ArchitectureNodes3D({ color, visible }: { color: string; visible: boole
             {/* @ts-expect-error */}
             <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.8} />
           </mesh>
-          
+
           {/* Invisible Hit Area */}
           {/* @ts-expect-error */}
           <mesh>
@@ -307,7 +326,7 @@ function ObsidianDevice({
 
     const targetRimOp = architectMode ? 0.25 : 0.07;
     rimMat.opacity = THREE.MathUtils.lerp(rimMat.opacity, targetRimOp, 0.1);
-    
+
     const targetEmissive = architectMode ? 0.6 : 0.2;
     rimMat.emissiveIntensity = THREE.MathUtils.lerp(rimMat.emissiveIntensity, targetEmissive, 0.1);
 
@@ -457,6 +476,16 @@ const DeviceStage: React.FC<DeviceStageProps> = ({
   return (
     <div className="relative w-full h-full min-h-[460px] flex flex-col">
 
+      {/* Screen-reader fallback — R3F canvas is invisible to assistive tech */}
+      <div className="sr-only">
+        <h3>Interactive 3D Tool Stage: {label}</h3>
+        <p>
+          A 3D device model showcasing the {label} tool. The stage features an interactive
+          architecture mode with nodes representing ADS, CRM, AUTO, ROI, and DATA systems.
+          Click architecture nodes to visualize data flow between systems.
+        </p>
+      </div>
+
       {/* Architecture toggle */}
       <div className="absolute top-3 right-3 z-30">
         <motion.button
@@ -497,7 +526,7 @@ const DeviceStage: React.FC<DeviceStageProps> = ({
           />
           <CursorLight />
 
-          <Suspense fallback={null}>
+          <Suspense fallback={<StageFallback color={color} />}>
             <Environment preset="night" />
             <PresentationControls
               global

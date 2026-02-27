@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "name": "Jacob Darling",
+    "title": "Marketing Director & Systems Architect",
+    "tagline": "MARKETING TECHNOLOGIST",
+    "yearsExperience": "15+",
+    "deploys": "120+",
+    "usersServed": "30,000+",
+    "conversionLift": "40%"
+  },
+  "executiveSummary": "Marketing strategist and systems architect with 15+ years of experience building revenue-driving marketing infrastructure for global healthcare brands. Proven track record of transforming complex marketing challenges into measurable business results through strategic thinking, technical execution, and data-driven decision making. I bridge the gap between creative marketing vision and technical implementation, delivering systems that scale while driving measurable ROI. My expertise spans marketing automation, CRM architecture, web development, and revenue operations - positioning me uniquely to lead growth initiatives from strategy through execution.",
+  "experience": [
+    {
+      "id": "graston",
+      "company": "Graston Technique, LLC",
+      "role": "Marketing Director",
+      "period": "Aug 2023 – Present",
+      "location": "Indianapolis, IN",
+      "description": "Leads both marketing strategy and technical execution for a high-volume educational platform serving thousands of clinicians with continuing education and clinical tools.",
+      "keyAchievement": "Scale to 30k Users",
+      "achievements": [
+        "System Architecture: Built integrated ecosystem with LearnDash LMS, WooCommerce, WP Fusion, Gravity Forms, Uncanny Automator, and FluentCRM. Architected 'Buy Now, Choose Later' credit system for training bundles.",
+        "AI & Automation: Built and deployed GPT-powered assistant connected via REST APIs for CEU rules, order lookups, training suggestions. Built 400+ automations triggered by tags, training progress, or form submissions.",
+        "Analytics & Dashboards: Created provider analytics dashboards syncing GA4 data via GTM and Analytify.",
+        "Performance & DevOps: Optimized site speed with WP Rocket, LiteSpeed, Cloudflare CDN, async/defer scripts, GTM server-side tagging.",
+        "Cloudflare Optimizations: Rate-limiting, WAF rules, Bot Fight Mode, Caching & Tiered Cache, Managed Transforms, Page Rules, SSL/TLS Origin Cert, DNSSEC Setup.",
+        "Team Leadership: Manages cross-functional sprints with developers, designers, instructors, and marketing associates."
+      ],
+      "techStack": ["LearnDash", "WooCommerce", "WP Fusion", "Gravity Forms", "Uncanny Automator", "FluentCRM", "WordPress", "JavaScript", "GA4", "GTM", "Cloudflare Workers", "Mapbox", "WP Rocket", "LiteSpeed", "REST APIs", "OpenAI", "Netdata", "PHP 8.3", "GTM Server-Side"]
+    },
+    {
+      "id": "ultimate",
+      "company": "Ultimate Technologies Group",
+      "role": "Interim Director of Marketing",
+      "period": "Mar 2023 – Jul 2023",
+      "location": "Fishers, IN",
+      "description": "Spearheaded marketing strategy and execution during a key transitional period, ensuring business continuity and brand consistency across all channels.",
+      "keyAchievement": "Cut CI/CD Time 50%",
+      "achievements": [
+        "Managed end-to-end marketing communications, including internal messaging, external campaigns, and stakeholder engagement.",
+        "Led the development and optimization of Google Ads campaigns, improving lead generation, CTR, and overall ROI.",
+        "Implemented marketing automation workflows and CRM integrations to streamline operations.",
+        "Conducted market research and competitive analysis to refine targeting and positioning strategies."
+      ],
+      "techStack": ["Marketing Strategy", "Google Ads", "Marketing Automation", "CRM Integration", "SEO", "Paid Media", "Brand Management"]
+    },
+    {
+      "id": "rbe-mgr",
+      "company": "Riley Bennett Egloff, LLP",
+      "role": "Marketing Manager",
+      "period": "Jul 2022 – Mar 2023",
+      "location": "Indianapolis, IN",
+      "description": "Led strategic marketing, digital communications, and client development for legal and professional services.",
+      "keyAchievement": "Grow Revenue +40%",
+      "achievements": [
+        "Designed, built, and managed comprehensive marketing materials including brochures, advertisements, email campaigns, newsletters, social media content.",
+        "Oversaw firm branding and content strategy across digital platforms including full ownership of the RBE website.",
+        "Led public and media relations efforts, cultivated media relationships, drafted press releases.",
+        "Developed strategic pitch materials and managed RFP/proposal responses."
+      ],
+      "techStack": ["Strategic Marketing", "Digital Marketing", "SEO", "Content Strategy", "Email Marketing", "Social Media", "Public Relations", "Brand Management"]
+    },
+    {
+      "id": "rbe-admin",
+      "company": "Riley Bennett Egloff, LLP",
+      "role": "Marketing Administrator",
+      "period": "Jun 2015 – Nov 2022",
+      "location": "Greater Indianapolis",
+      "description": "Responsible for managing content marketing initiatives, website content, social media platforms, graphic design and ad creation.",
+      "achievements": [
+        "Assisted in responding to the firm's RFP responses.",
+        "Worked in conjunction with the Marketing Committee to carry out the firm's strategic marketing plan.",
+        "Managed and developed business development plans for attorneys."
+      ],
+      "techStack": ["Content Marketing", "Brand Development", "Business Development", "Social Media", "Graphic Design"]
+    },
+    {
+      "id": "deerfield",
+      "company": "Deerfield Financial Advisors",
+      "role": "Marketing Coordinator",
+      "period": "Jun 2013 – Jun 2015",
+      "location": "Indianapolis, IN",
+      "description": "Executed marketing initiatives and campaigns to elevate brand awareness and attract new clients.",
+      "keyAchievement": "Grow Revenue +40%",
+      "achievements": [
+        "Planned and managed successful client-facing seminars and events, enhancing client retention.",
+        "Wrote and maintained content for the company website, email marketing campaigns, and printed collateral.",
+        "Collaborated with the Chief Compliance Officer to review all marketing materials for FINRA and SEC compliance."
+      ],
+      "techStack": ["Content Development", "Email Marketing", "Event Management", "Website Management", "FINRA Compliance", "SEC Compliance"]
+    },
+    {
+      "id": "pike",
+      "company": "Pike Medical Consultants",
+      "role": "Marketing Coordinator",
+      "period": "Sep 2009 – Jun 2013",
+      "location": "Greater Indianapolis",
+      "description": "Directed all marketing functions including strategic planning, budgeting, advertising, branding, public relations, website development, and event management.",
+      "highlight": "+45% Patient Visits",
+      "achievements": [
+        "Drove a 45% increase in patient visits over three years, maintaining a consistently positive ROI.",
+        "Designed and executed integrated marketing and advertising campaigns contributing to sustained company growth.",
+        "Led the creation of a new company website, modernizing the digital presence.",
+        "Implemented data-driven tracking and evaluation processes to measure campaign effectiveness."
+      ],
+      "techStack": ["Strategic Planning", "Budgeting", "Website Development", "Google Ads", "Public Relations", "Brand Management"]
+    },
+    {
+      "id": "orthoindy",
+      "company": "OrthoIndy",
+      "role": "Marketing Intern",
+      "period": "2006 – 2007",
+      "location": "Indianapolis, IN",
+      "description": "Gained foundational experience in a professional healthcare marketing environment.",
+      "achievements": [
+        "Assisted with content development and event coordination in a professional healthcare marketing environment."
+      ],
+      "techStack": ["Content Coordination", "Event Management"]
+    }
+  ],
+  "education": [
+    {
+      "school": "Indiana University-Bloomington",
+      "degree": "Bachelor's Degree in Business Management",
+      "year": "August 2004 – May 2008",
+      "honors": "Won 2006 Target Marketing Competition"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Gold Key Photography Award",
+      "organization": "Scholastic Art & Writing Awards",
+      "year": "2008",
+      "description": "Top-tier recognition in visual arts"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "HubSpot Marketing Software Certification",
+      "issuer": "HubSpot Academy",
+      "year": "2023",
+      "description": "Certified in HubSpot Marketing Software, including email marketing, lead nurturing, and marketing automation."
+    },
+    {
+      "name": "Google Analytics Certification",
+      "issuer": "Google",
+      "year": "2022",
+      "description": "Certified in Google Analytics 4 (GA4) and Google Tag Manager for advanced tracking and measurement."
+    },
+    {
+      "name": "AWS Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "year": "2024",
+      "description": "Foundational AWS cloud knowledge including core services, security, and architecture best practices."
+    }
+  ],
+  "skills": {
+    "leadership": ["Marketing Team Management", "Cross-Functional Team Leadership", "Budget & Resource Management", "Executive Communication & Board Reporting", "Mentoring & Staff Development", "Team Building", "Project Management", "Stakeholder Management"],
+    "strategy": ["Brand Strategy & Positioning", "Go-to-Market Planning", "Campaign Strategy & Execution", "Content Strategy & Technical SEO", "Business Development & Client Relations", "Market Research & Competitive Analysis", "Strategic Planning", "ROI Measurement & Reporting"],
+    "automation": ["CRM Architecture (HubSpot, FluentCRM, Salesforce)", "Workflow Automation & Lead Nurturing", "Email Marketing & Drip Campaigns", "Marketing Operations (RevOps)", "Data Analytics & Attribution Modeling", "Custom Analytics Dashboards (GA4, GTM)", "Conversion Rate Optimization (CRO)", "HubSpot", "FluentCRM", "WP Fusion", "Uncanny Automator", "Google Analytics", "Google Tag Manager"],
+    "engineering": ["Full-Stack Web Development (WordPress, JavaScript, React)", "Marketing Technology Integration", "Serverless Development (Cloudflare Workers)", "API Development & System Integration", "WordPress", "JavaScript", "React", "PHP", "REST APIs", "Cloudflare Workers", "Cloudflare CDN", "LearnDash", "WooCommerce", "Gravity Forms", "Mapbox", "WP Rocket", "LiteSpeed", "ACF Pro", "FacetWP", "Figma", "Adobe Creative Suite", "Canva", "Photoshop"]
+  },
+  "volunteering": [
+    {"role": "President", "organization": "School 80 Condominiums HOA", "period": "Oct 2019 – Present"},
+    {"role": "Board Member", "organization": "Primary Colours (non-profit)", "period": "Jan 2018 – Dec 2019"},
+    {"role": "Business Mentor", "organization": "SMART – Anti Bullying at School #96", "period": "Jan 2013 – May 2013"},
+    {"role": "Marketing Designer", "organization": "Primary Colours – Installation Nation", "period": "Feb 2017 – Present"},
+    {"role": "Event Volunteer", "organization": "Walk to Defeat ALS – Indianapolis", "period": "Jan 2016 – Jan 2017"}
+  ],
+  "testimonials": [
+    {"name": "Jesse Wey", "role": "Web Development | IT | Marketing", "quote": "He thrives in fast-paced environments and is always eager to explore new tools. Jacob has a great balance of strategic thinking and hands-on execution."},
+    {"name": "Andrew Bastnagel, MBA", "role": "Financial Services Consultant", "quote": "He's constantly learning new technologies and figuring out how to put them to work... That curiosity makes him not just effective, but always evolving."},
+    {"name": "Kevin Martin See", "role": "Strategic Partnerships", "quote": "Jacob displays a combination of creative and analytical skills, with proven ability to implement marketing strategies that produce a positive ROI."},
+    {"name": "Nick Brown", "role": "DMA, Inc.", "quote": "He is hardworking, creative and a pleasure to work with. Jacob has skills in web design, branding, and personal communication."},
+    {"name": "Ben Worrell", "role": "Senior Admin Assistant", "quote": "Jacob's energy and ingenuity are extremely valuable assets. He expanded our vision and implemented many new projects."}
+  ]
+}

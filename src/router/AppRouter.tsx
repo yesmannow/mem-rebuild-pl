@@ -232,14 +232,13 @@ const AppRouter: React.FC = () => {
           'Explore curated brand identity systems and design systems created with the Brand Builder',
         keywords: 'brand gallery, brand boards, design systems, brand identity',
       };
-    // Legacy brand builder route - commented out
-    // } else if (path === '/brand-builder') {
-    //   return {
-    //     title: 'Brand Builder | BearCave Marketing',
-    //     description:
-    //       'Create a complete brand identity system in minutes with our interactive brand builder',
-    //     keywords: 'brand builder, brand identity, design system, brand creation',
-    //   };
+    } else if (path === '/brand-builder') {
+      return {
+        title: 'Brand Builder | Jacob Darling Portfolio',
+        description:
+          'Create a complete brand identity system in minutes with our interactive brand builder',
+        keywords: 'brand builder, brand identity, design system, brand creation',
+      };
     } else if (path === '/showcase') {
       return {
         title: 'Component Showcase | Jacob Darling Portfolio',
@@ -258,13 +257,6 @@ const AppRouter: React.FC = () => {
       return {
         title: 'Brand Board | Jacob Darling Portfolio',
         description: 'Explore this brand identity system and design tokens',
-      };
-    } else if (path === '/apps') {
-      return {
-        title: 'The Lab | Jacob Darling Portfolio',
-        description:
-          'Interactive tools, live system telemetry, and command center. Explore applications, engineering tools, and real-time infrastructure monitoring.',
-        keywords: 'interactive tools, React applications, telemetry, command center, devops, portfolio showcase',
       };
     } else if (path === '/apps/growth-engine') {
       return {

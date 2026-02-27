@@ -1,4 +1,16 @@
 {
+  "personal": {
+    "name": "Jacob Darling",
+    "title": "Systems Architect & Fractional CMO",
+    "contact": "Indianapolis, IN | hoosierdarling@gmail.com",
+    "summary": "15+ years of scaling brands at the intersection of psychology and engineering. Specialized in deploying AI-driven marketing infrastructure and cross-functional systems."
+  },
+  "skillCategories": {
+    "Strategy": ["GTM Architecture", "Brand Engineering", "Revenue Operations", "Go-to-Market Planning", "Campaign Strategy & Execution", "Content Strategy & Technical SEO", "Business Development", "Market Research & Competitive Analysis", "ROI Measurement & Reporting"],
+    "Technology": ["Next.js", "AI/LLM Integration", "Marketing Automation", "Full-Stack Web Development", "Serverless Development (Cloudflare Workers)", "API Development & System Integration", "WordPress", "JavaScript", "React", "PHP", "REST APIs"],
+    "Analytics": ["Predictive Modeling", "Conversion Rate Optimization", "Custom Analytics Dashboards (GA4, GTM)", "Data Analytics & Attribution Modeling", "Marketing Operations (RevOps)"],
+    "Leadership": ["Marketing Team Management", "Cross-Functional Team Leadership", "Budget & Resource Management ($500K+)", "Executive Communication & Board Reporting", "Mentoring & Staff Development", "Project Management", "Stakeholder Management"]
+  },
   "name": "Jacob Darling",
   "title": "Marketing Strategist & Systems Architect",
   "intro": "I build marketing systems that think for themselves. Turning complexity into clarity, chaos into competitive advantage.",

@@ -18,7 +18,7 @@ const GlitchOverlay: React.FC<GlitchOverlayProps> = ({ isBooting }) => {
       // 1. Setup noise canvas
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
-      
+
       const w = wrapper.clientWidth;
       const h = wrapper.clientHeight;
       canvas.width = w;
@@ -37,60 +37,64 @@ const GlitchOverlay: React.FC<GlitchOverlayProps> = ({ isBooting }) => {
       }
       ctx.putImageData(imgData, 0, 0);
 
-      // 2. GSAP high-intensity digital glitch
+      // 2. GSAP high-intensity CRT snap — violent, split-second, power4.inOut
       wrapper.style.display = 'block';
-      
+
       const tl = gsap.timeline();
-      
+
       tl.fromTo(wrapper,
-        { 
-          opacity: 0, 
-          filter: 'hue-rotate(0deg) contrast(200%)',
-          skewX: 0
+        {
+          opacity: 0,
+          filter: 'hue-rotate(0deg) contrast(300%)',
+          skewX: 0,
         },
-        { 
-          opacity: 0.7, 
-          filter: 'hue-rotate(180deg) contrast(100%)', 
-          skewX: () => Math.random() * 40 - 20, // random skew between -20 and 20
-          repeat: 12, 
-          yoyo: true, 
-          duration: 0.05,
-          ease: 'rough({ template: none.out, strength: 1, points: 20, taper: none, randomize: true, clamp: false })'
+        {
+          opacity: 0.85,
+          filter: 'hue-rotate(180deg) contrast(150%)',
+          skewX: () => Math.random() * 80 - 40,
+          repeat: 5,
+          yoyo: true,
+          duration: 0.04,
+          ease: 'power4.inOut',
         }
       );
 
-      // Add horizontal slice displacement
-      for (let i = 0; i < 5; i++) {
+      // Horizontal slice displacement — compressed to fit 400ms budget
+      for (let i = 0; i < 3; i++) {
         tl.to(wrapper, {
-          x: () => Math.random() * 40 - 20,
-          scaleY: () => 1 + Math.random() * 0.1,
-          duration: 0.05,
+          x: () => Math.random() * 60 - 30,
+          scaleY: () => 1 + Math.random() * 0.18,
+          duration: 0.04,
           repeat: 1,
           yoyo: true,
-        }, i * 0.1);
+          ease: 'power4.inOut',
+        }, i * 0.08);
       }
 
       tl.to(wrapper, {
         opacity: 0,
-        duration: 0.1,
+        skewX: 0,
+        x: 0,
+        duration: 0.06,
+        ease: 'power4.inOut',
         onComplete: () => {
           wrapper.style.display = 'none';
           ctx.clearRect(0, 0, w, h);
-        }
+        },
       });
 
     }
   }, [isBooting]);
 
   return (
-    <div 
+    <div
       ref={wrapperRef}
       className="absolute inset-0 z-50 pointer-events-none mix-blend-difference"
       style={{ display: 'none' }}
     >
       <canvas ref={canvasRef} className="w-full h-full object-cover" />
       {/* Scanline overlay for extra texture during glitch */}
-      <div 
+      <div
         className="absolute inset-0"
         style={{
           background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,242,255,0.15) 2px, rgba(0,242,255,0.15) 4px)'

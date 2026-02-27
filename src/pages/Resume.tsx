@@ -1,368 +1,319 @@
-import React, { useCallback, useState } from 'react';
+import React, { Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { GraduationCap, Trophy, Award as AwardIcon, ArrowRight, Heart, Lock, Unlock, Download, Calendar } from 'lucide-react';
+import { ArrowRight, Lock, Unlock } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { toast } from 'sonner';
-import { SimpleSection } from '../components/ui/SimpleSection';
 import TechBackdrop from '../components/hero/TechBackdrop';
-import HeroProfileCarousel from '../components/hero/HeroProfileCarousel';
-import { MetricVisualizer } from '../components/visuals/MetricVisualizer';
-import { MouseSpotlight } from '../components/resume/MouseSpotlight';
-import { SystemStatusTicker } from '../components/resume/SystemStatusTicker';
-import { SkillCluster } from '../components/resume/SkillCluster';
-import { CinematicTimeline } from '../components/resume/CinematicTimeline';
 import { EndorsementTicker } from '../components/resume/EndorsementTicker';
-import { VirtualizedVolunteerFeed } from '../components/resume/VirtualizedVolunteerFeed';
-import { useSystemSound } from '../hooks/useSystemSound';
+import { TerminalHero } from '../components/resume/TerminalHero';
+import { ZAxisTunnel } from '../components/resume/ZAxisTunnel';
+import { SkillConstellation } from '../components/resume/SkillConstellation';
 import ResumePrint from './ResumePrint';
-import { experience, education, volunteering, awards, certifications, skillCategories, executiveSummary } from '../data/resume';
+import {
+  experience,
+  education,
+  volunteering,
+  awards,
+  certifications,
+  skillCategories,
+  executiveSummary,
+} from '../data/resume';
 
-const AceternitySpotlight: React.FC = () => (
-  <MouseSpotlight
-    intensity={0.45}
-    size={520}
-    className="absolute inset-0 pointer-events-none opacity-60"
-  />
+/* ─────────────────────────────────────────────────────────────────────────── */
+/*  SR-ONLY SEO LAYER — invisible to screen, crawlable by bots                */
+/* ─────────────────────────────────────────────────────────────────────────── */
+const SeoLayer: React.FC = () => (
+  <div className="sr-only" aria-hidden="false">
+    <h1>Jacob Darling — Marketing Director &amp; Systems Architect</h1>
+    <p>{executiveSummary}</p>
+
+    <section aria-label="Professional Experience">
+      <h2>Professional Experience</h2>
+      {experience.map((job) => (
+        <article key={job.id}>
+          <h3>{job.role} — {job.company}</h3>
+          <p>{job.period} · {job.location}</p>
+          <p>{job.description}</p>
+          <ul>
+            {job.achievements.map((a, i) => <li key={i}>{a}</li>)}
+          </ul>
+        </article>
+      ))}
+    </section>
+
+    <section aria-label="Education">
+      <h2>Education</h2>
+      {education.map((edu) => (
+        <div key={edu.school}>
+          <p>{edu.degree} — {edu.school} ({edu.year})</p>
+          {edu.honors && <p>{edu.honors}</p>}
+        </div>
+      ))}
+    </section>
+
+    <section aria-label="Certifications">
+      <h2>Certifications</h2>
+      {certifications.map((cert) => (
+        <p key={cert.name}>{cert.name} — {cert.issuer} {cert.year ? `(${cert.year})` : ''}</p>
+      ))}
+    </section>
+
+    <section aria-label="Awards">
+      <h2>Awards</h2>
+      {awards.map((a) => (
+        <p key={a.title}>{a.title} — {a.organization} ({a.year})</p>
+      ))}
+    </section>
+
+    <section aria-label="Volunteer Experience">
+      <h2>Volunteer Experience</h2>
+      {volunteering.map((v, i) => (
+        <p key={i}>{v.role} — {v.organization} ({v.period})</p>
+      ))}
+    </section>
+
+    <section aria-label="Skills">
+      <h2>Skills</h2>
+      {skillCategories.map((cat) => (
+        <div key={cat.id}>
+          <h3>{cat.title}</h3>
+          <ul>{cat.items.map((s) => <li key={s}>{s}</li>)}</ul>
+        </div>
+      ))}
+    </section>
+  </div>
 );
 
-const IdentityMatrixHeader: React.FC<{ summary: string }> = ({ summary }) => {
-  const { playSwitch } = useSystemSound();
-  const [isCompiling, setIsCompiling] = useState(false);
+/* ─────────────────────────────────────────────────────────────────────────── */
+/*  CREDENTIALS DECK — Education / Awards / Certifications                    */
+/* ─────────────────────────────────────────────────────────────────────────── */
+const CredentialsDeck: React.FC = () => (
+  <div>
+    <div className="mb-8">
+      <h2 className="font-['Playfair_Display'] italic text-[clamp(1.75rem,4vw,3rem)] text-white mb-1 flex items-center gap-3">
+        <span className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-orange-400 rounded-full not-italic" />
+        Credentials Deck
+      </h2>
+      <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-white/40">
+        Education · Recognition · Community
+      </p>
+    </div>
 
-  const handleDownloadPDF = useCallback(async (event?: React.MouseEvent<HTMLButtonElement>) => {
-    if (event) {
-      event.preventDefault();
-    }
-    if (isCompiling) return;
-
-    setIsCompiling(true);
-    playSwitch();
-    toast.success('Compiling Personnel Dossier...', {
-      description: 'System Access Authorized',
-      duration: 800,
-    });
-    await new Promise((resolve) => setTimeout(resolve, 800));
-
-    const link = document.createElement('a');
-    link.href = '/resume/resume-jd-draft.pdf';
-    link.download = 'Jacob-Darling-Resume.pdf';
-    link.click();
-
-    setIsCompiling(false);
-  }, [isCompiling, playSwitch]);
-
-  const handleBookConsultation = () => {
-    window.location.href = '/contact';
-  };
-
-  return (
-    <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-slate-950/70 shadow-[0_40px_80px_rgba(2,6,23,0.8)]">
-      <AceternitySpotlight />
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-4 gap-4 p-6 lg:p-8 auto-rows-[minmax(180px,auto)]">
-        <div className="col-span-1 lg:col-span-2 row-span-2 bg-slate-900/50 backdrop-blur border border-white/5 rounded-2xl overflow-hidden shadow-lg">
-          <HeroProfileCarousel className="h-full w-full" />
-        </div>
-        <div className="col-span-1 lg:col-span-2 row-span-1 bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-5 flex flex-col gap-4">
-          <div>
-            <p className="text-xs uppercase tracking-[0.4em] text-brand-teal">Identity Matrix</p>
-            <h1 className="text-3xl md:text-4xl font-bold text-brand-text">Jacob Darling</h1>
-            <p className="text-brand-muted text-sm mt-1 max-w-xl leading-relaxed">{summary}</p>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {/* Education */}
+      <div className="bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition-colors duration-300">
+        <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-cyan-400/70 mb-4">Education</p>
+        {education.map((edu) => (
+          <div key={edu.school}>
+            <p className="text-white font-semibold text-sm mb-0.5">{edu.school}</p>
+            <p className="text-white/60 text-xs mb-1">{edu.degree}</p>
+            <p className="font-mono text-[9px] uppercase tracking-widest text-white/30 mb-2">{edu.year}</p>
+            {edu.honors && (
+              <p className="text-orange-400/80 text-xs">🏆 {edu.honors}</p>
+            )}
           </div>
-          <div>
-            <p className="text-xs uppercase tracking-[0.4em] text-brand-orange mb-2">System Status</p>
-            <SystemStatusTicker />
+        ))}
+      </div>
+
+      {/* Awards */}
+      <div className="bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-6 hover:border-orange-400/30 transition-colors duration-300">
+        <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-orange-400/70 mb-4">Awards</p>
+        {awards.map((award) => (
+          <div key={award.title}>
+            <p className="text-white font-semibold text-sm mb-0.5">{award.title}</p>
+            <p className="text-white/50 text-xs mb-1">{award.organization}</p>
+            <p className="font-mono text-[9px] uppercase tracking-widest text-white/30">{award.year}</p>
+            {award.description && (
+              <p className="text-white/40 text-xs mt-1">{award.description}</p>
+            )}
           </div>
-        </div>
-        <div className="col-span-1 lg:col-span-1 row-span-1 bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-4 grid gap-3">
-          <MetricVisualizer label="Years in Systems" value="15+" accentColor="#40E0D0" />
-          <MetricVisualizer label="Deploys & Projects" value="120+" accentColor="#FACC15" />
-        </div>
-        <div className="col-span-1 lg:col-span-1 row-span-1 bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-4 flex flex-col gap-3 justify-between">
-          <div>
-            <p className="text-xs uppercase tracking-[0.4em] text-brand-muted mb-2">Operations</p>
-            <p className="text-sm text-brand-text mb-1">Live systems, stakeholder orchestration, and strategic design.</p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <motion.button
-              onClick={handleDownloadPDF}
-              disabled={isCompiling}
-              whileHover={{ scale: isCompiling ? 1 : 1.05 }}
-              whileTap={{ scale: isCompiling ? 1 : 0.95 }}
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-brand-turquoise text-white font-semibold rounded-xl text-sm transition duration-200 shadow-lg shadow-brand-teal/40 ${
-                isCompiling ? 'opacity-70 cursor-wait' : ''
-              }`}
-            >
-              <Download size={18} className={isCompiling ? 'animate-pulse' : ''} />
-              <span>{isCompiling ? 'Compiling...' : 'Download CV'}</span>
-            </motion.button>
-            <motion.button
-              onClick={handleBookConsultation}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-3 border border-white/10 rounded-xl text-sm font-semibold text-brand-text bg-slate-900/60 hover:border-brand-turquoise/50 hover:text-brand-teal transition duration-200"
-            >
-              <Calendar size={18} />
-              <span>Book Consultation</span>
-            </motion.button>
-          </div>
+        ))}
+      </div>
+
+      {/* Certifications */}
+      <div className="bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition-colors duration-300">
+        <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-cyan-400/70 mb-4">Certifications</p>
+        <div className="space-y-4">
+          {certifications.map((cert) => (
+            <div key={cert.name}>
+              <p className="text-white font-semibold text-xs mb-0.5">{cert.name}</p>
+              <p className="font-mono text-[9px] uppercase tracking-widest text-white/40">
+                {cert.issuer}{cert.year ? ` · ${cert.year}` : ''}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
-  );
-};
+  </div>
+);
 
+/* ─────────────────────────────────────────────────────────────────────────── */
+/*  PEER SIGNALS SECTION                                                       */
+/* ─────────────────────────────────────────────────────────────────────────── */
+const PeerSignals: React.FC = () => (
+  <div>
+    <div className="mb-10 text-center">
+      <h2 className="font-['Playfair_Display'] italic text-[clamp(1.75rem,4vw,3rem)] text-white mb-1">
+        Peer Signals
+      </h2>
+      <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-white/40">
+        Endorsements from partners and colleagues
+      </p>
+    </div>
+    <EndorsementTicker />
+  </div>
+);
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/*  MAIN PAGE                                                                  */
+/* ─────────────────────────────────────────────────────────────────────────── */
 const Resume: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Systems Architect & Strategist | Executive Dossier</title>
+        <title>Jacob Darling | Systems Architect & Marketing Technologist</title>
         <meta
           name="description"
-          content="Interactive executive career dashboard showcasing 15+ years of experience in marketing strategy, systems architecture, and full-stack development."
+          content="15+ years building revenue-driving marketing infrastructure for global healthcare brands. Marketing Director, Systems Architect, Full-Stack Developer."
         />
       </Helmet>
 
-      {/* Print-Only Section - ATS-Friendly Resume */}
+      {/* ── PRINT STYLES ──────────────────────────────────────────────── */}
+      <style>{`
+        @media print {
+          body { background: white !important; color: black !important; }
+          .print-hide { display: none !important; }
+          .print-show { display: block !important; }
+          canvas, .webgl-canvas, [data-r3f] { display: none !important; }
+          .data-slab { position: static !important; opacity: 1 !important;
+            transform: none !important; filter: none !important;
+            break-inside: avoid; margin-bottom: 1rem; }
+          .sr-only { position: static !important; width: auto !important;
+            height: auto !important; overflow: visible !important;
+            clip: auto !important; white-space: normal !important; }
+        }
+      `}</style>
+
+      {/* ── PRINT-ONLY ATS RESUME ─────────────────────────────────────── */}
       <div className="hidden print:block print:fixed print:inset-0 print:z-50 print:bg-white">
         <ResumePrint />
       </div>
 
-      {/* Print Styles */}
-      <style>{`
-        @media print {
-          body {
-            background: white !important;
-          }
-          .print\\:hidden {
-            display: none !important;
-          }
-          .print\\:block {
-            display: block !important;
-          }
-        }
-      `}</style>
+      {/* ── SCREEN DASHBOARD ──────────────────────────────────────────── */}
+      <main className="min-h-screen bg-black text-white relative overflow-hidden print-hide">
+        <TechBackdrop className="absolute inset-0 opacity-20 pointer-events-none" />
 
-      {/* Dashboard - Hidden on Print */}
-      <div className="min-h-screen bg-brand-dark text-brand-text relative overflow-hidden print:hidden">
-        {/* Background Effect */}
-        <TechBackdrop className="absolute inset-0 opacity-30" />
+        {/* SEO ghost layer */}
+        <SeoLayer />
 
-        {/* Resume Identity Matrix Header */}
-        <SimpleSection variant="default" padding="md" container={true} className="relative z-10 pt-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 pt-24 pb-32">
+
+          {/* PHASE 1 — Terminal Boot Hero */}
+          <motion.section
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7 }}
+            aria-label="Identity Matrix"
           >
-            <IdentityMatrixHeader summary={executiveSummary} />
-          </motion.div>
-        </SimpleSection>
-
-        {/* Skills Cluster Section */}
-        <SimpleSection variant="elevated" padding="lg" animated className="relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            <SkillCluster categories={skillCategories} />
-          </motion.div>
-        </SimpleSection>
-
-        {/* Experience Timeline Section */}
-        <SimpleSection variant="elevated" padding="lg" animated className="relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
-            <CinematicTimeline experiences={experience} />
-          </motion.div>
-        </SimpleSection>
-
-        {/* Endorsement Ticker Section */}
-        <SimpleSection variant="inset" padding="lg" className="relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.6 }}
-          >
-            <div className="mb-12">
-              <h2 className="text-3xl font-bold text-center mb-2">Peer Signals</h2>
-              <p className="text-brand-muted text-center">Endorsements from partners and colleagues</p>
-            </div>
-            <EndorsementTicker />
-          </motion.div>
-        </SimpleSection>
-
-        {/* Credentials Deck Section - Asymmetric Grid */}
-        <SimpleSection variant="elevated" padding="lg" animated className="relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            <div className="mb-8">
-              <h2 className="text-3xl font-bold text-brand-text mb-2 flex items-center gap-3">
-                <div className="w-1 h-8 bg-gradient-to-b from-brand-teal to-brand-orange rounded-full" />
-                Credentials Deck
-              </h2>
-              <p className="text-brand-muted text-sm">
-                Education, recognition, and community involvement
+            <div className="mb-4">
+              <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-cyan-400/60">
+                {'// DOSSIER INIT'}
               </p>
+              <h1 className="font-['Playfair_Display'] italic text-[clamp(2.5rem,8vw,6rem)] text-white leading-none mt-1">
+                Jacob Darling
+              </h1>
             </div>
+            <TerminalHero />
+          </motion.section>
 
-            {/* Asymmetric 2-Column Grid - Stacks on mobile */}
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 md:gap-6">
-              {/* Left Column: Credentials Stack */}
-              <div className="space-y-6">
-                {/* Education Card */}
-                <div className="bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-6 hover:border-brand-turquoise/40 transition-colors duration-300 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-3 rounded-xl bg-brand-teal/20 border border-brand-teal/30">
-                      <GraduationCap size={24} className="text-brand-teal" />
-                    </div>
-                    <h3 className="text-xl font-bold text-brand-text">Education</h3>
-                  </div>
-                  <div className="space-y-4">
-                    {education.map((edu) => (
-                      <div key={edu.school}>
-                        <p className="text-brand-teal font-semibold text-base mb-1">{edu.school}</p>
-                        <p className="text-brand-text text-sm mb-1">{edu.degree}</p>
-                        <p className="text-brand-muted text-xs mb-2">{edu.year}</p>
-                        {edu.honors && (
-                          <p className="text-brand-orange text-sm flex items-center gap-1">
-                            <span>🏆</span>
-                            <span>{edu.honors}</span>
-                          </p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Awards Card */}
-                <div className="bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-6 hover:border-brand-turquoise/40 transition-colors duration-300 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-3 rounded-xl bg-brand-orange/20 border border-brand-orange/30">
-                      <Trophy size={24} className="text-brand-orange" />
-                    </div>
-                    <h3 className="text-xl font-bold text-brand-text">Awards</h3>
-                  </div>
-                  <div className="space-y-4">
-                    {awards.length > 0 ? (
-                      awards.map((award) => (
-                        <div key={award.title}>
-                          <p className="text-brand-text font-semibold text-base mb-1">{award.title}</p>
-                          <p className="text-brand-muted text-sm mb-1">
-                            {award.organization} — {award.year}
-                          </p>
-                          {award.description && (
-                            <p className="text-brand-muted/70 text-xs">{award.description}</p>
-                          )}
-                        </div>
-                      ))
-                    ) : (
-                      <p className="text-brand-muted text-sm">No awards listed</p>
-                    )}
-                  </div>
-                </div>
-
-                {/* Certifications Card */}
-                <div className="bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-6 hover:border-brand-turquoise/40 transition-colors duration-300 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-3 rounded-xl bg-brand-teal/20 border border-brand-teal/30">
-                      <AwardIcon size={24} className="text-brand-teal" />
-                    </div>
-                    <h3 className="text-xl font-bold text-brand-text">Certifications</h3>
-                  </div>
-                  <div className="space-y-4">
-                    {certifications.length > 0 ? (
-                      certifications.map((cert) => (
-                        <div key={cert.name}>
-                          <p className="text-brand-text font-semibold text-base mb-1">{cert.name}</p>
-                          <p className="text-brand-muted text-sm mb-1">
-                            {cert.issuer} {cert.year && `— ${cert.year}`}
-                          </p>
-                          {cert.description && (
-                            <p className="text-brand-muted/70 text-xs">{cert.description}</p>
-                          )}
-                        </div>
-                      ))
-                    ) : (
-                      <p className="text-brand-muted text-sm">No certifications listed</p>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Virtualized Volunteer Feed */}
-              <div className="bg-slate-900/60 backdrop-blur border border-white/10 rounded-2xl p-4 md:p-6 hover:border-brand-turquoise/40 transition-colors duration-300 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]">
-                <div className="flex items-center gap-3 mb-4 md:mb-6">
-                  <div className="p-2 md:p-3 rounded-xl bg-brand-teal/20 border border-brand-teal/30">
-                    <Heart size={20} className="md:w-6 md:h-6 text-brand-teal" />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold text-brand-text">Volunteer Experience</h3>
-                </div>
-                <VirtualizedVolunteerFeed
-                  items={volunteering}
-                  containerHeight={typeof window !== 'undefined' && window.innerWidth < 1024 ? 300 : 384}
-                />
-              </div>
-            </div>
-          </motion.div>
-        </SimpleSection>
-
-        {/* Project Archives Banner */}
-        <SimpleSection variant="inset" padding="lg" className="relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
+          {/* PHASE 3 — Skill Constellation (WebGL) */}
+          <motion.section
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7 }}
+            aria-label="Skill Constellation"
           >
-            <Link
-              to="/side-projects"
-              className="block group"
+            <Suspense
+              fallback={
+                <div className="h-[460px] rounded-[28px] border border-white/10 bg-[#020409] animate-pulse flex items-center justify-center">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-white/30">
+                    Loading WebGL...
+                  </span>
+                </div>
+              }
             >
-              <div className="relative overflow-hidden bg-gradient-to-r from-brand-teal/20 via-brand-orange/20 to-brand-teal/20 border border-brand-turquoise/30 rounded-2xl p-6 md:p-8 hover:border-brand-teal/60 transition-all duration-300">
+              <SkillConstellation categories={skillCategories} />
+            </Suspense>
+          </motion.section>
+
+          {/* PHASE 2 — Z-Axis Career Tunnel */}
+          <motion.section
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7 }}
+            aria-label="Career Timeline"
+          >
+            <ZAxisTunnel experiences={experience} />
+          </motion.section>
+
+          {/* Peer Signals */}
+          <motion.section
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7 }}
+            aria-label="Peer Signals"
+          >
+            <PeerSignals />
+          </motion.section>
+
+          {/* Credentials Deck */}
+          <motion.section
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7 }}
+            aria-label="Credentials"
+          >
+            <CredentialsDeck />
+          </motion.section>
+
+          {/* Project Archives Banner */}
+          <motion.section
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7 }}
+          >
+            <Link to="/side-projects" className="block group">
+              <div className="relative overflow-hidden bg-gradient-to-r from-cyan-400/10 via-orange-400/10 to-cyan-400/10 border border-cyan-400/20 rounded-2xl p-6 md:p-8 hover:border-cyan-400/50 transition-all duration-300">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    <motion.div
-                      animate={{ rotate: [0, 10, -10, 0] }}
-                      transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
-                      className="relative"
-                    >
-                      <Lock
-                        size={32}
-                        className="text-brand-turquoise group-hover:opacity-0 transition-opacity duration-300 absolute"
-                      />
-                      <Unlock
-                        size={32}
-                        className="text-brand-teal opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      />
-                    </motion.div>
+                    <div className="relative w-8 h-8">
+                      <Lock size={28} className="text-cyan-400/70 group-hover:opacity-0 transition-opacity duration-300 absolute" />
+                      <Unlock size={28} className="text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
                     <div>
-                      <h2 className="text-2xl md:text-3xl font-bold text-brand-text mb-2">Project Archives</h2>
-                      <p className="text-brand-muted text-sm md:text-base">
-                        Explore independent experiments and side projects
+                      <h2 className="font-['Playfair_Display'] italic text-[clamp(1.5rem,3vw,2.5rem)] text-white mb-1">
+                        Project Archives
+                      </h2>
+                      <p className="font-['Geist',_sans-serif] text-[10px] uppercase tracking-widest text-white/40">
+                        Independent experiments &amp; side projects
                       </p>
                     </div>
                   </div>
-                  <motion.div
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
-                    className="hidden sm:block"
-                  >
-                    <ArrowRight size={32} className="text-brand-turquoise" />
-                  </motion.div>
+                  <ArrowRight size={28} className="text-cyan-400/50 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all duration-200 hidden sm:block" />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-brand-teal/0 via-brand-teal/10 to-brand-teal/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/0 via-cyan-400/5 to-cyan-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </Link>
-          </motion.div>
-        </SimpleSection>
-      </div>
+          </motion.section>
+
+        </div>
+      </main>
     </>
   );
 };

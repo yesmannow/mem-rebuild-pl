@@ -1,16 +1,33 @@
 import React, { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Filter, Sparkles, Palette, Compass, Layers, LineChart, Tag as TagIcon, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { sideProjects } from '../data/sideProjects';
-import { SideProjectCard, SideProjectCardData } from '../components/ui/SideProjectCard';
-import { PikoProjectCard } from '../components/ui/PikoProjectCard';
 import { OceanCountingNumber } from '../components/ui/OceanCountingNumber';
 import SectionDivider from '../components/ui/SectionDivider';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
-import { EnhancedImage } from '../components/ui/EnhancedImage';
 import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
+import { PhysicsVault, Project as PhysicsProject } from '../components/home/PhysicsVault';
+import { ArtifactDossier } from '../components/home/ArtifactDossier';
+import GlitchOverlay from '../components/home/GlitchOverlay';
+
+const folderMap: Record<string, string> = {
+  'primary-care-indy': 'Primarycare Indy',
+  '317-bbq': '317 bbq',
+  'taco-ninja': 'Taco Ninja',
+  'perpetual-fitness': 'Perpetual Movement Fitness',
+  'tbm-strategy': 'Tuohy Bailey & Moore LLP',
+  'resq-organic': 'ResQ Organics',
+  'behr-pet-essentials': 'Behr pet essentials',
+  'black-letter': 'Black Letter',
+  'primary-colours': 'Primary Colours',
+  'circle-city': 'circle  city kicks',
+  'clean-aesthetic': 'Clean Aesthetic',
+  'hoosier-boy': 'Hoosierboy Barbershop',
+  'urgent-care-indy': 'urgent care indy',
+  'piko-fg-music': 'Piko Fg Music',
+};
 
 /**
  * Side Projects Page - Independent Studio Vault
@@ -24,6 +41,17 @@ import { ApiBackgroundImage } from '../components/ui/ApiBackgroundImage';
  */
 const SideProjects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('All');
+  const [selectedProject, setSelectedProject] = useState<PhysicsProject | null>(null);
+  const [isBooting, setIsBooting] = useState(false);
+
+  const openDossier = (project: PhysicsProject) => {
+    if (isBooting) return;
+    setIsBooting(true);
+    window.setTimeout(() => {
+      setSelectedProject(project);
+      setIsBooting(false);
+    }, 800);
+  };
 
   const categories = useMemo(() => {
     const set = new Set<string>(sideProjects.map((p) => p.category));
@@ -73,26 +101,22 @@ const SideProjects: React.FC = () => {
     return first === last ? `${first}` : `${first} – ${last}`;
   }, []);
 
-  const filteredProjects = useMemo(() => {
+  const filteredVaultProjects = useMemo(() => {
     const projects = activeFilter === 'All'
       ? sideProjects
       : sideProjects.filter((p) => p.category === activeFilter);
 
-    return projects.map((p): SideProjectCardData => ({
-      id: p.id,
-      title: p.title,
-      slug: p.id,
-      image:
-        p.id === 'piko-fg-music'
-          ? '/images/projects/Piko Fg Music/pkfg logo.png'
-          : p.id === 'primary-colours'
-            ? '/images/projects/Primary Colours/primary colours logo.webp'
-            : p.image,
-      category: p.category,
-      tags: p.tags,
-      year: p.year,
-      description: p.description,
-    }));
+    return projects.map((p): PhysicsProject => {
+      const folder = folderMap[p.id];
+      const optimizedHero = folder ? `/images/projects/${folder}/hero_optimized.webp` : p.image;
+      return {
+        id: p.id,
+        name: p.title,
+        hero: optimizedHero,
+        stack: p.stack ?? [],
+        tags: p.tags,
+      };
+    });
   }, [activeFilter]);
 
   const heroStats = [
@@ -137,15 +161,26 @@ const SideProjects: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Side Projects | Independent Studio Vault</title>
+        <title>Side Projects | Independent Studio Vault | Jacob Darling</title>
         <meta
           name="description"
-          content="Modern side projects engineered with the same care as flagship launches. Branding, packaging, retail campaigns, and digital experiments."
+          content="Modern side projects engineered with the same care as flagship launches. Branding, packaging, retail campaigns, and digital experiments by Jacob Darling."
         />
+        <link rel="canonical" href="https://www.bearcavemarketing.com/side-projects" />
+        <meta property="og:title" content="Side Projects | Independent Studio Vault | Jacob Darling" />
+        <meta property="og:description" content="Modern side projects engineered with the same care as flagship launches. Branding, packaging, retail campaigns, and digital experiments." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.bearcavemarketing.com/side-projects" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Side Projects | Jacob Darling" />
+        <meta name="twitter:description" content="Branding, packaging, retail campaigns, and digital experiments — engineered with the same care as flagship launches." />
       </Helmet>
 
       {/* Deep Slate Background - Matching Studio page */}
       <div className="min-h-screen bg-slate-900 relative">
+        <div className="fixed inset-0 pointer-events-none z-[70]">
+          <GlitchOverlay isBooting={isBooting} />
+        </div>
         <ApiBackgroundImage
           query="creative design studio workspace branding"
           source="pexels"
@@ -342,7 +377,7 @@ const SideProjects: React.FC = () => {
               </motion.section>
             )}
 
-            {/* Projects Grid */}
+            {/* Physics Vault */}
             <motion.section
               className="mb-12"
               initial={{ opacity: 0, y: 20 }}
@@ -351,22 +386,31 @@ const SideProjects: React.FC = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="mb-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-slate-400 mb-2">The Vault</p>
-                <h2 className="text-3xl font-semibold text-white mb-2">Interactive Gallery</h2>
-                <p className="text-sm text-slate-400 max-w-xl">
-                  Cards tilt, shimmer, and surface brand palettes. Hover to feel the same kinetic energy as the rest of the site.
-                </p>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400 mb-2">The Vault</p>
+                  <h2 className="text-3xl font-semibold text-white mb-2">Interactive Gallery</h2>
+                  <p className="text-sm text-slate-400 max-w-xl">
+                    Toss artifacts, then open a dossier. Every card has mass, drag, and a shared-layout expansion into the project interior.
+                  </p>
+                </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredProjects.map((project, index) => {
-                  // Use specialized card for Piko Fg Music
-                  if (project.id === 'piko-fg-music') {
-                    return <PikoProjectCard key={project.id} project={project} index={index} />;
-                  }
-                  return <SideProjectCard key={project.id} project={project} index={index} />;
-                })}
+
+              <div className="h-[680px] w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative">
+                <PhysicsVault
+                  onProjectSelect={openDossier}
+                  projects={filteredVaultProjects}
+                />
               </div>
             </motion.section>
+
+            <AnimatePresence>
+              {selectedProject && (
+                <ArtifactDossier
+                  project={selectedProject}
+                  onClose={() => setSelectedProject(null)}
+                />
+              )}
+            </AnimatePresence>
 
             <SectionDivider />
 
