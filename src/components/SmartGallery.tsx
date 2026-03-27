@@ -64,8 +64,8 @@ const SmartGallery: React.FC<SmartGalleryProps> = ({ mode, items }) => {
     try {
       const palette = await Vibrant.from(src).getPalette();
       const colors = Object.values(palette)
-        .filter((swatch): swatch is VibrantSwatch => swatch !== null && typeof swatch === 'object' && 'getHex' in swatch)
-        .map((swatch) => swatch.getHex());
+        .filter((swatch) => swatch !== null && typeof swatch === 'object' && 'getHex' in swatch)
+        .map((swatch) => (swatch as VibrantSwatch).getHex());
       paletteCache[src] = colors.slice(0, 6);
       setPalettes((prev) => ({ ...prev, [src]: colors.slice(0, 6) }));
     } catch {

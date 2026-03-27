@@ -1,6 +1,6 @@
+// Custom Elements guard must be first — prevents duplicate custom element definition errors
 import './shims/ce-guard';
 
-// Ensure React loads first and is available globally
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
@@ -10,310 +10,96 @@ import './styles/bearcave-brand.css';
 import './styles/case-study-tokens.css';
 import './styles/mobile-responsive.css';
 
-// Verify React is loaded before proceeding
-if (typeof React === 'undefined' || typeof ReactDOM === 'undefined') {
-  throw new Error('React or ReactDOM failed to load. Check your build configuration.');
-}
+// ---------------------------------------------------------------------------
+// Service Worker
+// ---------------------------------------------------------------------------
 
-// Make React available globally IMMEDIATELY for any code that needs it (for third-party libs)
-// This must happen before any chunks load to prevent "Cannot read properties of undefined (reading 'forwardRef')" errors
-if (typeof window !== 'undefined') {
-  // Set React on window immediately - chunks may load before this module fully executes
-  // Replace any placeholder with the real React object
-  (window as any).React = React;
-
-  // Ensure React.forwardRef and all React APIs are available
-  // Some libraries/chunks access React.forwardRef directly and need it immediately
-  if (React && typeof React === 'object') {
-    // Update the placeholder with full React object including forwardRef
-    Object.assign((window as any).React, React);
-  }
-}
-
-// Unregister service workers in development to prevent caching issues
+// In development: unregister any stale service workers to prevent caching bugs
 if (import.meta.env.DEV && 'serviceWorker' in navigator) {
   navigator.serviceWorker.getRegistrations().then(registrations => {
-    registrations.forEach(registration => {
-      registration.unregister().then(() => {
-        console.log('Service worker unregistered for development');
-      });
+    registrations.forEach(reg => reg.unregister());
+  });
+}
+
+// In production: register the PWA service worker after page load
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(err => {
+      // eslint-disable-next-line no-console
+      console.error('Service worker registration failed:', err);
     });
   });
 }
 
-if (import.meta.env.PROD && 'serviceWorker' in navigator) {
-  const registerServiceWorker = async () => {
-    try {
-      await navigator.serviceWorker.register('/sw.js', { scope: '/' });
-      if (process.env.NODE_ENV === 'development') {
-        // eslint-disable-next-line no-console
-        console.log('Service worker registered successfully');
-      }
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Service worker registration failed:', error);
-    }
-  };
-
-  window.addEventListener('load', () => {
-    void registerServiceWorker();
-  });
-}
-
-// Custom Elements guard is handled by ce-guard.js (imported at top)
-// No need for duplicate wrapping here - ce-guard.js already protects against duplicate definitions
-
-// Set a timeout to show error if React doesn't mount within 10 seconds
+// ---------------------------------------------------------------------------
+// Mount timeout — shows a friendly message if the app stalls for > 10 s
+// ---------------------------------------------------------------------------
 const mountTimeout = setTimeout(() => {
-  const rootElement = document.getElementById('root');
-  if (rootElement) {
-    const firstChild = rootElement.children.length > 0 ? rootElement.children[0] : null;
-    // Check if we're still showing the loading spinner
-    if (firstChild && firstChild.classList && firstChild.classList.contains('initial-loader')) {
-      // eslint-disable-next-line no-console
-      console.error('React app failed to mount within timeout');
-      const errorStyles = `
-        <style>
-          .error-boundary-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background: var(--color-neutral-1);
-            color: var(--color-light);
-            padding: 2rem;
-          }
-          .error-boundary-content {
-            text-align: center;
-            max-width: 600px;
-          }
-          .error-boundary-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--color-primary);
-          }
-          .error-boundary-message {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-          }
-          .error-boundary-details {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-top: 1rem;
-          }
-          .error-boundary-button {
-            margin-top: 2rem;
-            padding: 0.75rem 2rem;
-            background: var(--color-primary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-          }
-          .error-boundary-button:hover {
-            background: var(--color-primary);
-          }
-        </style>
-      `;
-      rootElement.innerHTML =
-        errorStyles +
-        `
-        <div class="error-boundary-container">
-          <div class="error-boundary-content">
-            <h2 class="error-boundary-title">Loading Timeout</h2>
-            <p class="error-boundary-message">
-              The application is taking longer than expected to load. This might be due to a network issue or a JavaScript error.
-            </p>
-            <p class="error-boundary-details">
-              Please check your browser console (F12) for errors and try refreshing the page.
-            </p>
-            <button
-              onclick="window.location.reload()"
-              class="error-boundary-button"
-            >
-              Reload Page
-            </button>
-          </div>
-        </div>
-      `;
-    }
-  }
-}, 10000);
-
-// Verify React and ReactDOM are available before proceeding
-if (!React || !ReactDOM) {
-  // eslint-disable-next-line no-console
-  console.error('React or ReactDOM is not available', { React, ReactDOM });
-  const rootElement = document.getElementById('root');
-  if (rootElement) {
-    rootElement.innerHTML = `
-      <div class="error-boundary-container">
-        <div class="error-boundary-content">
-          <h2 class="error-boundary-title">React Not Loaded</h2>
-          <p class="error-boundary-message">
-            React library failed to load. Please check your network connection and try refreshing the page.
-          </p>
-          <button onclick="window.location.reload()" class="error-boundary-button">
+  const rootEl = document.getElementById('root');
+  if (!rootEl) return;
+  const firstChild = rootEl.children[0];
+  if (firstChild?.classList?.contains('initial-loader')) {
+    // eslint-disable-next-line no-console
+    console.error('React app failed to mount within 10 s');
+    rootEl.innerHTML = `
+      <div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#0f172a;color:#f8fafc;padding:2rem;font-family:sans-serif;">
+        <div style="text-align:center;max-width:560px;">
+          <h2 style="font-size:1.75rem;margin-bottom:1rem;color:#40E0D0;">Loading Timeout</h2>
+          <p style="opacity:.9;margin-bottom:.5rem;">The app is taking longer than expected to load.</p>
+          <p style="opacity:.65;font-size:.875rem;margin-bottom:1.5rem;">Open the browser console (F12) to check for errors.</p>
+          <button onclick="location.reload()" style="padding:.75rem 2rem;background:#40E0D0;color:#0f172a;border:none;border-radius:8px;font-size:1rem;cursor:pointer;font-weight:600;">
             Reload Page
           </button>
         </div>
-      </div>
-    `;
+      </div>`;
   }
-  clearTimeout(mountTimeout);
-    } else {
-      try {
-        const rootElement = document.getElementById('root');
-        if (!rootElement) {
-          // eslint-disable-next-line no-console
-          console.error('Root element not found');
-          clearTimeout(mountTimeout);
-        } else {
-          // Always log initialization in production for debugging
-          if (process.env.NODE_ENV === 'development') {
-            // eslint-disable-next-line no-console
-            console.log('Initializing React app...');
-            // eslint-disable-next-line no-console
-            console.log('React version:', React.version);
-            // eslint-disable-next-line no-console
-            console.log('ReactDOM available:', !!ReactDOM);
-            // eslint-disable-next-line no-console
-            console.log('Environment:', process.env.NODE_ENV || 'unknown');
+}, 10_000);
 
-            // Log script loading status
-            const scripts = document.querySelectorAll('script[type="module"]');
-            // eslint-disable-next-line no-console
-            console.log('Module scripts found:', scripts.length);
-            scripts.forEach((script, i) => {
-              // eslint-disable-next-line no-console
-              console.log(`Script ${i}:`, (script as HTMLScriptElement).src || 'inline');
-            });
-          }
+// ---------------------------------------------------------------------------
+// React root mount
+// ---------------------------------------------------------------------------
+try {
+  const rootEl = document.getElementById('root');
+  if (!rootEl) throw new Error('Root element #root not found in the DOM.');
 
-          const root = ReactDOM.createRoot(rootElement);
+  const root = ReactDOM.createRoot(rootEl);
 
-      // Verify React.createElement exists
-      if (!React.createElement) {
-        throw new Error('React.createElement is not available');
-      }
+  // React Router v7 future flags — suppress migration warnings
+  root.render(
+    <React.StrictMode>
+      <BrowserRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
+        <App />
+      </BrowserRouter>
+    </React.StrictMode>
+  );
 
-      // Wrap in error boundary at the root level
-      // Add React Router v7 future flags to suppress warnings and prepare for migration
-      root.render(
-        React.createElement(
-          React.StrictMode,
-          null,
-          React.createElement(
-            BrowserRouter,
-            {
-              future: {
-                v7_startTransition: true,
-                v7_relativeSplatPath: true,
-              },
-            },
-            React.createElement(App)
-          )
-        )
-      );
-
-          // Clear timeout once React mounts
-          setTimeout(() => {
-            clearTimeout(mountTimeout);
-            // Mark root as loaded for Zero-FOUC
-            rootElement.classList.add('loaded');
-            if (process.env.NODE_ENV === 'development') {
-              // eslint-disable-next-line no-console
-              console.log('React app initialized successfully');
-            }
-          }, 100);
-    }
-  } catch (error) {
+  // Clear timeout and mark root as hydrated (suppresses Zero-FOUC flash)
+  setTimeout(() => {
     clearTimeout(mountTimeout);
-    // eslint-disable-next-line no-console
-    console.error('Failed to initialize React app:', error);
-    // eslint-disable-next-line no-console
-    console.error('Error details:', {
-      message: error instanceof Error ? error.message : String(error),
-      stack: error instanceof Error ? error.stack : undefined,
-      name: error instanceof Error ? error.name : undefined,
-    });
-    // eslint-disable-next-line no-console
-    console.error('React availability check:', {
-      React: !!React,
-      ReactDOM: !!ReactDOM,
-      ReactCreateElement: !!(React && React.createElement),
-      ReactStrictMode: !!(React && React.StrictMode),
-    });
+    rootEl.classList.add('loaded');
+  }, 100);
+} catch (error) {
+  clearTimeout(mountTimeout);
+  // eslint-disable-next-line no-console
+  console.error('Failed to initialise React app:', error);
 
-    // Show error in the UI
-    const rootElement = document.getElementById('root');
-    if (rootElement) {
-      const errorStyles = `
-        <style>
-          .error-boundary-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background: var(--color-neutral-1);
-            color: var(--color-light);
-            padding: 2rem;
-          }
-          .error-boundary-content {
-            text-align: center;
-            max-width: 600px;
-          }
-          .error-boundary-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--color-danger);
-          }
-          .error-boundary-message {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-          }
-          .error-boundary-details {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-top: 1rem;
-            font-family: monospace;
-            background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            word-break: break-all;
-          }
-          .error-boundary-button {
-            margin-top: 2rem;
-            padding: 0.75rem 2rem;
-            background: var(--color-primary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-          }
-          .error-boundary-button:hover {
-            background: var(--color-primary);
-          }
-        </style>
-      `;
-      rootElement.innerHTML =
-        errorStyles +
-        `
-        <div class="error-boundary-container">
-          <div class="error-boundary-content">
-            <h2 class="error-boundary-title">Application Error</h2>
-            <p class="error-boundary-message">Failed to load the portfolio application.</p>
-            <p class="error-boundary-details">${error instanceof Error ? error.message : 'Unknown error'}</p>
-            <button onclick="window.location.reload()" class="error-boundary-button">
-              Reload Page
-            </button>
-          </div>
+  const rootEl = document.getElementById('root');
+  if (rootEl) {
+    rootEl.innerHTML = `
+      <div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#0f172a;color:#f8fafc;padding:2rem;font-family:sans-serif;">
+        <div style="text-align:center;max-width:560px;">
+          <h2 style="font-size:1.75rem;margin-bottom:1rem;color:#ef4444;">Application Error</h2>
+          <p style="opacity:.9;margin-bottom:1rem;">Failed to load the portfolio application.</p>
+          <pre style="opacity:.65;font-size:.8rem;background:rgba(255,255,255,.1);padding:1rem;border-radius:8px;word-break:break-all;text-align:left;">${error instanceof Error ? error.message : String(error)}</pre>
+          <button onclick="location.reload()" style="margin-top:1.5rem;padding:.75rem 2rem;background:#40E0D0;color:#0f172a;border:none;border-radius:8px;font-size:1rem;cursor:pointer;font-weight:600;">
+            Reload Page
+          </button>
         </div>
-      `;
-    }
+      </div>`;
   }
 }

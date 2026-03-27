@@ -149,8 +149,8 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: false,
     target: 'esnext',
-    // Allow larger lazy chunks for heavy visualizations (e.g., 3D globe) while keeping main bundle small
-    chunkSizeWarningLimit: 2000,
+    // Warn on chunks larger than 1 MiB (down from 2 MiB — keeps us honest)
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       input: (() => {
         const entries = {
@@ -220,9 +220,13 @@ export default defineConfig({
           if (id.includes('node_modules/@radix-ui/')) {
             return 'vendor-radix';
           }
-          // Lucide icons - many icons used across the app
+          // Lucide icons — tree-shakeable but put in its own chunk to avoid bloating vendor-utils
           if (id.includes('node_modules/lucide-react/')) {
             return 'vendor-icons';
+          }
+          // Google Generative AI — large SDK, loaded only by AI-powered pages
+          if (id.includes('node_modules/@google/generative-ai/')) {
+            return 'vendor-ai';
           }
         },
       }
