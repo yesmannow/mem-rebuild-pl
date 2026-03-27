@@ -27,9 +27,7 @@ export default function ArchitectCore() {
   const coreColor = shakeActive ? '#ffffff' : '#22d3ee';
 
   return (
-    // @ts-expect-error - R3F JSX elements (group, mesh, primitive, etc.) are valid but not in TypeScript intrinsics
     <group scale={1.2}>
-      {/* @ts-expect-error - R3F mesh element */}
       <mesh ref={meshRef}>
         <primitive object={geometry} attach="geometry" />
         <meshBasicMaterial

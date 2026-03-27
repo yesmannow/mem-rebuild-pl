@@ -15,6 +15,8 @@ public/images/auto-generated/
 # Environment variables
 .env
 .env.local
+.env.*
+.env.vercel
 
 # IDE
 .vscode/
@@ -33,14 +35,23 @@ mcp/mcp.log
 *.tmp
 .cache/
 .vercel/
-.env.*
-.env.vercel
 mcp/tmp-*
+
+# Generated lint / audit artifacts
+lint-results.json
+asset-audit.config.json
 
 # Ignore generated type declarations
 types/
 *.d.ts
 !src/vite-env.d.ts
+!src/three-fiber.d.ts
+
+# Storybook
+storybook-static/
+
+# Cleanup backup directories
+.cleanup-backup/
 
 # Ignore GitHub CLI artifact files (from failed PR creation commands)
 PR integrates*
@@ -59,6 +70,6 @@ archive/
 # Generated reports
 reports/
 
-# Temp files
+# Temp text files (but keep robots.txt)
 *.txt
 !robots.txt

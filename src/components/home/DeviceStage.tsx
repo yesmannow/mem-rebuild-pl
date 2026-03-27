@@ -131,7 +131,7 @@ function ArchitectureNodes3D({ color, visible }: { color: string; visible: boole
 
     // Smoothly scale in/out based on architectMode
     const targetScale = visible ? 1 : 0;
-    groupRef.current.scale.lerpScalar(targetScale, 0.1);
+    groupRef.current.scale.setScalar(THREE.MathUtils.lerp(groupRef.current.scale.x, targetScale, 0.1));
 
     // Don't process logic if hidden
     if (!visible && groupRef.current.scale.x < 0.01) return;
@@ -170,7 +170,6 @@ function ArchitectureNodes3D({ color, visible }: { color: string; visible: boole
   });
 
   return (
-    // @ts-expect-error
     <group ref={groupRef} scale={0}>
       {/* Edges */}
       {EDGES.map(([a, b]) => {
@@ -191,7 +190,6 @@ function ArchitectureNodes3D({ color, visible }: { color: string; visible: boole
 
       {/* Nodes */}
       {Object.entries(NODES).map(([id, node]) => (
-        // @ts-expect-error
         <group
           key={id}
           position={node.pos}
@@ -200,20 +198,14 @@ function ArchitectureNodes3D({ color, visible }: { color: string; visible: boole
           onPointerOut={(e: any) => { e.stopPropagation(); setHovered(false); }}
         >
           {/* Visible Node */}
-          {/* @ts-expect-error */}
           <mesh>
-            {/* @ts-expect-error */}
             <sphereGeometry args={[0.035, 16, 16]} />
-            {/* @ts-expect-error */}
             <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.8} />
           </mesh>
 
           {/* Invisible Hit Area */}
-          {/* @ts-expect-error */}
           <mesh>
-            {/* @ts-expect-error */}
             <sphereGeometry args={[0.1, 8, 8]} />
-            {/* @ts-expect-error */}
             <meshBasicMaterial visible={false} />
           </mesh>
 
@@ -231,11 +223,8 @@ function ArchitectureNodes3D({ color, visible }: { color: string; visible: boole
       ))}
 
       {/* Data Packets (Pulses) */}
-      {/* @ts-expect-error */}
       <instancedMesh ref={instancedMeshRef} args={[undefined, undefined, 100]} frustumCulled={false}>
-        {/* @ts-expect-error */}
         <sphereGeometry args={[0.015, 8, 8]} />
-        {/* @ts-expect-error */}
         <meshBasicMaterial color="#ffffff" />
       </instancedMesh>
     </group>
@@ -332,45 +321,34 @@ function ObsidianDevice({
 
     if (rimMeshRef.current) {
       const targetScale = architectMode ? 1.12 : 1.0;
-      rimMeshRef.current.scale.lerpScalar(targetScale, 0.1);
+      rimMeshRef.current.scale.setScalar(THREE.MathUtils.lerp(rimMeshRef.current.scale.x, targetScale, 0.1));
     }
   });
 
   return (
-    // @ts-expect-error
     <group ref={groupRef}>
       {/* Body */}
-      {/* @ts-expect-error */}
       <mesh material={bodyMat} castShadow>
-        {/* @ts-expect-error */}
         <boxGeometry args={[1.0, 2.0, 0.1]} />
       </mesh>
 
       {/* Screen */}
-      {/* @ts-expect-error */}
       <mesh position={[0, 0, 0.052]} material={screenMat}>
-        {/* @ts-expect-error */}
         <planeGeometry args={[0.84, 1.72]} />
       </mesh>
 
       {/* Top accent */}
-      {/* @ts-expect-error */}
       <mesh position={[0, 1.02, 0.052]} material={accentMat}>
-        {/* @ts-expect-error */}
         <planeGeometry args={[0.28, 0.008]} />
       </mesh>
 
       {/* Home indicator */}
-      {/* @ts-expect-error */}
       <mesh position={[0, -1.02, 0.052]} material={accentMat}>
-        {/* @ts-expect-error */}
         <cylinderGeometry args={[0.04, 0.04, 0.008, 32]} />
       </mesh>
 
       {/* Rim glow (BackSide) */}
-      {/* @ts-expect-error */}
       <mesh ref={rimMeshRef} material={rimMat}>
-        {/* @ts-expect-error */}
         <boxGeometry args={[1.02, 2.02, 0.102]} />
       </mesh>
     </group>
@@ -513,9 +491,7 @@ const DeviceStage: React.FC<DeviceStageProps> = ({
           style={{ background: 'transparent' }}
           gl={{ alpha: true, antialias: true }}
         >
-          {/* @ts-expect-error */}
           <ambientLight intensity={0.14} />
-          {/* @ts-expect-error */}
           <spotLight
             position={[5, 5, 5]}
             color="#22d3ee"
@@ -546,7 +522,6 @@ const DeviceStage: React.FC<DeviceStageProps> = ({
               </Float>
             </PresentationControls>
 
-            {/* @ts-expect-error */}
             <ContactShadows
               position={[0, -1.35, 0]}
               opacity={0.45}

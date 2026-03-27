@@ -17,28 +17,24 @@
     "jsx": "react-jsx",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./",
+    "ignoreDeprecations": "5.0",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
       "@assets/*": ["src/assets/*"],
       "@config/*": ["src/config/*"],
-      "@utils/*": ["src/utils/*", "cli/utils/*"],
+      "@utils/*": ["src/utils/*"],
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
       "@data/*": ["src/data/*"]
     },
-    "skipLibCheck": true, // Skip type checking of declaration files
-    "types": [
-      "node",
-      "jest",
-      "vite/client"
-    ]
+    "skipLibCheck": true,
+    "types": ["node", "jest", "vite/client"]
   },
   "include": ["src"],
   "exclude": [
     "node_modules",
     "dist",
-    "src/components/home/ArchitectCore.tsx",
     "public/moodboards/317 bbq.json",
     "public/moodboards/Russell painting.json",
     "public/moodboards/Tuohy Bailey & Moore LLP.json",

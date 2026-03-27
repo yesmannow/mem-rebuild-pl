@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 interface Project {
   id: string;
   name: string;
-  hero: string;
+  hero?: string;
   stack: string[];
 }
 

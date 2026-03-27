@@ -413,7 +413,6 @@ const HeroBentoDashboard: React.FC = () => {
       <div className="absolute inset-0 -z-10 hidden md:block">
         <Canvas camera={{ position: [0, 0, 5], fov: 35 }}>
           <Suspense fallback={null}>
-            {/* @ts-expect-error - R3F JSX elements are valid but not in TypeScript intrinsics */}
             <ambientLight intensity={0.5} />
             <ArchitectCore />
           </Suspense>
